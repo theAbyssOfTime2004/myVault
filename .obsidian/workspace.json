@@ -1,0 +1,225 @@
+{
+  "main": {
+    "id": "5838449b4dd96077",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b98dceed8ce0bda",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9257d1b99bdce97",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "abb8369731255947",
+    "type": "split",
+    "children": [
+      {
+        "id": "cf8e9fb153aad24e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "276200ddcf2b0fe5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "795cc0a4e8cdf0a2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "452fa9f97461d2fe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "100d9b88155bef54",
+    "type": "split",
+    "children": [
+      {
+        "id": "af3058bee65b4cd9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b39b69994295a3c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Chats/New Chat.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for New Chat"
+            }
+          },
+          {
+            "id": "ffc454ac306e575d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "408e6856d3015f16",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Chats/New Chat.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of New Chat"
+            }
+          },
+          {
+            "id": "78d23cccdc2c9e24",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "6 - Main Notes/Tensor.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Tensor"
+            }
+          },
+          {
+            "id": "ae90062568fe6f56",
+            "type": "leaf",
+            "state": {
+              "type": "chat-view",
+              "state": {
+                "file": "Chats/tensor_definitiontensor_definition.md"
+              },
+              "icon": "message-square",
+              "title": "tensor_definitiontensor_definition"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 293.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "smart-random-note:Open Random Note from Search": false,
+      "smart-second-brain:Open S2B Chat": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "ae90062568fe6f56",
+  "lastOpenFiles": [
+    "vault-repo/README.md",
+    "vault-repo",
+    "vault-repo/publish/reinventing-the-wheel.md",
+    "vault-repo/publish/accepted-markdown-metadata.md",
+    "vault-repo/publish/deploy-a-custom-linked-blog-starter.md",
+    "vault-repo/publish/home.md",
+    "vault-repo/publish/attachments/github-secrets-vercel.png",
+    "vault-repo/publish/attachments/fn-website-demo.gif",
+    "vault-repo/publish/attachments/disconnect-repo-vercel.png",
+    "vault-repo/publish/attachments/configure-project-vercel.png",
+    "vault-repo/publish/attachments/clone-repo-git-plugin.png",
+    "vault-repo/publish/attachments/clone-or-download-github.png",
+    "vault-repo/publish/publish-your-obsidian-notes-with-linked-blog-starter.md",
+    "vault-repo/publish/linked-blog-starter-does-not-reinvent-wheel.md",
+    "vault-repo/publish/install-linked-blog-starter-locally.md",
+    "1 - Rough Notes/Mạng máy tính.md",
+    "vault-repo/publish/attachments/vercel-project-id.png",
+    "vault-repo/publish/attachments/vercel-account-id.png",
+    "vault-repo/publish/attachments/vercel-create-token.png",
+    "vault-repo/publish/attachments/publish-dir-yml.png",
+    "vault-repo/publish/works-out-of-the-box-with-markdown-files.md",
+    "vault-repo/publish/update-publish-settings-github-actions.md",
+    "vault-repo/publish/statically-generated.md",
+    "vault-repo/publish/how-linked-blog-starter-works.md",
+    "vault-repo/publish/get-project-id-account-id-and-token-vercel.md",
+    "vault-repo/publish/attachments",
+    "vault-repo/publish/connect-obsidian-vault-with-github.md",
+    "vault-repo/publish",
+    "vault-repo",
+    "6 - Main Notes/Curse of dimensionality.md",
+    "1 - Rough Notes/Untitled.md",
+    "5 - Templates/rough note (or daily note).md",
+    "5 - Templates/Main Note.md",
+    "6 - Main Notes/SVM Classification Model.md",
+    "3 - Tags/supervised learning.md",
+    "3 - Tags/Machine Learning.md",
+    "3 - Tags/DeepLearning.md",
+    "3 - Tags/data scientist.md",
+    "3 - Tags/classification.md",
+    "Untitled.canvas",
+    "Chats",
+    "BMO/Profiles",
+    "BMO",
+    "2 - Source Material/Others",
+    "2 - Source Material/Videos",
+    "2 - Source Material/Papers"
+  ]
+}
