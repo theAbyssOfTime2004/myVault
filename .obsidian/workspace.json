@@ -157,9 +157,19 @@
               "icon": "message-square",
               "title": "tensor_definitiontensor_definition"
             }
+          },
+          {
+            "id": "fa18f94b19c7c994",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -178,10 +188,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e9257d1b99bdce97",
+  "active": "ae90062568fe6f56",
   "lastOpenFiles": [
-    "5 - Templates/rough note (or daily note).md",
     "5 - Templates/Main Note.md",
+    "5 - Templates/rough note (or daily note).md",
     "2 - Source Material/Books/Untitled.md",
     "Chats/tensor_definitiontensor_definition.md",
     "1 - Rough Notes/Untitled.md",
