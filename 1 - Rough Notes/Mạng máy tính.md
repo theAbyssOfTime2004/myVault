@@ -1,0 +1,25 @@
+- every computer must include
+	- cookies (for maintaining user/server state between transactions) 
+	- Recall: HTTP GET/ response interaction is stateless
+	- cookies contain:
+		- basic
+		- application
+		- combination
+		- optimization
+	- cookies have 4 components:
+		- cookie header line of HTTP *response* msg
+		- cookie header line in next HTTP *request* msg
+		- cookie file kept on users host 
+		- back end database at website
+	- cache 
+		- web caches (proxy server): satisfy client request without involving origin server
+		- web cache acts as both client and server 
+			- server for original requesting client
+			- client to origin server
+		- caching example: install a web cache
+			- (calculating access link utilization, end to end delay with cache) which will result in much lower end to end delay than to without installing cache, and pretty cheap when comparing to update access link data rate.
+	- HTTP (key goal: decreased delay in multi-object HTTP requests)
+		- HTTP 1.1
+		- HTTP 2: over single TCP connection
+			- mitigating HOL blocking: objects devided into frames, frame transmission interleaved
+		- HTTP 3: adds security, per object error and congestion-control (more pipelining) over UDP
