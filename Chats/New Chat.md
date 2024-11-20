@@ -71,3 +71,14 @@ For more information on Fourier Series, you may want to check out the following 
 *   [[Fourier Analysis|fourier_analysis]]
 *   [[Signal Processing|signal_processing]]
 - - - - -
+User
+ ˆL
+ −L
+ f(x)cos mπx
+ L dx
+
+could you transform this to markdown
+- - - - -
+User
+no i mean write it in markdown
+- - - - -

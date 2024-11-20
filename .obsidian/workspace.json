@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3771431f9e4957f7",
+        "id": "cf835a0b5bd06bc8",
         "type": "tabs",
         "children": [
           {
-            "id": "e3ea0ec07cc41b96",
+            "id": "8a15c2e5b4d25fc5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "fourier",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -95,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Chats/New Chat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for New Chat"
             }
           },
           {
@@ -126,10 +127,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "6 - Main Notes/Fourier series and transformation.md"
+                "file": "Chats/New Chat.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Fourier series and transformation"
+              "title": "Outline of New Chat"
             }
           },
           {
@@ -138,11 +139,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "linksCollapsed": false,
+                "file": "Chats/New Chat.md",
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from New Chat"
             }
           },
           {
@@ -182,7 +184,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 481.5
+    "width": 496.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,17 +199,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e3ea0ec07cc41b96",
+  "active": "0d8115c3f81203cc",
   "lastOpenFiles": [
-    "Chats/New Chat.md",
     "6 - Main Notes/Fourier series and transformation.md",
-    "6 - Main Notes/SVM Classification Model.md",
+    "6 - Main Notes/Fourier Analysis.md",
+    "6 - Main Notes/Mathematics.md",
+    "Chats/New Chat.md",
+    "6 - Main Notes/Curse of dimensionality.md",
+    "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Logistic Regression.md",
+    "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/[Machine.md",
     "6 - Main Notes/Tensor.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "6 - Main Notes/Curse of dimensionality.md",
-    "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Local Search Algorithm.md",
     "Chats/tensor_definitiontensor_definition.md",
     "5 - Templates/Main Note.md",
@@ -223,9 +227,7 @@
     "3 - Tags/search algorithm.md",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "1 - Rough Notes/Mạng máy tính.md",
-    "vault-repo/README.md",
     "vault-repo",
-    "vault-repo/publish/reinventing-the-wheel.md",
     "vault-repo/publish/attachments/github-secrets-vercel.png",
     "vault-repo/publish/attachments/fn-website-demo.gif",
     "vault-repo/publish/attachments/disconnect-repo-vercel.png",
