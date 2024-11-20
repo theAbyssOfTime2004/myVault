@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -94,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Chats/New Chat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for New Chat"
+              "title": "Backlinks"
             }
           },
           {
@@ -126,10 +126,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chats/New Chat.md"
+                "file": "6 - Main Notes/Fourier series and transformation.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of New Chat"
+              "title": "Outline of Fourier series and transformation"
             }
           },
           {
@@ -138,12 +138,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6 - Main Notes/Tensor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Tensor"
+              "title": "Outgoing links"
             }
           },
           {
@@ -165,13 +164,25 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "0d8115c3f81203cc",
+            "type": "leaf",
+            "state": {
+              "type": "chat-view",
+              "state": {
+                "file": "Chats/New Chat.md"
+              },
+              "icon": "message-square",
+              "title": "New Chat"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 481.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,8 +199,8 @@
   },
   "active": "e3ea0ec07cc41b96",
   "lastOpenFiles": [
-    "6 - Main Notes/Fourier series and transformation.md",
     "Chats/New Chat.md",
+    "6 - Main Notes/Fourier series and transformation.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/[Machine.md",
