@@ -17,7 +17,10 @@ Tags:
 		
 		- Analyze each part:
     
-    - $$ \int \frac{a_0}{2} \cos \left(\frac{m\pi x}{L}\right) \, dx = 0 $$ (since \( m > 0 \))  
+    - $$ \int \frac{a_0}{2} \cos \left(\frac{m\pi x}{L}\right) \, dx = 0 $$ since $( m > 0 )$  
+			* The function $$ \cos \left( \frac{m \pi x}{L} \right) $$ oscillates with a period of $$ \frac{2L}{m}. $$ When we calculate the integral from $-L  \to  L,$  this function completes a whole number of periods (or at least one full period). For each half-period, from $-L \to  0$ , and from 
+			*  $0  \to  L$,  the values of the cosine function in the negative and positive intervals are symmetric: $$\int_{-L}^{0} \cos \left( \frac{m \pi x}{L} \right) dx = - \int_{0}^{L} \cos \left( \frac{m \pi x}{L} \right) dx.$$
+			* therefore: $$ \int_{-L}^{L} \cos \left( \frac{m \pi x}{L} \right) dx = 0. $$
     - $$ \int \cos \left(\frac{n\pi x}{L}\right) \cos \left(\frac{m\pi x}{L}\right) \, dx = L $$ when $(n = m)$ and $( = 0 )$ when $( n \neq m )$ 
     - $$ \int \sin \left(\frac{n\pi x}{L}\right) \cos \left(\frac{m\pi x}{L}\right) \, dx = 0 $$
 - Therefore:
