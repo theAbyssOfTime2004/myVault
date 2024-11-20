@@ -11,10 +11,15 @@
             "id": "e3ea0ec07cc41b96",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Fourier series and transformation.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Fourier series and transformation"
             }
           }
         ]
@@ -181,8 +186,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ae90062568fe6f56",
+  "active": "e3ea0ec07cc41b96",
   "lastOpenFiles": [
+    "6 - Main Notes/Fourier series and transformation.md",
     "Chats/New Chat.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Logistic Regression.md",
@@ -209,7 +215,6 @@
     "vault-repo/README.md",
     "vault-repo",
     "vault-repo/publish/reinventing-the-wheel.md",
-    "vault-repo/publish/accepted-markdown-metadata.md",
     "vault-repo/publish/attachments/github-secrets-vercel.png",
     "vault-repo/publish/attachments/fn-website-demo.gif",
     "vault-repo/publish/attachments/disconnect-repo-vercel.png",
