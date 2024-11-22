@@ -30,7 +30,7 @@ Backpropagation is the fundamental algorithm behind training neural networks. It
     - Cross-Entropy Loss
     - Binary Cross-Entropy
 	![[Pasted image 20241122154250.png]]
-	* $L$ = loss function
+	* $L$ = loss function (note: we might see people using "cost" function and "loss" function in a confusing way, basically loss function and cost function is the same but one is for a sample of data and one is for the whole dataset, for example in this case the L loss function is only used for y^ = 17 therefore L = 4.5 )
 	* $w_{0}$ = bias 
 	* $z$ =weighted sum of inputs
 	* $y-^$ = activation 
@@ -101,10 +101,10 @@ b = b - learning_rate * dE/db`
 
 ## Related Concepts
 
-- Gradient Descent
+- [[Gradient Descent]]
 - Chain Rule
 - Activation Functions
-- Loss Functions
+- Loss Functions, Cost Functions
 - Optimization Algorithms
 
 ## References & Further Reading
@@ -112,6 +112,7 @@ b = b - learning_rate * dE/db`
 1. Deep Learning by Goodfellow, Bengio, and Courville
 2. Neural Networks and Deep Learning by Michael Nielsen
 3. CS231n Stanford Course Materials
+4. Neural Networks series video on youtube by 3Blue1Brown
 
 
 
