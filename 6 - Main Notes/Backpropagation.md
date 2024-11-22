@@ -29,6 +29,11 @@ Backpropagation is the fundamental algorithm behind training neural networks. It
     - Mean Squared Error (MSE)
     - Cross-Entropy Loss
     - Binary Cross-Entropy
+	![[Pasted image 20241122154250.png]]
+	* $L$ = loss function
+	* $w_{0}$ = bias 
+	* $z$ =weighted sum of inputs
+	* $y-^$ = activation 
 
 ### 3. Backward Pass
 
@@ -38,7 +43,7 @@ Backpropagation is the fundamental algorithm behind training neural networks. It
     - ∂Error/∂Weight
     - ∂Error/∂Bias
 - Propagate error backwards through layers
-
+	- ![[Pasted image 20241122154556.png]]
 ### 4. Weight Updates
 
 - Adjust weights and biases using calculated gradients
@@ -46,6 +51,7 @@ Backpropagation is the fundamental algorithm behind training neural networks. It
 - Learning rate controls step size
 - Smaller learning rate = more stable but slower
 - Larger learning rate = faster but might overshoot
+- ![[Pasted image 20241122154628.png]]
 
 ## Mathematical Example
 

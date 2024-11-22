@@ -11,6 +11,18 @@
             "id": "0fb7e841dcc07616",
             "type": "leaf",
             "state": {
+              "type": "image",
+              "state": {
+                "file": "2 - Source Material/Others/Pasted image 20241122154250.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20241122154250"
+            }
+          },
+          {
+            "id": "2123470a79516ee3",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "6 - Main Notes/Backpropagation.md",
@@ -22,7 +34,8 @@
               "title": "Backpropagation"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -126,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chats/New Chat.md"
+                "file": "6 - Main Notes/Backpropagation.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of New Chat"
+              "title": "Outline of Backpropagation"
             }
           },
           {
@@ -150,10 +163,17 @@
             "id": "ae90062568fe6f56",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "canvas",
+              "state": {
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled"
             }
           },
           {
@@ -213,45 +233,45 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "78d23cccdc2c9e24",
+  "active": "2123470a79516ee3",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "6 - Main Notes/Fourier Analysis.md",
+    "3 - Tags/Machine Learning.md",
+    "6 - Main Notes/Local Search Algorithm.md",
+    "6 - Main Notes/Gradient Descent.md",
+    "6 - Main Notes/Fourier series and transformation.md",
+    "6 - Main Notes/Curse of dimensionality.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "2 - Source Material/Others/Pasted image 20241026110613.png",
+    "2 - Source Material/Others/Pasted image 20241026102710.png",
+    "2 - Source Material/Others/Pasted image 20241026111516.png",
+    "2 - Source Material/Others/Pasted image 20241027225530.png",
+    "2 - Source Material/Others/Pasted image 20241027225801.png",
+    "2 - Source Material/Others/Pasted image 20241122154628.png",
+    "2 - Source Material/Others/Pasted image 20241122154250.png",
+    "Pasted image 20241122154628 1.png",
+    "2 - Source Material/Others/Pasted image 20241122154556.png",
+    "6 - Main Notes/Backpropagation.md",
     "5 - Templates/Main Note.md",
     "6 - Main Notes/2024-11-22.md",
-    "Untitled.canvas",
     "2 - Source Material/Books/Untitled.md",
     "5 - Templates/rough note (or daily note).md",
     "1 - Rough Notes/Untitled.md",
-    "6 - Main Notes/Gradient Descent.md",
-    "6 - Main Notes/Backpropagation.md",
-    "6 - Main Notes/Fourier series and transformation.md",
     "Chats/New Chat.md",
-    "6 - Main Notes/Fourier Analysis.md",
     "6 - Main Notes/Mathematics.md",
-    "6 - Main Notes/Curse of dimensionality.md",
     "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/[Machine.md",
     "6 - Main Notes/Tensor.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "6 - Main Notes/Local Search Algorithm.md",
     "Chats/tensor_definitiontensor_definition.md",
     "3 - Tags/regression.md",
-    "3 - Tags/Machine Learning.md",
     "3 - Tags/DeepLearning.md",
     "3 - Tags/classification.md",
     "3 - Tags/data scientist.md",
     "3 - Tags/beginner.md",
     "vault-repo",
     "vault-repo/publish/attachments/github-secrets-vercel.png",
-    "vault-repo/publish/attachments/fn-website-demo.gif",
-    "vault-repo/publish/attachments/disconnect-repo-vercel.png",
-    "vault-repo/publish/attachments/configure-project-vercel.png",
-    "vault-repo/publish/attachments/clone-repo-git-plugin.png",
-    "vault-repo/publish/attachments/clone-or-download-github.png",
-    "vault-repo/publish/attachments/vercel-project-id.png",
-    "vault-repo/publish/attachments/vercel-account-id.png",
-    "vault-repo/publish/attachments/vercel-create-token.png",
-    "vault-repo/publish/attachments/publish-dir-yml.png",
     "vault-repo/publish/attachments",
     "vault-repo/publish",
     "vault-repo",
