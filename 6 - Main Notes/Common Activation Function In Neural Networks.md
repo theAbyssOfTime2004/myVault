@@ -30,7 +30,7 @@ $$\text{ReLU}(x) = \max(0, x)$$
     - Object detection
     - Face recognition
 2. Natural Language Processing
-    - Text classification
+    - Text [[classification]]
     - Sentiment analysis
     - Machine translation
 3. Signal Processing
