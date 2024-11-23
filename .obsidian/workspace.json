@@ -25,13 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
+                "file": "6 - Main Notes/Fuzzy Logic.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Backpropagation"
+              "title": "Fuzzy Logic"
             }
           }
         ],
@@ -151,12 +151,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
+                "file": "6 - Main Notes/Fuzzy Logic.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Backpropagation"
+              "title": "Outgoing links from Fuzzy Logic"
             }
           },
           {
@@ -235,6 +235,14 @@
   },
   "active": "2123470a79516ee3",
   "lastOpenFiles": [
+    "Pasted image 20241123103341.png",
+    "Pasted image 20241123103323.png",
+    "Pasted image 20241123103319.png",
+    "Pasted image 20241123103026.png",
+    "Pasted image 20241123102639.png",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "6 - Main Notes/Fuzzy Logic.md",
+    "6 - Main Notes/Backpropagation.md",
     "Untitled.canvas",
     "6 - Main Notes/Fourier Analysis.md",
     "3 - Tags/Machine Learning.md",
@@ -242,17 +250,12 @@
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Fourier series and transformation.md",
     "6 - Main Notes/Curse of dimensionality.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "2 - Source Material/Others/Pasted image 20241026110613.png",
     "2 - Source Material/Others/Pasted image 20241026102710.png",
     "2 - Source Material/Others/Pasted image 20241026111516.png",
     "2 - Source Material/Others/Pasted image 20241027225530.png",
     "2 - Source Material/Others/Pasted image 20241027225801.png",
     "2 - Source Material/Others/Pasted image 20241122154628.png",
-    "2 - Source Material/Others/Pasted image 20241122154250.png",
-    "Pasted image 20241122154628 1.png",
-    "2 - Source Material/Others/Pasted image 20241122154556.png",
-    "6 - Main Notes/Backpropagation.md",
     "5 - Templates/Main Note.md",
     "6 - Main Notes/2024-11-22.md",
     "2 - Source Material/Books/Untitled.md",
@@ -269,9 +272,7 @@
     "3 - Tags/DeepLearning.md",
     "3 - Tags/classification.md",
     "3 - Tags/data scientist.md",
-    "3 - Tags/beginner.md",
     "vault-repo",
-    "vault-repo/publish/attachments/github-secrets-vercel.png",
     "vault-repo/publish/attachments",
     "vault-repo/publish",
     "vault-repo",
