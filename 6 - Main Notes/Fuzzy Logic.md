@@ -1,8 +1,7 @@
 2024-11-23 10:12
 
 
-Tags:
-
+Tags: [[DeepLearning]], [[Mathematics]], [[data scientist]]
 # Fuzzy Logic
 ## Introduction to fuzzy thinking
 
@@ -30,4 +29,20 @@ where: - $X$ is the universe of discourse. - $\mu_A(x)$ is the degree of members
 For example: If a statement John is Young is associated with the value 0.6 then _very young_ is automatically deduced as having the value 0.6 * 0.6 = 0.36. On the other hand, not _very young_ get the value ( 1 – 0.36 ), i.e., 0.64. In this example, the operator _very(X)_ is defined as $X * X$; however, in general, these operators may be uniformly, but flexible, defined to fit the application; this results in great power for the expression of both rules and fuzzy facts.  Linguistic modifiers such as very, more or less, fairly, and extremely rare examples of hedges. They can modify fuzzy predicates and fuzzy truth values.
 
 ![[Pasted image 20241123105944.png]]
+
+## Operations of fuzzy sets
+
+![[Pasted image 20241123111641.png]]
+
+## Fuzzy rules
+
+- Can be defined as a conditional statement in the form:
+	- $IF$  $x$ is  $A$ 
+	- $THEN$ $y$ is $B$
+	- Where x and y are linguistic variables.
+- Fuzzy rules can have multiple antevedents, the consequent of a fuzzy rule can also include multiple parts. 
+### Fuzzy sets of tall and heavy men
+- The value of the output or a truth membership grade of the rule consequent can be estimated directly from a corresponding truth membership grade in the antecedent. This form of fuzzy inference uses a method called **monotonic selection**.
+	- $IF$ *height* is *tall*
+	- $THEN$ *weight* is *heavy*
 # References
