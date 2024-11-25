@@ -1,6 +1,6 @@
 2024-11-22 15:21
 
-[[DeepLearning]] [[Gradient Descent]]
+[[DeepLearning]] [[Gradient Descent]], [[beginner]]
 
 Tags:
 

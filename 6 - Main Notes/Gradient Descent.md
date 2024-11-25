@@ -1,7 +1,7 @@
 2024-11-19 22:55
 
 
-Tags: [[Machine Learning]], [[DeepLearning]]
+Tags: [[Machine Learning]], [[DeepLearning]], [[beginner]]
 
 
 # Gradient Descent: A Comprehensive Note
