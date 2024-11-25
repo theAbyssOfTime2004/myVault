@@ -40,5 +40,15 @@ Several techniques exist to select the positive and negative samples with respec
 - This class of Contrastive Learning methods breaks a single image into multiple patches of a fixed dimension (say, 10x10 patch windows). There might be some degree of overlap between the patches.
 - Now, suppose we take the image of a cat and use one of its patches as the anchor while leveraging the rest as the positive samples. Patches from other images (say, one patch each of a raccoon, an owl, and a giraffe) are used as negative samples.
 - ![[Pasted image 20241125210917.png]]
-- 
+
+### Supervised Contrastive Learning (SCL) vs Self - Supervised Contrastive Learning (SSCL) 
+- In **Supervised Learning**, models are trained with labeled data, while **Self-Supervised Learning** generates labels from raw data without external input.
+
+In **SSCL**, positive samples are created by augmenting the anchor image, and all other images (including those from the same class) are treated as negatives. This can lead to suboptimal training because similar images (e.g., different dog images) are incorrectly pushed apart in the embedding space.
+
+**SCL**, on the other hand, uses class labels to group samples of the same class closer together while separating samples from different classes. This eliminates the issue of incorrectly treating similar samples as negatives, enabling more accurate representations.
+
+Additionally, **SCL** employs specialized loss functions, like the NT-Xent loss, to optimize the grouping and separation of samples effectively.
+
+The limitations of SSCL have also inspired **Non-Contrastive Learning**, which eliminates negative samples entirely and focuses on aligning positive samples within the same distribution in the embedding space. This is an emerging field of research that seeks to address SSCL’s challenges.
 # References
