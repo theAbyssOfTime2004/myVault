@@ -1,7 +1,7 @@
 2024-11-25 14:08
 
 
-Tags:
+Tags: [[Machine Learning]]
 
 # Creating ML pipeline from scratch
 ### Step 1: Data collection
