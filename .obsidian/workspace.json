@@ -23,12 +23,15 @@
             "id": "29fed0a8031527ab",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "2 - Source Material/Others/Pasted image 20241123102639.png"
+                "file": "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20241123102639"
+              "icon": "lucide-file",
+              "title": "Basic Search Algorithms in Artificial Intelligence"
             }
           }
         ],
@@ -104,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2 - Source Material/Others/Pasted image 20241123102639.png",
+                "file": "Chats/New Chat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +117,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Pasted image 20241123102639"
+              "title": "Backlinks for New Chat"
             }
           },
           {
@@ -136,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3 - Tags/Mathematics.md"
+                "file": "Chats/New Chat.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Mathematics"
+              "title": "Outline of New Chat"
             }
           },
           {
@@ -210,7 +213,8 @@
               "title": "New Chat"
             }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -229,10 +233,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "276200ddcf2b0fe5",
+  "active": "4292f8d461e3fc18",
   "lastOpenFiles": [
-    "2 - Source Material/Others/Pasted image 20241123103026.png",
+    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "2 - Source Material/Others/Pasted image 20241123102639.png",
+    "2 - Source Material/Others/Pasted image 20241123103026.png",
     "2 - Source Material/Others/Pasted image 20241123111641.png",
     "2 - Source Material/Others/Pasted image 20241123105944.png",
     "2 - Source Material/Others/Pasted image 20241123103341.png",
