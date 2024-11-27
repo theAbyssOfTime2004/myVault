@@ -11,10 +11,15 @@
             "id": "29fed0a8031527ab",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Fourier series and transformation.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Fourier series and transformation"
             }
           }
         ]
@@ -215,9 +220,10 @@
   },
   "active": "29fed0a8031527ab",
   "lastOpenFiles": [
+    "Chats/tensor_definitiontensor_definition.md",
+    "6 - Main Notes/Fourier series and transformation.md",
     "2 - Source Material/Others/Pasted image 20241125205814.png",
     "Untitled.canvas",
-    "Chats/tensor_definitiontensor_definition.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Contrastive Learning.md",
     "6 - Main Notes/Contrastive Learning Loss Functions.md",
@@ -241,7 +247,6 @@
     "2 - Source Material/Others/Pasted image 20241125205942.png",
     "2 - Source Material/Others/Pasted image 20241125205921.png",
     "6 - Main Notes/Fuzzy Logic.md",
-    "6 - Main Notes/Fourier series and transformation.md",
     "2 - Source Material/Others/Pasted image 20241123102639.png",
     "3 - Tags/Mathematics.md",
     "6 - Main Notes/Creating ML pipeline from scratch.md",
