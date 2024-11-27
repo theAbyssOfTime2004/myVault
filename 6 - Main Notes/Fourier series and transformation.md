@@ -44,5 +44,10 @@ Tags: [[Mathematics]] , [[DeepLearning]]
 
 ### Fourier transform 
 - Is an mathematical operation that transforms a function in the time domain to its frequenct domain representation.
-
+- This formulation allows the Fourier series to be expressed as a continuous integral, rather than a discrete sum, as the interval $[-L, L]$ becomes unbounded.
+- The key steps are:
+1. Rewrite the Fourier series using the continuous frequency variable $\Delta ω = nπ/L.$
+2. As L approaches infinity, the summation becomes an integral over the continuous frequency domain.
+3. The final Fourier series representation is an integral of the continuous Fourier coefficients cω multiplied by the complex exponential term exp(iωx).
+- ![[Pasted image 20241128011834.png]] ![[Pasted image 20241128011818.png]]
 # References
