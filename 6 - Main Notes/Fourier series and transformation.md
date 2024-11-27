@@ -33,6 +33,15 @@ Tags: [[Mathematics]] , [[DeepLearning]]
 
 		
 
+### Dirichlet condition
+-  The function $f(x)$ satisfies the Dirichlet conditions if: 
+	1. $f(x)$ is defined and bounded in the interval $[-L, L]$. 
+	2. $f(x)$ has only a **finite number of discontinuities** in $[-L, L]$. 
+	3. $f(x)$ has only a **finite number of maxima and minima** (extrema) in $[-L, L]$.
+- ### Implications: 
+	- At points of **continuity**, the Fourier series accurately reconstructs the value of the function $f(x)$. - 
+	- At points of **discontinuity**, the Fourier series does not converge to the exact value of the function but instead converges to the **average of the values on both sides of the discontinuity**.
+
 ### Fourier transform 
 - Is an mathematical operation that transforms a function in the time domain to its frequenct domain representation.
 
