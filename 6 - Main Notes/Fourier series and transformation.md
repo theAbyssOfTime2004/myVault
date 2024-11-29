@@ -5,6 +5,8 @@ Tags: [[Mathematics]] , [[DeepLearning]]
 
 # Fourier series and transform
 
+![[Pasted image 20241130000441.png]]
+
 ### Fourier seriers 
 - a fourier series is a mathematical representation of a periodic function as a sum of simpler fumctions called harmonics or sine waves.
 	- Can be written as:
@@ -51,3 +53,6 @@ Tags: [[Mathematics]] , [[DeepLearning]]
 3. The final Fourier series representation is an integral of the continuous Fourier coefficients cω multiplied by the complex exponential term exp(iωx).
 - ![[Pasted image 20241128011834.png]] ![[Pasted image 20241128011818.png]]
 # References
+
+[But what is a Fourier series? From heat flow to drawing with circles | DE4](https://www.youtube.com/watch?v=r6sGWTCMz2k)
+
