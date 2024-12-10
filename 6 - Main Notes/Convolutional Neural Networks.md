@@ -30,6 +30,24 @@ The key advantage is that CNNs preserve the spatial relationships between pixels
 - The key difference is that CNNs build increasingly complex and abstract representations of the image by progressively analyzing smaller, more specific details across multiple layers.
 ## Dissection:
 ### Convolutional Layer:
+- Is the first layer to extract features from the input data. This layer maintaining the correlation between pixel's features by sliding a tiny moving window accros the image. As you slide this window, you're capturing tiny bits of information about what's inside. This helps the computer understand the image's details - like edges, shapes, and patterns - without losing how these details connect to each other.
+- The convolution layer works with two main things:
+	1. The original image (as a matrix of pixels)
+	2. A small filter (like a mini-template)
 
+- This filter slides across the image, comparing its pattern with different parts of the picture. It's basically asking, "Does this small pattern match anything here?" By doing this repeatedly, the computer learns to recognize important features in the image.
+![[Pasted image 20241210130633.png]]
 
+- Considering this 5x5 - Image matrix as input data with pixel range value from 0 - 1, and a 3x3 filter matrix.
+![[Pasted image 20241210130829.png]]
+
+- To perform the convolution operation:
+
+	1. The 3x3 filter is "slid" across the 5x5 image matrix.
+	2. At each position, the corresponding elements of the filter and image matrix are multiplied, and the sum of these products is calculated.
+	3. This sum is then placed in the corresponding position in the "Convolved Feature" matrix shown in the third image.
+	
+	![Alt Text](https://images.viblo.asia/full/f7fdeef5-7191-4de9-9938-2238490064ca.gif)
+	
+	
 # References
