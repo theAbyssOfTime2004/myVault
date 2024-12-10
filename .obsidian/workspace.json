@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+                "file": "6 - Main Notes/Convolutional Neural Networks.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DOMAIN NAME SYSTEM"
+              "title": "Convolutional Neural Networks"
             }
           }
         ]
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -220,9 +221,11 @@
   },
   "active": "29fed0a8031527ab",
   "lastOpenFiles": [
-    "Pasted image 20241207033802.png",
     "Chats/tensor_definitiontensor_definition.md",
+    "6 - Main Notes/Convolutional Neural Networks.md",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+    "README.md",
+    "Pasted image 20241207033802.png",
     "1 - Rough Notes/Mạng máy tính.md",
     "6 - Main Notes/Fourier series and transformation.md",
     "6 - Main Notes/Fuzzy Logic.md",
@@ -250,13 +253,11 @@
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "3 - Tags/classification.md",
     "3 - Tags/data scientist.md",
-    "3 - Tags/DeepLearning.md",
     "2 - Source Material/Others/Pasted image 20241125210917.png",
     "2 - Source Material/Others/Pasted image 20241125210853.png",
     "2 - Source Material/Others/Pasted image 20241125210651.png",
     "2 - Source Material/Others/Pasted image 20241125210550.png",
     "2 - Source Material/Others/Pasted image 20241125205942.png",
-    "2 - Source Material/Others/Pasted image 20241125205921.png",
     "vault-repo",
     "vault-repo/publish/attachments",
     "vault-repo/publish",
