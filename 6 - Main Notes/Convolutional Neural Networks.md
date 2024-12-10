@@ -48,6 +48,13 @@ The key advantage is that CNNs preserve the spatial relationships between pixels
 	3. This sum is then placed in the corresponding position in the "Convolved Feature" matrix shown in the third image.
 	
 	![Alt Text](https://images.viblo.asia/full/f7fdeef5-7191-4de9-9938-2238490064ca.gif)
-	
-	
+
+- The combination of an image and different filters can be used to perform various image processing operations like edge detection, blurring, and sharpening.
+	- When you apply different types of filters (also called kernels or convolution matrices) to an image during the convolution process, you can achieve different visual effects:
+		1. Edge Detection Filters: These types of filters are designed to highlight the edges or boundaries in an image. They work by detecting rapid changes in pixel intensity, which often correspond to edges. Applying an edge detection filter can help identify the outlines of objects in the image.
+		2. Blurring Filters: Blurring filters work by averaging the pixel values in a local neighborhood. This has the effect of smoothing out small-scale details and noise in the image, creating a more softened, defocused appearance. Blurring can be useful for reducing unwanted artifacts or preparing an image for further processing.
+		3. Sharpening Filters: Sharpening filters do the opposite of blurring - they enhance the contrast between neighboring pixels, making edges and details appear more pronounced. This can help bring out fine textures and make the image appear more crisp and focused.
+		![[Pasted image 20241210132550.png]]
+		
+
 # References
