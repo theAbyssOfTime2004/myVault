@@ -1,7 +1,7 @@
 2024-12-10 12:27
 
 
-Tags:
+Tags: [[DeepLearning]], [[Object Detection]], [[Computer Vision]], [[Neural Networks]]
 
 # Convolutional Neural Networks
 
@@ -33,7 +33,7 @@ The key advantage is that CNNs preserve the spatial relationships between pixels
 - Is the first layer to extract features from the input data. This layer maintaining the correlation between pixel's features by sliding a tiny moving window accros the image. As you slide this window, you're capturing tiny bits of information about what's inside. This helps the computer understand the image's details - like edges, shapes, and patterns - without losing how these details connect to each other.
 - The convolution layer works with two main things:
 	1. The original image (as a matrix of pixels)
-	2. A small filter (like a mini-template)
+	2. A small filter (like a mini-template) or so-called kernel
 
 - This filter slides across the image, comparing its pattern with different parts of the picture. It's basically asking, "Does this small pattern match anything here?" By doing this repeatedly, the computer learns to recognize important features in the image.
 ![[Pasted image 20241210130633.png]]
@@ -55,6 +55,69 @@ The key advantage is that CNNs preserve the spatial relationships between pixels
 		2. Blurring Filters: Blurring filters work by averaging the pixel values in a local neighborhood. This has the effect of smoothing out small-scale details and noise in the image, creating a more softened, defocused appearance. Blurring can be useful for reducing unwanted artifacts or preparing an image for further processing.
 		3. Sharpening Filters: Sharpening filters do the opposite of blurring - they enhance the contrast between neighboring pixels, making edges and details appear more pronounced. This can help bring out fine textures and make the image appear more crisp and focused.
 		![[Pasted image 20241210132550.png]]
-		
 
+### Stride:
+- Stride is the number of pixels changed on the input matrix. When stride is 1, we move the kernels 1 pixel. When stride is 2, we move the kernels 2 pixels, and so on. The image below shows a convolution layer working with a stride of 2.
+![[Pasted image 20241210133648.png]]
+
+### Padding: 
+- CNN Padding means adding extra pixels around the input before doing operations. This keeps the spatial info intact and prevents data loss at the edges. It also helps to keep the output size consistent with the input and makes training more stable. Padding is important for maintaining spatial integrity in CNNs.
+- Padding in CNNs keeps important details, prevents problems at the edges, and controls the output size. It ensures the input data's size stays the same through the CNN layers, stopping any loss of information. Also, it is super important for making training stable, improving how well the model works, and keeping everything organized in the network.
+- Types of padding:
+	1. **Same Padding:** Also, the same padding adds zeros around the input image. To keep the output size equal to the input size after convolution.
+	2. **Valid Padding in CNN:** Valid padding, also called 'no padding,' doesn't add any extra pixels to the input image. Causing the output feature map to shrink compared to the input. It is handy when you only want the convolution. Portion to focus on the actual data without any additional padding.
+	3. **Causal Padding:** Causal padding is mainly used in tasks like natural language processing (NLP) and time-series analysis. It adds padding only to the left side of the input sequence. Also, ensuring that each output only depends on the current and past inputs, not the future ones.
+	4. **Memory Foam Carpet Padding (Non-standard):** This type of padding is used under carpets, even though it's not directly related to CNNs. Its mention here shows how padding is used in various contexts. Not just in deep learning, it highlights how the term applies universally.
+### Activation function:
+- Activation functions in CNNs add non-linearity, helping the network learn complex patterns. They are used after the convolutional layer and before the next layer.
+	- ReLU (Rectified Linear Unit) is the most common activation function in Convolutional Neural Networks because:
+		1. It's super simple: f(x) = max(0, x)
+		    - Keeps positive values as they are
+		    - Turns negative values to zero
+		2. Helps networks learn better by:
+		    - Speeding up training
+		    - Preventing information loss
+		    - Allowing deeper networks to work effectively
+		3. Computationally cheap
+		    - Very fast to calculate
+		    - Requires minimal processing power
+	- Think of ReLU like a gatekeeper that:
+		- Lets positive signals pass through
+		- Blocks negative signals
+		- Helps the network focus on what's important
+=> This makes ReLU a go-to choice for most deep learning models, especially in computer vision tasks.
+### Pooling Layers:
+- Purpose:
+	1. Reduce spatial dimensions of feature maps
+	2. Decrease computational complexity
+	3. Extract dominant features
+	4. Provide translation invariance
+- Main Types:
+	1. Max Pooling
+		- Selects the maximum value in each pooling window
+		- Most commonly used
+		- Retains the most important features
+		- Helps capture dominant features
+	2. Average Pooling
+		- Calculates the average of values in each window
+		- Provides smoother feature representation
+		- Less aggressive than max pooling
+- Common Characteristics:
+	- Typically use 2x2 or 3x3 window sizes
+	- Stride usually matches the window size
+	- Reduces feature map dimensions by 50-75%
+	- Comes after convolutional layers
+	- Helps prevent overfittings
+- Example
+	- Input: 224x224 feature map
+	- 2x2 max pooling with stride 2
+	- Output: 112x112 feature map
+## Summary: 
+- Here is the typical workflow of a CNN for image classification:
+	1. Start with input image
+	 2. Apply convolution with filters and ReLU activation
+	3. Reduce image size with pooling
+	4. Repeat convolutional layers
+	5. Flatten the data into a fully connected layer
+	6. Use final activation layer (softmax) for classification
 # References

@@ -3,7 +3,7 @@
 
 Tags: [[DeepLearning]], [[Machine Learning]], [[Self-Supervised Learning]], [[supervised learning]]
 
-# 10 Contrastive Learning Frameworks
+# 10 [[Contrastive Learning]] Frameworks
 
 
 
