@@ -1,7 +1,7 @@
 2024-11-25 20:43
 
 
-Tags: [[DeepLearning]], [[Machine Learning]], [[Self-Supervised Learning]], [[supervised learning]]
+Tags: [[DeepLearning]], [[Machine Learning]], [[Self-Supervised Learning]], [[supervised learning]], [[Neural Networks]]
 
 # Contrastive Learning
 

@@ -1,0 +1,5 @@
+[[Backpropagation]]
+[[Contrastive Learning]]
+[[Convolutional Neural Networks]]
+[[Gradient Descent]]
+[[Tensor]]
