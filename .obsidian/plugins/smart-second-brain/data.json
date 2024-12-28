@@ -8,7 +8,7 @@
     "model": "llama3.2",
     "baseUrl": "http://localhost:11434",
     "temperature": 1,
-    "contextWindow": 1348,
+    "contextWindow": 1248,
     "lcModel": {
       "lc": 1,
       "type": "constructor",
@@ -22,7 +22,7 @@
         "model": "llama3.2",
         "base_url": "http://localhost:11434",
         "temperature": 1,
-        "context_window": 1348,
+        "context_window": 1248,
         "lc_model": {
           "lc": 1,
           "type": "constructor",
@@ -36,7 +36,7 @@
             "model": "llama3.2",
             "base_url": "http://localhost:11434",
             "temperature": 1,
-            "context_window": 1448,
+            "context_window": 1348,
             "lc_model": {
               "lc": 1,
               "type": "constructor",
@@ -50,7 +50,7 @@
                 "model": "llama3.2",
                 "base_url": "http://localhost:11434",
                 "temperature": 1,
-                "context_window": 1548,
+                "context_window": 1448,
                 "lc_model": {
                   "lc": 1,
                   "type": "constructor",
@@ -64,7 +64,7 @@
                     "model": "llama3.2",
                     "base_url": "http://localhost:11434",
                     "temperature": 1,
-                    "context_window": 1648,
+                    "context_window": 1548,
                     "lc_model": {
                       "lc": 1,
                       "type": "constructor",
@@ -78,7 +78,7 @@
                         "model": "llama3.2",
                         "base_url": "http://localhost:11434",
                         "temperature": 1,
-                        "context_window": 1748,
+                        "context_window": 1648,
                         "lc_model": {
                           "lc": 1,
                           "type": "constructor",
@@ -92,7 +92,7 @@
                             "model": "llama3.2",
                             "base_url": "http://localhost:11434",
                             "temperature": 1,
-                            "context_window": 1848,
+                            "context_window": 1748,
                             "lc_model": {
                               "lc": 1,
                               "type": "constructor",
@@ -106,7 +106,7 @@
                                 "model": "llama3.2",
                                 "base_url": "http://localhost:11434",
                                 "temperature": 1,
-                                "context_window": 1948,
+                                "context_window": 1848,
                                 "lc_model": {
                                   "lc": 1,
                                   "type": "constructor",
@@ -120,7 +120,7 @@
                                     "model": "llama3.2",
                                     "base_url": "http://localhost:11434",
                                     "temperature": 1,
-                                    "context_window": 1348,
+                                    "context_window": 1948,
                                     "lc_model": {
                                       "lc": 1,
                                       "type": "constructor",
@@ -134,7 +134,7 @@
                                         "model": "llama3.2",
                                         "base_url": "http://localhost:11434",
                                         "temperature": 1,
-                                        "context_window": 1448,
+                                        "context_window": 1348,
                                         "lc_model": {
                                           "lc": 1,
                                           "type": "constructor",
@@ -148,7 +148,7 @@
                                             "model": "llama3.2",
                                             "base_url": "http://localhost:11434",
                                             "temperature": 1,
-                                            "context_window": 1548,
+                                            "context_window": 1448,
                                             "lc_model": {
                                               "lc": 1,
                                               "type": "constructor",
@@ -162,7 +162,7 @@
                                                 "model": "llama3.2",
                                                 "base_url": "http://localhost:11434",
                                                 "temperature": 1,
-                                                "context_window": 1648,
+                                                "context_window": 1548,
                                                 "lc_model": {
                                                   "lc": 1,
                                                   "type": "constructor",
@@ -176,7 +176,7 @@
                                                     "model": "llama3.2",
                                                     "base_url": "http://localhost:11434",
                                                     "temperature": 1,
-                                                    "context_window": 1748,
+                                                    "context_window": 1648,
                                                     "lc_model": {
                                                       "lc": 1,
                                                       "type": "constructor",
@@ -190,7 +190,7 @@
                                                         "model": "llama3.2",
                                                         "base_url": "http://localhost:11434",
                                                         "temperature": 1,
-                                                        "context_window": 1848,
+                                                        "context_window": 1748,
                                                         "lc_model": {
                                                           "lc": 1,
                                                           "type": "constructor",
@@ -203,8 +203,8 @@
                                                           "kwargs": {
                                                             "model": "llama3.2",
                                                             "base_url": "http://localhost:11434",
-                                                            "temperature": 0.62,
-                                                            "context_window": 1948,
+                                                            "temperature": 1,
+                                                            "context_window": 1848,
                                                             "lc_model": {
                                                               "lc": 1,
                                                               "type": "constructor",
@@ -215,10 +215,10 @@
                                                                 "ChatOllama"
                                                               ],
                                                               "kwargs": {
-                                                                "model": "smollm2",
+                                                                "model": "llama3.2",
                                                                 "base_url": "http://localhost:11434",
                                                                 "temperature": 0.62,
-                                                                "context_window": 1848,
+                                                                "context_window": 1948,
                                                                 "lc_model": {
                                                                   "lc": 1,
                                                                   "type": "constructor",
@@ -231,8 +231,24 @@
                                                                   "kwargs": {
                                                                     "model": "smollm2",
                                                                     "base_url": "http://localhost:11434",
-                                                                    "temperature": 0.5,
-                                                                    "context_window": 1948
+                                                                    "temperature": 0.62,
+                                                                    "context_window": 1848,
+                                                                    "lc_model": {
+                                                                      "lc": 1,
+                                                                      "type": "constructor",
+                                                                      "id": [
+                                                                        "langchain",
+                                                                        "chat_models",
+                                                                        "ollama",
+                                                                        "ChatOllama"
+                                                                      ],
+                                                                      "kwargs": {
+                                                                        "model": "smollm2",
+                                                                        "base_url": "http://localhost:11434",
+                                                                        "temperature": 0.5,
+                                                                        "context_window": 1948
+                                                                      }
+                                                                    }
                                                                   }
                                                                 }
                                                               }
