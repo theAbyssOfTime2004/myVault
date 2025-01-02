@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Web caches (Proxy server).md",
+                "file": "6 - Main Notes/Email..md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Web caches (Proxy server)"
+              "title": "Email."
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Web caches (Proxy server).md",
+                "file": "6 - Main Notes/Email..md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Web caches (Proxy server)"
+              "title": "Backlinks for Email."
             }
           },
           {
@@ -126,10 +126,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "6 - Main Notes/Web caches (Proxy server).md"
+                "file": "6 - Main Notes/Email..md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Web caches (Proxy server)"
+              "title": "Outline of Email."
             }
           },
           {
@@ -138,12 +138,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6 - Main Notes/Web caches (Proxy server).md",
+                "file": "6 - Main Notes/Email..md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Web caches (Proxy server)"
+              "title": "Outgoing links from Email."
             }
           },
           {
@@ -200,6 +200,11 @@
   },
   "active": "81a094592d345d37",
   "lastOpenFiles": [
+    "Pasted image 20250102162721.png",
+    "5 - Templates/rough note (or daily note).md",
+    "6 - Main Notes/Email..md",
+    "5 - Templates/Main Note.md",
+    "6 - Main Notes/Web caches (Proxy server).md",
     "2 - Source Material/Books/Untitled.md",
     "2 - Source Material/Others/Pasted image 20241125210853.png",
     "2 - Source Material/Others/Pasted image 20241123105944.png",
@@ -215,7 +220,6 @@
     "2 - Source Material/Others/Pasted image 20250102155721.png",
     "2 - Source Material/Others/Pasted image 20250102155709.png",
     "1 - Rough Notes/Untitled.md",
-    "6 - Main Notes/Web caches (Proxy server).md",
     "6 - Main Notes/Caching example.md",
     "2 - Source Material/Videos/Pasted image 20250102155101.png",
     "6 - Main Notes/SVM Classification Model.md",
@@ -233,10 +237,6 @@
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "3 - Tags/Computer Vision.md",
     "3 - Tags/NLP.md",
-    "3 - Tags/DeepLearning.md",
-    "3 - Tags/học sâu.md",
-    "6 - Main Notes/10 Contrastive Learning Frameworks.md",
-    "6 - Main Notes/2024-12-14.md",
     "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
