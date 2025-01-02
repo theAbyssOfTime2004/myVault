@@ -1,7 +1,8 @@
 2024-12-07 02:50
 
 
-Tags:
+Tags: [[computer networking]]
+
 
 # DOMAIN NAME SYSTEM (DNS)
 
