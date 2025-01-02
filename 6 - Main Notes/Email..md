@@ -22,5 +22,4 @@ Tags: [[computer networking]]
 	- "server": receiving mail server.
 ![[Pasted image 20250102162721.png]]
 
-
 # References
