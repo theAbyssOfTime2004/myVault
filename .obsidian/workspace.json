@@ -11,10 +11,15 @@
             "id": "81a094592d345d37",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Web caches (Proxy server).md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Web caches (Proxy server)"
             }
           }
         ]
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "6 - Main Notes/Web caches (Proxy server).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Web caches (Proxy server)"
             }
           },
           {
@@ -120,10 +126,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chats/New Chat.md"
+                "file": "6 - Main Notes/Web caches (Proxy server).md"
               },
               "icon": "lucide-list",
-              "title": "Outline of New Chat"
+              "title": "Outline of Web caches (Proxy server)"
             }
           },
           {
@@ -132,28 +138,22 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "6 - Main Notes/Web caches (Proxy server).md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Web caches (Proxy server)"
             }
           },
           {
             "id": "ae90062568fe6f56",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           },
           {
@@ -183,7 +183,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 390.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,41 +201,42 @@
   "active": "81a094592d345d37",
   "lastOpenFiles": [
     "2 - Source Material/Books/Untitled.md",
-    "3 - Tags/Mathematics.md",
-    "6 - Main Notes/Cookies.md",
-    "Chats/New Chat.md",
-    "3 - Tags/computer networking.md",
-    "6 - Main Notes/Mangas that i saved for future.md",
-    "3 - Tags/Mangas.md",
-    "README.md",
-    "6 - Main Notes/LangChain.md",
-    "6 - Main Notes/Gradient Descent.md",
-    "2 - Source Material/Others/Pasted image 20241229015147.png",
-    "2 - Source Material/Others/Pasted image 20241229014859.png",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "3 - Tags/NLP.md",
-    "6 - Main Notes/2024-12-14.md",
-    "5 - Templates/Main Note.md",
+    "2 - Source Material/Others/Pasted image 20241125210853.png",
+    "2 - Source Material/Others/Pasted image 20241123105944.png",
+    "2 - Source Material/Others/Pasted image 20241123103319.png",
+    "2 - Source Material/Others/Pasted image 20250102161320.png",
+    "2 - Source Material/Others/Pasted image 20241026102710.png",
+    "6 - Main Notes/HTTP_2.md",
+    "2 - Source Material/Others/Pasted image 20250102160928.png",
+    "2 - Source Material/Others/Pasted image 20250102160836.png",
+    "6 - Main Notes/Conditional GET.md",
+    "HTTP/HTT2.md",
+    "HTTP",
+    "2 - Source Material/Others/Pasted image 20250102155721.png",
+    "2 - Source Material/Others/Pasted image 20250102155709.png",
     "1 - Rough Notes/Untitled.md",
-    "1 - Rough Notes/Mạng máy tính.md",
-    "6 - Main Notes/Convolutional Neural Networks.md",
-    "6 - Main Notes/Backpropagation.md",
-    "3 - Tags/học sâu.md",
-    "3 - Tags/beginner.md",
-    "6 - Main Notes/Creating ML pipeline from scratch.md",
-    "3 - Tags/Fourier Analysis.md",
-    "2 - Source Material/Others/Pasted image 20241207033802.png",
-    "2 - Source Material/Others/Pasted image 20241210130829.png",
-    "Chats/tensor_definitiontensor_definition.md",
-    "3 - Tags/Computer Vision.md",
+    "6 - Main Notes/Web caches (Proxy server).md",
+    "6 - Main Notes/Caching example.md",
+    "2 - Source Material/Videos/Pasted image 20250102155101.png",
+    "6 - Main Notes/SVM Classification Model.md",
+    "6 - Main Notes/Logistic Regression.md",
+    "6 - Main Notes/Gradient Descent.md",
+    "6 - Main Notes/LangChain.md",
+    "6 - Main Notes/Local Search Algorithm.md",
+    "Chats/New Chat.md",
+    "6 - Main Notes/Fourier series and transformation.md",
+    "6 - Main Notes/Fuzzy Logic.md",
+    "6 - Main Notes/Cookies.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "3 - Tags/Object Detection.md",
-    "3 - Tags/Neural Networks.md",
-    "2 - Source Material/Others/Pasted image 20241210133648.png",
-    "2 - Source Material/Others/Pasted image 20241210132550.png",
-    "2 - Source Material/Others/Pasted image 20241210130633.png",
-    "2 - Source Material/Others/Pasted image 20241210124205.png",
-    "2 - Source Material/Others/Pasted image 20241130000441.png",
-    "2 - Source Material/Others/Pasted image 20241128011818.png",
+    "1 - Rough Notes/Mạng máy tính.md",
+    "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+    "3 - Tags/Computer Vision.md",
+    "3 - Tags/NLP.md",
+    "3 - Tags/DeepLearning.md",
+    "3 - Tags/học sâu.md",
+    "6 - Main Notes/10 Contrastive Learning Frameworks.md",
+    "6 - Main Notes/2024-12-14.md",
     "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
@@ -245,7 +246,6 @@
     "BMO/Profiles",
     "BMO",
     "2 - Source Material/Others",
-    "2 - Source Material/Videos",
-    "2 - Source Material/Papers"
+    "2 - Source Material/Videos"
   ]
 }

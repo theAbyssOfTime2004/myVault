@@ -1,6 +1,7 @@
 2024-12-29 01:21
 
-Tags: [[NLP]] 
+Tags: [[NLP]] , [[DeepLearning]]
+
 
 # LangChain
 
