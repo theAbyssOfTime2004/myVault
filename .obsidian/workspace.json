@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/The RFC.md",
+                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The RFC"
+              "title": "DOMAIN NAME SYSTEM"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/The RFC.md",
+                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for The RFC"
+              "title": "Backlinks for DOMAIN NAME SYSTEM"
             }
           },
           {
@@ -126,10 +126,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "6 - Main Notes/The RFC.md"
+                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of The RFC"
+              "title": "Outline of DOMAIN NAME SYSTEM"
             }
           },
           {
@@ -138,12 +138,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6 - Main Notes/The RFC.md",
+                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from The RFC"
+              "title": "Outgoing links from DOMAIN NAME SYSTEM"
             }
           },
           {
@@ -200,10 +200,12 @@
   },
   "active": "81a094592d345d37",
   "lastOpenFiles": [
-    "Pasted image 20250102165340.png",
-    "6 - Main Notes/Email..md",
+    "Pasted image 20250102172716.png",
+    "Pasted image 20250102172450.png",
     "6 - Main Notes/The RFC.md",
-    "Pasted image 20250102162721.png",
+    "2 - Source Material/Others/Pasted image 20250102165340.png",
+    "6 - Main Notes/Email..md",
+    "2 - Source Material/Others/Pasted image 20250102162721.png",
     "5 - Templates/rough note (or daily note).md",
     "5 - Templates/Main Note.md",
     "6 - Main Notes/Web caches (Proxy server).md",
@@ -219,8 +221,6 @@
     "6 - Main Notes/Conditional GET.md",
     "HTTP/HTT2.md",
     "HTTP",
-    "2 - Source Material/Others/Pasted image 20250102155721.png",
-    "2 - Source Material/Others/Pasted image 20250102155709.png",
     "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Caching example.md",
     "6 - Main Notes/SVM Classification Model.md",
