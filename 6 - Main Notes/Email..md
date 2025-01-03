@@ -1,7 +1,7 @@
 2025-01-02 16:22
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[Email, SMTP, IMAP]]
 
 # Email.
 

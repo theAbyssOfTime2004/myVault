@@ -1,7 +1,7 @@
 2025-01-02 16:50
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[Email, SMTP, IMAP]]
 
 # The RFC (5321)
 - uses TCP to reliably transfer email msg from client (mail server initiating connection) to server, port 25.

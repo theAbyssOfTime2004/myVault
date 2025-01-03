@@ -1,7 +1,7 @@
 2025-01-03 16:55
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[The Domain Name System DNS]]
 
 # Caching, Updating DNS Records
 

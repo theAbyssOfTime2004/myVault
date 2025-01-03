@@ -1,0 +1,5 @@
+[[Cookies]]
+[[Web caches (Proxy server)]]
+[[HTTP_2]]
+[[Conditional GET]]
+[[Caching example]]

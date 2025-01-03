@@ -1,7 +1,7 @@
 2025-01-02 15:48
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[Web and HTTP]]
 
 # Caching example
 

@@ -1,7 +1,7 @@
 2025-01-02 15:35
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[Web and HTTP]]
 
 # Web caches (Proxy server)
 **Goal**: Satisfy client request without involving origin server. 

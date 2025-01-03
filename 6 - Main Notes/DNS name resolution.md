@@ -1,7 +1,7 @@
 2025-01-03 16:36
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[The Domain Name System DNS]]
 
 # DNS name resolution
 **example**: host at *engineering.nyu.edu* wants IP address for *gaia.cs.umass.edu*
