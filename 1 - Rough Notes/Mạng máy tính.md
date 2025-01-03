@@ -1,3 +1,5 @@
+[[computer networking]], [[Web and HTTP]]
+
 - every computer must include
 	- cookies (for maintaining user/server state between transactions) 
 	- Recall: HTTP GET/ response interaction is stateless
@@ -23,3 +25,4 @@
 		- HTTP 2: over single TCP connection
 			- mitigating HOL blocking: objects devided into frames, frame transmission interleaved
 		- HTTP 3: adds security, per object error and congestion-control (more pipelining) over UDP
+- ![[Pasted image 20250103190446.png]]
