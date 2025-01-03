@@ -61,4 +61,7 @@ Tags: [[computer networking]]
 - **Exploit DNS for DDOS**:
 	- send queries with spoofed source address: target IP
 	- requires amplification
+- **DNSSEC (RFC 4033):**
+- Is a proposed security solution to prevent various types of attacks on DNS.
+- Provides mechanisms for authentication and data integrity for DNS.
 # References
