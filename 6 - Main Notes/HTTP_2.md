@@ -1,7 +1,7 @@
 2025-01-02 16:00
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[Web and HTTP]]
 
 # HTTP_2
 **goal**: decreased delay in *multi-object HTTP request*.
