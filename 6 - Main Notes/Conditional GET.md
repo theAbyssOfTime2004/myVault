@@ -1,7 +1,7 @@
 2025-01-02 15:51
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]] [[Web and HTTP]]
 
 # Conditional GET
 **Goal**: don't send object if cache has up-to-date cached version.

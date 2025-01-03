@@ -1,7 +1,7 @@
 2025-01-03 17:29
 
 
-Tags: [[computer networking]]
+Tags: [[computer networking]], [[P2P applications]]
 
 # P2P architecture
 

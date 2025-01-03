@@ -1,5 +1,5 @@
 2025-01-01 21:58
-[[computer networking]]
+[[computer networking]], [[Web and HTTP]]
 Tags:
 
 # Cookies

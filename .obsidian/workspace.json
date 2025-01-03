@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f7cb6b69a6535480",
+        "id": "576e88a65749fd8f",
         "type": "tabs",
         "children": [
           {
-            "id": "81a094592d345d37",
+            "id": "fa8e706b6ff288d2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/video streaming and CDNs.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "video streaming and CDNs"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -78,7 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 246.5
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -94,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +98,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for DOMAIN NAME SYSTEM"
+              "title": "Backlinks"
             }
           },
           {
@@ -166,13 +160,11 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,46 +178,46 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "81a094592d345d37",
+  "active": "fa8e706b6ff288d2",
   "lastOpenFiles": [
-    "Pasted image 20250103181051.png",
-    "Pasted image 20250103180840.png",
-    "Pasted image 20250103180606.png",
-    "Pasted image 20250103180428.png",
-    "4 - indexes",
-    "6 - Main Notes/BitTorrent.md",
-    "6 - Main Notes/video streaming and CDNs.md",
-    "2 - Source Material/Others/Pasted image 20250103175648.png",
-    "2 - Source Material/Others/Pasted image 20250103174828.png",
-    "6 - Main Notes/P2P architecture.md",
-    "2 - Source Material/Others/Pasted image 20250103173709.png",
-    "2 - Source Material/Others/Pasted image 20250103173606.png",
-    "2 - Source Material/Others/Pasted image 20250103173546.png",
-    "2 - Source Material/Others/Pasted image 20250103173503.png",
-    "3 - Tags/NLP.md",
-    "6 - Main Notes/Caching, Updating DNS Records.md",
-    "2 - Source Material/Others/Pasted image 20250103171057.png",
-    "6 - Main Notes/DNS name resolution.md",
-    "6 - Main Notes/DOMAIN NAME SYSTEM.md",
-    "6 - Main Notes/The RFC.md",
+    "6 - Main Notes/học sâu.md",
+    "3 - Tags/video streaming and content distribution networks.md",
+    "6 - Main Notes/Streaming Multimedia - DASH.md",
+    "3 - Tags/Web and HTTP.md",
+    "3 - Tags/The Domain Name System DNS.md",
+    "3 - Tags/Email, SMTP, IMAP.md",
     "6 - Main Notes/Email..md",
-    "5 - Templates/rough note (or daily note).md",
+    "2 - Source Material/Others/Pasted image 20250102155101.png",
     "5 - Templates/Main Note.md",
-    "6 - Main Notes/Web caches (Proxy server).md",
     "2 - Source Material/Books/Untitled.md",
-    "6 - Main Notes/HTTP_2.md",
-    "6 - Main Notes/Conditional GET.md",
-    "HTTP/HTT2.md",
-    "HTTP",
     "1 - Rough Notes/Untitled.md",
-    "6 - Main Notes/Caching example.md",
-    "6 - Main Notes/SVM Classification Model.md",
-    "6 - Main Notes/Logistic Regression.md",
-    "6 - Main Notes/Gradient Descent.md",
-    "6 - Main Notes/LangChain.md",
-    "6 - Main Notes/Local Search Algorithm.md",
+    "6 - Main Notes/2024-12-14.md",
+    "6 - Main Notes/video streaming and CDNs.md",
+    "6 - Main Notes/Content distribution networks (CDNs).md",
+    "6 - Main Notes/BitTorrent.md",
+    "6 - Main Notes/P2P architecture.md",
+    "3 - Tags/P2P applications.md",
+    "6 - Main Notes/Caching, Updating DNS Records.md",
+    "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+    "6 - Main Notes/DNS name resolution.md",
     "Chats/New Chat.md",
-    "6 - Main Notes/Fourier series and transformation.md",
+    "6 - Main Notes/Conditional GET.md",
+    "6 - Main Notes/Cookies.md",
+    "6 - Main Notes/Web caches (Proxy server).md",
+    "6 - Main Notes/The RFC.md",
+    "6 - Main Notes/Caching example.md",
+    "6 - Main Notes/HTTP_2.md",
+    "Pasted image 20250103183608.png",
+    "Pasted image 20250103183545.png",
+    "Pasted image 20250103183438.png",
+    "Pasted image 20250103183426.png",
+    "2 - Source Material/Others/Pasted image 20250103181803.png",
+    "2 - Source Material/Others/Pasted image 20250103181051.png",
+    "2 - Source Material/Others/Pasted image 20250103180840.png",
+    "2 - Source Material/Others/Pasted image 20250103180606.png",
+    "2 - Source Material/Others/Pasted image 20250103180428.png",
+    "4 - indexes",
+    "HTTP",
     "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
