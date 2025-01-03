@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Caching, Updating DNS Records.md",
+                "file": "6 - Main Notes/P2P architecture.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Caching, Updating DNS Records"
+              "title": "P2P architecture"
             }
           }
         ]
@@ -171,7 +171,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 288.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,21 +188,23 @@
   },
   "active": "81a094592d345d37",
   "lastOpenFiles": [
-    "Pasted image 20250103171057.png",
-    "Pasted image 20250103171040.png",
-    "6 - Main Notes/DNS name resolution.md",
+    "Pasted image 20250103173709.png",
+    "Pasted image 20250103173606.png",
+    "Pasted image 20250103173546.png",
+    "Pasted image 20250103173503.png",
+    "6 - Main Notes/P2P architecture.md",
+    "3 - Tags/NLP.md",
     "6 - Main Notes/Caching, Updating DNS Records.md",
+    "2 - Source Material/Others/Pasted image 20250103171057.png",
+    "2 - Source Material/Others/Pasted image 20250103171040.png",
+    "6 - Main Notes/DNS name resolution.md",
     "2 - Source Material/Others/Pasted image 20250103165407.png",
     "2 - Source Material/Others/Pasted image 20250103164516.png",
     "2 - Source Material/Others/Pasted image 20250103163911.png",
     "2 - Source Material/Others/Pasted image 20250103163906.png",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "2 - Source Material/Others/Pasted image 20250103162249.png",
-    "2 - Source Material/Others/Pasted image 20250103162246.png",
-    "2 - Source Material/Others/Pasted image 20250102172716.png",
-    "2 - Source Material/Others/Pasted image 20250102172450.png",
     "6 - Main Notes/The RFC.md",
-    "2 - Source Material/Others/Pasted image 20250102165340.png",
     "6 - Main Notes/Email..md",
     "5 - Templates/rough note (or daily note).md",
     "5 - Templates/Main Note.md",
@@ -222,8 +225,6 @@
     "6 - Main Notes/Fourier series and transformation.md",
     "6 - Main Notes/Fuzzy Logic.md",
     "6 - Main Notes/Cookies.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "3 - Tags/Object Detection.md",
     "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
