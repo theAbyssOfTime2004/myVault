@@ -27,4 +27,6 @@ Tags: [[computer networking]]
 	- every 30 secs: randomly select another peer, starts sending chunks
 		- "optimistically unchoke" this peer
 		- newly chosen peer may join top 4
+	![[Pasted image 20250103175648.png]]
+	
 # References
