@@ -182,12 +182,13 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "smart-random-note:Open Random Note from Search": false,
-      "smart-second-brain:Open S2B Chat": false,
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ae90062568fe6f56",
+  "active": "81a094592d345d37",
   "lastOpenFiles": [
+    "Pasted image 20250103162249.png",
+    "Pasted image 20250103162246.png",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "Pasted image 20250102172716.png",
     "Pasted image 20250102172450.png",
@@ -205,7 +206,6 @@
     "2 - Source Material/Others/Pasted image 20250102161320.png",
     "2 - Source Material/Others/Pasted image 20241026102710.png",
     "6 - Main Notes/HTTP_2.md",
-    "2 - Source Material/Others/Pasted image 20250102160928.png",
     "6 - Main Notes/Conditional GET.md",
     "HTTP/HTT2.md",
     "HTTP",
