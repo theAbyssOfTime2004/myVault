@@ -4,5 +4,7 @@
   "alwaysUpdateLinks": true,
   "spellcheck": false,
   "autoPairBrackets": true,
-  "autoPairMarkdown": false
+  "autoPairMarkdown": false,
+  "showLineNumber": false,
+  "readableLineLength": true
 }
