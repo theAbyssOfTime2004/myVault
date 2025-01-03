@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+                "file": "6 - Main Notes/DNS name resolution.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DOMAIN NAME SYSTEM"
+              "title": "DNS name resolution"
             }
           }
         ]
@@ -187,11 +187,14 @@
   },
   "active": "81a094592d345d37",
   "lastOpenFiles": [
-    "Pasted image 20250103162249.png",
-    "Pasted image 20250103162246.png",
+    "Pasted image 20250103163911.png",
+    "Pasted image 20250103163906.png",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
-    "Pasted image 20250102172716.png",
-    "Pasted image 20250102172450.png",
+    "6 - Main Notes/DNS name resolution.md",
+    "2 - Source Material/Others/Pasted image 20250103162249.png",
+    "2 - Source Material/Others/Pasted image 20250103162246.png",
+    "2 - Source Material/Others/Pasted image 20250102172716.png",
+    "2 - Source Material/Others/Pasted image 20250102172450.png",
     "6 - Main Notes/The RFC.md",
     "2 - Source Material/Others/Pasted image 20250102165340.png",
     "6 - Main Notes/Email..md",
@@ -203,8 +206,6 @@
     "2 - Source Material/Others/Pasted image 20241125210853.png",
     "2 - Source Material/Others/Pasted image 20241123105944.png",
     "2 - Source Material/Others/Pasted image 20241123103319.png",
-    "2 - Source Material/Others/Pasted image 20250102161320.png",
-    "2 - Source Material/Others/Pasted image 20241026102710.png",
     "6 - Main Notes/HTTP_2.md",
     "6 - Main Notes/Conditional GET.md",
     "HTTP/HTT2.md",
@@ -223,7 +224,6 @@
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "3 - Tags/Object Detection.md",
     "1 - Rough Notes/Mạng máy tính.md",
-    "3 - Tags/Computer Vision.md",
     "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
