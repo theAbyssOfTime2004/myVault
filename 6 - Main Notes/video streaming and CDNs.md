@@ -38,5 +38,6 @@ Tags: [[computer networking]]
 - **Main challenges**:
 	- server-to-client bandwidth will *vary* orver time, with changing network congestion levels (in house, in access network, in network core, at video server)
 	- packet loss and delay due to congestion will delay playout, or result in poor video quality
+![[Pasted image 20250103181051.png]]
 
 # References
