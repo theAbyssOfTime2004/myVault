@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/DNS name resolution.md",
+                "file": "6 - Main Notes/Caching, Updating DNS Records.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DNS name resolution"
+              "title": "Caching, Updating DNS Records"
             }
           }
         ]
@@ -187,10 +187,12 @@
   },
   "active": "81a094592d345d37",
   "lastOpenFiles": [
-    "Pasted image 20250103164516.png",
     "6 - Main Notes/DNS name resolution.md",
-    "Pasted image 20250103163911.png",
-    "Pasted image 20250103163906.png",
+    "6 - Main Notes/Caching, Updating DNS Records.md",
+    "2 - Source Material/Others/Pasted image 20250103165407.png",
+    "2 - Source Material/Others/Pasted image 20250103164516.png",
+    "2 - Source Material/Others/Pasted image 20250103163911.png",
+    "2 - Source Material/Others/Pasted image 20250103163906.png",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "2 - Source Material/Others/Pasted image 20250103162249.png",
     "2 - Source Material/Others/Pasted image 20250103162246.png",
@@ -204,8 +206,6 @@
     "5 - Templates/Main Note.md",
     "6 - Main Notes/Web caches (Proxy server).md",
     "2 - Source Material/Books/Untitled.md",
-    "2 - Source Material/Others/Pasted image 20241125210853.png",
-    "2 - Source Material/Others/Pasted image 20241123105944.png",
     "6 - Main Notes/HTTP_2.md",
     "6 - Main Notes/Conditional GET.md",
     "HTTP/HTT2.md",
