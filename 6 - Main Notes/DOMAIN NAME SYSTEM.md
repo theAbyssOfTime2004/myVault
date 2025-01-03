@@ -28,6 +28,9 @@ Tags: [[computer networking]]
 - Is a distributed and hierarchical database.
 ![[Pasted image 20250102172716.png]]
 
+**Root Name Server**: official, contact-of-last-resort by name servers that can not resolve name
+- is an *increadibly important* internet function.
+
 
 ![[Pasted image 20241207033802.png]] 
 # References
