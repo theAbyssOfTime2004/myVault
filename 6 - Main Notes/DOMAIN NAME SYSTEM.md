@@ -51,5 +51,5 @@ Tags: [[computer networking]], [[The Domain Name System DNS]]
 	- has local cache of recent name-to-address translation pairs (but may be outdated)
 	- acts as a proxy, forward query into hierarchy
 
-![[Pasted image 20241207033802.png]] 
+
 # References
