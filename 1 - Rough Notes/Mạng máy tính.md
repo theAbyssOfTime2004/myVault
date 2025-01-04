@@ -34,3 +34,7 @@
 - nslookup : The _nslookup_ command is a network administration tool used to query the Domain Name System (DNS) to obtain domain name or IP address mapping information
 - The **`nslookup -type=NS`** command is used to query the **Name Server (NS) records** of a domain. NS records specify the authoritative DNS servers for a domain, meaning the servers that are responsible for handling DNS queries for that domain.
 - ![[Pasted image 20250104153222.png]]
+- ![[Pasted image 20241207033802.png]]
+	- client (192.168.1.113) gửi dns query đến dns server (local - 192.168.1.1) hỏi rằng địa chỉ ip của server hvthao2.ddns.net là gì 
+	- sau đấy dns server (local - 192.168.1.1) trả lời (response) địa chỉ ip của server hvthao2.ddns.net là 14.161.12.235 
+	- sau đấy client gửi http request qua server hvthao2.ddns.net
