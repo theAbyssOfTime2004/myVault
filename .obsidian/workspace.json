@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "576e88a65749fd8f",
+        "id": "bc2cd16bad41a062",
         "type": "tabs",
         "children": [
           {
-            "id": "fa8e706b6ff288d2",
+            "id": "ee1a7dd1f4a66f34",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Chap2-summary.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Chap2-summary"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Chap2-summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +98,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Chap2-summary"
+              "title": "Backlinks"
             }
           },
           {
@@ -185,12 +179,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "276200ddcf2b0fe5",
+  "active": "ee1a7dd1f4a66f34",
   "lastOpenFiles": [
+    "6 - Main Notes/Chap2-summary.md",
     "2 - Source Material/Others/Pasted image 20250104140633.png",
     "2 - Source Material/Others/Pasted image 20250104140623.png",
     "6 - Main Notes/Socket Programming.md",
-    "6 - Main Notes/Chap2-summary.md",
     "2 - Source Material/Others/Pasted image 20250104140245.png",
     "2 - Source Material/Others/Pasted image 20250104135600.png",
     "2 - Source Material/Others/Pasted image 20250104134112.png",
@@ -210,7 +204,6 @@
     "3 - Tags/The Domain Name System DNS.md",
     "3 - Tags/Email, SMTP, IMAP.md",
     "6 - Main Notes/Email..md",
-    "2 - Source Material/Others/Pasted image 20250102155101.png",
     "5 - Templates/Main Note.md",
     "2 - Source Material/Books/Untitled.md",
     "6 - Main Notes/2024-12-14.md",
