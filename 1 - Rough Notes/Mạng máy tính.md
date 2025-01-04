@@ -31,4 +31,6 @@
 - 4861 = tổng tất cả các payload $!=$ tổng tất cả các gói tin
 - redirection = status code 301
 -  Can you tell whether your browser downloaded the two images serially, or whether they were downloaded from the two web sites in parallel? - *Parallel* 
-- 
+- nslookup : The _nslookup_ command is a network administration tool used to query the Domain Name System (DNS) to obtain domain name or IP address mapping information
+- The **`nslookup -type=NS`** command is used to query the **Name Server (NS) records** of a domain. NS records specify the authoritative DNS servers for a domain, meaning the servers that are responsible for handling DNS queries for that domain.
+- ![[Pasted image 20250104153222.png]]
