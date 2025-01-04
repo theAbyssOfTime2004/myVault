@@ -11,10 +11,15 @@
             "id": "ee1a7dd1f4a66f34",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "1 - Rough Notes/Mạng máy tính.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Mạng máy tính"
             }
           }
         ]
@@ -181,6 +186,8 @@
   },
   "active": "ee1a7dd1f4a66f34",
   "lastOpenFiles": [
+    "Pasted image 20250104145124.png",
+    "Pasted image 20250104145122.png",
     "6 - Main Notes/Chap2-summary.md",
     "2 - Source Material/Others/Pasted image 20250104140633.png",
     "2 - Source Material/Others/Pasted image 20250104140623.png",
@@ -195,7 +202,6 @@
     "2 - Source Material/Others/Pasted image 20250103183438.png",
     "2 - Source Material/Others/Pasted image 20250103183545.png",
     "2 - Source Material/Others/Pasted image 20250103190446.png",
-    "2 - Source Material/Others/Pasted image 20250103183608.png",
     "1 - Rough Notes/Mạng máy tính.md",
     "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/học sâu.md",
