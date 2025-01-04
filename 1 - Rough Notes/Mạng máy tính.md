@@ -26,3 +26,6 @@
 			- mitigating HOL blocking: objects devided into frames, frame transmission interleaved
 		- HTTP 3: adds security, per object error and congestion-control (more pipelining) over UDP
 - ![[Pasted image 20250103190446.png]]
+- payload = tải trọng = app + data 
+- ![[Pasted image 20250104145124.png]]
+- 4861 = tổng tất cả các payload $!=$ tổng tất cả các gói tin 
