@@ -28,4 +28,7 @@
 - ![[Pasted image 20250103190446.png]]
 - payload = tải trọng = app + data 
 - ![[Pasted image 20250104145124.png]]
-- 4861 = tổng tất cả các payload $!=$ tổng tất cả các gói tin 
+- 4861 = tổng tất cả các payload $!=$ tổng tất cả các gói tin
+- redirection = status code 301
+-  Can you tell whether your browser downloaded the two images serially, or whether they were downloaded from the two web sites in parallel? - *Parallel* 
+- 
