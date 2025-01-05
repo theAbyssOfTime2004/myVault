@@ -38,3 +38,12 @@
 	- client (192.168.1.113) gửi dns query đến dns server (local - 192.168.1.1) hỏi rằng địa chỉ ip của server hvthao2.ddns.net là gì 
 	- sau đấy dns server (local - 192.168.1.1) trả lời (response) địa chỉ ip của server hvthao2.ddns.net là 14.161.12.235 
 	- sau đấy client gửi http request qua server hvthao2.ddns.net
+
+
+| Layers    |
+| --------- |
+| APP       |
+| TRANSPORT |
+| NETWORK   |
+| LINK      |
+| PHYSIC    |
