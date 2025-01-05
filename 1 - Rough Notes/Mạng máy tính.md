@@ -40,10 +40,10 @@
 	- sau đấy client gửi http request qua server hvthao2.ddns.net
 
 
-| Layers    |
-| --------- |
-| APP       |
-| TRANSPORT |
-| NETWORK   |
-| LINK      |
-| PHYSIC    |
+| Layers    |          |
+| --------- | -------- |
+| APP       | http dns |
+| TRANSPORT | tcp udp  |
+| NETWORK   | ip icmp  |
+| LINK      |          |
+| PHYSIC    |          |
