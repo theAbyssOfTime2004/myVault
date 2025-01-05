@@ -45,5 +45,5 @@
 | APP       | http dns |
 | TRANSPORT | tcp udp  |
 | NETWORK   | ip icmp  |
-| LINK      |          |
+| LINK      | ethernet |
 | PHYSIC    |          |
