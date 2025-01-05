@@ -47,3 +47,6 @@
 | NETWORK   | ip icmp  |
 | LINK      | ethernet |
 | PHYSIC    |          |
+
+- max size of udp payload = $2^{16} - 1 -8$ = $2^{16} - 9$ (B) which is nearly 64KB
+- 
