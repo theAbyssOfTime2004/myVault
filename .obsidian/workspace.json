@@ -11,15 +11,10 @@
             "id": "c33f86e93f4c359d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Socket Programming.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Socket Programming"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -186,6 +181,7 @@
   },
   "active": "c33f86e93f4c359d",
   "lastOpenFiles": [
+    "6 - Main Notes/Socket Programming.md",
     "3 - Tags/computer networking.md",
     "6 - Main Notes/Chap2-summary.md",
     "6 - Main Notes/video streaming and CDNs.md",
@@ -205,7 +201,6 @@
     "Pasted image 20250104145122.png",
     "2 - Source Material/Others/Pasted image 20250104140633.png",
     "2 - Source Material/Others/Pasted image 20250104140623.png",
-    "6 - Main Notes/Socket Programming.md",
     "2 - Source Material/Others/Pasted image 20250104140245.png",
     "2 - Source Material/Others/Pasted image 20250104135600.png",
     "2 - Source Material/Others/Pasted image 20250104134112.png",
