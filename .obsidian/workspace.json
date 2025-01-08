@@ -11,12 +11,16 @@
             "id": "c33f86e93f4c359d",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "kanban",
               "state": {
-                "file": "Pasted image 20250104145122.png"
+                "file": "6 - Main Notes/Untitled Kanban.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": []
+                }
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250104145122"
+              "icon": "lucide-trello",
+              "title": "Untitled Kanban"
             }
           }
         ]
@@ -158,16 +162,16 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,8 +186,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "276200ddcf2b0fe5",
+  "active": "c33f86e93f4c359d",
   "lastOpenFiles": [
+    "2 - Source Material/Others/Pasted image 20250104145122.png",
+    "6 - Main Notes/Untitled Kanban.md",
     "6 - Main Notes/Socket Programming.md",
     "3 - Tags/computer networking.md",
     "6 - Main Notes/Chap2-summary.md",
@@ -199,9 +205,8 @@
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "3 - Tags/The Domain Name System DNS.md",
     "1 - Rough Notes/Untitled.md",
-    "Pasted image 20250104153222.png",
-    "Pasted image 20250104145124.png",
-    "Pasted image 20250104145122.png",
+    "2 - Source Material/Others/Pasted image 20250104153222.png",
+    "2 - Source Material/Others/Pasted image 20250104145124.png",
     "2 - Source Material/Others/Pasted image 20250104140633.png",
     "2 - Source Material/Others/Pasted image 20250104140623.png",
     "2 - Source Material/Others/Pasted image 20250104140245.png",
@@ -218,8 +223,6 @@
     "6 - Main Notes/Email..md",
     "5 - Templates/Main Note.md",
     "2 - Source Material/Books/Untitled.md",
-    "6 - Main Notes/2024-12-14.md",
-    "6 - Main Notes/BitTorrent.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
