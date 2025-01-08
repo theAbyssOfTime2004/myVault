@@ -11,10 +11,12 @@
             "id": "c33f86e93f4c359d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20250104145122.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20250104145122"
             }
           }
         ]
@@ -156,8 +158,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
@@ -176,10 +178,11 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "smart-random-note:Open Random Note from Search": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "c33f86e93f4c359d",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
     "6 - Main Notes/Socket Programming.md",
     "3 - Tags/computer networking.md",
