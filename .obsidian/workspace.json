@@ -11,10 +11,15 @@
             "id": "194013d80472c46a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/video streaming and CDNs.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "video streaming and CDNs"
             }
           }
         ]
@@ -183,17 +188,17 @@
   "active": "194013d80472c46a",
   "lastOpenFiles": [
     "6 - Main Notes/Untitled Kanban.md",
+    "6 - Main Notes/video streaming and CDNs.md",
+    "6 - Main Notes/Tensor.md",
+    "6 - Main Notes/The RFC.md",
     "4 - Indexes",
     "conflict-files-obsidian-git.md",
     "2 - Source Material/Others/Pasted image 20250104145122.png",
     "6 - Main Notes/Socket Programming.md",
     "3 - Tags/computer networking.md",
     "6 - Main Notes/Chap2-summary.md",
-    "6 - Main Notes/video streaming and CDNs.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/SVM Classification Model.md",
-    "6 - Main Notes/The RFC.md",
-    "6 - Main Notes/Tensor.md",
     "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/LangChain.md",
