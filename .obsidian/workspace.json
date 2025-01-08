@@ -4,23 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e27229051e5a32c8",
+        "id": "186b98ccf7e3f694",
         "type": "tabs",
         "children": [
           {
-            "id": "c33f86e93f4c359d",
+            "id": "194013d80472c46a",
             "type": "leaf",
             "state": {
-              "type": "kanban",
-              "state": {
-                "file": "6 - Main Notes/Untitled Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": []
-                }
-              },
-              "icon": "lucide-trello",
-              "title": "Untitled Kanban"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -186,9 +180,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "fa18f94b19c7c994",
+  "active": "194013d80472c46a",
   "lastOpenFiles": [
     "6 - Main Notes/Untitled Kanban.md",
+    "4 - Indexes",
     "conflict-files-obsidian-git.md",
     "2 - Source Material/Others/Pasted image 20250104145122.png",
     "6 - Main Notes/Socket Programming.md",
@@ -223,7 +218,6 @@
     "3 - Tags/Email, SMTP, IMAP.md",
     "6 - Main Notes/Email..md",
     "5 - Templates/Main Note.md",
-    "2 - Source Material/Books/Untitled.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
@@ -233,7 +227,6 @@
     "vault-repo",
     "Chats",
     "BMO/Profiles",
-    "BMO",
-    "2 - Source Material/Others"
+    "BMO"
   ]
 }
