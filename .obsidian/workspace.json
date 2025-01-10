@@ -11,10 +11,15 @@
             "id": "c33f86e93f4c359d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "1 - Rough Notes/Mạng máy tính.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mạng máy tính"
             }
           }
         ]
@@ -181,6 +186,7 @@
   },
   "active": "c33f86e93f4c359d",
   "lastOpenFiles": [
+    "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Socket Programming.md",
     "3 - Tags/computer networking.md",
     "6 - Main Notes/Chap2-summary.md",
@@ -195,7 +201,6 @@
     "1 - Rough Notes/Mạng máy tính.md",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "3 - Tags/The Domain Name System DNS.md",
-    "1 - Rough Notes/Untitled.md",
     "Pasted image 20250104153222.png",
     "Pasted image 20250104145124.png",
     "Pasted image 20250104145122.png",
