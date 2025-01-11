@@ -14,10 +14,8 @@ for some [probability distributions](https://statproofbook.github.io/D/dist) P
 **Proof:** Let X∈X={0,1,2}X∈X={0,1,2} be a discrete [random variable](https://statproofbook.github.io/D/rvar) and consider the two [probability distributions](https://statproofbook.github.io/D/dist)
 
 $$
-\begin{aligned}
 P:X∼Bin(2,0.5) \\
-\ Q:X∼U(0,2)(2)(2)\quad \tag{2}
-\end{aligned}
+Q:X∼U(0,2)(2)(2)\quad \tag{2}
 $$
 
 where Bin(n,p)Bin(n,p) indicates a [binomial distribution](https://statproofbook.github.io/D/bin) and U(a,b)U(a,b) indicates a [discrete uniform distribution](https://statproofbook.github.io/D/duni).
@@ -48,7 +46,7 @@ $$KL[Q||P]=∑x∈Xq(x)⋅logq(x)p(x)=13log43+13log23+13log43=13(log43+log23+log
 
 which provides an example for
 
-KL[P||Q]≠KL[Q||P](7)(7)KL[P||Q]≠KL[Q||P]
+$$ KL[P||Q]≠KL[Q||P](7)(7)KL[P||Q]≠KL[Q||P] $$
 
 and thus proves the theorem.
 
