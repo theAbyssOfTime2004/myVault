@@ -11,10 +11,15 @@
             "id": "194013d80472c46a",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Non-symmetry of the Kullback-Leibler divergence"
             }
           }
         ]
@@ -180,6 +185,7 @@
   },
   "active": "194013d80472c46a",
   "lastOpenFiles": [
+    "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "6 - Main Notes/video streaming and CDNs.md",
     "6 - Main Notes/Untitled Kanban.md",
     "6 - Main Notes/Tensor.md",
