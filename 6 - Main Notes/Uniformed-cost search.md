@@ -1,7 +1,7 @@
 2025-01-13 00:02
 
 
-Tags:[[Basic Search Algorithms in Artificial Intelligence]], [[beginner]], [[search algorithm]]
+Tags:[[Basic Search Algorithms in Artificial Intelligence]], [[beginner]], [[search algorithm]], [[uninformed search]]
 
 # Uniformed-cost search
 #### Ý tưởng: 

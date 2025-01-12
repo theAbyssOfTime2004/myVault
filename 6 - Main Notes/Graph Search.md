@@ -1,7 +1,7 @@
 2025-01-13 01:23
 
 
-Tags: [[Basic Search Algorithms in Artificial Intelligence]], [[search algorithm]], [[beginner]]
+Tags: [[Basic Search Algorithms in Artificial Intelligence]], [[search algorithm]], [[beginner]], [[uninformed search]]
 
 # Graph Search
 #### Ý tưởng:
