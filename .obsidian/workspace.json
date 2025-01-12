@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Local Search Algorithm.md",
+                "file": "6 - Main Notes/Về các thuật toán tìm kiếm.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Local Search Algorithm"
+              "title": "Về các thuật toán tìm kiếm"
             }
           },
           {
@@ -218,22 +218,23 @@
   },
   "active": "4c5cd3d3f68d2c90",
   "lastOpenFiles": [
+    "6 - Main Notes/Generic Algorithm.md",
+    "6 - Main Notes/Về các thuật toán tìm kiếm.md",
+    "Pasted image 20250113023350.png",
+    "Pasted image 20250113023318.png",
+    "Pasted image 20250113023010.png",
+    "Pasted image 20250113022951.png",
+    "Pasted image 20250113022943.png",
+    "6 - Main Notes/Local Search Algorithm.md",
     "Pasted image 20250113021406.png",
     "Pasted image 20250113021220.png",
     "6 - Main Notes/A-star search.md",
     "Pasted image 20250113020520.png",
     "Pasted image 20250113020232.png",
     "Pasted image 20250113020216.png",
-    "Pasted image 20250113020048.png",
-    "Pasted image 20250113015929.png",
-    "Pasted image 20250113015441.png",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "6 - Main Notes/Iterative-deepening search.md",
-    "Pasted image 20250113014432.png",
-    "Pasted image 20250113014421.png",
-    "Pasted image 20250113014407.png",
     "6 - Main Notes/Best-first search.md",
-    "6 - Main Notes/Local Search Algorithm.md",
     "3 - Tags/informed search.md",
     "6 - Main Notes/Uniformed-cost search.md",
     "6 - Main Notes/Bread-first search.md",
@@ -254,7 +255,6 @@
     "4 - Indexes",
     "conflict-files-obsidian-git.md",
     "6 - Main Notes/Socket Programming.md",
-    "3 - Tags/computer networking.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
