@@ -53,7 +53,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -216,8 +216,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "013e66e8a3133807",
+  "active": "4c5cd3d3f68d2c90",
   "lastOpenFiles": [
+    "Pasted image 20250113015441.png",
+    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "6 - Main Notes/Iterative-deepening search.md",
     "6 - Main Notes/A-star search.md",
     "Pasted image 20250113014432.png",
@@ -227,7 +229,6 @@
     "Pasted image 20250113014353.png",
     "Pasted image 20250113014346.png",
     "6 - Main Notes/Best-first search.md",
-    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "Pasted image 20250113013941.png",
     "Pasted image 20250113013934.png",
     "Pasted image 20250113013927.png",
