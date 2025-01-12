@@ -32,5 +32,10 @@ Tags: [[informed search]], [[Basic Search Algorithms in Artificial Intelligence]
 	    - Nếu **ước lượng là 12**, nó **quá cao (overestimate)** → không còn chấp nhận được.
 #### Tính tối ưu của A* - chứng minh
 ![[Pasted image 20250113015441.png]]
-
+![[Pasted image 20250113015929.png]]
+![[Pasted image 20250113020048.png]]
+#### Ước lượng ưu thế:
+![[Pasted image 20250113020216.png]]
+#### Ước lượng kiên định:
+![[Pasted image 20250113020232.png]]
 # References
