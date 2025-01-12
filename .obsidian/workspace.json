@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Depth-Limited Search.md",
+                "file": "6 - Main Notes/Iterative-deepening search.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Depth-Limited Search"
+              "title": "Iterative-deepening search"
             }
           },
           {
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Bread-first search.md",
+                "file": "6 - Main Notes/Iterative-deepening search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Bread-first search"
+              "title": "Backlinks for Iterative-deepening search"
             }
           },
           {
@@ -218,10 +218,15 @@
   },
   "active": "4c5cd3d3f68d2c90",
   "lastOpenFiles": [
+    "Pasted image 20250113005314.png",
+    "Pasted image 20250113005308.png",
+    "Pasted image 20250113005253.png",
+    "6 - Main Notes/Depth-Limited Search.md",
+    "6 - Main Notes/Iterative-deepening search.md",
+    "6 - Main Notes/Fuzzy Logic.md",
     "Pasted image 20250113001614.png",
     "Pasted image 20250113001552.png",
     "6 - Main Notes/Depth-first search.md",
-    "6 - Main Notes/Depth-Limited Search.md",
     "Pasted image 20250113001304.png",
     "Pasted image 20250113001254.png",
     "Pasted image 20250113001247.png",
@@ -229,11 +234,8 @@
     "Pasted image 20250113001235.png",
     "Pasted image 20250113001155.png",
     "6 - Main Notes/Uniformed-cost search.md",
-    "Pasted image 20250113000444.png",
     "6 - Main Notes/Bread-first search.md",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
-    "Pasted image 20250113000028.png",
-    "Pasted image 20250113000018.png",
     "3 - Tags/search algorithm.md",
     "6 - Main Notes/Local Search Algorithm.md",
     "6 - Main Notes/Logistic Regression.md",
@@ -253,8 +255,6 @@
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/LangChain.md",
-    "1 - Rough Notes/Mạng máy tính.md",
-    "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
