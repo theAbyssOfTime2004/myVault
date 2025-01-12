@@ -21,8 +21,24 @@
               "icon": "lucide-file",
               "title": "Non-symmetry of the Kullback-Leibler divergence"
             }
+          },
+          {
+            "id": "4c5cd3d3f68d2c90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Bread-first search.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bread-first search"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,7 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 246.5
+    "width": 200
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -94,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "6 - Main Notes/Bread-first search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +120,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Bread-first search"
             }
           },
           {
@@ -163,12 +180,12 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 289.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,10 +200,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "194013d80472c46a",
+  "active": "4c5cd3d3f68d2c90",
   "lastOpenFiles": [
-    "3 - Tags/information theory.md",
+    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
+    "6 - Main Notes/Bread-first search.md",
+    "3 - Tags/search algorithm.md",
+    "6 - Main Notes/Local Search Algorithm.md",
+    "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
+    "3 - Tags/information theory.md",
     "3 - Tags/statistical.md",
     "6 - Main Notes/video streaming and CDNs.md",
     "6 - Main Notes/Untitled Kanban.md",
@@ -200,7 +222,6 @@
     "6 - Main Notes/Chap2-summary.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/SVM Classification Model.md",
-    "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/LangChain.md",
     "1 - Rough Notes/Mạng máy tính.md",
@@ -216,12 +237,8 @@
     "2 - Source Material/Others/Pasted image 20250104134112.png",
     "3 - Tags/socket programming with UDP and TCP.md",
     "3 - Tags/video streaming and content distribution networks.md",
-    "6 - Main Notes/Content distribution networks (CDNs).md",
     "2 - Source Material/Others/Pasted image 20250103183426.png",
     "2 - Source Material/Others/Pasted image 20250103183438.png",
-    "6 - Main Notes/học sâu.md",
-    "3 - Tags/Web and HTTP.md",
-    "3 - Tags/Email, SMTP, IMAP.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
