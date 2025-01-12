@@ -1,7 +1,7 @@
 2025-01-13 00:14
 
 
-Tags: [[Basic Search Algorithms in Artificial Intelligence]], [[beginner]]
+Tags: [[Basic Search Algorithms in Artificial Intelligence]], [[beginner]], [[search algorithm]]
 
 # Depth-Limited Search
 #### Ý tưởng:
