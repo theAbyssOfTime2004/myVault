@@ -6,6 +6,15 @@ Tags: [[beginner]], [[search algorithm]]
 
 # Local Search Algorithm
 
+## Idea:
+- In many optimization problems, the path to reach the solution is not important - what matters is the final state (goal)
+	- Goal = The solution to the problem
+- State space = Set of all "complete" configurations
+- Objective: Find a configuration that satisfies the constraints
+    - Example: n-queens problem (placing n queens on an n×n chessboard so that no queens can attack each other)
+- In such problems, we can use local search algorithms
+- At each moment, only one "current" state is stored - Goal: try to "improve" the current state (configuration) according to some predetermined criteria
+
 ### Hill Climbing: Steepest-Ascent Variant
 
 - **Strategy**: Always move to neighbor with highest value
