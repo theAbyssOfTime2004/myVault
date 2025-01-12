@@ -1,7 +1,7 @@
 2025-01-12 23:14
 
 
-Tags: [[search algorithm]], [[beginner]]
+Tags: [[search algorithm]], [[beginner]], [[search algorithm]]
 # Bread-first search
 #### Ý tưởng:
 - Phát triển các nút chưa xét theo chiều rộng - Các nút được xét theo thứ tự độ sâu tăng dần

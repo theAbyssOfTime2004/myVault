@@ -75,14 +75,14 @@ Tags: [[beginner]], [[search algorithm]]
 
 | Algorithm | Completeness | Optimality       | Time Complexity         | Space Complexity        |
 | --------- | ------------ | ---------------- | ----------------------- | ----------------------- |
-| BFS       | Yes          | Yes (unweighted) | $O(b^d)$                | $O(b^d)$                |
+| BFS       | Yes          | Yes (unweighted) | $O(b^{d+1})$            | $O(b^{d+1})$            |
 | DFS       | No           | No               | $O(b^m)$                | $O(bm)$                 |
 | UCS       | Yes          | Yes              | $O(b^{C*/\varepsilon})$ | $O(b^{C*/\varepsilon})$ |
 | GBFS      | No           | No               | $O(b^m)$                | $O(b^m)$                |
 | Dijkstra  | Yes          | Yes              | $O(V^2)$                | $O(V)$                  |
 | A*        | Yes          | Yes              | $O(b^d)$                | $O(b^d)$                |
 |           |              |                  |                         |                         |
-
+![[Pasted image 20250113011938.png]]
 ## Key Considerations
 
 - Choose algorithm based on:

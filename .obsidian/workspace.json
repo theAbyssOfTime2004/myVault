@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Iterative-deepening search.md",
+                "file": "6 - Main Notes/Graph Search.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Iterative-deepening search"
+              "title": "Graph Search"
             }
           },
           {
@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Bread-first search.md",
+                "file": "6 - Main Notes/Iterative-deepening search.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bread-first search"
+              "title": "Iterative-deepening search"
             }
           }
         ],
@@ -218,24 +218,25 @@
   },
   "active": "4c5cd3d3f68d2c90",
   "lastOpenFiles": [
+    "Pasted image 20250113012621.png",
+    "Pasted image 20250113012549.png",
+    "6 - Main Notes/Iterative-deepening search.md",
+    "6 - Main Notes/Uniformed-cost search.md",
+    "6 - Main Notes/Depth-Limited Search.md",
+    "6 - Main Notes/Depth-first search.md",
+    "6 - Main Notes/Bread-first search.md",
+    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
+    "6 - Main Notes/Graph Search.md",
+    "Pasted image 20250113011938.png",
+    "Pasted image 20250113011916.png",
+    "Pasted image 20250113011859.png",
     "Pasted image 20250113005558.png",
     "Pasted image 20250113005538.png",
     "Pasted image 20250113005529.png",
     "Pasted image 20250113005314.png",
     "Pasted image 20250113005308.png",
     "Pasted image 20250113005253.png",
-    "6 - Main Notes/Depth-Limited Search.md",
-    "6 - Main Notes/Iterative-deepening search.md",
     "6 - Main Notes/Fuzzy Logic.md",
-    "Pasted image 20250113001614.png",
-    "Pasted image 20250113001552.png",
-    "6 - Main Notes/Depth-first search.md",
-    "Pasted image 20250113001304.png",
-    "Pasted image 20250113001254.png",
-    "Pasted image 20250113001247.png",
-    "6 - Main Notes/Uniformed-cost search.md",
-    "6 - Main Notes/Bread-first search.md",
-    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "3 - Tags/search algorithm.md",
     "6 - Main Notes/Local Search Algorithm.md",
     "6 - Main Notes/Logistic Regression.md",
@@ -254,7 +255,6 @@
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Mangas that i saved for future.md",
-    "6 - Main Notes/LangChain.md",
     "4 - indexes",
     "HTTP",
     "Untitled.canvas",
