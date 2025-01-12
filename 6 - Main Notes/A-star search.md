@@ -38,4 +38,7 @@ Tags: [[informed search]], [[Basic Search Algorithms in Artificial Intelligence]
 ![[Pasted image 20250113020216.png]]
 #### Ước lượng kiên định:
 ![[Pasted image 20250113020232.png]]
+#### A* vs UCS
+![[Pasted image 20250113020520.png]]
+
 # References
