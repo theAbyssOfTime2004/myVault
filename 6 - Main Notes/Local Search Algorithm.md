@@ -86,6 +86,57 @@ Tags: [[beginner]], [[search algorithm]]
     - Requires careful parameter tuning
 ![[Pasted image 20250113021406.png]]
 
+### Local Beam Search:
+- **Strategy**: State-space search technique using multiple parallel searches
+- **Inspiration**: Combining hill climbing with parallel processing
+- **Key Characteristics**
+    - Maintains k states instead of just one
+    - States interact/compete with each other
+    - Combines exploration and exploitation
+- **Procedure**
+    1. Start with k random states
+    2. Generate all successors of k states
+    3. Select k best successors from combined pool
+    4. Repeat until goal or convergence
+- **Parameters**
+    - k (number of parallel states)
+    - Successor function
+    - Selection criteria
+- **Pros**
+    - Less likely to get stuck in local optima
+    - Can explore multiple promising paths
+- **Cons**
+    - Memory intensive (stores k states)
+    - May converge prematurely to similar states
+    - Requires balancing k value (trade-off between diversity and efficiency)
+    - More complex implementation than single-state search
+
+### Stochastic Search:
+- **Strategy**: Random-based search technique for optimization problems
+- **Inspiration**: Natural random processes and probabilistic exploration
+- **Key Characteristics**
+    - Uses randomization in search process
+    - No memory of previous states
+    - Non-deterministic behavior
+- **Procedure**
+    1. Start at a random state
+    2. Generate random successor
+    3. Accept/reject based on criteria
+    4. Continue until stopping condition
+- **Parameters**
+    - Random state generator
+    - Acceptance criteria
+    - Stopping conditions
+- **Pros**
+    - Simple to implement
+    - Low memory requirements
+    - Can escape local optima
+    - Good for large search spaces
+- **Cons**
+    - No guarantee of optimality
+    - May revisit states multiple times
+    - Convergence can be slow
+    - Performance varies between runs
 ## Comparative Analysis
 
 | Algorithm                     | Completeness | Optimality    | Exploration Capability | Memory Usage |
