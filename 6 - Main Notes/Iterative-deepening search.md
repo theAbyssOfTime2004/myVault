@@ -15,7 +15,10 @@ Tags: [[Basic Search Algorithms in Artificial Intelligence]], [[beginner]],
 		1. tìm dc lời giải
 		2. toàn bộ cây đã xét mà ko tìm dc lời giải
 #### Giải thuật:
-![[Pasted image 20250113005253.png]]
+![[Pasted image 20250113005558.png]]
 ![[Pasted image 20250113005308.png]]
 ![[Pasted image 20250113005314.png]]
+![[Pasted image 20250113005529.png]]
+![[Pasted image 20250113005538.png]]
+
 # References
