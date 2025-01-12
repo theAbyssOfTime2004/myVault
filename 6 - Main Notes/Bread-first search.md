@@ -14,4 +14,15 @@ Tags: [[search algorithm]], [[beginner]]
 - $n_{0}$ : state đầu của bài toán hay là nút gốc của cây
 - GOAL: trạng thái đích
 - $\gamma(n)$ : tập các node con của node đang xét n
-- 
+![[Pasted image 20250112235959.png]]
+![[Pasted image 20250113000007.png]]
+![[Pasted image 20250113000013.png]]
+![[Pasted image 20250113000018.png]]
+![[Pasted image 20250113000028.png]]
+
+### BFS - Các đặc điểm 
+- completeness
+- time complexity
+- space complexity
+- optimal?
+=> xem cụ thể hơn ở [[Basic Search Algorithms in Artificial Intelligence]]
