@@ -33,6 +33,7 @@ Tags: [[beginner]], [[search algorithm]]
 - **Cons**
     - Can get trapped in local maxima
     - No backtracking mechanism
+![[Pasted image 20250113021220.png]]
 
 ### Hill Climbing: First-Choice Variant
 
@@ -83,6 +84,7 @@ Tags: [[beginner]], [[search algorithm]]
     - Converges to global optimum
 - **Cons**
     - Requires careful parameter tuning
+![[Pasted image 20250113021406.png]]
 
 ## Comparative Analysis
 
