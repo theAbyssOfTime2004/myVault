@@ -22,7 +22,7 @@ $$ \mu_A(x): X \to [0, 1] $$
 
 where: - $X$ is the universe of discourse. - $\mu_A(x)$ is the degree of membership of element $x$ in fuzzy set $A$. 
 -  Types of Membership Functions:
-	-  Triangular Membership Function $$ \mu_A(x) = \begin{cases} 0 & x \leq a \, \text{or} \, x \geq c \\ \frac{x - a}{b - a} & a < x \leq b \\ \frac{c - x}{c - b} & b < x < c \end{cases} $$ - Parameters: $a$, $b$, and $c$ define the shape.
+	-  Triangular Membership Function $$ \mu_A(x) = \begin{cases} 0 & x \leq a \, \text {or} \, x \geq c \\ \frac{x - a}{b - a} & a < x \leq b \\ \frac{c - x}{c - b} & b < x < c \end{cases} $$ - Parameters: $a$, $b$, and $c$ define the shape.
 ## Linguistic variables and hedges
 - Linguistic variables are variables with a value made up of linguistic concepts (also known as linguistic words) rather than numbers, such as child, young, and so on.
 - Linguistic hedges can be used to modify linguistic variables, which is an important feature. Linguistic hedges are primarily employed to aid in the more precise communication of the degree of correctness and truth in a particular statement.    
