@@ -94,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "6 - Main Notes/Fuzzy Logic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Fuzzy Logic"
             }
           },
           {
@@ -169,8 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,7 +185,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c33f86e93f4c359d",
+  "active": "4b39b69994295a3c",
   "lastOpenFiles": [
     "3 - Tags/supervised learning.md",
     "3 - Tags/statistical.md",
