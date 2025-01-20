@@ -7,5 +7,6 @@ Tags: [[Mangas]]
 
 - MAD 
 - OUT
+- AFTER GOD
 
 # References
