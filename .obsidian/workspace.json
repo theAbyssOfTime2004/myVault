@@ -23,13 +23,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Neural Network.md",
+                "file": "6 - Main Notes/Movies that i should watch.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Neural Network"
+              "title": "Movies that i should watch"
             }
           }
         ],
@@ -197,6 +197,8 @@
   },
   "active": "013e66e8a3133807",
   "lastOpenFiles": [
+    "6 - Main Notes/Neural Network.md",
+    "6 - Main Notes/Movies that i should watch.md",
     "6 - Main Notes/P2P architecture.md",
     "6 - Main Notes/Fuzzy Logic.md",
     "6 - Main Notes/Email..md",
@@ -215,7 +217,6 @@
     "2 - Source Material/Others/Pasted image 20250113005314.png",
     "2 - Source Material/Others/Pasted image 20250113005529.png",
     "2 - Source Material/Others/Pasted image 20250113005538.png",
-    "6 - Main Notes/Neural Network.md",
     "6 - Main Notes/Decision Tree.md",
     "5 - Templates/Main Note.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
@@ -232,7 +233,6 @@
     "6 - Main Notes/Depth-Limited Search.md",
     "6 - Main Notes/Depth-first search.md",
     "3 - Tags/uninformed search.md",
-    "6 - Main Notes/Graph Search.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
