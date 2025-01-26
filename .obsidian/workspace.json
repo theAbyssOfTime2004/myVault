@@ -180,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 632.5
+    "width": 508.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,7 +195,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "013e66e8a3133807",
+  "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
     "6 - Main Notes/Neural Network.md",
     "6 - Main Notes/Movies that i should watch.md",
