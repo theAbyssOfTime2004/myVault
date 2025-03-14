@@ -20,4 +20,9 @@ khi ta scaling các basis vector này bằng các scalars (ví dụ ở đây l�
 - Nếu vector thứ 3 của ta nằm trong span của vector thứ 1 và 2 thì span sẽ không thay đổi và cũng vẫn chỉ là mặt phẳng như trường hợp 2 vector 
 - Nếu vector thứ 3 đó không nằm trong span của 2 vector 1 và 2 nghĩa là ta có thể tự do di chuyển span của 2 vector thứ 1 và 2 trên phương của vector thứ 3, quét nó qua toàn bộ không gian
 - Khi ta nói rằng 2 vector thẳng hàng (đầu và đuôi chúng cùng điểm vs nhau) hay vector thứ 3 nằm trong span của vector 1 và 2 thì nghĩa là các vector này dư thừa và chúng không thêm gì vào span của chúng ta cả (nghĩa là không có thông tin gì mới được sinh ra từ các vectors này)  ta gọi chúng là phụ thuộc tuyến tính
+- Phép nhân ma trận là các phép biến đổi tuyến tính - linear transformations (dilations, shears, rotations, reflections and projections) và ta có thể hình dung chúng 1 cách dễ dàng thông qua gridlines 
+- các phép biến đổi tuyến tính có thể hiểu như các function biến đổi 1 vector thành 1 vector khác
+- ![[Pasted image 20250315000850.png]]
+- Ở đây các vector [1,2] và [3,1] ban đầu đã được biến đổi thông qua phép biến đổi tuyến tính và ta có thể tìm được vector output thông qua phép nhân ma trận trong hình
+- Các phép nhân ma trận phải được thực hiện theo đúng thứ tự ví dụ $M_{1}M_{2}$ != $M_{2}M_{1}$ bởi vì thay đổi trật tự của phép biến đổi tuyến tính sẽ dẫn đến kết quả có thể khác nhau
 # References
