@@ -25,4 +25,6 @@ khi ta scaling các basis vector này bằng các scalars (ví dụ ở đây l�
 - ![[Pasted image 20250315000850.png]]
 - Ở đây các vector [1,2] và [3,1] ban đầu đã được biến đổi thông qua phép biến đổi tuyến tính và ta có thể tìm được vector output thông qua phép nhân ma trận trong hình
 - Các phép nhân ma trận phải được thực hiện theo đúng thứ tự ví dụ $M_{1}M_{2}$ != $M_{2}M_{1}$ bởi vì thay đổi trật tự của phép biến đổi tuyến tính sẽ dẫn đến kết quả có thể khác nhau
+- 
+- ![[Pasted image 20250315001939.png]]
 # References
