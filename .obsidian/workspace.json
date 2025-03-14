@@ -46,9 +46,21 @@
               "icon": "lucide-file",
               "title": "Linear Algebra Review"
             }
+          },
+          {
+            "id": "ebcf7f0a978fe782",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.9"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.9"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -211,8 +223,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "09f7ef4935597053",
+  "active": "ebcf7f0a978fe782",
   "lastOpenFiles": [
+    "Pasted image 20250314210906.png",
+    "Pasted image 20250314210517.png",
+    "Pasted image 20250314205747.png",
     "Pasted image 20250314205506.png",
     "Pasted image 20250314205442.png",
     "Pasted image 20250314205346.png",
@@ -234,9 +249,6 @@
     "2 - Source Material/Others/Pasted image 20250113001254.png",
     "2 - Source Material/Others/Pasted image 20250113001552.png",
     "2 - Source Material/Others/Pasted image 20250113001304.png",
-    "2 - Source Material/Others/Pasted image 20250113005253.png",
-    "2 - Source Material/Others/Pasted image 20250113005308.png",
-    "2 - Source Material/Others/Pasted image 20250113005314.png",
     "6 - Main Notes/Decision Tree.md",
     "5 - Templates/Main Note.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
