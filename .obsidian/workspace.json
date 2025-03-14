@@ -51,12 +51,15 @@
             "id": "ebcf7f0a978fe782",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.9"
+                "file": "6 - Main Notes/Linear Algebra Review.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.9"
+              "icon": "lucide-file",
+              "title": "Linear Algebra Review"
             }
           }
         ],
