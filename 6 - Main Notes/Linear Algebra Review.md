@@ -19,5 +19,5 @@ khi ta scaling các basis vector này bằng các scalars (ví dụ ở đây l�
 ![[Pasted image 20250314210906.png]]
 - Nếu vector thứ 3 của ta nằm trong span của vector thứ 1 và 2 thì span sẽ không thay đổi và cũng vẫn chỉ là mặt phẳng như trường hợp 2 vector 
 - Nếu vector thứ 3 đó không nằm trong span của 2 vector 1 và 2 nghĩa là ta có thể tự do di chuyển span của 2 vector thứ 1 và 2 trên phương của vector thứ 3, quét nó qua toàn bộ không gian
-- Khi ta nói rằng 2 vector thẳng hàng (đầu và đuôi chúng cùng điểm vs nhau) hay vector thứ 3 nằm trong span của vector 1 và 2 thì nghĩa là các vector này dư thừa và chúng không thêm gì vào span của chúng ta cả (nghĩa là không có thông tin gì mới được sinh ra từ các vectors này) 
+- Khi ta nói rằng 2 vector thẳng hàng (đầu và đuôi chúng cùng điểm vs nhau) hay vector thứ 3 nằm trong span của vector 1 và 2 thì nghĩa là các vector này dư thừa và chúng không thêm gì vào span của chúng ta cả (nghĩa là không có thông tin gì mới được sinh ra từ các vectors này)  ta gọi chúng là phụ thuộc tuyến tính
 # References
