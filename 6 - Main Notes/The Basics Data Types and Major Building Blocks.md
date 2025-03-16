@@ -38,5 +38,8 @@ Tags: [[data mining]]
 	- Network and Graph Data
 ### Major Building Blocks
 - Khai phá mẫu liên hệ (*Association Pattern Mining*)
-	- 
+- Gom cụm dữ liệu (*Data Clustering*)
+- Phát hiện ngoại lai (*Outlier Detection*)
+- Phân loại dữ liệu (*Data classification*)
+![[Pasted image 20250316105511.png]]
 # References
