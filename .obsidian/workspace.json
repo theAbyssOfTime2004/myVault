@@ -4,17 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "65f90e56e77e7b25",
+        "id": "e47ba92c5c73bbee",
         "type": "tabs",
         "children": [
           {
-            "id": "e78ca1d5116084c5",
+            "id": "cb2a96bbdb0378f8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "canvas",
+              "state": {
+                "file": "Untitled 1.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": -101.87640074403383,
+                  "zoom": 0
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled 1"
             }
           }
         ]
@@ -180,33 +187,36 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "e78ca1d5116084c5",
+  "active": "cb2a96bbdb0378f8",
   "lastOpenFiles": [
-    "6 - Main Notes/Neural Network.md",
-    "6 - Main Notes/Faster R-CNN.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
     "Pasted image 20250317230809.png",
     "Pasted image 20250317230226.png",
+    "Pasted image 20250316112220.png",
+    "Pasted image 20250316111150.png",
+    "Pasted image 20250315014638.png",
+    "Pasted image 20250315013105.png",
+    "Pasted image 20250315005659.png",
+    "Pasted image 20250315004901.png",
+    "Pasted image 20250315005105.png",
+    "6 - Main Notes/Tensor.md",
+    "6 - Main Notes/Neural Network.md",
+    "6 - Main Notes/Faster R-CNN.md",
     "README.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "1 - Rough Notes/Untitled 1.md",
     "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Scalability Issues And The Streaming Scenario.md",
-    "Pasted image 20250316112220.png",
     "Pasted image 20250316111526.png",
-    "Pasted image 20250316111150.png",
-    "Pasted image 20250316111133.png",
     "6 - Main Notes/The Basics Data Types and Major Building Blocks.md",
-    "Pasted image 20250316105511.png",
-    "Pasted image 20250315225022.png",
     "6 - Main Notes/Movies that i should watch.md",
     "6 - Main Notes/Introduction to Data Mining.md",
-    "Pasted image 20250315223455.png",
     "6 - Main Notes/Docker.md",
     "3 - Tags/data mining.md",
     "6 - Main Notes/Caching, Updating DNS Records.md",
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Algebra Review.md",
-    "Pasted image 20250315014638.png",
     "6 - Main Notes/Chap2-summary.md",
     "3 - Tags/P2P applications.md",
     "3 - Tags/tool.md",
@@ -216,11 +226,9 @@
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "6 - Main Notes/Mangas that i saved for future.md",
-    "3 - Tags/Mangas.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
-    "Untitled.canvas",
     "vault-repo",
     "vault-repo/publish/attachments",
     "vault-repo/publish",
