@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "186b98ccf7e3f694",
+        "id": "65f90e56e77e7b25",
         "type": "tabs",
         "children": [
           {
-            "id": "194013d80472c46a",
+            "id": "e78ca1d5116084c5",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -180,8 +185,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "194013d80472c46a",
+  "active": "e78ca1d5116084c5",
   "lastOpenFiles": [
+    "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "1 - Rough Notes/Untitled 1.md",
     "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Scalability Issues And The Streaming Scenario.md",
@@ -217,7 +223,6 @@
     "conflict-files-obsidian-git.md",
     "6 - Main Notes/Decision Tree.md",
     "5 - Templates/Main Note.md",
-    "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
