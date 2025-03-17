@@ -11,15 +11,10 @@
             "id": "194013d80472c46a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1 - Rough Notes/Untitled 1.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled 1"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -187,8 +182,8 @@
   },
   "active": "194013d80472c46a",
   "lastOpenFiles": [
-    "1 - Rough Notes/Untitled.md",
     "1 - Rough Notes/Untitled 1.md",
+    "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Scalability Issues And The Streaming Scenario.md",
     "Pasted image 20250316112220.png",
     "Pasted image 20250316111526.png",
