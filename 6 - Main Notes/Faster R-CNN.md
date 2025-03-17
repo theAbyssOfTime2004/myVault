@@ -27,6 +27,7 @@ Tags: [[DeepLearning]],
 
 - Hình ảnh đầu ra chứa các đối tượng được phân đoạn riêng biệt bằng các màu sắc khác nhau.
 - Điều này giúp mô hình không chỉ nhận diện mà còn tách biệt chính xác từng phần của đối tượng.
+![[Pasted image 20250317230809.png]]
 
 ### **Tóm tắt**
 
