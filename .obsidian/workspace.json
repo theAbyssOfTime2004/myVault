@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "6 - Main Notes/Faster R-CNN.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Faster R-CNN"
             }
           }
         ]
@@ -187,6 +187,9 @@
   },
   "active": "e78ca1d5116084c5",
   "lastOpenFiles": [
+    "Pasted image 20250317230226.png",
+    "README.md",
+    "6 - Main Notes/Faster R-CNN.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "1 - Rough Notes/Untitled 1.md",
     "1 - Rough Notes/Untitled.md",
@@ -220,9 +223,6 @@
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "3 - Tags/Mangas.md",
-    "conflict-files-obsidian-git.md",
-    "6 - Main Notes/Decision Tree.md",
-    "5 - Templates/Main Note.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
