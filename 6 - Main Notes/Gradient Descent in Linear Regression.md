@@ -31,8 +31,8 @@ $$
 ![[Pasted image 20250318152333.png]]
 - Dấu = đầu tiên, khai triển $J(\theta)$, ta được  $J(\theta) = \frac{1}{2n} \sum_{i=1}^{n} (h_{\theta}(x_{i})-y_{i})^2$
 - Dấu = thứ 2 tiếp tục khai triển $h_{\theta}(x_{i})$ trong ngoặc, ta được $\sum_{k=0}^{d} \theta_k x_k^{(i)}$ 
-- Dấu = thứ 3 khai triển đạo hàm riêng theo biến $\theta_j$ cho cả cụm $J(\theta) = \frac{1}{2n} \sum_{i=1}^{n} (\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$ 
+- Dấu = thứ 3 khai triển đạo hàm riêng theo biến $\theta_j$ cho cả cụm $J(\theta) = \frac{1}{2n} \sum_{i=1}^{n} (\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$, áp dụng quy tắc đạo hàm $(u^2)' = 2uu'$ trong phần reminder ta được kết quả như trên, xem $\frac{1}{2n} \sum_{i=1}^{n} (\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$ như là u
 
-- Dấu = thứ 4 áp dụng quy tắc đạo hàm $(u^2)' = 2uu'$ trong phần reminder ta được kết quả như trên, xem $(\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$
+- Dấu = thứ 4  
 
 # References
