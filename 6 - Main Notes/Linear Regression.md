@@ -30,6 +30,25 @@ Tags: [[Machine Learning]], [[beginner]],
 ![[Pasted image 20250318141644.png]]
 - Hình trên minh họa cách mô hình tìm đường thẳng tốt nhất để giảm thiểu các sai số giữa giá trị thực $y(i)$ và giá trị dự đoán $h_{\theta}(x_{i})$
 - Đường nét đứt màu đỏ là đường hồi quy còn các điểm dữ liệu khoanh tròn màu xanh là giá trị thực tế, khoảng cách từ các điểm dữ liệu thực tế đến đường dự đoán là sai số dự đoán $(y_{i}-h_{\theta}(x_{i}))$ 
-- dòng ![[Pasted image 20250318142825.png]] này nghĩa là min của tổng bình phương sai số (SSE),  nghĩa là ở đây t
+- dòng ![[Pasted image 20250318142825.png]] này nghĩa là min của tổng bình phương sai số (SSE)
+- Sau đó ta sẽ muốn tìm trung bình của tổng bình phương sai số là từ (SSE) -> (MSE):
+$$
+\text{MSE} = \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i})-y_{i})^2
+$$
+- Và để thuận tiện cho việc đạo hàm trong *gradient descent* sau đó, ta sẽ muốn thêm hệ số 1/2, do đó MSE sẽ trở thành: 
+ $$
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x_{i})-y_{i})^2
+$$
+và đây cũng chính là hàm loss mà ta sẽ muốn **minimize** để tối ưu hóa mô hình hồi quy tuyến tính của mình
+**NOTE**: Việc chuyển ta chọn hàm loss là MSE thay vì SSE là vì:
+- Tránh phụ thuộc vào số lượng dữ liệu
+- Dễ so sánh giữa các mô hình khác nhau 
+- Định nghĩa chính xác hơn về sai số:
+	- SSE cho thấy tổng sai số nhưng không phản ánh mức độ sai số trung bình trên mỗi điểm dữ liệu.
+	- MSE giúp ta hiểu rõ **một điểm dữ liệu trung bình bị dự đoán lệch bao nhiêu (bình phương sai số)**.
+- Hỗ trợ các thuật toán tối ưu hóa một cách dễ dàng hơn
+	- MSE giúp Gradient descent hoạt động ổn định hơn và hội tụ nhanh hơn vì lượng dữ liệu sẽ không quá nhiều SSE nếu mẫu quá lớn 
+
+![[Pasted image 20250318144522.png]]
 
 # References
