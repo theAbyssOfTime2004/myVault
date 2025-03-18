@@ -50,5 +50,7 @@ và đây cũng chính là hàm loss mà ta sẽ muốn **minimize** để tối
 	- MSE giúp Gradient descent hoạt động ổn định hơn và hội tụ nhanh hơn vì lượng dữ liệu sẽ không quá nhiều SSE nếu mẫu quá lớn 
 
 ![[Pasted image 20250318144522.png]]
+![[Pasted image 20250318144744.png]]
+
 
 # References
