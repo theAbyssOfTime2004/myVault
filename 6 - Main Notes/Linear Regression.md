@@ -10,5 +10,15 @@ Tags: [[Machine Learning]], [[beginner]],
 ![[Pasted image 20250318134941.png]]
 - Mục đích là tìm 1 đường thẳng (1 hàm số) có thể thể hiện được mối liên hệ giữa đặc trưng của data và nhãn của data 
 ![[Pasted image 20250318135213.png]]
-
+- Giả thuyết về dữ liệu sẽ được biểu diễn theo hàm số $y \approx h_{\theta}(x) = \theta_{0} + \theta_{1}x$ 
+- Trong đó:
+	- $y$ là giá trị đầu ra (giá nhà).
+	- $x$ là đặc điểm của nhà (ví dụ: diện tích).
+	- $\theta_{0}$​ là hệ số chặn (intercept).
+	- $\theta_{1}$ là hệ số góc (slope), xác định mức độ ảnh hưởng của đặc điểm $x$ đến $y$.
+-  Thuật toán học máy sẽ tìm ra bộ tham số tối ưu $\theta$ dựa trên tập huấn luyện.
+- Khi có mô hình, ta có thể sử dụng nó để dự đoán giá trị yyy cho dữ liệu mới.
+- Nếu $h_{\theta}(x)$ là một hàm tuyến tính, phương pháp này được gọi là **hồi quy tuyến tính (linear regression)**.
+- Ta cần tối ưu $\theta$ là bởi vì mô hình học máy dự đoán một giá trị $h_{\theta}(x)$ nhưng có thể lệch so với giá trị thực tế $y$. Độ lệch này được đo bằng **hàm mất mát (loss function)**.![[Pasted image 20250318140703.png]]
+- Tối ưu $\theta$ giúp giảm giá trị $J(\theta)$ do đó giúp mô hình hoạt động chính xác hơn
 # References
