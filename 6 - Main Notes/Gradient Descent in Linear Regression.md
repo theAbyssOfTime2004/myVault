@@ -34,5 +34,10 @@ $$
 - Dấu = thứ 3 khai triển đạo hàm riêng theo biến $\theta_j$ cho cả cụm $J(\theta) = \frac{1}{2n} \sum_{i=1}^{n} (\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$, áp dụng quy tắc đạo hàm $(u^2)' = 2uu'$ trong phần reminder ta được kết quả như trên, xem $(\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$ như là u
 - Dấu = thứ 4  là kết quả sau khi rút gọn, tiếp tục đạo hàm u, ta được như trên vì $h_{\theta}(x_{i}) = \sum_{k=0}^{d} \theta_k x_k^{(i)}$, nên đạo hàm của nó theo $\theta_j$ là: $\frac{\partial}{\partial \theta_j} h_{\theta}(x_{i}) = x_j^{(i)}$, và đạo hàm riêng theo $\theta_j$ cho biến $y^{(i)}=0$, do đó ta có được kết quả cuối cùng 
 ![[Pasted image 20250318160249.png]]
+- Thuật toán gradient descent hội tụ khi các tiêu chí sau được thỏa mãn:
+	- hàm mất mát $J(\theta)$ đủ nhỏ: $J(\theta)$ bé hơn 1 số $\epsilon$ cực nhỏ thì ta xem rằng thuật toán hội tụ
+	- khoảng cách giữa giá trị $\theta$ mới và cũ đủ nhỏ: $$ \|θ_{new} - θ_{old}\|_2 < ε $$
+	- Nếu sự thay đổi trong giá trị $\theta$ giữa 2 lần cập nhật nhỏ hơn 1 số $\epsilon$ (cực nhỏ) thì có nghĩa là thuật toán không còn cải thiện đáng kể và có thể dừng
+	- Độ chính xác của mô hình là đủ tốt trên tập kiểm tra 
 
 # References
