@@ -62,7 +62,7 @@ $$
 
 📌 **Ý nghĩa:**
 - Mục tiêu của Gradient Descent là tìm điểm thấp nhất (global minimum) của hàm mất mát $J(\theta_0,\theta_1)$.
-- Nếu điểm đỏ chưa nằm ở trung tâm của đường đồng mức, nghĩa là mô hình chưa tối ưu và cần tiếp tục cập nhật $(\theta_0,\theta_1)$​ bằng Gradient Descent.
+- Nếu điểm đỏ chưa nằm ở trung tâm của đường đồng mức, nghĩa là mô hình chưa tối ưu và cdần tiếp tục cập nhật $(\theta_0,\theta_1)$​ bằng Gradient Descent.
 ![[Pasted image 20250318212816.png]]
 - **Mục tiêu của Gradient Descent**: **Tìm giá trị tối ưu của $(\theta_0,\theta_1)$ sao cho hàm mất mát $J(\theta_0,\theta_1)$ nhỏ nhất.**  
 - **Các dấu "×" đỏ thể hiện quá trình cập nhật tham số dần dần về điểm tối ưu.**  
