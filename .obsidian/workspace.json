@@ -11,17 +11,15 @@
             "id": "cb2a96bbdb0378f8",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled 1.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": -101.87640074403383,
-                  "zoom": 0
-                }
+                "file": "6 - Main Notes/Linear Regression.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled 1"
+              "icon": "lucide-file",
+              "title": "Linear Regression"
             }
           }
         ]
@@ -189,6 +187,11 @@
   },
   "active": "cb2a96bbdb0378f8",
   "lastOpenFiles": [
+    "Pasted image 20250318135213.png",
+    "Pasted image 20250318134941.png",
+    "Pasted image 20250318134939.png",
+    "Pasted image 20250318134846.png",
+    "6 - Main Notes/Linear Regression.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Pasted image 20250317230809.png",
@@ -198,8 +201,6 @@
     "Pasted image 20250315014638.png",
     "Pasted image 20250315013105.png",
     "Pasted image 20250315005659.png",
-    "Pasted image 20250315004901.png",
-    "Pasted image 20250315005105.png",
     "6 - Main Notes/Tensor.md",
     "6 - Main Notes/Neural Network.md",
     "6 - Main Notes/Faster R-CNN.md",
@@ -208,7 +209,6 @@
     "1 - Rough Notes/Untitled 1.md",
     "1 - Rough Notes/Untitled.md",
     "6 - Main Notes/Scalability Issues And The Streaming Scenario.md",
-    "Pasted image 20250316111526.png",
     "6 - Main Notes/The Basics Data Types and Major Building Blocks.md",
     "6 - Main Notes/Movies that i should watch.md",
     "6 - Main Notes/Introduction to Data Mining.md",
@@ -225,7 +225,6 @@
     "6 - Main Notes/Email..md",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
-    "6 - Main Notes/Mangas that i saved for future.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
