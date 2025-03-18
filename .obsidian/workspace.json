@@ -13,6 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "6 - Main Notes/Gradient Descent in Linear Regression.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Gradient Descent in Linear Regression"
+            }
+          },
+          {
+            "id": "7f9afaaa13755edd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "6 - Main Notes/Linear Regression.md",
                 "mode": "source",
                 "source": false,
@@ -187,18 +202,20 @@
   },
   "active": "cb2a96bbdb0378f8",
   "lastOpenFiles": [
+    "Pasted image 20250318151209.png",
+    "Pasted image 20250318150714.png",
+    "Pasted image 20250318150509.png",
+    "Pasted image 20250318150326.png",
+    "Pasted image 20250318150154.png",
+    "6 - Main Notes/Linear Regression.md",
+    "6 - Main Notes/Gradient Descent in Linear Regression.md",
+    "Pasted image 20250318145428.png",
+    "6 - Main Notes/Gradient Descent.md",
     "Pasted image 20250318144744.png",
     "Pasted image 20250318144522.png",
     "Pasted image 20250318142825.png",
     "Pasted image 20250318141644.png",
     "Pasted image 20250318141629.png",
-    "Pasted image 20250318141315.png",
-    "Pasted image 20250318141141.png",
-    "Pasted image 20250318140703.png",
-    "Pasted image 20250318135213.png",
-    "Pasted image 20250318134941.png",
-    "Pasted image 20250318134939.png",
-    "6 - Main Notes/Linear Regression.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "6 - Main Notes/Tensor.md",
@@ -215,7 +232,6 @@
     "6 - Main Notes/Docker.md",
     "3 - Tags/data mining.md",
     "6 - Main Notes/Caching, Updating DNS Records.md",
-    "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Algebra Review.md",
     "6 - Main Notes/Chap2-summary.md",
     "3 - Tags/P2P applications.md",
@@ -224,7 +240,6 @@
     "6 - Main Notes/Fuzzy Logic.md",
     "6 - Main Notes/Email..md",
     "6 - Main Notes/DOMAIN NAME SYSTEM.md",
-    "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
