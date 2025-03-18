@@ -21,4 +21,12 @@ Tags: [[Machine Learning]], [[beginner]],
 - Nếu $h_{\theta}(x)$ là một hàm tuyến tính, phương pháp này được gọi là **hồi quy tuyến tính (linear regression)**.
 - Ta cần tối ưu $\theta$ là bởi vì mô hình học máy dự đoán một giá trị $h_{\theta}(x)$ nhưng có thể lệch so với giá trị thực tế $y$. Độ lệch này được đo bằng **hàm mất mát (loss function)**.![[Pasted image 20250318140703.png]]
 - Tối ưu $\theta$ giúp giảm giá trị $J(\theta)$ do đó giúp mô hình hoạt động chính xác hơn
+![[Pasted image 20250318141141.png]]
+- Visualize hàm hồi quy với các giá trị $\theta_{0}$ và $\theta_{1}$  ngẫu nhiên
+![[Pasted image 20250318141315.png]]
+- Cách để chọn giá trị $\theta_{0}$ và $\theta_{1}$ hợp lý là chọn làm sao cho $\theta_{0}$ và $\theta_{1}$ **gần** với y trong mẫu huấn luyện $(x,y)$, và ở đây ta có câu hỏi: "Như thế nào là **gần**?"
+
+![[Pasted image 20250318141629.png]]
+![[Pasted image 20250318141644.png]]
+
 # References
