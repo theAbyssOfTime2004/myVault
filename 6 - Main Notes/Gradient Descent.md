@@ -4,7 +4,7 @@
 Tags: [[Machine Learning]], [[DeepLearning]], [[beginner]]
 
 
-# Gradient Descent: A Comprehensive Note
+# Gradient Descent: Quick note
 
 ## Definition
 
