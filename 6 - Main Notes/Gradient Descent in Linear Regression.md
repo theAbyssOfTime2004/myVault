@@ -33,6 +33,7 @@ $$
 - Dấu = thứ 2 tiếp tục khai triển $h_{\theta}(x_{i})$ trong ngoặc, ta được $\sum_{k=0}^{d} \theta_k x_k^{(i)}$ 
 - Dấu = thứ 3 khai triển đạo hàm riêng theo biến $\theta_j$ cho cả cụm $J(\theta) = \frac{1}{2n} \sum_{i=1}^{n} (\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$, áp dụng quy tắc đạo hàm $(u^2)' = 2uu'$ trong phần reminder ta được kết quả như trên, xem $(\sum_{k=0}^{d} \theta_k x_k^{(i)}-y_{i})^2$ như là u
 
-- Dấu = thứ 4  là kết quả sau khi rút gọn, tiếp tục đạo hàm u, ta được như trên vì 
+- Dấu = thứ 4  là kết quả sau khi rút gọn, tiếp tục đạo hàm u, ta được như trên vì $h_{\theta}(x_{i}) = \sum_{k=0}^{d} \theta_k x_k^{(i)}$, nên đạo hàm của nó theo $\theta_j$ là: $\frac{\partial}{\partial \theta_j} h_{\theta}(x_{i}) = x_j^{(i)}$, và đạo hàm riêng theo $\theta_j$ cho biến $y^{(i)}=0$, do đó ta có được kết quả cuối cùng 
+![[Pasted image 20250318160249.png]]
 
 # References
