@@ -19,5 +19,9 @@ Tags: [[Linear Regression]], [[beginner]], [[Machine Learning]]
 		**2. Hàm cơ sở $\phi_j(x)$ quyết định kiểu mô hình**
 	- Nếu ta chọn $\phi_j(x)$ (hàm tuyến tính), ta có **hồi quy tuyến tính chuẩn**.
 	- Nếu ta chọn $\phi_j(x)=x_j^2,x_j^3,sin(x_j),e^{x_j},x_1x_2,...$, mô hình có thể học được các quan hệ **phi tuyến** nhưng vẫn là hồi quy tuyến tính (vì vẫn tuyến tính theo $\theta_j$​).
-
+![[Pasted image 20250320181312.png]]
+- Mặc dù hồi quy tuyến tính gốc chỉ có thể mô tả mối quan hệ tuyến tính, nhưng bằng cách **biến đổi đặc trưng đầu vào thành đa thức** $(x^2,x^3,...)$ mô hình có thể học được **mối quan hệ phi tuyến**.
+- Do đó, dù ta đang thực hiện **hồi quy tuyến tính** trên tham số, ta vẫn có thể mô hình hóa dữ liệu có quan hệ phi tuyến.
+![[Pasted image 20250320181413.png]]
+- M là bậc của đa thức
 # References

@@ -23,13 +23,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Linear Regression for more complex models.md",
+                "file": "6 - Main Notes/Model Generalization.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Linear Regression for more complex models"
+              "title": "Model Generalization"
             }
           }
         ],
@@ -200,9 +200,12 @@
   },
   "active": "7f9afaaa13755edd",
   "lastOpenFiles": [
+    "6 - Main Notes/Linear Regression for more complex models.md",
+    "6 - Main Notes/Model Generalization.md",
+    "Pasted image 20250320181413.png",
+    "Pasted image 20250320181312.png",
     "Pasted image 20250320175511.png",
     "6 - Main Notes/Gradient Descent Variants.md",
-    "6 - Main Notes/Linear Regression for more complex models.md",
     "Pasted image 20250320174917.png",
     "Pasted image 20250320173029.png",
     "Pasted image 20250320172757.png",
@@ -210,12 +213,9 @@
     "Pasted image 20250320172337.png",
     "Pasted image 20250320170245.png",
     "Pasted image 20250320170204.png",
-    "Pasted image 20250320164833.png",
     "6 - Main Notes/Gradient Descent in Linear Regression.md",
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Regression.md",
-    "Pasted image 20250318223214.png",
-    "Pasted image 20250318222744.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "6 - Main Notes/Tensor.md",
