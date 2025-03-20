@@ -90,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -199,6 +200,8 @@
   },
   "active": "7f9afaaa13755edd",
   "lastOpenFiles": [
+    "Pasted image 20250320170245.png",
+    "Pasted image 20250320170204.png",
     "Pasted image 20250320164833.png",
     "6 - Main Notes/Gradient Descent in Linear Regression.md",
     "6 - Main Notes/Gradient Descent.md",
@@ -212,8 +215,6 @@
     "Pasted image 20250318160202.png",
     "Pasted image 20250318152333.png",
     "Pasted image 20250318151209.png",
-    "Pasted image 20250318150714.png",
-    "Pasted image 20250318150509.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "6 - Main Notes/Tensor.md",
