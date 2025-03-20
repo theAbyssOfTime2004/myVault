@@ -23,5 +23,7 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 - Ví dụ với một dataset có 1024 datasamples và batch size = 64 thì ta sẽ có 1 epoch = 1024/64 = 16 iterations
 ### Batch Gradient Descent
 ![[Pasted image 20250320164833.png]]
-
+- Batch Gradient Descent dùng toàn bộ dữ liệu trên tập dữ liệu để tính gradient 
+- **Ưu điểm**: 
+	- *Cập nhật chính xác*
 # References
