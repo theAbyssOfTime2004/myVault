@@ -54,5 +54,7 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 - In machine learning, a hyperparameter is essentially a control knob you **adjust before training** a model. It determines the learning process itself, rather than being learned from the data.
 ![[Pasted image 20250320173029.png]]
 ### Learning rate:
-- Là một siêu tham số (hyperparameter). 
+- Is a hyperparameter. It determines the **step size** used to update the model's learnable parameters during training
+![[Pasted image 20250320174917.png]]
+
 # References
