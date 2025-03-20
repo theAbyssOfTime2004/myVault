@@ -42,5 +42,17 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 		- Do nhiễu từ SGD, thuật toán không luôn luôn đi theo hướng dốc xuống một cách hoàn toàn chính xác và đôi khi điều này giúp cho SGD có thể thoát khỏi các điểm local minima "nông" và tìm kiếm các điểm thấp hơn
 - **Nhược điểm**:
 	- *Noisy Updates*: Các update từ chỉ 1 điểm dữ liệu duy nhất thì noisy hơn cả dataset do đó dẫn đến hội tụ không mượt mà và dễ xảy ra dao động (oscillations) quanh điểm cực tiểu
-	- 
+	- *Hội tụ kém ổn định*: Do sự biến động lớn trong mỗi lần cập nhật, SGD có thể không ổn định bằng Batch GD, nếu không điều chỉnh *learning rate* hợp lý sẽ dễ bị kẹt trong các local minima xấu hoặc dao động xung quanh minimum mà không hội tụ
+### Mini-batch gradient descent
+![[Pasted image 20250320172337.png]]
+- Sử dụng một **subset of the data** (mini-batch) để tính gradient. Mini-batch size k là một tham số ta có thể tune cho mô hình 
+![[Pasted image 20250320172638.png]]
+- Làm sao để chọn ra được số `batch_size` hợp lý?
+![[Pasted image 20250320172757.png]]
+
+### Model hyper-parameters
+- In machine learning, a hyperparameter is essentially a control knob you **adjust before training** a model. It determines the learning process itself, rather than being learned from the data.
+![[Pasted image 20250320173029.png]]
+### Learning rate:
+- Là một siêu tham số (hyperparameter). 
 # References
