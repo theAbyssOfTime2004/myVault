@@ -25,5 +25,22 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 ![[Pasted image 20250320164833.png]]
 - Batch Gradient Descent dùng toàn bộ dữ liệu trên tập dữ liệu để tính gradient 
 - **Ưu điểm**: 
-	- *Cập nhật chính xác*
+	- *Cập nhật chính xác*: Việc sử dụng toàn bộ dataset, sẽ giúp tính gradient chính xác hơn do đó giúp ước lượng hướng tối ưu được chính xác hơn
+	- *Hội tụ dễ dàng hơn*: các lần cập nhật trọng số sẽ ổn định hơn và do đó giúp tiến về minimum dễ dàng hơn
+- **Nhược điểm**:
+	- *Chậm đối với các dataset lớn*: bởi vì yêu cầu phải sử dụng toàn bộ dataset trong mỗi traning iteration, do đó dẫn đến thời gian training rất lâu đối với dữ liệu lớn
+	- *Yêu cầu bộ nhớ cao*: là 1 thử thách khó khăn đối với các dataset lớn
+### Stochastic gradient descent
+![[Pasted image 20250320170245.png]]
+
+- Stochastic gradient descent sử dụng *từng mẫu dữ liệu riêng lẻ* để tính gradient
+- Cập nhật lại trọng số $\theta_j$ ngay lập tức sau mỗi lần tính gradient
+- **Ưu điểm**:
+	- *Nhanh*: chỉ xử lý duy nhất 1 điểm dữ liệu tại 1 thời điểm, nên việc xử lý là rất nhanh đối với kể cả các dataset lớn
+	- *Ít đặt nặng bộ nhớ*: chỉ cần store 1 điểm dữ liệu duy nhất trong bộ nhớ tại 1 thời điểm.
+	- *Có thể thoát khỏi local minima*: Nhiễu trong từng điểm dữ liệu đơn lẻ đôi khi có thể giúp thoát khỏi local minima
+		- Do nhiễu từ SGD, thuật toán không luôn luôn đi theo hướng dốc xuống một cách hoàn toàn chính xác và đôi khi điều này giúp cho SGD có thể thoát khỏi các điểm local minima "nông" và tìm kiếm các điểm thấp hơn
+- **Nhược điểm**:
+	- *Noisy Updates*: Các update từ chỉ 1 điểm dữ liệu duy nhất thì noisy hơn cả dataset do đó dẫn đến hội tụ không mượt mà và dễ xảy ra dao động (oscillations) quanh điểm cực tiểu
+	- 
 # References
