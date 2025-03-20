@@ -56,5 +56,17 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 ### Learning rate:
 - Is a hyperparameter. It determines the **step size** used to update the model's learnable parameters during training
 ![[Pasted image 20250320174917.png]]
+- **Khi nào nên tăng/giảm/giữ nguyên learning rate?**
+- **Tăng learning rate** nếu:
+    - Quá trình huấn luyện diễn ra quá chậm.
+    - Loss giảm nhưng tốc độ cải thiện rất nhỏ.
+    - Mô hình không thoát khỏi local minima tốt.
+- **Giảm learning rate** nếu:
+    - Loss dao động mạnh, không giảm đều.
+    - Gradient update quá lớn khiến mô hình không hội tụ.
+    - Mô hình liên tục bị mắc kẹt ở trạng thái không cải thiện.
+- **Giữ nguyên learning rate** nếu:
+    - Loss giảm đều đặn, tốc độ hội tụ tốt.
+    - Mô hình có độ chính xác mong muốn mà không cần tinh chỉnh thêm.
 
 # References
