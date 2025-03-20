@@ -19,5 +19,9 @@ $=>$ 1 *epoch gồm nhiều iteration*, số lượng iteration phụ thuộc v�
 - dựa vào hình:
 	- training set gồm $N$ mẫu dữ liệu.
 	- Nếu **batch size** = 2, mỗi batch chứa 2 mẫu dữ liệu.
-	- Vì toàn bộ tập dữ liệu có $N$ mẫu, số iteration trong 1 epoch là: $$\frac{N}{\text{batch size}} = \frac{N}2$$ 
+	- Vì toàn bộ tập dữ liệu có $N$ mẫu, số iteration trong 1 epoch là: $$\frac{N}{\text{batch size}} = \frac{N}2$$
+- Ví dụ với một dataset có 1024 datasamples và batch size = 64 thì ta sẽ có 1 epoch = 1024/64 = 16 iterations
+### Batch Gradient Descent
+![[Pasted image 20250320164833.png]]
+
 # References
