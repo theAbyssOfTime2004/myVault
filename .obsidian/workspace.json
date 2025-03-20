@@ -23,13 +23,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Gradient Descent Variants.md",
+                "file": "6 - Main Notes/Linear Regression for more complex models.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Gradient Descent Variants"
+              "title": "Linear Regression for more complex models"
             }
           }
         ],
@@ -200,6 +200,9 @@
   },
   "active": "7f9afaaa13755edd",
   "lastOpenFiles": [
+    "Pasted image 20250320175511.png",
+    "6 - Main Notes/Gradient Descent Variants.md",
+    "6 - Main Notes/Linear Regression for more complex models.md",
     "Pasted image 20250320174917.png",
     "Pasted image 20250320173029.png",
     "Pasted image 20250320172757.png",
@@ -211,10 +214,8 @@
     "6 - Main Notes/Gradient Descent in Linear Regression.md",
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Regression.md",
-    "6 - Main Notes/Gradient Descent Variants.md",
     "Pasted image 20250318223214.png",
     "Pasted image 20250318222744.png",
-    "Pasted image 20250318212833.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "6 - Main Notes/Tensor.md",
@@ -237,7 +238,6 @@
     "3 - Tags/tool.md",
     "6 - Main Notes/P2P architecture.md",
     "6 - Main Notes/Fuzzy Logic.md",
-    "6 - Main Notes/Email..md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
