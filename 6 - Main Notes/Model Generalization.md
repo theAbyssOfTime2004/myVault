@@ -14,4 +14,6 @@ Tags: [[Machine Learning]], [[data scientist]], [[beginner]]
 - **70% - 15% - 15%**
 - **60% - 20% - 20%**
 Tùy vào số lượng dữ liệu, nếu dữ liệu lớn có thể dùng 80%-10%-10%, còn nếu dữ liệu nhỏ hơn có thể dùng 70%-15%-15% để có đủ dữ liệu kiểm tra.    
+![[Pasted image 20250322151307.png]]
+
 # References
