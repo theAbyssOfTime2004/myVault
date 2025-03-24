@@ -34,7 +34,7 @@ Backpropagation is the fundamental algorithm behind training [[neural networks]]
 	* $L$ = loss function (note: we might see people using "cost" function and "loss" function in a confusing way, basically loss function and cost function is the same but one is for a sample of data and one is for the whole dataset, for example in this case the L loss function is only used for y^ = 17 therefore L = 4.5 )
 	* $w_{0}$ = bias 
 	* $z$ =weighted sum of inputs
-	* $y-^$ = activation 
+	* $y^$ = activation 
 
 ### 3. Backward Pass
 
