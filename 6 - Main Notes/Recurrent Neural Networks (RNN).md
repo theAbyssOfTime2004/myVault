@@ -15,4 +15,6 @@ Tags: [[DeepLearning]], [[data scientist]], [[NLP]], [[Neural Networks]]
 - Giả sử ta đang cố gắng dự đoán giá trị cổ phiếu vào ngày thứ 2 và cổ phiếu đang đi theo quy luật như hình trên, ở phần *Feedback loop* ta sẽ được tổng như hình là $(Today \times w_1)+(y_1 \times w_2)$, nghĩa là *feedback loop* giúp ta tính toán sự ảnh hưởng của giá trị  **hôm qua** và cả **hôm nay** vào dự đoán của ngày **ngày mai**
 ![[Pasted image 20250324153349.png]]
 - Giống như ta đang thực hiện 2 mô hình neural networks với 2 đầu vào là **hôm qua** và **hôm nay** 
+![[Pasted image 20250324154010.png]]
+
 # References
