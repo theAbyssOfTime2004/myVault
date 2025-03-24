@@ -25,5 +25,6 @@ Tags: [[data scientist]], [[Neural Network]], [[DeepLearning]], [[NLP]]
 - Ví dụ ta có 3.000.000 từ cần embedding, mỗi từ có 100 weight khác nhau và số (n+1) weight output từ n activation function (bởi vì khi input initialized weights vào từ thì khi qua một activation function,  các weights đó sẽ bị thay đổi do optimizing) do đó ta có phép tính như hình trên => quá trình training sẽ tốn rất nhiều thời gian
 ![[Pasted image 20250324131400.png]]
 
-
+- nghĩa là từ 1 word "aardvark" ta muốn dự đoán được từ A, do đó ở đầu vào "aardvark" ta set trọng số là 1 và các từ còn lại là 0 do đó ta giảm thiểu được rất nhiều các từ ban đầu bởi vì chỉ có trọng số của aardvark là 1 số khác 0, và sau đó đến lúc soft max ta chỉ chọn lớp cuối cùng để dự đoán là bao gồm 1 từ đúng (ở đây là "a") và 1 set các từ sai (có thể từ 2 đến 20 từ nhưng trong ví dụ cụ thể này là 1 từ "abandon") do đó giảm tải được rất nhiều các tính toán trọng số thay vì phải so sánh với tất cả các từ khả dĩ còn lại
+- Negative Sampling = Chỉ học từ cần thiết, bỏ qua phần dư thừa, tăng tốc độ!
 # References
