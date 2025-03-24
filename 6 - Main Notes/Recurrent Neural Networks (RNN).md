@@ -16,5 +16,5 @@ Tags: [[DeepLearning]], [[data scientist]], [[NLP]], [[Neural Networks]]
 ![[Pasted image 20250324153349.png]]
 - Giống như ta đang thực hiện 2 mô hình neural networks với 2 đầu vào là **hôm qua** và **hôm nay** 
 ![[Pasted image 20250324154010.png]]
-
+- Một vấn đề của RNN là, khi ta càng *unroll (mở rộng)* mô hình thì ta càng khó để train nó, vấn đề này có tên là **Vanishing Gradient/Exploding Gradient Problem** 
 # References
