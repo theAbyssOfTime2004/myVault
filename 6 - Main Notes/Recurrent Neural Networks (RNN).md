@@ -17,4 +17,8 @@ Tags: [[DeepLearning]], [[data scientist]], [[NLP]], [[Neural Networks]]
 - Giống như ta đang thực hiện 2 mô hình neural networks với 2 đầu vào là **hôm qua** và **hôm nay** 
 ![[Pasted image 20250324154010.png]]
 - Một vấn đề của RNN là, khi ta càng *unroll (mở rộng)* mô hình thì ta càng khó để train nó, vấn đề này có tên là **Vanishing Gradient/Exploding Gradient Problem** 
+ ![[image.png]]
+- Khi huấn luyện RNN bằng [[Backpropagation]], ta cần lan truyền các gradient (đạo hàm theo hướng) của từng parameter để minimizing hàm loss bằng [[Gradient Descent]], và khi gradient được lan truyền ngược qua nhiều bước, nếu $W_2$ < 1 thì gradient sẽ dần về 0 khi số bước tăng lên và gradient quá nhỏ sẽ khiến mô hình học rất chậm hoặc gần như không học được và đó được gọi là **Vanishing Gradient**, ngược lại thì nếu $W_2 > 1$ thì gradient sẽ tăng rất nhanh và tiệm cận vô cùng do đó sẽ khiến mô hình học không ổn định, không hội tụ trong quá trình gradient descent và khiến việc training trở nên khó khăn, được gọi là **Exploding Gradient**.
+- Cách khắc phục có thể dùng LSTM hoặc GRU
+- Dùng activation function là ReLU thay vì sigmoid hoặc tanh
 # References
