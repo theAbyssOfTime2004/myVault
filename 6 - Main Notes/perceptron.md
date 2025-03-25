@@ -41,4 +41,5 @@ $$
 	- $b_i^{(l+1)}​$ là bias giúp điều chỉnh giá trị.
 - Để dễ hình dung thì ta hãy suy nghĩ đến bước tiếp theo là tính $z_i^{l+2}$ và $a_j^{l+2}$ sau khi có đầu ra $a_j^{l+1}$ ở bước trước: 
 - thì trước tiên ta sẽ tính $z_i^{(l+2)}$ từ đầu ra $a_j^{(l+1)}$ = $a_i^{(l+1)}$ mà ta tính ở bước trước do đó công thức của $z_i^{(l+2)} = \sum_{j=1}^{n^{(l+1)}} w_{ij}^{(l+2)} a_j^{(l+1)} + b_i^{(l+2)}$ và sau khi có được z_i(l+2) ta sẽ cho vào activation function $f(z_i^{(l+2)})$ và cuối cùng ta được đầu ra $a_i^{(l+2)}$
+- Để tiện tính toán, ta coi $a_0^{(l)}$ là một đầu vào và $w_{i0}^{l+1} = b_i^{l+1}$ là tham số trọng lượng của đầu vào này. Lúc đó ta có thể viết lại công thức trên dưới dạng vector
 # References
