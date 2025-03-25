@@ -103,8 +103,8 @@ b = b - learning_rate * dE/db`
 ## Related Concepts
 
 - [[Gradient Descent]]
-- Chain Rule
-- Activation Functions
+- [[multivariable chain rule]]
+- [[Common Activation Function In Neural Networks]]
 - Loss Functions, Cost Functions
 - Optimization Algorithms
 
@@ -115,6 +115,3 @@ b = b - learning_rate * dE/db`
 3. CS231n Stanford Course Materials
 4. Neural Networks series video on youtube by 3Blue1Brown
 
-
-
-# References
