@@ -32,4 +32,9 @@ $$
 ![[Pasted image 20250325164444.png]]
 - Đạo hàm tiến theo dõi môt nút đầu vào ảnh hưởng tới tất cả các nút ra sao, còn đạo hàm ngược thể hiện tất cả các nút ảnh hưởng tới 1 nút đầu vào thế nào. Nói cách khác đạo hàm tiến áp dụng phép toán $\frac{\partial}{\partial X}$ cho tất cả các nút, còn đạo hàm ngược áp dụng phép toán $\frac{\partial}{\partial Z}$ cho tất cả các nút.
 - **NOTE**: Đạo hàm tiến cho ta đạo hàm của đầu ra theo một đầu vào, nhưng đạo hàm ngược cho ta tất cả theo đầu vào luôn.
+- Khi huấn luyện một mạng nơ-ron nhân tạo (NN - Neural Network), ta cần tối ưu hóa nó sao cho hoạt động hiệu quả nhất. Để làm được điều này, ta cần một chỉ số để đánh giá hiệu suất của mạng, gọi là **hàm chi phí (cost function)**.
+- Hàm chi phí là một hàm phụ thuộc vào các tham số (weights và biases) của mạng nơ-ron. Mục tiêu của quá trình huấn luyện là **giảm giá trị của hàm chi phí**, tức là làm cho mạng dự đoán tốt hơn.
+- Để tối ưu hóa, ta cần **tính đạo hàm của hàm chi phí** theo các tham số của mạng. Điều này giúp ta biết cần điều chỉnh tham số theo hướng nào để giảm chi phí. Phương pháp **gradient descent** được sử dụng để cập nhật tham số bằng cách dịch chuyển chúng theo hướng giảm nhanh nhất của hàm chi phí.
+- Tuy nhiên, vì số lượng tham số của một mạng NN có thể rất lớn (hàng triệu hoặc hàng chục triệu), việc tính toán tất cả các đạo hàm này một cách trực tiếp sẽ rất tốn thời gian. Để giải quyết vấn đề này, ta sử dụng **thuật toán lan truyền ngược (backpropagation) hay là đạo hàm ngược**.
+- Backpropagation giúp ta **tính toán đạo hàm hiệu quả hơn**, bằng cách sử dụng quy tắc chuỗi để truyền lỗi từ đầu ra ngược trở lại các lớp trước đó. Điều này giúp cập nhật trọng số nhanh hơn và tối ưu mạng một cách hiệu quả hơn.
 # References
