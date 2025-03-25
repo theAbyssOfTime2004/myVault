@@ -1,7 +1,7 @@
 2024-11-19 22:57
 
 
-Tags: [[DeepLearning]], [[Machine Learning]], [[regression]], [[classification]]
+Tags: [[DeepLearning]], [[Machine Learning]], [[regression]], [[classification]], [[Neural Networks]]
 
 # # Common Activation Functions in Neural Networks
 
