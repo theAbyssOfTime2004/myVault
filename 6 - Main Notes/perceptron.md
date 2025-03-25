@@ -23,5 +23,8 @@ Nếu gắn $x_0=1$ và $w_0=b$, ta còn có thể viết gọn lại thành: $$
 - Với đầu vào và đầu ra dạng nhị phân, ta rất khó có thể điều chỉnh một lượng nhỏ đầu vào để đầu ra thay đổi chút ít vì tính không liên tục , nên để linh động ta có thể mở rộng chúng thay vì chỉ 0 hoặc 1 thì sẽ là khoảng $[0;1]$. Lúc này đầu ra sẽ được quyết định bởi 1 hàm (activation function) sigmoid $\sigma(\mathbf{w}^{\intercal}\mathbf{x})$ và hàm sigmoid này có công thức là: $$ \sigma(z) = \dfrac{1}{1+e^{-z}} $$
 ![[Pasted image 20250324182121.png]]
 - Đặt $z = \mathbf{w}^{\intercal}\mathbf{x}$ thì công thức của perceptron lúc này sẽ có dạng: $$ o = \sigma(z) = \dfrac{1}{1+\exp(-\mathbf{w}^{\intercal}\mathbf{x})} $$
+- Một cách tổng quát , hàm perceptron được biểu diễn qua một activation function $f(z)$ như sau: $$ o = f(z) = f(\mathbf{w}^{\intercal}\mathbf{x}) $$
+- Bằng cách biểu diễn như vậy ta có thể coi neuron sinh học được biểu diễn như sau:![[Pasted image 20250325121459.png]]
+- So với ban đầu: ![[Pasted image 20250325121527.png]]
 - 
 # References
