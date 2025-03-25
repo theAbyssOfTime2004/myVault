@@ -1,7 +1,7 @@
 2025-03-25 12:23
 
 
-Tags:
+Tags: [[Neural Networks]], [[DeepLearning]], [[Common Activation Function In Neural Networks]]
 
 # Tại sao các activation function phải là các hàm phi tuyến?
 Nếu mạng nơ-ron **chỉ thực hiện phép biến đổi tuyến tính**, thì nó **không mạnh hơn một mô hình hồi quy tuyến tính đơn giản**. Điều này có nghĩa là:
