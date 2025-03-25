@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+                "file": "6 - Main Notes/perceptron.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Recurrent Neural Networks (RNN)"
+              "title": "perceptron"
             }
           }
         ]
@@ -188,9 +188,14 @@
   },
   "active": "cb2a96bbdb0378f8",
   "lastOpenFiles": [
+    "Pasted image 20250324182121.png",
+    "Pasted image 20250324181315.png",
+    "tikz0 1.png",
+    "tikz0.png",
+    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+    "6 - Main Notes/perceptron.md",
     "image.png",
     "6 - Main Notes/Backpropagation.md",
-    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
     "Pasted image 20250324154010.png",
     "Pasted image 20250324153349.png",
     "Pasted image 20250324152520.png",
@@ -201,10 +206,6 @@
     "2 - Source Material/Others/Pasted image 20250314205747 - Copy.png",
     "6 - Main Notes/Word embedding and Word2Vec.md",
     "2 - Source Material/Others/README.md",
-    "2 - Source Material/Others/Pasted image 20250324131400.png",
-    "2 - Source Material/Others/Pasted image 20250324131036.png",
-    "2 - Source Material/Others/Pasted image 20250324130536.png",
-    "2 - Source Material/Others/Pasted image 20250324130115.png",
     "2 - Source Material - Copy/Others",
     "2 - Source Material - Copy",
     "6 - Main Notes/Model Generalization.md",
@@ -229,7 +230,6 @@
     "6 - Main Notes/Docker.md",
     "3 - Tags/data mining.md",
     "6 - Main Notes/Caching, Updating DNS Records.md",
-    "6 - Main Notes/Linear Algebra Review.md",
     "4 - Indexes",
     "4 - indexes",
     "HTTP",
