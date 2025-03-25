@@ -8,21 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cb2a96bbdb0378f8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Backpropagation"
-            }
-          },
-          {
             "id": "1afe7004125161fb",
             "type": "leaf",
             "state": {
@@ -110,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
+                "file": "6 - Main Notes/multivariable chain rule.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +105,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Backpropagation"
+              "title": "Backlinks for multivariable chain rule"
             }
           },
           {
@@ -200,12 +185,20 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "cb2a96bbdb0378f8",
+  "active": "1afe7004125161fb",
   "lastOpenFiles": [
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "6 - Main Notes/Backpropagation.md",
-    "6 - Main Notes/Gradient Descent in Linear Regression.md",
+    "Pasted image 20250325164444.png",
+    "Pasted image 20250325164431.png",
+    "1 - Rough Notes/Untitled.md",
+    "1 - Rough Notes/Mạng máy tính.md",
+    "1 - Rough Notes/Untitled 1.md",
+    "3 - Tags/regression.md",
+    "6 - Main Notes/Fuzzy Logic.md",
     "6 - Main Notes/multivariable chain rule.md",
+    "6 - Main Notes/Faster R-CNN.md",
+    "6 - Main Notes/Backpropagation.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "6 - Main Notes/Gradient Descent in Linear Regression.md",
     "Pasted image 20250325162933.png",
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Regression.md",
@@ -227,17 +220,9 @@
     "3 - Tags/information theory.md",
     "3 - Tags/The Domain Name System DNS.md",
     "3 - Tags/Self-Supervised Learning.md",
-    "3 - Tags/uninformed search.md",
-    "3 - Tags/P2P applications.md",
-    "3 - Tags/regression.md",
-    "3 - Tags/search algorithm.md",
-    "3 - Tags/NLP.md",
-    "3 - Tags/Mangas.md",
-    "3 - Tags/DeepLearning.md",
     "Pasted image 20250325121527.png",
     "Pasted image 20250325121459.png",
     "Pasted image 20250324182121.png",
-    "Pasted image 20250324181315.png",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas",
     "2 - Source Material - Copy/Others",
