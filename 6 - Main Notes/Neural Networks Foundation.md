@@ -50,6 +50,7 @@ $$
 $$
 - Giải thích cho việc tại sao ta có thể làm mất đi bias $b_i^{l+1}$, là bởi vì ta đã nhúng bias $b_i^{l+1}$ vào ma trận trọng số $\mathbf{W}^{(l+1)}$
 ![[Pasted image 20250325160006.png]]
-![[Pasted image 20250325160017.png]]
+![[Pasted image 20250325160017.png]] 
+### Backpropagation
 
 # References
