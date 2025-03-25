@@ -26,4 +26,9 @@ $$
 \frac {\partial e}{\partial b} = 1*2+1*3
 $$
 - Điều này có nghĩa rằng $b$ ảnh hưởng thế nào đến $e$ thông qua $c$ (tích: $\frac{\partial e}{\partial c} \frac{\partial c}{\partial b}$) và $d$ (tích: $\frac{\partial e}{\partial d} \frac{\partial d}{\partial b}$)
+### Chain forward and Chain backward
+![[Pasted image 20250325164431.png]]
+
+![[Pasted image 20250325164444.png]]
+- Đạo hàm tiến theo dõi môt nút đầu vào ảnh hưởng tới tất cả các nút ra sao, còn đạo hàm ngược thể hiện tất cả các nút ảnh hưởng tới 1 nút đầu vào thế nào. Nói cách khác đạo hàm tiến áp dụng phép toán $\frac{\partial}{\partial X}$ cho tất cả các nút, còn đạo hàm ngược áp dụng phép toán $\frac{\partial}{\partial Z}$ cho tất cả các nút.
 # References
