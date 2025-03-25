@@ -41,5 +41,15 @@ $$
 	- $b_i^{(l+1)}​$ là bias giúp điều chỉnh giá trị.
 - Để dễ hình dung thì ta hãy suy nghĩ đến bước tiếp theo là tính $z_i^{l+2}$ và $a_j^{l+2}$ sau khi có đầu ra $a_j^{l+1}$ ở bước trước: 
 - thì trước tiên ta sẽ tính $z_i^{(l+2)}$ từ đầu ra $a_j^{(l+1)}$ = $a_i^{(l+1)}$ mà ta tính ở bước trước do đó công thức của $z_i^{(l+2)} = \sum_{j=1}^{n^{(l+1)}} w_{ij}^{(l+2)} a_j^{(l+1)} + b_i^{(l+2)}$ và sau khi có được z_i(l+2) ta sẽ cho vào activation function $f(z_i^{(l+2)})$ và cuối cùng ta được đầu ra $a_i^{(l+2)}$
-- Để tiện tính toán, ta coi $a_0^{(l)}$ là một đầu vào và $w_{i0}^{l+1} = b_i^{l+1}$ là tham số trọng lượng của đầu vào này. Lúc đó ta có thể viết lại công thức trên dưới dạng vector
+- Để tiện tính toán, ta coi $a_0^{(l)}$ là một đầu vào và $w_{i0}^{l+1} = b_i^{l+1}$ là tham số trọng lượng của đầu vào này. Lúc đó ta có thể viết lại công thức trên dưới dạng vector:
+	$$
+\begin{aligned}
+\mathbf{z}^{(l+1)} &= \mathbf{W}^{(l+1)} \cdot \mathbf{a}^{(l)} \\
+\mathbf{a}^{(l+1)} &= f\bigl(\mathbf{z}^{(l+1)}\bigr)
+\end{aligned}
+$$
+- Giải thích cho việc tại sao ta có thể làm mất đi bias $b_i^{l+1}$, là bởi vì ta đã nhúng bias $b_i^{l+1}$ vào ma trận trọng số $\mathbf{W}^{(l+1)}$
+![[Pasted image 20250325160006.png]]
+![[Pasted image 20250325160017.png]]
+
 # References
