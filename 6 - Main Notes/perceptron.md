@@ -26,5 +26,5 @@ Nếu gắn $x_0=1$ và $w_0=b$, ta còn có thể viết gọn lại thành: $$
 - Một cách tổng quát , hàm perceptron được biểu diễn qua một activation function $f(z)$ như sau: $$ o = f(z) = f(\mathbf{w}^{\intercal}\mathbf{x}) $$
 - Bằng cách biểu diễn như vậy ta có thể coi neuron sinh học được biểu diễn như sau:![[Pasted image 20250325121459.png]]
 - So với ban đầu: ![[Pasted image 20250325121527.png]]
-- 
+- một điểm cần lưu ý là các activation function phải là [[hàm phi tuyến]]. vì nếu nó là hàm tuyến tính thì khi kết hợp các phép toán tuyến tính $\mathbf{w}^{\intercal}\mathbf{x}$ thì kết quả thu đc cũng chỉ là một phép biến đổi tuyến tính dẫn tới chuyện nó trở nên vô nghĩa
 # References
