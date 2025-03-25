@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Gradient Descent in Linear Regression.md",
+                "file": "6 - Main Notes/Backpropagation.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Gradient Descent in Linear Regression"
+              "title": "Backpropagation"
             }
           },
           {
@@ -37,8 +37,7 @@
               "title": "multivariable chain rule"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/multivariable chain rule.md",
+                "file": "6 - Main Notes/Backpropagation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +120,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for multivariable chain rule"
+              "title": "Backlinks for Backpropagation"
             }
           },
           {
@@ -201,19 +200,21 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "1afe7004125161fb",
+  "active": "cb2a96bbdb0378f8",
   "lastOpenFiles": [
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "6 - Main Notes/Backpropagation.md",
     "6 - Main Notes/Gradient Descent in Linear Regression.md",
+    "6 - Main Notes/multivariable chain rule.md",
+    "Pasted image 20250325162933.png",
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Linear Regression.md",
     "6 - Main Notes/Linear Regression for more complex models.md",
     "6 - Main Notes/Local Search Algorithm.md",
     "6 - Main Notes/Linear Algebra Review.md",
     "6 - Main Notes/Chap2-summary.md",
-    "6 - Main Notes/multivariable chain rule.md",
     "Pasted image 20250325161856.png",
     "Pasted image 20250325161721.png",
-    "6 - Main Notes/Backpropagation.md",
     "6 - Main Notes/perceptron.md",
     "Pasted image 20250325160017.png",
     "Pasted image 20250325160006.png",
@@ -233,12 +234,10 @@
     "3 - Tags/NLP.md",
     "3 - Tags/Mangas.md",
     "3 - Tags/DeepLearning.md",
-    "3 - Tags/classification.md",
     "Pasted image 20250325121527.png",
     "Pasted image 20250325121459.png",
     "Pasted image 20250324182121.png",
     "Pasted image 20250324181315.png",
-    "tikz0 1.png",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas",
     "2 - Source Material - Copy/Others",
