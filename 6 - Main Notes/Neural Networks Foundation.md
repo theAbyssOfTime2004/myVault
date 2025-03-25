@@ -58,5 +58,5 @@ $$
 ![[Pasted image 20250325174722.png]]
 ![[Pasted image 20250325174732.png]]
 - Khi đến đc lớp cuối, nghĩa là ta đã hoàn thành việc lan truyền ngược sai số nhận được ở lớp L cuối cùng về lớp L đầu tiên 
-![[Pasted image 20250325175015.png]]
+![[Pasted image 20250325175507.png]]
 # References
