@@ -53,5 +53,5 @@ $$
 ![[Pasted image 20250325160017.png]] 
 ### Backpropagation
 ![[Pasted image 20250325172731.png]]
-
+![[Pasted image 20250325174119.png]]
 # References
