@@ -31,4 +31,5 @@ $$
 
 ![[Pasted image 20250325164444.png]]
 - Đạo hàm tiến theo dõi môt nút đầu vào ảnh hưởng tới tất cả các nút ra sao, còn đạo hàm ngược thể hiện tất cả các nút ảnh hưởng tới 1 nút đầu vào thế nào. Nói cách khác đạo hàm tiến áp dụng phép toán $\frac{\partial}{\partial X}$ cho tất cả các nút, còn đạo hàm ngược áp dụng phép toán $\frac{\partial}{\partial Z}$ cho tất cả các nút.
+- **NOTE**: Đạo hàm tiến cho ta đạo hàm của đầu ra theo một đầu vào, nhưng đạo hàm ngược cho ta tất cả theo đầu vào luôn.
 # References
