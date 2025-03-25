@@ -28,5 +28,17 @@ Nếu gắn $x_0=1$ và $w_0=b$, ta còn có thể viết gọn lại thành: $$
 - So với ban đầu: ![[Pasted image 20250325121527.png]]
 - một điểm cần lưu ý là các activation function phải là [[hàm phi tuyến]]. vì nếu nó là hàm tuyến tính thì khi kết hợp các phép toán tuyến tính $\mathbf{w}^{\intercal}\mathbf{x}$ thì kết quả thu đc cũng chỉ là một phép biến đổi tuyến tính dẫn tới chuyện nó trở nên vô nghĩa
  ### Feed Forward
- 
+ -  trong mạng neuron, tất cả các node được kết nối đôi một với nhau theo 1 chiều duy nhất từ tầng vào đến tầng ra. Tức là mỗi node ở 1 tầng nào đó sẽ nhận đầu vào là tất cả các node ở tầng trước đó mà không suy luận ngược lại:
+ $$
+z_i^{(l+1)} = \sum_{j=1}^{n^{(l)}} w_{ij}^{(l+1)} a_j^{(l)} + b_i^{(l+1)}
+$$
+$$
+a_j^{(l+1)} = f(z_i^{(l+1)})
+$$
+- Với 
+	- $a_j^{(l)}$​ là đầu ra của lớp $l$ (được tính từ bước trước).
+	- $w_{ij}^{(l+1)}$​ là trọng số kết nối từ neuron $j$ (ở lớp $l$) đến neuron $i$ (ở lớp $l+1$).
+	- $b_i^{(l+1)}​$ là bias giúp điều chỉnh giá trị.
+- Để dễ hình dung thì ta hãy suy nghĩ đến bước tiếp theo là tính $z_i^{l+2}$ và $a_j^{l+2}$ sau khi có đầu ra $a_j^{l+1}$ ở bước trước: 
+- thì trước tiên ta sẽ tính $z_i^{(l+2)}$ từ đầu ra $a_j^{(l+1)}$ = $a_i^{(l+1)}$ mà ta tính ở bước trước do đó công thức của $z_i^{(l+2)} = \sum_{j=1}^{n^{(l+1)}} w_{ij}^{(l+2)} a_j^{(l+1)} + b_i^{(l+2)}$ và sau khi có được z_i(l+2) ta sẽ cho vào activation function $f(z_i^{(l+2)})$ và cuối cùng ta được đầu ra $a_i^{(l+2)}$
 # References
