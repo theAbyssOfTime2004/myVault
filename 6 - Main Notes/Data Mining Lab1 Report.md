@@ -147,7 +147,7 @@ minmax = scaler.fit_transform(df_bai2)
 minmax_df = pd.DataFrame(minmax, index = df_bai2.index)
 print('Scaling dữ liệu:\n', minmax_df)
 ```
-2. Data Discretization:
+3. Data Discretization:
 
 - Thực hiện equal-width binning với 10 bins cho tất cả các cột số hóa
 ```python
