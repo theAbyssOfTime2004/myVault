@@ -1,3 +1,7 @@
+2025-03-27 00:22
+
+
+Tags: [[data mining]]], [[beginner]], [[Machine Learning]]
 
 # So Sánh Chi Tiết Các Thuật Toán PCA, LSA và SVD
 
