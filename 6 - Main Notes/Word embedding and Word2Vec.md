@@ -15,7 +15,7 @@ Tags: [[data scientist]], [[Neural Network]], [[DeepLearning]], [[NLP]]
 ### Word2Vec
 #### Continuous Bag of Words  
 ![[Pasted image 20250324125948.png]]
-- Ví dụ trong câu *Troll 2 is greate* continuous bag of words sẽ sử dụng từ *Troll 2* và từ *great!* để dự đoán từ is
+- Ví dụ trong câu *Troll 2 is great!* continuous bag of words sẽ sử dụng từ *Troll 2* và từ *great!* để dự đoán từ is
 #### Skip-gram
 ![[Pasted image 20250324130115.png]]
 - Skip gram sẽ sử dụng từ ở giữa để dự đoán các từ xung quanh, ví dụ trong 2 câu trên thì Skip gram sẽ sử dụng từ *is* để dự đoán các từ *Troll 2, great!* và *Gymkata*
