@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Logistic Regression.md",
+                "file": "6 - Main Notes/Common Activation Function In Neural Networks.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Logistic Regression"
+              "title": "Common Activation Function In Neural Networks"
             }
           },
           {
@@ -217,8 +217,11 @@
   },
   "active": "55fb65bde6f3e2f2",
   "lastOpenFiles": [
-    "6 - Main Notes/Word embedding and Word2Vec.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "6 - Main Notes/Logistic Regression.md",
+    "6 - Main Notes/multivariable chain rule.md",
     "6 - Main Notes/SkipGram and CBOW.md",
+    "6 - Main Notes/Word embedding and Word2Vec.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/So Sánh Giữa PCA, SVD và LSA.md",
     "6 - Main Notes/Data Mining Lab1 Report.md",
@@ -226,7 +229,6 @@
     "Pasted image 20250326134921.png",
     "Pasted image 20250326134856.png",
     "Pasted image 20250326134843.png",
-    "6 - Main Notes/Logistic Regression.md",
     "3 - Tags/Machine Learning.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Linear Regression for more complex models.md",
@@ -241,10 +243,8 @@
     "Pasted image 20250325175507.png",
     "Pasted image 20250325175015.png",
     "3 - Tags/DeepLearning.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/Backpropagation.md",
     "6 - Main Notes/Neural Network.md",
-    "6 - Main Notes/multivariable chain rule.md",
     "1 - Rough Notes/Untitled.md",
     "1 - Rough Notes/Mạng máy tính.md",
     "1 - Rough Notes/Untitled 1.md",
