@@ -41,10 +41,15 @@
             "id": "55fb65bde6f3e2f2",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Mangas that i saved for future.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Mangas that i saved for future"
             }
           }
         ],
@@ -121,6 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "6 - Main Notes/Mangas that i saved for future.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +136,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Mangas that i saved for future"
             }
           },
           {
