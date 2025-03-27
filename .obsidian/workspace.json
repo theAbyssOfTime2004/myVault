@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Word embedding and Word2Vec.md",
+                "file": "6 - Main Notes/SkipGram and CBOW.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Word embedding and Word2Vec"
+              "title": "SkipGram and CBOW"
             }
           }
         ],
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Word embedding and Word2Vec.md",
+                "file": "6 - Main Notes/SkipGram and CBOW.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Word embedding and Word2Vec"
+              "title": "Backlinks for SkipGram and CBOW"
             }
           },
           {
@@ -217,6 +217,8 @@
   },
   "active": "55fb65bde6f3e2f2",
   "lastOpenFiles": [
+    "6 - Main Notes/Word embedding and Word2Vec.md",
+    "6 - Main Notes/SkipGram and CBOW.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/So Sánh Giữa PCA, SVD và LSA.md",
     "6 - Main Notes/Data Mining Lab1 Report.md",
@@ -241,7 +243,6 @@
     "3 - Tags/DeepLearning.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/Backpropagation.md",
-    "6 - Main Notes/Word embedding and Word2Vec.md",
     "6 - Main Notes/Neural Network.md",
     "6 - Main Notes/multivariable chain rule.md",
     "1 - Rough Notes/Untitled.md",
@@ -254,7 +255,6 @@
     "6 - Main Notes/Gradient Descent.md",
     "6 - Main Notes/Local Search Algorithm.md",
     "6 - Main Notes/Linear Algebra Review.md",
-    "6 - Main Notes/Chap2-summary.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas",
     "2 - Source Material - Copy/Others",
