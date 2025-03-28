@@ -13,7 +13,7 @@ $$
 $$
 - Với:
 	- $w_t$ là từ đích và $C_t$ là tập hợp các từ xung quanh nó
-	- Ta muốn tối đa hóa xác suất xuất hiện các từ ngữ  cảnh $w_c$ khi biết từ đích $w_t$ , <=> ta muốn tối đa hóa tích trên
+	- Ta muốn tối đa hóa xác suất xuất hiện các từ ngữ  cảnh $w_c$ khi biết từ đích $w_t$ , <=> ta muốn tối đa hóa tích trên 
 	- Tích càng lớn thì tổng thể mô hình càng có khả năng dự đoán đúng các từ ngữ cảnh.
 2. **Chuyển đổi về bài toán tối ưu hàm mất mát**
 	- Ta sẽ gặp 1 vấn đề: Nếu có nhiều từ ngữ cảnh, tích của nhiều xác suất $P(w_c|w_t)$ sẽ càng nhỏ và sẽ nhỏ đến mức gây ra lỗi *floating point precision*
