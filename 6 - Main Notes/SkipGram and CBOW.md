@@ -48,5 +48,19 @@ $$
 - Hàm mất mát này giúp tối ưu hóa mô hình sao cho:
 - Xác suất của từ ngữ cảnh đúng $(w_c)$ càng cao càng tốt.
 - Các vector từ học được phản ánh đúng quan hệ ngữ nghĩa giữa từ đích và từ ngữ cảnh.
-
+### Biểu diễn dưới dạng Neural Network
+![[Pasted image 20250328002314.png]]
+-  Quy trình trong Skip-gram Word2Vec diễn ra như sau:
+1. **Chọn từ đích** → Ban đầu, ta có từ đích là **"fox"**.
+2. **Nhân với ma trận trọng số $U$** →
+    - Biểu diễn "fox" dưới dạng **one-hot vector**.
+    - Nhân vector này với **ma trận nhúng** $U$ để thu được **embedding** $\mathbf{u}_t$​.
+3. **Nhân với ma trận trọng số $V$** →
+    - $\mathbf{u}_t$​ được nhân với **ma trận trọng số đầu ra** $V$ để thu được $\mathbf{u}_t^TV$.
+    - Kết quả này là một vector logit, trong đó mỗi phần tử đại diện cho mức độ liên quan giữa "fox" và một từ khác trong từ điển.
+4. **Áp dụng Softmax** →
+    - Chuyển $\mathbf{u}_t^TV$. thành xác suất bằng cách áp dụng **Softmax**.
+    - Giá trị đầu ra thể hiện **mối liên hệ giữa "fox" và các từ ngữ cảnh**.
+- **Mục tiêu cuối cùng**: Mô hình **học được embedding của từ "fox" sao cho nó có thể dự đoán đúng các từ ngữ cảnh xung quanh**.
+- (Để cho dễ hiểu: ban đầu ta có từ đích là "fox" sau đấy từ fox đi qua lớp ẩn và thực hiện phép nhân với ma trận trọng số $U$ và được embedding $u_t$ sau đấy $u_t$ đến output layer và thực hiện phép nhân với ma trận trọng số $V$ và ta được  $\mathbf{u}_t^TV$ và cuối cùng kích hoạt softmax để thể hiện mối liên hệ giữa các từ trong ngữ cảnh đối với "fox")
 # References
