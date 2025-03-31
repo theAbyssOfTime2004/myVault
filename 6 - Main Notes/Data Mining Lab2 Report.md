@@ -42,3 +42,55 @@ point1 = array[0,:]
 point2 = array[1,:]
 point3 = array[2,:]
 ```
+2. Thực hiện tính chuẩn p theo công thức và in kết quả:
+```python
+#p=1
+dist01_2 = np.linalg.norm(point1-point2, 1)
+dist01_3 = np.linalg.norm(point1-point3, 1)
+#p=2
+dist1_2 = np.linalg.norm(point1-point2)
+dist1_3 = np.linalg.norm(point1-point3)
+#p=inf
+dist11_2 = np.linalg.norm(point1-point2, np.inf)
+dist11_3 = np.linalg.norm(point1-point3, np.inf)
+
+#print results
+print(dist1_2)
+print(dist1_3)
+print(dist01_2)
+print(dist01_3)
+print(dist11_2)
+print(dist11_3)
+```
+
+3. Thực hiện tính chuẩn p = 1, 2, inf cho 50 dòng đầu tiên của array trong dataset 
+```python
+#Tạo hàm tính ma trận khoảng cách 
+def distance_array_calc(array, n, p):
+  distance_array = np.zeros([n,n]) #khởi tạo ma trận vuông cấp nxn
+  for i in range(n): #duyệt qua từng hàng và cột của ma trận
+    for j in range(n):
+      distance_array[i, j] = np.linalg.norm(array[i, :] - array[j, :], p) #tính khoảng cách của từng hàng theo công thức 
+  return distance_array
+```
+
+```python
+#p=1
+n = 50
+p = 1
+distance_array_calc(array, n, p)
+
+#p=2
+n = 50
+p = 2
+distance_array_calc(array, n, p)
+
+#p=inf
+n = 50
+p = np.inf
+distance_array_calc(array, n, p)
+```
+
+### Bài 2: Xử lý dữ liệu kddcup
+
+### Data overview 
