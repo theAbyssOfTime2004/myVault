@@ -108,4 +108,22 @@ distance_array_calc(array, n, p)
     3. **Thuộc tính về lưu lượng trong khoảng thời gian:**
         - **count:** Số lượng kết nối đến cùng một đích trong khoảng thời gian nhất định.
         - **srv_count:** Số lượng kết nối đến cùng một dịch vụ trong khoảng thời gian nhất định.
-- **Nhãn (label):** Mỗi bản ghi được gán nhãn là "normal" (bình thường) hoặc một trong các loại tấn công.​0
+- **Nhãn (label):** Mỗi bản ghi được gán nhãn là "normal" (bình thường) hoặc một trong các loại tấn công.​
+### Data preprocessing
+1. Lựa chọn và trích xuất dữ liệu phân loại trong dataset:
+```python
+categorical_columns = df2.select_dtypes(include=['object']).columns
+print("Categorical attributes:", categorical_columns)
+categorical_data = df2[categorical_columns]
+print("Categorical Data:\n", categorical_data)
+```
+2. Kiểm tra giá trị trùng nhau và loại bỏ:
+```python
+#Kiếm tra giá trị giống nhau
+print("So luong dong giong nhau: ", categorical_data.duplicated().sum())
+##loại bỏ các dòng giống nhau
+df2 = categorical_data.drop_duplicates()
+print("Du lieu sau khi xoa nhung dong giong nhau: ", df2)
+df2.shape
+```
+- Dữ liệu sau khi bỏ các giá trị giống nhau thì còn lại 609 dòng và 4 cột
