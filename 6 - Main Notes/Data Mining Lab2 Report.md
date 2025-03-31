@@ -108,4 +108,4 @@ distance_array_calc(array, n, p)
     3. **Thuộc tính về lưu lượng trong khoảng thời gian:**
         - **count:** Số lượng kết nối đến cùng một đích trong khoảng thời gian nhất định.
         - **srv_count:** Số lượng kết nối đến cùng một dịch vụ trong khoảng thời gian nhất định.
-- **Nhãn (label):** Mỗi bản ghi được gán nhãn là "normal" (bình thường) hoặc một trong các loại tấn công.​
+- **Nhãn (label):** Mỗi bản ghi được gán nhãn là "normal" (bình thường) hoặc một trong các loại tấn công.​0
