@@ -32,4 +32,13 @@ df.duplicated().sum()
 df.drop_duplicates(inplace=True)
 ```
 
-### Tính khoảng cách giữa các 
+### Tính khoảng cách giữa các điểm dữ liệu 
+
+1. Khởi tạo các điểm point1, point2, point3 tương ứng là dòng 0, 1, 2 của array và tính chuẩn p
+```python
+array = df.values
+print(array)
+point1 = array[0,:]
+point2 = array[1,:]
+point3 = array[2,:]
+```
