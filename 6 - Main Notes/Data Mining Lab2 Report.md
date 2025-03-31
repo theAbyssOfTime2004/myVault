@@ -9,7 +9,7 @@
 ### Data Overview
 
 - Data có 35 cột với 34 đặc trưng với các giá trị số đại diện cho tín hiệu của radar, cột cuối cùng là nhãn ("label") với hai giá trị:
-	- - `"g"` (good) - tín hiệu phản xạ có thể dùng để phân biệt đối tượng.
+	-  `"g"` (good) - tín hiệu phản xạ có thể dùng để phân biệt đối tượng.
 	- `"b"` (bad) - tín hiệu phản xạ không có giá trị phân loại.
 ``` python
 import pandas as pd
@@ -127,3 +127,88 @@ print("Du lieu sau khi xoa nhung dong giong nhau: ", df2)
 df2.shape
 ```
 - Dữ liệu sau khi bỏ các giá trị giống nhau thì còn lại 609 dòng và 4 cột
+### Tính K nearest neighbourhood sử dụng độ đo overlap và độ đo tần suất xuất hiện ngược
+
+1. Xây dựng thuật toán tính độ tương đồng giữa các bản ghi sử dụng độ đo overlap: 
+```python
+n = 609 #tính độ tương đồng trên toàn bộ hàng của dataset
+sim_matrix_overlap = np.zeros([n, n])
+for i in range(n):
+    for j in range(n):
+        S = 0
+        for k in range(df2.shape[1]):
+            if df2.iloc[i, k] == df2.iloc[j, k]:
+                S = S + 1/df2.shape[1]
+        sim_matrix_overlap[i][j] = S
+
+sim_matrix_overlap
+```
+
+- Kết quả:
+![[Pasted image 20250331141811.png]]
+
+2. Xây dựng thuật toán tính độ tương đồng giữa các bản ghi sử dụng độ đo tần suất xuất hiện ngược:
+```python
+from collections import Counter
+n = 609
+sim_matrix_inv_freq = np.zeros([n, n])
+
+# Tính tần suất xuất hiện của từng giá trị trong mỗi cột
+value_frequencies = []
+for col in df2.columns:
+    counts = Counter(df2[col])
+    freqs = {val: count / len(df2) for val, count in counts.items()}
+    value_frequencies.append(freqs)
+ 
+# Tính ma trận độ tương đồng
+for i in range(n):
+    for j in range(n):
+        S = 0
+        for k in range(df2.shape[1]):
+            x_i = df2.iloc[i, k]
+            y_i = df2.iloc[j, k]
+            
+            if x_i == y_i:
+                S += 1 / df2.shape[1]
+            else:
+                f_x = value_frequencies[k].get(x_i, 1e-10)  # Tránh lỗi log(0)
+                f_y = value_frequencies[k].get(y_i, 1e-10)
+                S += (1 / df2.shape[1]) * (1 / (1 + np.log(f_x) * np.log(f_y)))
+
+        sim_matrix_inv_freq[i][j] = S
+
+sim_matrix_inv_freq
+```
+
+- Kết quả:
+![[Pasted image 20250331141949.png]]
+
+3. Xây dựng hàm tìm k láng giềng gần nhất dựa trên độ tương đồng 
+```python
+def find_nearest_neighbors(sim_matrix, k):
+    n = sim_matrix.shape[0]  # Số bản ghi
+    nearest_neighbors = {}
+
+    for i in range(n):
+        # Lấy danh sách độ tương đồng và sắp xếp giảm dần
+        sorted_neighbors = np.argsort(sim_matrix[i])[::-1]
+        # Bỏ qua chính bản thân nó (index i)
+        nearest_neighbors[i] = sorted_neighbors[1:k+1]
+
+    return nearest_neighbors
+```
+
+4. Chạy thử với 5 láng giềng gần nhất
+```python
+# Sử dụng hàm
+k = 5
+nearest_neighbors = find_nearest_neighbors(sim_matrix_overlap, k)
+  
+# In danh sách k láng giềng gần nhất
+print("tìm " + str(k) + " láng giềng gần nhất sử dụng độ đo overlap")
+for key, value in nearest_neighbors.items():
+    print(f"Hàng {key}: Láng giềng gần nhất {value}")
+```
+
+- Kết quả: 
+![[Pasted image 20250331142138.png]]
