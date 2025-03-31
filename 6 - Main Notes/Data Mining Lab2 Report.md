@@ -94,3 +94,18 @@ distance_array_calc(array, n, p)
 ### Bài 2: Xử lý dữ liệu kddcup
 
 ### Data overview 
+**Cấu trúc của tập dữ liệu KDD Cup 1999:**
+- **Số lượng mẫu:** Khoảng 4.900.000 bản ghi, mỗi bản ghi đại diện cho một kết nối mạng riêng lẻ.
+- **Số lượng thuộc tính:** Mỗi bản ghi có 41 thuộc tính, bao gồm:​[
+    1. **Thuộc tính cơ bản về kết nối:**
+        - **duration:** Thời gian của kết nối (giây).
+        - **protocol_type:** Loại giao thức (e.g., TCP, UDP).
+        - **service:** Dịch vụ được yêu cầu (e.g., http, ftp).
+        - **flag:** Trạng thái của kết nối.
+    2. **Thuộc tính về nội dung:**
+        - **src_bytes:** Số byte từ nguồn đến đích.
+        - **dst_bytes:** Số byte từ đích đến nguồn.
+    3. **Thuộc tính về lưu lượng trong khoảng thời gian:**
+        - **count:** Số lượng kết nối đến cùng một đích trong khoảng thời gian nhất định.
+        - **srv_count:** Số lượng kết nối đến cùng một dịch vụ trong khoảng thời gian nhất định.
+- **Nhãn (label):** Mỗi bản ghi được gán nhãn là "normal" (bình thường) hoặc một trong các loại tấn công.​
