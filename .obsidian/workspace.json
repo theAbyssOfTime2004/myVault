@@ -4,56 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "e47ba92c5c73bbee",
+        "id": "4b611aca1182dc9f",
         "type": "tabs",
         "children": [
           {
-            "id": "1afe7004125161fb",
+            "id": "99268dd3ae0ef090",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/multivariable chain rule.md",
+                "file": "6 - Main Notes/Word embedding and Word2Vec.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "multivariable chain rule"
-            }
-          },
-          {
-            "id": "93142e4281a25326",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Common Activation Function In Neural Networks.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Common Activation Function In Neural Networks"
-            }
-          },
-          {
-            "id": "55fb65bde6f3e2f2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Data Mining Lab2 Report.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Data Mining Lab2 Report"
+              "title": "Word embedding and Word2Vec"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -126,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Data Mining Lab2 Report.md",
+                "file": "6 - Main Notes/Word embedding and Word2Vec.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +105,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Data Mining Lab2 Report"
+              "title": "Backlinks for Word embedding and Word2Vec"
             }
           },
           {
@@ -215,13 +184,19 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "55fb65bde6f3e2f2",
+  "active": "99268dd3ae0ef090",
   "lastOpenFiles": [
+    "3 - Tags/NLP.md",
+    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+    "6 - Main Notes/LangChain.md",
+    "6 - Main Notes/SkipGram and CBOW.md",
+    "6 - Main Notes/multivariable chain rule.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
+    "6 - Main Notes/Data Mining Lab2 Report.md",
     "Pasted image 20250331142138.png",
     "Pasted image 20250331141949.png",
     "Pasted image 20250331141811.png",
     "6 - Main Notes/Data Mining Lab1 Report.md",
-    "6 - Main Notes/Data Mining Lab2 Report.md",
     "6 - Main Notes/Decision Tree.md",
     "6 - Main Notes/Depth-first search.md",
     "6 - Main Notes/The RFC.md",
@@ -237,24 +212,18 @@
     "1 - Rough Notes/Mạng máy tính.md",
     "1 - Rough Notes/Untitled.md",
     "1 - Rough Notes/Untitled 1.md",
-    "6 - Main Notes/SkipGram and CBOW.md",
     "Pasted image 20250328002314.png",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/Logistic Regression.md",
-    "6 - Main Notes/multivariable chain rule.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "Pasted image 20250326135113.png",
     "Pasted image 20250326134921.png",
     "Pasted image 20250326134856.png",
-    "Pasted image 20250326134843.png",
     "3 - Tags/Machine Learning.md",
     "6 - Main Notes/SVM Classification Model.md",
     "6 - Main Notes/Linear Regression for more complex models.md",
     "6 - Main Notes/Linear Regression.md",
     "Untitled 1.canvas",
     "6 - Main Notes/Neural Networks Foundation.md",
-    "3 - Tags/DeepLearning.md",
-    "6 - Main Notes/Backpropagation.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas",
     "2 - Source Material - Copy/Others",
