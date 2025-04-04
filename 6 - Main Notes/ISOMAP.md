@@ -27,10 +27,8 @@ Tags: [[data mining]], [[data scientist]]
 	2. Tính toán khoảng cách geodesic trên đồ thị
 		- Với hai điểm bất kỳ $(\bar{X} )$ và $( \bar{Y} )$, xác định khoảng cách geodesic $( \text{Dist}(\bar{X}, \bar{Y}) )$.
 		- Khoảng cách này được tính bằng **đường đi ngắn nhất (shortest path)** trên đồ thị $( G )$, sử dụng thuật toán như:
-			- - **Dijkstra** (cho đồ thị thưa).
+			-  **Dijkstra** (cho đồ thị thưa).
 			- **Floyd-Warshall** (cho đồ thị nhỏ và đầy đủ).
-## 3. Phân tích ưu điểm và nhược điểm của ISOMAP
-## Ưu và nhược điểm của ISOMAP
 
 # Phân tích ưu điểm và nhược điểm của ISOMAP
 
