@@ -1,7 +1,7 @@
 2025-01-11 12:45
 
 
-Tags: [[statistical]], [[information theory]]
+Tags: [[statistical]], [[information theory]], [[Mathematics]], [[data scientist]], [[Machine Learning]]
 
 # Non-symmetry of the Kullback-Leibler divergence
 
