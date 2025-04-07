@@ -43,7 +43,7 @@ The key advantage is that CNNs preserve the spatial relationships between pixels
 
 - To perform the convolution operation:
 
-	1. The 3x3 filter is "slid" across the 5x5 image matrix.
+	1. The 3x3 filter is "sliding" across the 5x5 image matrix.
 	2. At each position, the corresponding elements of the filter and image matrix are multiplied, and the sum of these products is calculated.
 	3. This sum is then placed in the corresponding position in the "Convolved Feature" matrix shown in the third image.
 	
