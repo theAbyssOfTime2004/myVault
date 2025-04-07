@@ -18,4 +18,9 @@ Tags: [[DeepLearning]], [[Convolutional Neural Networks]], [[Machine Learning]]
 		- Filter có thể di chuyển từ vị trí 0 đến vị trí 23 theo chiều dọc (tổng 24 vị trí)
 		- Ma trận đầu ra: 24×24
 - Output_size = [(Input_size + 2 × Padding - Filter_size) / Stride] + 1
+###  Pooling Layer
+![[Pasted image 20250407225228.png]]
+- Ví dụ trong hình với lớp max pooling 2x2, lần lượt lấy element lớn nhất trong 4 element đang xét (vì là 2x2 nên xét 4 elements 1 lúc)
+
+
 # References
