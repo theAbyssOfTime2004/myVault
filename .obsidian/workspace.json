@@ -97,7 +97,7 @@
               "state": {
                 "file": "6 - Main Notes/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer.md",
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -161,8 +161,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
