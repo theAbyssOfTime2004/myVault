@@ -5,6 +5,10 @@ Tags: [[DeepLearning]], [[Convolutional Neural Networks]], [[Machine Learning]]
 
 # CNN review
 
+### Cấu trúc:
+- gồm: **Convolutional layer -> additional convolutional layer -> pooling layer -> Fully-connected layer**
+
+
 - Cách tính ma trận đầu ra
 ![[Pasted image 20250407223608.png]]
 - Ước lượng ma trận đầu ra, ví dụ xét 1 mạng neuron tích chập, có ảnh input 28x28 với filter 7x7:
