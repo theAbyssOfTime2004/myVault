@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/CNN review.md",
+                "file": "6 - Main Notes/Recurrent Neural Networks (RNN).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CNN review"
+              "title": "Recurrent Neural Networks (RNN)"
             }
           }
         ]
@@ -187,12 +187,12 @@
   },
   "active": "99268dd3ae0ef090",
   "lastOpenFiles": [
+    "6 - Main Notes/CNN review.md",
     "Pasted image 20250407225228.png",
     "Pasted image 20250407225030.png",
     "Pasted image 20250407225029.png",
     "Pasted image 20250407223608.png",
     "6 - Main Notes/Convolutional Neural Networks.md",
-    "6 - Main Notes/CNN review.md",
     "6 - Main Notes/Conditional GET.md",
     "6 - Main Notes/Best-first search.md",
     "6 - Main Notes/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer.md",
@@ -211,7 +211,6 @@
     "6 - Main Notes/ISOMAP.md",
     "2 - Source Material/Others/image.png",
     "2 - Source Material/Others/tikz0.png",
-    "2 - Source Material/Others/tikz0 1.png",
     "6 - Main Notes/Tensor.md",
     "6 - Main Notes/Word embedding and Word2Vec.md",
     "3 - Tags/NLP.md",
