@@ -29,4 +29,16 @@ Tags: [[data scientist]], [[review]]
 	- **Ảnh hưởng như thế nào đến model generalization**: 
 		- Mô hình sẽ khó học được quy luật bởi vì dữ liệu quá lộn xộn làm cho mô hình khó tìm được pattern chung 
 		- Dễ bị overfitting vì mô hình sẽ học cả những dữ liệu nhiễu 
+		![[Pasted image 20250409204735.png]]
+		- (Ví dụ giải thích nhiễu)
+	- **Regularization** giúp xử lý high variance như thế nào: 
+		- **Regularizatio** là kỹ thuật đưa thêm "hình phạt" (*penalty*) vào quá trình huấn luyện giúp giảm độ phức tạp mô hình, cải thiện khả năng tổng quát hóa trên dữ liệu mới.
+		![[Pasted image 20250409205248.png]]
+
+4. ==Handling imbalance data: giải thích tác dụng của cost-sensitive learning trong scenario imbalance data==
+	- **Cost-sensitive learning** : là kỹ thuật gán trọng số lên các label có chi phí đặc biệt (quan trọng hơn và cần được chú ý nhiều hơn các label còn lại), ví dụ như là fraud transaction trong bài toán classify good and bad transaction với tỉ lệ imbalance data giữa good và bad transaction là 99% và 1%, vì fraud transaction ở đây quá ít nên ta cần chú ý đến label này nhiều hơn
+		- Mục tiêu của *cost-sensitive* là *lỗi đối với minor class phải bị trừng phạt nhiều hơn khi sai*
+	- **Cost-sensitive learning giúp gì trong imbalance data**: 
+		- Mô hình sẽ tăng trọng số lỗi ở lớp thiểu số khiến cho sự trừng phạt khi sai ở lớp này nặng hơn từ đó mô hình sẽ tránh lặp lại lỗi xảy ra ở lớp này
+		- Nếu precision hay độ phủ (recall) thấp ở lớp nhỏ  thì việc áp dụng cost-sensitive learning sẽ khiến mô hình đặc biệt chú ý đến các lớp quan trọng
 # References
