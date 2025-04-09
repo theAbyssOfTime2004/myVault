@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+                "file": "6 - Main Notes/ôn tập.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Recurrent Neural Networks (RNN)"
+              "title": "ôn tập"
             }
           }
         ]
@@ -187,6 +187,8 @@
   },
   "active": "99268dd3ae0ef090",
   "lastOpenFiles": [
+    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+    "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/CNN review.md",
     "Pasted image 20250407225228.png",
     "Pasted image 20250407225030.png",
@@ -214,7 +216,6 @@
     "6 - Main Notes/Tensor.md",
     "6 - Main Notes/Word embedding and Word2Vec.md",
     "3 - Tags/NLP.md",
-    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
     "6 - Main Notes/LangChain.md",
     "6 - Main Notes/SkipGram and CBOW.md",
     "6 - Main Notes/multivariable chain rule.md",
