@@ -10,6 +10,8 @@ Tags: [[data scientist]],
 	- Precision = $\frac{TP}{TP + NP}$ : trong tổng số dự đoán đúng, có bao nhiêu thật sự đúng
 	- Recall = $\frac {TP}{TP + FN}$: trong tổng số outcom thật sự đúng, ta dự đoán đúng được bao nhiêu
 	- F1-score = $$2 \times \frac{precision \times recall}{precision + recall}$$
-	- F1-score chính là trung bình điều hòa (*mean harmonic*) của precision và recall
+	- F1-score chính là trung bình điều hòa (*mean harmonic*) của precision và recall -> nhạy cảm hơn với sự mất căng bằng
+	- Nếu precision hoặc recall quá thấp thì F1-score cũng sẽ thấp, F1-score **không cho phép 1 trong 2 cái quá cao còn cái còn lại quá thấp**
+	- Khi nào nên dùng F1 score 
 
 # References
