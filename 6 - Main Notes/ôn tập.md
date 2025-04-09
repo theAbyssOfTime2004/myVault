@@ -26,4 +26,7 @@ Tags: [[data scientist]], [[review]]
 	- **Ví dụ về High Variance Data**: 
 		-  **Dữ liệu dự báo thời tiết**: Nhiệt độ biến thiên rõ rệt (nhiệt độ âm -> nhiệt độ dương) qua các mùa 
 		- **Dữ liệu giá nhà**: Nhiều nhà giá rất rẻ và nhiều nhà giá rất cao 
+	- **Ảnh hưởng như thế nào đến model generalization**: 
+		- Mô hình sẽ khó học được quy luật bởi vì dữ liệu quá lộn xộn làm cho mô hình khó tìm được pattern chung 
+		- Dễ bị overfitting vì mô hình sẽ học cả những dữ liệu nhiễu 
 # References
