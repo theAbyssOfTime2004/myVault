@@ -110,17 +110,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Conditional GET.md",
+                "file": "6 - Main Notes/ôn tập.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Conditional GET"
+              "title": "Backlinks for ôn tập"
             }
           },
           {
@@ -180,8 +180,7 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
@@ -202,8 +201,15 @@
   },
   "active": "99268dd3ae0ef090",
   "lastOpenFiles": [
-    "6 - Main Notes/Logistic Regression.md",
+    "3 - Tags/data scientist.md",
+    "6 - Main Notes/SkipGram and CBOW.md",
+    "3 - Tags/Computer Vision.md",
+    "3 - Tags/data mining.md",
+    "3 - Tags/review.md",
     "6 - Main Notes/ôn tập.md",
+    "6 - Main Notes/Model Generalization.md",
+    "6 - Main Notes/Word embedding and Word2Vec.md",
+    "6 - Main Notes/Logistic Regression.md",
     "6 - Main Notes/Logistic Regression review 2.md",
     "6 - Main Notes/Logistic Regression review 1.md",
     "6 - Main Notes/Recurrent Neural Networks (RNN).md",
@@ -229,16 +235,9 @@
     "2 - Source Material/Others/image.png",
     "2 - Source Material/Others/tikz0.png",
     "6 - Main Notes/Tensor.md",
-    "6 - Main Notes/Word embedding and Word2Vec.md",
     "3 - Tags/NLP.md",
     "6 - Main Notes/LangChain.md",
-    "6 - Main Notes/SkipGram and CBOW.md",
     "6 - Main Notes/multivariable chain rule.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "6 - Main Notes/Decision Tree.md",
-    "6 - Main Notes/Depth-first search.md",
-    "6 - Main Notes/The RFC.md",
-    "6 - Main Notes/So Sánh Giữa PCA, SVD và LSA.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "2 - Source Material/Others/Untitled 1.canvas",
