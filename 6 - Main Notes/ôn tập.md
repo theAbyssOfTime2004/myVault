@@ -35,7 +35,7 @@ Tags: [[data scientist]], [[review]]
 		- **Regularizatio** là kỹ thuật đưa thêm "hình phạt" (*penalty*) vào quá trình huấn luyện giúp giảm độ phức tạp mô hình, cải thiện khả năng tổng quát hóa trên dữ liệu mới.
 		![[Pasted image 20250409205248.png]]
 
-4. ==Handling imbalance data: giải thích tác dụng của cost-sensitive learning trong scenario imbalance data==
+4. ==Handling imbalance data: giải thích tác dụng của cost-sensitive learning trong real life scenario imbalance data==
 	- **Cost-sensitive learning** : là kỹ thuật gán trọng số lên các label có chi phí đặc biệt (quan trọng hơn và cần được chú ý nhiều hơn các label còn lại), ví dụ như là fraud transaction trong bài toán classify good and bad transaction với tỉ lệ imbalance data giữa good và bad transaction là 99% và 1%, vì fraud transaction ở đây quá ít nên ta cần chú ý đến label này nhiều hơn
 		- Mục tiêu của *cost-sensitive* là *lỗi đối với minor class phải bị trừng phạt nhiều hơn khi sai*
 	- **Cost-sensitive learning giúp gì trong imbalance data**: 
