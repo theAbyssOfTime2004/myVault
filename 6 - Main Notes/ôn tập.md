@@ -41,4 +41,13 @@ Tags: [[data scientist]], [[review]]
 	- **Cost-sensitive learning giúp gì trong imbalance data**: 
 		- Mô hình sẽ tăng trọng số lỗi ở lớp thiểu số khiến cho sự trừng phạt khi sai ở lớp này nặng hơn từ đó mô hình sẽ tránh lặp lại lỗi xảy ra ở lớp này
 		- Nếu precision hay độ phủ (recall) thấp ở lớp nhỏ  thì việc áp dụng cost-sensitive learning sẽ khiến mô hình đặc biệt chú ý đến các lớp quan trọng
+5. ==Stacking trong Ensemble Learning: so sánh với Bagging và Boosting==
+	- **Stagging** là 1 kỹ thuật trong ensemble learning mà sử dụng nhiều model khác nhau để đưa ra dự đoán và dùng 1 meta-model để tổng hợp kết quả từ các model ấy.
+		- **Cách hoạt động**:
+			- Sử dụng nhiều base models để đưa ra các dự đoán.
+			- Sử dụng các dự đoán để làm feature cho meta-model
+			- Huấn luyện meta-model để đưa ra output cuối cùng
+	- **Bagging** là kỹ thuật sử dụng nhiều model chạy đồng thời và sau đấy lấy ra output cuối cùng dựa vào voting hoặc tính trung bình 
+		- **Cách hoạt động**:
+			- Tạo ra các tập dữ liệu *boostrap* từ tập dữ liệu gốc 
 # References
