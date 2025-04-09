@@ -1,7 +1,7 @@
 2025-04-09 18:21
 
 
-Tags: [[data scientist]],
+Tags: [[data scientist]], [[review]] 
 
 # ôn tập
 ### Tổng hợp các câu hỏi (có thể được hỏi khi intern) thu thập được 
