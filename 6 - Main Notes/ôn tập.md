@@ -50,4 +50,23 @@ Tags: [[data scientist]], [[review]]
 	- **Bagging** là kỹ thuật sử dụng nhiều model chạy đồng thời và sau đấy lấy ra output cuối cùng dựa vào voting hoặc tính trung bình 
 		- **Cách hoạt động**:
 			- Tạo ra các tập dữ liệu *boostrap* từ tập dữ liệu gốc 
-# References
+				- **Boostrap** là lấy ngẫu nhiên có hoàn lại từ mẫu ban đầu, ví dụ:
+				``` python 
+		D = [A, B, C, D, E]
+		Bootstrap 1: [B, A, E, A, D]
+		Bootstrap 2: [C, D, D, E, B]
+		```
+			- Huấn luyện cùng loại mô hình trên các tập
+			- Chọn kết quả cuối cùng bằng việc voting hoặc lấy trung bình
+	- **Boosting** là kỹ thuật cho nhiều mô hình học tuần tự và mô hình sau sẽ học từ lỗi của mô hình trước 
+		- **Cách hoạt động**:
+			- Khởi tạo trọng số bằng nhau cho tất cả các mẫu
+			- Các mô hình sau sẽ tập trung vào các mẫu đã dự đoán sai
+			- Cập nhật trọng số
+			- Kết hợp lại các mô hình bằng trọng số
+	- **SO SÁNH**: 
+		- **Stacking:** kết hợp nhiều model khác nhau thông qua meta-model
+		- **Bagging**: Các mô hình chaỵ song song,  giảm variance
+			- Bagging giảm variance vì nó trung bình hóa nhiều mô hình học trên các tập dữ liệu khác nhau. Điều này giúp mô hình tổng hợp ổn định hơn và ít bị ảnh hưởng bởi nhiễu hoặc outliers.
+		- **Boosting**: Các mô hình chạy tuần tự,  giảm cả bias và variance
+# References 
