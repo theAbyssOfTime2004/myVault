@@ -69,4 +69,5 @@ Tags: [[data scientist]], [[review]]
 		- **Bagging**: Các mô hình chaỵ song song,  giảm variance
 			- Bagging giảm variance vì nó trung bình hóa nhiều mô hình học trên các tập dữ liệu khác nhau. Điều này giúp mô hình tổng hợp ổn định hơn và ít bị ảnh hưởng bởi nhiễu hoặc outliers.
 		- **Boosting**: Các mô hình chạy tuần tự,  giảm cả bias và variance
+	
 # References 
