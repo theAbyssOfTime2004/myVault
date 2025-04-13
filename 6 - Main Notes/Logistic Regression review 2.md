@@ -16,7 +16,7 @@ Tags: [[Logistic Regression review 1]], [[Logistic Regression]]
 	![[Pasted image 20250405201740.png]]
 	- Một cách intuitive hơn để hiểu tại sao ta có thể viết hàm BCE loss thành như trên được là:
 	  ![[Pasted image 20250413155445.png]]
-	- 
+	- **việc giảm thiểu mất mát hay minimizing cost function thực chất là ta đang thực hiện ước lượng hợp lý cực đại nhưng bỏ dấu - đi**
 	
 **Regularization term**:
 - Được chèn vào hàm loss để giúp model khống chế độ lớn của theta 
