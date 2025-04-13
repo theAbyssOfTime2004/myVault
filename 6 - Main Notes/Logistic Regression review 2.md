@@ -14,6 +14,9 @@ Tags: [[Logistic Regression review 1]], [[Logistic Regression]]
 	- Sử dụng **Binary Cross Entropy** (BCE) làm hàm loss:
 	$$L = -[y \log(\hat{y}) + (1 - y)\log(1 - \hat{y})]$$
 	![[Pasted image 20250405201740.png]]
+	- Một cách intuitive hơn để hiểu tại sao ta có thể viết hàm BCE loss thành như trên được là:
+	  ![[Pasted image 20250413155445.png]]
+	- 
 	
 **Regularization term**:
 - Được chèn vào hàm loss để giúp model khống chế độ lớn của theta 
