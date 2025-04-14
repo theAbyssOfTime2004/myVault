@@ -69,5 +69,8 @@ Tags: [[data scientist]], [[review]]
 		- **Bagging**: Các mô hình chaỵ song song,  giảm variance
 			- Bagging giảm variance vì nó trung bình hóa nhiều mô hình học trên các tập dữ liệu khác nhau. Điều này giúp mô hình tổng hợp ổn định hơn và ít bị ảnh hưởng bởi nhiễu hoặc outliers.
 		- **Boosting**: Các mô hình chạy tuần tự,  giảm cả bias và variance
-	
+6. Tại sao các activation function trong neural networks thường là các non-linear function
+	- Bởi vì nếu không có tính phi tuyến thì mạng neuron chỉ là một phép biến đổi tuyến tính cho dù có layer bao nhiêu lớp đi chăng nữa 
+	- Nếu chỉ dùng một phép biến đổi tuyến tính $output = W_3(W_2(W_1*x+b_1)+b_2)+b_3$ thì cũng tương đương với 1 lớp $output = W'*x+b'$
+	=> Cho dù ta có dùng 1000 lớp nhưng nếu không có hàm phi tuyến ở giữa thì mô hình cũng không học được gì hơn là 1 đường thẳng 
 # References 
