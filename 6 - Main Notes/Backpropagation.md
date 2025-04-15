@@ -12,7 +12,7 @@ Tags:
 Backpropagation is the fundamental algorithm behind training [[neural networks]]. It calculates gradients of the loss function with respect to the network's weights and biases, enabling the network to learn from its errors.
 
 ## Key Components
-
+![[Pasted image 20250415153904.png]]
 ### 1. Forward Pass
 
 - Network processes input data through layers
