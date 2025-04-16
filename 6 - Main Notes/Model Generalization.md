@@ -19,5 +19,6 @@ Tùy vào số lượng dữ liệu, nếu dữ liệu lớn có thể dùng 80%
 
 - Ngoài ra ta còn có thêm các tên gọi khác cho tập validation như hold-out cross validation, dev set,...
 ![[Pasted image 20250416225922.png]]
-" the workflow is that you keep on training algorithms on your training set. And use your dev set or your hold-out cross validation set to see which of many different models performs best on your dev set. And then after having done this long enough, when you have a final model that you want to evaluate, you can take the best model you have found and evaluate it on your test set in order to get an unbiased estimate of how well your algorithm is doing."
+- " the workflow is that you keep on training algorithms on your training set. And use your dev set or your hold-out cross validation set to see which of many different models performs best on your dev set. And then after having done this long enough, when you have a final model that you want to evaluate, you can take the best model you have found and evaluate it on your test set in order to get an unbiased estimate of how well your algorithm is doing."
+- Dev set và Test set nên có cùng phân phối  
 # References
