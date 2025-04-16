@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
+                "file": "6 - Main Notes/Model Generalization.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Backpropagation"
+              "title": "Model Generalization"
             }
           }
         ],
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "validat",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -91,7 +91,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -111,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Backpropagation.md",
+                "file": "6 - Main Notes/Model Generalization.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -121,7 +122,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Backpropagation"
+              "title": "Backlinks for Model Generalization"
             }
           },
           {
@@ -202,6 +203,9 @@
   },
   "active": "c7cacd9b93d9f552",
   "lastOpenFiles": [
+    "Pasted image 20250416225922.png",
+    "6 - Main Notes/Creating ML pipeline from scratch.md",
+    "6 - Main Notes/Backpropagation.md",
     "Pasted image 20250415153904.png",
     "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/Logistic Regression review 2.md",
@@ -236,10 +240,7 @@
     "Untitled 2.canvas",
     "3 - Tags/Segmentation.md",
     "Pasted image 20250405202207.png",
-    "Pasted image 20250405201711.png",
     "6 - Main Notes/ISOMAP.md",
-    "6 - Main Notes/Tensor.md",
-    "3 - Tags/NLP.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "2 - Source Material/Others/Untitled 1.canvas",
