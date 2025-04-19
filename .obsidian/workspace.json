@@ -28,17 +28,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Model Generalization.md",
+                "file": "6 - Main Notes/Data_Mining_Lab3_Report.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Model Generalization"
+              "title": "Data_Mining_Lab3_Report"
+            }
+          },
+          {
+            "id": "b9a5aaf96c2daae4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/Data Mining Lab4 Report.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Data Mining Lab4 Report"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -112,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Model Generalization.md",
+                "file": "6 - Main Notes/Data Mining Lab4 Report.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -122,7 +137,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Model Generalization"
+              "title": "Backlinks for Data Mining Lab4 Report"
             }
           },
           {
@@ -201,8 +216,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "c7cacd9b93d9f552",
+  "active": "b9a5aaf96c2daae4",
   "lastOpenFiles": [
+    "6 - Main Notes/Data_Mining_Lab3_Report.md",
+    "6 - Main Notes/Data Mining Lab4 Report.md",
+    "6 - Main Notes/Model Generalization.md",
+    "6 - Main Notes/ôn tập.md",
     "Pasted image 20250417112547.png",
     "Pasted image 20250417112529.png",
     "Pasted image 20250417112523.png",
@@ -211,10 +230,8 @@
     "6 - Main Notes/Creating ML pipeline from scratch.md",
     "6 - Main Notes/Backpropagation.md",
     "Pasted image 20250415153904.png",
-    "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/Logistic Regression review 2.md",
     "Pasted image 20250413155445.png",
-    "6 - Main Notes/Data_Mining_Lab3_Report.md",
     "6 - Main Notes/output.docx",
     "6 - Main Notes/Data Mining Lab1 Report.md",
     "6 - Main Notes/SkipGram and CBOW.md",
@@ -225,13 +242,11 @@
     "3 - Tags/data scientist.md",
     "3 - Tags/Computer Vision.md",
     "3 - Tags/review.md",
-    "6 - Main Notes/Model Generalization.md",
     "6 - Main Notes/Word embedding and Word2Vec.md",
     "6 - Main Notes/Logistic Regression review 1.md",
     "6 - Main Notes/Recurrent Neural Networks (RNN).md",
     "6 - Main Notes/CNN review.md",
     "Pasted image 20250407225228.png",
-    "Pasted image 20250407225030.png",
     "6 - Main Notes/Convolutional Neural Networks.md",
     "6 - Main Notes/Conditional GET.md",
     "6 - Main Notes/Best-first search.md",
