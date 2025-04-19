@@ -31,6 +31,34 @@ transaction = df.iloc[i].dropna().tolist()
 transactions.append(set(transaction))
 ```
 
-2. **Cài đặt thuật toán Apriori**
-- Tìm tập 1-itemset xuất hiện thường xuên
-# References
+2. **Tìm tập 1-itemset xuất hiện thường xuyên (L1)**
+   - Đếm số lần xuất hiện từng item và lọc theo ngưỡng hỗ trợ (`min_support`).
+```python
+item_counts = {}
+for transaction in D:
+    for item in transaction:
+        item_counts[item] = item_counts.get(item, 0) + 1
+
+L[1] = {frozenset([item]) for item, count in item_counts.items()
+        if count / total_transactions >= min_support}
+```
+
+ 3. **Sinh tập ứng viên Ck từ Lk-1**
+- Dựa vào thuật toán **apriori_gen**, sinh các tập ứng viên k-itemset từ các tập thường xuyên (k-1)-itemset.
+```python
+def apriori_gen(Lk_minus_1):
+    candidates = set()
+    Lk_minus_1 = list(Lk_minus_1)
+
+    for i in range(len(Lk_minus_1)):
+        for j in range(i + 1, len(Lk_minus_1)):
+            l1 = sorted(list(Lk_minus_1[i]))
+            l2 = sorted(list(Lk_minus_1[j]))
+
+            if l1[:-1] == l2[:-1] and l1[-1] < l2[-1]:
+                candidate = frozenset(l1 + [l2[-1]])
+                if not has_infrequent_subset(candidate, Lk_minus_1):
+                    candidates.add(candidate)
+
+    return candidates
+```
