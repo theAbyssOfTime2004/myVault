@@ -32,7 +32,7 @@ transactions.append(set(transaction))
 ```
 
 2. **Tìm tập 1-itemset xuất hiện thường xuyên (L1)**
-   - Đếm số lần xuất hiện từng item và lọc theo ngưỡng hỗ trợ (`min_support`).
+-  Đếm số lần xuất hiện từng item và lọc theo ngưỡng hỗ trợ (`min_support`).
 ```python
 item_counts = {}
 for transaction in D:
@@ -62,3 +62,51 @@ def apriori_gen(Lk_minus_1):
 
     return candidates
 ```
+
+4. **Lọc tập ứng viên theo min_supp**
+- Đếm số lần xuất hiện của từng ứng viên trong dataset.
+```python
+count_map = {candidate: 0 for candidate in Ck}
+for transaction in D:
+    for candidate in Ck:
+        if candidate.issubset(transaction):
+            count_map[candidate] += 1
+
+Lk = {itemset for itemset, count in count_map.items()
+      if count / total_transactions >= min_support}
+```
+
+5. **Kiểm tra tập con không thường xuyên**
+- Dùng nguyên tắc downward closure để loại bỏ tập không hợp lệ.
+```python
+def has_infrequent_subset(candidate, Lk_minus_1):
+    k = len(candidate)
+    for subset in combinations(candidate, k - 1):
+        if frozenset(subset) not in Lk_minus_1:
+            return True
+    return False
+```
+
+6. Tổng hợp kết quả
+- Gom toàn bộ các tập itemset thường xuyên từ các mức k vào một tập hợp.
+```python
+all_frequent_itemsets = set()
+for level in L.values():
+    all_frequent_itemsets.update(level)
+```
+
+7. **Thống kê tần suất từng item:**
+```python
+from collections import Counter
+
+flat_items = [item for t in transactions for item in t]
+counts = Counter(flat_items)
+
+for item, count in counts.items():
+    print(f"{item}: {count} times, support = {count/len(transactions):.2f}")
+```
+
+### Kết quả đạt được
+
+- Danh sách tất cả các tập mục thường xuyên (frequent itemsets) đã được tìm ra.
+- Thống kê chi tiết số lần xuất hiện và support của từng item giúp kiểm tra tính hợp lý của thuật toán và đánh giá các mức độ phổ biến của các item.
