@@ -49,5 +49,36 @@ Kết quả: Cả `x₁` và `x₂` giờ đều có **mean = 0** và **variance
 3. **Tính độ lệch chuẩn `σ`.*    
 4. **Chia dữ liệu cho `σ` → variance = 1.**    
 5. **Dùng cùng `μ` và `σ` để chuẩn hóa tập test.**
+### Why normalizing inputs?
+
+![[Pasted image 20250421113836.png]]
+- Việc không normalizing sẽ khiến hàm loss $J(w, b)$ có hình dạng méo mó, khiến cho quá trình hội tụ không ổn định. 
+## **Bên trái: Unnormalized (Không chuẩn hóa)**
+
+###  Hình dạng hàm mất mát (`J`)
+- Hình elip dài, dẹt → các đường đồng mức (contour) bị **kéo dài** theo 1 hướng.
+- Gradient descent khó tìm đường đi ngắn → phải "zigzag" rất nhiều để tới được điểm cực tiểu.    
+###  Đường đi gradient
+- Đường đi lắc ngoằn ngoèo.
+- Mất **nhiều bước** để hội tụ.    
+- Nguyên nhân: Scale của các đặc trưng không giống nhau (ví dụ `x₁ ∈ [1, 1000]`, `x₂ ∈ [0, 1]`).
+
+##  **Bên phải: Normalized (Đã chuẩn hóa)**
+
+###  Hình dạng hàm mất mát (`J`)
+
+- Trông như hình bát úp tròn, đối xứng → contour là **đường tròn đồng tâm**.
+- Gradient descent dễ tìm đường đi ngắn nhất đến cực tiểu.
+
+###  Đường đi gradient
+- Trực tiếp, nhanh chóng.
+- Hội tụ **nhanh hơn nhiều**.
+
+|                                | **Kết luận:**                          |
+| ------------------------------ | -------------------------------------- |
+| Before normalizing             | After normalizing                      |
+| Hàm loss méo mó                | Hàm loss đối xứng, dễ tối ưu           |
+| Gradient descent không ổn định | Gradient descent ổn định, hội tụ nhanh |
+
 
 # References
