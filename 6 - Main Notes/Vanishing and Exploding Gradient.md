@@ -33,4 +33,11 @@ với:
 W[l] = np.random.randn(shape) * np.sqrt(2 / n[l-1])
 ```
 
+- **Intuition**
+
+![[Pasted image 20250421123329.png]]
+![[Pasted image 20250421123357.png]]
+
+
+
 # References
