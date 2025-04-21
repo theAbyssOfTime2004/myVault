@@ -11,7 +11,7 @@ Là hiện tượng:
 - **Exploding**: Gradient trở nên **rất lớn** → mô hình **không ổn định**, dễ "exploding".
 
 ![[Pasted image 20250421115533.png]]
-- Ảnh trên cùng là một **mạng neural nhiều lớp (deep)** với 2 đầu vào (`x₁`, `x₂`) → nhiều lớp ẩn → đầu ra `ŷ`.
+- Xét mạng neural đơn giản không có bias và activation như ảnh trên với 2 đầu vào (`x₁`, `x₂`) → nhiều lớp ẩn → đầu ra `ŷ`.
 - với `ŷ` được tính theo công thức forward propagation như sau:
 $$\hat{y} = W^{[L]} W^{[L-1]} \cdots W^{[1]} x$$
 với:
