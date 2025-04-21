@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Data_Mining_Lab4_Report.md",
+                "file": "6 - Main Notes/Normalizing Inputs.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Data_Mining_Lab4_Report"
+              "title": "Normalizing Inputs"
             }
           }
         ],
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Data_Mining_Lab4_Report.md",
+                "file": "6 - Main Notes/Normalizing Inputs.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Data_Mining_Lab4_Report"
+              "title": "Backlinks for Normalizing Inputs"
             }
           },
           {
@@ -203,12 +203,13 @@
   },
   "active": "c7cacd9b93d9f552",
   "lastOpenFiles": [
+    "6 - Main Notes/ôn tập.md",
+    "6 - Main Notes/Normalizing Inputs.md",
+    "6 - Main Notes/Data_Mining_Lab4_Report.md",
     "6 - Main Notes/DM_lab4.pdf",
     "6 - Main Notes/Data_Mining_Lab3_Report.md",
     "6 - Main Notes/Data Mining Lab4 Report.md",
-    "6 - Main Notes/Data_Mining_Lab4_Report.md",
     "6 - Main Notes/Model Generalization.md",
-    "6 - Main Notes/ôn tập.md",
     "Pasted image 20250417112547.png",
     "Pasted image 20250417112529.png",
     "Pasted image 20250417112523.png",
@@ -252,7 +253,6 @@
     "HTTP",
     "vault-repo",
     "vault-repo/publish/attachments",
-    "vault-repo/publish",
-    "vault-repo"
+    "vault-repo/publish"
   ]
 }
