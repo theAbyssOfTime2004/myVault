@@ -18,7 +18,6 @@ với:
 	- $x$ là vector inputs 
 	- $W^{[l]}$ là ma trận weights của tầng $l$ trong mạng
 - Lưu ý rằng trong công thức trên ảnh nên có activation function cho mỗi layer (được viết ở dưới nhưng không viết tường minh trên công thức), chính là $a^{[l]} = g(z^{[l]})$ với $g()$ chính là activation function
-- 
-
-
+- Ví dụ nếu mỗi $W = 1.5$ thì $\hat{y} \approx (1.5)^L x$ => rất lớn, khiến cho gradient bị exploding
+- Ngược lại nếu $W = 0.5$ thì gradient sẽ rất nhỏ, giảm theo cấp số nhân và tiến về 0
 # References
