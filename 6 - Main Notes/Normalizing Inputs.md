@@ -1,7 +1,7 @@
 2025-04-21 11:28
 
 
-Tags:
+Tags: [[Model Generalization]], [[data scientist]]
 
 # Normalizing Inputs
 ### Normalizing Training set
