@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4b611aca1182dc9f",
+        "id": "f8ace8caed9d0b16",
         "type": "tabs",
         "children": [
           {
-            "id": "99268dd3ae0ef090",
+            "id": "c53881d85f073e6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/ôn tập.md",
+                "file": "6 - Main Notes/Vanishing and Exploding Gradient.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "ôn tập"
+              "title": "Vanishing and Exploding Gradient"
             }
           }
         ]
@@ -96,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/ôn tập.md",
+                "file": "6 - Main Notes/Vanishing and Exploding Gradient.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ôn tập"
+              "title": "Backlinks for Vanishing and Exploding Gradient"
             }
           },
           {
@@ -185,13 +185,15 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "99268dd3ae0ef090",
+  "active": "c53881d85f073e6a",
   "lastOpenFiles": [
+    "6 - Main Notes/Vanishing and Exploding Gradient.md",
+    "Pasted image 20250421115533.png",
+    "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/transformer.md",
     "6 - Main Notes/Normalizing Inputs.md",
     "Pasted image 20250421113836.png",
     "Pasted image 20250421113310.png",
-    "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/Data_Mining_Lab4_Report.md",
     "6 - Main Notes/DM_lab4.pdf",
     "6 - Main Notes/Data_Mining_Lab3_Report.md",
@@ -211,7 +213,6 @@
     "6 - Main Notes/Data Mining Lab1 Report.md",
     "6 - Main Notes/SkipGram and CBOW.md",
     "3 - Tags/data mining.md",
-    "Pasted image 20250409205248.png",
     "6 - Main Notes/Logistic Regression.md",
     "3 - Tags/data scientist.md",
     "3 - Tags/Computer Vision.md",
@@ -223,8 +224,6 @@
     "6 - Main Notes/Convolutional Neural Networks.md",
     "6 - Main Notes/Conditional GET.md",
     "6 - Main Notes/Best-first search.md",
-    "6 - Main Notes/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer.md",
-    "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "Untitled 2.canvas",
     "Untitled.canvas",
     "Untitled 1.canvas",
