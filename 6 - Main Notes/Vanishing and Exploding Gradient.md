@@ -20,4 +20,17 @@ với:
 - Lưu ý rằng trong công thức trên ảnh nên có activation function cho mỗi layer (được viết ở dưới nhưng không viết tường minh trên công thức), chính là $a^{[l]} = g(z^{[l]})$ với $g()$ chính là activation function
 - Ví dụ nếu mỗi $W = 1.5$ thì $\hat{y} \approx (1.5)^L x$ => rất lớn, khiến cho gradient bị exploding
 - Ngược lại nếu $W = 0.5$ thì gradient sẽ rất nhỏ, giảm theo cấp số nhân và tiến về 0
+# Reducing exploding and vanishing gradient
+
+![[Pasted image 20250421122715.png]]
+
+- Minh họa với mạng 1 lớp đơn giản
+-  Khi **số lượng đầu vào nnn** lớn, thì để đầu ra không bị **bùng nổ hoặc tiêu biến**, **trọng số wiw_iwi​** nên nhỏ.
+- **Phân phối khởi tạo trọng số**:  
+    - Để đảm bảo **đầu ra ổn định**, người ta khởi tạo trọng số sao cho: $$ Var(w_i) = \frac{2}{n} $$
+    - Trong numpy:
+```python
+W[l] = np.random.randn(shape) * np.sqrt(2 / n[l-1])
+```
+
 # References
