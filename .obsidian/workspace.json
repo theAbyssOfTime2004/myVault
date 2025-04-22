@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/regularization.md",
+                "file": "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "regularization"
+              "title": "Early Forest-Fire Detection Utilizing Regression Models"
             }
           }
         ]
@@ -96,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/regularization.md",
+                "file": "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for regularization"
+              "title": "Backlinks for Early Forest-Fire Detection Utilizing Regression Models"
             }
           },
           {
@@ -187,8 +187,9 @@
   },
   "active": "c53881d85f073e6a",
   "lastOpenFiles": [
-    "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "6 - Main Notes/regularization.md",
+    "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
+    "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "Pasted image 20250421123357.png",
     "Pasted image 20250421123329.png",
     "Pasted image 20250421122715.png",
@@ -224,7 +225,6 @@
     "6 - Main Notes/CNN review.md",
     "6 - Main Notes/Convolutional Neural Networks.md",
     "6 - Main Notes/Conditional GET.md",
-    "6 - Main Notes/Best-first search.md",
     "Untitled 2.canvas",
     "Untitled.canvas",
     "Untitled 1.canvas",
