@@ -101,5 +101,25 @@ Tags: [[Machine Learning]], [[data scientist]]
 - **Method**: Spatial and bi-spectral analysis    
 - **Result**: Good for closely monitoring and early warnings    
 - **Limit**: High energy usage
+### Proposed System Summarized:
+- **Techniques:**
+1. **Pair Plot**
+	- **Purpose**: To explore the relationships between pairs of variables.
+	- **Benefit**: Helps identify distinct data clusters or the best attribute combinations for prediction.
+ 2. **Linear Regression**
+	- **Concept**: Predicts the value of a dependent variable (Y) based on one or more independent variables (X).
+	- **Formula**: `Y = c + mX`
+	- **Method**: Uses the "least squares" approach to fit the best line that minimizes the difference between actual and predicted values.
+	- **Limitation**: Can be unstable in the presence of multicollinearity (when predictors are highly correlated).
+ 3. **Ridge Regression**
+- **Concept**: Linear regression but add Regularization, introduced by Andrey Tikhonov.
+- **Use Case**: Effective when dealing with many correlated features.
+- **Cost Function**: $\min \left( ||Y - X\theta||_2^2 + \lambda ||\theta||_2^2 \right)$
+- **Advantage**: Stabilizes the model by penalizing large coefficients.
+- **Limitation**: Doesn't automatically eliminate irrelevant features.
+    
+
+📈 **Fig. 1** shows Ridge Regression predictions, which differ noticeably from actual values—indicating less accuracy.
+---
 
 # References
