@@ -32,6 +32,74 @@ Tags: [[Machine Learning]], [[data scientist]]
 	- 4. The fourth scenario: *burn area >= 100ha, lasted >= 24hours, windspeed >= 7m/s*
 
 ### Literature review summarized
-![[Pasted image 20250423132354.png]]
+#### **[1]**
+- **Data**: Canada Fire Database    
+- **Goal**: Create new terms to describe wildfire size
+- **Method**: Neural network using weather data
+- **Result**: Can predict fire size early using weather    
+- **Limit**: Doesn’t work well for all locations
+---
+#### **[2]**
+- **Data**: 400,000 fire images
+- **Goal**: Detect fires early and estimate burned area
+- **Method**: Bayesian Neural Network    
+- **Result**: More accurate estimation, less error
+- **Limit**: Hard to train, has complex settings
+---
+#### **[4]**
+- **Data**: Himawari-8 satellite images
+- **Goal**: Find hot spots using adaptive thresholds
+- **Method**: Otsu’s 3D thresholding
+- **Result**: Works for small fires
+- **Limit**: Only uses one image, may miss fires
+---
+#### **[5]**
+- **Data**: Satellite data for lighting and aerosols
+- **Goal**: Study how smoke affects fire activity
+- **Method**: Image analysis with light/smoke data    
+- **Result**: Found link between smoke levels and fires
+- **Limit**: Less accurate in high-smoke areas
+---
+#### **[6]**
+- **Data**: FLAME2 IR images
+- **Goal**: Build new fire detection and modeling tools
+- **Method**: MSER image method
+- **Result**: Low-cost and reliable
+- **Limit**: Only works with certain types of data
+---
+#### **[7]**
+- **Data**: MODIS satellite, weather, and plant data
+- **Goal**: Monitor global fire risk
+- **Method**: NMDI index (for dryness)
+- **Result**: Good for watching fire activity
+- **Limit**: Doesn’t work well with all data sources
+---
+#### **[9]**
+- **Data**: Public dataset
+- **Goal**: Improve fire detection using attention layers
+- **Method**: CNN with attention gates  
+- **Result**: Reliable fire detection
+- **Limit**: Can be confused by lighting or background
+---
+#### **[10]**
+- **Data**: Landsat, MODIS, satellite IRRS
+- **Goal**: Suggest better fire warning systems    
+- **Method**: FFM-relevant IRRS algorithm
+- **Result**: Evaluating the effectiveness of forest fire detection
+- **Limit**: Doesn’t work well in mountains
+---
+#### **[11]**
+- **Data**: Video frames
+- **Goal**: Detect fire in video    
+- **Method**: Single Motion-based 
+- **Result**: Reducing false alarms while not increasing computational work
+- **Limit**: Not clearly stated
+---
+#### **[12]**
+- **Data**: Landsat, MODIS, satellite IRRS    
+- **Goal**: Monitor forest temperature and humidity    
+- **Method**: Spatial and bi-spectral analysis    
+- **Result**: Good for closely monitoring and early warnings    
+- **Limit**: High energy usage
 
 # References
