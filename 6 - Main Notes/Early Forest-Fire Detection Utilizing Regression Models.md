@@ -36,14 +36,14 @@ Tags: [[Machine Learning]], [[data scientist]]
 - **Data**: Canada Fire Database    
 - **Goal**: Create new terms to describe wildfire size
 - **Method**: Neural network using weather data
-- **Result**: Can predict fire size early using weather    
+- **Result**: Can predict fire size early using weather (meteorological data)    
 - **Limit**: Doesn’t work well for all locations
 ---
 #### **[2]**
 - **Data**: 400,000 fire images
 - **Goal**: Detect fires early and estimate burned area
 - **Method**: Bayesian Neural Network    
-- **Result**: More accurate estimation, less error
+- **Result**: More accurate estimation and improving generalization
 - **Limit**: Hard to train, has complex settings
 ---
 #### **[4]**
