@@ -112,14 +112,20 @@ Tags: [[Machine Learning]], [[data scientist]]
 	- **Method**: Uses the "least squares" approach to fit the best line that minimizes the difference between actual and predicted values.
 	- **Limitation**: Can be unstable in the presence of multicollinearity (when predictors are highly correlated).
  3. **Ridge Regression**
-- **Concept**: Linear regression but add Regularization, introduced by Andrey Tikhonov.
-- **Use Case**: Effective when dealing with many correlated features.
-- **Cost Function**: $\min \left( ||Y - X\theta||_2^2 + \lambda ||\theta||_2^2 \right)$
-- **Advantage**: Stabilizes the model by penalizing large coefficients.
-- **Limitation**: Doesn't automatically eliminate irrelevant features.
-    
+	- **Concept**: Linear regression but add Regularization, introduced by Andrey Tikhonov.
+	- **Use Case**: Effective when dealing with many correlated features.
+	- **Cost Function**: $\min \left( ||Y - X\theta||_2^2 + \lambda ||\theta||_2^2 \right)$
+	- **Advantage**: Stabilizes the model by penalizing large coefficients.
+	- **Limitation**: Doesn't automatically eliminate irrelevant features.
+	![[Pasted image 20250423142450.png]]
+	
+ 4. **Lasso Regression**
+	- **Concept**: A regularization method that also performs feature selection.    
+	- **Full Name**: Least Absolute Shrinkage and Selection Operator (LASSO)
+	- **Advantage**: Reduces some coefficients to zero, effectively removing unimportant variables.    
+	- **Benefit**: Useful when many predictors are present but only a few are significant.
 
-📈 **Fig. 1** shows Ridge Regression predictions, which differ noticeably from actual values—indicating less accuracy.
----
+
+
 
 # References
