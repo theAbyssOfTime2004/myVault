@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
+                "file": "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Early Forest-Fire Detection Utilizing Regression Models"
+              "title": "Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution"
             }
           }
         ]
@@ -189,12 +189,13 @@
   },
   "active": "c53881d85f073e6a",
   "lastOpenFiles": [
+    "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
+    "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "Pasted image 20250423143331.png",
     "Pasted image 20250423142800.png",
     "Pasted image 20250423142450.png",
     "Pasted image 20250423132354.png",
     "6 - Main Notes/regularization.md",
-    "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "Pasted image 20250421123357.png",
     "Pasted image 20250421123329.png",
@@ -210,7 +211,6 @@
     "6 - Main Notes/Data_Mining_Lab3_Report.md",
     "6 - Main Notes/Data Mining Lab4 Report.md",
     "6 - Main Notes/Model Generalization.md",
-    "Pasted image 20250417112547.png",
     "6 - Main Notes/Creating ML pipeline from scratch.md",
     "6 - Main Notes/Backpropagation.md",
     "6 - Main Notes/Logistic Regression review 2.md",
