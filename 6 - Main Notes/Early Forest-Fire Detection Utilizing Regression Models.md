@@ -57,14 +57,14 @@ Tags: [[Machine Learning]], [[data scientist]]
 - **Data**: Satellite data for lighting and aerosols
 - **Goal**: Study how smoke affects fire activity
 - **Method**: Image analysis with light/smoke data    
-- **Result**: Found link between smoke levels and fires
+- **Result**: Found link between smoke levels (aerosol concentration) and the location of fires
 - **Limit**: Less accurate in high-smoke areas
 ---
 #### **[6]**
 - **Data**: FLAME2 IR images
 - **Goal**: Build new fire detection and modeling tools
-- **Method**: MSER image method
-- **Result**: Low-cost and reliable
+- **Method**: MSER fire detection method
+- **Result**: Low-cost techniques
 - **Limit**: Only works with certain types of data
 ---
 #### **[7]**
@@ -86,7 +86,7 @@ Tags: [[Machine Learning]], [[data scientist]]
 - **Goal**: Suggest better fire warning systems    
 - **Method**: FFM-relevant IRRS algorithm
 - **Result**: Evaluating the effectiveness of forest fire detection
-- **Limit**: Doesn’t work well in mountains
+- **Limit**: Doesn’t work well in high-latitude regions (such as mountains)
 ---
 #### **[11]**
 - **Data**: Video frames
