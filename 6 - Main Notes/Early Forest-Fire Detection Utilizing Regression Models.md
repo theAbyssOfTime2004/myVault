@@ -29,5 +29,8 @@ Tags: [[Machine Learning]], [[data scientist]]
 	- 1. Early response scenario: predicted *damage area < 10ha, not been burning >= 3 hours, windspeed < 2m/s*  
 	- 2. The second scenario: *burn area 10 - 30ha, burn length 3 - 8hours, windspeed 2 - 4m/s*
 	- 3. The third scenario: *damage area 30 - 100ha, burn length 8 -24hours, windspeed 4-7m/s*
-	- 4. The fourth scenario: *burn area >= 100ha, lasted >= 24hours, windspeed >= 7m/s* 
+	- 4. The fourth scenario: *burn area >= 100ha, lasted >= 24hours, windspeed >= 7m/s*
+
+### Literature review summarized
+
 # References
