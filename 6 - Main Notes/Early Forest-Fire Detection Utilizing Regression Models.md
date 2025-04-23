@@ -32,6 +32,6 @@ Tags: [[Machine Learning]], [[data scientist]]
 	- 4. The fourth scenario: *burn area >= 100ha, lasted >= 24hours, windspeed >= 7m/s*
 
 ### Literature review summarized
-- **Hao Liang et al.** proposed a forest fire prediction method using a **neural network model**. Their model estimates the **scale of a fire** based on its length and burned area, helping **fire rescuers** take early action. The study shows that **meteorological data** can be used to predict the **size of a fire in its early stages**, potentially reducing damage from large-scale wildfires.
-- **DaiQuoc Tran et al.** 
+![[Pasted image 20250423132354.png]]
+
 # References
