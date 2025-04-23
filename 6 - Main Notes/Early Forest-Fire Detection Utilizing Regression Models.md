@@ -125,6 +125,7 @@ Tags: [[Machine Learning]], [[data scientist]]
 	- **Advantage**: Reduces some coefficients to zero, effectively removing unimportant variables.    
 	- **Benefit**: Useful when many predictors are present but only a few are significant.
 
+	![[Pasted image 20250423142800.png]]
 
 
 
