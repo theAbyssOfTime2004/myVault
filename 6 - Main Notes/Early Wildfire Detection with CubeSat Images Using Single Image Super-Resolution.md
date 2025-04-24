@@ -60,4 +60,14 @@ Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh đ�
 	- Từ ảnh multispectral 10 band TIFF format -> ảnh 3 band RGB với PNG format
 	- Sử dụng thư viện GDAL của python để process
 	- Mặc dù có mất một số thông tin khi chuyển từ giá trị float sang integer ở từng pixel, nhưng ảnh hưởng không đáng kể vì mô hình sử dụng thông tin đã được chuẩn hóa
+3. Chia nhỏ và gán nhãn lại: 
+	a. Có ảnh gốc 256x256 và một fire mask tương ứng
+    - Trong fire mask: Màu trắng = có cháy, màu đen = không cháy
+	- Họ chia ảnh gốc thành 16 ảnh nhỏ (64x64) và cũng chia fire mask tương ứng thành 16 phần
+	b.  Cách gán nhãn mới:
+    - Nếu phần fire mask của ảnh nhỏ có bất kỳ điểm trắng nào → ảnh đó được gán nhãn "có cháy"
+    - Nếu phần fire mask hoàn toàn đen → ảnh đó được gán nhãn "không cháy"
+	- Họ tin tưởng vào độ chính xác của các mặt nạ cháy gốc và sử dụng chúng làm cơ sở để tạo bộ dữ liệu phân loại nhị phân mới (chỉ có 2 lớp: có cháy hoặc không có cháy).
+
+Điều này đơn giản hóa bài toán để phù hợp với khả năng xử lý hạn chế của CubeSat.
 # References
