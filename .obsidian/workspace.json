@@ -112,8 +112,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
-                "collapseAll": false,
+                "file": "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
+                "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": true,
@@ -122,7 +122,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Early Forest-Fire Detection Utilizing Regression Models"
+              "title": "Backlinks for Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution"
             }
           },
           {
