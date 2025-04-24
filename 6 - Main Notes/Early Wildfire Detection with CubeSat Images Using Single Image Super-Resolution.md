@@ -44,5 +44,14 @@ Tags:
 - Dữ liệu dùng cho training được tiền xử lý từ data Landsat-8
 	- Ảnh Landsat-8 có 11 băng tần (multispectral), nhưng loại bỏ band 8 (panchromatic), còn lại 10 band → lưu dưới định dạng TIFF.
 - Trong nghiên cứu trước đó:
-	- Ảnh được *resize về kích thước 256x256* 
+	- Ảnh được *resize về kích thước 256x256*, với spatial resolution là 30m thì 1 bức ảnh sẽ tương ứng với $59km^2$ diện tích mặt đất 
+	![[Pasted image 20250424124416.png]]
+	- Dùng kỹ thuật segmentation để tạo fire masks cho ảnh (xem rằng liệu có đang xảy ra 1 vụ cháy nào trong từng pixel không) 
+	- Tuy nhiên, gán nhãn thủ công rất khó và tốn thời gian → họ dùng **3 thuật toán phát hiện cháy có sẵn** để tự động tạo nhãn:
+		- Schroeder et al.
+		- Murphy et al.    
+		- Kumar & Roy
+	- "Since the three algorithms are not ground truth, they sometimes produce slightly different results", nên họ **xác định một pixel là “cháy” nếu ít nhất 2 thuật toán đồng ý.**
+### Preprocessing
+
 # References
