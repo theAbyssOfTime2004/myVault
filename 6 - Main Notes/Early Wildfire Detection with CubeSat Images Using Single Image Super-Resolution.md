@@ -123,4 +123,6 @@ Tags:
 
 	![[Pasted image 20250424202702.png]]	
 - Phân tích sâu hơn cho thấy các mô hình có xu hướng báo cháy nhầm (FP) nhiều hơn bỏ sót (FN), và điều này có thể được khắc phục bằng cách điều chỉnh ngưỡng hoặc tăng dữ liệu. Mặc dù P/R/F1 tương đương, điểm AUC cao hơn của ResNet cho thấy nó có khả năng phân biệt tổng thể tốt hơn, và có thể đạt hiệu suất cao hơn nếu tối ưu ngưỡng quyết định.
+### Conclusion Summary
+- Bài báo kết luận rằng việc kết hợp *Deep learning và Super-res* là một hướng đi *hiệu quả* để phát hiện cháy rừng sớm bằng ảnh thu được từ CubeSat, khắc phục các hạn chế của các budget sattelites. Phương pháp này sử dụng *transfer learning* bằng cách tận dụng các mô hình như MobileNetV2/ResNet152V2 và ảnh được tăng cường chất lượng nhờ *Super-res* , đã cho thấy *cải thiện rõ rệt (3-5%)* về hiệu suất so với dùng ảnh gốc. Nó mở ra tiềm năng cho hệ thống giám sát cháy toàn cầu, thời gian thực, chi phí thấp. Các hướng phát triển tiếp theo bao gồm *mở rộng bộ dữ liệu, thử nghiệm các hệ số  Super-res khác nhau, tối ưu hóa ngưỡng quyết định cháy*, và đặc biệt là *giảm kích thước mô hình cùng tỷ lệ bỏ sót đám cháy* để phù hợp với việc xử lý trên CubeSat.
 #  References
