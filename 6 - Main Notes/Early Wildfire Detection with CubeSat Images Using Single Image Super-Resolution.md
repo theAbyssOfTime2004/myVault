@@ -31,4 +31,6 @@ Tags:
 - Khả năng xử lý phần mềm giới hạn → không thể implementing các mô hình deep learning nặng.
 - Do đó, cần giải pháp nhẹ, hiệu quả và dùng ít dữ liệu đầu vào.
 	- => Bài báo đề xuất dùng kỹ thuật **super-resolution** để cải thiện hiệu quả phát hiện cháy rừng từ ảnh CubeSat, dù bị giới hạn về số băng tần và bộ nhớ.
+### Super-resolution technique:
+
 # References
