@@ -52,6 +52,12 @@ Tags:
 		- Murphy et al.    
 		- Kumar & Roy
 	- "Since the three algorithms are not ground truth, they sometimes produce slightly different results", nên họ **xác định một pixel là “cháy” nếu ít nhất 2 thuật toán đồng ý.**
-### Preprocessing
-
+### Preprocessing:
+Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh được giảm xuống 64x64 pixel và chỉ sử dụng 3 kênh màu RGB thay vì 10 kênh đa phổ. Bài toán được chuyển từ phân đoạn từng pixel sang phân loại nhị phân (có cháy/không cháy).
+1. Giảm kích thước ảnh:
+	- Ảnh đã được thu nhỏ xuống kích cỡ 64x64 để phù hợp với khả năng xử lý của CubeSat, mỗi ảnh giờ đây presents $3.7km^2$
+2. Đổi format:
+	- Từ ảnh multispectral 10 band TIFF format -> ảnh 3 band RGB với PNG format
+	- Sử dụng thư viện GDAL của python để process
+	- Mặc dù có mất một số thông tin khi chuyển từ giá trị float sang integer ở từng pixel, nhưng ảnh hưởng không đáng kể vì mô hình sử dụng thông tin đã được chuẩn hóa
 # References
