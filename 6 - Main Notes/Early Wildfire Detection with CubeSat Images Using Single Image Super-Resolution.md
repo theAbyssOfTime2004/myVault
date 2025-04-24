@@ -96,6 +96,9 @@ Tags:
 	- Do **băng thông vệ tinh hạn chế** và việc **thu thập ảnh vệ tinh chụp liên tiếp cùng một đám cháy là cực kỳ khó khăn**, nghiên cứu đã chọn phương pháp **Siêu phân giải Đơn ảnh (SISR)** thay vì Đa ảnh (MISR).
 	- Họ sử dụng mô hình học sâu pre-trained **Real-ESRGAN** để **tăng độ phân giải ảnh lên 4 lần**. Kết quả là chất lượng ảnh vệ tinh được cải thiện đáng kể, với chi tiết tốt hơn (độ phân giải hiệu quả tăng từ 30m lên 7.5m), giúp ích cho việc phát hiện cháy rừng.
 	![[Pasted image 20250424163256.png]]
-- **Wildfire Detection Learning Models**
-	- 
+- **Wildfire Detection Learning Models**:
+	- Sử dụng 2 mô hình học sâu là: **MobileNetV2** và **ResNet152V2**.
+	-  **Số lượng tham số:** MobileNetV2 có khoảng 2.4 triệu tham số, trong khi ResNet152V2 có tới 58.6 triệu.
+	- **Kích thước Mô hình (Model Size - MB):** Kích thước lưu trữ của MobileNetV2 chỉ là 9.75 MB, nhỏ hơn đáng kể so với 234.44 MB của ResNet152V2.
+- **Thiết lập training**:  
 #  References
