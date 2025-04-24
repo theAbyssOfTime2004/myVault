@@ -107,6 +107,9 @@ Tags:
 
 ### Result
 
-- **Evaluation Metrics** 
+- **Evaluation Metrics**:
+	- Sử dụng các metrics chính là: **Precision, Recall và F1-score**
+	- Sử dụng **ROC Curve và chỉ số AUC** để biểu diễn hiệu suất mô hình
+	![[Pasted image 20250424201112.png]]
 	
 #  References
