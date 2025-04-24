@@ -74,4 +74,7 @@ Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh đ�
 - Điều này tạo ra class imbalance nghiệm trọng với tỉ lệ 10:1
 - khi data imbalanced, mô hình có xu hướng biased theo majority class bởi vì nó đang cố tối ưu hóa độ chính xác tổng thể, dẫn đến hiệu suất kém trong việc phát hiện cháy rừng (điều quan trọng nhất)
 - **Giải Pháp**: sử dụng undersampling, giảm số lượng mẫu từ lớp đa số (giảm số ảnh "không cháy") với các ảnh được chọn ngẫu nhiên để tránh mất thông tin quan trọng
+- **Kết quả**: 
+	- Bộ dữ liệu cuối cùng dành cho binary classification deep-learning có 5.966 ảnh với tỷ lệ cân bằng giữa ảnh "có cháy" và "không cháy"
+	- Cùng một tập hình ảnh được sử dụng cho cả quá trình huấn luyện và kiểm tra, không phụ thuộc vào việc có sử dụng kỹ thuật siêu phân giải hay không
 # References
