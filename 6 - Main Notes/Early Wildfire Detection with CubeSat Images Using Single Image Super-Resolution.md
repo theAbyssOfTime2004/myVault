@@ -27,8 +27,8 @@ Tags:
 	- Có thể chọn quỹ đạo để theo dõi nhiều nơi hoặc giám sát liên tục một khu vực.
 	- Có thể dùng nhiều CubeSat để vượt qua hạn chế về băng thông truyền tín hiệu.
 - Những hạn chế của CubeSat: 
-- Kích thước nhỏ nên camera payload capacity nhỏ → không thể sử dụng thuật toán so sánh nhiều băng tần như các vệ tinh lớn.
-- Khả năng xử lý phần mềm giới hạn → không thể implementing các mô hình deep learning nặng.
+	- Kích thước nhỏ nên camera payload capacity nhỏ → không thể sử dụng thuật toán so sánh nhiều băng tần như các vệ tinh lớn.
+	- Khả năng xử lý phần mềm giới hạn → không thể implementing các mô hình deep learning nặng.
 - Do đó, cần giải pháp nhẹ, hiệu quả và dùng ít dữ liệu đầu vào.
 	- => Bài báo đề xuất dùng kỹ thuật **super-resolution** để cải thiện hiệu quả phát hiện cháy rừng từ ảnh CubeSat, dù bị giới hạn về số băng tần và bộ nhớ.
 ### Super-resolution technique:
