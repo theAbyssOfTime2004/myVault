@@ -67,7 +67,7 @@ Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh đ�
 	b.  Cách gán nhãn mới:
     - Nếu phần fire mask của ảnh nhỏ có bất kỳ điểm trắng nào → ảnh đó được gán nhãn "có cháy"
     - Nếu phần fire mask hoàn toàn đen → ảnh đó được gán nhãn "không cháy"
-	- Họ tin tưởng vào độ chính xác của các mặt nạ cháy gốc và sử dụng chúng làm cơ sở để tạo bộ dữ liệu phân loại nhị phân mới (chỉ có 2 lớp: có cháy hoặc không có cháy).
+	-  Assume rằng độ chính xác của các mặt nạ cháy gốc là ground truth và sử dụng chúng làm cơ sở để tạo bộ dữ liệu phân loại nhị phân mới (chỉ có 2 lớp: có cháy hoặc không có cháy).
 
 Điều này đơn giản hóa bài toán để phù hợp với khả năng xử lý hạn chế của CubeSat.
 # References
