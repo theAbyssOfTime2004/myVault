@@ -82,6 +82,15 @@ Tags:
 ### Methods:
 ![[Pasted image 20250424144944.png]]
 
+- **Early Wildfire Detection Framework**
+	1. *Vấn đề với CubeSat*: Do CubeSat có hạn chế về khả năng xử lý bởi vì payload capacity nhỏ, điều này gây khó khăn cho việc xử lý và detect wildfire onboard 
+		- => Giải pháp tốt hơn được đề xuất là gửi ảnh về mặt đất để xử lý 
+	2. *Vấn đề mới:* Ngay cả khi xử lý trên mặt đất, ảnh từ CubeSat có độ phân giải cố định (fixed resolution). Chỉ dùng các mô hình phức tạp hơn không đủ để cải thiện hiệu suất vì chất lượng ảnh đầu vào bị giới hạn.
+		- => Đề xuất *super-resolution technique*, giúp tăng cường chất lượng hình ảnh, làm ảnh nét hơn, chi tiết hơn từ ảnh gốc có độ phân giải thấp.
+		- Nghiên cứu sẽ so sánh hiệu quả phát hiện cháy rừng khi dùng SR so với khi không dùng SR (trên cùng ảnh và mô hình, flow xử lý dựa theo Figure2)
+	3. Khó khăn khi áp dụng SR cho ảnh vệ tinh: 
+		- Hầu hết nghiên cứu SR phát triển trong lĩnh vực thị giác máy tính, tập trung vào ảnh RGB.
+		- Ảnh vệ tinh thường có nhiều kênh phổ multi-spectrum), bao gồm cả kênh hồng ngoại (infrared) rất hữu ích cho việc phát hiện cháy rừng. Do đó, các mô hình SR được pre-trained thường không phù hợp.
+		- *Tuy nhiên*, nghiên cứu này vẫn áp dụng được SR vì đã có bước preprocess ảnh vệ tinh để chuyển đổi thành ảnh RGB
 
-
-# References
+#  References
