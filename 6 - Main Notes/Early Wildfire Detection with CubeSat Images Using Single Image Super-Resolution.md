@@ -100,5 +100,13 @@ Tags:
 	- Sử dụng 2 mô hình học sâu là: **MobileNetV2** và **ResNet152V2**.
 	-  **Số lượng tham số:** MobileNetV2 có khoảng 2.4 triệu tham số, trong khi ResNet152V2 có tới 58.6 triệu.
 	- **Kích thước Mô hình (Model Size - MB):** Kích thước lưu trữ của MobileNetV2 chỉ là 9.75 MB, nhỏ hơn đáng kể so với 234.44 MB của ResNet152V2.
-- **Thiết lập training**:  
+- **Training và thiết lập tham số mô hình**:  
+	- Tiến hành **hai lượt train và test riêng biệt** cho _mỗi_ mô hình (tức là tổng cộng 4 lần huấn luyện chính.
+	- Quá trình huấn luyện kéo dài tối đa **100 epochs**, ảnh đầu vào được qua các bước **normalizing, data augmentation** (chỉ lật ảnh, không cắt/xoay), và chọn mô hình tốt nhất dựa trên **validation loss.** Các siêu tham số cụ thể như trình tối ưu hóa Adam, tốc độ học 1e-5, và **hàm loss Binary Cross-entropy** đã được chọn sau khi thử nghiệm.
+	![[Pasted image 20250424195347.png]]
+
+### Result
+
+- **Evaluation Metrics** 
+	
 #  References
