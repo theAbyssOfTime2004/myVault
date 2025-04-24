@@ -53,7 +53,9 @@ Tags:
 		- Kumar & Roy
 	- "Since the three algorithms are not ground truth, they sometimes produce slightly different results", nên họ **xác định một pixel là “cháy” nếu ít nhất 2 thuật toán đồng ý.**
 ### Preprocessing:
-Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh được giảm xuống 64x64 pixel và chỉ sử dụng 3 kênh màu RGB thay vì 10 kênh đa phổ. Bài toán được chuyển từ phân đoạn từng pixel sang phân loại nhị phân (có cháy/không cháy).
+![[Pasted image 20250424144817.png]]
+
+- Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh được giảm xuống 64x64 pixel và chỉ sử dụng 3 kênh màu RGB thay vì 10 kênh đa phổ. Bài toán được chuyển từ phân đoạn từng pixel sang phân loại nhị phân (có cháy/không cháy).
 1. Giảm kích thước ảnh:
 	- Ảnh đã được thu nhỏ xuống kích cỡ 64x64 để phù hợp với khả năng xử lý của CubeSat, mỗi ảnh giờ đây presents $3.7km^2$
 2. Đổi format:
@@ -77,4 +79,9 @@ Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh đ�
 - **Kết quả**: 
 	- Bộ dữ liệu cuối cùng dành cho binary classification deep-learning có 5.966 ảnh với tỷ lệ cân bằng giữa ảnh "có cháy" và "không cháy"
 	- Cùng một tập hình ảnh được sử dụng cho cả quá trình huấn luyện và kiểm tra, không phụ thuộc vào việc có sử dụng kỹ thuật siêu phân giải hay không
+### Methods:
+![[Pasted image 20250424144944.png]]
+
+
+
 # References
