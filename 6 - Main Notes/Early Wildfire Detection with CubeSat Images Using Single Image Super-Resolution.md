@@ -68,6 +68,10 @@ Do hạn chế về khả năng xử lý của CubeSat, kích thước ảnh đ�
     - Nếu phần fire mask của ảnh nhỏ có bất kỳ điểm trắng nào → ảnh đó được gán nhãn "có cháy"
     - Nếu phần fire mask hoàn toàn đen → ảnh đó được gán nhãn "không cháy"
 	-  Assume rằng độ chính xác của các mặt nạ cháy gốc là ground truth và sử dụng chúng làm cơ sở để tạo bộ dữ liệu phân loại nhị phân mới (chỉ có 2 lớp: có cháy hoặc không có cháy).
-
 Điều này đơn giản hóa bài toán để phù hợp với khả năng xử lý hạn chế của CubeSat.
+### Class imbalance
+- Dữ liệu gốc được thiết kế cho pixel-level segmentation nên ngay cả ảnh chỉ có 1 pixel được classified là cháy thì cũng sẽ được labeled "có cháy"
+- Điều này tạo ra class imbalance nghiệm trọng với tỉ lệ 10:1
+- khi data imbalanced, mô hình có xu hướng biased theo majority class bởi vì nó đang cố tối ưu hóa độ chính xác tổng thể, dẫn đến hiệu suất kém trong việc phát hiện cháy rừng (điều quan trọng nhất)
+- **Giải Pháp**: sử dụng undersampling, giảm số lượng mẫu từ lớp đa số (giảm số ảnh "không cháy") với các ảnh được chọn ngẫu nhiên để tránh mất thông tin quan trọng
 # References
