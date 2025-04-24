@@ -111,5 +111,16 @@ Tags:
 	- Sử dụng các metrics chính là: **Precision, Recall và F1-score**
 	- Sử dụng **ROC Curve và chỉ số AUC** để biểu diễn hiệu suất mô hình
 	![[Pasted image 20250424201112.png]]
-	
+
+- **Performance on trained model**
+	- 4 combinations của 2 mô hình(*MobileNetV2 và ResNet152V2*) cùng với 2 kiểu data (*Low-res và Super-res*) được đánh giá trên một bộ dữ liệu kiểm tra riêng biệt gồm 1,194 ảnh/bộ dữ liệu.
+	- Kết quả:
+	![[Pasted image 20250424201940.png]]
+	=> Các mô hình sử dụng ảnh đã được *thực hiện super-resolution* cho thấy hiệu suất *vượt trội* so với các mô hình sử dụng ảnh gốc (độ phân giải thấp - *Low resolution*).
+	 - Learning performance trên các model Low-res tăng khi model size tăng, ngược lại learning performance trên các model super-res không thay đổi khi model size tănng 
+		 => Điều này cho thấy ảnh super-res chứa *nhiều thông tin rõ ràng hơn*. Ngay cả mô hình nhỏ hơn (MobileNetV2) cũng có thể học được gần như tất cả các đặc trưng cần thiết từ super-res training data này, không thua kém nhiều so với mô hình lớn.
+	=> Khi chất lượng ảnh đầu vào đã tốt (super-res), việc *tăng kích thước training data* có thể quan trọng hơn việc *chỉ tăng model size*.
+
+	![[Pasted image 20250424202702.png]]	
+- Phân tích sâu hơn cho thấy các mô hình có xu hướng báo cháy nhầm (FP) nhiều hơn bỏ sót (FN), và điều này có thể được khắc phục bằng cách điều chỉnh ngưỡng hoặc tăng dữ liệu. Mặc dù P/R/F1 tương đương, điểm AUC cao hơn của ResNet cho thấy nó có khả năng phân biệt tổng thể tốt hơn, và có thể đạt hiệu suất cao hơn nếu tối ưu ngưỡng quyết định.
 #  References
