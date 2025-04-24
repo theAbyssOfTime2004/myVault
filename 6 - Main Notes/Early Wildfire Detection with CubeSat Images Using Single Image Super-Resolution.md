@@ -32,5 +32,17 @@ Tags:
 - Do đó, cần giải pháp nhẹ, hiệu quả và dùng ít dữ liệu đầu vào.
 	- => Bài báo đề xuất dùng kỹ thuật **super-resolution** để cải thiện hiệu quả phát hiện cháy rừng từ ảnh CubeSat, dù bị giới hạn về số băng tần và bộ nhớ.
 ### Super-resolution technique:
-
+- Kỹ thuật super-resolution sẽ được thực hiện tại trạm ở mặt đất, mà không cần phải thay đổi bất kỳ phần cứng nào của CubeSat
+ - Mục tiêu là giúp hệ thống **phát hiện cháy rừng thời gian thực trên toàn cầu bằng CubeSat**.    
+- Ưu điểm:    
+    - Khắc phục các giới hạn của CubeSat (kích thước nhỏ, băng thông thấp, tải trọng hạn chế).
+    - Ảnh RGB từ CubeSat được xử lý nâng cao độ phân giải ở mặt đất → cải thiện chất lượng ảnh.
+    - Khi so sánh mô hình học sâu trên ảnh gốc và ảnh đã enhanced, kết quả cho thấy:
+        - **Tốc độ học nhanh hơn**
+        - **Hiệu suất phát hiện cháy tốt hơn**
+### Materials
+- Dữ liệu dùng cho training được tiền xử lý từ data Landsat-8
+	- Ảnh Landsat-8 có 11 băng tần (multispectral), nhưng loại bỏ band 8 (panchromatic), còn lại 10 band → lưu dưới định dạng TIFF.
+- Trong nghiên cứu trước đó:
+	- Ảnh được *resize về kích thước 256x256* 
 # References
