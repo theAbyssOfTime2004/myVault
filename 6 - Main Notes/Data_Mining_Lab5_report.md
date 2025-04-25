@@ -80,4 +80,58 @@ for itemset, tid_list in all_frequent_itemsets.items():
     item_str = ' & '.join(sorted(itemset)) if len(itemset) > 1 else next(iter(itemset))
     result[item_str] = support
 ```
-# References
+
+## So Sánh kết quả với hàm có sẵn
+- Sau khi cài đặt thuật toán `vertical_apriori()`, ta cần kiểm tra độ chính xác bằng cách **so sánh kết quả** với thư viện uy tín – ở đây là **`mlxtend`**, vốn cài sẵn thuật toán Apriori truyền thống (horizontal format).
+#### Bước 1: **Gọi lại thuật toán Vertical Apriori đã tự cài đặt**
+
+```python
+frequent_itemsets_custom = vertical_apriori(df_bin, min_support)
+```
+
+- Kết quả là một dictionary `{itemset_string: support_value}`
+- Ta chuyển nó về dạng DataFrame để tiện xử lý:
+```python
+result_custom = pd.DataFrame(frequent_itemsets_custom.items(), columns=['Item', 'support'])
+result_custom = result_custom[result_custom['Item'].str.count('&') >= min_combination - 1]
+```
+- **Lọc theo độ dài itemset**, ví dụ: chỉ giữ những tập có 2 mục trở lên (`A & B` trở lên).
+#### Bước 2: **Dùng thư viện `mlxtend` để tính frequent itemsets**
+
+```python
+from mlxtend.frequent_patterns import apriori
+
+frequent_itemsets_lib = apriori(df_bin, min_support=min_support, use_colnames=True)
+```
+- Output của `apriori()` là DataFrame chứa các cột:
+    - `itemsets`: một tập hợp các item (`frozenset`)
+    - `support`: tần suất xuất hiện tương ứng
+- Ta xử lý lại để format giống với kết quả custom:
+```python
+frequent_itemsets_lib['Item'] = frequent_itemsets_lib['itemsets'].apply(
+    lambda x: ' & '.join(sorted(x))
+)
+result_lib = frequent_itemsets_lib[['Item', 'support']]
+result_lib = result_lib[result_lib['Item'].str.count('&') >= min_combination - 1]
+```
+
+#### Bước 3: **So sánh kết quả giữa hai phương pháp**
+
+- Hiển thị bảng kết quả riêng biệt:
+```python
+print("\n[Custom Vertical Apriori]")
+print(result_custom.sort_values(by='support', ascending=False))
+
+print("\n[Apriori - mlxtend]")
+print(result_lib.sort_values(by='support', ascending=False))
+```
+- Và tạo bảng giao nhau – tức là các tập mục phổ biến giống nhau giữa 2 cách:
+```python
+common = pd.merge(result_custom, result_lib, on='Item', suffixes=('_custom', '_lib'))
+print("\n[Common Frequent Itemsets]")
+print(common)
+```
+
+#### Giải thích kết quả:
+- Kết quả cho thấy thuật toán **Vertical Apriori tự cài đặt** và **Apriori từ `mlxtend`** đã **tìm ra cùng một itemset phổ biến** (`Milk & Wine`), với độ hỗ trợ hoàn toàn khớp.
+- Điều này chứng tỏ thuật toán **Vertical Apriori tự cài đặt** đã hoạt động chính xác và cho kết quả tương đương với thuật toán chuẩn của thư viện `mlxtend`.
