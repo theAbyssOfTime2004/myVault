@@ -28,16 +28,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
+                "file": "6 - Main Notes/Data_Mining_Lab5_report.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Early Forest-Fire Detection Utilizing Regression Models"
+              "title": "Data_Mining_Lab5_report"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -202,8 +203,11 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "c53881d85f073e6a",
+  "active": "9a1b159ade4f8e4a",
   "lastOpenFiles": [
+    "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
+    "6 - Main Notes/Data_Mining_Lab5_report.md",
+    "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "6 - Main Notes/[4]_summary.docx",
     "6 - Main Notes/Early Wildfire Detection.docx",
     "6 - Main Notes/lu500578c9rk.tmp",
@@ -218,8 +222,6 @@
     "Pasted image 20250424144944.png",
     "Pasted image 20250424144817.png",
     "Pasted image 20250424124416.png",
-    "6 - Main Notes/Early Forest-Fire Detection Utilizing Regression Models.md",
-    "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "Pasted image 20250423143331.png",
     "6 - Main Notes/regularization.md",
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
@@ -253,7 +255,6 @@
     "2 - Source Material/Others/Untitled.canvas",
     "2 - Source Material - Copy/Others",
     "2 - Source Material - Copy",
-    "4 - Indexes",
-    "4 - indexes"
+    "4 - Indexes"
   ]
 }
