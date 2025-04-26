@@ -5,7 +5,7 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 
 # Early wldfire detection using different machine learning algorithms
 
-- **Abstract summary**: Nghiên cứu này đề xuất một hệ thống phát hiện cháy rừng sớm bằng cách sử dụng các nút cảm biến không dây giá rẻ kết hợp với các phương pháp AI detection. Hệ thống gồm các cảm biến đo nhiệt độ, độ ẩm, khói và một module truyền thông không dây. Bốn thuật toán máy học được đánh giá *(bao gồm decision trees, random forests, SVM và KNN),* trong đó Random Forest cho kết quả chính xác cao nhất với độ chính xác 77.95%. Hệ thống này hiệu quả và tiết kiệm chi phí, phù hợp cho việc giám sát cháy rừng trên diện rộng.
+- **Abstract summary**: Nghiên cứu này đề xuất một hệ thống phát hiện cháy rừng sớm bằng cách sử dụng các nút cảm biến không dây giá rẻ kết hợp với các phương pháp AI detection. Hệ thống gồm các cảm biến đo nhiệt độ, độ ẩm, khói và một module truyền thông không dây. Bốn thuật toán máy học được đánh giá *(bao gồm decision trees, random forests, SVM và KNN),* trong đó **Random Forest cho kết quả chính xác cao nhất với độ chính xác 77.95%.** Hệ thống này hiệu quả và tiết kiệm chi phí, phù hợp cho việc giám sát cháy rừng trên diện rộng.
 ### 1.Introduction 
 - Trong những năm gần đây, cháy rừng ngày càng xảy ra nhiều và nghiêm trọng hơn do biến đổi khí hậu, thay đổi mục đích sử dụng đất và các hoạt động của con người. 
 - Biến đổi khí hậu làm tăng nhiệt độ, thay đổi lượng mưa, khiến đất đai khô hạn hơn, dễ cháy hơn. Hoạt động của con người như đốt phá rừng, đốt lửa trại, bắn pháo hoa cũng làm tăng nguy cơ cháy. 
@@ -28,6 +28,11 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - Có khả năng capture được hình và video *chất lượng cao*, sau đó có thể áp dụng các thuật toán học máy để giúp phát hiện cháy rừng. 
 - Có tính linh hoạt cao và có thể deploy dễ dàng. nhưng tầm hoạt đông và thời gian hoạt động hạn chế
 ### 5.Ground-based sensor networks
-
+- **Mạng cảm biến không dây (WSN)** đang ngày càng được sử dụng nhiều để phát hiện cháy rừng vì khả năng giám sát liên tục theo thời gian thực. Trong nghiên cứu này, cảm biến được bố trí theo **hình tam giác** nhằm tối ưu hóa độ chính xác và độ phân giải không gian, đồng thời tăng khả năng chịu lỗi khi một nút cảm biến bị hỏng.    
+- **Phát hiện cháy sớm** rất quan trọng để kiểm soát cháy hiệu quả. Các phương pháp truyền thống (thủ công) thường chậm và thiếu chính xác. Vì thế, **machine learning** và **dữ liệu viễn thám** (như ảnh vệ tinh, UAV) đang được áp dụng rộng rãi để cải thiện khả năng phát hiện.
+- Các nghiên cứu trước đây đã dùng nhiều thuật toán như **Random Forest, SVM, CNN, Artificial Neural Networks** để nhận diện cháy, cho kết quả khả quan.
+- **WSN kết hợp UAV** và các thuật toán thông minh như **fuzzy logic** cũng được phát triển để theo dõi và cảnh báo cháy kịp thời.    
+- **Chỉ số thời tiết cháy (Fire Weather Index - FWI)** được dùng để đánh giá nguy cơ cháy dựa trên độ ẩm, gió, nhiệt độ, lượng mưa,… Có hai cách phổ biến: **phương pháp Canada** và **phương pháp Hàn Quốc**. Phương pháp Canada chính xác hơn, nhanh hơn và tiết kiệm năng lượng nên được ưu tiên sử dụng trong nghiên cứu này.    
+- Nghiên cứu nhấn mạnh việc **tối ưu hóa cách lắp đặt cảm biến và thu thập dữ liệu tại chỗ**, nhằm nâng cao hiệu quả của các mô hình machine learning khi phát hiện cháy rừng.
 
 # References
