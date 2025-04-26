@@ -22,6 +22,9 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - **Ý nghĩa trong nghiên cứu:** Nghiên cứu này sử dụng mạng cảm biến mặt đất để tận dụng ưu điểm giám sát liên tục, cải thiện khả năng phát hiện cháy sớm trong môi trường thực tế.
 ### 3.Satellite-based monitoring
 - Có độ phủ sóng rất lớn, phù hợp để phát hiện các đám cháy rừng diện rộng
-- Tuy nhiên *temporal-resolution hạn chế* (nghĩa là thời gian giữa các lần thu thập dữ liệu khá dài, không liên tục, không cập nhật thường xuyên) khiến cho 
+- Tuy nhiên *temporal-resolution hạn chế* (nghĩa là thời gian giữa các lần thu thập dữ liệu khá dài, không liên tục, không cập nhật thường xuyên) khiến cho việc phát hiện bị chậm trệ
+- Các nghiên cứu gần đây đã giúp cải thiện temporal-resolutin và độ chính xác của hệ thống này, khiến việc early detection đã dễ dàng hơn
+### 4.UAV-based systems
+- Có khả năng capture được hình và video chất lượng cao
 
 # References
