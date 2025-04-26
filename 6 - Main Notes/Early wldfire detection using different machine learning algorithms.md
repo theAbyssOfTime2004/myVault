@@ -21,6 +21,7 @@ Tags: [[DeepLearning]], [[Machine Learning]]
     - **Dạng đường thẳng hoặc lưới:** Hoạt động kém hiệu quả trong địa hình phức tạp như núi đồi, rừng rậm.
 - **Ý nghĩa trong nghiên cứu:** Nghiên cứu này sử dụng mạng cảm biến mặt đất để tận dụng ưu điểm giám sát liên tục, cải thiện khả năng phát hiện cháy sớm trong môi trường thực tế.
 ### 3.Satellite-based monitoring
-- Có độ phủ sóng rất lớn, phù hợp v
+- Có độ phủ sóng rất lớn, phù hợp để phát hiện các đám cháy rừng diện rộng
+- Tuy nhiên *temporal-resolution hạn chế* (nghĩa là thời gian giữa các lần thu thập dữ liệu khá dài, không liên tục, không cập nhật thường xuyên) khiến cho 
 
 # References
