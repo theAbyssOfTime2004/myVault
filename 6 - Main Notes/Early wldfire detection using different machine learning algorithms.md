@@ -25,6 +25,9 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - Tuy nhiên *temporal-resolution hạn chế* (nghĩa là thời gian giữa các lần thu thập dữ liệu khá dài, không liên tục, không cập nhật thường xuyên) khiến cho việc phát hiện bị chậm trệ
 - Các nghiên cứu gần đây đã giúp cải thiện temporal-resolutin và độ chính xác của hệ thống này, khiến việc early detection đã dễ dàng hơn
 ### 4.UAV-based systems
-- Có khả năng capture được hình và video chất lượng cao
+- Có khả năng capture được hình và video *chất lượng cao*, sau đó có thể áp dụng các thuật toán học máy để giúp phát hiện cháy rừng. 
+- Có tính linh hoạt cao và có thể deploy dễ dàng. nhưng tầm hoạt đông và thời gian hoạt động hạn chế
+### 5.Ground-based sensor networks
+
 
 # References
