@@ -32,7 +32,9 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - **Phát hiện cháy sớm** rất quan trọng để kiểm soát cháy hiệu quả. Các phương pháp truyền thống (thủ công) thường chậm và thiếu chính xác. Vì thế, **machine learning** và **dữ liệu viễn thám** (như ảnh vệ tinh, UAV) đang được áp dụng rộng rãi để cải thiện khả năng phát hiện.
 - Các nghiên cứu trước đây đã dùng nhiều thuật toán như **Random Forest, SVM, CNN, Artificial Neural Networks** để nhận diện cháy, cho kết quả khả quan.
 - **WSN kết hợp UAV** và các thuật toán thông minh như **fuzzy logic** cũng được phát triển để theo dõi và cảnh báo cháy kịp thời.    
-- **Chỉ số thời tiết cháy (Fire Weather Index - FWI)** được dùng để đánh giá nguy cơ cháy dựa trên độ ẩm, gió, nhiệt độ, lượng mưa,… Có hai cách phổ biến: **phương pháp Canada** và **phương pháp Hàn Quốc**. Phương pháp Canada chính xác hơn, nhanh hơn và tiết kiệm năng lượng nên được ưu tiên sử dụng trong nghiên cứu này.    
+- **Chỉ số thời tiết cháy (Fire Weather Index - FWI)** được dùng để đánh giá nguy cơ cháy dựa trên độ ẩm, gió, nhiệt độ, lượng mưa,… Có hai cách phổ biến: **phương pháp của Canada** và **phương pháp của Hàn Quốc**. Phương pháp của Canada chính xác hơn, nhanh hơn và tiết kiệm năng lượng nên được ưu tiên sử dụng trong nghiên cứu này.    
+	- **Phương pháp Canada:** Được xây dựng trên 6 yếu tố chính liên quan đến điều kiện dễ xảy ra cháy rừng. Các yếu tố này phản ánh khả năng cháy và mức độ nguy hiểm của lửa trong điều kiện thực tế.
+	- **Phương pháp Hàn Quốc:** Lấy nền tảng từ phương pháp Canada nhưng được điều chỉnh để phù hợp với đặc điểm địa lý, khí hậu và thảm thực vật của Hàn Quốc, thêm các yếu tố như địa hình và lớp phủ đất.
 - Nghiên cứu nhấn mạnh việc **tối ưu hóa cách lắp đặt cảm biến và thu thập dữ liệu tại chỗ**, nhằm nâng cao hiệu quả của các mô hình machine learning khi phát hiện cháy rừng.
 
 # References
