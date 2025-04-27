@@ -74,5 +74,20 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - Sau đó, dữ liệu (đã dán nhãn cháy/không cháy) được dùng để **huấn luyện mô hình machine learning**.
 - Hiệu suất các thuật toán ML được đánh giá qua **accuracy, recall, precision và F1 score**.
 ### 8. Machine learning algorithms
+- Bài nghiên cứu áp dụng **4 thuật toán machine learning** để so sánh khả năng dự đoán cháy rừng:
+    - *Decision Trees* 
+    - *Random Forests* 
+    - *Support Vector Machines (SVMs)* 
+    - *K-Nearest Neighbors (KNN)* 
+- **Giới thiệu nhanh về từng thuật toán:**    
+    - **Decision Tree:** đơn giản, hiệu quả, chia nhỏ dữ liệu bằng cách chọn đặc trưng (feature) tốt nhất để tách.
+        - Các **hyperparameters**: độ sâu tối đa của cây, số lượng mẫu tối thiểu để chia nhánh, số lượng mẫu tối thiểu ở lá.
+    - **Random Forest:** tập hợp nhiều cây quyết định và tổng hợp kết quả để tăng độ chính xác.
+        - Các **hyperparameters**: số lượng cây trong rừng, số lượng đặc trưng được xét khi tìm cách chia tốt nhất.
+    - **SVM:** tìm một **hyperplane** phân chia dữ liệu tốt nhất bằng cách **maximizing marigns** giữa các lớp.
+        - Các **hyperparameters**: loại hàm kernel (ví dụ linear, RBF), tham số điều chỉnh (regularization C), độ rộng của kernel.
+    - **KNN:** phân loại dựa trên **k điểm gần nhất** trong tập huấn luyện.
+        - Các **hyperparameters**: số lượng k láng giềng, loại khoảng cách (ví dụ Euclidean).            
+- Để **chọn mô hình tốt nhất**, nhóm nghiên cứu đã dùng kỹ thuật **cross-validation** và **grid search** để tìm bộ hyperparameters tối ưu và đánh giá hiệu suất mô hình.
 
 # References
