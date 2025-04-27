@@ -58,5 +58,19 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 	    → Giúp **khoanh vùng vị trí đám cháy** chính xác hơn (giống như định vị GPS dựa trên nhiều vệ tinh) và tăng độ an toàn nếu 1 nút gặp sự cố.
 
 ### 7.FWI calculation
-
+- **FWI (Fire Weather Index)** là một chỉ số quan trọng dùng để **đánh giá nguy cơ cháy rừng** trong một khu vực.
+- **FWI được tính toán** dựa trên các yếu tố thời tiết: **nhiệt độ, độ ẩm tương đối, tốc độ gió và lượng mưa**.
+- Quá trình tính FWI gồm nhiều bước trung gian:    
+    - **FFMC**: độ ẩm của lớp vật liệu dễ cháy trên bề mặt (nhạy với độ ẩm và mưa).
+    - **DMC**: độ ẩm của lớp đất hữu cơ ngay dưới mặt đất.
+    - **DC**: độ ẩm của lớp đất hữu cơ sâu hơn (dài hạn hơn).
+    - **ISI**: tốc độ lan truyền ban đầu của đám cháy (dựa trên FFMC + gió).
+    - **BUI**: tổng lượng nhiên liệu sẵn có để cháy (dựa trên DMC + DC).
+    - Cuối cùng, **FWI** được tính từ ISI và BUI.
+- **Ngưỡng FWI = 20** được chọn:
+    - FWI > 20 → phân loại thành **có nguy cơ cháy**.
+    - FWI ≤ 20 → **không có nguy cơ cháy**.        
+- **Python** được dùng để viết code tính toán FWI từ dữ liệu của các sensor.
+- Sau đó, dữ liệu (đã dán nhãn cháy/không cháy) được dùng để **huấn luyện mô hình machine learning**.
+- Hiệu suất các thuật toán ML được đánh giá qua **accuracy, recall, precision và F1 score**.
 # References
