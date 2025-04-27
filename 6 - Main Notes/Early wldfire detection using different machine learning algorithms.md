@@ -56,4 +56,7 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 	    → Đám cháy làm tăng nhiệt độ, thay đổi độ ẩm, sinh ra khí CO và CO₂ — nhờ vậy hệ thống dễ dàng nhận diện đám cháy.
 	- **Tại sao bố trí hình tam giác?**  
 	    → Giúp **khoanh vùng vị trí đám cháy** chính xác hơn (giống như định vị GPS dựa trên nhiều vệ tinh) và tăng độ an toàn nếu 1 nút gặp sự cố.
+
+### 7.FWI calculation
+
 # References
