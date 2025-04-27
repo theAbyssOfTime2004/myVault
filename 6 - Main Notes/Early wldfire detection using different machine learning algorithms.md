@@ -40,5 +40,20 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 
 ![[Pasted image 20250427104403.png]]
 
-
+- Ba **nút cảm biến** được lắp đặt, mỗi nút có các cảm biến đo: **nhiệt độ, độ ẩm tương đối, CO và CO₂**.
+- Các nút cảm biến được bố trí theo **hình tam giác** để tối ưu hóa độ chính xác thu thập dữ liệu và đảm bảo hệ thống vẫn hoạt động nếu một nút bị hỏng.
+- *Training data* cho mô hình machine learning được thu thập bằng cách thay đổi vị trí đám cháy và khoảng cách giữa các nút.
+- Các nút được đặt ở **độ cao 1 mét** so với mặt đất, tại các đỉnh trên của một **khối lập phương** có chiều cao 1m.    
+- Dữ liệu được thu thập:
+    - Bắt đầu **30 phút trước khi đốt lửa**.
+    - Cứ mỗi **10 giây** ghi một mẫu dữ liệu.
+    - Thí nghiệm cháy kéo dài **30 phút**, sau đó tiếp tục thu thêm dữ liệu **30 phút sau khi lửa tắt**.
+- Đám cháy thử nghiệm được tạo ra bằng cách đốt **2kg gỗ teak** trong không gian nhỏ (30cm x 30cm).
+- Các thông tin khác như **lượng mưa, tốc độ gió** cũng được thu thập từ hệ thống khí tượng.
+- Mỗi vụ cháy sẽ tạo ra **3 bộ dữ liệu** từ 3 cảm biến, tất cả dùng để **huấn luyện mô hình machine learning**.
+**Note**:
+	- **Vì sao dùng nhiều cảm biến (nhiệt độ, độ ẩm, CO, CO₂)?**  
+	    → Đám cháy làm tăng nhiệt độ, thay đổi độ ẩm, sinh ra khí CO và CO₂ — nhờ vậy hệ thống dễ dàng nhận diện đám cháy.
+	- **Tại sao bố trí hình tam giác?**  
+	    → Giúp **khoanh vùng vị trí đám cháy** chính xác hơn (giống như định vị GPS dựa trên nhiều vệ tinh) và tăng độ an toàn nếu 1 nút gặp sự cố.
 # References
