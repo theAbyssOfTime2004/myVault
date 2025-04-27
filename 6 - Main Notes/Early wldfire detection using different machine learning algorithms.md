@@ -89,5 +89,31 @@ Tags: [[DeepLearning]], [[Machine Learning]]
     - **KNN:** phân loại dựa trên **k điểm gần nhất** trong tập huấn luyện.
         - Các **hyperparameters**: số lượng k láng giềng, loại khoảng cách (ví dụ Euclidean).            
 - Để **chọn mô hình tốt nhất**, nhóm nghiên cứu đã dùng kỹ thuật **cross-validation** và **grid search** để tìm bộ hyperparameters tối ưu và đánh giá hiệu suất mô hình.
-
+### 9. Result and discussion
+- **Dữ liệu nghiên cứu** gồm 150.000 mẫu với các thuộc tính như: vĩ độ, kinh độ, năm, tháng, ngày, độ ẩm tương đối, nhiệt độ, lượng mưa hàng ngày, gió và chỉ số FWI (Fire Weather Index).
+- **Mối liên hệ nhiệt độ và FWI**:    
+    - Fig 2 cho thấy có **mối tương quan rõ** giữa nhiệt độ và FWI với hiện tượng cháy (fire) và không cháy (non-fire).
+    - **Nhiệt độ và FWI càng cao** → **Khả năng cháy càng lớn**.        
+    ![[Pasted image 20250427122017.png]]
+- **Phân tích tương quan**:    
+    - Fig 1A là **correlation heatmap** thể hiện độ tương quan của mối liên hệ giữa các biến số trong tập dữ liệu.    
+    ![[Pasted image 20250427122301.png]]
+    - **KDE plot** (Fig 3) giúp hình dung **phân bố nhiệt độ** giữa lớp fire và non-fire → lớp fire nghiêng về phía **nhiệt độ cao hơn**.        
+    ![[Pasted image 20250427122341.png]]
+- **Kết quả các mô hình máy học**:
+    - **Decision Tree**:
+        - Độ chính xác phân loại cháy chỉ **52.6%**, không cháy **79%**.
+    - **SVM**:        
+        - Hiệu suất rất kém, không phân biệt tốt giữa fire và non-fire.            
+    - **Random Forest**:
+        - Chính xác cao nhất:
+            - Fire đúng **65.29%**, non-fire đúng **75.83%**.
+        - Khi tối ưu hóa siêu tham số (HPO) bằng **Grid Search**, hiệu suất tăng lên:
+            - Fire đúng **77.95%**, AUC đạt **0.82**.
+- **Tối ưu hóa Random Forest**:
+    - **Grid Search** để chọn các tham số tối ưu như: số lượng cây, độ sâu tối đa, tiêu chí chia nhánh...
+    - **Phân tích tầm quan trọng đặc trưng** cho thấy **lượng mưa hàng ngày (daily rain)** là yếu tố ảnh hưởng lớn nhất.
+- **So sánh tổng thể**:
+    - Dựa trên **ROC** và **độ chính xác**, Random Forest vượt trội hơn Decision Tree, SVM và KNN.
+    - Random Forest xử lý tốt dữ liệu lớn, dữ liệu nhiều chiều, mối quan hệ phi tuyến tính, đồng thời chống được hiện tượng **overfitting** nhờ kỹ thuật tổ hợp nhiều cây quyết định.
 # References
