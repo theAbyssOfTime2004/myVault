@@ -38,4 +38,7 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - Nghiên cứu nhấn mạnh việc **tối ưu hóa cách lắp đặt cảm biến và thu thập dữ liệu tại chỗ**, nhằm nâng cao hiệu quả của các mô hình machine learning khi phát hiện cháy rừng.
 ### 6.Architecture of the proposed early detection system
 
+![[Pasted image 20250427104403.png]]
+
+
 # References
