@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -188,6 +187,7 @@
   },
   "active": "c53881d85f073e6a",
   "lastOpenFiles": [
+    "6 - Main Notes/[2]_summary.docx",
     "Pasted image 20250427123325.png",
     "Pasted image 20250427123220.png",
     "Pasted image 20250427123154.png",
@@ -211,7 +211,6 @@
     "Pasted image 20250424202702.png",
     "Pasted image 20250424202700.png",
     "Pasted image 20250424201940.png",
-    "Pasted image 20250424201112.png",
     "6 - Main Notes/regularization.md",
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "6 - Main Notes/ôn tập.md",
