@@ -36,5 +36,6 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 	- **Phương pháp Canada:** Được xây dựng trên 6 yếu tố chính liên quan đến điều kiện dễ xảy ra cháy rừng. Các yếu tố này phản ánh khả năng cháy và mức độ nguy hiểm của lửa trong điều kiện thực tế.
 	- **Phương pháp Hàn Quốc:** Lấy nền tảng từ phương pháp Canada nhưng được điều chỉnh để phù hợp với đặc điểm địa lý, khí hậu và thảm thực vật của Hàn Quốc, thêm các yếu tố như địa hình và lớp phủ đất.
 - Nghiên cứu nhấn mạnh việc **tối ưu hóa cách lắp đặt cảm biến và thu thập dữ liệu tại chỗ**, nhằm nâng cao hiệu quả của các mô hình machine learning khi phát hiện cháy rừng.
+### 6.Architecture of the proposed early detection system
 
 # References
