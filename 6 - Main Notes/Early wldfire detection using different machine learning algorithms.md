@@ -113,7 +113,21 @@ Tags: [[DeepLearning]], [[Machine Learning]]
 - **Tối ưu hóa Random Forest**:
     - **Grid Search** để chọn các tham số tối ưu như: số lượng cây, độ sâu tối đa, tiêu chí chia nhánh...
     - **Phân tích tầm quan trọng đặc trưng** cho thấy **lượng mưa hàng ngày (daily rain)** là yếu tố ảnh hưởng lớn nhất.
+    ![[Pasted image 20250427123325.png]]
+    - sau khi tinh chỉnh tham số, cho kết quả tốt hơn rất nhiều so với các mô hình còn lại (SVM, KNN, Decision Tree).
+    ![[Pasted image 20250427123154.png]]
+    
 - **So sánh tổng thể**:
     - Dựa trên **ROC** và **độ chính xác**, Random Forest vượt trội hơn Decision Tree, SVM và KNN.
     - Random Forest xử lý tốt dữ liệu lớn, dữ liệu nhiều chiều, mối quan hệ phi tuyến tính, đồng thời chống được hiện tượng **overfitting** nhờ kỹ thuật tổ hợp nhiều cây quyết định.
+    ![[Pasted image 20250427123220.png]]
+### 10. Limitations of the study
+Nghiên cứu này chứng minh tiềm năng của việc sử dụng các *thuật toán học máy và* *optimizing sensor configurations*  cho việc phát hiện cháy rừng sớm. Tuy nhiên, có một số hạn chế cần lưu ý:
+1. **Thiết kế sensors và khoảng cách giữa các sensors:** Những yếu tố này dựa trên các thí nghiệm ban đầu và có thể không phải là tối ưu cho tất cả các loại địa hình và điều kiện môi trường.
+2. **Các biến môi trường đo được:** Chỉ đo được nhiệt độ, độ ẩm, khí carbon monoxide (CO) và carbon dioxide (CO2). Các yếu tố khác như tốc độ gió, độ ẩm của đất và loại thực vật có thể cung cấp cái nhìn đầy đủ hơn về điều kiện cháy rừng.
+### 11. Conclusion
+- **Thách thức chính:** Làm sao để sử dụng ít sensors nhất nhưng vẫn đảm bảo chi phí hợp lý và có thể triển khai một cách hiệu quả trong khu vực rừng rộng lớn để phát hiện cháy sớm.
+- **Giải pháp nghiên cứu:** Hệ thống cảm biến không dây kết hợp nhiều cảm biến giá rẻ với phương pháp phát hiện dựa trên AI để phát hiện cháy rừng sớm. Nghiên cứu chứng minh rằng hệ thống này có chi phí hợp lý, giảm số lượng cảm biến cần thiết nhưng vẫn đảm bảo độ chính xác cao.
+- **Hiệu quả:** Hệ thống này có thể triển khai trên diện tích rừng rộng lớn một cách kinh tế, nhờ giảm chi phí phần cứng và giảm nhu cầu giám sát thủ công.
+- **Máy học:** Các bộ phân loại máy học như *decision trees, random forest, SVMs và k-KNN* được áp dụng để so sánh hiệu quả trong việc phát hiện cháy rừng. Kết quả cho thấy *random forest* có hiệu quả tốt nhất, phân loại đúng 77,95% mẫu cháy. Các chỉ số thống kê (p-value và khoảng tin cậy) cho thấy kết quả có ý nghĩa thống kê và độ tin cậy cao.
 # References
