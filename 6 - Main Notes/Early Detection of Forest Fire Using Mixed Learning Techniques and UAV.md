@@ -27,4 +27,21 @@ Tags:
 		- **Phát hiện cháy rừng và phạm vi cháy**.
 		- **Tạo mô hình 3D của khu vực cháy**.
 		- **Giám sát cháy ở vùng thấp và rừng rậm**.
-# References
+### Related Works
+- Hiện nay, cháy rừng và khói được phát hiện thông qua **các phương pháp cảm biến từ xa** như:
+	- **Ảnh vệ tinh**    
+	- **Camera tĩnh độ phân giải cao gắn trên mặt đất**    
+	- **Máy bay không người lái (UAV)**
+	#### Hạn chế của từng phương pháp:
+	-   *Ảnh vệ tinh*:
+		- **Độ phân giải thấp**, khó xác định chính xác vị trí cháy.    
+		- Không theo dõi **liên tục theo thời gian thực**.
+		- **Ảnh hưởng bởi thời tiết**: mây, sương mù làm hình ảnh bị nhiễu.
+	-  *Camera + cảm biến mặt đất (nhiệt độ, khói, độ ẩm)*:
+		- **Chỉ hiệu quả ở môi trường kín hoặc gần đám cháy**.    
+		- **Phạm vi quan sát hạn chế**, muốn mở rộng thì phải lắp thêm cảm biến → **tốn kém**.
+	-  *Máy bay không người lái (UAV)*:
+		- Có thể bao phủ diện rộng.    
+		- Cho ảnh **chất lượng cao theo thời gian thực**.    
+		- **Chi phí vận hành thấp hơn nhiều** so với các phương pháp truyền thống.
+	# References
