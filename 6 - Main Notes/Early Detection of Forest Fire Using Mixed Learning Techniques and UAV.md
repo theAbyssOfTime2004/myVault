@@ -53,4 +53,27 @@ Tags:
 		- Dùng **NetImage classifier**, tập dữ liệu gồm 10,581 ảnh.
 		- Đạt độ chính xác **99.6% với ảnh cháy rõ** và **99.7% với ảnh dễ gây nhầm lẫn**.
 		- **Nhược điểm**: **Không phát hiện được khói**, là dấu hiệu sớm của cháy rừng.
-	# References
+	- *Phương pháp phát hiện chá rừng dựa trên image processing*
+		- **1. Xác định các hot objects**
+			- Phân tích ảnh để tìm những vùng **có độ sáng cao**.
+			- Những vùng này được gọi là **"candidate regions"** 
+		- **2. Phân tích chuyển động: Optical Flow**
+			- **Tính toán motion vectors** của các candidate regions bằng kỹ thuật **optical flow** – dùng để xác định sự thay đổi vị trí của pixel qua từng khung hình video.
+			- Điều này giúp phân biệt **ngọn lửa (chuyển động bất quy tắc)** với các vật thể sáng **nhưng đứng yên** như ánh nắng phản chiếu.
+		- **3. Theo dõi ngọn lửa qua ảnh hồng ngoại (IR)**
+			- Sử dụng kỹ thuật:
+			    - **Blob counter**: Đếm và theo dõi cụm điểm (blob) có hình dạng giống ngọn lửa.
+			    - **Morphological operations**: Làm sạch và cải thiện vùng ảnh đã tách (như làm tròn, loại bỏ nhiễu nhỏ).
+		 - **4. Phân biệt nền và chuyển động với ViBe**
+			- **ViBe (Visual Background Extractor)**: Kỹ thuật trích xuất nền từ video để phân biệt vùng chuyển động mới (tức đám cháy) khỏi vùng nền tĩnh.
+			- Phân tích **sự khác biệt giữa các khung hình liên tiếp** để xác định khu vực có chuyển động lạ.
+		 - **5. Các kỹ thuật xử lý ảnh hỗ trợ**
+			- **Median filtering**: Làm mượt ảnh, loại bỏ nhiễu.
+			- **Color space conversion**: Chuyển đổi không gian màu để phân tích tốt hơn (ví dụ từ RGB sang HSV).
+			- **Otsu threshold segmentation**: Phân ngưỡng tự động để tách vùng sáng (có thể là lửa).
+			- **Morphological operations & Blob counter**: Làm rõ và đếm vùng cháy.
+		-  **6. Kết hợp đặc trưng tĩnh và động để phát hiện lửa & khói**
+			- **Static features**: Độ sáng, màu sắc.    
+			- **Dynamic features**: Vector chuyển động, thay đổi qua khung hình.  
+		    => Kết hợp hai loại đặc trưng này giúp hệ thống phát hiện **chính xác cả lửa và khói**, kể cả khi mới bắt đầu.
+# References
