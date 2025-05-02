@@ -44,4 +44,13 @@ Tags:
 		- Có thể bao phủ diện rộng.    
 		- Cho ảnh **chất lượng cao theo thời gian thực**.    
 		- **Chi phí vận hành thấp hơn nhiều** so với các phương pháp truyền thống.
+	#### Các mô hình đã được nghiên cứu và ứng dụng: 
+	-  *YOLOv4 + UAV*:
+		- Được dùng để nhận dạng cháy từ ảnh trên không.    
+		- Tốc độ xử lý khung hình: **3.2 fps**.    
+		- **Độ chính xác: 83%** (hiệu quả với đám cháy lớn, nhưng yếu với cháy nhỏ).
+	- *YOLOv5 + EfficientDet*:
+		- Dùng **NetImage classifier**, tập dữ liệu gồm 10,581 ảnh.
+		- Đạt độ chính xác **99.6% với ảnh cháy rõ** và **99.7% với ảnh dễ gây nhầm lẫn**.
+		- **Nhược điểm**: **Không phát hiện được khói**, là dấu hiệu sớm của cháy rừng.
 	# References
