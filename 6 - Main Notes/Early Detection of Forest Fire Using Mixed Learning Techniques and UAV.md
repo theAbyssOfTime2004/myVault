@@ -80,4 +80,12 @@ Tags:
 		 - Caffemodel là một mô hình học sâu (deep learning) được sử dụng để **phát hiện vùng cháy và khói**.
 		- Ngoài việc nhận diện đơn giản, mô hình còn **phân tích mức độ bất quy tắc** (đặc trưng dao động, mờ ảo) của lửa và khói để tăng độ chính xác.    
 		- Mỗi khung hình video được chia thành **lưới 16 × 16**, từ đó ghi lại **tần suất xuất hiện** của các vùng khói/lửa → giúp xác định vị trí gốc của đám cháy và **giảm false alarm**.
+	* *Phát hiện khói bằng fuzzy logic + extended version of Kalman filter*
+		- Các nghiên cứu khác sử dụng **fuzzy logic** để phân đoạn và phát hiện khói => phù hợp với các tín hiệu **mờ, không rõ ràng** như khói.
+		- Để bù trừ ảnh hưởng của **điều kiện môi trường thay đổi** (gió, ánh sáng), **bộ lọc Kalman mở rộng (Extended Kalman Filter)** được dùng để điều chỉnh đầu vào cho fuzzy logic → tăng độ tin cậy trong phát hiện khói.
+	- *Phát hiện cháy rừng bằng camera gắn trên UAV*
+		- UAV (drone) được gắn **camera thường và camera hồng ngoại** để ghi hình đám cháy từ trên không.
+		- Ảnh thu được kết hợp với **thông tin địa hình và dữ liệu thời tiết** → giúp giảm tỷ lệ báo động giả.
+		- Đề xuất một chỉ số mới tên là **Forest Fire Detection Index (FFDI)** → dùng để phân biệt rõ vùng có cháy dựa vào phân loại thực vật và màu sắc của lửa/khói.    
+		- **Độ chính xác** đạt được là **96.82%**, tốc độ xử lý mỗi ảnh khoảng **0.447 giây**, tốc độ video lên đến **54 khung hình/giây**.
 # References
