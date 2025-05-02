@@ -76,4 +76,8 @@ Tags:
 			- **Static features**: Độ sáng, màu sắc.    
 			- **Dynamic features**: Vector chuyển động, thay đổi qua khung hình.  
 		    => Kết hợp hai loại đặc trưng này giúp hệ thống phát hiện **chính xác cả lửa và khói**, kể cả khi mới bắt đầu.
+	 * *Sử dụng Caffemodel - Deep Learning*:
+		 - Caffemodel là một mô hình học sâu (deep learning) được sử dụng để **phát hiện vùng cháy và khói**.
+		- Ngoài việc nhận diện đơn giản, mô hình còn **phân tích mức độ bất quy tắc** (đặc trưng dao động, mờ ảo) của lửa và khói để tăng độ chính xác.    
+		- Mỗi khung hình video được chia thành **lưới 16 × 16**, từ đó ghi lại **tần suất xuất hiện** của các vùng khói/lửa → giúp xác định vị trí gốc của đám cháy và **giảm false alarm**.
 # References
