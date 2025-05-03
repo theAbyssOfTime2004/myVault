@@ -107,7 +107,21 @@ Tags:
 ### Proposed Methodology
 - Fig 1 trình bày quy trình hoạt động của hệ thống UAV. Khi UAV bay tuần tra, nó sẽ thu thập dữ liệu liên tục từ các sensors: camera RGB để *capture video*, cảm biến hồng ngoại IR để *ghi nhận ảnh/phát xạ nhiệt* của khu rừng, kèm theo *đo vận tốc và hướng gió* từ cảm biến anemometer.
 - Tất cả dữ liệu hình ảnh sẽ được đưa vào YOLOv4-Tiny được tích hợp trên onboard cpu của UAV
-- YOLOv4-Tiny sẽ phân tích ảnh, phát hiện vị trí có lửa hoặc khói dựa trên bounding box quanh vùng cháy. Nếu **không phát hiện lửa** từ ảnh, hệ thống sẽ kiểm tra xem có các vật liệu dễ cháy hay dấu hiệu nguy cơ nào (như khói mờ) không: nếu có, UAV ước lượng khả năng xảy ra cháy trong khu vực đó và thông báo kết quả cho trạm mặt đất. Nếu **phát hiện lửa**, UAV sẽ tự động điều khiển (visual servoing) tiến đến khu vực cháy và bay lòng vòng quanh nơi có lửa để theo dõi nhiệt độ đám cháy và phạm vi lan rộng
-
-
+- *fig 1: proposed architecture flow*![[Pasted image 20250503135255.png]]
+	1. **Bắt đầu & Thu thập Dữ liệu:** UAV bắt đầu tuần tra rừng, thu thập dữ liệu hình ảnh, nhiệt độ (IR), và tốc độ/hướng gió.
+	2. **Xử lý Ban đầu:** Dữ liệu được xử lý bằng mô hình Deep Learning để giám sát và gửi thông tin về trạm mặt đất.
+	3. **Phát hiện Cháy? :**
+	    - **Nếu KHÔNG có cháy:** UAV kiểm tra xem có vật liệu dễ cháy không.
+	        - Nếu CÓ vật liệu dễ cháy: Dự đoán nguy cơ cháy, thông báo cho trạm mặt đất, rồi tiếp tục tuần tra.
+	        - Nếu KHÔNG có vật liệu dễ cháy: Tiếp tục tuần tra.
+	    - **Nếu CÓ cháy:**
+	        - **Thông báo Ngay:** Gửi cảnh báo phát hiện cháy đến trạm mặt đất.
+	        - **Quyết định Chế độ Bay:** Chọn bay tự động (Autonomous) hay điều khiển từ xa (RC).
+	            - **Bay Tự động:** UAV tự phân tích, chia vùng cháy (lõi, giữa, rìa), tạo mô hình 3D của khu vực cháy để mô phỏng, và liên tục giám sát (bay lượn, đo nhiệt độ).
+	            - **Bay RC:** Người điều khiển lái UAV đến vị trí cháy và thực hiện các biện pháp nghiệp vụ.
+	        - **Truyền Dữ liệu Chi tiết:** Gửi toàn bộ dữ liệu (phân vùng, mô hình 3D, dự báo thời gian thực) về trạm mặt đất.
+	4. **Lưu trữ:** Toàn bộ dữ liệu thu thập và xử lý trong quá trình được lưu vào cơ sở dữ liệu.
+	**Tóm lại:** UAV tuần tra rừng, dùng AI để phát hiện cháy hoặc nguy cơ cháy. Nếu không có cháy, nó đánh giá rủi ro và tiếp tục tuần tra. Nếu có cháy, nó thông báo ngay, sau đó (thường là tự động) phân tích chi tiết đám cháy (vùng, 3D), liên tục gửi dữ liệu cập nhật về trạm mặt đất, và cuối cùng lưu trữ mọi thông tin.
+- *fig 2: Categorization of navigation features of UAV* ![[Pasted image 20250503135710.png]]
+- 
 # References
