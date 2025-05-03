@@ -155,6 +155,7 @@ Tags:
 ![[Pasted image 20250503202534.png]]
 	- cấu trúc gồm 2 layers:
 		- *feature extraction layer (DarkNet + ResNet)*: Nhiệm vụ nhận diện các đặc điểm hình ảnh quan trọng.
-			- Gồm có các khối CBL và CBM như sau: một khối CBL (Convolution → Batch Normalization → Leaky ReLU) và khối CBM (Convolution → Batch Normalization → Mish)[scispace.com](https://scispace.com/pdf/early-detection-of-forest-fire-using-mixed-learning-2mrcj5nr.pdf#:~:text=and%20ResNet%2C%20similar%20to%20the,is%20shown%20in%20Figure%205). Hình 5 (a) và (b) minh họa chi tiết hai khối này, trong đó Leaky ReLU và Mish là các hàm kích hoạt phi tuyến giúp mô hình học được các mối quan hệ phức tạp
+			- Gồm có các khối CBL và CBM với hàm kích hoạt Leaky ReLU/Mish (trong Fig5). 
 		- *processing layer*: Xử lý các đặc trưng đã trích xuất để đưa ra dự đoán cuối cùng.
+		- Mạng còn có 5 lớp max-pooling (kích thước 2×2, stride 2) để giảm kích thước ảnh đặc trưng còn 1/32 lần ban đầu. Do lửa và khói không có hình dạng cố định, mô hình sử dụng lớp YOLO cuối (logistic regression) để dự đoán xem có vật cháy ở vị trí nào, đồng thời tính toán bounding box dựa trên 2 chỉ số *RPN* và *IoU*. Trong quá trình huấn luyện, hệ thống đã được cung cấp tập ảnh lửa và khói thực tế, cho phép YOLOv4-Tiny học được đặc trưng thị giác của đám cháy.
 # References
