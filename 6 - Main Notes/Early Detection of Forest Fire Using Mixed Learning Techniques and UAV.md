@@ -149,4 +149,12 @@ Tags:
 - Tóm lại, mục này cung cấp thông tin về khả năng hoạt động (tải trọng, thời gian bay), trang bị cảm biến và các công thức vật lý cơ bản để tính toán hiệu suất bay (lực đẩy, công suất, khối lượng nâng).
 **3.2 Fire Detection and Fire Region Prediction** 
 - Mô tả cách UAV phát hiện đám cháy trong rừng và sau đó phân tích, dự đoán **vùng lan rộng** của đám cháy dựa vào ảnh và thông tin cảm biến thu được.
+	1. **Trang bị & Giao tiếp:** UAV dùng cảm biến hồng ngoại (IR), camera 12K và CPU trên bo mạch. Nó gửi video thời gian thực về trạm mặt đất. Trạm mặt đất phân tích, quyết định hành động và có thể điều khiển UAV.
+	2. **Phát hiện bằng AI:** CPU trên UAV đủ mạnh để chạy mô hình **YOLOv4 tiny**, giúp phát hiện lửa nhanh và chính xác.
+- Sử dụng mô hình YOLOv4 Tiny:
+![[Pasted image 20250503202534.png]]
+	- cấu trúc gồm 2 layers:
+		- *feature extraction layer (DarkNet + ResNet)*: Nhiệm vụ nhận diện các đặc điểm hình ảnh quan trọng.
+			- Gồm có các khối CBL và CBM như sau: một khối CBL (Convolution → Batch Normalization → Leaky ReLU) và khối CBM (Convolution → Batch Normalization → Mish)[scispace.com](https://scispace.com/pdf/early-detection-of-forest-fire-using-mixed-learning-2mrcj5nr.pdf#:~:text=and%20ResNet%2C%20similar%20to%20the,is%20shown%20in%20Figure%205). Hình 5 (a) và (b) minh họa chi tiết hai khối này, trong đó Leaky ReLU và Mish là các hàm kích hoạt phi tuyến giúp mô hình học được các mối quan hệ phức tạp
+		- *processing layer*: Xử lý các đặc trưng đã trích xuất để đưa ra dự đoán cuối cùng.
 # References
