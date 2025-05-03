@@ -105,6 +105,7 @@ Tags:
 		    - **LiDAR**: Đo khoảng cách giữa các cây và vật thể để xác định hướng ảnh và định vị đám cháy chính xác.
 		- Mục tiêu cuối cùng là **nâng cao độ chính xác và khả năng phát hiện sớm cháy rừng**.
 ### Proposed Methodology
+**3.1 Autonomous Drone Routing**
 - Fig 1 trình bày quy trình hoạt động của hệ thống UAV. Khi UAV bay tuần tra, nó sẽ thu thập dữ liệu liên tục từ các sensors: camera RGB để *capture video*, cảm biến hồng ngoại IR để *ghi nhận ảnh/phát xạ nhiệt* của khu rừng, kèm theo *đo vận tốc và hướng gió* từ cảm biến anemometer.
 - Tất cả dữ liệu hình ảnh sẽ được đưa vào YOLOv4-Tiny được tích hợp trên onboard cpu của UAV
 - *fig 1: proposed architecture flow*![[Pasted image 20250503135255.png]]
@@ -146,5 +147,6 @@ Tags:
 	- **Công suất (Power - P):** Năng lượng cần thiết cho hoạt động bay. Công thức (2) tính công suất dựa trên lực đẩy, tốc độ quay, và đặc tính cánh quạt.
 	- **Khối lượng nâng được (m):** Tổng khối lượng UAV có thể nhấc lên. Công thức (3) tính toán dựa trên lực đẩy hoặc công suất.
 - Tóm lại, mục này cung cấp thông tin về khả năng hoạt động (tải trọng, thời gian bay), trang bị cảm biến và các công thức vật lý cơ bản để tính toán hiệu suất bay (lực đẩy, công suất, khối lượng nâng).
-
+**3.2 Fire Detection and Fire Region Prediction** 
+- 
 # References
