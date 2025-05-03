@@ -160,5 +160,7 @@ Tags:
 		- Mạng còn có 5 lớp max-pooling (kích thước 2×2, stride 2) để giảm kích thước ảnh đặc trưng còn 1/32 lần ban đầu. Do lửa và khói không có hình dạng cố định, mô hình sử dụng lớp YOLO cuối (logistic regression) để dự đoán xem có vật cháy ở vị trí nào, đồng thời tính toán bounding box dựa trên 2 chỉ số *RPN* và *IoU*. Trong quá trình huấn luyện, hệ thống đã được cung cấp tập ảnh lửa và khói thực tế, cho phép YOLOv4-Tiny học được đặc trưng thị giác của đám cháy.
 		- *Note*: IoU là một chỉ số đo lường mức độ trùng khớp giữa hai khung: khung giới hạn _dự đoán_ bởi mô hình và khung giới hạn _thực tế_ 
 			- **Cách tính:** IoU = (Diện tích phần giao nhau của 2 khung) / (Diện tích phần hợp lại của 2 khung).
-			- **Giá trị:** Từ 0 (không trùng khớp) đến 1 (trùng khớp hoàn hảo)..
+			- **Giá trị:** Từ 0 (không trùng khớp) đến 1 (trùng khớp hoàn hảo)
+	-  phương trình (5) được dùng để phân nhóm các bounding boxs theo các nhóm khác nhau 
+	- còn phương trình (6) là để tính grounding box dựa trên tâm của đám cháy thu dc từ camera
 # References
