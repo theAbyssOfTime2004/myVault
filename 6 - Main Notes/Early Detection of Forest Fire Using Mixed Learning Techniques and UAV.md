@@ -109,4 +109,5 @@ Tags:
 - Tất cả dữ liệu hình ảnh sẽ được đưa vào YOLOv4-Tiny được tích hợp trên onboard cpu của UAV
 - YOLOv4-Tiny sẽ phân tích ảnh, phát hiện vị trí có lửa hoặc khói dựa trên bounding box quanh vùng cháy. Nếu **không phát hiện lửa** từ ảnh, hệ thống sẽ kiểm tra xem có các vật liệu dễ cháy hay dấu hiệu nguy cơ nào (như khói mờ) không: nếu có, UAV ước lượng khả năng xảy ra cháy trong khu vực đó và thông báo kết quả cho trạm mặt đất. Nếu **phát hiện lửa**, UAV sẽ tự động điều khiển (visual servoing) tiến đến khu vực cháy và bay lòng vòng quanh nơi có lửa để theo dõi nhiệt độ đám cháy và phạm vi lan rộng
 
+
 # References
