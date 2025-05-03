@@ -132,15 +132,9 @@ Tags:
 		- Trong rừng rậm, UAV dùng thuật toán **SLAM** để vừa tự xây dựng bản đồ môi trường xung quanh, vừa xác định vị trí của mình trên bản đồ đó bằng cách nhận diện các điểm mốc (landmarks), giúp nó điều hướng mà không cần tín hiệu GPS.
 - *fig3: Structure of main modules* ![[Pasted image 20250503142817.png]]
 - Hệ thống định vị bằng hình ảnh của UAV hoạt động qua hai giai đoạn chính, dựa trên ba modules:
-	1. **Hybrid Feature Extraction:** Ban đầu, hệ thống xử lý ảnh từ cảm biến, kết hợp nhiều phương pháp để xác định và định vị các điểm đặc trưng quan trọng trong môi trường, tạo ra Hybrid Fe.
-1. **Tạo Bản đồ (Map Generation Phase):**
-    - Các đặc trưng lai ban đầu được lưu trữ tạm.
-    - Hệ thống đánh giá (dùng lý thuyết thông tin) để chọn lọc những đặc trưng ý nghĩa nhất.
-    - Các đặc trưng được chọn sẽ được nén thành "từ mã" (code words) và lưu vào một "Bản đồ Lai Cuối cùng" (Final Hybrid Map).
-2. **Định vị Lai (Localization Phase):**
-    - Khi cần xác định vị trí, UAV trích xuất đặc trưng từ ảnh hiện tại.
-    - Hệ thống so khớp các đặc trưng này với "từ mã" trong bản đồ đã tạo (Topological Matching).
-    - Dựa trên sự khớp này và các kỹ thuật như phép đạc tam giác đặc trưng (Feature Triangulation), hệ thống tính toán ra vị trí chính xác của UAV. Quá trình kết hợp dữ liệu từ cảm biến hiện tại và bản đồ này chính là "Định vị Lai".
+	- **Hybrid Feature Extraction:** Mô-đun này kết hợp hai phương pháp trích xuất đặc trưng khác nhau (ví dụ từ các thang đo hoặc thuật toán khác nhau) để xác định các điểm đặc trưng từ hình ảnh cảm biến ở hai cấp độ khác nhau[scispace.com](https://scispace.com/pdf/early-detection-of-forest-fire-using-mixed-learning-2mrcj5nr.pdf#:~:text=operates%20the%20space%20and%20features,%29e%20filters). Ví dụ, có thể dùng phối hợp các bộ phát hiện góc (corner) và phát hiện texture, nhằm thu được thông tin cả vi mô và vĩ mô của cảnh vật. Kết quả là các “điểm đặc trưng lai” (hybrid features) thu được.
 
-Tóm lại, hệ thống này trước tiên học và xây dựng một bản đồ nén các đặc điểm hình ảnh quan trọng của môi trường, sau đó sử dụng bản đồ này để xác định vị trí của UAV bằng cách so khớp những gì nó đang nhìn thấy với bản đồ đã lưu.
+	- **Map Generation (Tạo bản đồ):** Các đặc trưng thu được được nén và đánh giá để sinh bản đồ tạm (initial hybrid map) và cuối cùng thành bản đồ lai hoàn chỉnh (final hybrid map). Cụ thể, hệ thống sử dụng bộ lọc dựa trên lý thuyết thông tin (info-theoretic filter) để chọn ra những đặc trưng có ý nghĩa nhất trong môi trường[scispace.com](https://scispace.com/pdf/early-detection-of-forest-fire-using-mixed-learning-2mrcj5nr.pdf#:~:text=methods%20to%20find%20a%20location,the%20features%2C%20and%20evaluate%20them). Sau đó, thuật toán mã hóa (feature compression) sẽ mã hóa những đặc trưng này thành các “từ mã” (code words) và lưu trữ dưới dạng bản đồ đặc trưng của khu vực.
+    
+	- **Hybrid Localization (Định vị lai):** Trong pha định vị, UAV so sánh các đặc trưng quan sát (từ dữ liệu cảm biến hiện tại) với bản đồ đã tạo. Nó thực hiện dò tìm topo (topological matching) giữa các điểm ảnh quan sát và nút (node) của bản đồ lai, kết hợp với phương pháp nội suy/tam giác (feature triangulation) để suy toán vị trí chính xác của UAV[scispace.com](https://scispace.com/pdf/early-detection-of-forest-fire-using-mixed-learning-2mrcj5nr.pdf#:~:text=methods%20to%20find%20a%20location,the%20features%2C%20and%20evaluate%20them). Nhờ đó, ngay cả khi GPS không khả dụng, UAV vẫn có thể xác định vị trí tương đối so với các mốc đã trích xuất trong bản đồ. Nói chung, hệ thống kết hợp đồng thời dữ liệu cảm biến (thị giác, cảm biến quán tính, v.v.) với bản đồ đặc trưng để định vị UAV theo phương pháp lai (hybrid localization).
 # References
