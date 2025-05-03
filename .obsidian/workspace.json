@@ -166,7 +166,8 @@
               "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -188,10 +189,11 @@
   },
   "active": "c53881d85f073e6a",
   "lastOpenFiles": [
+    "6 - Main Notes/Untitled Kanban.md",
+    "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
     "Pasted image 20250503135710.png",
     "Pasted image 20250503135255.png",
     "Untitled.canvas",
-    "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
     "Pasted image 20250503134806.png",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
@@ -207,7 +209,6 @@
     "6 - Main Notes/lu284385vfo5.tmp",
     "6 - Main Notes/[2]_summary.docx",
     "Pasted image 20250427123325.png",
-    "Pasted image 20250427123154.png",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "6 - Main Notes/Data_Mining_Lab5_report.md",
     "6 - Main Notes/Data_Mining_Lab4_Report.md",
