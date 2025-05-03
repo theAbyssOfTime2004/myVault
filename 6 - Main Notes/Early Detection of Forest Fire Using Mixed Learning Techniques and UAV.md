@@ -182,4 +182,6 @@ Tags:
 		    - Tính phương sai `σ_a^2(k)` và `σ_b^2(k)` cho từng lớp.
 		    - Tính tổng phương sai nội lớp có trọng số `σ_w^2(k)` bằng công thức (7).
 		4. Chọn giá trị `k` nào mà cho ra `σ_w^2(k)` **nhỏ nhất**. Ngưỡng `k` tối ưu này sẽ phân chia ảnh thành hai lớp một cách tốt nhất theo tiêu chí của Otsu.
+*fig 6: YOLOv4 Tiny architecture*: ![[Pasted image 20250503215146.png]]
+
 # References
