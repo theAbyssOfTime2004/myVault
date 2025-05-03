@@ -152,10 +152,13 @@ Tags:
 	1. **Trang bị & Giao tiếp:** UAV dùng cảm biến hồng ngoại (IR), camera 12K và CPU trên bo mạch. Nó gửi video thời gian thực về trạm mặt đất. Trạm mặt đất phân tích, quyết định hành động và có thể điều khiển UAV.
 	2. **Phát hiện bằng AI:** CPU trên UAV đủ mạnh để chạy mô hình **YOLOv4 tiny**, giúp phát hiện lửa nhanh và chính xác.
 - Sử dụng mô hình YOLOv4 Tiny:
-![[Pasted image 20250503202534.png]]
+- ![[Pasted image 20250503202534.png]]
 	- cấu trúc gồm 2 layers:
 		- *feature extraction layer (DarkNet + ResNet)*: Nhiệm vụ nhận diện các đặc điểm hình ảnh quan trọng.
 			- Gồm có các khối CBL và CBM với hàm kích hoạt Leaky ReLU/Mish (trong Fig5). 
 		- *processing layer*: Xử lý các đặc trưng đã trích xuất để đưa ra dự đoán cuối cùng.
 		- Mạng còn có 5 lớp max-pooling (kích thước 2×2, stride 2) để giảm kích thước ảnh đặc trưng còn 1/32 lần ban đầu. Do lửa và khói không có hình dạng cố định, mô hình sử dụng lớp YOLO cuối (logistic regression) để dự đoán xem có vật cháy ở vị trí nào, đồng thời tính toán bounding box dựa trên 2 chỉ số *RPN* và *IoU*. Trong quá trình huấn luyện, hệ thống đã được cung cấp tập ảnh lửa và khói thực tế, cho phép YOLOv4-Tiny học được đặc trưng thị giác của đám cháy.
+		- *Note*: IoU là một chỉ số đo lường mức độ trùng khớp giữa hai khung: khung giới hạn _dự đoán_ bởi mô hình và khung giới hạn _thực tế_ 
+			- **Cách tính:** IoU = (Diện tích phần giao nhau của 2 khung) / (Diện tích phần hợp lại của 2 khung).
+			- **Giá trị:** Từ 0 (không trùng khớp) đến 1 (trùng khớp hoàn hảo)..
 # References
