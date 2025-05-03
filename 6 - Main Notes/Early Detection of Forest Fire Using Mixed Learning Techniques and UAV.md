@@ -136,5 +136,15 @@ Tags:
 	- **Generating Map:** Các hybrid features thu được được nén và đánh giá trong initial hybrid map và cuối cùng thành final hybrid map. Cụ thể, hệ thống sử dụng info-theoretic filter để chọn ra những đặc trưng có ý nghĩa nhất trong môi trường. Sau đó, thuật toán mã feature compression sẽ mã hóa những đặc trưng này thành các code words và lưu trữ dưới dạng bản đồ đặc trưng của khu vực.    
 	- **Hybrid Localization:** Trong pha định vị, UAV so sánh các đặc trưng quan sát (từ dữ liệu cảm biến hiện tại) với bản đồ đã tạo. Nó thực hiện topological matching giữa các điểm ảnh quan sát và node của hybrid map, kết hợp với phương pháp nội suy/tam giác (feature triangulation) để suy toán vị trí chính xác của UAV. Nhờ đó, ngay cả khi GPS không khả dụng, UAV vẫn có thể xác định vị trí tương đối so với các mốc đã trích xuất trong bản đồ. Nói chung, hệ thống kết hợp đồng thời dữ liệu cảm biến (thị giác, cảm biến quán tính, v.v.) với bản đồ đặc trưng để định vị UAV theo hybrid localization.
 	- **Tóm lại:** Luồng hoạt động là: UAV bay, quan sát, trích xuất đặc trưng, đánh giá, nén và xây dựng một bản đồ đặc trưng của môi trường. Sau đó, khi cần biết vị trí, nó lại quan sát, trích xuất đặc trưng, so sánh với bản đồ đã xây dựng, và từ đó tính ra vị trí hiện tại của mình.
-	- 
+*fig 4 and table 1: Technical information of UAV* ![[Pasted image 20250503182447.png]] ![[Pasted image 20250503182515.png]]
+ - Phần này trình bày các thông số kỹ thuật chính của UAV, tập trung vào hiệu suất bay và khả năng mang tải:
+	- **Trọng lượng cất cánh tối đa (MTOW):** Được dùng để đánh giá khả năng mang tải ở các độ cao.
+	- **Tải trọng (Payload):** UAV có thể mang 6,825 gram thiết bị.
+	- **Thời gian bay:** Hoạt động được 107 phút khi có GPS và 87 phút khi không có GPS.
+	- **Cảm biến & Phần cứng:** Trang bị máy đo gió, CPU, cảm biến hồng ngoại (IR) và camera 12K.
+	- **Lực đẩy (Thrust - τ):** Là lực nâng do cánh quạt tạo ra, đủ để nâng 7,000 gram. Công thức (1) tính lực đẩy dựa trên kích thước cánh quạt, mật độ không khí, và vận tốc gió qua quạt.
+	- **Công suất (Power - P):** Năng lượng cần thiết cho hoạt động bay. Công thức (2) tính công suất dựa trên lực đẩy, tốc độ quay, và đặc tính cánh quạt.
+	- **Khối lượng nâng được (m):** Tổng khối lượng UAV có thể nhấc lên. Công thức (3) tính toán dựa trên lực đẩy hoặc công suất.
+- Tóm lại, mục này cung cấp thông tin về khả năng hoạt động (tải trọng, thời gian bay), trang bị cảm biến và các công thức vật lý cơ bản để tính toán hiệu suất bay (lực đẩy, công suất, khối lượng nâng).
+
 # References
