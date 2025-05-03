@@ -163,4 +163,11 @@ Tags:
 			- **Giá trị:** Từ 0 (không trùng khớp) đến 1 (trùng khớp hoàn hảo)
 	-  phương trình (5) được dùng để phân nhóm các bounding boxs theo các nhóm khác nhau 
 	- còn phương trình (6) là để tính grounding box dựa trên tâm của đám cháy thu dc từ camera
+		- 1. **`BBx`, `BBy`:** Là tọa độ **điểm chính giữa (tâm)** của cái khung đó trên ảnh.
+		    - `BBx`: Tâm khung nằm ở đâu theo chiều **ngang**.
+		    - `BBy`: Tâm khung nằm ở đâu theo chiều **dọc**.
+		- 2. **`BBwidth`, `BBheight`:** Là **kích thước** của cái khung đó.
+		    - `BBwidth`: Khung **rộng** bao nhiêu.
+		    - `BBheight`: Khung **cao** bao nhiêu.
+	- **Tóm lại:** `BBx, BBy` cho biết **vị trí tâm**, còn `BBwidth, BBheight` cho biết **kích thước** của khung hình chữ nhật bao quanh đám cháy. Có 4 thông số này sẽ vẽ được chính xác cái khung đó lên ảnh.
 # References
