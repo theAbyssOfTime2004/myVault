@@ -123,5 +123,9 @@ Tags:
 	4. **Lưu trữ:** Toàn bộ dữ liệu thu thập và xử lý trong quá trình được lưu vào cơ sở dữ liệu.
 	**Tóm lại:** UAV tuần tra rừng, dùng AI để phát hiện cháy hoặc nguy cơ cháy. Nếu không có cháy, nó đánh giá rủi ro và tiếp tục tuần tra. Nếu có cháy, nó thông báo ngay, sau đó (thường là tự động) phân tích chi tiết đám cháy (vùng, 3D), liên tục gửi dữ liệu cập nhật về trạm mặt đất, và cuối cùng lưu trữ mọi thông tin.
 - *fig 2: Categorization of navigation features of UAV* ![[Pasted image 20250503135710.png]]
-- 
+- Hệ thống định vị điều hướng của UAV được phân thành ba nhóm tính năng chính (Awareness, Basic Navigation, Expanded Navigation) như sơ đồ phân cấp ở *fig2* 
+	- **Awareness (Nhận thức)**: UAV liên tục thu thập thông tin về môi trường xung quanh (các chướng ngại, khoảng cách đến vật cản) bằng các cảm biến nội bộ. Ví dụ, “semantic evaluation” giúp nhận biết loại chướng ngại (cây cối, chim, khói, v.v.), “block detection” và “block distinction” xác định và phân biệt các vật cản ngay gần UAV) 
+	- **Basic Navigation (Điều hướng cơ bản)**: cung cấp chức năng bay tự động tối thiểu để tránh va chạm và di chuyển an toàn. Các tính năng này gồm điều khiển drift tự động (autonomous drift), né tránh va chạm (collision evasion) với chim, cây, cột điện…, và tự động cất cánh/hạ cánh (auto take-off/landing) khi cần.
+	- **Expanded Navigation (Điều hướng mở rộng)**: bao gồm các kỹ thuật tiên tiến như lập lộ trình bay (pathway generation) và đánh giá môi trường xung quanh (neighbourhood detection) nhằm xây dựng bản đồ bay ảo. Ví dụ, nó có thể tạo đường bay tối ưu qua các khu rừng phức tạp, cân nhắc địa hình cao độ (depth deployment) hoặc các chuyển động bay phi tuyến (non-linear drift) cho nhiệm vụ tuần tra nhiều ngày. 
+=> Tóm lại, ba nhóm này bổ sung lẫn nhau: nhóm Awareness cho *surrouding awareness tại chỗ*, Basic đảm bảo *bay an toàn* , Expanded *nâng cao khả năng tự chủ và lập kế hoạch bay phức tạp*.
 # References
