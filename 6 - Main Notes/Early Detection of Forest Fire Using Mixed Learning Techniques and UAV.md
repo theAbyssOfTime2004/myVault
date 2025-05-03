@@ -171,6 +171,15 @@ Tags:
 		    - `BBheight`: Khung **cao** bao nhiêu.
 	- **Tóm lại:** `BBx, BBy` cho biết **vị trí tâm**, còn `BBwidth, BBheight` cho biết **kích thước** của khung hình chữ nhật bao quanh đám cháy. Có 4 thông số này sẽ vẽ được chính xác cái khung đó lên ảnh.
 - **Phân chia các pixel trong ảnh thành 2 vùng cháy và không cháy dựa trên độ histogram độ sáng/nhiệt độ dùng phương pháp Otsu**
-	- **Mục tiêu:** Otsu tìm một giá trị ngưỡng `k` (một mức độ sáng cụ thể). Tất cả các pixel có độ sáng **nhỏ hơn `k`** sẽ thuộc lớp nền (ví dụ: không cháy), và tất cả các pixel có độ sáng **lớn hơn hoặc bằng `k`** sẽ thuộc lớp đối tượng (ví dụ: vùng cháy).
-	- **Tiêu chí "Tốt nhất":** Ngưỡng `k` được coi là "tốt nhất" nếu nó làm cho sự khác biệt (phương sai - variance) _bên trong mỗi nhóm_ là nhỏ nhất có thể. Nói cách khác, Otsu cố gắng tìm ngưỡng `k` sao cho:
+	- **Mục tiêu:** Otsu tìm một giá trị ngưỡng `k` để phân loại 2 lớp 
+	- **Tiêu chí "Tốt nhất":** Ngưỡng `k` được coi là "tốt nhất" nếu nó làm cho sự khác biệt (phương sai - variance) _bên trong mỗi lớp_ là nhỏ nhất có thể. Nói cách khác, Otsu cố gắng tìm ngưỡng `k` sao cho:
+	- **Cách hoạt động của Otsu:**
+		1. Tính histogram độ sáng của ảnh. Chuẩn hóa histogram để có `p(j)`.
+		2. **Thử từng giá trị ngưỡng `k`** có thể (từ 1 đến h-1).
+		3. Với mỗi `k`:
+		    - Tính `ω_a(k)` và `ω_b(k)` bằng công thức (8).
+		    - Tính giá trị trung bình độ sáng cho từng lớp (không ghi trong công thức nhưng cần để tính phương sai).
+		    - Tính phương sai `σ_a^2(k)` và `σ_b^2(k)` cho từng lớp.
+		    - Tính tổng phương sai nội lớp có trọng số `σ_w^2(k)` bằng công thức (7).
+		4. Chọn giá trị `k` nào mà cho ra `σ_w^2(k)` **nhỏ nhất**. Ngưỡng `k` tối ưu này sẽ phân chia ảnh thành hai lớp một cách tốt nhất theo tiêu chí của Otsu.
 # References
