@@ -123,11 +123,24 @@ Tags:
 	4. **Lưu trữ:** Toàn bộ dữ liệu thu thập và xử lý trong quá trình được lưu vào cơ sở dữ liệu.
 	**Tóm lại:** UAV tuần tra rừng, dùng AI để phát hiện cháy hoặc nguy cơ cháy. Nếu không có cháy, nó đánh giá rủi ro và tiếp tục tuần tra. Nếu có cháy, nó thông báo ngay, sau đó (thường là tự động) phân tích chi tiết đám cháy (vùng, 3D), liên tục gửi dữ liệu cập nhật về trạm mặt đất, và cuối cùng lưu trữ mọi thông tin.
 - *fig 2: Categorization of navigation features of UAV* ![[Pasted image 20250503135710.png]]
-- Hệ thống định vị điều hướng của UAV được phân thành ba nhóm tính năng chính (Awareness, Basic Navigation, Expanded Navigation) như sơ đồ phân cấp ở *fig2* 
-	- **Awareness (Nhận thức)**: UAV liên tục thu thập thông tin về môi trường xung quanh (các chướng ngại, khoảng cách đến vật cản) bằng các cảm biến nội bộ. Ví dụ, “semantic evaluation” giúp nhận biết loại chướng ngại (cây cối, chim, khói, v.v.), “block detection” và “block distinction” xác định và phân biệt các vật cản ngay gần UAV) 
-	- **Basic Navigation (Điều hướng cơ bản)**: cung cấp chức năng bay tự động tối thiểu để tránh va chạm và di chuyển an toàn. Các tính năng này gồm điều khiển drift tự động (autonomous drift), né tránh va chạm (collision evasion) với chim, cây, cột điện…, và tự động cất cánh/hạ cánh (auto take-off/landing) khi cần.
-	- **Expanded Navigation (Điều hướng mở rộng)**: bao gồm các kỹ thuật tiên tiến như lập lộ trình bay (pathway generation) và đánh giá môi trường xung quanh (neighbourhood detection) nhằm xây dựng bản đồ bay ảo. Ví dụ, nó có thể tạo đường bay tối ưu qua các khu rừng phức tạp, cân nhắc địa hình cao độ (depth deployment) hoặc các chuyển động bay phi tuyến (non-linear drift) cho nhiệm vụ tuần tra nhiều ngày. 
-=> Tóm lại, ba nhóm này bổ sung lẫn nhau: nhóm Awareness cho *surrouding awareness tại chỗ*, Basic đảm bảo *bay an toàn* , Expanded *nâng cao khả năng tự chủ và lập kế hoạch bay phức tạp*.
-- **Đối với việc navigating trong khu vực không có GPS**: 
-	- Trong rừng rậm, UAV dùng thuật toán **SLAM** để vừa tự xây dựng bản đồ môi trường xung quanh, vừa xác định vị trí của mình trên bản đồ đó bằng cách nhận diện các điểm mốc (landmarks), giúp nó điều hướng mà không cần tín hiệu GPS.
+	- Hệ thống định vị điều hướng của UAV được phân thành ba nhóm tính năng chính (Awareness, Basic Navigation, Expanded Navigation) như sơ đồ phân cấp ở *fig2* 
+		- **Awareness (Nhận thức)**: UAV liên tục thu thập thông tin về môi trường xung quanh (các chướng ngại, khoảng cách đến vật cản) bằng các cảm biến nội bộ. Ví dụ, “semantic evaluation” giúp nhận biết loại chướng ngại (cây cối, chim, khói, v.v.), “block detection” và “block distinction” xác định và phân biệt các vật cản ngay gần UAV) 
+		- **Basic Navigation (Điều hướng cơ bản)**: cung cấp chức năng bay tự động tối thiểu để tránh va chạm và di chuyển an toàn. Các tính năng này gồm điều khiển drift tự động (autonomous drift), né tránh va chạm (collision evasion) với chim, cây, cột điện…, và tự động cất cánh/hạ cánh (auto take-off/landing) khi cần.
+		- **Expanded Navigation (Điều hướng mở rộng)**: bao gồm các kỹ thuật tiên tiến như lập lộ trình bay (pathway generation) và đánh giá môi trường xung quanh (neighbourhood detection) nhằm xây dựng bản đồ bay ảo. Ví dụ, nó có thể tạo đường bay tối ưu qua các khu rừng phức tạp, cân nhắc địa hình cao độ (depth deployment) hoặc các chuyển động bay phi tuyến (non-linear drift) cho nhiệm vụ tuần tra nhiều ngày. 
+	=> Tóm lại, ba nhóm này bổ sung lẫn nhau: nhóm Awareness cho *surrouding awareness tại chỗ*, Basic đảm bảo *bay an toàn* , Expanded *nâng cao khả năng tự chủ và lập kế hoạch bay phức tạp*.
+	- **Đối với việc navigating trong khu vực không có GPS**: 
+		- Trong rừng rậm, UAV dùng thuật toán **SLAM** để vừa tự xây dựng bản đồ môi trường xung quanh, vừa xác định vị trí của mình trên bản đồ đó bằng cách nhận diện các điểm mốc (landmarks), giúp nó điều hướng mà không cần tín hiệu GPS.
+- *fig3: Structure of main modules* ![[Pasted image 20250503142817.png]]
+- Hệ thống định vị bằng hình ảnh của UAV hoạt động qua hai giai đoạn chính, dựa trên ba modules:
+	1. **Hybrid Feature Extraction:** Ban đầu, hệ thống xử lý ảnh từ cảm biến, kết hợp nhiều phương pháp để xác định và định vị các điểm đặc trưng quan trọng trong môi trường, tạo ra Hybrid Fe.
+1. **Tạo Bản đồ (Map Generation Phase):**
+    - Các đặc trưng lai ban đầu được lưu trữ tạm.
+    - Hệ thống đánh giá (dùng lý thuyết thông tin) để chọn lọc những đặc trưng ý nghĩa nhất.
+    - Các đặc trưng được chọn sẽ được nén thành "từ mã" (code words) và lưu vào một "Bản đồ Lai Cuối cùng" (Final Hybrid Map).
+2. **Định vị Lai (Localization Phase):**
+    - Khi cần xác định vị trí, UAV trích xuất đặc trưng từ ảnh hiện tại.
+    - Hệ thống so khớp các đặc trưng này với "từ mã" trong bản đồ đã tạo (Topological Matching).
+    - Dựa trên sự khớp này và các kỹ thuật như phép đạc tam giác đặc trưng (Feature Triangulation), hệ thống tính toán ra vị trí chính xác của UAV. Quá trình kết hợp dữ liệu từ cảm biến hiện tại và bản đồ này chính là "Định vị Lai".
+
+Tóm lại, hệ thống này trước tiên học và xây dựng một bản đồ nén các đặc điểm hình ảnh quan trọng của môi trường, sau đó sử dụng bản đồ này để xác định vị trí của UAV bằng cách so khớp những gì nó đang nhìn thấy với bản đồ đã lưu.
 # References
