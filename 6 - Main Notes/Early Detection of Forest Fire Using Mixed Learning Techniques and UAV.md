@@ -184,4 +184,12 @@ Tags:
 		4. Chọn giá trị `k` nào mà cho ra `σ_w^2(k)` **nhỏ nhất**. Ngưỡng `k` tối ưu này sẽ phân chia ảnh thành hai lớp một cách tốt nhất theo tiêu chí của Otsu.
 *fig 6: YOLOv4 Tiny architecture*: ![[Pasted image 20250503215146.png]]
 
+**Prediction of the Possibility of Forest fire**: 
+- UAV không chỉ phát hiện đám cháy đang xảy ra mà còn có nhiệm vụ **dự đoán nguy cơ cháy rừng** ngay cả khi chưa có lửa.
+	- **Khi không thấy cháy:** UAV sẽ tìm kiếm các yếu tố có thể gây cháy trong tương lai.
+	- **Cách tìm:** Nó dựa vào việc xác định các nguyên nhân gây cháy (do người hoặc tự nhiên) và đặc biệt là tìm kiếm sự hiện diện của 3 yếu tố trong **"Tam giác Lửa"**:![[Pasted image 20250503215703.png]]
+	    1. **Oxy** (có sẵn)
+	    2. **Nhiên liệu** (cây cỏ khô, vật liệu dễ cháy)
+	    3. **Nguồn nhiệt** (tàn lửa, điểm nóng bất thường)
+- **Hành động:** Nếu UAV phát hiện thấy có đủ Nhiên liệu và Nguồn nhiệt tiềm ẩn ở một khu vực, nó sẽ đánh giá đó là nơi có nguy cơ cháy cao và **gửi cảnh báo** về trạm mặt đất để có biện pháp phòng ngừa sớm.
 # References
