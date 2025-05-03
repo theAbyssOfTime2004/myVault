@@ -89,12 +89,21 @@ Tags:
 		- Đề xuất một chỉ số mới tên là **Forest Fire Detection Index (FFDI)** → dùng để phân biệt rõ vùng có cháy dựa vào phân loại thực vật và màu sắc của lửa/khói.    
 		- **Độ chính xác** đạt được là **96.82%**, tốc độ xử lý mỗi ảnh khoảng **0.447 giây**, tốc độ video lên đến **54 khung hình/giây**.
 	- *Fire-Net - Mô hình deep learning dùng ảnh vệ tinh*
-		- Fire-Net là một **deep learning framework** được huấn luyện bằng ảnh từ vệ tinh **Landsat-8**.
+		- Fire-Net **là một deeplearning framework** được huấn luyện trên ảnh từ vệ tinh **Landsat-8**.
 		- Sử dụng cả thông tin **quang học (optical)** và **nhiệt (thermal)** để phát hiện cháy và thực vật bị đốt.    
 		- Mô hình này có **khả năng phát hiện cháy nhỏ**, độ chính xác tổng thể đạt **97.35%**.
 	- *Hệ thống UAV kép - reducing false alarms*
-		- Sử dụng **2 loại UAV**:
-		    - **Fixed-wing drone**: bay tầm cao (350–5,500m), phát hiện ban đầu và báo động. 
-		    - **Rotary-wing drone**: bay thấp hơn, đến kiểm tra lại tại vị trí GPS được cảnh báo → xác nhận có cháy thật hay không.        
+			- Sử dụng **2 loại UAV**:
+			    - **Fixed-wing drone**: bay tầm cao (350–5,500m), phát hiện ban đầu và báo động.
+			    - **Rotary-wing drone**: bay thấp hơn, đến kiểm tra lại tại vị trí GPS được cảnh báo → xác nhận có cháy thật hay không.
 		- Mục tiêu: **giảm báo động giả nhờ kiểm chứng hai bước**.
+	- *Đề xuất mô hình kết hợp 3D modeling + YOLOv4 + Otsu + LiDAR*
+		- Mô hình được đề xuất kết hợp nhiều kỹ thuật:
+		    - **3D modeling**: Tái dựng không gian 3 chiều giúp phát hiện chính xác hơn.        
+		    - **YOLOv4**: Phát hiện vật thể nhanh và mạnh.        
+		    - **Otsu thresholding**: Xác định ngưỡng để phân biệt giữa nền và vật thể cháy.        
+		    - **LiDAR**: Đo khoảng cách giữa các cây và vật thể để xác định hướng ảnh và định vị đám cháy chính xác.
+		- Mục tiêu cuối cùng là **nâng cao độ chính xác và khả năng phát hiện sớm cháy rừng**.
+### Proposed Methodology
+
 # References
