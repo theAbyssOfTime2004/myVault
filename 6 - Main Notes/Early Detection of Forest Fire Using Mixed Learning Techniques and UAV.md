@@ -129,10 +129,5 @@ Tags:
 	- **Expanded Navigation (Điều hướng mở rộng)**: bao gồm các kỹ thuật tiên tiến như lập lộ trình bay (pathway generation) và đánh giá môi trường xung quanh (neighbourhood detection) nhằm xây dựng bản đồ bay ảo. Ví dụ, nó có thể tạo đường bay tối ưu qua các khu rừng phức tạp, cân nhắc địa hình cao độ (depth deployment) hoặc các chuyển động bay phi tuyến (non-linear drift) cho nhiệm vụ tuần tra nhiều ngày. 
 => Tóm lại, ba nhóm này bổ sung lẫn nhau: nhóm Awareness cho *surrouding awareness tại chỗ*, Basic đảm bảo *bay an toàn* , Expanded *nâng cao khả năng tự chủ và lập kế hoạch bay phức tạp*.
 - **Đối với việc navigating trong khu vực không có GPS**: 
-	-  **Vấn đề:** Trong rừng rậm, tín hiệu GPS thường bị chặn (GPS-denied area).
-	- **Giải pháp:** UAV sử dụng các phương pháp "định vị lai" (hybrid-localization). Nghiên cứu đề xuất dùng thuật toán **SLAM (Simultaneous Localization and Mapping - Định vị và Lập bản đồ Đồng thời)**.
-	- **Cách SLAM hoạt động:**
-	    - Ý tưởng chính: UAV vừa xây dựng bản đồ môi trường xung quanh, vừa xác định vị trí của chính nó trên bản đồ đó - cả hai việc diễn ra _cùng lúc_ và _liên tục cập nhật_.
-	    - Nó sử dụng các bộ lọc (như Kalman filter) để xử lý dữ liệu từ cảm biến, nhận diện các đặc điểm nổi bật trong môi trường (gọi là "landmarks" - điểm mốc như cây đặc biệt, tảng đá).
-	    - Bằng cách dựa vào các điểm mốc này, UAV có thể tự định vị và điều hướng mà không cần GPS.
+	- Trong rừng rậm, UAV dùng thuật toán **SLAM** để vừa tự xây dựng bản đồ môi trường xung quanh, vừa xác định vị trí của mình trên bản đồ đó bằng cách nhận diện các điểm mốc (landmarks), giúp nó điều hướng mà không cần tín hiệu GPS.
 # References
