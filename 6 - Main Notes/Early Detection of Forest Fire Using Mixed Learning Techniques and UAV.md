@@ -148,5 +148,5 @@ Tags:
 	- **Khối lượng nâng được (m):** Tổng khối lượng UAV có thể nhấc lên. Công thức (3) tính toán dựa trên lực đẩy hoặc công suất.
 - Tóm lại, mục này cung cấp thông tin về khả năng hoạt động (tải trọng, thời gian bay), trang bị cảm biến và các công thức vật lý cơ bản để tính toán hiệu suất bay (lực đẩy, công suất, khối lượng nâng).
 **3.2 Fire Detection and Fire Region Prediction** 
-- 
+- Mô tả cách UAV phát hiện đám cháy trong rừng và sau đó phân tích, dự đoán **vùng lan rộng** của đám cháy dựa vào ảnh và thông tin cảm biến thu được.
 # References
