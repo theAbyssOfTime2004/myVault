@@ -3,10 +3,12 @@
 
 Tags: [[Mangas]] 
 
-# Mangas that i saved for future
+# Mangas 
 
 - MAD 
 - OUT
 - AFTER GOD
-
+- Kiichi
+- Real
+- Freesia
 # References
