@@ -170,4 +170,7 @@ Tags:
 		    - `BBwidth`: Khung **rộng** bao nhiêu.
 		    - `BBheight`: Khung **cao** bao nhiêu.
 	- **Tóm lại:** `BBx, BBy` cho biết **vị trí tâm**, còn `BBwidth, BBheight` cho biết **kích thước** của khung hình chữ nhật bao quanh đám cháy. Có 4 thông số này sẽ vẽ được chính xác cái khung đó lên ảnh.
+- **Phân chia các pixel trong ảnh thành 2 vùng cháy và không cháy dựa trên độ histogram độ sáng/nhiệt độ dùng phương pháp Otsu**
+	- **Mục tiêu:** Otsu tìm một giá trị ngưỡng `k` (một mức độ sáng cụ thể). Tất cả các pixel có độ sáng **nhỏ hơn `k`** sẽ thuộc lớp nền (ví dụ: không cháy), và tất cả các pixel có độ sáng **lớn hơn hoặc bằng `k`** sẽ thuộc lớp đối tượng (ví dụ: vùng cháy).
+	- **Tiêu chí "Tốt nhất":** Ngưỡng `k` được coi là "tốt nhất" nếu nó làm cho sự khác biệt (phương sai - variance) _bên trong mỗi nhóm_ là nhỏ nhất có thể. Nói cách khác, Otsu cố gắng tìm ngưỡng `k` sao cho:
 # References
