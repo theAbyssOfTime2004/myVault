@@ -207,4 +207,23 @@ Tags:
     - Mô hình có thể phát hiện lửa ngay cả ở vùng ánh sáng yếu (nhờ phương pháp Otsu đã đề cập trước đó để phân đoạn ảnh nhiệt).
     - **Hạn chế:** Mô hình gặp khó khăn ở những vùng có **khói dày đặc**, vì khói bị **nhầm lẫn với sương mù dày**, dẫn đến không phát hiện được lửa.
     - Mô hình được huấn luyện với dữ liệu đa dạng (nắng, mưa, tuyết,...) để hoạt động tốt trong nhiều điều kiện môi trường.
+- **Giải pháp cho vùng khói dày:** Để cải thiện độ chính xác ở vùng khói dày, nhóm nghiên cứu đã **sử dụng thêm cảm biến hồng ngoại (IR sensors)**. Bằng cách phân tích **luồng quang học (optical flow)** từ dữ liệu hồng ngoại, lửa có thể được phát hiện dễ dàng hơn ngay cả khi bị che khuất bởi khói.
+- **Kết quả tổng thể:** Các thí nghiệm cho thấy mô hình có khả năng:
+    - Phát hiện cháy rừng và vùng có lửa.
+    - Tạo mô hình 3D của khu vực bị ảnh hưởng.
+    - Theo dõi đám cháy với kết quả "thỏa đáng".
+    - Giảm thiểu đáng kể các vấn đề gặp phải khi dùng ảnh vệ tinh (thường có độ phân giải thấp, cập nhật chậm) hoặc các phương pháp hiệu năng thấp khác.
+- **Minh họa:** Hình 9(a), 9(b) là các mô hình 3D mẫu được tạo ra. Hình 9(c) đến 9(f) là kết quả thử nghiệm phát hiện lửa thực tế của UAV.
+### 5. Conclusion and Future Scope
+#### Conclusion:
+- Nghiên cứu này đã thành công trong việc:
+    - Phát triển mô hình 3D cho khu vực được ghi hình.
+    - Triển khai mạng YOLOv4 tiny để phát hiện lửa.
+    - Đạt **độ chính xác 91%**
+    - Mô hình đề xuất **vượt trội hơn các kỹ thuật hiện có về khả năng phát hiện sớm**.
+- **Hạn chế chính được nhắc lại:** Mô hình nhạy cảm với rừng có **sương mù dày hoặc mây thấp**, vì khói dễ bị nhầm lẫn với sương mù.
+#### Future Scope:
+- Tập trung vào việc đáp ứng nhu cầu **phát hiện thực tế và phát hiện sớm** hơn nữa.
+- Phát triển **mô hình thực tế hỗn hợp (Mixed Reality - MR)** của khu vực cháy rừng để cung cấp nhiều thông tin hơn và giúp việc phân tích phòng ngừa trở nên dễ dàng hơn.
+- Mở rộng các kỹ thuật **mô hình hóa 3D** đã trình bày sang việc dự đoán các loại hình thiên tai tự nhiên khác.
 # References
