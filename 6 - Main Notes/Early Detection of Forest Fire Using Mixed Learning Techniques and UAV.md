@@ -202,5 +202,5 @@ Tags:
 	- Các chỉ số đánh giá hiệu năng được trình bày trong Bảng 2 (ví dụ: mAP@0.5 là 85.36%, F1-score là 0.91).
 	- Bảng 3 so sánh mô hình đề xuất với các công trình trước đó, cho thấy mô hình này vượt trội hơn hẳn (ví dụ: Độ chính xác - Accuracy đạt 93.3% so với 87%, 86.7%, 89% của các mô hình khác).
 	- ![[Pasted image 20250504193128.png]]
-- 
+- Các kỹ thuật augmentation như Mix-up và Mosaic được dùng để tạo thêm dữ liệu huấn luyện đa dạng. Lớp tích chập (convolution layer) trong mạng hoạt động tốt trong việc phát hiện các phần nhỏ của ảnh (như đốm lửa nhỏ).
 # References
