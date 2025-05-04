@@ -203,4 +203,8 @@ Tags:
 	- Bảng 3 so sánh mô hình đề xuất với các công trình trước đó, cho thấy mô hình này vượt trội hơn hẳn (ví dụ: Độ chính xác - Accuracy đạt 93.3% so với 87%, 86.7%, 89% của các mô hình khác).
 	- ![[Pasted image 20250504193128.png]]
 - Các kỹ thuật augmentation như Mix-up và Mosaic được dùng để tạo thêm dữ liệu huấn luyện đa dạng. Lớp tích chập (convolution layer) trong mạng hoạt động tốt trong việc phát hiện các phần nhỏ của ảnh (như đốm lửa nhỏ).
+- **Phát hiện trong điều kiện khó:**
+    - Mô hình có thể phát hiện lửa ngay cả ở vùng ánh sáng yếu (nhờ phương pháp Otsu đã đề cập trước đó để phân đoạn ảnh nhiệt).
+    - **Hạn chế:** Mô hình gặp khó khăn ở những vùng có **khói dày đặc**, vì khói bị **nhầm lẫn với sương mù dày**, dẫn đến không phát hiện được lửa.
+    - Mô hình được huấn luyện với dữ liệu đa dạng (nắng, mưa, tuyết,...) để hoạt động tốt trong nhiều điều kiện môi trường.
 # References
