@@ -5,7 +5,7 @@ Tags:
 
 # Early Detection of Forest Fire Using Mixed Learning Techniques and UAV
 
-### Introduction:
+### 1. Introduction:
 - address cháy rừng ngày càng gia tăng do *nạn phá rừng và biến đổi khí hậu* => nêu ra hệ quả xấu đến môi trường => việc *phát hiện cháy rừng sớm là cần thiết*
 	#### Giải pháp đề xuất: 
 	- Bài báo đề xuất mô hình deep learning kết hợp giữa: 
@@ -27,7 +27,7 @@ Tags:
 		- **Phát hiện cháy rừng và phạm vi cháy**.
 		- **Tạo mô hình 3D của khu vực cháy**.
 		- **Giám sát cháy ở vùng thấp và rừng rậm**.
-### Related Works
+### 2. Related Works
 - Hiện nay, cháy rừng và khói được phát hiện thông qua **các phương pháp cảm biến từ xa** như:
 	- **Ảnh vệ tinh**    
 	- **Camera tĩnh độ phân giải cao gắn trên mặt đất**    
@@ -104,7 +104,7 @@ Tags:
 		    - **Otsu thresholding**: Xác định ngưỡng để phân biệt giữa nền và vật thể cháy.        
 		    - **LiDAR**: Đo khoảng cách giữa các cây và vật thể để xác định hướng ảnh và định vị đám cháy chính xác.
 		- Mục tiêu cuối cùng là **nâng cao độ chính xác và khả năng phát hiện sớm cháy rừng**.
-### Proposed Methodology
+### 3. Proposed Methodology
 **3.1 Autonomous Drone Routing**
 - Fig 1 trình bày quy trình hoạt động của hệ thống UAV. Khi UAV bay tuần tra, nó sẽ thu thập dữ liệu liên tục từ các sensors: camera RGB để *capture video*, cảm biến hồng ngoại IR để *ghi nhận ảnh/phát xạ nhiệt* của khu rừng, kèm theo *đo vận tốc và hướng gió* từ cảm biến anemometer.
 - Tất cả dữ liệu hình ảnh sẽ được đưa vào YOLOv4-Tiny được tích hợp trên onboard cpu của UAV
@@ -192,7 +192,15 @@ Tags:
 	    2. **Nhiên liệu** (cây cỏ khô, vật liệu dễ cháy)
 	    3. **Nguồn nhiệt** (tàn lửa, điểm nóng bất thường)
 - **Hành động:** Nếu UAV phát hiện thấy có đủ Nhiên liệu và Nguồn nhiệt tiềm ẩn ở một khu vực, nó sẽ đánh giá đó là nơi có nguy cơ cháy cao và **gửi cảnh báo** về trạm mặt đất để có biện pháp phòng ngừa sớm.
-- **3D Modelling of Forest Fire**
+- **3.3 3D Modelling of Forest Fire**
 	- **Construction of 3D Forest Fire Modeling:** Mục này tập trung vào việc thu thập dữ liệu và thiết lập cơ sở cho mô hình 3D. Nó mô tả việc sử dụng kỹ thuật *photogrammetry*, cụ thể là spatial resection, để **ước tính vị trí 3D của cây cối** bằng cách đo đạc các feature points phân bố trên nhiều ảnh 2D chụp từ các góc độ khác nhau (quá trình "*relative orientation*"). Tuy nhiên, phương pháp này gặp khó khăn trong môi trường rừng ngoài trời phức tạp. Do đó, công nghệ **LiDAR** được tích hợp và đóng vai trò then chốt: nó cung cấp **dữ liệu định hướng và khoảng cách cực kỳ chính xác** giữa các vật thể (cây cối), giúp khắc phục hạn chế của việc lấy mẫu bề mặt bằng phương pháp truyền thống và xử lý sự không nhất quán của dữ liệu (ví dụ, do che khuất). LiDAR cho phép thu thập dữ liệu điểm 3D liên tục và nhanh chóng ngay cả khi UAV đang bay tốc độ cao trong khu vực rừng.
 	- **Terrestrial Image-Based 3D Modeling:** Sau khi có dữ liệu ảnh và/hoặc LiDAR, mục này mô tả các bước xử lý để tinh chỉnh và tạo ra sản phẩm cuối cùng. Quá trình bắt đầu bằng việc **căn chỉnh chính xác các ảnh** với nhau, sử dụng các phương pháp định hướng đã có (từ LiDAR hoặc đo ảnh), kết hợp với việc đo các *tie points* - các điểm tương đồng trên nhiều ảnh. Bước quan trọng tiếp theo là *bundle adjustment*, một kỹ thuật tối ưu hóa phức tạp giúp tinh chỉnh đồng thời vị trí/góc chụp của camera (UAV) và tọa độ 3D của các điểm đặc trưng, nhằm đạt độ chính xác hình học cao nhất và cho phép **hiệu chỉnh cảm biến (sensor calibration)**. Cuối cùng, các **thuật toán đối sánh ảnh tự động (automatic photogrammetric matching)** tiên tiến, có khả năng xử lý nhiều ảnh đầu vào, được áp dụng để thực hiện đo đạc bề mặt và tạo ra kết quả là một *3D dense point cloud* mô tả chi tiết bề mặt địa hình và thảm thực vật của khu vực rừng bị cháy.
+### 4. Experiments and Results:
+- *Training và deploy:* Mô hình được train trước trên desktop với 100 ảnh và 50,000 training steps cho mỗi ảnh sau đó mới được nạp vào bộ xử lý của UAV (UAV-CPU) để thử nghiệm thực tế.
+- *Hiệu năng:*
+	-  Mô hình YOLOv4 tiny đạt tốc độ xử lý (FPS) đủ tốt trên CPU của UAV để phát hiện và phân tích theo thời gian thực.
+	- Các chỉ số đánh giá hiệu năng được trình bày trong Bảng 2 (ví dụ: mAP@0.5 là 85.36%, F1-score là 0.91).
+	- Bảng 3 so sánh mô hình đề xuất với các công trình trước đó, cho thấy mô hình này vượt trội hơn hẳn (ví dụ: Độ chính xác - Accuracy đạt 93.3% so với 87%, 86.7%, 89% của các mô hình khác).
+	- ![[Pasted image 20250504193128.png]]
+- 
 # References
