@@ -22,9 +22,9 @@ Tags:
 
 ## Mục tiêu nghiên cứu
 Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung làm việc tích hợp trên UAV để hỗ trợ phát hiện cháy rừng sớm thông qua:
-1. **Phân đoạn khói và ngọn lửa:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
-2. **Ước lượng khoảng cách:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
-3. **Đăng ký hình ảnh hồng ngoại - thường:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
+1. **Smoke and suspected flame segmentation:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
+2. **Distance Estimation:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
+3. **Visual-infrared images registration:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
 
 ---
 
