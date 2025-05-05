@@ -44,6 +44,12 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 
 ## Phương pháp nghiên cứu
 - nhấn mạnh sự chuyển dịch từ các phương pháp truyền thống sang sử dụng học sâu, đồng thời giải thích lý do tại sao các mô hình phát hiện đối tượng như YOLO hay SSD lại phù hợp cho phát hiện cháy rừng sớm nhờ tốc độ và khả năng phát hiện khói/ngọn lửa trong điều kiện phức tạp.
+### **Yêu cầu đối với mô hình detection**
+- Mô hình cần **xử lý hiệu quả thông tin đặc trưng** từ dữ liệu gốc.
+- Phân đoạn ngữ nghĩa được ưu tiên hơn so với các mô hình phát hiện đối tượng dựa trên bounding box vì phù hợp hơn để phát hiện khói và ngọn lửa.
+- Mô hình cần **đơn giản**, không phụ thuộc nhiều vào kích thước tập dữ liệu hoặc tài nguyên tính toán.
+--- 
+
 ### **1. Semantic Segmentation**  
 - **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
 - **Cải tiến:**  
