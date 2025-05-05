@@ -36,9 +36,17 @@ Tags:
 
 ## Mục tiêu nghiên cứu
 Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework tích hợp trên UAV để hỗ trợ phát hiện cháy rừng sớm thông qua:
-1. **Smoke and suspected flame segmentation:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
-2. **Distance Estimation:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
-3. **Visual-infrared images registration:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
+1. **Framework design**: 
+	- Kết hợp lọc đặc trưng ORB (ORB features) với học sâu (AG U-Net) và kỹ thuật ORB-SLAM2.
+	- Giải quyết khoảng trống trong việc phân đoạn khói cháy bằng camera đơn và định vị điểm cháy.
+2. **Smoke and suspected flame segmentation:** 
+	- Sử dụng AG U-net để phát hiện khói và lửa
+	- Hiệu suất cao hơn và giảm false aleart
+3. **Distance Estimation:**
+	- Sử dụng *SLAM* kết hợp UAV để cung cấp chính xác thông tin vị trí vụ cháy (sử dụng triangulation)
+4. **Visual-infrared images registration:**
+	- Phát triển một phương pháp images registration  
+	- Kết hợp thông tin từ hình ảnh thường và hồng ngoại để giảm báo động sai.
 ![[Pasted image 20250505153057.png]]
 ---
 
