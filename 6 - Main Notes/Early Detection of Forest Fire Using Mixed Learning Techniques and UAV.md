@@ -1,7 +1,7 @@
 2025-05-02 19:26
 
 
-Tags:
+Tags: [[DeepLearning]], [[Machine Learning]], [[Computer Vision]]
 
 # Early Detection of Forest Fire Using Mixed Learning Techniques and UAV
 

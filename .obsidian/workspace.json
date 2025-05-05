@@ -11,15 +11,12 @@
             "id": "c53881d85f073e6a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Early Detection of Forest Fire Using Mixed Learning Techniques and UAV"
+              "icon": "lucide-file-text",
+              "title": "Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution"
             }
           },
           {
@@ -204,13 +201,13 @@
   },
   "active": "c53881d85f073e6a",
   "lastOpenFiles": [
+    "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
     "6 - Main Notes/[6]_summary.docx",
     "Pasted image 20250504193128.png",
     "Pasted image 20250503215703.png",
     "Pasted image 20250503215146.png",
     "6 - Main Notes/Mangas that i saved for future.md",
     "3 - Tags/Mangas.md",
-    "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
     "Pasted image 20250503202534.png",
     "Pasted image 20250503182515.png",
     "Pasted image 20250503182447.png",
@@ -243,7 +240,6 @@
     "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/transformer.md",
     "6 - Main Notes/Normalizing Inputs.md",
-    "6 - Main Notes/DM_lab4.pdf",
     "6 - Main Notes/Data_Mining_Lab3_Report.md",
     "6 - Main Notes/Data Mining Lab4 Report.md",
     "6 - Main Notes/Model Generalization.md",
