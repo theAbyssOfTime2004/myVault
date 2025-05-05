@@ -19,11 +19,6 @@ Tags:
 - **Github Repository:** [early_wildfire_perception](https://github.com/ConcordiaNAVlab/early_wildfire_perception)  
 
 ---
-## Mục tiêu nghiên cứu
-Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung làm việc tích hợp trên UAV để hỗ trợ phát hiện cháy rừng sớm thông qua:
-1. **Smoke and suspected flame segmentation:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
-2. **Distance Estimation:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
-3. **Visual-infrared images registration:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
 
 ## Mở đầu:
 1. Nêu tác hại của cháy rừng và tình hình hiện tại
@@ -34,6 +29,17 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung 
 	- Linh hoạt về thời gian và không gian.
 	-  Chi phí thấp hơn vệ tinh hoặc tháp quan sát.
 	-  Có thể gắn nhiều loại cảm biến (hình ảnh, hồng ngoại, đa phổ) để thu thập thông tin.
+- Camera hình ảnh (visual), hồng ngoại, và đa phổ trên UAV hoặc vệ tinh được sử dụng rộng rãi để phát hiện cháy rừng, nhưng hầu hết chỉ tập trung vào phân loại hoặc phân đoạn hình ảnh.
+- Việc định vị vị trí đám cháy vẫn phụ thuộc nhiều vào thao tác thủ công.
+- Các thử nghiệm thực tế về định vị cháy rừng chưa đủ đầy đủ.
+---
+
+## Mục tiêu nghiên cứu
+Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework tích hợp trên UAV để hỗ trợ phát hiện cháy rừng sớm thông qua:
+1. **Smoke and suspected flame segmentation:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
+2. **Distance Estimation:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
+3. **Visual-infrared images registration:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
+![[Pasted image 20250505153057.png]]
 ---
 
 ## Phương pháp nghiên cứu
