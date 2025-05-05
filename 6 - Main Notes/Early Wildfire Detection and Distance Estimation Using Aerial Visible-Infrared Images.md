@@ -48,6 +48,10 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 - Mô hình cần **xử lý hiệu quả thông tin đặc trưng** từ dữ liệu gốc.
 - Phân đoạn ngữ nghĩa được ưu tiên hơn so với các mô hình phát hiện đối tượng dựa trên bounding box vì phù hợp hơn để phát hiện khói và ngọn lửa.
 - Mô hình cần **đơn giản**, không phụ thuộc nhiều vào kích thước tập dữ liệu hoặc tài nguyên tính toán.
+-  U-Net được chọn vì:
+    - Cấu trúc nhẹ (light-weight).
+    - Hiệu suất phân đoạn tốt ngay cả với tập dữ liệu huấn luyện nhỏ.
+    - Dựa vào nghiên cứu [22], cải tiến U-net = cách sử dụng AG
 --- 
 
 ### **1. Semantic Segmentation**  
