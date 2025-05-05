@@ -75,8 +75,11 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 ---
 
 ### **2. Distance Estimation**  
-- **Công cụ chính:** ORB-SLAM2.  
-  - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net.  
+- **Công cụ chính:** FAST and BRIEF ORB-SLAM2.  
+	- Sử dụng các điểm đặc trưng ORB (Oriented FAST and Rotated BRIEF):
+	    - **FAST:** Phát hiện các đặc trưng từ kiểm tra phân đoạn nhanh.
+	    - **BRIEF:** Trích xuất các đặc trưng nhị phân mạnh mẽ.
+  - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net, dùng các điểm đặc trưng này để tính khoảng cách trung bình giữa UAV và điểm cháy.
   - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán tam giác (triangulation).  
 
 - **Quy trình:**  
