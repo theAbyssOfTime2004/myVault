@@ -30,7 +30,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung 
 
 ## Phương pháp nghiên cứu
 
-### **1. Phân đoạn khói và ngọn lửa (Semantic Segmentation)**  
+### **1. Semantic Segmentation**  
 - **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
 - **Cải tiến:**  
   - Tích hợp cơ chế Attention Gate (AG) để thay thế các skip connections trong U-Net gốc.  
@@ -50,7 +50,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung 
 
 ---
 
-### **2. Ước lượng khoảng cách và định vị (Distance Estimation)**  
+### **2. Distance Estimation**  
 - **Công cụ chính:** ORB-SLAM2.  
   - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net.  
   - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán tam giác (triangulation).  
@@ -70,7 +70,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung 
 
 ---
 
-### **3. Đăng ký hình ảnh hồng ngoại - thường (Image Registration)**  
+### **3. Image Registration**  
 - **Thách thức:**  
   - Camera hồng ngoại DJI ZenMuse H20T không được hiệu chỉnh tham số nội tại và ngoại tại.  
   - Hình ảnh từ camera thường và hồng ngoại không đồng nhất về tỷ lệ và vị trí.  
