@@ -8,3 +8,141 @@ Tags:
 
 
 # References
+# **Tóm tắt chi tiết bài báo: Early Wildfire Detection and Distance Estimation Using Aerial Visible-Infrared Images**
+
+## Thông tin bài báo
+- **Tiêu đề:** Early Wildfire Detection and Distance Estimation Using Aerial Visible-Infrared Images  
+- **Tác giả:** Linhan Qiao, Shun Li, Youmin Zhang, Jun Yan  
+- **Ngày xuất bản:** 03/05/2024  
+- **Nguồn:** IEEE Transactions on Industrial Electronics  
+- **DOI:** [10.1109/TIE.2024.3387089](https://doi.org/10.1109/TIE.2024.3387089)  
+- **Github Repository:** [early_wildfire_perception](https://github.com/ConcordiaNAVlab/early_wildfire_perception)  
+
+---
+
+## Mục tiêu nghiên cứu
+Mục tiêu của nghiên cứu là thiết kế và kiểm chứng một khung làm việc tích hợp trên UAV để hỗ trợ phát hiện cháy rừng sớm thông qua:
+1. **Phân đoạn khói và ngọn lửa:** Giảm báo động sai và cải thiện độ chính xác nhận diện.  
+2. **Ước lượng khoảng cách:** Cung cấp vị trí địa lý chính xác của điểm cháy.  
+3. **Đăng ký hình ảnh hồng ngoại - thường:** Kết hợp dữ liệu hồng ngoại và thường để giảm thiểu lỗi nhận diện.  
+
+---
+
+## Phương pháp nghiên cứu
+
+### **1. Phân đoạn khói và ngọn lửa (Semantic Segmentation)**  
+- **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
+- **Cải tiến:**  
+  - Tích hợp cơ chế Attention Gate (AG) để thay thế các skip connections trong U-Net gốc.  
+  - AG giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
+
+- **Quy trình:**  
+  1. Sử dụng tập dữ liệu hình ảnh cháy rừng được gán nhãn gồm:  
+     - 619 hình ảnh từ Google.  
+     - 120 hình ảnh từ các thí nghiệm ngoài trời.  
+  2. Gắn nhãn theo 3 lớp: **nền**, **khói**, và **ngọn lửa**.  
+  3. Thực hiện huấn luyện bằng Transfer Learning để tinh chỉnh mô hình cho các điều kiện môi trường ngoài trời.
+
+- **Hiệu suất:**  
+  - Micro F1-score: **99.464%** (cao hơn hầu hết các mô hình khác như FireNet hoặc U-Net gốc).  
+  - AUC-ROC: **89.341%**, thể hiện khả năng giảm báo động sai.  
+  - FPS (tốc độ xử lý): **38 FPS**, đáp ứng yêu cầu thời gian thực.  
+
+---
+
+### **2. Ước lượng khoảng cách và định vị (Distance Estimation)**  
+- **Công cụ chính:** ORB-SLAM2.  
+  - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net.  
+  - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán tam giác (triangulation).  
+
+- **Quy trình:**  
+  1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
+  2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
+  3. Tính khoảng cách trung bình giữa UAV và điểm cháy dựa trên các điểm đặc trưng được lọc (ORB features).  
+
+- **Kết quả thực nghiệm:**  
+  - Độ sai lệch khoảng cách (so với dữ liệu thực tế từ cảm biến laser):  
+    - **17.1m:** Sai số 0.44%.  
+    - **22.4m:** Sai số 5.78%.  
+    - **31.6m:** Sai số 8.76%.  
+    - **41.2m:** Sai số 0.15%.  
+    - **51.2m:** Sai số 0.68%.  
+
+---
+
+### **3. Đăng ký hình ảnh hồng ngoại - thường (Image Registration)**  
+- **Thách thức:**  
+  - Camera hồng ngoại DJI ZenMuse H20T không được hiệu chỉnh tham số nội tại và ngoại tại.  
+  - Hình ảnh từ camera thường và hồng ngoại không đồng nhất về tỷ lệ và vị trí.  
+
+- **Giải pháp:**  
+  - Áp dụng một mô hình hình học dựa trên mối quan hệ giữa hình ảnh thường và hồng ngoại.  
+  - Sử dụng thuật toán bình phương tối thiểu (Least Square) để khớp các hình ảnh.  
+
+- **Kết quả:**  
+  - Đăng ký chính xác với sai số trung bình dưới **10 pixel** ở khoảng cách trên **15m**.  
+  - Giảm thiểu các báo động sai nhờ xác nhận lại thông tin từ ảnh hồng ngoại.  
+
+---
+
+## Kết quả thực nghiệm
+
+### **1. Phân đoạn Semantic**
+- **Dữ liệu:** Tổng cộng 739 hình ảnh (619 từ Google và 120 từ thí nghiệm ngoài trời).  
+- **Hiệu suất mô hình:**  
+  - Micro F1-score: **99.464%**.  
+  - AUC-ROC: **89.341%**.  
+  - FPS: **38 FPS** (đáp ứng yêu cầu thời gian thực).  
+
+### **2. Ước lượng khoảng cách**
+- **Thí nghiệm với 5 khoảng cách:**  
+  - **17.1m:** Sai số 0.44%.  
+  - **22.4m:** Sai số 5.78%.  
+  - **31.6m:** Sai số 8.76%.  
+  - **41.2m:** Sai số 0.15%.  
+  - **51.2m:** Sai số 0.68%.  
+
+### **3. Đăng ký hình ảnh**
+- Sử dụng mô hình hình học để khớp hình ảnh từ camera thường và hồng ngoại.  
+- Sai số trung bình dưới **10 pixel** ở khoảng cách trên **15m**.  
+
+---
+
+## Đóng góp nổi bật của nghiên cứu
+1. **Phát hiện cháy rừng sớm:**  
+   - Phân đoạn chính xác ngọn lửa và khói ngay từ giai đoạn đầu cháy rừng.  
+
+2. **Ước lượng khoảng cách tự động:**  
+   - Không cần thao tác thủ công, đáp ứng yêu cầu hoạt động tự động của UAV.  
+
+3. **Ghép khớp ảnh hồng ngoại và thường:**  
+   - Tăng độ chính xác và giảm thiểu báo động sai thông qua việc kết hợp dữ liệu từ các loại cảm biến khác nhau.  
+
+---
+
+## Hạn chế và hướng phát triển
+
+### **Hạn chế:**
+1. **Thử nghiệm đơn giản:**  
+   - Chỉ thử nghiệm với một điểm cháy duy nhất, chưa xử lý các đám cháy phức tạp (nhiều điểm cháy hoặc đường cháy dài).  
+
+2. **Tốc độ tính toán:**  
+   - Mặc dù hiệu suất tốt, nhưng cần tối ưu thêm để giảm độ trễ khi triển khai thực tế.  
+
+3. **Dữ liệu huấn luyện:**  
+   - Tập dữ liệu còn hạn chế, cần mở rộng để phù hợp với các điều kiện môi trường khác nhau.  
+
+### **Hướng phát triển:**  
+1. **Mở rộng thử nghiệm:**  
+   - Kiểm tra khả năng xử lý các đám cháy lớn, nhiều điểm cháy, và cháy theo tuyến.  
+
+2. **Cải thiện tính toán thời gian thực:**  
+   - Tối ưu hóa thuật toán để giảm độ trễ trong xử lý dữ liệu.  
+
+3. **Tích hợp hệ thống tự động hóa:**  
+   - Xây dựng quy trình hoàn toàn tự động cho phát hiện, định vị, và xử lý cháy rừng.  
+
+---
+
+## Kết luận
+Nghiên cứu này đã thiết kế và kiểm chứng một khung làm việc tích hợp trên UAV, cung cấp giải pháp tự động hóa hiệu quả cho phát hiện cháy rừng sớm. Tuy nhiên, để triển khai thực tế, cần mở rộng quy mô và tối ưu hóa thêm về chi phí và tốc độ xử lý.
