@@ -66,7 +66,8 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 ![[Pasted image 20250506144221.png]]
 - **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
 - **Cải tiến:**  
-  - Tích hợp cơ chế Attention Gate (AG) để thay thế các skip connections trong U-Net gốc.  
+  - Khác với U-Net gốc chỉ nối thẳng đặc trưng từ phần *encoder (downsampling)* sang phần *decoder (upsampling)*, AG U-Net sử dụng *Attention gates* để "lọc" và "tập trung" vào các đặc trưng quan trọng hơn từ phần encoder.
+  - Các *Attention signals* này được truyền qua một đường riêng, giúp các đặc trưng từ phần mã hóa được "quan tâm nhiều hơn".
   - AG ưu tiên các đặc trưng quan trọng và loại bỏ các đặc trưng không liên quan, giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
 
 - **Quy trình:**  
