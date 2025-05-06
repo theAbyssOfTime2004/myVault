@@ -63,10 +63,11 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 --- 
 
 ### **1. Semantic Segmentation**  
+![[Pasted image 20250506144221.png]]
 - **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
 - **Cải tiến:**  
   - Tích hợp cơ chế Attention Gate (AG) để thay thế các skip connections trong U-Net gốc.  
-  - AG giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
+  - AG ưu tiên các đặc trưng quan trọng và loại bỏ các đặc trưng không liên quan, giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
 
 - **Quy trình:**  
   1. Sử dụng tập dữ liệu hình ảnh cháy rừng được gán nhãn gồm:  
