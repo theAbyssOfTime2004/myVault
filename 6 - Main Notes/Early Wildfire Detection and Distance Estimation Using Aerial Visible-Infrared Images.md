@@ -76,13 +76,14 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	- các convolutional blocks trong AG U-net *based on ResNet-34* và kế thừa kỹ thuật *residual connection* giữa mỗi hai convolutional blocks, nó cho phép tín hiệu đi tắt qua 1 hoặc nhiều layers. giúp hiệu suất tốt hơn, *hiệu suất dự đoán vẫn có thể được đảm bảo ngay cả khi tập dữ liệu huấn luyện bị hạn chế*
 	- loss function của AG U-Net là *Focal Loss* được sử dụng để giúp mô hình tập trung vào mẫu khó, phù hợp với bài toán class imbalance :
 	- ![[Pasted image 20250506153015.png]]
-	- 
+
 - **Quy trình:**  
   1. Sử dụng tập dữ liệu hình ảnh cháy rừng được gán nhãn gồm:  
      - 619 hình ảnh từ Google.  
      - 120 hình ảnh từ các thí nghiệm ngoài trời.  
   2. Gắn nhãn theo 3 lớp: **nền**, **khói**, và **ngọn lửa**.  
   3. Thực hiện huấn luyện bằng Transfer Learning để tinh chỉnh mô hình cho các điều kiện môi trường ngoài trời.
+  4. Khi training, không chỉ những khu vực có ngọn lửa rõ ràng mới được gán nhãn là "khu vực cháy". Ngay cả những **khu vực bị nghi ngờ có khả năng cháy (suspected flame area)** cũng được gán nhãn. Điều này được thực hiện để mô hình có thể học cách **dự đoán được khu vực có khả năng phát triển thành đám cháy ngay cả khi chưa có ngọn lửa rõ ràng**
 
 - **Hiệu suất:**  
   - Micro F1-score: **99.464%** (cao hơn hầu hết các mô hình khác như FireNet hoặc U-Net gốc).  
