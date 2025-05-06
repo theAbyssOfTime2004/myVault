@@ -73,6 +73,10 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	- Được thể hiện trong fig2, Attention Gate có thể được formulated bởi công thức sau: 
 	- ![[Pasted image 20250506151033.png]]
 	- Về cơ bản, Cổng Chú ý kết hợp thông tin từ lớp nông (`x_i^l`) và lớp sâu (`g_i`), học cách tính toán một "trọng số chú ý" (`att_i^l`). Trọng số này sau đó được dùng để điều chỉnh (nhân với) đặc trưng `x_i^l`, làm nổi bật các đặc trưng quan trọng và làm mờ đi các đặc trưng không liên quan trước khi chúng được truyền tới bộ giải mã.
+	- các convolutional blocks trong AG U-net *based on ResNet-34* và kế thừa kỹ thuật *residual connection* giữa mỗi hai convolutional blocks, nó cho phép tín hiệu đi tắt qua 1 hoặc nhiều layers. giúp hiệu suất tốt hơn, *hiệu suất dự đoán vẫn có thể được đảm bảo ngay cả khi tập dữ liệu huấn luyện bị hạn chế*
+	- loss function của AG U-Net là *Focal Loss*:
+	- ![[Pasted image 20250506151819.png]]
+	- 
 - **Quy trình:**  
   1. Sử dụng tập dữ liệu hình ảnh cháy rừng được gán nhãn gồm:  
      - 619 hình ảnh từ Google.  
