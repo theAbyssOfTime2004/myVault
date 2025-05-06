@@ -66,10 +66,13 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 ![[Pasted image 20250506144221.png]]
 - **Mô hình được sử dụng:** Attention Gate (AG) U-Net.  
 - **Cải tiến:**  
-  - Khác với U-Net gốc chỉ nối thẳng đặc trưng từ phần *encoder (downsampling)* sang phần *decoder (upsampling)*, AG U-Net sử dụng *Attention gates* để "lọc" và "tập trung" vào các đặc trưng quan trọng hơn từ phần encoder.
-  - Các *Attention signals* này được truyền qua một đường riêng, giúp các đặc trưng từ phần mã hóa được "quan tâm nhiều hơn".
-  - AG ưu tiên các đặc trưng quan trọng và loại bỏ các đặc trưng không liên quan, giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
-
+	- Khác với U-Net gốc chỉ nối thẳng đặc trưng từ phần *encoder (downsampling)* sang phần *decoder (upsampling)*, AG U-Net sử dụng *Attention gates* để "lọc" và "tập trung" vào các đặc trưng quan trọng hơn từ phần encoder.
+	- Các *Attention signals* này được truyền qua một đường riêng, giúp các đặc trưng từ phần mã hóa được "quan tâm nhiều hơn".
+	- AG ưu tiên các đặc trưng quan trọng và loại bỏ các đặc trưng không liên quan, giúp giảm độ nhạy của mô hình trước các nhiễu động, giảm tỷ lệ báo động sai.  
+- **Kiến trúc:**
+	- Được thể hiện trong fig2, Attention Gate có thể được formulated bởi công thức sau: 
+	- ![[Pasted image 20250506151033.png]]
+	- Về cơ bản, Cổng Chú ý kết hợp thông tin từ lớp nông (`x_i^l`) và lớp sâu (`g_i`), học cách tính toán một "trọng số chú ý" (`att_i^l`). Trọng số này sau đó được dùng để điều chỉnh (nhân với) đặc trưng `x_i^l`, làm nổi bật các đặc trưng quan trọng và làm mờ đi các đặc trưng không liên quan trước khi chúng được truyền tới bộ giải mã.
 - **Quy trình:**  
   1. Sử dụng tập dữ liệu hình ảnh cháy rừng được gán nhãn gồm:  
      - 619 hình ảnh từ Google.  
