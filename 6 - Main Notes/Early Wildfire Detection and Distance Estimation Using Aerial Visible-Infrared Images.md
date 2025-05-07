@@ -83,7 +83,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
      - 120 hình ảnh từ các thí nghiệm ngoài trời.  
   2. Gắn nhãn theo 3 lớp: **nền**, **khói**, và **ngọn lửa**.  
   3. Thực hiện huấn luyện bằng Transfer Learning để tinh chỉnh mô hình cho các điều kiện môi trường ngoài trời.
-  4. Khi training, không chỉ những khu vực có ngọn lửa rõ ràng mới được gán nhãn là "khu vực cháy". Ngay cả những **khu vực bị nghi ngờ có khả năng cháy (suspected flame area)** cũng được gán nhãn. Điều này được thực hiện để mô hình có thể học cách **dự đoán được khu vực có khả năng phát triển thành đám cháy ngay cả khi chưa có ngọn lửa rõ ràng**
+  4. **Remark 1:** Khi training, không chỉ những khu vực có ngọn lửa rõ ràng mới được gán nhãn là "khu vực cháy". Ngay cả những **khu vực bị nghi ngờ có khả năng cháy (suspected flame area)** cũng được gán nhãn. Điều này được thực hiện để mô hình có thể học cách **dự đoán được khu vực có khả năng phát triển thành đám cháy ngay cả khi chưa có ngọn lửa rõ ràng**
 
 - **Hiệu suất:**  
   - Micro F1-score: **99.464%** (cao hơn hầu hết các mô hình khác như FireNet hoặc U-Net gốc).  
@@ -105,6 +105,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 - ![[Pasted image 20250507144958.png]]
 	- 3 công thức (5) lần lượt ước tính khoảng cách từ UAV đến điểm xa nhất của vụ cháy (A), tâm điểm (O), điểm gần nhất (B) 
 	- => việc tính như vậy giúp cung cấp 1 phạm vi khoảng cách (A, O, B) có thể hữu ích hơn cho việc lập kế hoạch chữa cháy 
+- **Remark 2:** Chỉ sử dụng các khung hình mà tại đó camera đã di chuyển đủ xa so với các lần quan sát trước để tạo ra thị sai tốt đối với điểm cháy, nhằm đảm bảo độ chính xác của việc ước tính khoảng cách. Điều này tránh việc sử dụng các cặp khung hình quá gần nhau (đường cơ sở ngắn) có thể dẫn đến kết quả đo khoảng cách bị nhiễu và không đáng tin cậy.
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
   2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
@@ -120,7 +121,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 
 ---
 
-### **3. Image Registration**  
+### **3. Visual - Infrared Image Registration**  
 - **Thách thức:**  
   - Camera hồng ngoại DJI ZenMuse H20T không được hiệu chỉnh tham số nội tại và ngoại tại.  
   - Hình ảnh từ camera thường và hồng ngoại không đồng nhất về tỷ lệ và vị trí.  
