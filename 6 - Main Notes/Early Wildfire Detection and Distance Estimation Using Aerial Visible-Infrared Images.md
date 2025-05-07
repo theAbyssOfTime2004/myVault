@@ -100,8 +100,10 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	    - ![[Pasted image 20250507142959.png]]
 	    - AG U-Net phân đoạn ảnh để tìm ra đường viền của vùng cháy, một vòng tròn đỏ (vừa khít) và một vòng tròn xanh (lớn hơn 1.5 lần) được xác định dựa trên đường viền này (fig 3a). Vòng tròn xanh là nơi các đặc trưng ORB sẽ được trích xuất.
 	    - Từ công thức 4 (hiệu chỉnh quỹ đạo camera) và triangulation tính được d', sau đó tính phạm vi khoảng cách phản ảnh kích thước và độ sâu vụ cháy.
-- - ![[Pasted image 20250507135840.png]]
+-  ![[Pasted image 20250507135840.png]]
 	- công thức (4) giúp "áp" cái kích thước thật (từ GPS/IMU) vào cái bản đồ hình dáng (được tạo từ SLAM), để chúng ta biết được quỹ đạo di chuyển của camera một cách chính xác cả về hình dáng lẫn kích thước thật ngoài đời. Điều này rất quan trọng để sau đó có thể đo khoảng cách đến đám cháy một cách chính xác. Hiểu đơn giản là `s_i` cho ta biết hệ số tỉ lệ, còn `t_c^*i` cho ta độ dịch chuyển, đc tính từ `s_i`, từ đó ta có được quỹ đạo camera chính xác về mặt tỷ lệ
+- ![[Pasted image 20250507144958.png]]
+	- 3 công thức (5) lần lượt tính khoảng cách từ 
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
   2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
