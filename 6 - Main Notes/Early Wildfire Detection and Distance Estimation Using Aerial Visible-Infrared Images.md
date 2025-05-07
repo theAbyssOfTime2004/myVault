@@ -97,17 +97,16 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	- Sử dụng các điểm đặc trưng ORB (Oriented FAST and Rotated BRIEF):
 	    - **FAST:** Phát hiện các đặc trưng từ kiểm tra phân đoạn nhanh.
 	    - **BRIEF:** Trích xuất các đặc trưng nhị phân mạnh mẽ.
-	    - ![[Pasted image 20250507125701.png]]
-	    - vòng tròn đỏ để nhận dạng vị trí ban đầu của đám cháy, và vòng tròn xanh dương để xác định khu vực thích hợp (vùng nền xung quanh) để trích xuất các đặc trưng ổn định cho việc ước tính khoảng cách.
-- Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net, dùng các điểm đặc trưng này để tính khoảng cách trung bình giữa UAV và điểm cháy.
-- Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán triangulation (được mô tả trong fig 3b)  
-- thay vì cố gắng đo khoảng cách đến chính ngọn lửa/đám khói (vốn thay đổi hình dạng), họ đo khoảng cách đến các điểm ổn định hơn trên mặt đất hoặc các vật thể xung quanh vùng cháy đã được AG U-Net xác định.
+	    - ![[Pasted image 20250507142959.png]]
+	    - AG U-Net phân đoạn ảnh để tìm ra đường viền của vùng cháy, một vòng tròn đỏ (vừa khít) và một vòng tròn xanh (lớn hơn 1.5 lần) được xác định dựa trên đường viền này (fig 3a). Vòng tròn xanh là nơi các đặc trưng ORB sẽ được trích xuất.
+	    - Từ công thức 4 (hiệu chỉnh quỹ đạo camera) và triangulation tính được d', sau đó tính phạm vi khoảng cách phản ảnh kích thước và độ sâu vụ cháy.
+- - ![[Pasted image 20250507135840.png]]
+	- công thức (4) giúp "áp" cái kích thước thật (từ GPS/IMU) vào cái bản đồ hình dáng (được tạo từ SLAM), để chúng ta biết được quỹ đạo di chuyển của camera một cách chính xác cả về hình dáng lẫn kích thước thật ngoài đời. Điều này rất quan trọng để sau đó có thể đo khoảng cách đến đám cháy một cách chính xác. Hiểu đơn giản là `s_i` cho ta biết hệ số tỉ lệ, còn `t_c^*i` cho ta độ dịch chuyển, đc tính từ `s_i`, từ đó ta có được quỹ đạo camera chính xác về mặt tỷ lệ
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
   2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
   3. Tính khoảng cách trung bình giữa UAV và điểm cháy dựa trên các điểm đặc trưng được lọc (ORB features).
-- ![[Pasted image 20250507135840.png]]
-	- công thức (4) giúp "áp" cái kích thước thật (từ GPS/IMU) vào cái bản đồ hình dáng (được tạo từ SLAM), để chúng ta biết được quỹ đạo di chuyển của camera một cách chính xác cả về hình dáng lẫn kích thước thật ngoài đời. Điều này rất quan trọng để sau đó có thể đo khoảng cách đến đám cháy một cách chính xác. Hiểu đơn giản là `s_i` cho ta biết hệ số tỉ lệ, còn `t_c^*i` cho ta độ dịch chuyển, đc tính từ `s_i`, từ đó ta có được quỹ đạo camera chính xác về mặt tỷ lệ
+
 - **Kết quả thực nghiệm:**  
   - Độ sai lệch khoảng cách (so với dữ liệu thực tế từ cảm biến laser):  
     - **17.1m:** Sai số 0.44%.  
