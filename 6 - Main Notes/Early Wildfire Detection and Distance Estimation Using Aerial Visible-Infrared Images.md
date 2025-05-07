@@ -104,7 +104,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	- công thức (4) giúp "áp" cái kích thước thật (từ GPS/IMU) vào cái bản đồ hình dáng (được tạo từ SLAM), để chúng ta biết được quỹ đạo di chuyển của camera một cách chính xác cả về hình dáng lẫn kích thước thật ngoài đời. Điều này rất quan trọng để sau đó có thể đo khoảng cách đến đám cháy một cách chính xác. Hiểu đơn giản là `s_i` cho ta biết hệ số tỉ lệ, còn `t_c^*i` cho ta độ dịch chuyển, đc tính từ `s_i`, từ đó ta có được quỹ đạo camera chính xác về mặt tỷ lệ
 - ![[Pasted image 20250507144958.png]]
 	- 3 công thức (5) lần lượt ước tính khoảng cách từ UAV đến điểm xa nhất của vụ cháy (A), tâm điểm (O), điểm gần nhất (B) 
-	- => việc tính 
+	- => việc tính như vậy giúp cung cấp 1 phạm vi khoảng cách (A, O, B) có thể hữu ích hơn cho việc lập kế hoạch chữa cháy 
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
   2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
