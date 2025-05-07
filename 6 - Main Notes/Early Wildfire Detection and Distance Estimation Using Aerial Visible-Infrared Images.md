@@ -191,4 +191,4 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 ---
 
 ## Kết luận
-Nghiên cứu này đã thiết kế và kiểm chứng một khung làm việc tích hợp trên UAV, cung cấp giải pháp tự động hóa hiệu quả cho phát hiện cháy rừng sớm. Tuy nhiên, để triển khai thực tế, cần mở rộng quy mô và tối ưu hóa thêm về chi phí và tốc độ xử lý.
+Nghiên cứu này đã thiết kế và kiểm chứng một framework tích hợp trên UAV, cung cấp giải pháp tự động hóa hiệu quả cho phát hiện cháy rừng sớm. Tuy nhiên, để triển khai thực tế, cần mở rộng quy mô và tối ưu hóa thêm về chi phí và tốc độ xử lý.
