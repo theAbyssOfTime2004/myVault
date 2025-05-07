@@ -97,8 +97,9 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	- Sử dụng các điểm đặc trưng ORB (Oriented FAST and Rotated BRIEF):
 	    - **FAST:** Phát hiện các đặc trưng từ kiểm tra phân đoạn nhanh.
 	    - **BRIEF:** Trích xuất các đặc trưng nhị phân mạnh mẽ.
+	    - ![[Pasted image 20250507125701.png]]
   - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net, dùng các điểm đặc trưng này để tính khoảng cách trung bình giữa UAV và điểm cháy.
-  - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán tam giác (triangulation).  
+  - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán triangulation (được mô tả trong fig 3b)  
 
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
