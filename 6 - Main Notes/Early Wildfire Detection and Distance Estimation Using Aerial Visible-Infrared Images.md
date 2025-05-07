@@ -98,6 +98,7 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 	    - **FAST:** Phát hiện các đặc trưng từ kiểm tra phân đoạn nhanh.
 	    - **BRIEF:** Trích xuất các đặc trưng nhị phân mạnh mẽ.
 	    - ![[Pasted image 20250507125701.png]]
+	    - vòng tròn đỏ để nhận dạng vị trí ban đầu của đám cháy, và vòng tròn xanh dương để xác định khu vực thích hợp (vùng nền xung quanh) để trích xuất các đặc trưng ổn định cho việc ước tính khoảng cách.
   - Trích xuất các điểm đặc trưng (ORB features) từ các vùng được phân đoạn bởi AG U-Net, dùng các điểm đặc trưng này để tính khoảng cách trung bình giữa UAV và điểm cháy.
   - Phục hồi quỹ đạo camera và ước lượng khoảng cách thông qua thuật toán triangulation (được mô tả trong fig 3b)  
 
