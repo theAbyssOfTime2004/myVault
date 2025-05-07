@@ -105,8 +105,9 @@ Mục tiêu của nghiên cứu là thiết kế và kiểm chứng framework t�
 - **Quy trình:**  
   1. Dùng UAV DJI M300 để thu thập hình ảnh với camera DJI ZenMuse H20T.  
   2. Sử dụng ORB-SLAM2 để khôi phục vị trí camera và quỹ đạo di chuyển.  
-  3. Tính khoảng cách trung bình giữa UAV và điểm cháy dựa trên các điểm đặc trưng được lọc (ORB features).  
-
+  3. Tính khoảng cách trung bình giữa UAV và điểm cháy dựa trên các điểm đặc trưng được lọc (ORB features).
+- ![[Pasted image 20250507135840.png]]
+	- công thức (4) giúp "áp" cái kích thước thật (từ GPS/IMU) vào cái bản đồ hình dáng (được tạo từ SLAM), để chúng ta biết được quỹ đạo di chuyển của camera một cách chính xác cả về hình dáng lẫn kích thước thật ngoài đời. Điều này rất quan trọng để sau đó có thể đo khoảng cách đến đám cháy một cách chính xác. Hiểu đơn giản là `s_i` cho ta biết khoảng cách thực tế, còn `t_c^*i` cho ta biết hướng di chuyển, kết hợp cả 2 lại ta có tọa độ chính xác và quãng đường đã đi 
 - **Kết quả thực nghiệm:**  
   - Độ sai lệch khoảng cách (so với dữ liệu thực tế từ cảm biến laser):  
     - **17.1m:** Sai số 0.44%.  
