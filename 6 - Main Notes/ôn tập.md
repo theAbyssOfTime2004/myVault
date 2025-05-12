@@ -32,7 +32,7 @@ Tags: [[data scientist]], [[review]]
 		![[Pasted image 20250409204735.png]]
 		- (Ví dụ giải thích nhiễu)
 	- **Regularization** giúp xử lý high variance như thế nào: 
-		- **Regularizatio** là kỹ thuật đưa thêm "hình phạt" (*penalty*) vào quá trình huấn luyện giúp giảm độ phức tạp mô hình, cải thiện khả năng tổng quát hóa trên dữ liệu mới.
+		- **Regularization** là kỹ thuật đưa thêm "hình phạt" (*penalty*) vào quá trình huấn luyện giúp giảm độ phức tạp mô hình, cải thiện khả năng tổng quát hóa trên dữ liệu mới.
 		![[Pasted image 20250409205248.png]]
 
 4. ==Handling imbalance data: giải thích tác dụng của cost-sensitive learning trong real life scenario imbalance data==
