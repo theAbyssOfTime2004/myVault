@@ -170,65 +170,46 @@ def assign_to_medoids(dset, medoids_df):
 - Cập nhật medoids bằng cách tính giá trị trung vị cho từng thành phần (chiều) riêng biệt.
 
 ```python
+
 def update_medoids(dset, assignments, k):
-
-"""
-dset: DataFrame chứa dữ liệu (chỉ các cột đặc trưng).
-
-assignments: Mảng chứa chỉ số cụm được gán cho mỗi điểm.
-
-k: Số lượng cụm (medoids).
-"""
-
-new_medoids_list = []
-
-feature_cols = dset.columns.tolist()
-
-for i in range(k): # Với mỗi cụm i
-
-# Lấy các điểm thuộc cụm i
-
-cluster_points_df = dset[assignments == i]
-
-if cluster_points_df.empty:
-
-# Nếu cụm rỗng, chọn một điểm ngẫu nhiên
-
-print(f"Cảnh báo: Cụm {i} rỗng. Chọn medoid ngẫu nhiên.")
-
-random_point = dset.sample(1)
-
-new_medoids_list.append(random_point.iloc[0])
-
-continue
-
-# Tạo một dict để lưu các giá trị trung vị cho từng thành phần
-
-medoid_components = {}
-
-# Tính giá trị trung vị cho từng thành phần (chiều)
-
-for feature in feature_cols:
-
-medoid_components[feature] = cluster_points_df[feature].median()
-
-# Tạo medoid mới từ các giá trị trung vị đã tính
-
-new_medoid = pd.Series(medoid_components)
-
-new_medoids_list.append(new_medoid)
-
-# Tạo DataFrame từ danh sách các medoid mới
-
-new_medoids_df = pd.DataFrame(new_medoids_list)
-
-# Đảm bảo các cột được giữ lại và đúng thứ tự
-
-if not new_medoids_df.empty:
-
-new_medoids_df = new_medoids_df[feature_cols]
-
-return new_medoids_df.reset_index(drop=True)
+    """
+    dset: DataFrame chứa dữ liệu (chỉ các cột đặc trưng).
+    assignments: Mảng chứa chỉ số cụm được gán cho mỗi điểm.
+    k: Số lượng cụm (medoids).
+    """
+    new_medoids_list = []
+    feature_cols = dset.columns.tolist()
+    
+    for i in range(k):  # Với mỗi cụm i
+        # Lấy các điểm thuộc cụm i
+        cluster_points_df = dset[assignments == i]
+        
+        if cluster_points_df.empty:
+            # Nếu cụm rỗng, chọn một điểm ngẫu nhiên
+            print(f"Cảnh báo: Cụm {i} rỗng. Chọn medoid ngẫu nhiên.")
+            random_point = dset.sample(1)
+            new_medoids_list.append(random_point.iloc[0])
+            continue
+            
+        # Tạo một dict để lưu các giá trị trung vị cho từng thành phần
+        medoid_components = {}
+        
+        # Tính giá trị trung vị cho từng thành phần (chiều)
+        for feature in feature_cols:
+            medoid_components[feature] = cluster_points_df[feature].median()
+        
+        # Tạo medoid mới từ các giá trị trung vị đã tính
+        new_medoid = pd.Series(medoid_components)
+        new_medoids_list.append(new_medoid)
+    
+    # Tạo DataFrame từ danh sách các medoid mới
+    new_medoids_df = pd.DataFrame(new_medoids_list)
+    
+    # Đảm bảo các cột được giữ lại và đúng thứ tự
+    if not new_medoids_df.empty:
+        new_medoids_df = new_medoids_df[feature_cols]
+    
+    return new_medoids_df.reset_index(drop=True)
 ```
 - Bước 5: hoàn thiện thuật toán
 ```python
