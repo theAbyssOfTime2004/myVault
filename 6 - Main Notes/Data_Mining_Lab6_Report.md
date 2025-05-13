@@ -287,5 +287,7 @@ Cả K-Means và K-Medians đều có khả năng phân cụm tốt cho tập d�
     - K-Means nhạy hơn với các điểm ngoại lai do sử dụng bình phương khoảng cách
     - K-Medians ít nhạy cảm hơn với các điểm ngoại lai
 Trực quan kết quả cho thấy cả hai thuật toán đều có thể phân tách 3 nhóm dữ liệu một cách hiệu quả, với vài khác biệt nhỏ về biên của các cụm.
+![[Pasted image 20250513153737.png]]
+![[Pasted image 20250513153755.png]]
 
 # References
