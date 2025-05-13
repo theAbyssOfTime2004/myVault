@@ -167,58 +167,125 @@ def assign_to_medoids(dset, medoids_df):
     return assignments, assignment_errors
 ```
 - *Bước 4: Cập nhật medoids*
-- Khác với K-Means, K-Medians cập nhật medoids bằng cách chọn điểm thực tế trong mỗi cụm sao cho tổng khoảng cách Manhattan trong cụm là nhỏ nhất:
+- Cập nhật medoids bằng cách tính giá trị trung vị cho từng thành phần (chiều) riêng biệt.
+
 ```python
 def update_medoids(dset, assignments, k):
-    """
-    Cập nhật medoids. Medoid mới của một cụm là điểm trong cụm đó
-    mà tổng khoảng cách Manhattan đến tất cả các điểm khác trong cùng cụm là nhỏ nhất.
-    """
-    new_medoids_list = []
-    feature_cols = dset.columns.tolist()
-    
-    for i in range(k): # Với mỗi cụm i
-        # Lấy các điểm thuộc cụm i
-        cluster_points_df = dset[assignments == i]
 
-        if cluster_points_df.empty:
-            print(f"Cảnh báo: Cụm {i} rỗng. Chọn medoid ngẫu nhiên.")
-            random_point_for_empty_cluster = dset.sample(1)
-            new_medoids_list.append(random_point_for_empty_cluster.iloc[0])
-            continue
+"""
+dset: DataFrame chứa dữ liệu (chỉ các cột đặc trưng).
 
-        min_sum_intra_cluster_dist = float('inf')
-        current_medoid_for_cluster = None
+assignments: Mảng chứa chỉ số cụm được gán cho mỗi điểm.
 
-        # Duyệt qua từng điểm 'p' trong cụm hiện tại để tìm medoid mới
-        cluster_points_values = cluster_points_df.values
-        
-        for p_idx in range(cluster_points_values.shape[0]):
-            point_p_values = cluster_points_values[p_idx, :]
-            current_sum_dist = 0
-            # Tính tổng khoảng cách từ point_p_values đến tất cả các điểm khác trong cùng cụm
-            for other_p_idx in range(cluster_points_values.shape[0]):
-                if p_idx == other_p_idx:
-                    continue
-                other_point_values = cluster_points_values[other_p_idx, :]
-                current_sum_dist += kmed_rsserr(point_p_values, other_point_values)
-            
-            if current_sum_dist < min_sum_intra_cluster_dist:
-                min_sum_intra_cluster_dist = current_sum_dist
-                current_medoid_for_cluster = cluster_points_df.iloc[p_idx] 
-        
-        if current_medoid_for_cluster is not None:
-            new_medoids_list.append(current_medoid_for_cluster)
-        elif not cluster_points_df.empty:
-             new_medoids_list.append(cluster_points_df.iloc[0])
+k: Số lượng cụm (medoids).
+"""
 
-    if not new_medoids_list:
-        print("Lỗi: Không thể tạo medoid mới.")
-        return pd.DataFrame(columns=feature_cols)
+new_medoids_list = []
 
-    new_medoids_df = pd.DataFrame(new_medoids_list)
-    if not new_medoids_df.empty:
-        new_medoids_df = new_medoids_df[feature_cols]
-    return new_medoids_df.reset_index(drop=True)
+feature_cols = dset.columns.tolist()
+
+for i in range(k): # Với mỗi cụm i
+
+# Lấy các điểm thuộc cụm i
+
+cluster_points_df = dset[assignments == i]
+
+if cluster_points_df.empty:
+
+# Nếu cụm rỗng, chọn một điểm ngẫu nhiên
+
+print(f"Cảnh báo: Cụm {i} rỗng. Chọn medoid ngẫu nhiên.")
+
+random_point = dset.sample(1)
+
+new_medoids_list.append(random_point.iloc[0])
+
+continue
+
+# Tạo một dict để lưu các giá trị trung vị cho từng thành phần
+
+medoid_components = {}
+
+# Tính giá trị trung vị cho từng thành phần (chiều)
+
+for feature in feature_cols:
+
+medoid_components[feature] = cluster_points_df[feature].median()
+
+# Tạo medoid mới từ các giá trị trung vị đã tính
+
+new_medoid = pd.Series(medoid_components)
+
+new_medoids_list.append(new_medoid)
+
+# Tạo DataFrame từ danh sách các medoid mới
+
+new_medoids_df = pd.DataFrame(new_medoids_list)
+
+# Đảm bảo các cột được giữ lại và đúng thứ tự
+
+if not new_medoids_df.empty:
+
+new_medoids_df = new_medoids_df[feature_cols]
+
+return new_medoids_df.reset_index(drop=True)
 ```
+- Bước 5: hoàn thiện thuật toán
+```python
+def kmedians(dset_features, k, tol=1e-4, max_iter=100):
+    """
+    Thuật toán K-Medians.
+    """
+    # Khởi tạo medoids
+    current_medoids = initiate_centroids(k, dset_features) 
+    
+    error_history = []
+    
+    for iteration in range(max_iter):
+        # Gán các điểm cho medoid gần nhất
+        assignments, assignment_errors = assign_to_medoids(dset_features, current_medoids)
+        
+        total_error = np.sum(assignment_errors)
+        error_history.append(total_error)
+        
+        # Cập nhật medoids
+        new_medoids = update_medoids(dset_features, assignments, k)
+
+        if new_medoids.empty or new_medoids.shape[0] < k :
+            print(f"Lỗi ở vòng lặp {iteration}: Không đủ medoid được tạo ra. Dừng thuật toán.")
+            break
+        
+        # Kiểm tra sự hội tụ
+        if current_medoids.equals(new_medoids):
+            print(f"Hội tụ ở vòng lặp {iteration+1} do medoids không thay đổi.")
+            break
+        
+        current_medoids = new_medoids
+        
+        if iteration > 0:
+            if abs(error_history[iteration-1] - error_history[iteration]) < tol:
+                print(f"Hội tụ ở vòng lặp {iteration+1} do thay đổi lỗi nhỏ hơn dung sai.")
+                break
+        
+        if iteration == max_iter - 1:
+            print("Đạt số vòng lặp tối đa.")
+            
+    final_assignments, final_errors = assign_to_medoids(dset_features, current_medoids)
+    return final_assignments, final_errors, current_medoids, error_history
+```
+
+## Kết quả và so sánh
+
+Cả K-Means và K-Medians đều có khả năng phân cụm tốt cho tập dữ liệu này, tuy nhiên có một số khác biệt cơ bản:
+1. **Độ đo khoảng cách**:
+    - K-Means sử dụng khoảng cách Euclidean (bình phương)
+    - K-Medians sử dụng khoảng cách Manhattan (tổng giá trị tuyệt đối)
+2. **Cập nhật tâm cụm**:
+    - K-Means sử dụng trung bình các điểm (centroids có thể không phải là điểm thực tế trong dữ liệu)
+    - K-Medians sử dụng điểm thực tế trong dữ liệu (medoid)
+3. **Độ nhạy với outlier**:
+    - K-Means nhạy hơn với các điểm ngoại lai do sử dụng bình phương khoảng cách
+    - K-Medians ít nhạy cảm hơn với các điểm ngoại lai
+Trực quan kết quả cho thấy cả hai thuật toán đều có thể phân tách 3 nhóm dữ liệu một cách hiệu quả, với vài khác biệt nhỏ về biên của các cụm.
+
 # References
