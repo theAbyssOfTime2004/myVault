@@ -6,7 +6,10 @@ Tags:
 # tóm tắt Early FF Detection System Using WSN and DL
 
 ### **Tóm tắt methodology**:
-**Dựa trên 3 bước**:
-- 1. Ước tính mức độ rủi ro chung của rừng 
+- Các công trình liên quan (Background and Related Work):
+	- Fire Weather Index - FWI 
+	- Wireless Sensor Network (WSN)
+	- Hệ thống IoT + LoRa:
+		- một cách để kết nối các đối tượng khác nhau
 
 # References
