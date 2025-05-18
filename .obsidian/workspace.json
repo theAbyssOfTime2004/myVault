@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
+                "file": "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "tóm tắt Early FF Detection System Using WSN and DL"
+              "title": "so sánh 2 phương pháp FF detection system using WSN"
             }
           },
           {
@@ -204,13 +204,16 @@
   },
   "active": "5ce973f40ecdd39a",
   "lastOpenFiles": [
-    "6 - Main Notes/Data_Mining_Lab6_Report.md",
+    "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
+    "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
+    "Pasted image 20250519035626.png",
     "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
+    "6 - Main Notes/Data_Mining_Lab4_Report.md",
+    "6 - Main Notes/Data_Mining_Lab6_Report.md",
     "6 - Main Notes/lu243682ul6n.tmp",
     "6 - Main Notes/BTTH_KTDL_22280008_Tuan6.docx",
     "Pasted image 20250513153755.png",
     "Pasted image 20250513153737.png",
-    "6 - Main Notes/Data_Mining_Lab4_Report.md",
     "6 - Main Notes/Data_Mining_Lab5_report.md",
     "6 - Main Notes/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means.md",
     "6 - Main Notes/Logistic Regression.md",
@@ -230,7 +233,6 @@
     "Pasted image 20250506153015.png",
     "6 - Main Notes/Mangas that i saved for future.md",
     "Pasted image 20250506151819.png",
-    "Pasted image 20250506151033.png",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
     "6 - Main Notes/[6]_summary.docx",
@@ -251,8 +253,6 @@
     "6 - Main Notes/transformer.md",
     "6 - Main Notes/Normalizing Inputs.md",
     "6 - Main Notes/Data_Mining_Lab3_Report.md",
-    "6 - Main Notes/Data Mining Lab4 Report.md",
-    "6 - Main Notes/Model Generalization.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
