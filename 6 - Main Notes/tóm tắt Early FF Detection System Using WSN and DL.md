@@ -1,7 +1,7 @@
 2025-05-16 16:42
 
 
-Tags:
+Tags: [[tóm tắt FF detection system using WSN and ML]]
 
 # tóm tắt Early FF Detection System Using WSN and DL
 
@@ -32,5 +32,5 @@ Hệ thống đề xuất nhằm phát hiện sớm cháy rừng chính xác hơ
 - Hệ thống dự kiến mở rộng với nhiều nút cảm biến hơn để cải thiện dữ liệu và tăng khả năng phối hợp.
 
 **Kết luận:**  
-Hệ thống đề xuất giúp phát hiện sớm cháy rừng hiệu quả, đặc biệt nhờ áp dụng mô hình học sâu GRU trên nền tảng IoT với mạng cảm biến không dây, cho kết quả chính xác cao và có thể triển khai trên diện rộng.
+Hệ thống đề xuất giúp phát hiện sớm cháy rừng hiệu quả, đặc biệt nhờ áp dụng mô hình học sâu GRU trên nền tảng IoT với mạng cảm biến không dây, cho kết quả chính xác cao và có thể triển khai trên diện rộng.[]()
 # References
