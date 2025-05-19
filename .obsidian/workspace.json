@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
+                "file": "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "tóm tắt Developing novel ML based fire weather indices"
+              "title": "tóm tắt bài báo 1.pdf"
             }
           }
         ],
@@ -205,8 +205,9 @@
   },
   "active": "4f01449078404074",
   "lastOpenFiles": [
-    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
     "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
+    "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
+    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
     "6 - Main Notes/Data_Mining_Lab4_Report.md",
     "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
     "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
@@ -253,7 +254,6 @@
     "6 - Main Notes/regularization.md",
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "6 - Main Notes/transformer.md",
-    "6 - Main Notes/Normalizing Inputs.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
