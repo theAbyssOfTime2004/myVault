@@ -12,7 +12,7 @@ Tags: [[tóm tắt FF detection system using WSN and ML]], [[tóm tắt Early FF
 
 ### 2. Cách thức thực hiện
 - Phát triển các mô hình phân loại để dự đoán nguy cơ cháy rừng mỗi ngày, mỗi khu vực.
-- **Biến mục tiêu:** Sự xuất hiện cháy rừng hàng ngày (dữ liệu nhị phân) trên lưới toàn cầu 0.25 độ, dựa trên bộ dữ liệu toàn cầu (Artés et al, 2019).
+- **Biến mục tiêu:** Sự xuất hiện cháy rừng hàng ngày (dữ liệu nhị phân) trên lưới toàn cầu 0.25 độ (*reanalysis data*) dựa trên bộ dữ liệu toàn cầu (Artés et al, 2019), Dữ liệu có *phạm vi toàn cầu, theo ngày* và *được xử lý từ các trung tâm khí tượng*.
 - **Cân bằng dữ liệu:** Lấy mẫu ngẫu nhiên các quan sát không cháy để cân bằng số lượng với các quan sát cháy.
 - **Đặc trưng (biến đầu vào):** Bao gồm nhiều yếu tố khí tượng (nhiệt độ, độ ẩm, lượng mưa, gió, bức xạ mặt trời), địa hình (độ dốc), tải lượng nhiên liệu (NDVI, lịch sử cháy), nhân sinh (mật độ dân số), cùng các chỉ số cháy rừng truyền thống (từ hệ thống Canada, Úc, Mỹ).
 - **Mô hình học máy:** Sử dụng 4 mô hình: Random Forest (RF), XGBoost, Multilayer Perceptron (MLP), Logistic Regression (LR).
