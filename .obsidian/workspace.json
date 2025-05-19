@@ -28,16 +28,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Data_Mining_Lab4_Report.md",
+                "file": "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Data_Mining_Lab4_Report"
+              "title": "tóm tắt Developing novel ML based fire weather indices"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -202,13 +203,14 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "5ce973f40ecdd39a",
+  "active": "4f01449078404074",
   "lastOpenFiles": [
-    "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
-    "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
-    "Pasted image 20250519035626.png",
     "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
+    "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
     "6 - Main Notes/Data_Mining_Lab4_Report.md",
+    "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
+    "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
+    "Pasted image 20250519035626.png",
     "6 - Main Notes/Data_Mining_Lab6_Report.md",
     "6 - Main Notes/lu243682ul6n.tmp",
     "6 - Main Notes/BTTH_KTDL_22280008_Tuan6.docx",
@@ -252,7 +254,6 @@
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "6 - Main Notes/transformer.md",
     "6 - Main Notes/Normalizing Inputs.md",
-    "6 - Main Notes/Data_Mining_Lab3_Report.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
