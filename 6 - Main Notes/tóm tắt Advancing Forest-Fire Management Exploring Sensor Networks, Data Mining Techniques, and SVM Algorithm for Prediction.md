@@ -21,7 +21,7 @@ Nghiên cứu phát triển một **hệ thống dự báo cháy rừng tích h�
 - **Địa điểm**: Núi Tử Kim (Zijin Mountain), Nam Kinh, Trung Quốc
 - **Thời gian**: 5 năm (2019-2023) với 1,826 điểm dữ liệu
 - **Công nghệ**: Mạng cảm biến LoRaWAN
-- **Tham số thu thập**: Nhiệt độ, độ ẩm, tốc độ gió, lượng mưa
+- **Tham số thu thập**: Nhiệt độ, độ ẩm, tốc độ gió, lượng mưa,...
 
 ### **2. Xử lý dữ liệu (Data Mining)**
 **Ba bước chính:**
