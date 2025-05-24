@@ -26,14 +26,14 @@ Thuật toán **tích hợp 3 công nghệ chính**:
 - **Ảnh hồng ngoại**: Kiểm tra ngưỡng nhiệt → kết quả nhị phân (0/1)
 - **Dữ liệu khí tượng**: Tính FWI → cấp độ nguy hiểm cháy rừng
 - **Quyết định cuối**: Kết hợp 3 kết quả theo quy tắc logic
-
+![[Pasted image 20250524214643.png]]
 ### **Kết quả**
-
+![[Pasted image 20250524214831.png]]
 - **Accuracy**: 94.12%
 - **Precision**: 96.1%
 - **Recall**: 93.67%
 - **F1-score**: 94.87%
-	- **So sánh**: Vượt trội YOLOv5 đơn lẻ (83.42%) và các phương pháp khác
+	- **So sánh**: Vượt trội YOLOv5-EMA (83.42%) và các phương pháp khác
 
 
 # References
