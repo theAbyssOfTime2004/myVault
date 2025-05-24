@@ -39,12 +39,12 @@ Tags: [[tóm tắt Early FF Detection System Using WSN and DL]]
 **3. Kết quả đạt được:**  
 - Đã thử nghiệm thực tế ở rừng nhiệt đới Sri Lanka, test nhiều thời điểm trong ngày.
 - Xác định ngưỡng từng thông số qua thử nghiệm:
-  - Nhiệt độ: 1.05; Độ ẩm: 0.95; Ánh sáng: 1.15; CO: 0.85.
+	  - Nhiệt độ: 1.05; Độ ẩm: 0.95; Ánh sáng: 1.15; CO: 0.85.
 - Độ chính xác mô hình máy học sau huấn luyện: 81%.
 - Độ chính xác thực tế qua thử nghiệm:
-  - Nút cảm biến: 80% (100% khi có cháy, 64.28% khi không cháy)
-  - Mô hình học máy: 86.84% (86.36% khi có cháy, 80% khi không cháy)
-  - Tổng thể hệ thống: 90% (86.36% khi có cháy, 92.85% khi không cháy)
+	  - Nút cảm biến: 80% (100% khi có cháy, 64.28% khi không cháy)
+	  - Mô hình học máy: 86.84% (86.36% khi có cháy, 80% khi không cháy)
+	  - Tổng thể hệ thống: 90% (86.36% khi có cháy, 92.85% khi không cháy)
 - Phân tích thống kê: cả 4 thông số đều có tương quan mạnh với cháy rừng (p < 0.001).
 - Hệ thống giúp cảnh báo nhanh hơn, chính xác hơn các hệ thống hiện tại trong điều kiện rừng thực tế.
 
