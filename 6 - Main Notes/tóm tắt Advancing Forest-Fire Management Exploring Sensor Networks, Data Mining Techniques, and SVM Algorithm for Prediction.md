@@ -8,6 +8,7 @@ Tags:
 Dựa trên nội dung bạn cung cấp, đây là **tóm tắt nghiên cứu về dự báo cháy rừng**:
 
 ## **Tổng quan nghiên cứu**
+![[Pasted image 20250524215755.png]]
 Nghiên cứu phát triển một **hệ thống dự báo cháy rừng tích hợp** sử dụng:
 - **Mạng cảm biến không dây (WSNs)** 
 - **Kỹ thuật khai phá dữ liệu (Data Mining)**
@@ -16,6 +17,7 @@ Nghiên cứu phát triển một **hệ thống dự báo cháy rừng tích h�
 ## **Phương pháp nghiên cứu**
 
 ### **1. Thu thập dữ liệu**
+![[Pasted image 20250524215815.png]]
 - **Địa điểm**: Núi Tử Kim (Zijin Mountain), Nam Kinh, Trung Quốc
 - **Thời gian**: 5 năm (2019-2023) với 1,826 điểm dữ liệu
 - **Công nghệ**: Mạng cảm biến LoRaWAN
@@ -25,13 +27,15 @@ Nghiên cứu phát triển một **hệ thống dự báo cháy rừng tích h�
 **Ba bước chính:**
 - **Data cleaning**: Xử lý dữ liệu ngoại lệ và thiếu sót
 - **Data interpolation**: Sử dụng thuật toán K-Nearest Neighbor (KNN) để điền giá trị thiếu
-- **Feature extraction**: Chọn lọc 4 tham số quan trọng nhất (nhiệt độ, độ ẩm, gió, mưa)
+- **Data extraction**: Chọn lọc 4 tham số quan trọng nhất (nhiệt độ, độ ẩm, gió, mưa)
 
 ### **3. Mô hình học máy**
 - **Thuật toán**: Support Vector Machine (SVM)
 - **Mục tiêu**: Phân loại nguy cơ cháy rừng thành **5 mức độ** (1-5)
 - **Công cụ**: Python với thư viện scikit-learn
 - **Phân tích bổ sung**: Sử dụng PCA để giảm chiều dữ liệu
+![[Pasted image 20250524220004.png]]
+![[Pasted image 20250524220012.png]]
 
 ## **Kết quả chính**
 
