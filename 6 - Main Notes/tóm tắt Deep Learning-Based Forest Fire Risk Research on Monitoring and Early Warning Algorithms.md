@@ -5,7 +5,8 @@ Tags:
 
 # tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms
 
-### **Phương pháp đề xuất**
+### **Phương pháp đề xuất:**
+![[Pasted image 20250524214404.png]]
 
 Thuật toán **tích hợp 3 công nghệ chính**:
 
@@ -32,7 +33,7 @@ Thuật toán **tích hợp 3 công nghệ chính**:
 - **Precision**: 96.1%
 - **Recall**: 93.67%
 - **F1-score**: 94.87%
-- **So sánh**: Vượt trội YOLOv5 đơn lẻ (83.42%) và các phương pháp khác
+	- **So sánh**: Vượt trội YOLOv5 đơn lẻ (83.42%) và các phương pháp khác
 
 
 # References
