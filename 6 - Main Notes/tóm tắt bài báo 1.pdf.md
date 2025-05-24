@@ -10,8 +10,7 @@ Tags:
 - Bài báo giới thiệu một hệ thống tích hợp Trí tuệ Nhân tạo (AI) với công nghệ IoT năng lượng thấp, nhằm tăng cường giám sát môi trường rừng và đặc biệt là phát hiện, dự báo cháy rừng sớm thông qua phân tích chuỗi thời gian.
 - Hệ thống này nhằm thay thế, cải tiến các phương pháp hiện tại, đáp ứng nhu cầu cấp bách về phòng chống cháy rừng.
 
-**Cách thức thực hiện:**
-- ![[Pasted image 20250524214301.png]]
+**Cách thức thực hiện:**![[Pasted image 20250524214301.png]]
 - Sử dụng các nút cảm biến *giá rẻ (BME280)* để thu thập dữ liệu nhiệt độ, độ ẩm, áp suất tại rừng xa xôi.
 - Dữ liệu được truyền qua công nghệ LoRa (truyền xa, tiết kiệm năng lượng) về gateway, sau đó chuyển lên mạng (The Things Network), truy cập qua giao thức MQTT.
 - Đánh giá chất lượng dữ liệu cảm biến thông qua chỉ số *RSSI và SNR*.
