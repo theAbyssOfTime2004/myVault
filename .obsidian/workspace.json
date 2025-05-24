@@ -98,7 +98,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -263,16 +263,18 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "c57f75a409f0c127",
+  "active": "e4ce0e99d6e1594f",
   "lastOpenFiles": [
+    "Pasted image 20250524214404.png",
     "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
-    "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
+    "6 - Main Notes/tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction.md",
     "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
+    "Pasted image 20250524214301.png",
+    "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
     "Pasted image 20250524213759.png",
     "Pasted image 20250524213732.png",
     "Pasted image 20250524213547.png",
     "Pasted image 20250524213545.png",
-    "6 - Main Notes/tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction.md",
     "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
     "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
     "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
@@ -300,7 +302,6 @@
     "6 - Main Notes/Logistic Regression review 2.md",
     "Pasted image 20250507144958.png",
     "Pasted image 20250507144956.png",
-    "Pasted image 20250507142959.png",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "6 - Main Notes/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV.md",
@@ -313,7 +314,6 @@
     "6 - Main Notes/Untitled.md",
     "6 - Main Notes/Untitled 1.md",
     "6 - Main Notes/Early wldfire detection using different machine learning algorithms.md",
-    "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]

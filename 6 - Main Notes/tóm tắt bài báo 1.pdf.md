@@ -11,6 +11,7 @@ Tags:
 - Hệ thống này nhằm thay thế, cải tiến các phương pháp hiện tại, đáp ứng nhu cầu cấp bách về phòng chống cháy rừng.
 
 **Cách thức thực hiện:**
+- ![[Pasted image 20250524214301.png]]
 - Sử dụng các nút cảm biến *giá rẻ (BME280)* để thu thập dữ liệu nhiệt độ, độ ẩm, áp suất tại rừng xa xôi.
 - Dữ liệu được truyền qua công nghệ LoRa (truyền xa, tiết kiệm năng lượng) về gateway, sau đó chuyển lên mạng (The Things Network), truy cập qua giao thức MQTT.
 - Đánh giá chất lượng dữ liệu cảm biến thông qua chỉ số *RSSI và SNR*.
