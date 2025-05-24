@@ -20,6 +20,7 @@ Kết hợp **IoT + AI**:
 - **Tỷ lệ chia**: 75% training / 25% testing
 
 ### **Quy trình hoạt động**
+![[Pasted image 20250524214954.png]]
 
 1. **MQ-2 phát hiện khói** → kích hoạt camera
 2. **Camera chụp ảnh** → gửi lên cloud/máy tính chính
