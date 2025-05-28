@@ -112,8 +112,7 @@
               "title": "Globfire Dataset"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -166,12 +165,12 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -278,12 +277,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "ea286ca189883451",
+  "active": "4f01449078404074",
   "lastOpenFiles": [
+    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
     "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
     "6 - Main Notes/Globfire Dataset.md",
     "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
-    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
     "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
     "6 - Main Notes/tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction.md",
     "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
