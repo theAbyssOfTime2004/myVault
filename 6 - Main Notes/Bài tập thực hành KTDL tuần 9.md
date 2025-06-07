@@ -1,9 +1,6 @@
-2025-06-07 13:27
 
+## Mai Phong Đăng_22280008
 
-Tags:
-
-# Data_Mining_Lab9_Report
 
 ### 1. Tải và khám phá dữ liệu
 - Sử dụng thư viện `ucimlrepo` để tải bộ dữ liệu Banknote Authentication từ UCI Machine Learning Repository:
