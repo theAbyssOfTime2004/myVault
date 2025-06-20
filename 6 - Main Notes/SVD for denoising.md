@@ -33,5 +33,7 @@ $$
 \tau = 0.1 *\frac{\sum k \cdot \sigma_k}{\sum \sigma_k}
 $$
 	![[Pasted image 20250620123122.png]]
+	- Tính trung bình có trọng số, trong đó các singular values lớn **ảnh hưởng mạnh hơn** đến kết quả.
+	![[Pasted image 20250620124926.png]]
 	
 # References
