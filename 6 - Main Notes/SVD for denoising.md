@@ -15,5 +15,10 @@ Tags:
 	- vói sampling rate = 16000hz  = 16kHz nghĩa là mỗi giây ta sẽ lấy mẫu 16000 lần, do đó khoảng cách thời gian giữa  2 mẫu liên tiếp (hay khoảng các thời gian giữa $s_{i}$ và $s_{i+1}$ trong mảng `s`) là: $$
 \Delta t = \frac{1}{f_s} = \frac{1}{16000} = 0.0000625 \text{ giây} = 62.5 \text{ micro giây}
 $$
-
+-  Vậy thì giờ ta đã hiểu rằng tín hiệu âm thanh sẽ được đọc thành 1 mảng 1 chiều có dạng `s = [s1,s2,s3,...sL]` và có thể plot trên 1 miền thời gian, tiếp theo ta sẽ làm cách nào để chuyển đổi nó thành 1 ma trận để có thể sử dụng cho SVD
+	- Ta sẽ chuyển tín hiệu 1 chiều này thành 1 ma trận 2 chiều $A \in \mathbb{R}^{M \times N}$, Với:
+		- $M$ là số lượng *frame* (số hàng)
+		-  $N$ là chiều dài mỗi *frame* (số cột)
+		- *H* là overlapping, thông thường = 1/2 độ dài *frame* = $\frac{N}{2}$
+	=> Tín hiệu âm thanh 1 chiều `s` được chia thành nhiều *frame* overlapping nhau, xếp thành các hàng trong ma trận `A`. Mỗi hàng có độ dài `N`, các frame cách nhau `H`. Đây là **frame matrix** bạn sẽ dùng cho **SVD**.
 # References
