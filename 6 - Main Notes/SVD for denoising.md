@@ -4,19 +4,16 @@
 Tags:
 
 # SVD for denoising
-| Bước                 | Mục tiêu                             |
-| -------------------- | ------------------------------------ |
-| 1. Đọc file âm thanh | Lấy mảng mẫu `s`                     |
-| 2. Chọn `N`, `H`     | Kích thước frame và bước trượt       |
-| 3. Chia frame        | Tạo ma trận `A`                      |
-| 4. Cửa sổ hóa        | Làm mượt biên frame                  |
-| 5. SVD               | Phân tích thành phần tín hiệu        |
-| 6. Tapering          | Giảm nhiễu bằng chỉnh `S`            |
-| 7. PDE               | Làm mượt `U`, `V` (nếu cần)          |
-| 8. Tái tạo           | Ghép lại ma trận âm thanh            |
-| 9. Overlap-add       | Biến về tín hiệu 1D để nghe hoặc lưu |
-|                      |                                      |
-|                      |                                      |
 
+### Các bước làm: 
+- Bước 1: Đọc file âm thành bằng librosa (Đã thực hiện)
+	- kết quả mẫu: 
+	- ![[Pasted image 20250620112520.png]]
+- Bước 2: Biến đổi tín hiệu âm thanh thành ma trận
+	- Giải thích: lấy ví dụ với file đầu tiên là `noisy1_SNRdb_0.0_clnsp1.wav`, sau khi đọc ta có được các thông số sampling rate là 16000 và số lượng mẫu là 161058 và do đó file âm thanh này có độ dài khoảng 10s, ta có thể hiểu rằng tín hiệu này có thể biểu diễn bằng 1 mảng 1 chiều `s = [s1,s2,s3,...sL]` với `L = 161058` và s1, `s2 ,s3, ... sL` lần lượt là các giá trị tương ứng cho biên độ của sóng âm tại thời điểm đó
+	- Việc biểu diễn tín hiệu âm thanh thành 1 mảng 1D  `s = [s1,s2,s3,...sL]` chính là biểu diễn theo miền thời gian. Bởi vì mỗi giá trị trong mảng là **biên độ của sóng âm tại một thời điểm cụ thể** do đó khi plot mảng `s` ra ta sẽ được 1 đồ thị biên độ - thời gian 
+	- vói sampling rate = 16000hz  = 16kHz nghĩa là mỗi giây ta sẽ lấy mẫu 16000 lần, do đó khoảng cách thời gian giữa  2 mẫu liên tiếp (hay khoảng các thời gian giữa $s_{i}$ và $s_{i+1}$ trong mảng `s`) là: $$
+\Delta t = \frac{1}{f_s} = \frac{1}{16000} = 0.0000625 \text{ giây} = 62.5 \text{ micro giây}
+$$
 
 # References
