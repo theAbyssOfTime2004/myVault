@@ -23,9 +23,9 @@ $$
 	=> Tín hiệu âm thanh 1 chiều `s` được chia thành nhiều *frame* overlapping nhau, xếp thành các hàng trong ma trận `A`. Mỗi hàng có độ dài `N`, các frame cách nhau `H`. Đây là **frame matrix** sẽ dùng cho **SVD**.
 
 - ***Bước 3***: Sử dụng frame matrix vừa chuyển đổi được làm đầu vào cho SVD
-	- Mục tiêu là để phân rã ma trận $A \in \mathbb{R}^{M \times N}$ ra thành các thành phần cấu trúc giúp dễ nhận ra pattern và xử lý các thành phần gây nhiễu: $$A = U \Sigma V^T$$
+	- Mục tiêu là để phân rã ma trận $A \in \mathbb{R}^{M \times N}$ ra thành các thành phần cấu trúc để nhận diện pattern và tách nhiễu:$$A = U \Sigma V^T$$
 		-  $U$: ma trận trực giao chứa *left singular vectors*.
 		- $\Sigma$: ma trận chéo chứa *singular values* (sắp xếp giảm dần).
 		- $V^T$: ma trận trực giao chứa *right singular vectors*.
-	- Các *singular vectors* và *singular values* cho biết về những đặc tính của ma trận A và chứa thông tin về tín hiệu và nhiễu 
+	- Các *singular vectors* và *singular values* chứa thông tin đặc trưng về tín hiệu và nhiễu — là cơ sở để xử lý và tái tạo tín hiệu sạch.
 # References
