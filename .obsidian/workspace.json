@@ -4,97 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "6b1b38f37efaa813",
+        "id": "ec1cef910716a685",
         "type": "tabs",
         "children": [
           {
-            "id": "39acb22fe4e5bc70",
+            "id": "bfbbe6744d526dac",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Bài tập thực hành KTDL tuần 9.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Bài tập thực hành KTDL tuần 9"
-            }
-          },
-          {
-            "id": "30b56fff3c4729c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "tóm tắt FF detection system using WSN and ML"
-            }
-          },
-          {
-            "id": "ea286ca189883451",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "tóm tắt Early FF Detection System Using WSN and DL"
-            }
-          },
-          {
-            "id": "e4ce0e99d6e1594f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms"
-            }
-          },
-          {
-            "id": "c57f75a409f0c127",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches"
-            }
-          },
-          {
-            "id": "de5c23f4d4e9a81e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/Globfire Dataset.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Globfire Dataset"
+              "title": "New tab"
             }
           }
         ]
@@ -236,8 +156,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -261,23 +181,23 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "39acb22fe4e5bc70",
+  "active": "bfbbe6744d526dac",
   "lastOpenFiles": [
+    "6 - Main Notes/Globfire Dataset.md",
+    "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
+    "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
+    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
+    "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
+    "6 - Main Notes/Bài tập thực hành KTDL tuần 9.md",
     "Pasted image 20250607140156.png",
     "Pasted image 20250607140123.png",
     "6 - Main Notes/Untitled.md",
-    "6 - Main Notes/Bài tập thực hành KTDL tuần 9.md",
     "Pasted image 20250607135547.png",
     "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
     "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction.md",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "3 - Tags/review.md",
-    "6 - Main Notes/tóm tắt Early FF Detection System Using WSN and DL.md",
-    "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
-    "6 - Main Notes/Globfire Dataset.md",
-    "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
-    "6 - Main Notes/tóm tắt FF detection system using WSN and ML.md",
     "Pasted image 20250524220012.png",
     "Pasted image 20250524220004.png",
     "Pasted image 20250524215959.png",
@@ -285,7 +205,6 @@
     "Pasted image 20250524215755.png",
     "Pasted image 20250524214954.png",
     "Pasted image 20250524214831.png",
-    "Pasted image 20250524214643.png",
     "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
     "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
     "6 - Main Notes/Data_Mining_Lab7_Report.md",
