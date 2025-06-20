@@ -28,4 +28,9 @@ $$
 		- $\Sigma$: ma trận chéo chứa *singular values* (sắp xếp giảm dần).
 		- $V^T$: ma trận trực giao chứa *right singular vectors*.
 	- Các *singular vectors* và *singular values* chứa thông tin đặc trưng về tín hiệu và nhiễu — là cơ sở để xử lý và tái tạo tín hiệu sạch.
+	- Tiếp theo ta tách ma trận $\Sigma$ ra thành 2 phần: tín hiệu (`#s`) và nhiễu (`#n`) 
+	- Tách dựa trên threshold $\tau$ được tính bằng **center of mass** của các *singular values* $$
+\tau = \frac{\sum k \cdot \sigma_k}{\sum \sigma_k}
+$$
+	- 
 # References
