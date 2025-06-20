@@ -35,5 +35,5 @@ $$
 	![[Pasted image 20250620123122.png]]
 	- Tính trung bình có trọng số, trong đó các singular values lớn **ảnh hưởng mạnh hơn** đến kết quả.
 	![[Pasted image 20250620124926.png]]
-	
+	- Tiếp theo ta sẽ giảm nhiễu các *singular values* thuộc phần nhiễu (`#n`) bằng cách *tapering* - tức là nhân chúng với một hệ số $\alpha \in (0, 1)$ để làm giảm ảnh hưởng của nhiễu.
 # References
