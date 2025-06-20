@@ -37,5 +37,10 @@ $$
 	![[Pasted image 20250620124926.png]]
 	- Tiếp theo ta sẽ giảm nhiễu các *singular values* thuộc phần nhiễu (`#n`) bằng cách *tapering* - tức là nhân chúng với một hệ số $\alpha \in (0, 1)$ để làm giảm ảnh hưởng của nhiễu.
 	-  dùng MSE như một **tiêu chuẩn đánh giá hiệu quả tapering**, và giải bài toán tối ưu để tìm $\alpha$ **làm giảm MSE thấp nhất**, **nếu biết groundtruth**.  Còn nếu không biết, thì dùng chiến lược khác như heuristics, hoặc ràng buộc từ bất đẳng thức như Cauchy–Schwarz để giới hạn giá trị hợp lý của $\alpha$.
-- Khử nhiều các ma trận $U$ và $V$ bằng phương pháp *PDE* (Partial Differential Equation)
+- ***Bước 4:*** Khử nhiều và chuẩn hóa các ma trận $U$ và $V$ bằng phương pháp *PDE* (Partial Differential Equation)
+
+
+
+- ***Bước 5:*** tái tạo lại ma trận tín hiệu sạch $\hat{A} = U^{*} \Sigma^{*} V^{*}$ 
+- ***Bước 6:*** thu lại tín hiệu đã giảm nhiễu bằng phương pháp **Overlap Add**
 # References
