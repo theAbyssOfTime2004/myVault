@@ -22,5 +22,6 @@ $$
 		- *H* là overlapping, thông thường = 1/2 độ dài *frame* = $\frac{N}{2}$
 	=> Tín hiệu âm thanh 1 chiều `s` được chia thành nhiều *frame* overlapping nhau, xếp thành các hàng trong ma trận `A`. Mỗi hàng có độ dài `N`, các frame cách nhau `H`. Đây là **frame matrix** sẽ dùng cho **SVD**.
 
-- ***Bước 3***
+- ***Bước 3***: Sử dụng frame matrix vừa chuyển đổi được làm đầu vào cho SVD
+	- Mục tiêu là để phân rã ma trận $A \in \mathbb{R}^{M \times N}$ ra thành các thành phần 
 # References
