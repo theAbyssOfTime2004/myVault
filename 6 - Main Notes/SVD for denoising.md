@@ -24,4 +24,6 @@ $$
 
 - ***Bước 3***: Sử dụng frame matrix vừa chuyển đổi được làm đầu vào cho SVD
 	- Mục tiêu là để phân rã ma trận $A \in \mathbb{R}^{M \times N}$ ra thành các thành phần cấu trúc giúp dễ nhận ra pattern và xử lý các thành phần gây nhiễu
+	- $$A = U \Sigma V^T$$
+
 # References
