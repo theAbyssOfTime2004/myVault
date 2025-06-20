@@ -11,10 +11,15 @@
             "id": "bfbbe6744d526dac",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/SVD for denoising.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "SVD for denoising"
             }
           }
         ]
@@ -183,6 +188,7 @@
   },
   "active": "bfbbe6744d526dac",
   "lastOpenFiles": [
+    "6 - Main Notes/SVD for denoising.md",
     "6 - Main Notes/Globfire Dataset.md",
     "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
     "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
