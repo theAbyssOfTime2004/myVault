@@ -52,5 +52,5 @@ và đây cũng chính là hàm loss mà ta sẽ muốn **minimize** để tối
 ![[Pasted image 20250318144522.png]]
 ![[Pasted image 20250318144744.png]]
 
-- 🔹 Mục tiêu của Linear Regression là tìm vector trọng số θ\thetaθ sao cho hàm dự đoán hθ(x)h_\theta(x)hθ​(x) khớp với giá trị thực yyy nhất, bằng cách **tối thiểu hóa MSE**.
+-  Mục tiêu của Linear Regression là tìm vector trọng số θ\thetaθ sao cho hàm dự đoán hθ(x)h_\theta(x)hθ​(x) khớp với giá trị thực yyy nhất, bằng cách **tối thiểu hóa MSE**.
 # References
