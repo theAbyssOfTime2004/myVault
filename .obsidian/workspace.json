@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/SVD for denoising.md",
+                "file": "6 - Main Notes/Linear Regression.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "SVD for denoising"
+              "title": "Linear Regression"
             }
           }
         ]
@@ -182,17 +182,16 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "smart-random-note:Open Random Note from Search": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-kanban:Create new board": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "bfbbe6744d526dac",
   "lastOpenFiles": [
+    "6 - Main Notes/SVD for denoising.md",
     "Pasted image 20250620124926.png",
     "Pasted image 20250620123122.png",
     "Pasted image 20250620112520.png",
     "Pasted image 20250620112516.png",
-    "6 - Main Notes/SVD for denoising.md",
     "6 - Main Notes/Globfire Dataset.md",
     "6 - Main Notes/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches.md",
     "6 - Main Notes/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms.md",
@@ -211,7 +210,6 @@
     "Pasted image 20250524220012.png",
     "Pasted image 20250524220004.png",
     "Pasted image 20250524215959.png",
-    "Pasted image 20250524215815.png",
     "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
     "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
     "6 - Main Notes/Data_Mining_Lab7_Report.md",
