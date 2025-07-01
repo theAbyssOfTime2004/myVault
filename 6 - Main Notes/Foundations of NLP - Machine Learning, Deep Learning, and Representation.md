@@ -12,7 +12,7 @@ Tags:
 ## Điều gì làm cho Deep Learning khác biệt so với Machine Learning nói chung
 - DL là 1 phương pháp điển hình *Representation Learning*, đã đạt được thành công lớn gần đây trong các lĩnh vực như **speech recognition, computer vision và natural language processing**. Học sâu có 2 đặc điểm nổi bật chính: **Distributed Representation** và **Deep Architecture**
 ## Distributed Representation trong Deep Learning có nghĩa là gì? 
-- Là cách mà các thuật toán Deep learning thường biểu diễn mỗi đối tượng bằng một vector mật độ giá tri
+- Là cách mà các thuật toán Deep learning thường biểu diễn mỗi đối tượng bằng một vector mật độ giá trị thực, chiều thấp. Điều này khác biệt so với các sơ đồ biểu diễn thông thường như mô hình *(bag-of-word)* sử dụng *"one-hot representation"*, nơi mỗi từ hoặc đối tượng được biểu diễn bằng một vector thưa với **một vị trí là 1 và các vị trí khác là 0**. Distributed Representation 
 
 
 # References
