@@ -28,5 +28,8 @@ Tags:
 	- **"dog"** → `[0.85, 0.15, 0.35]`    
 	- **"elephant"** → `[0.2, 0.9, 0.7]`
 	- **"tiger"** → `[0.8, 0.2, 0.5]`
-
+## Deep Architecture có vai trò gì trong Deep Learning
+- Deep Architecture là đặc điểm quan trọng thứ 2 của Deep Learning, liên quan đến việc các thuật toán DL thường học 1 kiến trúc hierarchical và deep để biểu diễn các đối tượng, được gọi là **multilayer neural network**. DA này có khả năng extract các đặc trưng trừu tượng của đối tượng từ raw data. Khả năng này được coi là lý do quan trọng cho sự thành công lớn của DL trong Speech Recognition và Computer Vision, vì nó cho phép model học các representation ngày càng phức tạp và ý nghĩa hơn của data. 
+## Vai trò của Representation Learning trong NLP là gì?
+- NLP nhằm mục đích xây dựng các chương trình chuyên biệt về ngôn ngữ để máy móc có thể hiểu ngôn ngữ. Văn bản ngôn ngữ tự nhiên là *unstructured data* điển hình, với nhiều mức độ chi titết *(granularity)*, nhiều nhiệm vụ *(tasks)* và nhiều *domains* khác nhau. Representation Learning đóng vai trò quan trọng trong việc biểu diễn ngữ nghĩa của các mục nhập ngôn ngữ ở các cấp độ khác nhau (ký tự, cụm từ, câu, đoạn văn, tài liệu) trong 1 không gian ngữ nghĩa thống nhất và xây dựng các mối quan hệ ngữ nghĩa phức tạp giữa chúng 
 # References
