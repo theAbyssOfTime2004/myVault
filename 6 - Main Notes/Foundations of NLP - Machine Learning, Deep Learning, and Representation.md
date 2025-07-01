@@ -13,6 +13,20 @@ Tags:
 - DL là 1 phương pháp điển hình *Representation Learning*, đã đạt được thành công lớn gần đây trong các lĩnh vực như **speech recognition, computer vision và natural language processing**. Học sâu có 2 đặc điểm nổi bật chính: **Distributed Representation** và **Deep Architecture**
 ## Distributed Representation trong Deep Learning có nghĩa là gì? 
 - Là cách mà các thuật toán Deep learning thường biểu diễn mỗi đối tượng bằng một vector mật độ giá trị thực, chiều thấp. Điều này khác biệt so với các sơ đồ biểu diễn thông thường như mô hình *(bag-of-word)* sử dụng *"one-hot representation"*, nơi mỗi từ hoặc đối tượng được biểu diễn bằng một vector thưa với **một vị trí là 1 và các vị trí khác là 0**. Distributed Representation cho phép nắm bắt các mối quan hệ ngữ nghĩa và tương tự giữa các đối tượng 1 cách hiệu quả hơn.
-
+- Ví dụ vocabulary gồm 4 từ: 
+```python
+["cat", "dog", "elephant", "tiger"]
+```
+- Khi đó, sử dụng one-hot representation ta sẽ được:
+	- **"cat"** → `[1, 0, 0, 0]`
+	- **"dog"** → `[0, 1, 0, 0]`
+	- **"elephant"** → `[0, 0, 1, 0]`
+	- **"tiger"** → `[0, 0, 0, 1]`
+- Còn với distributed reprenstation thì: 
+- Giả sử ta có vector embedding với 3 chiều (thực tế là 100-300-768 chiều):
+	- **"cat"** → `[0.9, 0.1, 0.4]`    
+	- **"dog"** → `[0.85, 0.15, 0.35]`    
+	- **"elephant"** → `[0.2, 0.9, 0.7]`
+	- **"tiger"** → `[0.8, 0.2, 0.5]`
 
 # References
