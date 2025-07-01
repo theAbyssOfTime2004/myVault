@@ -37,4 +37,7 @@ Tags:
 - Học biểu diễn giúp NLP vượt qua ranh giới hình thức của ngôn ngữ (từ, câu, đoạn…) bằng cách **liên kết mọi cấp độ trong một không gian ngữ nghĩa chung**, hỗ trợ phân tích linh hoạt, hiệu quả và chính xác hơn.
 ## Làm thế nào để Representation Learning hỗ trợ các "Multiple Tasks" trong NLP?
 - Có nhiều tasks NLP khác nhau dựa trên đầu vào. Ví dụ, với một câu, chúng ta có thể thực hiện nhiều nhiệm vụ như phân đoạn từ, gắn thẻ từ loại, nhận dạng thực thể có tên, trích xuất quan hệ và dịch máy. Representation Learning cung cấp một cách để tạo ra các biểu diễn ngữ nghĩa phong phú của input data, mà các biểu diễn này có thể dc sử dụng hoặc chuyển giao cho nhiều tasks khác nhau, cải thiện hiệu suất tổng thể à tính nhất quán của các mô hình NLP.
+## Các phương pháp Representation trong NLP đã phát triển như thế nào? 
+Sự phát triển của học biểu diễn trong NLP đã **chuyển từ kỹ thuật thủ công sang các phương pháp học sâu tự động**, đặc biệt là **học tự giám sát với mô hình lớn**, giúp **mã hóa ngữ nghĩa sâu hơn, linh hoạt hơn, và dễ chuyển giao hơn**, mở ra khả năng xử lý ngôn ngữ tự nhiên ngày càng hiệu quả và thông minh.
+
 # References
