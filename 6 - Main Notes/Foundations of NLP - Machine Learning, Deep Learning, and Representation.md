@@ -5,7 +5,9 @@ Tags:
 
 # Foundations of NLP - Machine Learning, Deep Learning, and Representation
 ## Machine Learning là gì và nó bao gồm những thành phần nào:
-- ML giải quyết vấn đề từ động học các chương trình máy tính từ dữ liệu. Một *ML system* điển hình bao gồm 3 thành phần chính: *Representation, Objecctive và Optimization*, 
+- ML giải quyết vấn đề từ động học các chương trình máy tính từ dữ liệu. Một *ML system* điển hình bao gồm 3 thành phần chính: *Representation, Objecctive và Optimization*. 
+	- Representation: liên quan đến cách dữ liệu được encode để thuật toán có thể xử lý
+	- Objective: 
 
 
 # References
