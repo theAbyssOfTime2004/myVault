@@ -40,4 +40,13 @@ Tags:
 ## Các phương pháp Representation trong NLP đã phát triển như thế nào? 
 Sự phát triển của học biểu diễn trong NLP đã **chuyển từ kỹ thuật thủ công sang các phương pháp học sâu tự động**, đặc biệt là **học tự giám sát với mô hình lớn**, giúp **mã hóa ngữ nghĩa sâu hơn, linh hoạt hơn, và dễ chuyển giao hơn**, mở ra khả năng xử lý ngôn ngữ tự nhiên ngày càng hiệu quả và thông minh.
 
+
+| **Giai đoạn**                      | **Phương pháp chính**         | **Đặc điểm nổi bật**                                 |
+|-----------------------------------|-------------------------------|------------------------------------------------------|
+| Biểu diễn thủ công                 | TF-IDF, BoW                   | Dựa vào đặc trưng rời rạc, không linh hoạt           |
+| Học có giám sát                   | Mạng nơ-ron đơn giản          | Cần dữ liệu nhãn, không tổng quát                   |
+| Biểu diễn từ không giám sát        | Word2Vec, GloVe               | Ngữ nghĩa cố định, học từ ngữ cảnh                   |
+| Biểu diễn theo ngữ cảnh           | ELMo, BERT, GPT               | Ngữ nghĩa động, chuyển giao mạnh mẽ                  |
+| Biểu diễn đa tầng & đa mô thức     | LLMs, Multimodal models       | Đa nhiệm, đa ngôn ngữ, đa phương tiện                |
+
 # References
