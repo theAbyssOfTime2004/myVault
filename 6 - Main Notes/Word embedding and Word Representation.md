@@ -18,6 +18,14 @@ Tags:
 	- Xác suất của một từ dựa trên từ trước đó: $$ P(w_i|w_{i-1}) = \frac{C(w_{i-1}, w_i)}{\sum_k C(w_{i-1}, w_k)} $$
 		- trong đó, $C(w_{i-1}, w_i)$ là số lần xuất hiện của cặp từ $w_{i-1}, w_i$
 	- Xác suất của một từ dựa trên hai từ trước đó $$ P(w_i|w_{i-1}, w_{i-2}) = \frac{C(w_{i-2}, w_{i-1}, w_i)}{\sum_k C(w_{i-2}, w_{i-1}, w_k)}. $$
+	- Ta có công thức tỗng quát: $$
+P(w_n \mid w_{n-N+1}, ..., w_{n-1}) = \frac{C(w_{n-N+1}, ..., w_n)}{C(w_{n-N+1}, ..., w_{n-1})}
+$$
+		- trong đó 
+			- $( P(w_n \mid w_{n-N+1}, ..., w_{n-1}))$: xác suất từ $( w_n )$ xuất hiện sau chuỗi $( N-1 )$từ liền trước
+			- $( C(w_{n-N+1}, ..., w_n) )$: số lần chuỗi $( N )$ từ xuất hiện trong corpus
+			- $( C(w_{n-N+1}, ..., w_{n-1}) )$: số lần chuỗi $( N-1 )$ từ xuất hiện (làm điều kiện)
+		- công thức tổng quát này có nghĩa là MLE tìm xác suất xuất hiện cho từ thứ $N$ biết $N-1$ từ gần nhất.
 - Các mô hình này hữu ích trongn nhiều tác vụ NLP như dịch máy (ví dụ: $$P(\text{high winds tonight}) > P(\text{large winds tonight})$$
 - Sửa lỗi chính tả và nhận dạng giọng nói.
 # References
