@@ -57,5 +57,6 @@ $$
 - Tái sử dụng các embedding từ đã được huấn luyện trước (pre-trained  word embeddings) là một kỹ thuật phổ biến và mạnh mẽ trong NLP. Nó liên quan đến việc huấn luyện các embedding từ trên một tập dữ liệu lớn (thường là 1 corpus rất lớn) cho một tác vụ A (ví dụ: mô hình ngôn ngữ), sau đó sửu dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ A, sau đó sử dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ B khác (ví dụ: phân loại văn bản, nhận dạng thực thể). 
 - Có hai cách chính để sử dụng các embedding này:
 	- **Tùy chỉnh (fine-tuning):** các embedding được huấn luận trước được sử dụng làm điểm khởi đầu, và sau đó chúng được tiếp tục điều chỉnh (huấn luyện) cùng với còn lại của mạng lưới trên dữ liệu của tác vụ B. Điều này cho phép các embedding thích ứng với đặc điểm cụ thể của tác vụ mới.
-		- **Đóng băng trọng số (Freezing Weights)**
+	- **Đóng băng trọng số (Freezing Weights)**: Trọng số của lớp embedding được đóng băng, ngăn không cho các embedding đã được huấn luyện trước bị sửa đổi trong quá nh huấn luyện tác vụ B. Cách này hữu ích khi tập dữ liệu cho tác vụ B nhỏ và muốn tránh overfit, hoặc khi các embedding đã được huấn luyện rất tốt và bạn không muốn thay đổi chúng
+- Việc tái sử dụng các embedding đã được pretrained giúp tăng cường hiệu su
 # References
