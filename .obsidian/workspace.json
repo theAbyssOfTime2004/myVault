@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -189,8 +188,10 @@
   },
   "active": "e99280815b459433",
   "lastOpenFiles": [
-    "6 - Main Notes/Word embedding and Word2Vec.md",
+    "6 - Main Notes/2025-07-04.md",
+    "Untitled 1.canvas",
     "6 - Main Notes/Word embedding and Word Representation.md",
+    "6 - Main Notes/Word embedding and Word2Vec.md",
     "6 - Main Notes/Foundations of NLP - Machine Learning, Deep Learning, and Representation.md",
     "6 - Main Notes/Linear Regression for more complex models.md",
     "6 - Main Notes/Linear Regression.md",
@@ -226,10 +227,8 @@
     "6 - Main Notes/lu3005367791.tmp",
     "6 - Main Notes/Data_Mining_Lab7_Report.docx",
     "6 - Main Notes/Data_Mining_Lab4_Report.md",
-    "6 - Main Notes/Data_Mining_Lab6_Report.md",
     "6 - Main Notes/lu243682ul6n.tmp",
     "6 - Main Notes/BTTH_KTDL_22280008_Tuan6.docx",
-    "6 - Main Notes/Data_Mining_Lab5_report.md",
     "6 - Main Notes/lu152622ngvn.tmp",
     "6 - Main Notes/[1]_summary.docx",
     "6 - Main Notes/BTLT_KTDL_22280008_Lan3.docx",
@@ -237,7 +236,6 @@
     "6 - Main Notes/[6]_summary.docx",
     "Untitled.canvas",
     "Untitled 2.canvas",
-    "Untitled 1.canvas",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
