@@ -58,5 +58,14 @@ $$
 - Có hai cách chính để sử dụng các embedding này:
 	- **Tùy chỉnh (fine-tuning):** các embedding được huấn luận trước được sử dụng làm điểm khởi đầu, và sau đó chúng được tiếp tục điều chỉnh (huấn luyện) cùng với còn lại của mạng lưới trên dữ liệu của tác vụ B. Điều này cho phép các embedding thích ứng với đặc điểm cụ thể của tác vụ mới.
 	- **Đóng băng trọng số (Freezing Weights)**: Trọng số của lớp embedding được đóng băng, ngăn không cho các embedding đã được huấn luyện trước bị sửa đổi trong quá nh huấn luyện tác vụ B. Cách này hữu ích khi tập dữ liệu cho tác vụ B nhỏ và muốn tránh overfit, hoặc khi các embedding đã được huấn luyện rất tốt và bạn không muốn thay đổi chúng
-- Việc tái sử dụng các embedding đã được pretrained giúp tăng cường hiệu su
+- Việc tái sử dụng các embedding đã được pretrained giúp tăng cường hiệu suất 
+### Tóm lại:
+- **"Embedding" là một dạng của "Word Representation"**
+- Embedding là một loại cụ thể của Distributed Word Representation 
+
+|                |               |
+| -------------- | ------------ |
+| Loại           | Mô            |
+| One-hot vecto Vector toàn  or  |
+
 # References
