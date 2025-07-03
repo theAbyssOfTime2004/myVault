@@ -60,12 +60,15 @@ $$
 	- **Đóng băng trọng số (Freezing Weights)**: Trọng số của lớp embedding được đóng băng, ngăn không cho các embedding đã được huấn luyện trước bị sửa đổi trong quá nh huấn luyện tác vụ B. Cách này hữu ích khi tập dữ liệu cho tác vụ B nhỏ và muốn tránh overfit, hoặc khi các embedding đã được huấn luyện rất tốt và bạn không muốn thay đổi chúng
 - Việc tái sử dụng các embedding đã được pretrained giúp tăng cường hiệu suất 
 ### Tóm lại:
-- **"Embedding" là một dạng của "Word Representation"**
-- Embedding là một loại cụ thể của Distributed Word Representation 
 
-|                |               |
-| -------------- | ------------ |
-| Loại           | Mô            |
-| One-hot vecto Vector toàn  or  |
+* **"Embedding" là một dạng của "Word Representation"**
+* Embedding là một loại cụ thể của Distributed Word Representation
+
+| Loại                           | Mô tả                                                                              |
+| ------------------------------ | ---------------------------------------------------------------------------------- |
+| **One-hot vector**             | Vector toàn 0, chỉ có 1 ở vị trí tương ứng với từ. Không chứa thông tin ngữ nghĩa. |
+| **Distributed Representation** | Vector dense, mang thông tin ngữ nghĩa, học được từ ngữ cảnh.                      |
+| **Contextual Representation**  | Vector thay đổi tùy ngữ cảnh (ELMo, BERT).                                         |
+
 
 # References
