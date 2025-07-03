@@ -42,5 +42,8 @@ $$
 - Để giải quyết vấn đề tần suất thô (*raw counts*) gán quá nhiều weights cho các từ chức năng (*function words*) như "the", "she", "has" và quá ít weights cho các từ có nội dung (*content words*) như "cheese", "bread", "sheep", *Pointwise Mutual Information (PMI)* được sử dụng. PMI đo lường mức độ liên kết (associative strength) giữa một từ mục tiêu $w$ và một ngữ cảnh $c$.
 - *Positive Pointwise Mutual Information (PPMI)* là 1 biến thể phổ biến của PMI. Bởi vì các hàng của ma trận đồng xuất hiện thường thưa thớt <=> nhiều giá trị PMI sẽ là $\log 0 = -\infty$. PPMI giúp giải quyết vấn đề này bằng cách thay thế tất  cả các giá trị PMI âm bằng 0, chỉ giữ lại các mối liên hệ tích cực mạnh mẽ, giúp tạo ra các biểu diễn từ có ý nghĩa hơn 
 ### Word2Vec là gì và sự khác biệt giữa CBOW và Skip-gram?
-- Word2vec là 1 nhóm các kỹ 
+- Word2vec là 1 nhóm các kỹ thuật biểu diễn từ phân tán, tạo ra các "word embedding" có thể nắm bắt ngữ nghĩa của từ dựa trên ngữ cảnh của chúng. Ý tưởng cơ bản là "ý nghĩa của một từ có thể được học từ ngữ cảnh của nó".
+	- **Continuous Bag-of-Words (CBOW):** mô hình CBOW dự đoán từ trung tâm (target word) dựa trên một cửa sổ các từ ngữ cảnh xung quanh nó. Về mặt hình thức, CBOW dự đoán $w_t$ dựa trên các từ ngữ cảnh $$w_{t-l}, \ldots, w_{t-1}, w_{t+1}, \ldots, w_{t+l}$$
+	- Mục tiêu tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa bằng cách giảm thiểu tổng log xác suất âm.
+	- **Skip-gram:** Ngược lại với CBOW, Skip-gram dự đoán các từ ngữ cảnh (context words) dựa trên 
 # References
