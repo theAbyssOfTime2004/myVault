@@ -41,4 +41,6 @@ $$
 	- **Non-incremental:** Phương pháp này không incremental, có nghĩa là khi có dữ liệu mới, toàn bộ quá trình phân tách (SVD) phải được tính toán lại từ đầu, làm giảm hiệu quả của các dynamic system
 - Để giải quyết vấn đề tần suất thô (*raw counts*) gán quá nhiều weights cho các từ chức năng (*function words*) như "the", "she", "has" và quá ít weights cho các từ có nội dung (*content words*) như "cheese", "bread", "sheep", *Pointwise Mutual Information (PMI)* được sử dụng. PMI đo lường mức độ liên kết (associative strength) giữa một từ mục tiêu $w$ và một ngữ cảnh $c$.
 - *Positive Pointwise Mutual Information (PPMI)* là 1 biến thể phổ biến của PMI. Bởi vì các hàng của ma trận đồng xuất hiện thường thưa thớt <=> nhiều giá trị PMI sẽ là $\log 0 = -\infty$. PPMI giúp giải quyết vấn đề này bằng cách thay thế tất  cả các giá trị PMI âm bằng 0, chỉ giữ lại các mối liên hệ tích cực mạnh mẽ, giúp tạo ra các biểu diễn từ có ý nghĩa hơn 
+### Word2Vec là gì và sự khác biệt giữa CBOW và Skip-gram?
+- Word2vec là 1 nhóm các kỹ 
 # References
