@@ -28,4 +28,17 @@ $$
 		- công thức tổng quát này có nghĩa là MLE tìm xác suất xuất hiện cho từ thứ $N$ biết $N-1$ từ gần nhất.
 - Các mô hình này hữu ích trongn nhiều tác vụ NLP như dịch máy (ví dụ: $$P(\text{high winds tonight}) > P(\text{large winds tonight})$$
 - Sửa lỗi chính tả và nhận dạng giọng nói.
+### Latent Semantic Analysis (LSA) và SVD 
+- LSA  là 1 tập các chiến lược bắt nguồn từ các mô hình trong không gian vector, nhằm mục đích nắm bắt ngữ nghĩa của từ tốt hơn. LSA khám phá các yếu tố tiềm ẩn cho từ và tài liệu bằng cách phân tích ma trận để cải thiện việc ước tính độ tương đồng của từ  
+- LSA hoạt động theo các bước sau: 
+	1. **Vector space model:** Mỗi tài liệu và thuật ngữ được biểu diễn dưới dạng một vector trong một không gian nhiều chiều 
+	2. **Term-Document Matrix:** tạo một ma trận $X$ trong đó mỗi hàng tương ứng với một term, mỗi cột tương ứng với một document, và các phần tử của ma trận biểu thị tần suất xuất hiện của 1 term trong 1 tài liệu
+	3. **Singular Value Decomposition (SVD):** Áp dụng SVD để phân tách ma trận term-document $X$ thành 3 ma trận: $U : \text{không gian term}$,$\Sigma : \text{ma trận đường chéo của các gía trị số ít}$, $V^T : \text{không gian document}$, sao cho $X = U*\Sigma*V^T$
+- Bằng cách sử dụng SVD và giữ lại các giá trị số lớn nhất (giảm kích thước), LSA có thể giảm chiều dữ liệu, biểu diễn các từ và tài liệu trong một không gian thấp chiều hơn, đồng thời khám phá các mối quan hệ ngữ nghĩa tiềm ẩn giữa chúng 
+### Những hạn chế của LSA là gì và tại sao PMI/PPMI  được sử dụng? 
+- Mặc dù LSA có khả năng nắm bắt ngữ nghĩa, nó cũng có 1 số hạn chế:
+	- **Chi phí tính toán cao**: Việc tính toán SVD rất computationally expensive, với thời gian chạy thường là $O(\max(w, d) \cdot \min(w,d)^2)$, trong đó $w$ là số lượng từ và $d$ là số lượng document
+	- **Non-incremental:** Phương pháp này không incremental, có nghĩa là khi có dữ liệu mới, toàn bộ quá trình phân tách (SVD) phải được tính toán lại từ đầu, làm giảm hiệu quả của các dynamic system
+- Để giải quyết vấn đề tần suất thô (*raw counts*) gán quá nhiều weights cho các từ chức năng (*function words*) như "the", "she", "has" và quá ít weights cho các từ có nội dung (*content words*) như "cheese", "bread", "sheep", *Pointwise Mutual Information (PMI)* được sử dụng. PMI đo lường mức độ liên kết (associative strength) giữa một từ mục tiêu $w$ và một ngữ cảnh $c$.
+- *Positive Pointwise Mutual Information (PPMI)* là 1 biến thể phổ biến của PMI. Bởi vì các hàng của ma trận đồng xuất hiện thường thưa thớt <=> nhiều giá trị PMI sẽ là $\log 0 = -\infty$. PPMI giúp giải quyết vấn đề này bằng cách thay thế tất  cả các giá trị PMI âm bằng 0, chỉ giữ lại các mối liên hệ tích cực mạnh mẽ, giúp tạo ra các biểu diễn từ có ý nghĩa hơn 
 # References
