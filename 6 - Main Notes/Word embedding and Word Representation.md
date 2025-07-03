@@ -54,5 +54,8 @@ $$
 	- Tối thiểu hóa xác suất của các mẫu được chọn ngẫu nhiên: Đồng thời, giảm xác suất của một số lượng nhỏ các từ được chọn ngẫu nhiên từ từ vựng (gọi là negative samples) không phải là ngữ cảnh thực sự của target word.
 - Bằng cách chỉ cập nhật các embedding cho các từ ngữ cảnh dương và một số lượng nhỏ các từ ngữ cảnh âm, SGNS làm giảm đáng kể chi phí tính toán cho mỗi training step, cho phép train trên các dataset lớn hơn 1 cách hiệu quả hơn
 ### Tái sử dụng pre-trained word embedding có ý nghĩa gì trong NLP?
-- Tái sử dụng các embedding từ đã được huấn luyện trước (pre-trained  word embeddings) là một kỹ thuật phổ biến và mạnh mẽ trong NLP. Nó liên quan đến việc huấn luyện các embedding từ trên một tập dữ liệu lớn (thường là 1 corpus rất lớn) cho một tác vụ A (ví dụ: mô hình ngôn ngữ), sau đó sửu dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ  
+- Tái sử dụng các embedding từ đã được huấn luyện trước (pre-trained  word embeddings) là một kỹ thuật phổ biến và mạnh mẽ trong NLP. Nó liên quan đến việc huấn luyện các embedding từ trên một tập dữ liệu lớn (thường là 1 corpus rất lớn) cho một tác vụ A (ví dụ: mô hình ngôn ngữ), sau đó sửu dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ A, sau đó sử dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ B khác (ví dụ: phân loại văn bản, nhận dạng thực thể). 
+- Có hai cách chính để sử dụng các embedding này:
+	- **Tùy chỉnh (fine-tuning):** các embedding được huấn luận trước được sử dụng làm điểm khởi đầu, và sau đó chúng được tiếp tục điều chỉnh (huấn luyện) cùng với còn lại của mạng lưới trên dữ liệu của tác vụ B. Điều này cho phép các embedding thích ứng với đặc điểm cụ thể của tác vụ mới.
+		- **Đóng băng trọng số (Freezing Weights)**
 # References
