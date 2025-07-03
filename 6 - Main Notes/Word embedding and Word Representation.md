@@ -45,5 +45,14 @@ $$
 - Word2vec là 1 nhóm các kỹ thuật biểu diễn từ phân tán, tạo ra các "word embedding" có thể nắm bắt ngữ nghĩa của từ dựa trên ngữ cảnh của chúng. Ý tưởng cơ bản là "ý nghĩa của một từ có thể được học từ ngữ cảnh của nó".
 	- **Continuous Bag-of-Words (CBOW):** mô hình CBOW dự đoán từ trung tâm (target word) dựa trên một cửa sổ các từ ngữ cảnh xung quanh nó. Về mặt hình thức, CBOW dự đoán $w_t$ dựa trên các từ ngữ cảnh $$w_{t-l}, \ldots, w_{t-1}, w_{t+1}, \ldots, w_{t+l}$$
 	- Mục tiêu tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa bằng cách giảm thiểu tổng log xác suất âm.
-	- **Skip-gram:** Ngược lại với CBOW, Skip-gram dự đoán các từ ngữ cảnh (context words) dựa trên 
+	- **Skip-gram:** Ngược lại với CBOW, Skip-gram dự đoán các từ ngữ cảnh (context words) dựa trên target word duy nhất. Cụ thể, với 1 từ $w_t$, Skip-gram dự đoán ngữ cảnh. Hàm mất mát được định nghĩa tương tự như CBOW, nhằm mục đích tối đa hóa xác suất của các cặp từ-ngữ cảnh đã quan sát. 
+- Điểm khác biệt chính là hướng dự đoán: CBOW đi từ ngữ cảnh đến target word, trong khi Skip-gram đi từ target word đến ngữ cảnh. Skip-gram thường hoạt động tốt hơn với các ngữ liệu nhỏ và các từ ít xuất hiện. 
+### Skip-gram with negative sampling là gì và tại sao nó được sử dụng?
+- **Skip-gram with negative sampling - SGNS** là một cải tiến của mô hình Skip-gram cơ bản. Mục tiêu của SGNS là làm cho việc huấn luyện hiệu quả hơn bằng cách giảm số lượng các cặp ngữ cảnh phải cập nhật trong mỗi bước 
+- Thay vì dự đoán tất cả các từ trong từ vựng làm ngữ cảnh tiềm năng (điều này rất tốn kém khi từ vựng lớn), SGNS tập trung vào:
+	- Tối đa hóa xác suất của các cặp word-context đã quan sát: Tức là, tăng xác suất của các từ ngữ cảnh thực sự xuất hiện xung quanh từ trung tâm.
+	- Tối thiểu hóa xác suất của các mẫu được chọn ngẫu nhiên: Đồng thời, giảm xác suất của một số lượng nhỏ các từ được chọn ngẫu nhiên từ từ vựng (gọi là negative samples) không phải là ngữ cảnh thực sự của target word.
+- Bằng cách chỉ cập nhật các embedding cho các từ ngữ cảnh dương và một số lượng nhỏ các từ ngữ cảnh âm, SGNS làm giảm đáng kể chi phí tính toán cho mỗi training step, cho phép train trên các dataset lớn hơn 1 cách hiệu quả hơn
+### Tái sử dụng pre-trained word embedding có ý nghĩa gì trong NLP?
+- Tái sử dụng các embedding từ đã được huấn luyện trước (pre-trained  word embeddings) là một kỹ thuật phổ biến và mạnh mẽ trong NLP. Nó liên quan đến việc huấn luyện các embedding từ trên một tập dữ liệu lớn (thường là 1 corpus rất lớn) cho một tác vụ A (ví dụ: mô hình ngôn ngữ), sau đó sửu dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ  
 # References
