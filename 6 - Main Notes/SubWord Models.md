@@ -23,4 +23,15 @@ Tags:
 - Các biểu word representation from characters thường được xây dựng bằng cách sử dụng CNNs hoặc RNNs. Các mạng này có thể xử lý chuỗi ký tự trong một từ và tổng hợp chúng thành 1 biểu diễn vector duy nhât cho từ đó, nắm bắt được ngữ nghĩa và cấu trúc của nó dựa trên các ký tự tạo nên nó.
 ### Tại sao chúng ta cần Subword Models khi đã có Word Embeddings?
  - Word embeddings truyền thống xử lý mỗi từ như một đơn vị riêng biệt và yêu cầu một từ vựng cố định. Điều này dẫn đến vấn đề out-of-vocabulary (OOV) khi gặp các từ mới hoặc hiếm gặp mà không có trong từ vựng huấn luyện. Subword models giải quyết vấn đề này bằng cách phân tách các từ thành các thành phần nhỏ hơn (ký tự hoặc subword units), cho phép mô hình xây dựng biểu diễn cho các từ OOV dựa trên các thành phần đã biết của chúng. Điều này giúp cải thiện khả năng tổng quát hóa và tính mạnh mẽ của chúng 
+### Các Subword Models cải thiện việc xử lý ngôn ngữ tự nhiên như thế nào?
+ - Subword Models cải thiện việc xử lý ngôn ngữ tự nhiên bằng cách:
+	 - **Giải quyết vấn đề với OOV:** Cho phép mô hình xử lý các từ mới hoặc hiếm gặp mà không có trong từ vựng ban đầu
+	 - **Xử lý các lỗi chính tả và biến thể:** Bằng cách phân tích ở cấp độ subword, mô hình có thể xử lý tốt hơn các lỗi chính tả nhỏ hoặc các biển thể hình thái của từ
+	 - N**ắm bắt ngữ nghĩa phong phú hơn:** Đối với các ngôn ngữ có hình thái phức tạp, các subword có thể giúp nắm bắt các sắc thái ngữ nghĩa và mối quan hệ giữa các từ tốt hơn
+	 - **Giảm kích thước từ vựng:** Thay vì một từ vựng khổng lồ gồm tất cả các từ, Subword models có thể hoạt động hiệu quả hơn với một từ vựng nhỏ hơn gồm các đơn vị dưới từ.
+### CNNs và RNNs được sử dụng như thế nào để biểu diễn từ cấp ký tự
+- CNNs và RNNs là 2 kiến trúc neural network chính được sử dụng để tạo biểu diễn từ cấp ký tự:
+	- **CNNs:** Thường được sử dụng để trích xuất các đặc trưng cục bộ từ chuỗi ký tự. Chúng có thể nhận diện các mẫu (n-grams ký tự) và kết hợp chúng thành một biểu diễn tổng thể theo từ.
+	- **RNNs:** Đặc biệt hiệu quả trong việc xử lý các chuỗi tuần tự (sequential string). Chúng có thể đọc từng ký tự một và duy trì hidden state để ghi nhớ context của các ký tự trước đó, từ đó tạo ra một representation tổng hợp cho toàn bộ từ. 
+	- Cả 2 đều cho phép mô hình học cách tổng hợp thông tin từ các ký tự riêng lẻ để tạo ra một biểu diễn có ý nghĩa cho từ đầy đủ
 # References
