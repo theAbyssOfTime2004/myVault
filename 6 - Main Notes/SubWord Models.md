@@ -20,5 +20,5 @@ Tags:
 	- **Tạo word unit mới**: Đếm tất cả các cặp ký tự liền kề (bigram) trong corpus hiện tại. Tìm cặp xuất hiện **nhiều nhất** (most frequent) và gộp chúng lại thành một đơn vị mới trong từ vựng.
 	- **Lặp lại**: cho đến khi kích thước từ vựng không vượt quá kích thước tối đa đã giả định.
 ### Composing word representations from characters 
-- Các biểu word representation from characters thường được xây dựng bằng cách sử dụng CNNs hoặc RNNs. Các mạng này có thể xử lý chuỗi ký tự trong một từ và tổng h
+- Các biểu word representation from characters thường được xây dựng bằng cách sử dụng CNNs hoặc RNNs. Các mạng này có thể xử lý chuỗi ký tự trong một từ và tổng hợp chúng thành 1 biểu diễn vector duy nhât cho từ đó, nắm bắt được ngữ nghĩa và cấu trúc của nó dựa trên các ký tự tạo nên nó.
 # References
