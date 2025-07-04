@@ -34,4 +34,11 @@ Tags:
 	- **CNNs:** Thường được sử dụng để trích xuất các đặc trưng cục bộ từ chuỗi ký tự. Chúng có thể nhận diện các mẫu (n-grams ký tự) và kết hợp chúng thành một biểu diễn tổng thể theo từ.
 	- **RNNs:** Đặc biệt hiệu quả trong việc xử lý các chuỗi tuần tự (sequential string). Chúng có thể đọc từng ký tự một và duy trì hidden state để ghi nhớ context của các ký tự trước đó, từ đó tạo ra một representation tổng hợp cho toàn bộ từ. 
 	- Cả 2 đều cho phép mô hình học cách tổng hợp thông tin từ các ký tự riêng lẻ để tạo ra một biểu diễn có ý nghĩa cho từ đầy đủ
+### Tóm lại: 
+#### Types of Subword Models
+|Type|Description|Example|
+|---|---|---|
+|**Type 1**|Reuse word-level architectures, but apply them to subword tokens.|Replace word input with BPE or WordPiece|
+|**Type 2**|Add character-level modules to word-based models.|Use CNN/RNN over characters to compose word vectors|
+|**Type 3**|Fully character-level modeling.|Treat input as a character sequence (e.g., Char-CNN, Char-RNN)|
 # References
