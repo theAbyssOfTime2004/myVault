@@ -19,4 +19,6 @@ Tags:
 	- **Khởi tạo**: Bắt đầu với từng ký tự riêng biệt là một đơn vị trong từ vựng (a, b, c, ..., z, etc.). Mỗi từ được biểu diễn bằng một chuỗi ký tự cộng với ký hiệu kết thúc `$` để phân biệt từ với từ khác có cùng tiền tố.
 	- **Tạo word unit mới**: Đếm tất cả các cặp ký tự liền kề (bigram) trong corpus hiện tại. Tìm cặp xuất hiện **nhiều nhất** (most frequent) và gộp chúng lại thành một đơn vị mới trong từ vựng.
 	- **Lặp lại**: cho đến khi kích thước từ vựng không vượt quá kích thước tối đa đã giả định.
+### Composing word representations from characters 
+- Các biểu word representation from characters thường được xây dựng bằng cách sử dụng CNNs hoặc RNNs. Các mạng này có thể xử lý chuỗi ký tự trong một từ và tổng h
 # References
