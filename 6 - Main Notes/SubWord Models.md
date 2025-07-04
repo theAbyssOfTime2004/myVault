@@ -36,9 +36,9 @@ Tags:
 	- Cả 2 đều cho phép mô hình học cách tổng hợp thông tin từ các ký tự riêng lẻ để tạo ra một biểu diễn có ý nghĩa cho từ đầy đủ
 ### Tóm lại: 
 #### Types of Subword Models
-|Type|Description|Example|
-|---|---|---|
-|**Type 1**|Reuse word-level architectures, but apply them to subword tokens.|Replace word input with BPE or WordPiece|
-|**Type 2**|Add character-level modules to word-based models.|Use CNN/RNN over characters to compose word vectors|
-|**Type 3**|Fully character-level modeling.|Treat input as a character sequence (e.g., Char-CNN, Char-RNN)|
+| Type       | Description                                                       | Example                                                        |
+| ---------- | ----------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Type 1** | Reuse word-level architectures, but apply them to subword tokens. | Replace word input with BPE or WordPiece                       |
+| **Type 2** | Add character-level modules to word-based models.                 | Use CNN/RNN over characters to compose word vectors            |
+| **Type 3** | Fully character-level modeling.                                   | Treat input as a character sequence (e.g., Char-CNN, Char-RNN) |
 # References
