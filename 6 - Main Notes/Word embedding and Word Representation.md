@@ -53,12 +53,24 @@ $$
 	- Tối đa hóa xác suất của các cặp word-context đã quan sát: Tức là, tăng xác suất của các từ ngữ cảnh thực sự xuất hiện xung quanh từ trung tâm.
 	- Tối thiểu hóa xác suất của các mẫu được chọn ngẫu nhiên: Đồng thời, giảm xác suất của một số lượng nhỏ các từ được chọn ngẫu nhiên từ từ vựng (gọi là negative samples) không phải là ngữ cảnh thực sự của target word.
 - Bằng cách chỉ cập nhật các embedding cho các từ ngữ cảnh dương và một số lượng nhỏ các từ ngữ cảnh âm, SGNS làm giảm đáng kể chi phí tính toán cho mỗi training step, cho phép train trên các dataset lớn hơn 1 cách hiệu quả hơn
-### Tái sử dụng pre-trained word embedding có ý nghĩa gì trong NLP?
+### 7. Tái sử dụng pre-trained word embedding có ý nghĩa gì trong NLP?
 - Tái sử dụng các embedding từ đã được huấn luyện trước (pre-trained  word embeddings) là một kỹ thuật phổ biến và mạnh mẽ trong NLP. Nó liên quan đến việc huấn luyện các embedding từ trên một tập dữ liệu lớn (thường là 1 corpus rất lớn) cho một tác vụ A (ví dụ: mô hình ngôn ngữ), sau đó sửu dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ A, sau đó sử dụng các embedding này để khởi tạo các lớp embedding của mạng thần kinh cho một tác vụ B khác (ví dụ: phân loại văn bản, nhận dạng thực thể). 
 - Có hai cách chính để sử dụng các embedding này:
 	- **Tùy chỉnh (fine-tuning):** các embedding được huấn luận trước được sử dụng làm điểm khởi đầu, và sau đó chúng được tiếp tục điều chỉnh (huấn luyện) cùng với còn lại của mạng lưới trên dữ liệu của tác vụ B. Điều này cho phép các embedding thích ứng với đặc điểm cụ thể của tác vụ mới.
 	- **Đóng băng trọng số (Freezing Weights)**: Trọng số của lớp embedding được đóng băng, ngăn không cho các embedding đã được huấn luyện trước bị sửa đổi trong quá nh huấn luyện tác vụ B. Cách này hữu ích khi tập dữ liệu cho tác vụ B nhỏ và muốn tránh overfit, hoặc khi các embedding đã được huấn luyện rất tốt và bạn không muốn thay đổi chúng
 - Việc tái sử dụng các embedding đã được pretrained giúp tăng cường hiệu suất 
+### 8. Lựa chọn giữa CBOW và Skip-gram phụ thuộc vào yếu tố nào?
+- Lựa chọn giữa CBOW và Skip-Gram trong Word2Vec thường phụ thuộc vào các yếu tố sau:
+	- Kích thước ngữ liệu 
+		- *CBOW* thường được ưu tiên khi làm việc với ngữ liệu lớn vì nó nhanh hơn trong việc huấn luyện và có thể tạo ra các embedding tốt cho các từ xuất hiện thường xuyên.
+		- *Skip-gram* thường hoạt động tốt hơn với **ngữ liệu nhỏ hơn** và đặc biệt là tạo ra các embedding  chất lượng cao cho các từ ít xuất hiện (rare words). Điều này là do Skip-gram có 1 "góc nhìn" chi tiết hơn về các ngữ cảnh của từng từ mục tiêu.
+	- **Tính chất của từ được biểu diễn:**
+		- *CBOW* tốt hơn trong việc nắm bắt các *mối quan hệ ngữ nghĩa phổ biến* giữa các từ. Nó tổng hợp thông tin nhiều từ ngữ cảnh để dữ đoán 1 từ
+		- *Skip-gram* tốt hơn trong việc nắm bắt các *mối quan hệ ngữ nghĩa tinh tế* và các khía cạnh cụ thể hơn của từ, đặc biệt là với các từ hiếm. Nó cố gắng dự đoán nhiều ngữ cảnh khác nhau cho một từ mục tiêu, dẫn đến các biểu diễn phong phú hơn cho các từ hiếm
+	- **Tốc độ training:**
+		- *CBOW* thường nhanh hơn để training so với Skip-gram vì nó chỉ phải thực hiện một dự đoán duy nhất (từ target trung tâm) cho mỗi ngữ cảnh.
+		- *Skip-Gram* có thể chậm hơn vì nó phải thực hiện nhiều dự đoán (context) cho mỗi từ target. Tuy nhiên việc sử dụng *negative sampling* trong skip-gram giúp cải thiện đáng kể tốc độ này
+		=> nếu có ngữ liệu lớn và cần hiệu quả cao, CBOW là một lựa chọn tốt. Nếu bạn quan tâm đến chất lượng của các embedding cho các từ hiếm hoặc có ngữ liệu nhỏ hơn, Skip-gram (đặc biệt là với lấy mẫu âm) có thể là lựa chọn ưu việt hơn.
 ### Tóm lại:
 
 * **"Embedding" là một dạng của "Word Representation"**
@@ -70,5 +82,10 @@ $$
 | **Distributed Representation** | Vector dense, mang thông tin ngữ nghĩa, học được từ ngữ cảnh.                      |
 | **Contextual Representation**  | Vector thay đổi tùy ngữ cảnh (ELMo, BERT).                                         |
 
+| **Khái niệm**                  | **Là gì?**                                                                                      | **Ví dụ**                                     |
+|-------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| **Word Representation**       | Cách tổng quát để biểu diễn từ                                                                  | One-hot, Distributed, Contextual              |
+| **Distributed Representation**| Một nhánh trong đó từ được biểu diễn bằng vector dense                                          | Word2Vec, GloVe                               |
+| **Embedding**                 | Dạng vector dense – chính là "sản phẩm" của distributed representation                         | `vector("apple") = [0.1, 0.5, ...]`            |
 
 # References
