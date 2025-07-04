@@ -16,7 +16,7 @@ Tags:
 - WordPiece tokenization là một kỹ thuật được sử dụng trong các mô hình như Bert để chia văn bản thô thành các đơn vị subword. Quá trình này bao gồm việc chia các từ thành các phần nhỏ hơn, đôi khi là các prefix, suffix, hoặc các phần gốc của từ. Ví dụ, trong "morphological", nó có thể được chia thành "m ##or ##phological", với "##" cho biết rằng đó là 1 phần của từ lớn hơn. Điều này giúp mô hình xử lý các từ phức tạp hoặc hiếm gặp bằng cách phân tách chúng thành các đơn vị phổ biến hơn
 ### Byte Pair Encoding (BPE) là gì?
 - BPE là 1 phương pháp phổ biến để tạo các subword units. Nó hoạt động bằng cách:
-	- **Khởi tạo**: Bắt đầu từ vựng đơn vị từ 
-
-
+	- **Khởi tạo**: Bắt đầu với từng ký tự riêng biệt là một đơn vị trong từ vựng (a, b, c, ..., z, etc.). Mỗi từ được biểu diễn bằng một chuỗi ký tự cộng với ký hiệu kết thúc `$` để phân biệt từ với từ khác có cùng tiền tố.
+	- **Tạo word unit mới**: Đếm tất cả các cặp ký tự liền kề (bigram) trong corpus hiện tại. Tìm cặp xuất hiện **nhiều nhất** (most frequent) và gộp chúng lại thành một đơn vị mới trong từ vựng.
+	- **Lặp lại**: cho đến khi kích thước từ vựng không vượt quá kích thước tối đa đã giả định.
 # References
