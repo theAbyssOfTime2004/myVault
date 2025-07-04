@@ -28,26 +28,26 @@ $$
 		- công thức tổng quát này có nghĩa là MLE tìm xác suất xuất hiện cho từ thứ $N$ biết $N-1$ từ gần nhất.
 - Các mô hình này hữu ích trongn nhiều tác vụ NLP như dịch máy (ví dụ: $$P(\text{high winds tonight}) > P(\text{large winds tonight})$$
 - Sửa lỗi chính tả và nhận dạng giọng nói.
-### Latent Semantic Analysis (LSA) và SVD 
+### 3. Latent Semantic Analysis (LSA) và SVD 
 - LSA  là 1 tập các chiến lược bắt nguồn từ các mô hình trong không gian vector, nhằm mục đích nắm bắt ngữ nghĩa của từ tốt hơn. LSA khám phá các yếu tố tiềm ẩn cho từ và tài liệu bằng cách phân tích ma trận để cải thiện việc ước tính độ tương đồng của từ  
 - LSA hoạt động theo các bước sau: 
 	1. **Vector space model:** Mỗi tài liệu và thuật ngữ được biểu diễn dưới dạng một vector trong một không gian nhiều chiều 
 	2. **Term-Document Matrix:** tạo một ma trận $X$ trong đó mỗi hàng tương ứng với một term, mỗi cột tương ứng với một document, và các phần tử của ma trận biểu thị tần suất xuất hiện của 1 term trong 1 tài liệu
 	3. **Singular Value Decomposition (SVD):** Áp dụng SVD để phân tách ma trận term-document $X$ thành 3 ma trận: $U : \text{không gian term}$,$\Sigma : \text{ma trận đường chéo của các gía trị số ít}$, $V^T : \text{không gian document}$, sao cho $X = U*\Sigma*V^T$
 - Bằng cách sử dụng SVD và giữ lại các giá trị số lớn nhất (giảm kích thước), LSA có thể giảm chiều dữ liệu, biểu diễn các từ và tài liệu trong một không gian thấp chiều hơn, đồng thời khám phá các mối quan hệ ngữ nghĩa tiềm ẩn giữa chúng 
-### Những hạn chế của LSA là gì và tại sao PMI/PPMI  được sử dụng? 
+### 4. Những hạn chế của LSA là gì và tại sao PMI/PPMI  được sử dụng? 
 - Mặc dù LSA có khả năng nắm bắt ngữ nghĩa, nó cũng có 1 số hạn chế:
 	- **Chi phí tính toán cao**: Việc tính toán SVD rất computationally expensive, với thời gian chạy thường là $O(\max(w, d) \cdot \min(w,d)^2)$, trong đó $w$ là số lượng từ và $d$ là số lượng document
 	- **Non-incremental:** Phương pháp này không incremental, có nghĩa là khi có dữ liệu mới, toàn bộ quá trình phân tách (SVD) phải được tính toán lại từ đầu, làm giảm hiệu quả của các dynamic system
 - Để giải quyết vấn đề tần suất thô (*raw counts*) gán quá nhiều weights cho các từ chức năng (*function words*) như "the", "she", "has" và quá ít weights cho các từ có nội dung (*content words*) như "cheese", "bread", "sheep", *Pointwise Mutual Information (PMI)* được sử dụng. PMI đo lường mức độ liên kết (associative strength) giữa một từ mục tiêu $w$ và một ngữ cảnh $c$.
 - *Positive Pointwise Mutual Information (PPMI)* là 1 biến thể phổ biến của PMI. Bởi vì các hàng của ma trận đồng xuất hiện thường thưa thớt <=> nhiều giá trị PMI sẽ là $\log 0 = -\infty$. PPMI giúp giải quyết vấn đề này bằng cách thay thế tất  cả các giá trị PMI âm bằng 0, chỉ giữ lại các mối liên hệ tích cực mạnh mẽ, giúp tạo ra các biểu diễn từ có ý nghĩa hơn 
-### Word2Vec là gì và sự khác biệt giữa CBOW và Skip-gram?
+### 5. Word2Vec là gì và sự khác biệt giữa CBOW và Skip-gram?
 - Word2vec là 1 nhóm các kỹ thuật biểu diễn từ phân tán, tạo ra các "word embedding" có thể nắm bắt ngữ nghĩa của từ dựa trên ngữ cảnh của chúng. Ý tưởng cơ bản là "ý nghĩa của một từ có thể được học từ ngữ cảnh của nó".
 	- **Continuous Bag-of-Words (CBOW):** mô hình CBOW dự đoán từ trung tâm (target word) dựa trên một cửa sổ các từ ngữ cảnh xung quanh nó. Về mặt hình thức, CBOW dự đoán $w_t$ dựa trên các từ ngữ cảnh $$w_{t-l}, \ldots, w_{t-1}, w_{t+1}, \ldots, w_{t+l}$$
 	- Mục tiêu tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa các embedding sao cho chúng có thể dự đoán từ mục tiêu một cách hiệu quả nhất. CBOW được tối ưu hóa bằng cách giảm thiểu tổng log xác suất âm.
 	- **Skip-gram:** Ngược lại với CBOW, Skip-gram dự đoán các từ ngữ cảnh (context words) dựa trên target word duy nhất. Cụ thể, với 1 từ $w_t$, Skip-gram dự đoán ngữ cảnh. Hàm mất mát được định nghĩa tương tự như CBOW, nhằm mục đích tối đa hóa xác suất của các cặp từ-ngữ cảnh đã quan sát. 
 - Điểm khác biệt chính là hướng dự đoán: CBOW đi từ ngữ cảnh đến target word, trong khi Skip-gram đi từ target word đến ngữ cảnh. Skip-gram thường hoạt động tốt hơn với các ngữ liệu nhỏ và các từ ít xuất hiện. 
-### Skip-gram with negative sampling là gì và tại sao nó được sử dụng?
+### 6. Skip-gram with negative sampling là gì và tại sao nó được sử dụng?
 - **Skip-gram with negative sampling - SGNS** là một cải tiến của mô hình Skip-gram cơ bản. Mục tiêu của SGNS là làm cho việc huấn luyện hiệu quả hơn bằng cách giảm số lượng các cặp ngữ cảnh phải cập nhật trong mỗi bước 
 - Thay vì dự đoán tất cả các từ trong từ vựng làm ngữ cảnh tiềm năng (điều này rất tốn kém khi từ vựng lớn), SGNS tập trung vào:
 	- Tối đa hóa xác suất của các cặp word-context đã quan sát: Tức là, tăng xác suất của các từ ngữ cảnh thực sự xuất hiện xung quanh từ trung tâm.
