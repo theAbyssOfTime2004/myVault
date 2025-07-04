@@ -22,5 +22,5 @@ Tags:
 ### Composing word representations from characters 
 - Các biểu word representation from characters thường được xây dựng bằng cách sử dụng CNNs hoặc RNNs. Các mạng này có thể xử lý chuỗi ký tự trong một từ và tổng hợp chúng thành 1 biểu diễn vector duy nhât cho từ đó, nắm bắt được ngữ nghĩa và cấu trúc của nó dựa trên các ký tự tạo nên nó.
 ### Tại sao chúng ta cần Subword Models khi đã có Word Embeddings?
- - Word embeddings truyền thống xử lý mỗi từ như một đơn vị riêng biệt và yêu cầu một từ vựng cố định. Điều này dẫn đến vấn đề out-of-vocabulary (OOV)
+ - Word embeddings truyền thống xử lý mỗi từ như một đơn vị riêng biệt và yêu cầu một từ vựng cố định. Điều này dẫn đến vấn đề out-of-vocabulary (OOV) khi gặp các từ mới hoặc hiếm gặp mà không có trong từ vựng huấn luyện. Subword models giải quyết vấn đề này bằng cách phân tách các từ thành các thành phần nhỏ hơn (ký tự hoặc subword units), cho phép mô hình xây dựng biểu diễn cho các từ OOV dựa trên các thành phần đã biết của chúng. Điều này giúp cải thiện khả năng tổng quát hóa và tính mạnh mẽ của chúng 
 # References
