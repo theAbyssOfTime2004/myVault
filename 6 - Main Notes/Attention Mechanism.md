@@ -146,121 +146,117 @@ Sau đó:
 - $\hat{y}_t$: xác suất phân phối từ vựng ở bước $t$
 
 ---
-## Image Caption Generation with Attention
+# Image Captioning with Attention – Full Summary
 
-### Tổng quan
 
-**Image Captioning** là bài toán:
-> Input: một hình ảnh  
-> Output: một chuỗi từ mô tả nội dung ảnh
+## Mục tiêu bài toán
 
-Ví dụ:
--  Hình ảnh: con chim đang bay trên mặt nước  
-- Caption sinh ra: `"A bird flying over a body of water"`
+**Input**: Một bức ảnh  
+**Output**: Một chuỗi từ mô tả bức ảnh (caption) Ví dụ:
 
-### Pipeline tổng quát (Slide 2)
+- Ảnh: chim đang bay trên mặt nước
+- Caption: "A bird flying over a body of water"
 
-1. **Input Image**: ảnh đầu vào.
-2. **Convolutional Feature Extraction**:
-   - Dùng CNN (VD: Inception, ResNet) để chia ảnh thành nhiều vùng (regions) → mỗi vùng là 1 vector đặc trưng.
-   - Ví dụ: ảnh → `14×14 = 196` vectors (feature map).
-3. **RNN with Attention**:
-   - Dùng LSTM để sinh từ từng bước.
-   - Mỗi bước, attention sẽ quyết định nên "nhìn" vùng ảnh nào.
-4. **Caption Generation**:
-   - Sinh từng từ, ví dụ:
-     - `"A"` → `"bird"` → `"flying"` → `"over"` → `"a"` → `"body"` → `"of"` → `"water"`
 
-### Cơ chế Attention (Slide 1)
+## Ý tưởng cốt lõi
 
-Giống như Attention trong NLP nhưng thay vì từ → mô hình chú ý vào **vùng ảnh**.
+Image captioning là một bài toán cross-domain giữa:
 
-#### Diễn giải:
+- NLP (chuỗi từ)
+- Computer Vision (hình ảnh) Mô hình học cách "dịch" từ ảnh sang ngôn ngữ tự nhiên.
 
-- Mỗi vùng ảnh sau CNN có vector đặc trưng:  
-  `h¹, h², ..., h⁴` (VD: 4 vùng ảnh tương ứng với 4 ký tự Hán trong ví dụ `"機器學習"`)
 
-- Khi LSTM đang sinh từ `"learning"`:
-  - Nó tính attention scores $\alpha^i_1$ giữa $h_t^{dec}$ và từng $h^i$
-  - Softmax chuẩn hóa:  
-    - $\tilde{\alpha}_1^1 = 0.0$,  
-    - $\tilde{\alpha}_1^2 = 0.0$,  
-    - $\tilde{\alpha}_1^3 = 0.5$,  
-    - $\tilde{\alpha}_1^4 = 0.5$
+## Pipeline tổng quát
 
-- Tính context vector:
-  - $c^1 = \sum_i \tilde{\alpha}_1^i h^i = 0.5 h^3 + 0.5 h^4$
+### 1. Input image
 
-- Context vector $c^1$ được đưa vào RNN để sinh ra từ `"learning"`
+- Một bức ảnh kích thước tùy ý.
+
+### 2. CNN trích đặc trưng
+
+- Dùng CNN (VD: Inception, ResNet) để biến ảnh thành tập các vùng (regions).
+- Ví dụ: $$14 \times 14 = 196$$ vùng, mỗi vùng là một vector $$h_i$$
+
+### 3. Attention + Decoder (RNN/LSTM)
+
+Tại mỗi bước sinh từ:
+
+- Tính attention scores giữa hidden state hiện tại $$h_t^{dec}$$ và từng $$h_i$$
+- Dùng softmax để chuẩn hóa → trọng số $$\alpha_i$$
+- Tính context vector:  
+    $$c_t = \sum_i \alpha_i h_i$$
+- Dùng $$c_t$$ để sinh từ tiếp theo qua RNN
+
+### 4. Caption generation
+
+- Bắt đầu từ token `<START>`
+- Sinh từng từ cho đến khi gặp `<END>` hoặc đạt độ dài tối đa
+
+## Công thức quan trọng
+
+- **Attention score (additive)**: $$\text{score}_i = v^\top \tanh(W_1 h_t^{dec} + W_2 h_i)$$
+- **Softmax attention weight**: $$\alpha_i = \frac{\exp(\text{score}_i)}{\sum_j \exp(\text{score}_j)}$$
+- **Context vector**: $$c_t = \sum_i \alpha_i h_i$$
+- **Dự đoán từ tiếp theo**: $$\hat{y}_t = \text{softmax}(W_o [h_t^{dec}; c_t] + b_o)$$
+
+
+## Attention hoạt động như thế nào?
+
+Tại mỗi bước sinh từ:
+
+- Mô hình sẽ "nhìn vào" vùng ảnh quan trọng thông qua attention Ví dụ:
+- Khi sinh từ `"bird"` → attention tập trung vào vùng có chim
+- Khi sinh từ `"water"` → attention chuyển sang vùng có mặt nước
+
+
+## Làm sao mô hình biết "bird" là chim?
+
+Câu hỏi: **Mô hình có được dạy trước rằng "chim là bird" không?**  
+→ Không! Thay vào đó, mô hình học từ dữ liệu gồm nhiều ảnh và caption:
+
+- Từ ảnh → CNN trích đặc trưng thành các vector vùng
+- Khi những ảnh có chim luôn đi kèm caption chứa từ `"bird"`  
+    → Mô hình học được mối liên hệ giữa vùng ảnh và từ mô tả Toàn bộ quá trình này được tối ưu hóa thông qua hàm mất mát (loss) và lan truyền ngược (backpropagation).
+
+
+## Ví dụ Attention từ bài báo _Show, Attend and Tell_
+
+|Caption|Attention nhìn vào vùng|
+|---|---|
+|A stop sign on a road|Biển báo đỏ|
+|A giraffe standing in a forest|Con hươu cao cổ|
+|A little girl blowing a bubble|Mặt và bong bóng|
+|A group of people on a boat|Người và thuyền|
+
+
+## Slide minh họa
+
+### Slide 1: Attention trên vùng ảnh
+
+- Mỗi vùng ảnh là một vector $$h_i$$
+- Ví dụ context vector:  
+    $$c_1 = 0.5 \cdot h_3 + 0.5 \cdot h_4$$
+- Dùng để sinh từ `"learning"`
+
+### Slide 2: Pipeline tổng quát
+
+- Ảnh → CNN → vectors
+- Vectors → Attention
+- Decoder → sinh từ theo từng bước
+
+### Slide 3: Ví dụ attention
+
+- Hiển thị rõ mô hình "nhìn" vào đúng vùng ảnh khi sinh từ tương ứng trong caption
+
+
+## Kết luận
+
+Attention chính là chìa khóa giúp mô hình Image Captioning:
+
+- Không còn cần phải nén toàn ảnh thành 1 vector cố định
+- Thay vào đó, mô hình có thể "tập trung" vào từng vùng ảnh khác nhau theo từng thời điểm sinh từ
+- Nhờ đó caption chính xác và tự nhiên hơn, gần với cách con người mô tả ảnh
 
 ---
-
-## 🧠 Học được "chim là bird" như thế nào?
-
-> ❓ Làm sao mô hình biết hình con chim thì caption nên là `"bird"`?
-
-- Không được lập trình sẵn!
-- Mô hình học từ **dữ liệu huấn luyện**:
-  - Mỗi ảnh có 5 caption thật (con người viết)
-  - Qua huấn luyện:
-    - Khi vector đặc trưng giống chim → mô hình học rằng `"bird"` thường được sinh ra
-    - Attention học được vùng ảnh liên quan đến từ cụ thể
-- Toàn bộ được tối ưu qua **backpropagation**, tối thiểu hóa loss giữa caption dự đoán và caption thật
-
----
-
-## 🖼️ Slide 3 – Attention đúng chỗ
-
-Một số ví dụ trong bài báo "Show, Attend and Tell":
-
-| Caption                              | Attention nhìn vào…                      |
-|--------------------------------------|------------------------------------------|
-| A woman is throwing a frisbee       | tay và vật thể bay                       |
-| A stop sign on a road               | biển báo đỏ                              |
-| A giraffe standing in a forest      | vùng chứa hươu cao cổ                    |
-| A group of people sitting in a boat | vùng có người và thuyền                  |
-| A little girl is blowing a bubble   | mặt và bong bóng                         |
-
-➡️ Attention giúp caption không bị mơ hồ — chọn đúng vùng ảnh tại đúng thời điểm sinh từ.
-
----
-
-## ✍️ Tổng kết kỹ thuật
-
-| Thành phần      | Vai trò |
-|-----------------|--------|
-| **CNN**         | Chia ảnh thành nhiều vùng, mỗi vùng thành vector đặc trưng |
-| **Attention**   | Ở mỗi bước sinh từ, tính softmax score giữa decoder state và từng vùng ảnh |
-| **Context Vector** | Tổng trọng số các vùng ảnh → truyền vào RNN |
-| **RNN (LSTM)**  | Sinh từng từ dựa vào context + từ trước đó |
-| **Loss**        | So sánh caption dự đoán với ground truth → backpropagation |
-
----
-
-## 📌 Công thức chính
-
-- **Attention Score**:
-  - $\text{score}_i = v^\top \tanh(W_1 h_t^{dec} + W_2 h_i^{enc})$
-- **Softmax Attention Weights**:
-  - $\alpha_i = \text{softmax}(\text{score}_i)$
-- **Context Vector**:
-  - $c_t = \sum_i \alpha_i \cdot h_i^{enc}$
-- **Output Word**:
-  - $\hat{y}_t = \text{softmax}(W_o [h_t^{dec}; c_t] + b_o)$
-
----
-
-## 🧠 Ghi nhớ
-
-> "Attention giúp mô hình không nhìn toàn ảnh một cách mù quáng — mà chọn đúng vùng để sinh đúng từ."
-
----
-
-## 📚 Tài liệu tham khảo
-
-**Show, Attend and Tell: Neural Image Caption Generation with Visual Attention**  
-Kelvin Xu et al., ICML 2015  
-https://arxiv.org/abs/1502.03044
-
 
 # References
