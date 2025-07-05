@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+                "file": "6 - Main Notes/Attention Mechanism.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Recurrent Neural Networks (RNN)"
+              "title": "Attention Mechanism"
             }
           }
         ]
@@ -189,6 +189,8 @@
   },
   "active": "e99280815b459433",
   "lastOpenFiles": [
+    "6 - Main Notes/Recurrent Neural Networks (RNN).md",
+    "6 - Main Notes/Attention Mechanism.md",
     "6 - Main Notes/Compositional Semantics.md",
     "6 - Main Notes/SubWord Models.md",
     "6 - Main Notes/Word embedding and Word Representation.md",
@@ -225,8 +227,6 @@
     "Pasted image 20250524220004.png",
     "Pasted image 20250524215959.png",
     "6 - Main Notes/tóm tắt Developing novel ML based fire weather indices.md",
-    "6 - Main Notes/so sánh 2 phương pháp FF detection system using WSN.md",
-    "6 - Main Notes/Data_Mining_Lab7_Report.md",
     "6 - Main Notes/lu3005367791.tmp",
     "6 - Main Notes/Data_Mining_Lab7_Report.docx",
     "6 - Main Notes/lu243682ul6n.tmp",
