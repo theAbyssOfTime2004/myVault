@@ -40,25 +40,23 @@ Tags:
 ### 5. Attention (mỗi bước $t$)
 
 1. Tính attention score giữa $h_t^{dec}$ và từng $h_i^{enc}$:  
-   - $\text{score}_i = v^\top \tanh(W_1 h_t^{dec} + W_2 h_i^{enc})$
+   - $\text{score}_i = v^\top \tanh(W_1 h_t^{dec} + W_2 h_i^{enc})$ (*concat*)
 
 2. Dùng softmax để chuẩn hóa:  
    - $\alpha_i = \text{softmax}(\text{score}_i)$
 
-3. Tính context vector (cộng có trọng số):  
+1. Tính context vector (weighted sum):  
    - $c_t = \sum_i \alpha_i \cdot h_i^{enc}$
 
 ### 6. Dự đoán từ đầu ra
 
 - Ghép $h_t^{dec}$ và $c_t$:  
   - $o_t = [h_t^{dec} ; c_t]$
-
 - Dự đoán từ:
   - $\hat{y}_t = \text{softmax}(W_o o_t + b_o)$
 
 - Nếu **training**:
   - Dùng ground-truth từ trước đó (teacher forcing)
-
 - Nếu **inference**:
   - Lấy từ có xác suất cao nhất → dùng làm input tiếp theo
 
