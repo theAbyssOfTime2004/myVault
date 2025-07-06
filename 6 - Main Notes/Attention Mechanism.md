@@ -441,4 +441,9 @@ Trong đó:
 
 Concatenate tất cả outputs từ 3 heads và project qua $W_O$ để có biểu diễn cuối cùng chứa đựng thông tin từ cả 3 góc nhìn.
 
+---
+## Transformer Architecture
+### Encoder and Decoder 
+- Encoding component là *Stack của N encoders*. Các encoder có structure giống nhau nhưng weights thì khác nhau. Đầu ra của encoder thứ $i$ là đầu vào của encoder thứ $i+1$
+-  Edcoding component cũng là *Stack của N decoders*. Cũng tương tự như encoder, các decoder có structure giống nhau nhưng weights khác nhau
 # References
