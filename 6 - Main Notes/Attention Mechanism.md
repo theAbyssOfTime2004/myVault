@@ -360,5 +360,85 @@ Self-attention cho phép mỗi token "hỏi" (query) tất cả các token khác
 
 Trong ví dụ trên, Input #1 gần như bỏ qua chính nó (weight = 0.0) và tập trung vào Input #2 và #3 (mỗi cái weight = 0.5), tạo ra một embedding mới phản ánh thông tin từ cả hai token này.
 
+---
+
+## Multi-Head Self-Attention
+
+### Khái niệm cơ bản
+
+**Multi-head self-attention** là thành phần cốt lõi trong **Transformer Network**. Nó có cấu trúc gồm một block self-attention, trong đó chứa **nhiều attention heads** chạy **song song**.
+
+### Cấu trúc và hoạt động
+
+#### Input chung cho tất cả heads
+
+**Tất cả các heads nhận cùng một input**: tức là cùng 1 tập các vector embedding ban đầu của các token (làm `query`, `key`, `value`).
+
+#### Điểm khác biệt quan trọng
+
+**Điểm khác biệt nằm ở trọng số**: mỗi head sử dụng **bộ trọng số riêng biệt** $$W_Q^{(i)}, W_K^{(i)}, W_V^{(i)}$$, nên tạo ra các `Q`, `K`, `V` khác nhau → dẫn đến **cách tính attention khác nhau**.
+
+#### Công thức cho mỗi head
+
+Đối với head thứ i:
+
+$$Q^{(i)} = X \cdot W_Q^{(i)}$$ $$K^{(i)} = X \cdot W_K^{(i)}$$ $$V^{(i)} = X \cdot W_V^{(i)}$$
+
+$$\text{head}_i = \text{Attention}(Q^{(i)}, K^{(i)}, V^{(i)}) = \text{softmax}\left(\frac{Q^{(i)}K^{(i)T}}{\sqrt{d_k}}\right)V^{(i)}$$
+
+### Ý nghĩa và lợi ích
+
+#### Học nhiều góc nhìn khác nhau
+
+**Mỗi head học được một góc nhìn khác nhau** về mối quan hệ giữa các token trong chuỗi:
+
+- **Head 1**: Tập trung vào ngữ pháp (subject-verb, noun-adjective)
+- **Head 2**: Học đồng tham chiếu (pronoun resolution)
+- **Head 3**: Chú ý đến vị trí tương đối của các từ
+- **Head 4**: Nắm bắt logic và quan hệ nhân quả
+- **Head 5**: Phân tích cảm xúc và tone
+- **Head 6**: Hiểu ngữ cảnh và domain-specific knowledge
+
+#### Tăng khả năng biểu diễn
+
+Thay vì chỉ có một cách nhìn duy nhất, multi-head attention cho phép mô hình:
+
+- Nắm bắt **nhiều loại quan hệ** cùng lúc
+- Học **các pattern phức tạp** mà single-head không thể học được
+- Tăng **khả năng tổng quát hóa** cho nhiều tác vụ khác nhau
+
+### Tổng hợp output
+
+Các output từ tất cả các heads sẽ được **nối lại (concatenate)** và **tổng hợp** thành biểu diễn đầu ra cuối cùng:
+
+$$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \text{head}_2, ..., \text{head}_h) \cdot W_O$$
+
+Trong đó:
+
+- $$h$$: số lượng heads
+- $$W_O$$: ma trận trọng số để project concatenated output về chiều mong muốn
+
+### Ví dụ minh họa
+
+#### Giả sử có 3 heads cho câu "The cat sat on the mat"
+
+**Head 1 (Syntax)**: Tập trung vào quan hệ chủ-vị
+
+- "cat" → "sat" (high attention)
+- "mat" → "on" (high attention)
+
+**Head 2 (Coreference)**: Học đồng tham chiếu
+
+- "cat" → "the" (moderate attention)
+- "mat" → "the" (moderate attention)
+
+**Head 3 (Position)**: Chú ý đến vị trí
+
+- "sat" → "on" (high attention)
+- "on" → "mat" (high attention)
+
+#### Kết quả cuối cùng
+
+Concatenate tất cả outputs từ 3 heads và project qua $W_O$ để có biểu diễn cuối cùng chứa đựng thông tin từ cả 3 góc nhìn.
 
 # References
