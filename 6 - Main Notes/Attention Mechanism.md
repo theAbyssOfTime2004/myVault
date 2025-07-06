@@ -146,10 +146,10 @@ Sau đó:
 - $\hat{y}_t$: xác suất phân phối từ vựng ở bước $t$
 
 ---
-# Image Captioning with Attention – Full Summary
+## Image Captioning with Attention – Full Summary
 
 
-## Mục tiêu bài toán
+### Mục tiêu bài toán
 
 **Input**: Một bức ảnh  
 **Output**: Một chuỗi từ mô tả bức ảnh (caption) Ví dụ:
@@ -158,7 +158,7 @@ Sau đó:
 - Caption: "A bird flying over a body of water"
 
 
-## Ý tưởng cốt lõi
+### Ý tưởng cốt lõi
 
 Image captioning là một bài toán cross-domain giữa:
 
@@ -166,18 +166,17 @@ Image captioning là một bài toán cross-domain giữa:
 - Computer Vision (hình ảnh) Mô hình học cách "dịch" từ ảnh sang ngôn ngữ tự nhiên.
 
 
-## Pipeline tổng quát
+### Pipeline tổng quát
 
-### 1. Input image
+#### 1. Input image
 
 - Một bức ảnh kích thước tùy ý.
 
-### 2. CNN trích đặc trưng
+#### 2. CNN trích đặc trưng
 
 - Dùng CNN (VD: Inception, ResNet) để biến ảnh thành tập các vùng (regions).
 - Ví dụ: $$14 \times 14 = 196$$ vùng, mỗi vùng là một vector $$h_i$$
-
-### 3. Attention + Decoder (RNN/LSTM)
+#### 3. Attention + Decoder (RNN/LSTM)
 
 Tại mỗi bước sinh từ:
 
@@ -187,12 +186,12 @@ Tại mỗi bước sinh từ:
     $$c_t = \sum_i \alpha_i h_i$$
 - Dùng $$c_t$$ để sinh từ tiếp theo qua RNN
 
-### 4. Caption generation
+#### 4. Caption generation
 
 - Bắt đầu từ token `<START>`
 - Sinh từng từ cho đến khi gặp `<END>` hoặc đạt độ dài tối đa
 
-## Công thức quan trọng
+### Công thức quan trọng
 
 - **Attention score (additive)**: $$\text{score}_i = v^\top \tanh(W_1 h_t^{dec} + W_2 h_i)$$
 - **Softmax attention weight**: $$\alpha_i = \frac{\exp(\text{score}_i)}{\sum_j \exp(\text{score}_j)}$$
@@ -200,7 +199,7 @@ Tại mỗi bước sinh từ:
 - **Dự đoán từ tiếp theo**: $$\hat{y}_t = \text{softmax}(W_o [h_t^{dec}; c_t] + b_o)$$
 
 
-## Attention hoạt động như thế nào?
+### Attention hoạt động như thế nào?
 
 Tại mỗi bước sinh từ:
 
@@ -209,7 +208,7 @@ Tại mỗi bước sinh từ:
 - Khi sinh từ `"water"` → attention chuyển sang vùng có mặt nước
 
 
-## Làm sao mô hình biết "bird" là chim?
+### Làm sao mô hình biết "bird" là chim?
 
 Câu hỏi: **Mô hình có được dạy trước rằng "chim là bird" không?**  
 → Không! Thay vào đó, mô hình học từ dữ liệu gồm nhiều ảnh và caption:
@@ -219,7 +218,7 @@ Câu hỏi: **Mô hình có được dạy trước rằng "chim là bird" khôn
     → Mô hình học được mối liên hệ giữa vùng ảnh và từ mô tả Toàn bộ quá trình này được tối ưu hóa thông qua hàm mất mát (loss) và lan truyền ngược (backpropagation).
 
 
-## Ví dụ Attention từ bài báo _Show, Attend and Tell_
+### Ví dụ Attention từ bài báo _Show, Attend and Tell_
 
 |Caption|Attention nhìn vào vùng|
 |---|---|
@@ -229,27 +228,27 @@ Câu hỏi: **Mô hình có được dạy trước rằng "chim là bird" khôn
 |A group of people on a boat|Người và thuyền|
 
 
-## Slide minh họa
+### Slide minh họa
 
-### Slide 1: Attention trên vùng ảnh
+#### Slide 1: Attention trên vùng ảnh
 
 - Mỗi vùng ảnh là một vector $$h_i$$
 - Ví dụ context vector:  
     $$c_1 = 0.5 \cdot h_3 + 0.5 \cdot h_4$$
 - Dùng để sinh từ `"learning"`
 
-### Slide 2: Pipeline tổng quát
+#### Slide 2: Pipeline tổng quát
 
 - Ảnh → CNN → vectors
 - Vectors → Attention
 - Decoder → sinh từ theo từng bước
 
-### Slide 3: Ví dụ attention
+#### Slide 3: Ví dụ attention
 
 - Hiển thị rõ mô hình "nhìn" vào đúng vùng ảnh khi sinh từ tương ứng trong caption
 
 
-## Kết luận
+### Kết luận
 
 Attention chính là chìa khóa giúp mô hình Image Captioning:
 
@@ -258,5 +257,65 @@ Attention chính là chìa khóa giúp mô hình Image Captioning:
 - Nhờ đó caption chính xác và tự nhiên hơn, gần với cách con người mô tả ảnh
 
 ---
+
+## Self-Attention Pipeline (trên từng token)
+
+### Mục tiêu
+
+Tạo biểu diễn mới có ngữ cảnh cho mỗi token bằng cách cho nó "nhìn" các token khác trong chuỗi.
+
+### Bước 1: Chuẩn bị input và tạo Query, Key, Value
+
+Input là các vector embedding có shape [seq_len, d_model]. Với mỗi token, ta tạo ba vector:
+
+- **Query** = Input × W_Q (shape: [d_k])
+- **Key** = Input × W_K (shape: [d_k])
+- **Value** = Input × W_V (shape: [d_v])
+
+W_Q, W_K, W_V là ma trận trọng số có thể học được (learnable parameters).
+
+### Bước 2: Tính Attention Scores
+
+Với mỗi token đang xét (token_i), tính dot product giữa query của nó với key của tất cả các token khác (kể cả chính nó):
+
+$$\text{score}_{i,j} = \text{dot}(\text{query}_i, \text{key}_j)$$
+
+Kết quả: Một vector attention scores biểu thị mức độ chú ý của token_i đến các token_j.
+
+### Bước 3: Chuẩn hóa Attention Scores bằng Softmax
+
+Biến các attention scores thành xác suất (trọng số attention):
+
+$$\alpha_{i,j} = \text{softmax}(\text{score}_{i,j})$$
+
+Tổng của các trọng số này bằng 1.
+
+### Bước 4: Tính Weighted Sum của các Value
+
+Dùng các trọng số softmax để tính tổng có trọng số của các value vectors:
+
+$$\text{output}_i = \sum_j \alpha_{i,j} \times \text{value}_j$$
+
+output_i là biểu diễn mới có ngữ cảnh của token_i.
+
+### Kết quả
+
+Với mỗi token, ta thu được một vector đầu ra mang ngữ cảnh từ toàn bộ chuỗi. Quá trình này được lặp lại cho từng token trong sequence.
+
+### Công thức tổng quát
+
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+Trong đó:
+
+- Q: Ma trận queries [seq_len, d_k]
+- K: Ma trận keys [seq_len, d_k]
+- V: Ma trận values [seq_len, d_v]
+- $$\sqrt{d_k}$$: Hệ số scaled để tránh gradient vanishing
+
+### Ý nghĩa trực quan
+
+Self-attention cho phép mỗi token "hỏi" (query) tất cả các token khác trong chuỗi để tìm hiểu ngữ cảnh. Token nào có "chìa khóa" (key) phù hợp với câu hỏi sẽ được chú ý nhiều hơn, và "giá trị" (value) của chúng sẽ được kết hợp để tạo ra biểu diễn mới cho token đang xét.
+
 
 # References
