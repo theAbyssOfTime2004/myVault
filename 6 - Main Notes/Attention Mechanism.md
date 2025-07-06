@@ -460,7 +460,8 @@ Concatenate tất cả outputs từ 3 heads và project qua $W_O$ để có bi�
 - Thay vì chỉ có 1 attention head, ta có **nhiều head chạy song song** (ví dụ: 8 heads).
 - Tất cả các head dùng **cùng 1 input**, nhưng **trọng số Q/K/V khác nhau** (khởi tạo khác, học khác).
 - Mỗi head học được **kiểu quan hệ ngữ nghĩa khác nhau** → giúp mô hình hiểu ngữ cảnh tốt hơn.
-- Kết quả từ các head được **nối lại (concatenate)** và đưa qua một lớp tuyến tính chung.
+- Kết quả từ các head được **nối lại (concatenate)** và đưa qua một lớp tuyến tính chung để feed-forward layer hiểu được.
+![[Pasted image 20250707004950.png]]
 
 ### 4. Các Mask trong Attention
 
