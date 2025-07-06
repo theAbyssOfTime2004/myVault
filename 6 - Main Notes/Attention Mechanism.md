@@ -446,4 +446,28 @@ Concatenate tất cả outputs từ 3 heads và project qua $W_O$ để có bi�
 ### Encoder and Decoder 
 - Encoding component là *Stack của N encoders*. Các encoder có structure giống nhau nhưng weights thì khác nhau. Đầu ra của encoder thứ $i$ là đầu vào của encoder thứ $i+1$
 -  Edcoding component cũng là *Stack của N decoders*. Cũng tương tự như encoder, các decoder có structure giống nhau nhưng weights khác nhau
+
+### 1. Từ → Vector
+- Mỗi token (ví dụ `"I"`) được gán một **vector embedding** có chiều $d_{\text{model}}$​, thường là 512 hoặc 768.
+- Vector này được lấy từ một **bảng tra cứu** (`Embedding matrix`) và được **học trong quá trình huấn luyện**.
+- Vector 512 chiều này **không mô tả nghĩa cụ thể từng số**, mà tổng thể nó **mã hóa mối quan hệ ngữ nghĩa của từ đó với các từ khác** trong corpus.
+###  2. Positional Encoding
+
+- Vì Transformer không có cấu trúc tuần tự như RNN, nên cần **thêm positional encoding** vào embedding.
+- Positional Encoding giúp mô hình **phân biệt vị trí các từ trong câu**.
+### 3. Multi-head Attention
+
+- Thay vì chỉ có 1 attention head, ta có **nhiều head chạy song song** (ví dụ: 8 heads).
+- Tất cả các head dùng **cùng 1 input**, nhưng **trọng số Q/K/V khác nhau** (khởi tạo khác, học khác).
+- Mỗi head học được **kiểu quan hệ ngữ nghĩa khác nhau** → giúp mô hình hiểu ngữ cảnh tốt hơn.
+- Kết quả từ các head được **nối lại (concatenate)** và đưa qua một lớp tuyến tính chung.
+
+### 4. Các Mask trong Attention
+
+|Mask loại gì|Dùng ở đâu|Để làm gì|
+|---|---|---|
+|Padding mask|Encoder + Decoder|Bỏ qua `[PAD]` token (không có ý nghĩa)|
+|Causal (look-ahead) mask|Decoder (self-attention)|Không cho nhìn về “tương lai” khi sinh từ|
+
+---
 # References
