@@ -331,7 +331,7 @@ $$\text{output} = 0.0 \times [1, 2, 3] + 0.5 \times [2, 8, 0] + 0.5 \times [2, 6
 
 $$= [0, 0, 0] + [1, 4, 0] + [1, 3, 1.5] = [2.0, 7.0, 1.5]$$
 
-→ Đây là **embedding đầu ra mới của Input #1**, sau khi đã "chú ý" đến toàn bộ chuỗi.
+→ Đây là **embedding đầu ra mới của Input #1**, sau khi đã "chú ý" đến toàn bộ chuỗi, tiếp theo hãy lặp lại việc tính toán cho các Input #2 và #3
 
 ### Kết quả
 
