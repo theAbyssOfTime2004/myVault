@@ -266,41 +266,82 @@ Tạo biểu diễn mới có ngữ cảnh cho mỗi token bằng cách cho nó 
 
 ### Bước 1: Chuẩn bị input và tạo Query, Key, Value
 
-Input là các vector embedding có shape [seq_len, d_model]. Với mỗi token, ta tạo ba vector:
+Input là các vector embedding, có shape `[seq_len, d_model]`. Mỗi token được ánh xạ thành ba vector:
 
 - **Query** = Input × W_Q (shape: [d_k])
 - **Key** = Input × W_K (shape: [d_k])
 - **Value** = Input × W_V (shape: [d_v])
 
-W_Q, W_K, W_V là ma trận trọng số có thể học được (learnable parameters).
+W_Q, W_K, W_V là ma trận trọng số có thể học được (learnable parameters). Key và Query phải có cùng shape (để dot product được), còn Value có thể khác.
+
+#### Ví dụ (Input #1):
+
+- Input vector: `[1, 0, 1, 0]`
+- Query = `[1, 0, 2]`
+- Key = `[0, 1, 1]`
+- Value = `[1, 2, 3]`
 
 ### Bước 2: Tính Attention Scores
 
-Với mỗi token đang xét (token_i), tính dot product giữa query của nó với key của tất cả các token khác (kể cả chính nó):
+Với mỗi token đang xét (Input #1), tính dot product giữa query của nó và tất cả các key (kể cả của chính nó):
 
-$$\text{score}_{i,j} = \text{dot}(\text{query}_i, \text{key}_j)$$
+$$\text{score} = \text{dot}(\text{query}_{\text{input1}}, \text{key}_j)$$
 
-Kết quả: Một vector attention scores biểu thị mức độ chú ý của token_i đến các token_j.
+#### Ví dụ:
+
+Query của Input #1 là `[1, 0, 2]`
+
+Các key:
+
+- Input #1: `[0, 1, 1]`
+- Input #2: `[4, 4, 0]`
+- Input #3: `[2, 3, 1]`
+
+Tính tích vô hướng:
+
+$$[1,0,2] \cdot [0,1,1] = 1 \times 0 + 0 \times 1 + 2 \times 1 = 2$$
+
+$$[1,0,2] \cdot [4,4,0] = 1 \times 4 + 0 \times 4 + 2 \times 0 = 4$$
+
+$$[1,0,2] \cdot [2,3,1] = 1 \times 2 + 0 \times 3 + 2 \times 1 = 4$$
+
+→ Attention scores = `[2, 4, 4]`
 
 ### Bước 3: Chuẩn hóa Attention Scores bằng Softmax
 
-Biến các attention scores thành xác suất (trọng số attention):
+Dùng softmax để biến các attention scores thành xác suất (trọng số attention):
 
-$$\alpha_{i,j} = \text{softmax}(\text{score}_{i,j})$$
+$$\text{softmax}([2, 4, 4]) = [0.0, 0.5, 0.5]$$
 
-Tổng của các trọng số này bằng 1.
+→ Điều này cho thấy Input #1 chủ yếu chú ý vào Input #2 và Input #3.
 
 ### Bước 4: Tính Weighted Sum của các Value
 
-Dùng các trọng số softmax để tính tổng có trọng số của các value vectors:
+Lấy từng value vector nhân với trọng số tương ứng và cộng lại:
 
-$$\text{output}_i = \sum_j \alpha_{i,j} \times \text{value}_j$$
+#### Các value tương ứng:
 
-output_i là biểu diễn mới có ngữ cảnh của token_i.
+- Input #1: `[1, 2, 3]`
+- Input #2: `[2, 8, 0]`
+- Input #3: `[2, 6, 3]`
+
+#### Weighted sum:
+
+$$\text{output} = 0.0 \times [1, 2, 3] + 0.5 \times [2, 8, 0] + 0.5 \times [2, 6, 3]$$
+
+$$= [0, 0, 0] + [1, 4, 0] + [1, 3, 1.5] = [2.0, 7.0, 1.5]$$
+
+→ Đây là **embedding đầu ra mới của Input #1**, sau khi đã "chú ý" đến toàn bộ chuỗi.
 
 ### Kết quả
 
-Với mỗi token, ta thu được một vector đầu ra mang ngữ cảnh từ toàn bộ chuỗi. Quá trình này được lặp lại cho từng token trong sequence.
+Output của mỗi token là một vector mới có ngữ cảnh, tổng hợp từ các value khác theo trọng số attention. Quá trình được lặp lại cho từng token trong chuỗi.
+
+### Ghi chú quan trọng
+
+- Query và Key phải có cùng chiều để thực hiện dot product
+- Value có thể có chiều khác; chiều của đầu ra sẽ bằng chiều của Value
+- Output là embedding "mới" của token, đã được cập nhật bằng thông tin từ các token khác
 
 ### Công thức tổng quát
 
@@ -316,6 +357,8 @@ Trong đó:
 ### Ý nghĩa trực quan
 
 Self-attention cho phép mỗi token "hỏi" (query) tất cả các token khác trong chuỗi để tìm hiểu ngữ cảnh. Token nào có "chìa khóa" (key) phù hợp với câu hỏi sẽ được chú ý nhiều hơn, và "giá trị" (value) của chúng sẽ được kết hợp để tạo ra biểu diễn mới cho token đang xét.
+
+Trong ví dụ trên, Input #1 gần như bỏ qua chính nó (weight = 0.0) và tập trung vào Input #2 và #3 (mỗi cái weight = 0.5), tạo ra một embedding mới phản ánh thông tin từ cả hai token này.
 
 
 # References
