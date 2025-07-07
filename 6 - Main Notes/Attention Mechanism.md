@@ -465,10 +465,29 @@ Concatenate tất cả outputs từ 3 heads và project qua $W_O$ để có bi�
 
 ### 4. Các Mask trong Attention
 
-|Mask loại gì|Dùng ở đâu|Để làm gì|
-|---|---|---|
-|Padding mask|Encoder + Decoder|Bỏ qua `[PAD]` token (không có ý nghĩa)|
-|Causal (look-ahead) mask|Decoder (self-attention)|Không cho nhìn về “tương lai” khi sinh từ|
+| Mask loại gì             | Dùng ở đâu               | Để làm gì                                 |
+| ------------------------ | ------------------------ | ----------------------------------------- |
+| Padding mask             | Encoder + Decoder        | Bỏ qua `[PAD]` token (không có ý nghĩa)   |
+| Causal (look-ahead) mask | Decoder (self-attention) | Không cho nhìn về “tương lai” khi sinh từ |
+### 5. Residual Connections
+- Giúp mô hình **giữ lại thông tin gốc** của đầu vào $X$ qua mỗi layer.
+- Tránh tình trạng thông tin bị **làm mờ hoặc biến mất** do nhiều phép biến đổi liên tiếp (self-attention, FFN).
+- **Mỗi encoder block gồm 2 sublayers:**
+	1. *Multi-head self-attention*
+	2. *Feed-forward network (FFN)*
+	=> Mỗi sublayer **đều được bọc bởi một residual connection và LayerNorm**.
+### 6. Feed Forward Network
+- Là một **mạng con (sub-layer)** nằm sau lớp **Multi-head self-attention** trong mỗi encoder.****
+- FFN là một **mạng gồm 2 lớp fully connected (linear layers)** và một hàm kích hoạt **ReLU** ở giữa.
+#### Công thức:
+$$FFN(x) = \max(0, xW_1 + b_1)W_2 + b_2 $$
 
+- $x$: đầu vào của FFN (mỗi token đã qua attention)
+    
+- $W_1, b_1$​: trọng số và bias của lớp ẩn
+- $W_2, b_2$​: trọng số và bias của lớp output
+- $\max(0, \cdot)$: chính là **hàm ReLU**
+#### Tóm lại: 
+- Trong mỗi encoder layer, sau khi các token đã "nhìn nhau" qua self-attention, thì **mỗi token lại được xử lý riêng biệt bởi một FFN để học thêm biểu diễn ngữ nghĩa mạnh hơn.**
 ---
 # References
