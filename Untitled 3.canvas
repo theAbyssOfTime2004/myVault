@@ -15,10 +15,10 @@
 		{"id":"d298d3dfec8fd7ea","x":328,"y":191,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu không gian"},
 		{"id":"d3b9ebcd4f0fd113","x":328,"y":280,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"},
 		{"id":"7df9ee4a905fe6ba","x":-460,"y":480,"width":250,"height":60,"type":"text","text":"chương 2: Data preparation "},
-		{"id":"bc93629ef772a25c","x":45,"y":396,"width":250,"height":60,"type":"text","text":"Feature extraction"},
-		{"id":"65cbc5d0a1a5707f","x":45,"y":522,"width":250,"height":60,"type":"text","text":"Data cleaning"},
-		{"id":"66369f0fb965b788","x":19,"y":642,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"},
-		{"id":"0e66f1f35deaee62","x":487,"y":391,"width":250,"height":60,"type":"text","text":"- Định nghĩa và mục tiêu\n- "}
+		{"id":"66369f0fb965b788","x":-220,"y":980,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"},
+		{"id":"65cbc5d0a1a5707f","x":-100,"y":780,"width":250,"height":60,"type":"text","text":"Data cleaning"},
+		{"id":"bc93629ef772a25c","x":0,"y":580,"width":250,"height":60,"type":"text","text":"Feature extraction"},
+		{"id":"0e66f1f35deaee62","x":460,"y":380,"width":250,"height":229,"type":"text","text":"- Định nghĩa và mục tiêu\n- Tầm quan trọng\n- Ví dụ\n- Mối quan hệ với biến đổi kiểu dữ liệu"}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
