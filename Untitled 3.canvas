@@ -17,7 +17,8 @@
 		{"id":"7df9ee4a905fe6ba","x":-460,"y":480,"width":250,"height":60,"type":"text","text":"chương 2: Data preparation "},
 		{"id":"bc93629ef772a25c","x":45,"y":396,"width":250,"height":60,"type":"text","text":"Feature extraction"},
 		{"id":"65cbc5d0a1a5707f","x":45,"y":522,"width":250,"height":60,"type":"text","text":"Data cleaning"},
-		{"id":"66369f0fb965b788","x":19,"y":642,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"}
+		{"id":"66369f0fb965b788","x":19,"y":642,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"},
+		{"id":"0e66f1f35deaee62","x":487,"y":391,"width":250,"height":60,"type":"text","text":""}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
@@ -35,6 +36,7 @@
 		{"id":"3143666110c56a6f","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d3b9ebcd4f0fd113","toSide":"left"},
 		{"id":"08fb88b8cb5ecbf1","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"bc93629ef772a25c","toSide":"left"},
 		{"id":"40847554887217e5","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"65cbc5d0a1a5707f","toSide":"left"},
-		{"id":"0a9a34e3e6247463","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"66369f0fb965b788","toSide":"left"}
+		{"id":"0a9a34e3e6247463","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"66369f0fb965b788","toSide":"left"},
+		{"id":"7a2e32a87758b04d","fromNode":"bc93629ef772a25c","fromSide":"right","toNode":"0e66f1f35deaee62","toSide":"left"}
 	]
 }

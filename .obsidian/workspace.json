@@ -39,8 +39,7 @@
               "title": "Mangas that i saved for future"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,8 +203,9 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "b5ba7d82d71f94ec",
+  "active": "e99280815b459433",
   "lastOpenFiles": [
+    "6 - Main Notes/Mangas that i saved for future.md",
     "Untitled 3.canvas",
     "6 - Main Notes/Untitled Kanban 1.md",
     "Untitled 2.canvas",
