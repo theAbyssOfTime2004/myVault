@@ -13,7 +13,11 @@
 		{"id":"be5561dc43bca3e0","x":365,"y":10,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu time series"},
 		{"id":"736cd3c9f8cfbf21","x":346,"y":99,"width":250,"height":60,"color":"2","type":"text","text":"Dãy và chuỗi rời rạc"},
 		{"id":"d298d3dfec8fd7ea","x":328,"y":191,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu không gian"},
-		{"id":"d3b9ebcd4f0fd113","x":328,"y":280,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"}
+		{"id":"d3b9ebcd4f0fd113","x":328,"y":280,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"},
+		{"id":"7df9ee4a905fe6ba","x":-460,"y":480,"width":250,"height":60,"type":"text","text":"chương 2: Data preparation "},
+		{"id":"bc93629ef772a25c","x":45,"y":396,"width":250,"height":60,"type":"text","text":"Feature extraction"},
+		{"id":"65cbc5d0a1a5707f","x":45,"y":522,"width":250,"height":60,"type":"text","text":"Data cleaning"},
+		{"id":"66369f0fb965b788","x":19,"y":642,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
@@ -28,6 +32,9 @@
 		{"id":"6c52dd0338e06d31","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"be5561dc43bca3e0","toSide":"left"},
 		{"id":"ae98d042b423f265","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"736cd3c9f8cfbf21","toSide":"left"},
 		{"id":"49e4bc367796cf2d","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d298d3dfec8fd7ea","toSide":"left"},
-		{"id":"3143666110c56a6f","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d3b9ebcd4f0fd113","toSide":"left"}
+		{"id":"3143666110c56a6f","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d3b9ebcd4f0fd113","toSide":"left"},
+		{"id":"08fb88b8cb5ecbf1","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"bc93629ef772a25c","toSide":"left"},
+		{"id":"40847554887217e5","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"65cbc5d0a1a5707f","toSide":"left"},
+		{"id":"0a9a34e3e6247463","fromNode":"7df9ee4a905fe6ba","fromSide":"right","toNode":"66369f0fb965b788","toSide":"left"}
 	]
 }
