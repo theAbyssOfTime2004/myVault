@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"59a5f469f43705b5","x":-340,"y":-240,"width":250,"height":60,"type":"text","text":"Chương 1: Các loại dữ liệu cơ bản"},
+		{"id":"729c15e2cba58ca8","x":-90,"y":40,"width":250,"height":60,"color":"1","type":"text","text":"Dữ liệu định hướng phụ thuộc"},
+		{"id":"76c009032ad91f61","x":-90,"y":-457,"width":250,"height":60,"color":"1","type":"text","text":"Dữ liệu định hướng k phụ thuộc"},
+		{"id":"2afa9e9dcf809ebe","x":491,"y":-904,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu đa chiều định lượng"},
+		{"id":"2e55e4faeb589b7c","x":491,"y":-807,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu phân loại"},
+		{"id":"6ff20834e7fa1a2f","x":480,"y":-706,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu thuộc tính hỗn hợp"},
+		{"id":"39fa96ae24ec85cc","x":474,"y":-572,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu nhị phân và dữ liệu tập hợp"},
+		{"id":"45c8fa39022d046d","x":420,"y":-487,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu văn bản"},
+		{"id":"ec2d1ac64846ded9","x":313,"y":-189,"width":250,"height":60,"color":"2","type":"text","text":"Phụ thuộc ngầm\n"},
+		{"id":"0b39e12dccb14adf","x":365,"y":-90,"width":250,"height":60,"color":"2","type":"text","text":"Phụ thuộc tường minh"},
+		{"id":"be5561dc43bca3e0","x":365,"y":10,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu time series"},
+		{"id":"736cd3c9f8cfbf21","x":346,"y":99,"width":250,"height":60,"color":"2","type":"text","text":"Dãy và chuỗi rời rạc"},
+		{"id":"d298d3dfec8fd7ea","x":328,"y":191,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu không gian"},
+		{"id":"d3b9ebcd4f0fd113","x":316,"y":262,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"}
+	],
+	"edges":[
+		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
+		{"id":"94f0c135af942f25","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"729c15e2cba58ca8","toSide":"left"},
+		{"id":"d14cf55b5491b0cc","fromNode":"76c009032ad91f61","fromSide":"right","toNode":"2afa9e9dcf809ebe","toSide":"left"},
+		{"id":"7315d88453a369c3","fromNode":"76c009032ad91f61","fromSide":"right","toNode":"2e55e4faeb589b7c","toSide":"left"},
+		{"id":"58cd040971b9e40d","fromNode":"76c009032ad91f61","fromSide":"right","toNode":"6ff20834e7fa1a2f","toSide":"left"},
+		{"id":"fe960d4bc5fdd005","fromNode":"76c009032ad91f61","fromSide":"right","toNode":"39fa96ae24ec85cc","toSide":"left"},
+		{"id":"c81676383f87fa9c","fromNode":"76c009032ad91f61","fromSide":"right","toNode":"45c8fa39022d046d","toSide":"left"},
+		{"id":"4eb93c38f215895e","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"ec2d1ac64846ded9","toSide":"left"},
+		{"id":"c560146fd0b9bfef","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"0b39e12dccb14adf","toSide":"left"},
+		{"id":"6c52dd0338e06d31","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"be5561dc43bca3e0","toSide":"left"},
+		{"id":"ae98d042b423f265","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"736cd3c9f8cfbf21","toSide":"left"},
+		{"id":"49e4bc367796cf2d","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d298d3dfec8fd7ea","toSide":"left"},
+		{"id":"3143666110c56a6f","fromNode":"729c15e2cba58ca8","fromSide":"right","toNode":"d3b9ebcd4f0fd113","toSide":"left"}
+	]
+}
