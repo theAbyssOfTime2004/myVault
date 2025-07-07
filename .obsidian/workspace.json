@@ -11,15 +11,17 @@
             "id": "e99280815b459433",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "6 - Main Notes/Attention Mechanism.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Untitled 3.canvas",
+                "viewState": {
+                  "x": 289.5275243893095,
+                  "y": 20.673056281581808,
+                  "zoom": -0.40000000000000013
+                }
               },
-              "icon": "lucide-file",
-              "title": "Attention Mechanism"
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled 3"
             }
           }
         ]
@@ -189,10 +191,14 @@
   },
   "active": "e99280815b459433",
   "lastOpenFiles": [
+    "6 - Main Notes/Untitled Kanban 1.md",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled.canvas",
+    "6 - Main Notes/Attention Mechanism.md",
     "Pasted image 20250707004950.png",
     "6 - Main Notes/Data_Mining_Lab5_report.md",
     "3 - Tags/data scientist.md",
-    "6 - Main Notes/Attention Mechanism.md",
     "6 - Main Notes/Recurrent Neural Networks (RNN).md",
     "6 - Main Notes/Compositional Semantics.md",
     "6 - Main Notes/SubWord Models.md",
@@ -222,11 +228,9 @@
     "6 - Main Notes/Untitled.md",
     "Pasted image 20250607135547.png",
     "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
-    "6 - Main Notes/ôn tập.md",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "Pasted image 20250524220012.png",
     "Pasted image 20250524220004.png",
-    "Pasted image 20250524215959.png",
     "6 - Main Notes/lu3005367791.tmp",
     "6 - Main Notes/Data_Mining_Lab7_Report.docx",
     "6 - Main Notes/lu243682ul6n.tmp",
@@ -236,8 +240,6 @@
     "6 - Main Notes/BTLT_KTDL_22280008_Lan3.docx",
     "6 - Main Notes/BTLT_KTDL_Tuan4.docx",
     "6 - Main Notes/[6]_summary.docx",
-    "Untitled.canvas",
-    "Untitled 2.canvas",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
