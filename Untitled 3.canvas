@@ -18,7 +18,7 @@
 		{"id":"bc93629ef772a25c","x":45,"y":396,"width":250,"height":60,"type":"text","text":"Feature extraction"},
 		{"id":"65cbc5d0a1a5707f","x":45,"y":522,"width":250,"height":60,"type":"text","text":"Data cleaning"},
 		{"id":"66369f0fb965b788","x":19,"y":642,"width":250,"height":60,"type":"text","text":"Feature selection and transformation"},
-		{"id":"0e66f1f35deaee62","x":487,"y":391,"width":250,"height":60,"type":"text","text":""}
+		{"id":"0e66f1f35deaee62","x":487,"y":391,"width":250,"height":60,"type":"text","text":"- Định nghĩa và mục tiêu\n- "}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
