@@ -9,11 +9,11 @@
 		{"id":"39fa96ae24ec85cc","x":474,"y":-572,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu nhị phân và dữ liệu tập hợp"},
 		{"id":"45c8fa39022d046d","x":420,"y":-487,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu văn bản"},
 		{"id":"ec2d1ac64846ded9","x":313,"y":-189,"width":250,"height":60,"color":"2","type":"text","text":"Phụ thuộc ngầm\n"},
-		{"id":"0b39e12dccb14adf","x":365,"y":-90,"width":250,"height":60,"color":"2","type":"text","text":"Phụ thuộc tường minh"},
+		{"id":"0b39e12dccb14adf","x":365,"y":-80,"width":250,"height":50,"color":"2","type":"text","text":"Phụ thuộc tường minh"},
 		{"id":"be5561dc43bca3e0","x":365,"y":10,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu time series"},
 		{"id":"736cd3c9f8cfbf21","x":346,"y":99,"width":250,"height":60,"color":"2","type":"text","text":"Dãy và chuỗi rời rạc"},
 		{"id":"d298d3dfec8fd7ea","x":328,"y":191,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu không gian"},
-		{"id":"d3b9ebcd4f0fd113","x":316,"y":262,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"}
+		{"id":"d3b9ebcd4f0fd113","x":328,"y":280,"width":250,"height":60,"color":"2","type":"text","text":"Dữ liệu mạng và đồ thị"}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
