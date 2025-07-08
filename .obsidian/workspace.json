@@ -11,32 +11,15 @@
             "id": "e99280815b459433",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled 3.canvas",
-                "viewState": {
-                  "x": 633.3491552260762,
-                  "y": 3322.470916020408,
-                  "zoom": -2
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled 3"
-            }
-          },
-          {
-            "id": "b5ba7d82d71f94ec",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Mangas that i saved for future.md",
+                "file": "6 - Main Notes/Attention Mechanism.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Mangas that i saved for future"
+              "title": "Attention Mechanism"
             }
           }
         ]
@@ -205,8 +188,9 @@
   },
   "active": "e99280815b459433",
   "lastOpenFiles": [
-    "6 - Main Notes/Mangas that i saved for future.md",
     "Untitled 3.canvas",
+    "6 - Main Notes/transformer.md",
+    "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/Untitled Kanban 1.md",
     "Untitled 2.canvas",
     "Untitled.canvas",
@@ -240,9 +224,7 @@
     "6 - Main Notes/Bài tập thực hành KTDL tuần 9.md",
     "Pasted image 20250607140156.png",
     "Pasted image 20250607140123.png",
-    "6 - Main Notes/Untitled.md",
     "Pasted image 20250607135547.png",
-    "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "Pasted image 20250524220012.png",
     "Pasted image 20250524220004.png",
