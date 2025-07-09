@@ -49,11 +49,13 @@
 		{"id":"e160e2cbf3f5426f","type":"text","text":"Chương 4: Khai phá mẫu liên hệ","x":1320,"y":-320,"width":250,"height":60},
 		{"id":"aef7f82bfdbc7638","type":"text","text":"Là một bài toán cổ điển, được định nghĩa với dữ liệu siêu thị, nơi khách hàng mua các tập hợp hạng mục trong các giao dịch. Mục tiêu là xác định mối liên hệ giữa các nhóm hạng mục được mua cùng nhau","x":2100,"y":-720,"width":390,"height":138},
 		{"id":"eb15e2efb0db334e","type":"text","text":"- **Item:** Các mặt hàng riêng lẻ \n- **Itemset:** Một danh sách các hạng mục, ví dụ như {i1, i2} hoặc {i1, i2, i3}. Một tập k – hạng mục (k – itemset) là danh sách các k item.\n- **Transaction:** Một tập hợp các hạng mục được mua cùng nhau trong một giỏ hàng, kèm theo **TID**. Các thuộc tính của mỗi giao dịch thường được biểu diễn dưới dạng nhị phân\n- **Support:** Tần số tương đối của 1 mẫu, được định nghĩa là tỷ lệ số giao dịch mà tập hạng mục đó xuất hiện trên tổng số giao dịch \n`support(A) = (số giao dịch mà A xuất hiện) / (tổng số giao dịch).`\n- **MinSupport:** Một ngường hỗ trợ được người dùng xác định trước (Ví dụ: 40% hoặc xuất hiện 5 lần)\n- **Frequent Itemset:** Một Itemset S được gọi là frequent nếu frequency của nó >= Minsup. Số lượng các Frequent Itemset rất nhạy cảm với mức MinSup; mức thấp hơn cho ra nhiều mẫu hơn, trong khi mức quá cao có thể không tìm thấy mẫu nào ","x":2600,"y":-680,"width":660,"height":500},
-		{"id":"675cbc4af0503f2f","x":2607,"y":-120,"width":533,"height":280,"type":"text","text":"- Là một tính chất quan trọng, nói rằng nếu một tập **Itemset I là phổ biến**, thì tất cả các tập con của I cũng phải là phổ biến  \n- Ngược lại, nếu một tập hạng mục không phổ biến, thì mọi tập cha (superset) của nó cũng sẽ không phổ biến. Tính chất này đóng vai trò then chốt trong việc cắt giảm không gian tìm kiếm của các thuật toán khai phá mẫu\n- Tính chất đơn điệu của support cũng ngụ ý rằng mọi tập con của tập phổ  biến cũng sẽ là tập phổ biến"},
 		{"id":"01a5b93744ac0321","type":"text","text":"2. Mô hình Khai phá mẫu thường xuyên","x":1560,"y":40,"width":282,"height":84},
 		{"id":"95509f5f19600a30","type":"text","text":"1. Giới thiệu về Khai Phá Mẫu Liên Hệ","x":1480,"y":-600,"width":285,"height":78},
 		{"id":"7ff1a4c757fd2994","type":"text","text":"Bài toán được đặt dựa trên dữ liệu tập hợp không có thứ tự với các định nghĩa cơ bản gồm:","x":1880,"y":-240,"width":303,"height":120},
-		{"id":"445521b9b6550752","x":2360,"y":200,"width":250,"height":60,"type":"text","text":"Down Closure Property"}
+		{"id":"675cbc4af0503f2f","x":2840,"y":-40,"width":533,"height":280,"type":"text","text":"- Là một tính chất quan trọng, nói rằng nếu một tập **Itemset I là phổ biến**, thì tất cả các tập con của I cũng phải là phổ biến  \n- Ngược lại, nếu một tập hạng mục không phổ biến, thì mọi tập cha (superset) của nó cũng sẽ không phổ biến. Tính chất này đóng vai trò then chốt trong việc cắt giảm không gian tìm kiếm của các thuật toán khai phá mẫu\n- Tính chất đơn điệu của support cũng ngụ ý rằng mọi tập con của tập phổ  biến cũng sẽ là tập phổ biến"},
+		{"id":"445521b9b6550752","x":2440,"y":-40,"width":250,"height":60,"type":"text","text":"Down Closure Property"},
+		{"id":"aa3a000059fbbc8e","x":2344,"y":283,"width":250,"height":60,"type":"text","text":"Maximal Frequent Itemsets"},
+		{"id":"3a1fa5b93e4610c9","x":2839,"y":449,"width":401,"height":191,"type":"text","text":"- Một tập frequent I là maximal ở một mức minsup nhất định nếu nó là frequent và **không có bất kỳ tập cha nào của nó cũng là frequent**. Tập các mẫu maximal frequent có thể được coi là biểu diễn cô đọng của các mẫu frequent, mặc dù nó không giữ lại thông tin về giá trị support của các tập con."}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
@@ -105,7 +107,9 @@
 		{"id":"e9654bdca0c7a827","fromNode":"e160e2cbf3f5426f","fromSide":"right","toNode":"01a5b93744ac0321","toSide":"left"},
 		{"id":"3c7a8d4ab83fe1bf","fromNode":"01a5b93744ac0321","fromSide":"right","toNode":"7ff1a4c757fd2994","toSide":"left"},
 		{"id":"fd3bd5c1a8d0763c","fromNode":"7ff1a4c757fd2994","fromSide":"right","toNode":"eb15e2efb0db334e","toSide":"left"},
-		{"id":"7c72e220da9336cb","fromNode":"7ff1a4c757fd2994","fromSide":"bottom","toNode":"445521b9b6550752","toSide":"top"},
-		{"id":"54e842f8bcf7ea52","fromNode":"445521b9b6550752","fromSide":"right","toNode":"675cbc4af0503f2f","toSide":"left"}
+		{"id":"7c72e220da9336cb","fromNode":"7ff1a4c757fd2994","fromSide":"right","toNode":"445521b9b6550752","toSide":"top"},
+		{"id":"54e842f8bcf7ea52","fromNode":"445521b9b6550752","fromSide":"right","toNode":"675cbc4af0503f2f","toSide":"left"},
+		{"id":"d0e52e9c5964208b","fromNode":"7ff1a4c757fd2994","fromSide":"right","toNode":"aa3a000059fbbc8e","toSide":"left"},
+		{"id":"bd004b428a7a66ef","fromNode":"aa3a000059fbbc8e","fromSide":"right","toNode":"3a1fa5b93e4610c9","toSide":"left"}
 	]
 }
