@@ -11,15 +11,17 @@
             "id": "e99280815b459433",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "6 - Main Notes/Attention Mechanism.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Untitled 3.canvas",
+                "viewState": {
+                  "x": 2018.5128750923263,
+                  "y": -278.4675858612378,
+                  "zoom": -0.5157872510959345
+                }
               },
-              "icon": "lucide-file",
-              "title": "Attention Mechanism"
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled 3"
             }
           }
         ]
@@ -188,6 +190,11 @@
   },
   "active": "e99280815b459433",
   "lastOpenFiles": [
+    "Untitled 1.canvas",
+    "Untitled 2.canvas",
+    "Untitled 3.canvas",
+    "Untitled.canvas",
+    "6 - Main Notes/Attention Mechanism.md",
     "6 - Main Notes/CNN review.md",
     "6 - Main Notes/BitTorrent.md",
     "6 - Main Notes/Docker.md",
@@ -201,13 +208,9 @@
     "6 - Main Notes/Web caches (Proxy server).md",
     "6 - Main Notes/Vanishing and Exploding Gradient.md",
     "6 - Main Notes/video streaming and CDNs.md",
-    "6 - Main Notes/Attention Mechanism.md",
-    "Untitled 3.canvas",
     "6 - Main Notes/transformer.md",
     "6 - Main Notes/Mangas that i saved for future.md",
     "6 - Main Notes/Untitled Kanban 1.md",
-    "Untitled 2.canvas",
-    "Untitled.canvas",
     "Pasted image 20250707004950.png",
     "6 - Main Notes/Data_Mining_Lab5_report.md",
     "3 - Tags/data scientist.md",
@@ -215,10 +218,8 @@
     "6 - Main Notes/Compositional Semantics.md",
     "6 - Main Notes/SubWord Models.md",
     "6 - Main Notes/2025-07-04.md",
-    "Untitled 1.canvas",
     "6 - Main Notes/Foundations of NLP - Machine Learning, Deep Learning, and Representation.md",
     "6 - Main Notes/Linear Regression for more complex models.md",
-    "6 - Main Notes/Linear Regression.md",
     "Pasted image 20250620124926.png",
     "Pasted image 20250620123122.png",
     "Pasted image 20250620112520.png",
