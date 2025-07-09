@@ -57,7 +57,7 @@
 		{"id":"aa3a000059fbbc8e","x":2344,"y":283,"width":250,"height":60,"type":"text","text":"Maximal Frequent Itemsets"},
 		{"id":"3a1fa5b93e4610c9","x":2839,"y":449,"width":441,"height":211,"type":"text","text":"- Một tập frequent I là maximal ở một mức minsup nhất định nếu nó là frequent và **không có bất kỳ tập cha nào của nó cũng là frequent**. Tập các mẫu maximal frequent có thể được coi là biểu diễn cô đọng của các mẫu frequent, mặc dù nó không giữ lại thông tin về giá trị support của các tập con."},
 		{"id":"ffdc8e36c4a8958a","x":2246,"y":600,"width":274,"height":50,"type":"text","text":"Association Rule Generation"},
-		{"id":"15fdb37f9e606fda","x":2622,"y":712,"width":338,"height":128,"type":"text","text":"- Frequent itemset có thể được sử dụng để tạo ra các lluật liên hệ bằng cách sử dụng một metric gọi là độ tin cậy\n- Confidence của một luật X => Y là xác suất có điều kiện mà một giao dịch chứa tập hạng mục Y, **cho trước rằng nó chứa tập X**\n\t- $conf(X => Y) = sup($"}
+		{"id":"15fdb37f9e606fda","x":2622,"y":712,"width":338,"height":128,"type":"text","text":"- Frequent itemset có thể được sử dụng để tạo ra các lluật liên hệ bằng cách sử dụng một metric gọi là độ tin cậy\n- Confidence của một luật X => Y là xác suất có điều kiện mà một giao dịch chứa tập hạng mục Y, **cho trước rằng nó chứa tập X**\n\t- $\\text{conf}(X \\Rightarrow Y) = \\frac{\\text{sup}(X \\cup Y)}{\\text{sup}(X)}$\n\t- $X$ là tiền đề và Y là hệ quả của luật \n\t- Ví dụ, độ tin cậy của luật {Eggs, Milk} => [Yogurt} là sup "}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
