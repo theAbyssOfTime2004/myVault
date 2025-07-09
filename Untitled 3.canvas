@@ -68,7 +68,9 @@
 		{"id":"2e55e4faeb589b7c","type":"text","text":"Dữ liệu phân loại","x":-69,"y":-863,"width":250,"height":60,"color":"2"},
 		{"id":"2da31f1e256c3261","x":1628,"y":-626,"width":250,"height":60,"type":"text","text":"5. Vertical Apriori"},
 		{"id":"967c95439400a4a8","x":1153,"y":-407,"width":250,"height":60,"type":"text","text":"Ý tưởng cốt lõi"},
-		{"id":"f70bd00383f1a8a1","x":1114,"y":-194,"width":250,"height":60,"type":"text","text":"- Thay vì biểu diễn dữ liệu theo hàng (mỗi hàng là 1 transaction và 1 item), Vertical Apriori sử dụng **biểu diễn theo cột**"}
+		{"id":"f70bd00383f1a8a1","x":920,"y":-160,"width":720,"height":240,"type":"text","text":"- Thay vì biểu diễn dữ liệu theo hàng (mỗi hàng là 1 transaction và 1 item), Vertical Apriori sử dụng **biểu diễn theo cột**, trong đó mỗi itemset được liên kết với một danh sác các TID của các giao dịch chứa itemset đó\n- **Ý tường:**  Nếu muốn tính support của một itemset, ví dụ {Milk, Yogurt, Eggs}, chúng ta có thể giao các **TID** list của từng item trong itemset đó. Độ dài của danh sách TID kết quả chính là support của itemset. Việc giao các  TID list của các k-itemsets để tạo ra TID list của (k+1)-itemsets được gọi là **recursive TID list intersection**"},
+		{"id":"4eb6f896bcb38aeb","x":2206,"y":-432,"width":250,"height":60,"type":"text","text":"Các bước chính của thuật toán"},
+		{"id":"6c6ea88d0d561354","x":2326,"y":-211,"width":434,"height":271,"type":"text","text":"- Khởi tạo: Đặt `k=1`. Tìm tất cả các **frequent 1-itemsets** $F_1$ và **xây dựng danh sách TID theo chiều dọc cho từng frequent item**.\n- Lặp (while $F_k$ không rỗng)\n\t- Candidate Generation: Tạo candidate set k+1-itemsets $C_{k+1}$ bằng cách join các itemset trong $F_k$\n\t- Pruning: Loại bỏ các candidate từ $C_{k+1}$ vi phạm tính chất bao đóng dưới\n\t- Tạo TID list và Support Count: Với mỗi tập ứng viên trong C<sub>k+1</sub>, ta tìm danh sách các giao dịch (TID list) mà nó xuất hiện bằng cách **lấy giao nhau** các TID list của những tập con trong F<sub>k</sub> đã dùng để tạo ra nó.  \n\t\t- Sau đó, **support** của tập ứng viên chính là **số lượng TID** trong danh sách đó."}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
@@ -136,6 +138,8 @@
 		{"id":"9508d93edf230d81","fromNode":"45360d656c0fb877","fromSide":"bottom","toNode":"b5122098f157375d","toSide":"top"},
 		{"id":"0567fc8257759e84","fromNode":"e160e2cbf3f5426f","fromSide":"bottom","toNode":"2da31f1e256c3261","toSide":"top"},
 		{"id":"723c8dff2eb0a399","fromNode":"2da31f1e256c3261","fromSide":"bottom","toNode":"967c95439400a4a8","toSide":"top"},
-		{"id":"de3f4e1729af21a0","fromNode":"967c95439400a4a8","fromSide":"bottom","toNode":"f70bd00383f1a8a1","toSide":"top"}
+		{"id":"de3f4e1729af21a0","fromNode":"967c95439400a4a8","fromSide":"bottom","toNode":"f70bd00383f1a8a1","toSide":"top"},
+		{"id":"bfb48ecb80f80ce3","fromNode":"2da31f1e256c3261","fromSide":"bottom","toNode":"4eb6f896bcb38aeb","toSide":"top"},
+		{"id":"8238ef11ebc15caa","fromNode":"4eb6f896bcb38aeb","fromSide":"bottom","toNode":"6c6ea88d0d561354","toSide":"top"}
 	]
 }
