@@ -55,7 +55,7 @@
 		{"id":"675cbc4af0503f2f","x":2840,"y":-40,"width":533,"height":280,"type":"text","text":"- Là một tính chất quan trọng, nói rằng nếu một tập **Itemset I là phổ biến**, thì tất cả các tập con của I cũng phải là phổ biến  \n- Ngược lại, nếu một tập hạng mục không phổ biến, thì mọi tập cha (superset) của nó cũng sẽ không phổ biến. Tính chất này đóng vai trò then chốt trong việc cắt giảm không gian tìm kiếm của các thuật toán khai phá mẫu\n- Tính chất đơn điệu của support cũng ngụ ý rằng mọi tập con của tập phổ  biến cũng sẽ là tập phổ biến"},
 		{"id":"445521b9b6550752","x":2440,"y":-40,"width":250,"height":60,"type":"text","text":"Down Closure Property"},
 		{"id":"aa3a000059fbbc8e","x":2344,"y":283,"width":250,"height":60,"type":"text","text":"Maximal Frequent Itemsets"},
-		{"id":"3a1fa5b93e4610c9","x":2839,"y":449,"width":401,"height":191,"type":"text","text":"- Một tập frequent I là maximal ở một mức minsup nhất định nếu nó là frequent và **không có bất kỳ tập cha nào của nó cũng là frequent**. Tập các mẫu maximal frequent có thể được coi là biểu diễn cô đọng của các mẫu frequent, mặc dù nó không giữ lại thông tin về giá trị support của các tập con."}
+		{"id":"3a1fa5b93e4610c9","x":2839,"y":449,"width":441,"height":211,"type":"text","text":"- Một tập frequent I là maximal ở một mức minsup nhất định nếu nó là frequent và **không có bất kỳ tập cha nào của nó cũng là frequent**. Tập các mẫu maximal frequent có thể được coi là biểu diễn cô đọng của các mẫu frequent, mặc dù nó không giữ lại thông tin về giá trị support của các tập con."}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
