@@ -8,4 +8,11 @@
 		- Handling Missing Data
 		- Detecting Outlier 
 		- Normalization
-	- Feature Selection and Transform: 
+	- Feature Selection and Transform: Chọn lọc và biến đổi là hai tác vụ quan trọng cần thực hiện sau khi thu thập được data và trước khi đưa vào mô hình, trước tiên đối với việc chọn lọc, mục tiêu chung của tác vụ này là giảm kích cỡ dữ liệu và sàng lọc ra được những dữ liệu có ích, mang lại nhiều ý nghĩa cho quá trình học (build model) và cũng như giúp các thuật toán chạy nhanh hơn, hiệu quả hơn. Còn biến đổi là việc chuyển đổi kiểu dữ liệu này sang dữ liệu khác, và việc này cũng sẽ diễn ra trước khi dữ liệu đi vào mô hình, mục tiêu của là để đảm bảo rằng dữ liệu đầu vào tương thích với yêu cầu của mô hình
+		- Một vài phép chọn lọc và biến đổi có thể kể đến là:
+			- Chọn lọc:
+				- Unsupervised feature selection
+				- Supervised feature selection
+			- Biến đổi:
+				- Discretization
+				- Binarization
