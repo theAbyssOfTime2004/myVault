@@ -72,7 +72,9 @@
 		{"id":"4eb6f896bcb38aeb","x":2206,"y":-432,"width":250,"height":60,"color":"2","type":"text","text":"Các bước chính của thuật toán"},
 		{"id":"6c6ea88d0d561354","x":2326,"y":-211,"width":694,"height":571,"color":"4","type":"text","text":"- **Khởi tạo:** Đặt `k=1`. Tìm tất cả các **frequent 1-itemsets** $F_1$ và **xây dựng danh sách TID theo chiều dọc cho từng frequent item**.\n- **Lặp (while $F_k$ không rỗng)**\n\t- **Candidate Generation:** Tạo candidate set k+1-itemsets $C_{k+1}$ bằng cách join các itemset trong $F_k$\n\t- **Pruning:** Loại bỏ các candidate từ $C_{k+1}$ vi phạm tính chất bao đóng dưới\n\t- **Tạo TID list và Support Count:** Với mỗi tập ứng viên trong C<sub>k+1</sub>, ta tìm danh sách các giao dịch (TID list) mà nó xuất hiện bằng cách **lấy giao nhau** các TID list của những tập con trong F<sub>k</sub> đã dùng để tạo ra nó.  \n\t\t- Sau đó, **support** của tập ứng viên chính là **số lượng TID** trong danh sách đó.\n\t- **Xác định Frequent Itemsets:** $F_{k+1}$ là tập hợp các frequent itemsets từ $C_{k+1}$ cùng với các  TID list của chúng \n\t- Tăng `k` lên 1\n- **Kết thúc:** khi $F_k$ trở thành rỗng \n- **Kết quả:** Trả về hợp của tất cả các tập $F_i$ đã tìm được"},
 		{"id":"d56e708b94c0c2ea","x":3160,"y":1000,"width":600,"height":180,"color":"6","type":"text","text":"- So sánh 2 thuật toán: Vertical Apriori thường hiệu quả hơn về mặt tính toán so với Horizontal Apriori. Tuy nhiên, nó lại **ngốn bộ nhớ** hơn vì cần lưu trữ các TID list cùng với mỗi itemset, đặc biệt với các cơ sở dữ liệu lớn. Một biến thể khác là Eclat cũng được sử dụng với chiến lược BFS tương tự trên các sublattice của itemsets có cùng prefix, nhằm giảm yêu cầu bộ nhớ bằng cách xử lý tuần tự các sublattice "},
-		{"id":"5195cb49f7606036","x":2236,"y":1767,"width":250,"height":60,"type":"text","text":"Chương 6: Thuật toán phân cụm "}
+		{"id":"5195cb49f7606036","x":2236,"y":1767,"width":250,"height":60,"type":"text","text":"Chương 6: Thuật toán phân cụm "},
+		{"id":"bcaa65830777e390","x":2901,"y":1539,"width":399,"height":101,"type":"text","text":"Giới thiệu về Clustering: là một quá trình phân hoạch các điểm dữ liệu thành các cụm có tính tương đồng cao"},
+		{"id":"307b558fc6f0d2ab","x":3466,"y":1384,"width":374,"height":156,"type":"text","text":"Mô hình lọc: Sử dụng các tiêu chí toán học rõ ráng dựa trên sự tương đồng để đánh giá chất lượng của một đặc trưng hoặc một tập hợp con các đặc trưng, sau đó loại bỏ những đặc trưng không liên quan"}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
@@ -144,6 +146,8 @@
 		{"id":"bfb48ecb80f80ce3","fromNode":"2da31f1e256c3261","fromSide":"bottom","toNode":"4eb6f896bcb38aeb","toSide":"top"},
 		{"id":"8238ef11ebc15caa","fromNode":"4eb6f896bcb38aeb","fromSide":"bottom","toNode":"6c6ea88d0d561354","toSide":"top"},
 		{"id":"e261dc924c81c287","fromNode":"6c6ea88d0d561354","fromSide":"bottom","toNode":"d56e708b94c0c2ea","toSide":"top"},
-		{"id":"4fd9a78a39bae70b","fromNode":"c7c6021072355cca","fromSide":"bottom","toNode":"d56e708b94c0c2ea","toSide":"top"}
+		{"id":"4fd9a78a39bae70b","fromNode":"c7c6021072355cca","fromSide":"bottom","toNode":"d56e708b94c0c2ea","toSide":"top"},
+		{"id":"6cb0e55d4377675e","fromNode":"5195cb49f7606036","fromSide":"right","toNode":"bcaa65830777e390","toSide":"left"},
+		{"id":"860775fa2a638d57","fromNode":"bcaa65830777e390","fromSide":"right","toNode":"307b558fc6f0d2ab","toSide":"left"}
 	]
 }
