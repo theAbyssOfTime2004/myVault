@@ -76,6 +76,19 @@ clean_prompt = f"""\
 
 ### Task 1 và Task 2: 
 **Câu hỏi**:
-- 1. Hiện tại đã có filter nào chưa? Nếu có thì đang bỏ sót loại link rác như thế nào?
-- 2. Có danh sách blacklist domain không? Đặc điểm của danh sách đó là gì (updating frequency, url pattern, objective,...)
-- 
+ 1. Hiện tại đã có filter nào chưa? Nếu có thì đang bỏ sót loại link rác như thế nào?
+ 2. Có danh sách blacklist domain không? Đặc điểm của danh sách đó là gì (updating frequency, url pattern, objective,...)
+ 3. Nếu nội dung chỉ thay đổi nhỏ (ví dụ: cập nhật ngày tháng, quảng cáo, minor events,..) thì có cần train lại không? Threshold là gì
+ 4. Điều kiện để kiểm tra lại là gì? (khi user gửi link, cập nhật tự động,...)
+ 5. Có cần log các phiên bản thay đổi không (đối với Task 2)
+ **Gợi ý kết nối giữa 2 task**:
+ - Nếu valid url -> Task 1 có thể lưu hash nội dung/metadata (last-modified, etag) để dùng cho Task 2  
+ - Nếu link rác -> không cần lưu gì cho Task 2
+ **Một số phương pháp gợi ý**: 
+ - Sử dụng reranker:
+	 - **Task 1: Lọc link rác**: 
+		 - Sau khi crawl sitemap, lấy các meta/title/snippet → reranker chấm điểm
+		 - Ví dụ: những link kiểu `/faq`, `/404`, `/cart`, `login` thường bị chấm điểm thấp
+	- **Task 2: Nhận diện thay đổi**:
+		- Crawl nội dung mới vs nội dung cũ → reranker chấm điểm mức độ khác biệt & giá trị mới
+		- Nếu điểm cao thì mới gọi `train_url()`
