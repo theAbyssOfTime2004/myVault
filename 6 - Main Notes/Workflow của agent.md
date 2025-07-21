@@ -75,3 +75,7 @@ clean_prompt = f"""\
 
 
 ### Task 1 và Task 2: 
+**Câu hỏi**:
+- 1. Hiện tại đã có filter nào chưa? Nếu có thì đang bỏ sót loại link rác như thế nào?
+- 2. Có danh sách blacklist domain không? Đặc điểm của danh sách đó là gì (updating frequency, url pattern, objective,...)
+- 
