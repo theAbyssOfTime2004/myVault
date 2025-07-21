@@ -35,5 +35,14 @@ def calculate_special_bonus(df: pd.Dataframe)
 
 ### 1667. Fix Names in a Table
 
+```python
+import pandas as pd
 
+def fix_names(users: pd.Dataframe)
+-> pd.Dataframe
+	users["name"] = users["name"].str.capitalize()
+	users = users.sort_values(by="user_id")
+return users[["user_id", "name"]]
+```
+- method `.str.capitalize` to uppercase the first letter and lowercase the rest
 # References
