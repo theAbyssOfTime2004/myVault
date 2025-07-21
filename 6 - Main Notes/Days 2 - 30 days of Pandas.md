@@ -21,4 +21,19 @@ df.loc[df["content"].str.len() > 15, "tweet_id"]
 - It avoids creating a temporary full df like `[["tweets_id]]` 
 - `df.loc[<conditions>, <columns>]`, in this case `df["contents"].str.len() > 15` is a boolean mask which will return `1` or `0` according to the condition, and willl return the corresponding `tweet_id`
 
+### 1873. Calculate Special Bonus
+
+```python
+import pandas as pd
+
+def calculate_special_bonus(df: pd.Dataframe)
+-> pd.Dataframe
+	condition = (df[employee_id] % 2 == 0) & (~df["name"].str.startswith("M"))
+	df["bonus"] = np.where(condition, df["salary"], 0)
+	return df[["employee_id", "bonus"]].sort_values[["employee_id"]] 
+```
+
+### 1667. Fix Names in a Table
+
+
 # References
