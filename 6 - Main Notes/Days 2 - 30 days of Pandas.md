@@ -45,4 +45,15 @@ def fix_names(users: pd.Dataframe)
 return users[["user_id", "name"]]
 ```
 - method `.str.capitalize` to uppercase the first letter and lowercase the rest
+
+### 1517. Find Users With Valid E-Mails
+
+```python
+import pandas as pd
+
+def valid_emails(users: pd.DataFrame)
+-> pd.DataFrame:
+	condition = users["mail"].str.match(r"^[a-zA-Z]" + "^[a-zA-Z0-9_.-]*" + "@leetcode\.com$")
+return users[condition][["user_id", "name", "mail"]]
+```
 # References
