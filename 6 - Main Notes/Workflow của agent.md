@@ -72,3 +72,6 @@ clean_prompt = f"""\
 - Gửi các chunk để embedding bằng model OpenAI `text-embedding-3-small`
 - Lưu kết quả vào vector database.
 # References
+
+
+### Task 1 và Task 2: 
