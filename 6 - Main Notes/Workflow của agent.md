@@ -4,10 +4,15 @@
 Tags:
 
 # Workflow của agent
+
 - Ta có agent với định danh là `agent_id` và một danh sách các URL cần crawl `url`, cùng với `crawl_id`. Khi người dùng gọi API thì trạng thái của từng url trong `url` sẽ được chuyển đổi sang processing trong bảng `web_crawl_sources` từ backend, đồng thời một tin nhắn sẽ được push lên SQS để worker xử lý
+
 ### Training_worker() method:
+
 - Tiếp đó ở backend sẽ có một method `training_worker()`  có nhiệm vụ liên tục nhận các message từ SQS để xử lý (với *wait_time=20s*), nghĩa là sau 20s không có tin nhắn nào từ SQS thì trả về `None`. Nếu có tin nhắn thì tạo các task song song `asyncio task` để xử lý bằng một method tên là `process_message`. Tiếp đó dùng `asyncio.gather` để đợi toàn bộ task chạy xong, lấy kết quả và log ra các task bị failed.
+
 ### process_message() method:
+
 - Parse message từ SQS để lấy các `agent_id, crawl_id, url`
 - Gọi hàm `create_trained_url_datasource` để xử lý crawl URL đó: 
 	- Kiểm tra agent đã có `collection` và `datasource type` phù hợp chưa 
@@ -15,7 +20,9 @@ Tags:
 	- Nếu chưa, gọi `crawl_selected_link` -> crawl nội dung
 	- Sau đó gọi `process_website()` -> tóm tắt và nhúng embedding
 	- Update status về `Trained` hoặc `Error` 
+	
 ### crawl_selected_link() method:
+
 - Mở trang web bằng *playwright*, sau đó tạo browser, context và page với `user-agent` giả lập như người dùng thật 
 -  `goto_with_retry()`: cố gắng truy cập lại trang web tối đa 3 lần nếu lỗi 
 - Sau đấy sử dụng `process_html()` để làm sạch html:
@@ -39,10 +46,29 @@ clean_prompt = f"""\
                                 """
 ```
 
-### process_website()
-- Data crawl xong sẽ được gửi qua phần RAG để chunking và lưu vector db.
+###  Data crawl xong sẽ được gửi qua phần RAG để chunking và lưu vector db.
+
 - Nếu crawl content rỗng -> báo error, ngược lại gọi hàm `process_website` để lưu vào vector db
 - Cuối cùng update status về Trained bằng `update_web_crawling_training_status()`
+
 ### extract() method
-- 
+
+- Sử dụng Bs4 *(beautifulsoup*) làm crawling framework
+- Bs4 sẽ sinh ra cây DOM gồm các node HTML tag 
+- `_extract()` sẽ đệ quy qua từng node của cây DOM để gom thông tin về các texts và images
+	- Bỏ qua các note không cần thiết
+	- Với `<img>` giữ lại ảnh (nếu hợp lệ) và reformat
+	- Với `<a>`:
+		- Nếu chứa ảnh → `"img:URL (href)"`.
+		- Nếu chứa text → `"text (href)"`.
+- Sau đó sử dụng regex để cleaning text sau khi extracting
+	- Xóa `()` rỗng, khoảng trắng thừa
+	- Dùng `dedup_urls(text)` để loại bỏ các URL trùng xuất hiện nhiều lần.
+
+### process_website(Rag)
+
+- Tách nội dung thành nhiều đoạn nhỏ (chunk) với Langchain method (*TokenTextSplitter*)
+- Gián ID cho từng chunk bằng `hashlib.md5()`
+- Gửi các chunk để embedding bằng model OpenAI `text-embedding-3-small`
+- Lưu kết quả vào vector database.
 # References
