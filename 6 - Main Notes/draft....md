@@ -40,7 +40,8 @@ router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 
   
-  
+
+MAX_URLS = 1000
 
 STOPWORDS = ["#", "/login", "/tai-khoan", "/account", "?trang", "?page", "Warning", "@", "upload"]
 
@@ -155,6 +156,26 @@ return hrefs
 def is_valid_url(u: str) -> bool:
 
 if not (u.startswith("http://") or u.startswith("https://")):
+
+return False
+
+  
+
+# THÊM: Filter JavaScript links
+
+if "javascript:" in u.lower() or "void(0)" in u.lower():
+
+return False
+
+# THÊM: Filter phone number links
+
+if re.search(r"[0-9\s%]{8,}", u): # Links có nhiều số
+
+return False
+
+# THÊM: Filter encoded URLs with spaces
+
+if "%20" in u and re.search(r"%20[0-9\s%]+", u):
 
 return False
 
@@ -368,9 +389,9 @@ raise HTTPException(status_code=500, detail=str(e))
 
 async def _run_crawl_job(request: CrawlDomainRequest) -> None:
 
-"""Breadth-first crawl with bounded concurrency and batched persistence."""
-
 start = datetime.now(timezone.utc)
+
+MAX_CRAWL_TIME = 300 # 5 phút timeout
 
   
 
@@ -385,6 +406,8 @@ visited: set[str] = set() # URLs we have *saved* already
 queue: asyncio.Queue[str | None] = asyncio.Queue()
 
 await queue.put(seed)
+
+  
 
   
 
@@ -459,6 +482,24 @@ sem = asyncio.Semaphore(concurrency)
 async def worker() -> None:
 
 while True:
+
+# THÊM: Check URL limit
+
+if len(visited) >= MAX_URLS:
+
+logging.info(f"Reached max URLs limit: {MAX_URLS}")
+
+break
+
+# THÊM: Check timeout
+
+elapsed = (datetime.now(timezone.utc) - start).total_seconds()
+
+if elapsed > MAX_CRAWL_TIME:
+
+logging.warning(f"Crawl timeout after {elapsed:.2f} seconds")
+
+break
 
 url = await queue.get()
 
@@ -544,15 +585,39 @@ item["link"] for item in report if is_clean_url(item["link"])
 
 }
 
-  
+# Lưu tất cả links đã crawl vào file txt
+
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+filename = f"crawled_links_{timestamp}.txt"
+
+with open(filename, "w") as f:
+
+f.write(f"Total links: {len(clean_seen)}\n")
+
+f.write(f"Domain: {urlparse(seed).netloc}\n\n")
+
+f.write("=== CLEAN LINKS ===\n")
+
+for link in sorted(clean_seen):
+
+f.write(f"{link}\n")
+
+f.write("\n\n=== ALL LINKS (including filtered) ===\n")
+
+all_links = {item["link"] for item in report}
+
+for link in sorted(all_links):
+
+valid = "VALID" if is_valid_url(link) else "INVALID"
+
+clean = "CLEAN" if is_clean_url(link) else "FILTERED"
+
+f.write(f"{link} - {valid}, {clean}\n")
 
 logging.info(
 
-"Crawl finished: %d links saved in %.1fs",
-
-len(clean_seen),
-
-(datetime.now(timezone.utc) - start).total_seconds(),
+f"Crawl finished: {len(clean_seen)} links saved in {(datetime.now(timezone.utc) - start).total_seconds():.1f}s, results written to {filename}",
 
 extra={"status": "success"},
 
