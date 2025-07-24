@@ -28,16 +28,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Days 1 - 30 Days of Pandas.md",
+                "file": "6 - Main Notes/git-pat.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Days 1 - 30 Days of Pandas"
+              "title": "git-pat"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -201,13 +202,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "347e07b0f6b3c975",
+  "active": "8d884e55f0a598c9",
   "lastOpenFiles": [
-    "6 - Main Notes/Content distribution networks (CDNs).md",
+    "6 - Main Notes/Days 1 - 30 Days of Pandas.md",
     "6 - Main Notes/draft....md",
+    "6 - Main Notes/Content distribution networks (CDNs).md",
     "6 - Main Notes/git-pat.md",
     "6 - Main Notes/Days 2 - 30 days of Pandas.md",
-    "6 - Main Notes/Days 1 - 30 Days of Pandas.md",
     "6 - Main Notes/Workflow của agent.md",
     "BMO/Profiles/BMO.md",
     "6 - Main Notes/1.md",
