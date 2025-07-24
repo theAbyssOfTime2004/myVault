@@ -7,6 +7,8 @@ import re
 
 import os
 
+import itertools
+
 from collections import deque
 
 from datetime import datetime, timezone
@@ -409,7 +411,57 @@ await queue.put(seed)
 
   
 
-  
+# Flag để biết khi nào đã đạt limit
+
+reached_limit = False
+
+# Định nghĩa hàm trước khi sử dụng
+
+async def write_links_to_file() -> str:
+
+# prepare final unique count for log
+
+clean_seen: set[str] = {
+
+item["link"] for item in report if is_clean_url(item["link"])
+
+}
+
+# Lưu tất cả links đã crawl vào file txt
+
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+domain = urlparse(seed).netloc
+
+filename = f"crawled_links_{domain}_{timestamp}.txt"
+
+with open(filename, "w") as f:
+
+f.write(f"Total links: {len(clean_seen)}\n")
+
+f.write(f"Domain: {domain}\n\n")
+
+f.write("=== CLEAN LINKS ===\n")
+
+for link in sorted(clean_seen):
+
+f.write(f"{link}\n")
+
+f.write("\n\n=== ALL LINKS (including filtered) ===\n")
+
+all_links = {item["link"] for item in report}
+
+for link in sorted(all_links):
+
+valid = "VALID" if is_valid_url(link) else "INVALID"
+
+clean = "CLEAN" if is_clean_url(link) else "FILTERED"
+
+f.write(f"{link} - {valid}, {clean}\n")
+
+logging.info(f"Crawled links saved to {filename}")
+
+return filename
 
 # Shared state
 
@@ -481,13 +533,27 @@ sem = asyncio.Semaphore(concurrency)
 
 async def worker() -> None:
 
+nonlocal reached_limit # Để có thể thay đổi biến bên ngoài
+
 while True:
 
-# THÊM: Check URL limit
+# THÊM: Check URL limit & ghi file
 
-if len(visited) >= MAX_URLS:
+if len(visited) >= MAX_URLS and not reached_limit:
 
 logging.info(f"Reached max URLs limit: {MAX_URLS}")
+
+reached_limit = True
+
+filename = await write_links_to_file()
+
+logging.info(f"URLs saved to file: {filename}")
+
+# Signal tất cả workers dừng lại
+
+for _ in range(concurrency):
+
+await queue.put(None)
 
 break
 
@@ -585,39 +651,23 @@ item["link"] for item in report if is_clean_url(item["link"])
 
 }
 
-# Lưu tất cả links đã crawl vào file txt
+# Ghi file ở cuối nếu chưa đạt limit
 
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+if not reached_limit:
 
-filename = f"crawled_links_{timestamp}.txt"
+filename = await write_links_to_file()
 
-with open(filename, "w") as f:
+logging.info(f"Crawl finished normally, URLs saved to: {filename}")
 
-f.write(f"Total links: {len(clean_seen)}\n")
+else:
 
-f.write(f"Domain: {urlparse(seed).netloc}\n\n")
+logging.info(f"Crawl stopped, URLs saved to file.")
 
-f.write("=== CLEAN LINKS ===\n")
-
-for link in sorted(clean_seen):
-
-f.write(f"{link}\n")
-
-f.write("\n\n=== ALL LINKS (including filtered) ===\n")
-
-all_links = {item["link"] for item in report}
-
-for link in sorted(all_links):
-
-valid = "VALID" if is_valid_url(link) else "INVALID"
-
-clean = "CLEAN" if is_clean_url(link) else "FILTERED"
-
-f.write(f"{link} - {valid}, {clean}\n")
+  
 
 logging.info(
 
-f"Crawl finished: {len(clean_seen)} links saved in {(datetime.now(timezone.utc) - start).total_seconds():.1f}s, results written to {filename}",
+f"Crawl finished: {len(clean_seen)} links saved in {(datetime.now(timezone.utc) - start).total_seconds():.1f}s",
 
 extra={"status": "success"},
 
@@ -814,6 +864,58 @@ await queue.put(seed_url)
 
   
 
+# Flag để biết khi nào đã đạt limit
+
+reached_limit = False
+
+# Hàm ghi file links
+
+async def write_links_to_file() -> str:
+
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+domain = urlparse(seed_url).netloc
+
+filename = f"onboard_crawled_links_{domain}_{timestamp}.txt"
+
+with open(filename, "w") as f:
+
+f.write(f"Total links: {len(crawled)}\n")
+
+f.write(f"Domain: {domain}\n")
+
+f.write(f"Trained links: {trained_urls}\n\n")
+
+f.write("=== TRAINED LINKS ===\n")
+
+trained = list(itertools.islice(crawled, trained_urls))
+
+for link in sorted(trained):
+
+f.write(f"{link}\n")
+
+f.write("\n=== ALL CRAWLED LINKS ===\n")
+
+for link in sorted(crawled):
+
+trained_status = "TRAINED" if link in trained else "SAVED_ONLY"
+
+f.write(f"{link} - {trained_status}\n")
+
+f.write("\n=== ALL VISITED LINKS (including filtered) ===\n")
+
+for link in sorted(visited):
+
+status = "CRAWLED" if link in crawled else "FILTERED"
+
+f.write(f"{link} - {status}\n")
+
+logging.info(f"Onboard crawled links saved to {filename}")
+
+return filename
+
+  
+
 async with httpx.AsyncClient(
 
 http2=False,
@@ -852,9 +954,21 @@ sem = asyncio.Semaphore(concurrency)
 
 async def worker() -> None:
 
-nonlocal trained_urls # we mutate the outer variable
+nonlocal trained_urls, reached_limit # we mutate the outer variables
 
 while True:
+
+# Kiểm tra nếu đã đạt limit URLs và chưa ghi file
+
+if limit_url_number is not None and trained_urls >= limit_url_number and not reached_limit:
+
+logging.info(f"Reached training limit: {limit_url_number} URLs")
+
+reached_limit = True
+
+filename = await write_links_to_file()
+
+logging.info(f"File created at training limit: {filename}")
 
 try:
 
@@ -930,45 +1044,25 @@ await asyncio.gather(*(asyncio.create_task(worker()) for _ in range(concurrency)
 
   
 
+# Thêm log mới để hiển thị trạng thái cuối cùng
+
+logging.info(f"Final crawl status: {'Reached max URLs limit' if reached_limit else 'Completed normally'}")
+
+logging.info(f"Total URLs processed: {len(visited)}, Crawled: {len(crawled)}, Trained: {trained_urls}")
+
+# Ghi file ở cuối nếu chưa đạt limit trước đó
+
+if not reached_limit:
+
+filename = await write_links_to_file()
+
+logging.info(f"File created at end of crawl: {filename}")
+
+# Thêm log tổng kết với thời gian
+
 logging.info(
 
-"Onboard crawl finished: %d links (%d trained) in %.1fs",
-
-len(crawled),
-
-trained_urls,
-
-(datetime.now(timezone.utc) - start).total_seconds(),
+f"Onboard crawl completed in {(datetime.now(timezone.utc) - start).total_seconds():.1f}s"
 
 )
-
-  
-
-@router.post("/fetch-link-onboard", response_model=OnboardCrawlDomainResponse)
-
-async def fetch_link_onboard(
-
-request: OnboardCrawlDomainRequest,
-
-background_tasks: BackgroundTasks,
-
-) -> OnboardCrawlDomainResponse:
-
-"""
-
-Kick off an onboarding crawl in the background.
-
-"""
-
-try:
-
-background_tasks.add_task(_run_onboard_crawl_job, request)
-
-return OnboardCrawlDomainResponse(status="Success")
-
-except Exception as e:
-
-logging.error(f"Error in fetch_link_onboard: {e}")
-
-raise HTTPException(status_code=500, detail=str(e))
 ```
