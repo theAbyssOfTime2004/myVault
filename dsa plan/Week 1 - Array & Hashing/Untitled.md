@@ -36,7 +36,7 @@ from collections import Counter
 Counter("aabcc") # {'a':2, 'b':1, 'c':2}
 ```
 
-### Bài Two-Sum
+### Bài 1. Two-Sum
 - 2 vòng lặp: 
 ```python
 def twoSum(self, nums, target):
@@ -67,3 +67,6 @@ def twoSum(self, nums, target):
 		seen[x] = i
 	return None
 ```
+
+-  với duyệt 1 lần (one pass) vì ta sẽ chỉ tìm ra need khi ở số thứ 2 (như là [2,7,11,15] với target = 9 thì sẽ luôn tìm ra need khi duyệt đến số 7 thay vì số 2) nên thứ tự return sẽ ngước với duyệt 2 pass
+### Bài 2. Contains Duplicate (217)
