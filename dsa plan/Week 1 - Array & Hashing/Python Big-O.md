@@ -3,4 +3,4 @@
 - `list.pop()` -> O(1)
 - `x in list` -> O(n)
 - `dict[k]` get/set -> O(1) trung bình
-- `set.add(x)`, `x in set` 
+- `set.add(x)`, `x in set`  -> O(1) trung bình 
