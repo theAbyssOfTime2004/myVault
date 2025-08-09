@@ -57,4 +57,13 @@ def twoSum(self, nums, target):
 ```
 
 - 1 vòng lặp: 
-- 
+```python
+def twoSum(self, nums, target):
+	seen {}
+	for i, x in enumerate(nums):
+		need = target - x 
+		if need in seen: 
+			return[seen[need], i]
+		seen[x] = i
+	return None
+```
