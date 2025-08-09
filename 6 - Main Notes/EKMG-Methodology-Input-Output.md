@@ -57,7 +57,7 @@ Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
   - **Đồ thị cú pháp hỗn hợp** ở phía văn bản (kết hợp **dependency tree** ở mức từ và **constituent tree** ở mức cụm/câu).
 
 **Lan truyền và hợp nhất**
-- Chạy **GAT** qua đồ thị để **trao đổi thông tin** giữa các **mức hạt** (fine ↔ coarse) của văn bản và ảnh.
+- Chạy **graph attention network** qua đồ thị để **trao đổi thông tin** giữa các **mức hạt** (fine ↔ coarse) của văn bản và ảnh.
 - **Fuse** sâu với **coarse image features** bằng **cơ chế hợp nhất có trọng số theo granularity** để thu được **biểu diễn ảnh‑văn bản hợp nhất**.
 
 **Mục tiêu học (Loss)**
@@ -67,24 +67,23 @@ Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
   $$L = (1 - \alpha)\,L_{\text{contrastive}} + \alpha\,L_{\text{CE}}. $$
 
 ### Decoder và Suy luận
+
 - **BART decoder** nhận các đặc trưng đã căn chỉnh/tăng cường để **sinh chuỗi** biểu diễn **(aspect, polarity)**.  
 - Đầu ra chuỗi có thể dễ dàng **parse** lại thành danh sách các cặp (aspect, sentiment).
 
----
-
 ## Datasets và Metrics (Tóm tắt nhanh)
+
 - **Datasets**: Twitter15, Twitter17 (mỗi mẫu gồm **text + image**; một câu có thể có **nhiều aspect**).
 - **Metrics**: tuỳ biến thể tác vụ (nhận diện aspect, gán sentiment, chuỗi hợp nhất), dùng **Precision / Recall / F1** (và đôi khi **Accuracy**).
 
----
-
 ## Intuition – Tại sao EKMG hiệu quả?
+
 1. **Tri thức ngoài làm sạch/ngữ nghĩa hoá**: AMR và tags giúp mô hình bám đúng **thực thể/quan hệ** liên quan đến aspect, hạn chế nhiễu bối cảnh.
 2. **Căn chỉnh đa mức hạt**: aspect như “staff” gắn với **vùng ảnh nhỏ**; aspect như “environment” cần **ngữ cảnh rộng** (cụm từ + bố cục ảnh). MGCM trao đổi thông tin ở **nhiều tầng** để phù hợp cả hai.
 3. **Học tương phản**: ép **ảnh** và **văn bản** về gần nhau ở mức biểu diễn, khiến decoder sinh chuỗi ổn định và chính xác hơn.
 
----
-
 ## Ghi chú nhanh về BART encoder (so với BERT encoder)
+
+- Kế thừa BERT và GPT
 - **BART encoder** là encoder **hai chiều** kiểu Transformer, **rất gần** với **BERT encoder** về kiến trúc.
 - Khác biệt chính ở **mục tiêu tiền huấn luyện**: BART dùng **denoising seq2seq** (phục hồi văn bản bị làm hỏng), nên **ăn khớp tự nhiên** với **decoder sinh chuỗi** cho output dạng linearized của EKMG.
