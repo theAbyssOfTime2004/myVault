@@ -35,3 +35,26 @@ print(f"{i}, {x=})
 from collections import Counter
 Counter("aabcc") # {'a':2, 'b':1, 'c':2}
 ```
+
+### Bài Two-Sum
+- 2 vòng lặp: 
+```python
+def twoSum(self, nums, target):
+	"""
+	:type nums: List[int]
+	:type target: int
+	:rtype: List[int]
+	"""
+	seen = {}
+	for i, x in enumerate(nums):
+		seenp[x] = i
+
+	for i, x in enumerate(nums):
+		need = target - x 
+		if need in seen and seen[need] != i:
+			return[i, seen[need]]
+	return None
+```
+
+- 1 vòng lặp: 
+- 
