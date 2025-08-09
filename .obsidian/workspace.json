@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dsa plan/Week 8 - Dynamic Programming II/Notes.md",
+                "file": "dsa plan/Week 1 - Array & Hashing/Python Big-O.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Notes"
+              "title": "Python Big-O"
             }
           }
         ]
@@ -188,13 +188,14 @@
   },
   "active": "8d884e55f0a598c9",
   "lastOpenFiles": [
+    "dsa plan/Week 1 - Array & Hashing/Untitled.md",
+    "dsa plan/Week 1 - Array & Hashing/Python Big-O.md",
+    "dsa plan/Week 8 - Dynamic Programming II/Notes.md",
     "dsa plan/Progress Tracker.md",
     "5 - Templates/Daily Plan.md",
     "Daily Plan.md",
     "5 - Templates/Main Note.md",
-    "dsa plan/Week 1 - Array & Hashing/Notes.md",
     "Progress Tracker.md",
-    "dsa plan/Week 8 - Dynamic Programming II/Notes.md",
     "dsa plan/Week 7 - Dynamic Programming I/Notes.md",
     "dsa plan/Week 6 - Backtracking & Sliding Window/Notes.md",
     "dsa plan/Week 5 - Graph/Notes.md",
