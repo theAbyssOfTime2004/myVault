@@ -1,7 +1,7 @@
 # 📅 Ngày 2025-08-09
 
 ## 🎯 Kế hoạch hôm nay
-- [ ] Học lý thuyết: ...
+- [ ] Học lý thuyết: `hashmap: dict, set cơ bản`
 - [ ] Làm bài:
   - [ ] ...
 
@@ -13,17 +13,20 @@
 - Micro-cheat sheet for today 
 ```python 
 # duyệt mảng kèm index
-for i, x in enumerate(nums):...
+nusms = [5, 8, 10]
+for i, x in enumerate(nums):
+	print(i, x)
 
-# dict: tra cứu & gán 
+# dict cơ bản: tra cứu & gán 
 seen = {}
-seen[x] = 1
-if need in seen: ...
+seen['a'] = 1 # gán key -> value
+print(seen['a']) # lấy value
+print('a' in seen) # true
 
-#set: phát hiện trùng
+#set cơ bản: phát hiện trùng
 s = set()
-if x in s: ...
-s.add(x)
+s.add(10)
+print(10 in s) # True
 
 # in debug nhanh
 print(f"{i}, {x=})
