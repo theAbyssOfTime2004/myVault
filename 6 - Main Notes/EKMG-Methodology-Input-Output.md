@@ -35,6 +35,7 @@ Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
 - **Image tags**: tên đối tượng/cảnh trong ảnh (tự động suy ra) và **mã hoá bằng BART** để đặt trong cùng không gian ngôn ngữ với văn bản.
 
 ### 2) EKSM – External Knowledge Semantic Enhancement
+
 **Nhánh văn bản (Text branch)**
 - **Semantic Purify Network**:
   - Đưa **AMR** qua **GNN** để gộp thông tin toàn cục.
@@ -49,7 +50,8 @@ Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
 **Kết quả của EKSM**: thu được **text features** và **image features** đã **được tăng cường ngữ nghĩa**, có tính liên quan cao hơn đến các khía cạnh tiềm năng.
 
 ### 3) MGCM – Multi‑Granularity Cross‑Modal Alignment + Contrastive Learning
-**Đồ thị dị thể đa góc nhìn**
+
+**multi-view heterogeneous graph**
 - Kết hợp:
   - **Ma trận liên hệ từ ↔ vùng ảnh** (attention hai chiều word→region và region→word).
   - **Đồ thị cú pháp hỗn hợp** ở phía văn bản (kết hợp **dependency tree** ở mức từ và **constituent tree** ở mức cụm/câu).
