@@ -164,9 +164,29 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "618dfc10b0efa94b",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
+          },
+          {
+            "id": "b9f89878fc932329",
+            "type": "leaf",
+            "state": {
+              "type": "smart-lookup-view",
+              "state": {},
+              "icon": "search",
+              "title": "Smart Lookup"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -182,10 +202,13 @@
       "command-palette:Open command palette": false,
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-kanban:Create new board": false
+      "obsidian-kanban:Create new board": false,
+      "smart-connections:Open: Smart Chat": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Connections: Open random connection": true
     }
   },
-  "active": "d21bed8d56513dee",
+  "active": "b9f89878fc932329",
   "lastOpenFiles": [
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-10.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
