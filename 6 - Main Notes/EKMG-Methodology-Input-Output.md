@@ -3,6 +3,61 @@
 ## TL;DR
 Bài toán: cho **một câu + một ảnh**, mô hình phải tìm **các khía cạnh (aspect terms)** xuất hiện trong câu và **cảm xúc** tương ứng (positive/neutral/negative) cho từng khía cạnh. EKMG làm ba việc chính: (1) mã hoá văn bản và ảnh, đồng thời bổ sung **tri thức ngoài** (AMR cho văn bản, tags cho ảnh); (2) **nâng cao/“lọc nhiễu” ngữ nghĩa** bằng hai nhánh tăng cường dựa trên tri thức; (3) **căn chỉnh đa mức hạt** giữa từ/cụm từ và vùng ảnh bằng đồ thị + GAT và học tương phản, sau đó **BART decoder** sinh chuỗi (aspect, polarity).
 
+
+### 3 thách thức chính mà paper đặt ra:
+1. **Bắt trúng “thông tin quan trọng” trong cả text lẫn image**
+    - _Vì sao khó:_ Câu có thể chứa nhiều sắc thái (phủ định, đối lập “but…”, mỉa mai), nhiều từ không liên quan; ảnh cũng nhiều chi tiết thừa. Nếu không lọc, mô hình sẽ chú ý nhầm.        
+    - _EKMG làm gì:_ Kéo **external knowledge** để “làm sạch nghĩa” — **AMR** cho văn bản, **image tags** cho ảnh; rồi dùng **mạng tăng cường ngữ nghĩa** (gating/attention) để **giữ phần liên quan** (nhất là danh từ/cụm danh từ – thường là aspect) và **lọc nhiễu** trước khi đem đi căn chỉnh.
+2. **Căn chỉnh chữ–hình ở nhiều “mức hạt” (multi-granularity)**    
+    - _Vì sao khó:_ Text có các cấp **từ -> cụm từ -> câu**, còn ảnh có **vùng nhỏ -> toàn ảnh**. Ví dụ “staff” phải khớp với vùng nhân viên (fine), còn “environment” cần bối cảnh toàn cảnh (coarse).        
+    - _EKMG làm gì:_ Xây **đồ thị dị thể đa góc nhìn** gồm nút **word/phrase/region**, cạnh từ **attention word↔region** và **quan hệ cú pháp**; chạy **GAT** để thông tin chảy đúng giữa các mức, rồi **hợp nhất** đặc trưng fine + coarse thành một biểu diễn chung.
+3. **Thu hẹp “khoảng cách ngữ nghĩa” giữa hai modality khi trộn (fusion)**
+    -  _Vì sao khó:_ Cùng một ý “không hài lòng về chỗ ngồi ngoài trời” nhưng text là ký hiệu ngôn ngữ, ảnh là tín hiệu thị giác — hai không gian rất khác nhau, trộn thẳng tay dễ lệch nghĩa.
+    - _EKMG làm gì:_ Dùng **cross-modal fusion có trọng số theo granularity** (chọn tỉ lệ đóng góp của fine/coarse) và thêm **học tương phản ảnh-văn bản** (đúng cặp kéo gần, sai cặp đẩy xa) để hai modality nằm **gần nhau** trong không gian biểu diễn trước khi **BART decoder** sinh (aspect, polarity).
+
+Tóm lại: *(1)* lọc–làm giàu nghĩa để bắt đúng manh mối, *(2)* nối đúng phần chữ–hình ở từng cấp độ, *(3)* trộn hai modality một cách “ăn rơ” bằng fusion + contrastive learning.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## Problem Setup (Input → Output)
