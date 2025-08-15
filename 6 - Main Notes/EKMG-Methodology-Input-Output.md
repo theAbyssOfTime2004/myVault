@@ -87,7 +87,9 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 
 - Việc **chèn token ảnh cạnh token chữ** giúp self-attention của BART **nhìn xuyên suốt** ảnh↔chữ, nhờ đó **căn chỉnh** các vùng ảnh với từ/cụm từ **ngay từ encoder** (đưa chúng “về cùng ngôn ngữ” trước khi sang các bước GAT/fusion).
 
-
+``` css
+<img> [region_1] [region_2] ... [region_36] <img> <bos> t_1 t_2 ... t_n <eos>
+```
 
 
 
