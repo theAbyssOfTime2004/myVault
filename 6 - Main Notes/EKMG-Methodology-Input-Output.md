@@ -82,8 +82,10 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 	- $H_v:$ **đặc trưng vùng ảnh (fine)** nhưng đã được đặt trong không gian chữ (mỗi vùng ảnh tương ứng một token ảnh)
 	- $H_s$: **đặc trưng văn bản** theo chiều dài câu 
 - **Nhấn mạnh danh từ (Noun Mask):**
-	- Vì **aspect** thường là danh từ/cụm danh từ
-- Tất cả region của **một ảnh** gắn với **câu tương ứng** trong **cùng mẫu**, và mô hình sẽ tự học “vùng nào ↔ từ nào” bằng attention (sau đó còn có GAT + fusion để tinh chỉnh).  
+	- Vì **aspect** thường là danh từ/cụm danh từ, encoder tạo mask danh từ trên $H_s$ rồi lấy: $H_{\text{noun}} = H_s \otimes \text{Mask}_{\text{noun}}$
+	=> Để mô hình tập trung hơn vào các vị trí có khả năng là aspect 
+
+- Việc **chèn token ảnh cạnh token chữ** giúp self-attention của BART **nhìn xuyên suốt** ảnh↔chữ, nhờ đó **căn chỉnh** các vùng ảnh với từ/cụm từ **ngay từ encoder** (đưa chúng “về cùng ngôn ngữ” trước khi sang các bước GAT/fusion).
 
 
 
