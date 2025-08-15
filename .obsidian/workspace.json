@@ -115,7 +115,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -126,9 +128,14 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Ngày 2025-08-14"
             }
           },
           {
@@ -137,12 +144,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6 - Main Notes/DOMAIN NAME SYSTEM.md",
+                "file": "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
                 "linksCollapsed": true,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from DOMAIN NAME SYSTEM"
+              "title": "Outgoing links from Ngày 2025-08-14"
             }
           },
           {
@@ -186,7 +193,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -208,7 +215,7 @@
       "smart-connections:Smart Connections: Open random connection": true
     }
   },
-  "active": "d21bed8d56513dee",
+  "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-11.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-12.md",
