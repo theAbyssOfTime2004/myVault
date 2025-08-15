@@ -75,7 +75,15 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 #### a) Image encoder (ảnh):
 - Sẽ lấy được đặc trưng toàn cục - *coarse* - biểu diễn toàn ảnh, và đặc trưng cục bộ *fine-grained* để biểu diễn các vùng nhỏ (mà có confidence cao nhất), ta sẽ được $H_{cv}$ nắm bối cảnh toàn ảnh (coarse), còn Ev giữ chi tiết theo vùng/đối tượng (fine).
 #### b)  Text - Image encoder (văn bản + projecting các vủng ảnh vào cùng không gian)
-- Từ phần `a) Image encoder`, ta được các embedding của các vùng ảnh (gọi là các token ảnh), sau đó projecting chúng vào cùng không gian với các văn bản, dùng các tag `<img>, <BOS>, <EOS>` để đánh dấu vị trí của ảnh và chuỗi/văn bản. Tất cả region của **một ảnh** gắn với **câu tương ứng** trong **cùng mẫu**, và mô hình sẽ tự học “vùng nào ↔ từ nào” bằng attention (sau đó còn có GAT + fusion để tinh chỉnh).  
+- Từ phần `a) Image encoder`, ta được các embedding của các vùng ảnh (gọi là các token ảnh), sau đó projecting chúng vào cùng không gian với các văn bản, dùng các tag `<img>, <BOS>, <EOS>` để đánh dấu vị trí của ảnh và chuỗi/văn bản:
+- $$ E_{vs} = <img> + E_v + <img> +  <bos> + E_s + <bos> $$
+	- Với $E_s$ là danh sách embedding của các vùng ảnh, $E_s$ là embedding của câu thu được từ **BART**   
+- Sau đó cho $E_{vs}$ đi qua **BART**, ta được $H_{vs} = [H_v, H_s]$, với:
+	- $H_v:$ **đặc trưng vùng ảnh (fine)** nhưng đã được đặt trong không gian chữ (mỗi vùng ảnh tương ứng một token ảnh)
+	- $H_s$: **đặc trưng văn bản** theo chiều dài câu 
+- **Nhấn mạnh danh từ (Noun Mask):**
+	- Vì **aspect** thường là danh từ/cụm danh từ
+- Tất cả region của **một ảnh** gắn với **câu tương ứng** trong **cùng mẫu**, và mô hình sẽ tự học “vùng nào ↔ từ nào” bằng attention (sau đó còn có GAT + fusion để tinh chỉnh).  
 
 
 
