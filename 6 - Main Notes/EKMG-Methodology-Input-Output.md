@@ -17,7 +17,48 @@ Bài toán: cho **một câu + một ảnh**, mô hình phải tìm **các khía
 
 Tóm lại: *(1)* lọc–làm giàu nghĩa để bắt đúng manh mối, *(2)* nối đúng phần chữ–hình ở từng cấp độ, *(3)* trộn hai modality một cách “ăn rơ” bằng fusion + contrastive learning.
 
+```
+1. **Đồ thị dị thể (heterogeneous graph) trong MGCM**
+    
+    - **Nút** nhiều loại:
+        
+        - Text: **word**, **phrase**, (và có thể **sentence**).
+            
+        - Image: **region** (đối tượng/vùng) và **full-image** (toàn ảnh).
+            
+    - **Cạnh** nhiều “góc nhìn” (multi-view):
+        
+        - **Text–text**: dependency, constituent (từ↔từ, cụm↔từ).
+            
+        - **Text–image**: liên hệ **word/phrase ↔ region** (từ attention/correlation).
+            
+        - **Fine–coarse**: liên kết **region ↔ full-image**, **word/phrase ↔ sentence**.
+            
+2. **GAT làm gì?**
+    
+    - Không chỉ “đánh trọng số” mà là **truyền tin có trọng số học được** giữa các nút.
+        
+    - Mỗi nút iii “nghe” hàng xóm jjj với **trọng số chú ý** αij\alpha_{ij}αij​ (học từ dữ liệu), rồi **tổng hợp** lại để cập nhật biểu diễn của iii.
+        
+    - Nhờ vậy, cạnh **liên quan** (ví dụ _“staff” ↔ vùng có nhân viên_) sẽ có **trọng số cao**, còn cạnh nhiễu (ví dụ _“staff” ↔ bụi cây_) sẽ **thấp**.
+        
+    - GAT đặc biệt hợp với **multi-granularity** vì nó cho phép **trao đổi thông tin giữa fine và coarse** (word/phrase/sentence ↔ region/full-image) theo **mức độ quan trọng** học được.
+        
+3. **Ví dụ “staff” (fine) vs “environment” (coarse)**
+    
+    - _“staff”_ là **aspect cục bộ** → cần nhìn **vùng ảnh nhỏ** nơi có nhân viên; GAT sẽ đẩy trọng số vào cạnh _word “staff” ↔ region nhân viên_.
+        
+    - _“environment”_ là **aspect tổng quát** → cần **bối cảnh toàn ảnh** (ánh sáng, bố cục, sạch/đồ đạc) nên cạnh _phrase “environment” ↔ full-image_ sẽ nặng ký hơn.
+        
+4. **Sau GAT thì gì nữa?**
+    
+    - Bạn thu được biểu diễn **đã căn chỉnh** giữa các mức fine–coarse và giữa hai kênh **text–image**.
+        
+    - Tiếp theo là **cross-modal fusion** (hợp nhất có trọng số giữa các mức hạt) để “trộn hai modality cho ăn rơ”, rồi thêm **contrastive learning** (đúng cặp kéo gần, sai cặp đẩy xa) trước khi đưa vào **decoder** sinh _(aspect, polarity)_.
+        
 
+Tóm câu ngắn: **Đồ thị dị thể** mô hình hóa đủ loại nút/cạnh (text↔image, fine↔coarse); **GAT** học trọng số chú ý trên các cạnh để **kết nối đúng chỗ, đúng mức chi tiết**; cuối cùng **fusion** + **contrastive** giúp hai modality hòa chung một không gian biểu diễn, phục vụ dự đoán chính xác hơn.
+```
 
 
 
