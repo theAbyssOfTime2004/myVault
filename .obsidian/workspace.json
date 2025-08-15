@@ -11,10 +11,15 @@
             "id": "d21bed8d56513dee",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/EKMG-Methodology-Input-Output.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "EKMG-Methodology-Input-Output"
             }
           }
         ]
