@@ -60,7 +60,7 @@ Tóm lại: *(1)* lọc–làm giàu nghĩa để bắt đúng manh mối, *(2)*
 Tóm câu ngắn: **Đồ thị dị thể** mô hình hóa đủ loại nút/cạnh (text↔image, fine↔coarse); **GAT** học trọng số chú ý trên các cạnh để **kết nối đúng chỗ, đúng mức chi tiết**; cuối cùng **fusion** + **contrastive** giúp hai modality hòa chung một không gian biểu diễn, phục vụ dự đoán chính xác hơn.
 ```
 
-
+### 1. Multimodal Encoding + External Knowledge
 
 
 
