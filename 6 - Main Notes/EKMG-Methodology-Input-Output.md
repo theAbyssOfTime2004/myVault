@@ -128,74 +128,45 @@ $$H_{es} = \text{Gate}(H_s, \text{Attn}(H_{noun}, H_{amr}))$$
 	- $H_{ev}:$ image enhanced 
 **Note:** **“Giảm lệch modality”** = làm cho **đặc trưng của hai modality khác nhau** (ở đây là **text** và **image**) **trở nên tương thích** để có thể so khớp, cộng/trộn và suy luận chung.
 
+### 3. MGCM – Multi‑Granularity Cross‑Modal Alignment + Contrastive Learning 
 
----
+#### MGCM:
 
-## Problem Setup (Input → Output)
-- **Input**: cặp (S, V) gồm **câu văn bản S** và **ảnh V** đi kèm.
-- **Output**: mô hình sinh ra **danh sách các aspect** xuất hiện trong S và **nhãn cảm xúc** cho từng aspect. Trong kiến trúc này, output được **linearize** thành một **chuỗi** để **BART decoder** sinh ra, ví dụ:  
-  `aspect_1 <POS> ; aspect_2 <NEG> ; ...`
+- **MGCM làm gì?**  
+    - Căn chỉnh **chữ ↔ hình** ở **nhiều mức chi tiết** (fine ↔ coarse), rồi **trộn** chúng thành một biểu diễn chung và dùng **contrastive learning** để kéo hai kênh lại gần nhau.
+- **Bước 1 – Nối đúng chỗ (multi-granularity alignment):**  
+    - Tạo “mạng liên kết” giữa:
+	    - **Text–text**: quan hệ cú pháp (word ↔ word, phrase ↔ word).
+	    - **Text–image**: từ/cụm từ ↔ **vùng ảnh** liên quan.
+	    - **Fine–coarse**: vùng ↔ **toàn ảnh**, word/phrase ↔ **câu**.  
+        - Mục tiêu: có connection cho cả chi tiết và bối cảnh.
+- **Bước 2 – Chọn liên kết quan trọng (GAT):**  
+    - Dùng **Graph Attention Network** để “truyền tin có trọng số” trên mạng liên kết.  
+    Ví dụ: _“staff”_ sẽ nhận nhiều thông tin từ **vùng có nhân viên** (fine); _“environment”_ ưu tiên **toàn ảnh** (coarse).
+- **Bước 3 – Trộn fine & coarse (fusion có trọng số):**  
+	-     Học một **tỉ lệ pha trộn** giữa **chi tiết vùng** và **bối cảnh toàn ảnh**.  
+    - Aspect “tổng quát” (environment) → bối cảnh nặng hơn; aspect “cục bộ” (staff, dish) → chi tiết vùng nặng hơn.
+- **Bước 4 – Kéo chữ–hình về cùng không gian (contrastive learning):**  
+    - Cặp **đúng** (text–image của cùng mẫu) bị **kéo gần**, cặp **sai** bị **đẩy xa** → giảm “lệch modality”, fusion ổn định hơn.
+- **Kết quả:**  
+    - Thu được biểu diễn **đã căn chỉnh & hợp nhất** để **decoder** sinh ra các cặp _(aspect, polarity)_ chính xác hơn.
 
----
+#### Image-Text Contrastive Learning:
 
-## Methodology Overview (EKMG)
-EKMG gồm 3 khối lớn, tạo thành một pipeline:
+- **Mục tiêu:** kéo **biểu diễn ảnh** và **biểu diễn chữ** (của cùng một mẫu) **lại gần**, và đẩy các cặp **không khớp** ra xa → giảm “lệch modality”.    
+- **Cách làm:**
+    - Từ đặc trưng đã tăng cường/căn chỉnh, lấy **vector ảnh** và **vector text** ở mức toàn cục (sau fusion).
+    - Tính **độ tương đồng** (thường cosine), dùng **loss kiểu InfoNCE** với **dương** = cặp cùng mẫu trong batch, **âm** = các mẫu khác trong batch.
+    - Có thể tính hai chiều (image→text và text→image) để ổn định hơn.
+- **Tác dụng:** làm không gian chung “dễ sống” cho cả hai kênh, giúp fusion và decoder ổn định, giảm sai lệch khi ảnh và chữ diễn đạt khác nhau
 
-1) **Multimodal Encoding + External Knowledge**  
-2) **EKSM – External Knowledge Semantic Enhancement**   
-3) **MGCM – Multi‑Granularity Cross‑Modal Alignment + Contrastive Learning** 
-Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
+#### Prediction (Decoder) & Training Objective"
 
-### 1) Multimodal Encoding + External Knowledge
-
-**Ảnh**
-- **Coarse features**: trích từ backbone CNN (ví dụ ResNet‑101) cho toàn ảnh.
-- **Fine‑grained region features**: trích từ **Faster R‑CNN** (các vùng/objects có score cao).
-
-**Văn bản**
-- Mã hoá bằng **BART encoder** để lấy **biểu diễn ngữ cảnh hai chiều** cho từng token.
-- **Noun mask**: nhấn mạnh vào **danh từ/cụm danh từ** vì phần lớn aspect rơi vào nhóm này.
-
-**Tri thức ngoài**
-- **AMR graph** cho văn bản: nắm **quan hệ nghĩa cấp cao** (semantic roles, predicate‑argument…), giúp “sạch” hơn so với phụ thuộc cú pháp thuần tuý.
-- **Image tags**: tên đối tượng/cảnh trong ảnh (tự động suy ra) và **mã hoá bằng BART** để đặt trong cùng không gian ngôn ngữ với văn bản.
-
-### 2 External Knowledge Enhanced Semantic Extraction
-
-**Nhánh văn bản (Text branch)**
-- **Semantic Purify Network**:
-  - Đưa **AMR** qua **GNN** để gộp thông tin toàn cục.
-  - **Attention** giữa **AMR features** và **noun‑focused text features** để **lấy phần liên quan** đến aspect.
-  - **Gating/MLP** để **lọc nhiễu** từ AMR và trộn **động** vào đặc trưng văn bản.
-
-**Nhánh ảnh (Image branch)**
-- Tính **trọng số tag‑theo‑danh‑từ** (liên hệ giữa tags và noun features).
-- **Heterogeneity Resolution Network**: ánh xạ, pooling, và cơ chế **khử lệch modality** giữa tags (ngôn ngữ) và ảnh (thị giác).
-- **Gating** để trộn kết quả vào **region features** của ảnh.
-
-**Kết quả của EKSM**: thu được **text features** và **image features** đã **được tăng cường ngữ nghĩa**, có tính liên quan cao hơn đến các khía cạnh tiềm năng.
-
-### 3) MGCM – Multi‑Granularity Cross‑Modal Alignment + Contrastive Learning
-
-**multi-view heterogeneous graph**
-- Kết hợp:
-  - **Ma trận liên hệ từ ↔ vùng ảnh** (attention hai chiều word→region và region→word).
-  - **Đồ thị cú pháp hỗn hợp** ở phía văn bản (kết hợp **dependency tree** ở mức từ và **constituent tree** ở mức cụm/câu).
-
-**Lan truyền và hợp nhất**
-- Chạy **graph attention network** qua đồ thị để **trao đổi thông tin** giữa các **mức hạt** (fine ↔ coarse) của văn bản và ảnh.
-- **Fuse** sâu với **coarse image features** bằng **cơ chế hợp nhất có trọng số theo granularity** để thu được **biểu diễn ảnh‑văn bản hợp nhất**.
-
-**Mục tiêu học (Loss)**
-- **Học tương phản ảnh‑văn bản** để **khép khoảng cách** giữa hai modality.
-- **Cross‑entropy** cho tác vụ sinh/nhãn cảm xúc ở decoder.
-- Hàm mất tổng quát:  
+- **Decoder:** dùng **BART decoder** để **sinh chuỗi** biểu diễn danh sách **(aspect, polarity)**. Họ thêm các **token cảm xúc** như `<POS>/<NEU>/<NEG>`.
+- **Training:** **cross-entropy** cho chuỗi sinh + **contrastive loss** ở trên. **Tổng loss**:
   $$L = (1 - \alpha)\,L_{\text{contrastive}} + \alpha\,L_{\text{CE}}. $$
-
-### Decoder và Suy luận
-
-- **BART decoder** nhận các đặc trưng đã căn chỉnh/tăng cường để **sinh chuỗi** biểu diễn **(aspect, polarity)**.  
-- Đầu ra chuỗi có thể dễ dàng **parse** lại thành danh sách các cặp (aspect, sentiment).
+- (α được chọn thực nghiệm; trong bài α ≈ 0.8 cho kết quả tốt.)
+- **Suy luận:** decode chuỗi (thường beam search đơn giản), rồi **parse** về danh sách cặp _(aspect, sentiment)_.
 
 ## Datasets và Metrics (Tóm tắt nhanh)
 
