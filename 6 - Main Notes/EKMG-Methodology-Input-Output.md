@@ -91,18 +91,11 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 <img> [region_1] [region_2] ... [region_36] <img> <bos> t_1 t_2 ... t_n <eos>
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
+### c) External Knowledge encoder
+- Có nhiệm vụ lấy thêm *external knowledge* cho text và image, cụ thể là: 
+	- **AMR graph** của câu (đồ thị nghĩa trừu tượng)
+	- **Image tags** của ảnh (nhãn từ ImageNet)
+	=> Rồi mã hóa cả 2 vào cùng không gian biểu diễn với text bằng  **BART**
 
 
 
