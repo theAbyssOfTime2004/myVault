@@ -66,7 +66,7 @@ Tóm câu ngắn: **Đồ thị dị thể** mô hình hóa đủ loại nút/c�
 EKMG gồm 3 khối lớn, tạo thành một pipeline:
 
 1) **Multimodal Encoding + External Knowledge**  
-2) **EKSM – External Knowledge Semantic Enhancement**   
+2) **External Knowledge Enhanced Semantic Extraction**   
 3) **MGCM – Multi‑Granularity Cross‑Modal Alignment + Contrastive Learning** 
 
 ### 1. Multimodal Encoding + External Knowledge 
@@ -106,12 +106,10 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 	- Bart mã hóa dãy tags -> $H_{tag}$
 - Nói dễ hiểu: External Knowledge encoder cung cấp **2 nguồn tri thức** — AMR cho **text** và tags cho **image** — được **BART** đưa vào **cùng chuẩn biểu diễn**. Các bước tiếp theo dùng chúng để **lọc nhiễu** và **làm đậm ý nghĩa** trước khi căn chỉnh đa mức và hợp nhất cross-modal.
  
+	
+### 2. External Knowledge Enhanced Semantic Extraction
 
-
-
-
-
-
+- **Dùng external knowledge** — **AMR** cho text, **image tags** cho ảnh — để **tăng cường/“làm sạch” ngữ nghĩa** rồi **rút ra** biểu diễn đã tăng cường cho **text** và **image**.
 
 
 
@@ -149,7 +147,7 @@ Cuối cùng, **BART decoder** sinh chuỗi (aspect, polarity).
 - **AMR graph** cho văn bản: nắm **quan hệ nghĩa cấp cao** (semantic roles, predicate‑argument…), giúp “sạch” hơn so với phụ thuộc cú pháp thuần tuý.
 - **Image tags**: tên đối tượng/cảnh trong ảnh (tự động suy ra) và **mã hoá bằng BART** để đặt trong cùng không gian ngôn ngữ với văn bản.
 
-### 2) EKSM – External Knowledge Semantic Enhancement
+### 2 External Knowledge Enhanced Semantic Extraction
 
 **Nhánh văn bản (Text branch)**
 - **Semantic Purify Network**:
