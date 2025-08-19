@@ -110,6 +110,10 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 ### 2. External Knowledge Enhanced Semantic Extraction
 
 - **Dùng external knowledge** — **AMR** cho text, **image tags** cho ảnh — để **tăng cường/“làm sạch” ngữ nghĩa** rồi **rút ra** biểu diễn đã tăng cường cho **text** và **image**.
+- **Đầu vào**: 
+	- Text: $H_s$ (đặc trưng câu), $H_{noun}$ (nhấn mạnh danh từ), $H_{amr}$ (AMR đã mã hóa)
+	- Image: $H_v$ (đặc trưng vùng ảnh), $H_{tag}$ (tags đã mã hóa), $H_{noun}$. 
+	- 
 
 
 
