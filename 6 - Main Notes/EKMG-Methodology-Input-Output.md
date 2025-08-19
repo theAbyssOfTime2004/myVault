@@ -96,6 +96,7 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 	- **AMR graph** của câu (đồ thị nghĩa trừu tượng)
 	- **Image tags** của ảnh (nhãn từ ImageNet)
 	=> Rồi mã hóa cả 2 vào cùng không gian biểu diễn với text bằng **BART**, thu được 2 knowledge tensor: $H_{amr}$ và $H_{tag}$ 
+![[Pasted image 20250819094205.png]]
 
 
 

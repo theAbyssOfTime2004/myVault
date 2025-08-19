@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ekmg",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -218,6 +218,7 @@
   },
   "active": "d21bed8d56513dee",
   "lastOpenFiles": [
+    "Pasted image 20250819094205.png",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
     "1 - Rough Notes/Mạng máy tính.md",
     "6 - Main Notes/EKMG-Methodology-Input-Output.md",
@@ -243,7 +244,6 @@
     "dsa plan/Week 8 - Dynamic Programming II/Notes.md",
     "5 - Templates/Daily Plan.md",
     "Daily Plan.md",
-    "5 - Templates/Main Note.md",
     "dsa plan/Week 8 - Dynamic Programming II",
     "dsa plan/Week 7 - Dynamic Programming I",
     "dsa plan/Week 6 - Backtracking & Sliding Window",
