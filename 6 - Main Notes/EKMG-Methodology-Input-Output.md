@@ -101,7 +101,11 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 
 - Cụ thể hơn: 
 	- Với đồ thị **AMR**: Nút = **concept/entity/event/attribute**, cạnh = **quan hệ ngữ nghĩa** 
-
+	- BART mã hóa $G_{amr}$ -> $H_{amr}$ (số nút $l_{amr}$ = tổng số **concept/entity/event/attribute** trong câu)
+	- Với **Image tags**: Dùng **ResNet - 101** suy ra **10 tags** từ bộ **ImageNet** cho mỗi ảnh
+	- Bart mã hóa dãy tags -> $H_{tag}$
+- Nói dễ hiểu: External Knowledge encoder cung cấp **2 nguồn tri thức** — AMR cho **text** và tags cho **image** — được **BART** đưa vào **cùng chuẩn biểu diễn**. Các bước tiếp theo dùng chúng để **lọc nhiễu** và **làm đậm ý nghĩa** trước khi căn chỉnh đa mức và hợp nhất cross-modal.
+ 
 
 
 
