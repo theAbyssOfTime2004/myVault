@@ -99,7 +99,8 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 ![[Pasted image 20250819094205.png]]
 
 
-
+- Cụ thể hơn: 
+	- Với đồ thị **AMR**: Nút = **concept/entity/event/attribute**, cạnh = **quan hệ ngữ nghĩa** 
 
 
 
