@@ -113,11 +113,20 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 - **Đầu vào**: 
 	- Text: $H_s$ (đặc trưng câu), $H_{noun}$ (nhấn mạnh danh từ), $H_{amr}$ (AMR đã mã hóa)
 	- Image: $H_v$ (đặc trưng vùng ảnh), $H_{tag}$ (tags đã mã hóa), $H_{noun}$. 
-	- 
+-  **A. Text (AMR-guided "semantic purify" + gating)**	 
+	- Dùng $H_{noun}$ "purifying" $H_{unit}$ để lấy phần AMR liên quan, rồi gate trộn vào $H_s$:
 
-
-
-
+$$H_{es} = \text{Gate}(H_s, \text{Attn}(H_{noun}, H_{amr}))$$
+- **B. Image (tag-guided + heterogeneity resolution + gating)**
+	- Dùng $H_{noun}$​ "purifying" $H_{tag}​$, qua khối HR (giảm lệch modality), rồi gate trộn vào $H_v$ ​:
+**Ký hiệu:**
+- $\text{Attn}(\cdot, \cdot)$: attention để chọn phần tri thức liên quan.
+- $\text{HR}(\cdot)$: _heterogeneity resolution_ (đưa tag về không gian hòa hợp với vùng ảnh).
+- $\text{Gate}(\cdot, \cdot)$: cổng trộn có kiểm soát (học được).
+- **Đầu ra**: 
+	- $H_{es}:$ text enhanced
+	- $H_{ev}:$ image enhanced 
+**Note:** **“Giảm lệch modality”** = làm cho **đặc trưng của hai modality khác nhau** (ở đây là **text** và **image**) **trở nên tương thích** để có thể so khớp, cộng/trộn và suy luận chung.
 
 
 ---
