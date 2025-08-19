@@ -77,9 +77,9 @@ EKMG gồm 3 khối lớn, tạo thành một pipeline:
 #### b)  Text - Image encoder (văn bản + projecting các vủng ảnh vào cùng không gian)
 - Từ phần `a) Image encoder`, ta được các embedding của các vùng ảnh (gọi là các token ảnh), sau đó projecting chúng vào cùng không gian với các văn bản, dùng các tag `<img>, <BOS>, <EOS>` để đánh dấu vị trí của ảnh và chuỗi/văn bản:
 - $$ E_{vs} = <img> + E_v + <img> +  <bos> + E_s + <bos> $$
-	- Với $E_s$ là danh sách embedding của các vùng ảnh, $E_s$ là embedding của câu thu được từ **BART**   
+	- Với $E_v$ là danh sách embedding của 36 vùng ảnh, $E_s$ là embedding của câu thu được từ **BART**   
 - Sau đó cho $E_{vs}$ đi qua **BART**, ta được $H_{vs} = [H_v, H_s]$, với:
-	- $H_v:$ **đặc trưng vùng ảnh (fine)** nhưng đã được đặt trong không gian chữ (mỗi vùng ảnh tương ứng một token ảnh)
+	- $H_v:$ **đặc trưng vùng ảnh (fine image features)** nhưng đã được đặt trong không gian chữ (mỗi vùng ảnh tương ứng một token ảnh)
 	- $H_s$: **đặc trưng văn bản** theo chiều dài câu 
 - **Nhấn mạnh danh từ (Noun Mask):**
 	- Vì **aspect** thường là danh từ/cụm danh từ, encoder tạo mask danh từ trên $H_s$ rồi lấy: $H_{\text{noun}} = H_s \otimes \text{Mask}_{\text{noun}}$
