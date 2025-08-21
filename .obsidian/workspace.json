@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "f9aa9e67eb6e657a",
+        "id": "736597f738aae46c",
         "type": "tabs",
         "children": [
           {
-            "id": "d21bed8d56513dee",
+            "id": "19de9713065677a8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/EKMG-Methodology-Input-Output.md",
+                "file": "1 - Rough Notes/Untitled 2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "EKMG-Methodology-Input-Output"
+              "title": "Untitled 2"
             }
           }
         ]
@@ -75,8 +75,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -217,12 +216,15 @@
       "smart-connections:Smart Connections: Open random connection": true
     }
   },
-  "active": "d21bed8d56513dee",
+  "active": "19de9713065677a8",
   "lastOpenFiles": [
+    "5 - Templates/Problem Template.md",
+    "5 - Templates/rough note (or daily note).md",
+    "6 - Main Notes/Untitled.base",
+    "6 - Main Notes/EKMG-Methodology-Input-Output.md",
     "Pasted image 20250819094205.png",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
     "1 - Rough Notes/Mạng máy tính.md",
-    "6 - Main Notes/EKMG-Methodology-Input-Output.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-11.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-12.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-10.md",
@@ -244,7 +246,6 @@
     "Progress Tracker.md",
     "dsa plan/Week 8 - Dynamic Programming II/Notes.md",
     "5 - Templates/Daily Plan.md",
-    "Daily Plan.md",
     "dsa plan/Week 8 - Dynamic Programming II",
     "dsa plan/Week 7 - Dynamic Programming I",
     "dsa plan/Week 6 - Backtracking & Sliding Window",
@@ -264,11 +265,9 @@
     "2 - Source Material/Others/Pasted image 20250607140156.png",
     "2 - Source Material/Others/Pasted image 20250607140123.png",
     "2 - Source Material/Others/Pasted image 20250607135547.png",
-    "2 - Source Material/Others/Pasted image 20250524220012.png",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Untitled 2.canvas",
-    "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
     "2 - Source Material/Others/Untitled 1.canvas",
     "2 - Source Material/Others/Untitled.canvas"
   ]
