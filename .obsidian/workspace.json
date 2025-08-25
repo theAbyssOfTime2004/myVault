@@ -8,33 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "19de9713065677a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "AETS (Aspect Enhancement and Text Simplification)"
-            }
-          },
-          {
             "id": "f5ffe078aa9fb570",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/EKMG-Methodology-Input-Output.md",
+                "file": "dsa plan/Week 2 - Linked List & Stack/Ngày 2025-08-25.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "EKMG-Methodology-Input-Output"
+              "title": "Ngày 2025-08-25"
             }
           }
         ]
@@ -231,36 +216,36 @@
       "smart-connections:Smart Connections: Open random connection": true
     }
   },
-  "active": "19de9713065677a8",
+  "active": "f5ffe078aa9fb570",
   "lastOpenFiles": [
-    "6 - Main Notes/EKMG-Methodology-Input-Output.md",
-    "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
+    "3 - Tags/linked list.md",
+    "3 - Tags/stack.md",
+    "6 - Main Notes/queue.md",
+    "dsa plan/Week 2 - Linked List & Stack/Ngày 2025-08-25.md",
+    "3 - Tags/array.md",
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-12.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-14.md",
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-11.md",
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-10.md",
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-09.md",
+    "dsa plan/Week 2 - Linked List & Stack/Notes.md",
+    "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
+    "6 - Main Notes/EKMG-Methodology-Input-Output.md",
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
     "1 - Rough Notes/Untitled 2.md",
     "5 - Templates/Problem Template.md",
     "5 - Templates/rough note (or daily note).md",
     "6 - Main Notes/Untitled.base",
     "Pasted image 20250819094205.png",
     "1 - Rough Notes/Mạng máy tính.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-11.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-12.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-10.md",
     "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
     "dsa plan/Week 1 - Array & Hashing/Python Big-O.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-09.md",
     "dsa plan/Progress Tracker.md",
-    "3 - Tags/stack.md",
     "3 - Tags/dict, set.md",
-    "dsa plan/Week 2 - Linked List & Stack/Notes.md",
     "3 - Tags/dsa.md",
     "6 - Main Notes/A Survey of Deep Learning in Sports Applications.md",
     "6 - Main Notes/Non-symmetry of the Kullback-Leibler divergence.md",
     "3 - Tags/statistical.md",
-    "3 - Tags/beginner.md",
-    "6 - Main Notes/1.md",
-    "6 - Main Notes/Multimodal Aspect-Based Sentiment Analysis with External Knowledge and Multi-granularity Image-Text Features (EKMG.md",
-    "Progress Tracker.md",
     "dsa plan/Week 8 - Dynamic Programming II",
     "dsa plan/Week 7 - Dynamic Programming I",
     "dsa plan/Week 6 - Backtracking & Sliding Window",
