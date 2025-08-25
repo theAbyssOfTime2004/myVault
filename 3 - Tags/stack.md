@@ -1,1 +1,1 @@
-[[dsa]]
+[[dsa]], [[linked list]], [[queue]]
