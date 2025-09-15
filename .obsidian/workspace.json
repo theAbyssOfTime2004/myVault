@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/git-pat.md",
+                "file": "dsa plan/Week 2 - Linked List & Stack/Ngày 2025-08-25.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "git-pat"
+              "title": "Ngày 2025-08-25"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 302.5
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -218,6 +218,8 @@
   },
   "active": "68292e8be3462eda",
   "lastOpenFiles": [
+    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
+    "6 - Main Notes/git-pat.md",
     "6 - Main Notes/Workflow của agent.md",
     "6 - Main Notes/Uniformed-cost search.md",
     "6 - Main Notes/Untitled.md",
@@ -240,12 +242,10 @@
     "dsa plan/Week 2 - Linked List & Stack/Notes.md",
     "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
     "6 - Main Notes/EKMG-Methodology-Input-Output.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
     "5 - Templates/Problem Template.md",
     "5 - Templates/rough note (or daily note).md",
     "Pasted image 20250819094205.png",
     "1 - Rough Notes/Mạng máy tính.md",
-    "6 - Main Notes/tóm tắt bài báo 1.pdf.md",
     "dsa plan/Week 8 - Dynamic Programming II",
     "dsa plan/Week 7 - Dynamic Programming I",
     "dsa plan/Week 6 - Backtracking & Sliding Window",
