@@ -1,4 +1,13 @@
-- Hiện tại đã có baseline model gồm: 
+- Hiện tại đã có baseline model với kiến trúc gồm: 
 	- `bert-model`: để tokenizing và encoding (tạo embeddings)
-	- `gnn layer`: gồm có *sematic graph* và *syntactic graph*
+	- `gnn layer`: gồm có *sematic graph (dựa trên attention)* và *syntactic graph (sử dụng dependency tree từ scipy*
+	- `gate fusion`: để kết hợp cả 2 output từ *h_syn* và *h_sem*
+	- `mate_classifier`: classifier cho nhiệm vụ MATE - Phân loại mỗi token là ASPECT hay không
+	- `masc_classifier`: classifier cho nhiệm vụ MASC - Phân loại sentiment cho các aspect 
+- *Contrastive_loss*: ~~tính loss tương phản giữa aspect và ảnh~~
+	=> Cần sửa lại theo paper - tận dụng *syntactic graph* và *semantic graph* với 2 strategy chính là **Cross-scope Contrast** và **Cross-graph Contrast** 
+- cần thay đổi encoder từ BERT sang FSUIE-base 
+- thử nghiệm phần pretraining gồm:
+	- tạo `SceneGraph`: trong bài báo **sử dụng GPT-4o để sinh ra các mô tả văn bản có cấu trúc, chi tiết và cụ thể hơn cho mỗi hình ảnh**
+	- dùng SceneGraph làm đầu vào cho Qformer 
 	- 
