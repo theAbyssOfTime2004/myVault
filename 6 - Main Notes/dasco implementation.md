@@ -1,0 +1,4 @@
+- Hiện tại đã có baseline model gồm: 
+	- `bert-model`: để tokenizing và encoding (tạo embeddings)
+	- `gnn layer`: gồm có *sematic graph* và *syntactic graph*
+	- 
