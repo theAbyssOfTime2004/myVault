@@ -10,7 +10,7 @@
 - thử nghiệm phần pretraining gồm:
 	- tạo `SceneGraph`: trong bài báo **sử dụng GPT-4o để sinh ra các mô tả văn bản có cấu trúc, chi tiết và cụ thể hơn cho mỗi hình ảnh**
 	- dùng SceneGraph làm đầu vào cho Qformer (với tham số khởi tạo lấy từ 1 bài báo khác được cited kèm theo): cho phép ánh xạ các img feature -> miền văn bản và thực hiện việc kết nối, căn chỉnh đặc trưng giữa img và text. Điều này giúp **giảm thiểu vấn đề MIM**
-	- **Aspect-Oriented enhancement**:cải thiện độ nhạy trong việc bắt khía cạnh
+	- **Aspect-Oriented enhancement**: cải thiện độ nhạy trong việc bắt khía cạnh
 	- **Image-Text Matching**
 	- **Aspect-level Sentiment-Sensitive Cognition**: tăng khả năng nhận thức sentiment của mô hình, trực tiếp **giải quyết vấn đề SCP**
 	`Loss_p = Loss_𝑄 + Loss_𝐴𝑂𝐸 + Loss_𝐼𝑇𝑀 + Loss_𝐴𝑆𝑆𝐶`
