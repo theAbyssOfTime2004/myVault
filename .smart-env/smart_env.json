@@ -11,10 +11,17 @@
       "adapter": "transformers",
       "transformers": {
         "legacy_transformers": false,
-        "model_key": "TaylorAI/bge-micro-v2"
+        "model_key": "nomic-ai/nomic-embed-text-v1.5"
       },
-      "TaylorAI/bge-micro-v2": {}
+      "TaylorAI/bge-micro-v2": {},
+      "openai": {
+        "model_key": "text-embedding-3-small"
+      },
+      "nomic-ai/nomic-embed-text-v1.5": {}
     },
+    "excluded_headings": "",
+    "file_exclusions": "Untitled",
+    "folder_exclusions": "",
     "smart_view_filter": {
       "expanded_view": true
     }
@@ -23,26 +30,289 @@
     "connections": true,
     "random_note": false
   },
-  "file_exclusions": "Untitled",
-  "folder_exclusions": "",
   "smart_view_filter": {
     "render_markdown": true,
-    "show_full_path": false,
+    "show_full_path": true,
     "exclude_blocks_from_source_connections": false,
     "exclude_frontmatter_blocks": true,
     "expanded_view": false,
     "results_limit": "20"
   },
-  "excluded_headings": "",
   "language": "en",
   "new_user": true,
   "re_import_wait_time": 13,
   "smart_chat_threads": {
     "chat_model": {
-      "adapter": "ollama",
-      "ollama": {}
+      "adapter": "openai",
+      "ollama": {
+        "model_key": "undefined",
+        "host": "http://localhost:11434",
+        "models": {
+          "qwen3:1.7b": {
+            "model_name": "qwen3:1.7b",
+            "id": "qwen3:1.7b",
+            "multimodal": false,
+            "max_input_tokens": 40960,
+            "can_use_tools": true
+          }
+        }
+      },
+      "openai": {
+        "model_key": "gpt-4o",
+        "models": {
+          "gpt-4o": {
+            "model_name": "gpt-4o",
+            "id": "gpt-4o",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 128000,
+            "models_dev": {
+              "id": "gpt-4o",
+              "name": "GPT-4o",
+              "attachment": true,
+              "reasoning": false,
+              "temperature": true,
+              "tool_call": true,
+              "knowledge": "2023-09",
+              "release_date": "2024-05-13",
+              "last_updated": "2024-05-13",
+              "modalities": {
+                "input": [
+                  "text",
+                  "image"
+                ],
+                "output": [
+                  "text"
+                ]
+              },
+              "open_weights": false,
+              "cost": {
+                "input": 2.5,
+                "output": 10,
+                "cache_read": 1.25
+              },
+              "limit": {
+                "context": 128000,
+                "output": 16384
+              }
+            },
+            "name": "GPT-4o",
+            "max_output_tokens": 16384,
+            "cost": {
+              "input": 2.5,
+              "output": 10,
+              "cache_read": 1.25
+            }
+          },
+          "gpt-4o-mini-2024-07-18": {
+            "model_name": "gpt-4o-mini-2024-07-18",
+            "id": "gpt-4o-mini-2024-07-18",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 128000
+          },
+          "gpt-4o-mini": {
+            "model_name": "gpt-4o-mini",
+            "id": "gpt-4o-mini",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 128000,
+            "models_dev": {
+              "id": "gpt-4o-mini",
+              "name": "GPT-4o mini",
+              "attachment": true,
+              "reasoning": false,
+              "temperature": true,
+              "tool_call": true,
+              "knowledge": "2023-09",
+              "release_date": "2024-07-18",
+              "last_updated": "2024-07-18",
+              "modalities": {
+                "input": [
+                  "text",
+                  "image"
+                ],
+                "output": [
+                  "text"
+                ]
+              },
+              "open_weights": false,
+              "cost": {
+                "input": 0.15,
+                "output": 0.6,
+                "cache_read": 0.08
+              },
+              "limit": {
+                "context": 128000,
+                "output": 16384
+              }
+            },
+            "name": "GPT-4o mini",
+            "max_output_tokens": 16384,
+            "cost": {
+              "input": 0.15,
+              "output": 0.6,
+              "cache_read": 0.08
+            }
+          },
+          "gpt-4.1-2025-04-14": {
+            "model_name": "gpt-4.1-2025-04-14",
+            "id": "gpt-4.1-2025-04-14",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1000000
+          },
+          "gpt-4.1": {
+            "model_name": "gpt-4.1",
+            "id": "gpt-4.1",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1047576,
+            "models_dev": {
+              "id": "gpt-4.1",
+              "name": "GPT-4.1",
+              "attachment": true,
+              "reasoning": false,
+              "temperature": true,
+              "tool_call": true,
+              "knowledge": "2024-04",
+              "release_date": "2025-04-14",
+              "last_updated": "2025-04-14",
+              "modalities": {
+                "input": [
+                  "text",
+                  "image"
+                ],
+                "output": [
+                  "text"
+                ]
+              },
+              "open_weights": false,
+              "cost": {
+                "input": 2,
+                "output": 8,
+                "cache_read": 0.5
+              },
+              "limit": {
+                "context": 1047576,
+                "output": 32768
+              }
+            },
+            "name": "GPT-4.1",
+            "max_output_tokens": 32768,
+            "cost": {
+              "input": 2,
+              "output": 8,
+              "cache_read": 0.5
+            }
+          },
+          "gpt-4.1-mini-2025-04-14": {
+            "model_name": "gpt-4.1-mini-2025-04-14",
+            "id": "gpt-4.1-mini-2025-04-14",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1000000
+          },
+          "gpt-4.1-mini": {
+            "model_name": "gpt-4.1-mini",
+            "id": "gpt-4.1-mini",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1047576,
+            "models_dev": {
+              "id": "gpt-4.1-mini",
+              "name": "GPT-4.1 mini",
+              "attachment": true,
+              "reasoning": false,
+              "temperature": true,
+              "tool_call": true,
+              "knowledge": "2024-04",
+              "release_date": "2025-04-14",
+              "last_updated": "2025-04-14",
+              "modalities": {
+                "input": [
+                  "text",
+                  "image"
+                ],
+                "output": [
+                  "text"
+                ]
+              },
+              "open_weights": false,
+              "cost": {
+                "input": 0.4,
+                "output": 1.6,
+                "cache_read": 0.1
+              },
+              "limit": {
+                "context": 1047576,
+                "output": 32768
+              }
+            },
+            "name": "GPT-4.1 mini",
+            "max_output_tokens": 32768,
+            "cost": {
+              "input": 0.4,
+              "output": 1.6,
+              "cache_read": 0.1
+            }
+          },
+          "gpt-4.1-nano-2025-04-14": {
+            "model_name": "gpt-4.1-nano-2025-04-14",
+            "id": "gpt-4.1-nano-2025-04-14",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1000000
+          },
+          "gpt-4.1-nano": {
+            "model_name": "gpt-4.1-nano",
+            "id": "gpt-4.1-nano",
+            "multimodal": true,
+            "can_use_tools": true,
+            "max_input_tokens": 1047576,
+            "models_dev": {
+              "id": "gpt-4.1-nano",
+              "name": "GPT-4.1 nano",
+              "attachment": true,
+              "reasoning": false,
+              "temperature": true,
+              "tool_call": true,
+              "knowledge": "2024-04",
+              "release_date": "2025-04-14",
+              "last_updated": "2025-04-14",
+              "modalities": {
+                "input": [
+                  "text",
+                  "image"
+                ],
+                "output": [
+                  "text"
+                ]
+              },
+              "open_weights": false,
+              "cost": {
+                "input": 0.1,
+                "output": 0.4,
+                "cache_read": 0.03
+              },
+              "limit": {
+                "context": 1047576,
+                "output": 32768
+              }
+            },
+            "name": "GPT-4.1 nano",
+            "max_output_tokens": 32768,
+            "cost": {
+              "input": 0.1,
+              "output": 0.4,
+              "cache_read": 0.03
+            }
+          }
+        },
+        "api_key": ""
+      }
     },
-    "active_thread_key": "",
+    "active_thread_key": "Untitled Chat 2025-09-17 20-51-35",
     "system_prompt": "",
     "detect_self_referential": true,
     "review_context": true,
@@ -56,5 +326,26 @@
       "done_import": true
     }
   },
-  "version": ""
+  "version": "",
+  "smart_contexts": {
+    "link_depth": 0,
+    "inlinks": false,
+    "follow_links_in_excluded": true,
+    "excluded_headings": [],
+    "max_len": 0,
+    "templates": {
+      "0": {
+        "before": "<context_primary path=\"{{ITEM_PATH}}\" mtime=\"{{ITEM_TIME_AGO}}\">",
+        "after": "</context_primary>"
+      },
+      "1": {
+        "before": "<context_linked path=\"{{ITEM_PATH}}\" mtime=\"{{ITEM_TIME_AGO}}\">",
+        "after": "</context_linked>"
+      },
+      "-1": {
+        "before": "<context>\n<file_tree>\n{{FILE_TREE}}\n</file_tree>",
+        "after": "</context>"
+      }
+    }
+  }
 }
