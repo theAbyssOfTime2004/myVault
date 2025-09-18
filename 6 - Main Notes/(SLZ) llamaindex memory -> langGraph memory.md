@@ -1,4 +1,4 @@
-tags: [[LangChain]], [[langGraph]]
+
 
 
 
@@ -17,6 +17,8 @@ FactExtractionMemoryBlock,
 VectorMemoryBlock)
 ```
 
+
+- `Memory` trong llamaindex có thể được thay thế bằng các class `CombinedMemory`(dùng kết hợp nhiều memory nhỏ) và `ConversationSummaryBufferMemory`, cùng các class phía dưới 
 - `FactExtractionMemoryBlock` cùng với `fact_extraction_prompt_template` có chức năng trích xuất các fact và thông tin quan trọng từ hội thoại 
 	-> Có thể thay thế được với `ConversationEntityMemory` cùng `entity_extraction_prompt` từ langchain (nhưng hiện tại đã deprecated và đã được migrating qua langGraph)
 
@@ -51,3 +53,5 @@ def save_to_memory(role: str, content: str) -> None:
             print(f"Lỗi khi lưu vào memory: {str(e)}")
 
 ```
+
+- **Lưu ý:** các class `ConversationEntityMemory`, `VectorStoreRetrieverMemory`, `ConversationSummaryBufferMemory`, `CombinedMemory` của langchain đã deprecated và sẽ cần được thay đổi sang langgraph
