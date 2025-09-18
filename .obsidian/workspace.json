@@ -65,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "openAI",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -217,7 +218,7 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "5612716759f76cf4",
+  "active": "795cc0a4e8cdf0a2",
   "lastOpenFiles": [
     "6 - Main Notes/Untitled.md",
     "6 - Main Notes/Attention Mechanism.md",
