@@ -23,13 +23,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/Untitled.md",
+                "file": "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "(SLZ) llamaindex memory -> langGraph memory"
             }
           }
         ],
@@ -222,7 +222,7 @@
   "active": "5612716759f76cf4",
   "lastOpenFiles": [
     "Chats/New Chat.md",
-    "6 - Main Notes/Untitled.md",
+    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Attention Mechanism.md",
     "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
     "6 - Main Notes/Neural Network.md",
