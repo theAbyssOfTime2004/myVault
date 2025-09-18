@@ -59,3 +59,10 @@ def save_to_memory(role: str, content: str) -> None:
 - `ConversationSummaryBufferMemory` ->  [summarize messages LangGraph](https://langchain-ai.github.io/langgraph/how-tos/memory/add-memory/#delete-messages)
 - `VectorStoreRetrieverMemory` ->  [A Long-Term Memory Agent](https://python.langchain.com/docs/versions/migrating_memory/long_term_memory_agent/)
 - `ConversationEntityMemory` -> [A Long-Term Memory Agent](https://python.langchain.com/docs/versions/migrating_memory/long_term_memory_agent/)
+- **Tóm lại**:
+- `CombinedMemory` + `ConversationSummaryBufferMemory` để thay `Memory`
+- `ConversationEntityMemory` dùng thay `FactExtractionMemoryBlock`
+- `VectorStoreRetrieverMemory` thay `VectorMemoryBlock`
+- Bỏ `StaticMemoryBlock`
+- Viết lại hàm summarize / get_memory_content
+- Thay persistence sang LangGraph
