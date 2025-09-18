@@ -22,4 +22,5 @@ VectorMemoryBlock)
 
 - `StaticMemoryBlock` hiện không dùng nên sẽ bỏ đi 
 
-- Cần viết lại hàm `summarize_history()` để phù hợp với input từ langGraph, dùng cho việc tạo *full_question* từ *memory + input_query*   
+- Cần viết lại hàm `summarize_history()` để phù hợp với input từ langGraph memory, dùng cho việc tạo *full_question* từ *memory + input_query*   
+- viết lại hàm `get_memory_content()` với memory của langGraph, dùng cho việc xem các thông tin quan trọng trong `ConversationEntityMemory`, 
