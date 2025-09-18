@@ -23,7 +23,7 @@ VectorMemoryBlock)
 	-> Có thể thay thế được với `ConversationEntityMemory` cùng `entity_extraction_prompt` từ langchain (nhưng hiện tại đã deprecated và đã được migrating qua langGraph)
 
 - `VectorMemoryBlock` để lữu trữ và tìm kiếm context hội thoại bằng vector
-	-> Có thể thay thế bằng `VectorStoreRetrieverMemory`
+	-> Có thể thay thế bằng `VectorStoreRetrieverMemory` (Store the conversation history in a vector store and retrieves the relevant parts of past conversation based on the input.)
 
 - `StaticMemoryBlock` hiện không dùng nên sẽ bỏ đi 
 
@@ -55,3 +55,7 @@ def save_to_memory(role: str, content: str) -> None:
 ```
 
 - **Lưu ý:** các class `ConversationEntityMemory`, `VectorStoreRetrieverMemory`, `ConversationSummaryBufferMemory`, `CombinedMemory` của langchain đã deprecated và sẽ cần được thay đổi sang langgraph
+
+- `ConversationSummaryBufferMemory` ->  [summarize messages LangGraph](https://langchain-ai.github.io/langgraph/how-tos/memory/add-memory/#delete-messages)
+- `VectorStoreRetrieverMemory` ->  [A Long-Term Memory Agent](https://python.langchain.com/docs/versions/migrating_memory/long_term_memory_agent/)
+- `ConversationEntityMemory` -> [A Long-Term Memory Agent](https://python.langchain.com/docs/versions/migrating_memory/long_term_memory_agent/)
