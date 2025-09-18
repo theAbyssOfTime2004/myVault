@@ -21,3 +21,5 @@ VectorMemoryBlock)
 	-> Có thể thay thế bằng `VectorStoreRetrieverMemory`
 
 - `StaticMemoryBlock` hiện không dùng nên sẽ bỏ đi 
+
+- Cần viết lại hàm `summarize_history()` để phù hợp với input từ langGraph, dùng cho việc tạo *full_question* từ *memory + input_query*   
