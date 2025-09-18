@@ -65,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "openAI",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -201,7 +201,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 669.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -218,11 +219,11 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "795cc0a4e8cdf0a2",
+  "active": "5612716759f76cf4",
   "lastOpenFiles": [
+    "Chats/New Chat.md",
     "6 - Main Notes/Untitled.md",
     "6 - Main Notes/Attention Mechanism.md",
-    "Chats/New Chat.md",
     "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
     "6 - Main Notes/Neural Network.md",
     "Chats",

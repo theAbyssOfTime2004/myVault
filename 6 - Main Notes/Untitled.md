@@ -12,5 +12,6 @@ from llama_index.core.memory import (
 Memory, 
 FactExtractionMemoryBlock, 
 VectorMemoryBlock)
-
 ```
+
+- `FactExtractionMemoryBlock` cùng với 
