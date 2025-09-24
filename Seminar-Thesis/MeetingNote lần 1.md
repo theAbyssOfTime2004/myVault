@@ -1,4 +1,4 @@
-
+[[seminar HCMUS]]
 đầu vào:
 đầu ra:
 thách thức: dữ liệu đã có nhưng chưa được đánh nhãn (unsupervised) , review và ảnh đôi khi không liên quan đến nhau, 

@@ -11,10 +11,15 @@
             "id": "68292e8be3462eda",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "MeetingNote lần 2 cùng todo-tasks"
             }
           },
           {
@@ -23,17 +28,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1 - Rough Notes/Untitled 1.md",
+                "file": "3 - Tags/seminar HCMUS.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "seminar HCMUS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -217,16 +221,21 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "5612716759f76cf4",
+  "active": "68292e8be3462eda",
   "lastOpenFiles": [
-    "1 - Rough Notes/Untitled 2.md",
-    "1 - Rough Notes/Untitled 1.md",
+    "Seminar-Thesis/QFORMER.md",
+    "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
+    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
+    "3 - Tags/SLZ.md",
     "1 - Rough Notes/Untitled.md",
+    "1 - Rough Notes/Untitled 1.md",
+    "Seminar-Thesis/MeetingNote lần 1.md",
+    "Seminar-Thesis",
+    "3 - Tags/seminar HCMUS.md",
     "Chats/New Chat.md",
     "6 - Main Notes/2025-07-04.md",
     "6 - Main Notes/Untitled 2.base",
     "6 - Main Notes/Untitled 1.base",
-    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Attention Mechanism.md",
     "6 - Main Notes/AETS (Aspect Enhancement and Text Simplification).md",
     "6 - Main Notes/Neural Network.md",
@@ -245,17 +254,12 @@
     "6 - Main Notes/Workflow của agent.md",
     "6 - Main Notes/Uniformed-cost search.md",
     "6 - Main Notes/Untitled.base",
-    "5 - Templates/Main Note.md",
-    "3 - Tags/linked list.md",
-    "3 - Tags/stack.md",
-    "6 - Main Notes/queue.md",
     "Pasted image 20250819094205.png",
     "dsa plan/Week 8 - Dynamic Programming II",
     "dsa plan/Week 7 - Dynamic Programming I",
     "dsa plan/Week 6 - Backtracking & Sliding Window",
     "dsa plan/Week 5 - Graph",
     "dsa plan/Week 4 - Tree",
-    "dsa plan/Week 3 - Binary Search & Recursion",
     "Data Mining review.canvas",
     "2 - Source Material/Others/Pasted image 20250709183047.png",
     "2 - Source Material/Others/Pasted image 20250707004950.png",
