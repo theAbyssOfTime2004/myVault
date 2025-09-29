@@ -11,13 +11,34 @@
             "id": "ad37e83c39ad95c7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "(SLZ) llamaindex memory -> langGraph memory"
+            }
+          },
+          {
+            "id": "3f3538629b56c796",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "(SLZ) langgraph memory  -> summarizing context"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -49,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "langg",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +91,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -201,8 +223,11 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "7d61f9287b83d72f",
+  "active": "3f3538629b56c796",
   "lastOpenFiles": [
+    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
+    "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
+    "Chats/New Chat.md",
     "6 - Main Notes/2025-09-29.md",
     "1 - Rough Notes/Untitled 1.md",
     "6 - Main Notes/Untitled 5.base",
@@ -210,13 +235,11 @@
     "6 - Main Notes/Untitled 3.base",
     "dsa plan/Week 2 - Linked List & Stack/Ngày 2025-08-25.md",
     "3 - Tags/seminar HCMUS.md",
-    "Chats/New Chat.md",
     "dsa plan/Week 2 - Linked List & Stack/Notes.md",
     "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
     "dsa plan/Week 1 - Array & Hashing/Python Big-O.md",
     "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
     "Seminar-Thesis/QFORMER.md",
-    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "3 - Tags/SLZ.md",
     "1 - Rough Notes/Untitled.md",
     "Seminar-Thesis/MeetingNote lần 1.md",
@@ -235,7 +258,6 @@
     "6 - Main Notes/Contrastive Learning.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/1.md",
-    "6 - Main Notes/dasco implementation.md",
     "6 - Main Notes/Untitled.base",
     "Pasted image 20250819094205.png",
     "dsa plan/Week 8 - Dynamic Programming II",
