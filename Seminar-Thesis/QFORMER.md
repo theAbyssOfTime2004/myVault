@@ -14,3 +14,6 @@
 			- dạng `[batch_size, num_query_tokens, hidden_dim]`
 		2. `encoder_hidden_states`: đặc trưng ảnh sau khi qua image encoder
 			- ví dụ: `[batch_size, num_image_patches, hidden_dim]`
+- Trong Blip2, "query" là một **vector truy vấn để hỏi ảnh điều gì đó**, Q-former học cách rút ra các thông tin cần thiết trong ảnh dựa vào các vector truy vấn này, trong mô hình gốc Blip2, query là các *learnable query tokens* (learnable params)
+	- **Mục đích:** trích xuất general embedding tống quát của ảnh mà không cần câu hỏi cụ thể 
+- Đối với các bài về MABSA (như trong DASCO), ta muốn align **ảnh** với **aspect**, nhưng *learnable query tokens* không linh hoạt cho từng khía cạnh như vậy , nên đã thay thế bằng *text query embeddings* - embedding của từ “food”, “service”, “ambience”, …
