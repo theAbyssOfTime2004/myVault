@@ -29,3 +29,30 @@ Hai đồ thị này cung cấp **hai góc nhìn bổ sung**: cú pháp (cấu t
     - Các nút SemGraph khác → **negative samples**.
 - Sử dụng **trọng số tương đồng ω** để điều chỉnh độ gần giữa hai không gian biểu diễn.
 - Quá trình lặp lại theo hướng ngược lại (SemGraph → SynGraph).
+```
+                    ┌──────────────────────────┐
+                    │   Aspect Token (anchor)  │
+                    └────────────┬─────────────┘
+                                 │
+                ┌────────────────┴────────────────┐
+                │                                 │
+        Cross-scope Contrast               Cross-graph Contrast
+      (trong cùng đồ thị)                 (giữa 2 đồ thị khác nhau)
+                │                                 │
+   ┌────────────┴────────────┐         ┌──────────┴──────────┐
+   │                         │         │                     │
+ In-scope tokens         Out-of-scope  SemGraph tokens     SynGraph tokens
+(positive samples)       (negative)   (positive/negative)  (positive/negative)
+   │                         │         │                     │
+   └──────────┬──────────────┘         └─────────┬───────────┘
+              │                                    │
+              └────────────── InfoNCE Loss ◄───────┘
+
+```
+
+
+“Trong DASCO, _phạm vi (scope)_ được hiểu là vùng ngữ cảnh có quan hệ trực tiếp với từ khía cạnh.  
+Với đồ thị cú pháp (SynGraph), phạm vi này được xác định từ cây phụ thuộc cú pháp — gồm các từ như chủ ngữ, động từ hoặc bổ ngữ liên quan.  
+Còn với đồ thị ngữ nghĩa (SemGraph), phạm vi được xác định dựa trên trọng số attention — tức là các từ mà từ khía cạnh chú ý mạnh đến.  
+Trong code, phạm vi được lưu trong `scope_masks`, cho biết từ nào thuộc in-scope (1) hay out-of-scope (0).  
+Từ đó, hàm InfoNCE loss sẽ kéo gần các từ trong phạm vi với aspect (positive pairs) và đẩy xa các từ ngoài phạm vi (negative samples).”
