@@ -21,3 +21,11 @@ Hai đồ thị này cung cấp **hai góc nhìn bổ sung**: cú pháp (cấu t
 	- Dùng **InfoNCE loss** để:
 		- Kéo gần biểu diễn của các cặp dương tính.
 		- Đẩy xa biểu diễn của các cặp âm tính.
+-  **Cross-graph Contrast**
+	- Mục tiêu: **Căn chỉnh hiểu biết ngữ cảnh giữa SynGraph và SemGraph.**    
+- Ví dụ:
+    - Lấy từ mục tiêu ntn_tnt​ trong SynGraph làm **anchor**.
+    - Tìm từ tương ứng mtm_tmt​ và các nút thuộc phạm vi của nó trong SemGraph → **positive set**.
+    - Các nút SemGraph khác → **negative samples**.
+- Sử dụng **trọng số tương đồng ω** để điều chỉnh độ gần giữa hai không gian biểu diễn.
+- Quá trình lặp lại theo hướng ngược lại (SemGraph → SynGraph).
