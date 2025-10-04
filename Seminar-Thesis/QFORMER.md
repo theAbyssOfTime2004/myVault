@@ -18,3 +18,4 @@
 	- **Mục đích:** trích xuất general embedding tống quát của ảnh mà không cần câu hỏi cụ thể 
 - Đối với các bài về MABSA (như trong DASCO), ta muốn align **ảnh** với **aspect**, nhưng *learnable query tokens* không linh hoạt cho từng khía cạnh như vậy , nên đã thay thế bằng *text query embeddings* - embedding của từ “food”, “service”, “ambience”, …
 - ![[Pasted image 20251004201925.png]]
+- Do vậy phải unsqueeze *query_embeds* để qformer biết rằng mỗi lần ta truyền chỉ truyền 1 embedding duy nhất của aspect trong câu review tương ứng, thay vì 32 query token học được như BLIP-2
