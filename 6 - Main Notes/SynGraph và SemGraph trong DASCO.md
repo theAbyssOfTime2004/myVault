@@ -40,12 +40,12 @@ Hai đồ thị này cung cấp **hai góc nhìn bổ sung**: cú pháp (cấu t
                     └────────────┬─────────────┘
                                  │
                 ┌────────────────┴────────────────┐
-                │                                 │
+                │                                │
         Cross-scope Contrast               Cross-graph Contrast
       (trong cùng đồ thị)                 (giữa 2 đồ thị khác nhau)
-                │                                 │
+                │                                │
    ┌────────────┴────────────┐         ┌──────────┴──────────┐
-   │                         │         │                     │
+   │                         │        │                     │
  In-scope tokens         Out-of-scope  SemGraph tokens     SynGraph tokens
 (positive samples)       (negative)   (positive/negative)  (positive/negative)
    │                         │         │                     │
