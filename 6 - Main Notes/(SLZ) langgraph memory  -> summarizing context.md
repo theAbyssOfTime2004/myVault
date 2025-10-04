@@ -7,5 +7,5 @@
 	- **thứ 2 là:** `trong get_memory_content_from_state():` tóm tắt 5 tin gần nhất nếu chúng vượt quá `SHORT_TERM_TOKEN_THRESHOLD` (đang set là 200 tokens), **không xóa tin nhắn**, chỉ tóm tắt để hiển thị.
 		- Tóm tắt này xuất hiện trong phần `🕒 Tóm tắt lịch sử gần nhất:` (ở **đầu** `memory_content`).
 
-- update: bỏ summarize 5 tin nhắn gần nhất trong `get_memory_content_from_state()`:
-	-  giờ đây get_memory_content_from_state sẽ trả về 10 tin nhắn gần nhất (không summary) + facts + vector context + summary từ summarize_history_node (nếu có - chat dài > MAX_MESSAGES)
+
+- 
