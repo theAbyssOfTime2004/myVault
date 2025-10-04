@@ -21,6 +21,11 @@ Hai đồ thị này cung cấp **hai góc nhìn bổ sung**: cú pháp (cấu t
 	- Dùng **InfoNCE loss** để:
 		- Kéo gần biểu diễn của các cặp dương tính.
 		- Đẩy xa biểu diễn của các cặp âm tính.
+	=> “Trong chiến lược **cross-scope contrast**, mô hình lấy mỗi từ khía cạnh làm anchor và so sánh với các từ còn lại trong câu.  
+	Nếu một từ nằm **trong phạm vi (scope)** — tức là có mối quan hệ ngữ pháp hoặc ngữ nghĩa với khía cạnh — thì được xem là **positive pair** và mô hình sẽ **kéo gần biểu diễn** của nó lại.  
+	Ngược lại, các từ **ngoài phạm vi** được xem là **negative samples** và bị **đẩy ra xa**.  
+	Phạm vi này được xác định riêng cho từng loại đồ thị:
+    Nhờ vậy, mô hình học được cách tập trung vào vùng ngữ cảnh thực sự liên quan đến khía cạnh và loại bỏ các nhiễu không cần thiết.”
 -  **Cross-graph Contrast**
 	- Mục tiêu: **Căn chỉnh hiểu biết ngữ cảnh giữa SynGraph và SemGraph.**    
 - Ví dụ:
