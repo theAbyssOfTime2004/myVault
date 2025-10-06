@@ -6,10 +6,8 @@
 		- Tóm tắt này sẽ xuất hiện trong phần `🕒 Tóm tắt hội thoại trước:` ở cuối `memory_content`.
 	- **thứ 2 là:** `trong get_memory_content_from_state():` tóm tắt 5 tin gần nhất nếu chúng vượt quá `SHORT_TERM_TOKEN_THRESHOLD` (đang set là 200 tokens), **không xóa tin nhắn**, chỉ tóm tắt để hiển thị.
 		- Tóm tắt này xuất hiện trong phần `🕒 Tóm tắt lịch sử gần nhất:` (ở **đầu** `memory_content`).
-
-
+	
 - **lg_memory.py**: có 7 thay đổi quan trọng:
-
 1. ✅ **XÓA vecs** - Chỉ dùng PostgresStore
 2. ✅ **Enable semantic search** - Tự động embedding
 3. ✅ **Refactor vector ops** - Dùng Store API thay SQL
