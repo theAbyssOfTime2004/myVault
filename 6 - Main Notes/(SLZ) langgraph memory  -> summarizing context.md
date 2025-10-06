@@ -8,4 +8,14 @@
 		- Tóm tắt này xuất hiện trong phần `🕒 Tóm tắt lịch sử gần nhất:` (ở **đầu** `memory_content`).
 
 
-- 
+- **lg_memory.py**: có 7 thay đổi quan trọng:
+
+1. ✅ **XÓA vecs** - Chỉ dùng PostgresStore
+2. ✅ **Enable semantic search** - Tự động embedding
+3. ✅ **Refactor vector ops** - Dùng Store API thay SQL
+4. ✅ **RemoveMessage** - LangGraph best practice
+5. ✅ **Better fact extraction** - Ưu tiên tên chính xác
+6. ✅ **Smart reconnection** - Error handling tốt hơn
+7. ✅ **Smart summarization** - Tiết kiệm tokens
+
+refactored lại dựa trên [docs langgraph memory](https://docs.langchain.com/oss/python/langgraph/add-memory) 

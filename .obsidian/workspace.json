@@ -37,7 +37,8 @@
               "title": "(SLZ) langgraph memory  -> summarizing context"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
+                "file": "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -121,7 +122,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for SynGraph và SemGraph trong DASCO"
+              "title": "Backlinks for (SLZ) langgraph memory  -> summarizing context"
             }
           },
           {
@@ -221,10 +222,10 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "3f3538629b56c796",
+  "active": "e50e72ca0c5f390c",
   "lastOpenFiles": [
-    "Seminar-Thesis/QFORMER.md",
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
+    "Seminar-Thesis/QFORMER.md",
     "Pasted image 20251004201925.png",
     "3 - Tags/seminar HCMUS.md",
     "Seminar-Thesis/MeetingNote lần 1.md",
