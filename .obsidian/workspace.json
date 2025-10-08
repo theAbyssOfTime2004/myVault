@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "SLZ",
+                "query": "hf",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -222,7 +222,7 @@
       "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "e50e72ca0c5f390c",
+  "active": "795cc0a4e8cdf0a2",
   "lastOpenFiles": [
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "Seminar-Thesis/QFORMER.md",
