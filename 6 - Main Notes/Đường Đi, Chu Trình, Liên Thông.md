@@ -3,7 +3,7 @@
 
 Tags: [[Graph Theory]]
 
-# Đường Đi, Chu Trình, Liên Thông
+# Đường Đi, Chu Trình, Liên Thông, Khớp và Cầu
 
 ### Đường Đi:
 - Là 1 dãy các đỉnh sao cho mỗi cặp đỉnh liên tiếp được nối với nhau bằng 1 cạnh
