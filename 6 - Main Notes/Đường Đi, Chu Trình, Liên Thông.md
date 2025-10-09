@@ -50,3 +50,7 @@ D —— C
 - “Đồ thị liên thông” = Cả đồ thị là **một nhóm duy nhất** như vậy.
 
 # References
+_z_ =1∗ _w_ 0+ _x_ 1∗ _w_ 1+ _x_ 2∗ _w_ 2
+$$
+(H−F+2PS+1)*(W−F+2PS+1)left( frac{H - F + 2P}{S} + 1 right)*left( frac{W - F + 2P}{S} + 1 right)
+$$∗ _K_
