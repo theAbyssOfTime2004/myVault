@@ -37,3 +37,76 @@ p2.greet()
 
 - We can store data in 2 ways:
 	- **Instance attributes**: belong to one object
+	- **Class attributes**: shared by all objects in the class 
+
+```python
+class Student:
+	school = "hcmus" # Class attribute
+	
+	def __init__(self, name):
+		self.name = name # Instance attribute 
+
+s1 = Student("Mai")
+s2 = Student("Dang")
+
+print(s1.school) # hcmus
+print(s2.school) # hcmus
+
+s1.school = "UIT" #change only for s1
+print(s1.school) # UIT
+print(s2.school) # hcmus
+
+```
+
+- Class Attribute is **shared** and Instance Attribute is not 
+
+## 3. Method and `Self`
+
+- **Methods** are just *functions inside a class* that describe what objects can do
+```python
+class Car:
+	def __init__(self, brand):
+		self.brand = brand
+	
+	def drive(self):
+		print(f"{self.brand} is driving")
+
+car1 = Car("Toyota")
+car1.drive()
+```
+
+- When you call `car1.drive()` <=> python will run `Car.drive(car1)` 
+
+
+## 4. Exercises
+
+```python
+class Book:
+	def __init__(self, title, author, year):
+		self.title = title
+		self.author = author
+		self.year = year
+	
+	def display_info(self):
+		print(f"""Title: {self.title}
+			Author: {self.author}
+			Year: {self.year}""")
+
+book1 = Book("1984", "George Orwell", 1949)
+book1.display_info()
+
+```
+
+
+```python
+class Rectangle:
+	def __init__(self, width, height):
+		self.width = width
+		self.height = height
+	
+	def area(self):
+		return self.width*self.height
+	
+	def perimeter(self):
+		return (self.width+self.height)*2
+```
