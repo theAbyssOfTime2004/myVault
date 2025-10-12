@@ -75,7 +75,7 @@
 		{"id":"5195cb49f7606036","type":"text","text":"Chương 6: Thuật toán phân cụm ","x":2236,"y":1767,"width":250,"height":60},
 		{"id":"bcaa65830777e390","type":"text","text":"Giới thiệu về Clustering: là một quá trình phân hoạch các điểm dữ liệu thành các cụm có tính tương đồng cao","x":2901,"y":1539,"width":399,"height":101},
 		{"id":"307b558fc6f0d2ab","type":"text","text":"Mô hình lọc: Sử dụng các tiêu chí toán học rõ ráng dựa trên sự tương đồng để đánh giá chất lượng của một đặc trưng hoặc một tập hợp con các đặc trưng, sau đó loại bỏ những đặc trưng không liên quan","x":3466,"y":1384,"width":374,"height":156},
-		{"id":"a77b62653c766e30","x":2000,"y":-3760,"width":250,"height":60,"type":"text","text":"[[data mining]]"}
+		{"id":"a77b62653c766e30","type":"text","text":"[[data mining]]","x":2000,"y":-3760,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"06324c7623ec07a0","fromNode":"59a5f469f43705b5","fromSide":"right","toNode":"76c009032ad91f61","toSide":"left"},
