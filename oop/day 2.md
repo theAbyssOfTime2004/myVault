@@ -114,6 +114,11 @@ class BankAccount:
 		return self.__balance
 	
 	@balance.setter
-	def balance(self, value)
+	def balance(self, value):
+		if value >= 0:
+			self.__balance = value
+		else:
+			print("balance must be non-negative")
 	
+	def deposit(self, amount)
 ```
