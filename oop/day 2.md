@@ -145,7 +145,11 @@ class Temperature:
 		self.__celsius = celsius
 	
 	@property
+	def celsius(self, celsius)
+		return self.__c
+	
 	def fahrenheit(self, celsius)
-		return self.__celsius *9/5
+		return self.__celsius *9/5 + 32
+		
 		
 ```
