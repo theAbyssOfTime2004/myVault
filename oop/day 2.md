@@ -21,7 +21,7 @@ class BankAccount:
 		if amount > 0:
 			self.__balance += amount
 		else: 
-			print("deposit amount musat be positive")
+			print("deposit amount must be positive")
 	
 	def withdraw(self, amount): 
 		if 0 < amount <= self.__balance:
@@ -120,5 +120,26 @@ class BankAccount:
 		else:
 			print("balance must be non-negative")
 	
-	def deposit(self, amount)
+	def deposit(self, amount):
+		if amount > 0:
+			self.__balance += amount
+		else: 
+			print("deposit amount must be positive")
+	
+	def withdraw(self, amount): 
+		if 0 < amount <= self.__balance:
+			self.__balance -= amount
+		else:
+			print("Invalid withdrawal amount")
+	
+	acc = BankAccount("Dang", 1000)
+	print(acc.balance)
+	acc.balance = 2000
+		
+```
+
+
+```python
+class Temperature:
+	def __init__(self, )
 ```
