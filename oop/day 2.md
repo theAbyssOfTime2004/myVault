@@ -132,9 +132,9 @@ class BankAccount:
 		else:
 			print("Invalid withdrawal amount")
 	
-	acc = BankAccount("Dang", 1000)
-	print(acc.balance)
-	acc.balance = 2000
+acc = BankAccount("Dang", 1000)
+print(acc.balance)
+acc.balance = 2000
 		
 ```
 
