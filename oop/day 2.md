@@ -96,5 +96,24 @@ class Employee:
 			print("Salary must be non-negative")
 	
 	e = Employee("Dang", 5000)
-	print(e.salary)
+	print(e.salary) # calls the getter
+	e.salary  = 6000 # calls the setter
+	e.salary = -10 # invalid value
+```
+
+## 4. Exercise
+
+```python
+class BankAccount:
+	def __init__(self, owner, balance):
+		self.owner = owner
+		self.__balance = balance
+	
+	@property
+	def balance(self):
+		return self.__balance
+	
+	@balance.setter
+	def balance(self, value)
+	
 ```
