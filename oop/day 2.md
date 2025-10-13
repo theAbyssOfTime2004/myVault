@@ -141,14 +141,19 @@ class BankAccount:
 
 ```python
 class Temperature:
-	def __init__(self, celsius):
+	def __init__(self, celsius, fahrenheit):
 		self.__celsius = celsius
+		self.__fahrenheit = fahrenheit
 	
 	@property
 	def celsius(self, celsius)
 		return self.__celsius
 		
+	@property 
+	def fahrenheit(self, fahrenheit)
+		return self.__fahrenheit
 	
+	@fahrenheit.getter	
 	def fahrenheit(self, celsius)
 		return self.__celsius *9/5 + 32
 		
