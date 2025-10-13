@@ -146,16 +146,19 @@ class Temperature:
 		self.__fahrenheit = fahrenheit
 	
 	@property
-	def celsius(self, celsius)
+	def celsius(self)
 		return self.__celsius
 		
 	@property 
-	def fahrenheit(self, fahrenheit)
+	def fahrenheit(self)
 		return self.__fahrenheit
 	
-	@fahrenheit.getter	
+	@fahrenheit.setter	
 	def fahrenheit(self, celsius)
 		return self.__celsius *9/5 + 32
-		
+	
+	@celsius.setter
+	def celsius(self, fahrenheit)
+		return (self.__fahrenheit - 32) *5/9	
 		
 ```
