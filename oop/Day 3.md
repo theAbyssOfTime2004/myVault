@@ -142,6 +142,38 @@ m1.display_info()
 	- You only need to **override** them if you want to change their logic.
 
 ```python
-class Shape:
-	def __init__(self)
+from abc import ABC, abstractmethod
+import math
+
+# Abstract Parent Class
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+# Rectangle subclass
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+
+# Circle subclass
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+rect = Rectangle(5, 10)
+circle = Circle(7)
+
+print(f"Rectangle area: {rect.area()}")
+print(f"Circle area: {circle.area():.2f}")
+
 ```
