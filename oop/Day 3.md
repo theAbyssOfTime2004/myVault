@@ -101,50 +101,47 @@ d.swim()
 
 ```python 
 class Employee:
-	def __init__(self, name, salary):
-		self.name = name 
-		self.__salary = salary
-	
-	@property
-	def salary(self):
-		return self.__salary
-	
-	@salary.setter
-	def salary(self, value):
-		if value >= 0:
-			self.__salary = value
-		else:
-			print("Salary must be non-negative")
-	
-	def display_info(self):
-		print(f"""Name: {self.name}
-			Salary: {self.salary}""")
+    def __init__(self, name, salary):
+        self.name = name 
+        self.__salary = salary
+    
+    @property
+    def salary(self):
+        return self.__salary
+    
+    @salary.setter
+    def salary(self, value):
+        if value >= 0:
+            self.__salary = value
+        else:
+            print("Salary must be non-negative")
+    
+    def display_info(self):
+        print(f"Name: {self.name}, Salary: {self.salary}")
+
 
 class Manager(Employee):
-	def __init__(self, name, salary, department):
-		super().__init__(name, salary)
-		self.department = department
-	
-	@property
-	def salary(self):
-		return self.__salary
-	
-	@salary.setter
-	def salary(self, value):
-		if value >= 0:
-			self.__salary = value
-		else:
-			print("Salary must be non-negative")
-	
-	def display_info(self):
-		print(f"""Name: {self.name}
-			Salary: {self.salary}
-			Department: {self.department}""")
-	
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+    
+    def display_info(self):
+        super().display_info()
+        print(f"Department: {self.department}")
+
+
 e1 = Employee("Dang", 5000)
 m1 = Manager("Mai", 8000, "AI Research")
 
 e1.display_info()
 m1.display_info()
+```
 
+- When a child class inherits from a parent:
+	- It automatically **inherits all methods and properties** (including getters and setters).
+	- You only need to **override** them if you want to change their logic.
+
+```python
+class Shape:
+	def __init__(self)
 ```
