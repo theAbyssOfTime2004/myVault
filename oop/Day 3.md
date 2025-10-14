@@ -177,3 +177,8 @@ print(f"Rectangle area: {rect.area()}")
 print(f"Circle area: {circle.area():.2f}")
 
 ```
+
+- An **abstract class**:
+	- Cannot be instantiated directly (you can’t create an object from it).    
+	- Defines **a structure** (a set of methods and properties) that all its subclasses must follow.    
+	- Usually contains one or more **abstract methods** — methods that are _declared but not implemented_.
