@@ -1,5 +1,7 @@
 # Encapsulation
 
+- Encapsulation (đóng gói) là quá trình **ẩn thông tin bên trong đối tượng** và **chỉ cung cấp những gì cần thiết** ra bên ngoài thông qua các phương thức hoặc thuộc tính được kiểm soát.
+
 **GOAL**: must understand:
 - What encapsulation means and why it matters
 - The difference between *public*, *protected* and *private* attributes
@@ -53,6 +55,7 @@ class Student:
 ## 2. Getter/Setter methods
 
 - Sometimes you want to control how data is modified - for example, to prevent invalid values
+- **Getter** is a *method* that is used to take out a value of a private attribute
 ```python
 class Person:
 	def __init__(self, name, age):
@@ -71,7 +74,7 @@ class Person:
 
 p = person("Mai", 21)
 print(p.get_age())
-p._set_age(-5)
+p.set_age(-5)
 p.set_age(20)
 ```
 
