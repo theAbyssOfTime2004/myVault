@@ -19,7 +19,16 @@
 
 # 3. Tổ chức quản lý và vận hành hệ thống
 
-- **Cơ quan chủ trì cấp trung ương**: 
-	- Cục kiểm lâm (bộ NN&PTNT) là đầu mối, quản lý trung tâm thông tin **PCCR quốc gia**. Cục chịu trách nhiệm phát hành bản tin cảnh báo cháy (theo các cấp I-V), đồng thời chỉ đạo và điều phối các  **Chi cục kiểm lâm vùng**
-- **Cấp địa phương (tỉnh, huyện, cơ sở):** 
-	- 
+- **Vận hành và bảo trì hệ thống kỹ thuật:** Hệ thống dự báo cháy rừng (bao gồm các trạm cảm biến, camera, máy chủ, phần mềm) cần một đơn vị chuyên trách quản lý vận hành. Thông thường, Cục Kiểm lâm sẽ phân công một **Trung tâm kỹ thuật** chịu trách nhiệm giám sát hoạt động hệ thống hàng ngày. Nhân sự kỹ thuật phải theo dõi tính ổn định của các cảm biến, đường truyền, đảm bảo dữ liệu thông suốt. Cần có quy trình **bảo trì định kỳ**: kiểm tra hiệu chuẩn thiết bị đo, vệ sinh camera, nâng cấp phần mềm dự báo... Bên cạnh đó, cơ quan quản lý phải xây dựng **quy trình vận hành chuẩn (SOP)** cho hệ thống: ví dụ, khi trung tâm nhận tín hiệu cảnh báo mức nguy cơ cao, phải lập tức thông báo đến những ai, bằng phương tiện gì; hoặc khi phát hiện điểm cháy trên ảnh vệ tinh, quy định thời gian xác minh chéo hiện trường tối đa bao lâu. Việc vận hành bài bản, chuyên nghiệp và có **kiểm tra, diễn tập thường xuyên** sẽ giúp hệ thống dự báo thực sự trở thành công cụ hỗ trợ đắc lực cho quản lý và ứng phó cháy rừng.
+
+# 4. Yêu cầu về tích hợp và chia sẻ dữ liệu 
+
+- **Tích hợp dữ liệu đa nguồn**:
+	- Cần xây dựng database tập trung nơi tích hợp tất cả nguồn dữ liệu này để phân tích tổng hợp
+		- Ví dụ dữ liệu thời tiết từ Trung tâm Dự báo khí tượng thủy văn quốc gia có thể được kết nối trực tiếp vào hệ thống dự báo cháy rừng; dữ liệu ảnh vệ tinh (MODIS, NOAA, Sentinel...) được cập nhật tự động vào lớp bản đồ điểm cháy; cơ sở dữ liệu về rừng (diện tích, trạng thái rừng, vật liệu cháy) từ kiểm kê rừng được liên kết để hiệu chỉnh mô hình
+		- Việc tích hợp này đòi hỏi **chuẩn hóa dữ liệu** (định dạng, đơn vị đo, hệ tham chiếu bản đồ) để các nguồn khác nhau có thể “hiểu” lẫn nhau.
+- **Chia sẻ dữ liệu giữa các cấp chính quyền**:
+	- Việc chia sẻ dữ liệu giữa các cấp cũng cần tính đến **phân quyền truy cập**: cấp nào được xem, chỉnh sửa loại dữ liệu gì, nhằm đảm bảo an ninh và tính xác thực của thông tin.
+- **Chia sẻ dữ liệu giữa các ngành và hệ thống khác**:
+	- Yêu cầu đặt ra là hệ thống phải thiết kế **API mở** hoặc cổng dữ liệu mở cho phép các hệ thống thông tin chính phủ khác khai thác dữ liệu một cách an toàn.
+- **Tích hợp và chia sẽ dữ liệu quốc tế**: 
