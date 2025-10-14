@@ -32,3 +32,6 @@
 - **Chia sẻ dữ liệu giữa các ngành và hệ thống khác**:
 	- Yêu cầu đặt ra là hệ thống phải thiết kế **API mở** hoặc cổng dữ liệu mở cho phép các hệ thống thông tin chính phủ khác khai thác dữ liệu một cách an toàn.
 - **Tích hợp và chia sẽ dữ liệu quốc tế**: 
+	- Cháy rừng là vấn đề mang tính toàn cầu, trong đó **các vụ cháy xuyên biên giới và khói mù khu vực** đòi hỏi **hợp tác quốc tế về chia sẻ thông tin và dữ liệu**. Hệ thống dự báo cháy rừng của Việt Nam nên **kết nối với các mạng lưới cảnh báo toàn cầu** như **Global Fire Early Warning System (Global EWS)** hoặc **RFMRC-SEA**, nhằm **nhận dữ liệu dự báo nguy cơ cháy (như chỉ số FWI 10 ngày)** và **so sánh tình hình với các nước trong khu vực** để hỗ trợ **quyết định điều phối nguồn lực chữa cháy ở tầm khu vực**.
+
+	- Đồng thời, Việt Nam cần **chia sẻ dữ liệu cháy rừng nội địa** (báo cáo, bản đồ nguy cơ, điểm nóng) tới các **tổ chức quốc tế** như **GFMC (Global Fire Monitoring Center)** hoặc **Trung tâm Phòng cháy rừng châu Á**, theo **chuẩn định dạng quốc tế** (ví dụ: **GeoJSON**, mẫu báo cáo **FAO**). Điều này giúp **tăng tính minh bạch, tương thích và hợp tác quốc tế** trong quản lý và dự báo cháy rừng.
