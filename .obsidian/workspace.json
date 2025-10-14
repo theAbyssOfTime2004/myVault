@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Seminar-Thesis/caption generation.md",
+                "file": "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "caption generation"
+              "title": "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng"
             }
           }
         ]
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Seminar-Thesis/caption generation.md",
+                "file": "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for caption generation"
+              "title": "Backlinks for Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng"
             }
           },
           {
@@ -207,6 +207,8 @@
   },
   "active": "3f3538629b56c796",
   "lastOpenFiles": [
+    "Seminar-Thesis/caption generation.md",
+    "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
     "Untitled.canvas",
     "Pasted image 20251004201925.png",
     "Pasted image 20250819094205.png",
@@ -215,7 +217,6 @@
     "oop/day 1.md",
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "oop",
-    "Seminar-Thesis/caption generation.md",
     "6 - Main Notes/Untitled 8.base",
     "6 - Main Notes/Untitled 7.base",
     "6 - Main Notes/datalab pdf to markdown.md",
