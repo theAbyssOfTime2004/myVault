@@ -171,21 +171,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "7d61f9287b83d72f",
-            "type": "leaf",
-            "state": {
-              "type": "chat-view",
-              "state": {
-                "file": "Chats/New Chat.md"
-              },
-              "icon": "message-square",
-              "title": "New Chat"
-            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -203,13 +191,29 @@
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "smart-second-brain:Open S2B Chat": false
+      "smart-second-brain:Open S2B Chat": false,
+      "copilot:Open Copilot Chat": false
     }
   },
-  "active": "7d61f9287b83d72f",
+  "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
-    "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
+    "copilot/copilot-custom-prompts/Remove URLs.md",
+    "copilot/copilot-custom-prompts/Generate glossary.md",
+    "copilot/copilot-custom-prompts/Generate table of contents.md",
+    "copilot/copilot-custom-prompts/Make longer.md",
+    "copilot/copilot-custom-prompts/Make shorter.md",
+    "copilot/copilot-custom-prompts/Emojify.md",
+    "copilot/copilot-custom-prompts/Explain like I am 5.md",
+    "copilot/copilot-custom-prompts/Simplify.md",
+    "copilot/copilot-custom-prompts/Summarize.md",
+    "copilot/copilot-custom-prompts/Translate to Chinese.md",
+    "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
+    "copilot/copilot-custom-prompts",
+    "copilot",
     "Chats/New Chat.md",
+    "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
     "oop/Day 3.md",
     "6 - Main Notes/Untitled.base",
     "6 - Main Notes/Untitled 3.base",
@@ -233,20 +237,6 @@
     "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
     "Seminar-Thesis/QFORMER.md",
     "3 - Tags/seminar HCMUS.md",
-    "Seminar-Thesis/MeetingNote lần 1.md",
-    "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
-    "3 - Tags/SLZ.md",
-    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
-    "6 - Main Notes/Untitled 6.base",
-    "6 - Main Notes/2025-09-29.md",
-    "1 - Rough Notes/Untitled 1.md",
-    "6 - Main Notes/Untitled 5.base",
-    "dsa plan/Week 2 - Linked List & Stack/Ngày 2025-08-25.md",
-    "dsa plan/Week 2 - Linked List & Stack/Notes.md",
-    "dsa plan/Week 1 - Array & Hashing/Ngày 2025-08-21.md",
-    "dsa plan/Week 1 - Array & Hashing/Python Big-O.md",
-    "1 - Rough Notes/Untitled.md",
-    "6 - Main Notes/2025-07-04.md",
     "2 - Source Material/Others/Pasted image 20250709183047.png",
     "2 - Source Material/Others/Pasted image 20250707004950.png",
     "2 - Source Material/Others/Pasted image 20250620124926.png",
