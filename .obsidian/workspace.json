@@ -21,8 +21,19 @@
               "icon": "lucide-file",
               "title": "SynGraph và SemGraph trong DASCO"
             }
+          },
+          {
+            "id": "ace9a63e9d5facb1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -54,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "SLZ",
+                "query": "graph",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +86,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -201,15 +213,14 @@
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "smart-second-brain:Open S2B Chat": false,
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "75bd80c33ff7b3f6",
+  "active": "795cc0a4e8cdf0a2",
   "lastOpenFiles": [
+    "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/The RFC.md",
-    "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/2025-09-29.md",
     "6 - Main Notes/2025-07-04.md",
