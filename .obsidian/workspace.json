@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "report.md",
+                "file": "oop/day 4.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "report"
+              "title": "day 4"
             }
           }
         ],
@@ -222,6 +222,8 @@
   },
   "active": "ace9a63e9d5facb1",
   "lastOpenFiles": [
+    "report.md",
+    "oop/day 4.md",
     "report.docx",
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
@@ -250,7 +252,6 @@
     "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "copilot/copilot-custom-prompts/Make longer.md",
-    "report.md",
     "copilot/copilot-conversations",
     "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
     "copilot/copilot-custom-prompts",
@@ -261,7 +262,6 @@
     "Pasted image 20250819094205.png",
     "Data Mining review.canvas",
     "oop",
-    "6 - Main Notes/Untitled 8.base",
     "2 - Source Material/Others/Pasted image 20250709183047.png",
     "2 - Source Material/Others/Pasted image 20250707004950.png",
     "2 - Source Material/Others/Pasted image 20250620124926.png",
