@@ -91,8 +91,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -221,7 +220,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "ace9a63e9d5facb1",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
