@@ -26,10 +26,15 @@
             "id": "ace9a63e9d5facb1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Báo cáo tổng hợp về các yêu cầu quản lý mô hình dự báo cấp cháy rừng"
             }
           }
         ],
@@ -216,7 +221,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "795cc0a4e8cdf0a2",
+  "active": "ace9a63e9d5facb1",
   "lastOpenFiles": [
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
