@@ -86,3 +86,21 @@ class Rocket:
 for obj in [Bird(), Airplane(), Rocket()]:
     obj.fly()  # Works for all
 ```
+
+- No need for a shared parent class - as long as `.fly()` exists. Python runs it. This is **duck typing**
+
+## 4. "Overloading" in Python 
+
+- Python doesn't allow true method overloading (same name, different params)
+- Instead, you can use **default arguments** or `*args` to simulate it
+```python
+class MathTool:
+	def add(self, a, b=0, c=0):
+		return a+b+c
+
+m = MathTool()
+print(m.add(5))
+print(m.add(5, 3))
+print(m.add(5, 3, 2))
+```
+
