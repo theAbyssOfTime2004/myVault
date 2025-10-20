@@ -104,3 +104,25 @@ print(m.add(5, 3))
 print(m.add(5, 3, 2))
 ```
 
+## Exercise 
+
+```python
+class Payment:
+	def process_payment(self):
+		pass
+
+class CreditCardPayment:
+	def process_payment(self):
+		print("Processing credit card payment...")
+
+class PaypalPayment:
+	def process_payment(self):
+		print("Processing PayPal payment...")
+
+class CryptoPayment:
+	def process_payment(self):
+		print("Processing crypto payment...")
+		
+for p in [CreditCardPayment(), PaypalPayment(), CryptoPayment()]
+	p.process_payment()
+```
