@@ -123,6 +123,24 @@ class CryptoPayment:
 	def process_payment(self):
 		print("Processing crypto payment...")
 		
-for p in [CreditCardPayment(), PaypalPayment(), CryptoPayment()]
+for p in [CreditCardPayment(), PaypalPayment(), CryptoPayment()]:
 	p.process_payment()
+```
+
+
+```python
+class Car:
+	def move(self):
+		print("the car is moving on the road")
+
+class Airplane:
+	def move(self):
+		print("the plane is flying on the sky")
+	
+class Boat:
+	def move(self):
+		print("the boat is surfing on the river")
+
+for vehicle in [Car(), Airplane(), Boat()]:
+	vehicle.move()
 ```
