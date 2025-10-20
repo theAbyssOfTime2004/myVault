@@ -88,7 +88,7 @@ for shape in shapes:
 ## Exercise
 
 ```python
-import abc from ABC, abstractmethod
+from abc import ABC, abstractmethod
 
 class MediaPlayer(ABC)
 	@abstractmethod
@@ -122,4 +122,15 @@ class VideoPlayer(MediaPlayer):
 	
 	def stop(self):
 		print("stop Video")
+```
+
+```python
+from abc import ABC, abstractmethod
+
+class File(ABC):
+	@abstractmethod
+	def read(self):
+		pass
+	
+	def write
 ```
