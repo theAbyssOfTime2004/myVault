@@ -100,5 +100,26 @@ class MediaPlayer(ABC)
 		pass
 		
 	@abstractmethod
-	def 
+	def stop(self):
+		pass
+	
+class AudioPlayer(MediaPlayer):
+	def play(self):
+		print("play Audio")
+		
+	def pause(self):
+		print("pause Audio")
+	
+	def stop(self):
+		print("stop audio")
+
+class VideoPlayer(MediaPlayer):
+	def play(self):
+		print("play Video")
+	
+	def pause(self):
+		print("pause Video")
+	
+	def stop(self):
+		print("stop Video")
 ```
