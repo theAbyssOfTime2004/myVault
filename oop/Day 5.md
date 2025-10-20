@@ -122,6 +122,16 @@ class VideoPlayer(MediaPlayer):
 	
 	def stop(self):
 		print("stop Video")
+		
+
+players = [AudioPlayer(), VideoPlayer()]
+
+for player in players:
+    player.play()
+    player.pause()
+    player.stop()
+    print("-" * 20)
+
 ```
 
 ```python
