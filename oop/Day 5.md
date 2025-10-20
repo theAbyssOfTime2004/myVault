@@ -84,3 +84,21 @@ shapes = [Circle(5), Rectangle(4, 6)]
 for shape in shapes:
 	print(f"Area: {shape.area(): .2f}")
 ```
+
+## Exercise
+
+```python
+import abc from ABC, abstractmethod
+
+class MediaPlayer(ABC)
+	@abstractmethod
+	def play(self):
+		pass
+	
+	@abstractmethod
+	def pause(self):
+		pass
+		
+	@abstractmethod
+	def 
+```
