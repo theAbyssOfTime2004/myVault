@@ -49,3 +49,21 @@ for v in [Car(), Motorcycle()]:
     v.start_engine()
     v.stop_engine()
 ```
+
+## 3.  Abstraction + Polymorphism
+
+- Abstract class defines a **shared interface**, you can easily combine them with polymorphism
+- Example: Shape system
+```python
+from abc import ABC, abstractmethod
+import math
+
+class Shape(ABC):
+	@abstractmethod
+	def area(self):
+		pass
+
+class Circle(Shape):
+	def __init__(self, radius):
+		self
+```
