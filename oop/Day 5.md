@@ -142,5 +142,28 @@ class File(ABC):
 	def read(self):
 		pass
 	
-	def write
+	def write(self, content):
+		pass
+
+class TextFile(File):
+	def read(self):
+		print("Reading from a text file...")
+	
+	def write(self, content):
+		print(f"Writing '{content}' to a text file...")
+		
+class CSVFile(File):
+    def read(self):
+        print("Reading data from a CSV file...")
+
+    def write(self, content):
+        print(f"Writing '{content}' to a CSV file...")
+        
+
+files = [TextFile(), CSVFile()]
+
+for f in files:
+    f.read()
+    f.write("Sample content")
+    print("-" * 25)
 ```
