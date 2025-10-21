@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/(SLZ) playwright test.md",
+                "file": "6 - Main Notes/10 Contrastive Learning Frameworks.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "(SLZ) playwright test"
+              "title": "10 Contrastive Learning Frameworks"
             }
           }
         ]
@@ -187,7 +187,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 267.5
+    "width": 778.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,8 +206,8 @@
   },
   "active": "9e0a2422ca51ad61",
   "lastOpenFiles": [
-    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/(SLZ) playwright test.md",
+    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Untitled 1.base",
     "oop/Day 5.md",
     "oop/day 4.md",
