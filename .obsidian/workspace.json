@@ -11,15 +11,10 @@
             "id": "9e0a2422ca51ad61",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6 - Main Notes/10 Contrastive Learning Frameworks.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "10 Contrastive Learning Frameworks"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -204,8 +199,9 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "9e0a2422ca51ad61",
+  "active": "0701ecb2f22c72ed",
   "lastOpenFiles": [
+    "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/(SLZ) playwright test.md",
     "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Untitled 1.base",
@@ -217,7 +213,6 @@
     "report.docx",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/The RFC.md",
-    "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/2025-09-29.md",
     "6 - Main Notes/2025-07-04.md",
     "copilot/copilot-custom-prompts/Emojify.md",
