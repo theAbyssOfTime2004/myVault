@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "report.md",
+                "file": "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "report"
+              "title": "có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500"
             }
           }
         ]
@@ -75,8 +75,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -188,7 +187,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 778.5
+    "width": 804.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -207,6 +206,8 @@
   },
   "active": "9e0a2422ca51ad61",
   "lastOpenFiles": [
+    "report.md",
+    "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
@@ -217,7 +218,6 @@
     "oop/day 4.md",
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Untitled.base",
-    "report.md",
     "report.docx",
     "6 - Main Notes/Streaming Multimedia - DASH.md",
     "6 - Main Notes/The RFC.md",
@@ -236,7 +236,6 @@
     "copilot/copilot-custom-prompts/Translate to Chinese.md",
     "6 - Main Notes/Untitled 2.base",
     "Chats/New Chat.md",
-    "BMO/Profiles/BMO.md",
     "6 - Main Notes/Untitled 3.base",
     "copilot/copilot-conversations",
     "copilot/copilot-custom-prompts",
