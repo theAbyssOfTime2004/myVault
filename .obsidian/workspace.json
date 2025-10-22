@@ -11,10 +11,15 @@
             "id": "9e0a2422ca51ad61",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "report.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "report"
             }
           }
         ]
@@ -49,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "graph",
+                "query": "quản lý",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +75,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -199,8 +205,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "0701ecb2f22c72ed",
+  "active": "9e0a2422ca51ad61",
   "lastOpenFiles": [
+    "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
+    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/(SLZ) playwright test.md",
     "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
@@ -230,8 +238,6 @@
     "Chats/New Chat.md",
     "BMO/Profiles/BMO.md",
     "6 - Main Notes/Untitled 3.base",
-    "6 - Main Notes/Playwright for testing.md",
-    "6 - Main Notes/(SLZ) langgraph memory  -> summarizing context.md",
     "copilot/copilot-conversations",
     "copilot/copilot-custom-prompts",
     "copilot",
