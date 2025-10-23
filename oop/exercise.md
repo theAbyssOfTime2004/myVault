@@ -37,8 +37,8 @@ class LibraryManagement:
 		self.books.append(book)
 	
 	def get_highest_rated_books(self, x):
-		sorted_books = sorted(self.books, key=lambda book: (book.rating, book.title))
-		print(sorted_books) 
+		sorted_books = sorted(self.books, key=lambda book: (book.rating, book.title), reverse=True)
+		return(sorted_books[:x]) 
 	
 	def recommend_top_book_by_genre(self, genre):
 		genre_books = []
@@ -48,5 +48,5 @@ class LibraryManagement:
 		if genre_books == []
 			return None
 		sorted_genre_book = sorted(genre_books, key=lambda book: (book.rating)
-		return sorted_genre_book[1]
+			return sorted_genre_book[0]
 ```
