@@ -50,15 +50,15 @@
 | Định kỳ tổ chức đào tạo, diễn tập sử dụng hệ thống dự báo cháy rừng và phối hợp chữa cháy cho các lực lượng liên quan.                                                       | ☐            | ☐              |                |         |
 **Nhóm 4: Yêu cầu về tích hợp và chia sẻ dữ liệu**
 
-|Nội dung yêu cầu về dữ liệu|Đã thực hiện|Đang thực hiện|Chưa thực hiện|Ghi chú|
-|---|---|---|---|---|
-|Xây dựng cơ sở dữ liệu tập trung, tích hợp các nguồn thông tin: dữ liệu thời tiết khí tượng, ảnh viễn thám (điểm cháy), dữ liệu địa hình, hiện trạng rừng... phục vụ dự báo.|☐|☐|☐||
-|Chuẩn hóa dữ liệu từ các nguồn (định dạng, đơn vị đo, hệ tọa độ bản đồ) để các hệ thống có thể liên thông, sử dụng hiệu quả.|☐|☐|☐||
-|Tích hợp tự động dữ liệu dự báo thời tiết và thông tin điểm cháy (từ vệ tinh, camera) vào hệ thống trung tâm.|☐|☐|☐||
-|Từ trung ương đến địa phương: cung cấp kịp thời bản tin cấp dự báo cháy rừng và cảnh báo sớm (danh sách khu vực cấp IV-V, bản đồ nguy cơ, tin nhắn SMS) đến các đơn vị liên quan.|☐|☐|☐||
-|Từ cơ sở đến trung ương: có cơ chế để chủ rừng, kiểm lâm địa bàn báo cáo nhanh tình huống cháy hoặc điều kiện bất thường (qua ứng dụng di động, đường dây nóng) về hệ thống trung tâm.|☐|☐|☐||
-|Quy định phân quyền truy cập, quản lý dữ liệu rõ ràng (cấp trung ương, tỉnh, cơ sở được quyền xem, cập nhật những thông tin nào).|☐|☐|☐||
-|Chia sẻ dữ liệu hệ thống dự báo cháy rừng với các ngành liên quan (khí tượng thủy văn, môi trường, nông nghiệp) thông qua API hoặc nền tảng dùng chung.|☐|☐|☐||
-|Tích hợp hệ thống dự báo cháy rừng vào Trung tâm điều hành thông minh (IOC) của địa phương để lãnh đạo theo dõi, chỉ đạo đồng bộ.|☐|☐|☐||
-|Kết nối với hệ thống cảnh báo cháy rừng toàn cầu (Global Wildland Fire Early Warning System) để tiếp nhận thông tin dự báo nguy cơ khu vực và thế giới.|☐|☐|☐||
-|Chia sẻ dữ liệu điểm nóng, báo cáo cháy rừng của Việt Nam cho các tổ chức quốc tế (ví dụ: GFMC) theo định dạng chuẩn (tuân thủ khuyến nghị WMO, FAO, v.v.).|☐|☐|
+| Nội dung yêu cầu về dữ liệu                                                                                                                                                            | Đã thực hiện | Đang thực hiện | Chưa thực hiện | Ghi chú |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------- | -------------- | ------- |
+| Xây dựng cơ sở dữ liệu tập trung, tích hợp các nguồn thông tin: dữ liệu thời tiết khí tượng, ảnh viễn thám (điểm cháy), dữ liệu địa hình, hiện trạng rừng... phục vụ dự báo.           | ☐            | ☐              | ☐              |         |
+| Chuẩn hóa dữ liệu từ các nguồn (định dạng, đơn vị đo, hệ tọa độ bản đồ) để các hệ thống có thể liên thông, sử dụng hiệu quả.                                                           | ☐            | ☐              | ☐              |         |
+| Tích hợp tự động dữ liệu dự báo thời tiết và thông tin điểm cháy (từ vệ tinh, camera) vào hệ thống trung tâm.                                                                          | ☐            | ☐              | ☐              |         |
+| Từ trung ương đến địa phương: cung cấp kịp thời bản tin cấp dự báo cháy rừng và cảnh báo sớm (danh sách khu vực cấp IV-V, bản đồ nguy cơ, tin nhắn SMS) đến các đơn vị liên quan.      | ☐            | ☐              | ☐              |         |
+| Từ cơ sở đến trung ương: có cơ chế để chủ rừng, kiểm lâm địa bàn báo cáo nhanh tình huống cháy hoặc điều kiện bất thường (qua ứng dụng di động, đường dây nóng) về hệ thống trung tâm. | ☐            | ☐              | ☐              |         |
+| Quy định phân quyền truy cập, quản lý dữ liệu rõ ràng (cấp trung ương, tỉnh, cơ sở được quyền xem, cập nhật những thông tin nào).                                                      | ☐            | ☐              | ☐              |         |
+| Chia sẻ dữ liệu hệ thống dự báo cháy rừng với các ngành liên quan (khí tượng thủy văn, môi trường, nông nghiệp) thông qua API hoặc nền tảng dùng chung.                                | ☐            | ☐              | ☐              |         |
+| Tích hợp hệ thống dự báo cháy rừng vào Trung tâm điều hành thông minh (IOC) của địa phương để lãnh đạo theo dõi, chỉ đạo đồng bộ.                                                      | ☐            | ☐              | ☐              |         |
+| Kết nối với hệ thống cảnh báo cháy rừng toàn cầu (Global Wildland Fire Early Warning System) để tiếp nhận thông tin dự báo nguy cơ khu vực và thế giới.                                | ☐            | ☐              | ☐              |         |
+| Chia sẻ dữ liệu điểm nóng, báo cáo cháy rừng của Việt Nam cho các tổ chức quốc tế (ví dụ: GFMC) theo định dạng chuẩn (tuân thủ khuyến nghị WMO, FAO, v.v.).                            | ☐            | ☐              |                |         |
