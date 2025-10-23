@@ -19,3 +19,17 @@ This class manages the collection of books and should have the following methods
 - The number of recommended books requested will be less than or equal to the total number of books in the library.
 
 *Note: The code for reading input, calling these methods, and producing the final output is already provided.*
+
+
+```python
+class Book:
+	def __init__(self, title, genre, rating):
+		self.title = title
+		self.genre = genre
+		self.rating = rating
+		
+		
+@dataclass
+	class LibraryManagement:
+		
+```
