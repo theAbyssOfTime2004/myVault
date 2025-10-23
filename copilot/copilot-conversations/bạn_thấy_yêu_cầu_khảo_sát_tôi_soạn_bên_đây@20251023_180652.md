@@ -12,7 +12,7 @@ topic: Góp ý phiếu khảo sát
 
 **ai**: Chào bạn,
 
-Sau khi xem xét [[phiếu khảo sát các yêu cầu quản lý mô hình ff]], tôi thấy rằng đây là một bản khảo sát **rất hợp lý, chi tiết và toàn diện**. Bạn đã xây dựng một bộ câu hỏi rất chất lượng, bao quát đầy đủ các khía cạnh quan trọng để quản lý một hệ thống dự báo cháy rừng hiện đại.
+Sau khi xem xét [[khaosat]], tôi thấy rằng đây là một bản khảo sát **rất hợp lý, chi tiết và toàn diện**. Bạn đã xây dựng một bộ câu hỏi rất chất lượng, bao quát đầy đủ các khía cạnh quan trọng để quản lý một hệ thống dự báo cháy rừng hiện đại.
 
 **Những điểm mạnh nổi bật của phiếu khảo sát:**
 
@@ -42,7 +42,7 @@ Phiếu khảo sát bạn soạn thảo đã **rất xuất sắc và hợp lý*
 
 **ai**: Chào bạn,
 
-Sau khi đối chiếu [[phiếu khảo sát các yêu cầu quản lý mô hình ff]] với note [[report]], tôi có thể khẳng định rằng:
+Sau khi đối chiếu [[khaosat]] với note [[report]], tôi có thể khẳng định rằng:
 
 **Có, phiếu khảo sát này bám sát một cách tuyệt vời và gần như hoàn hảo với nội dung của note [[report]].**
 
