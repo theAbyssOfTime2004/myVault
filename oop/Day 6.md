@@ -135,7 +135,7 @@ print(r.area())
 
 ```python
 class Product:
-	def __init__(self):
+	def __init__(self, name, price):
 		self.name = name
 		self.price = price
 	
@@ -146,16 +146,18 @@ class Product:
 		return self.name == other.name and self.price == other.price
 	
 	def __add__(self, other):
-		return self.price += other.price
+		return self.price + other.price
 		
 ```
 
 ```python
+from dataclasses import dataclass
+
 @dataclass
 class Product:
 	name: str
 	price: int
 
-def discount(self, percent):
-	return self.price - self.price*percent/100
+	def discount(self, percent):
+		return self.price - (self.price*percent/100)
 ```
