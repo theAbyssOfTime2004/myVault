@@ -21,8 +21,24 @@
               "icon": "lucide-file",
               "title": "có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500"
             }
+          },
+          {
+            "id": "beffa9d4cdbd27a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "report.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "report"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -204,10 +220,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "9e0a2422ca51ad61",
+  "active": "beffa9d4cdbd27a7",
   "lastOpenFiles": [
-    "report.md",
     "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
+    "report.md",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
