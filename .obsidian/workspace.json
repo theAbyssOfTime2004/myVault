@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "report.md",
+                "file": "oop/Day 6.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "report"
+              "title": "Day 6"
             }
           }
         ],
@@ -222,15 +222,16 @@
   },
   "active": "beffa9d4cdbd27a7",
   "lastOpenFiles": [
-    "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
+    "oop/Day 5.md",
+    "oop/Day 6.md",
     "report.md",
+    "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/(SLZ) playwright test.md",
     "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Untitled 1.base",
-    "oop/Day 5.md",
     "oop/day 4.md",
     "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
     "6 - Main Notes/Untitled.base",
@@ -251,7 +252,6 @@
     "copilot/copilot-custom-prompts/Summarize.md",
     "copilot/copilot-custom-prompts/Translate to Chinese.md",
     "6 - Main Notes/Untitled 2.base",
-    "Chats/New Chat.md",
     "6 - Main Notes/Untitled 3.base",
     "copilot/copilot-conversations",
     "copilot/copilot-custom-prompts",
