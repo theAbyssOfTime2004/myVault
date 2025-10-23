@@ -21,23 +21,23 @@ Dưới đây là gợi ý điều chỉnh cho **Nhóm 1** để phù hợp hơn
 
 **Mục tiêu:** Nhóm này nhằm xác định các yêu cầu về chức năng mà đơn vị quản lý mong muốn hệ thống cung cấp, cũng như khả năng cung cấp dữ liệu đầu vào và hạ tầng hỗ trợ của đơn vị.
 
-| Nội dung yêu cầu (Từ phía đơn vị quản lý) | Mức độ ưu tiên (Cao/Trung bình/Thấp) | Hiện trạng đáp ứng của đơn vị | Ghi chú (Mô tả cụ thể) |
-| :--- | :--- | :--- | :--- |
-| **1. Về dữ liệu đầu vào:** | | | |
-| Khả năng cung cấp/chia sẻ dữ liệu thời tiết lịch sử và thời gian thực. | ☐ Cao ☐ TB ☐ Thấp | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có | Vd: Nguồn dữ liệu từ trạm nào? Định dạng? |
-| Khả năng cung cấp/chia sẻ dữ liệu về hiện trạng rừng (loại rừng, thực bì, bản đồ...). | ☐ Cao ☐ TB ☐ Thấp | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có | Vd: Dữ liệu dạng shapefile, file excel? |
-| Khả năng cung cấp/chia sẻ dữ liệu lịch sử các vụ cháy rừng. | ☐ Cao ☐ TB ☐ Thấp | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có | Vd: Tọa độ, thời gian, diện tích thiệt hại? |
-| **2. Về kết quả dự báo:** | | | |
-| Yêu cầu hệ thống cung cấp cảnh báo theo cấp độ nguy cơ (ví dụ: Cấp I đến V). | ☐ Cao ☐ TB ☐ Thấp | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | |
-| Yêu cầu hệ thống cung cấp bản đồ xác suất xảy ra cháy (%). | ☐ Cao ☐ TB ☐ Thấp | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | |
-| **3. Về giao diện và trực quan hóa:** | | | |
-| Yêu cầu hiển thị bản đồ phân vùng cấp độ nguy cơ cháy theo thời gian thực. | ☐ Cao ☐ TB ☐ Thấp | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | |
-| Yêu cầu hiển thị vị trí các điểm phát nhiệt (hotspot) từ vệ tinh trên bản đồ. | ☐ Cao ☐ TB ☐ Thấp | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | |
-| Yêu cầu tích hợp các lớp bản đồ khác (hiện trạng rừng, giao thông, nguồn nước...). | ☐ Cao ☐ TB ☐ Thấp | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | Vui lòng liệt kê các lớp bản đồ cần thiết. |
-| **4. Về hạ tầng hỗ trợ:** | | | |
-| Hiện có các trạm khí tượng chuyên dụng trong rừng có thể kết nối. | ☐ Có ☐ Không | | Vui lòng cung cấp thông tin nếu có. |
-| Hiện có hệ thống camera giám sát hoặc cảm biến IoT có thể tích hợp. | ☐ Có ☐ Không | | Vui lòng cung cấp thông tin nếu có. |
-| Hiện có trung tâm điều hành/phòng giám sát để theo dõi hệ thống. | ☐ Có ☐ Không | | |
+| **1. Về dữ liệu đầu vào:**                                                            |                                      |                                         |                                             |
+| :------------------------------------------------------------------------------------ | :----------------------------------- | :-------------------------------------- | :------------------------------------------ |
+| Khả năng cung cấp/chia sẻ dữ liệu thời tiết lịch sử và thời gian thực.                | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có      | Vd: Nguồn dữ liệu từ trạm nào? Định dạng?   |
+| Nội dung yêu cầu (Từ phía đơn vị quản lý)                                             | Mức độ ưu tiên (Cao/Trung bình/Thấp) | Hiện trạng đáp ứng của đơn vị           | Ghi chú (Mô tả cụ thể)                      |
+| Khả năng cung cấp/chia sẻ dữ liệu về hiện trạng rừng (loại rừng, thực bì, bản đồ...). | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có      | Vd: Dữ liệu dạng shapefile, file excel?     |
+| Khả năng cung cấp/chia sẻ dữ liệu lịch sử các vụ cháy rừng.                           | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Có sẵn ☐ Đang thu thập ☐ Chưa có      | Vd: Tọa độ, thời gian, diện tích thiệt hại? |
+| **2. Về kết quả dự báo:**                                                             |                                      |                                         |                                             |
+| Yêu cầu hệ thống cung cấp cảnh báo theo cấp độ nguy cơ (ví dụ: Cấp I đến V).          | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần |                                             |
+| Yêu cầu hệ thống cung cấp bản đồ xác suất xảy ra cháy (%).                            | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần |                                             |
+| **3. Về giao diện và trực quan hóa:**                                                 |                                      |                                         |                                             |
+| Yêu cầu hiển thị bản đồ phân vùng cấp độ nguy cơ cháy theo thời gian thực.            | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần |                                             |
+| Yêu cầu hiển thị vị trí các điểm phát nhiệt (hotspot) từ vệ tinh trên bản đồ.         | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần |                                             |
+| Yêu cầu tích hợp các lớp bản đồ khác (hiện trạng rừng, giao thông, nguồn nước...).    | ☐ Cao ☐ TB ☐ Thấp                    | ☐ Rất cần thiết ☐ Cần thiết ☐ Không cần | Vui lòng liệt kê các lớp bản đồ cần thiết.  |
+| **4. Về hạ tầng hỗ trợ:**                                                             |                                      |                                         |                                             |
+| Hiện có các trạm khí tượng chuyên dụng trong rừng có thể kết nối.                     | ☐ Có ☐ Không                         |                                         | Vui lòng cung cấp thông tin nếu có.         |
+| Hiện có hệ thống camera giám sát hoặc cảm biến IoT có thể tích hợp.                   | ☐ Có ☐ Không                         |                                         | Vui lòng cung cấp thông tin nếu có.         |
+| Hiện có trung tâm điều hành/phòng giám sát để theo dõi hệ thống.                      | ☐ Có ☐ Không                         |                                         |                                             |
 
 ---
 
