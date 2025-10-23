@@ -29,7 +29,24 @@ class Book:
 		self.rating = rating
 		
 		
-@dataclass
-	class LibraryManagement:
-		
+class LibraryManagement:
+	def __init__(self):
+		self.books = []
+	
+	def add_book(self, book):
+		self.books.append(book)
+	
+	def get_highest_rated_books(self, x):
+		sorted_books = sorted(self.books, key=lambda book: (book.rating, book.title))
+		print(sorted_books) 
+	
+	def recommend_top_book_by_genre(self, genre):
+		genre_books = []
+		for book in books:
+			if book.genre == genre:
+				genre_books.append(book)
+		if genre_books == []
+			return None
+		sorted_genre_book = sorted(genre_books, key=lambda book: (book.rating)
+		return sorted_genre_book[1]
 ```
