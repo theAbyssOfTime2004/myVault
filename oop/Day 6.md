@@ -88,4 +88,74 @@ print(v1 + v2) #Vector(3, 7)
 - `__init__`
 - `__repr__`
 - `__eq__`
-- (optionally) 
+- (optionally) ordering methods (`<`, `>`, etc.)
+```python
+from dataclasses import dataclass
+
+@dataclass
+class student:
+	name: str
+	age: int
+	gpa: float
+
+s1 = student(Mai, 20, 3.5)
+s2 = student(Mai, 20, 3.5)
+
+	print(s1) # Student(name='Mai', age=21, gpa=3.5)
+	print(s1==s2) #true
+```
+
+- Can even add methods
+```python
+@dataclass
+class Rectangle:
+	width: float
+	height: float
+	
+	def area(self)
+		return self.width * self.height
+		
+
+r = Rectangle(5, 10)
+print(r)
+print(r.area())
+```
+
+
+|Feature|Purpose|Example|
+|---|---|---|
+|`__str__`|readable string|`print(obj)`|
+|`__repr__`|debug representation|`repr(obj)`|
+|`__eq__`|equality comparison|`obj1 == obj2`|
+|`__len__`|length of container|`len(obj)`|
+|`__add__`|addition operator|`obj1 + obj2`|
+|`@dataclass`|auto-generate methods|`@dataclass class Student:`|
+
+## 3. Exercise
+
+```python
+class Product:
+	def __init__(self):
+		self.name = name
+		self.price = price
+	
+	def __str__(self):
+		return f"{self.name}: {self.price}"
+		
+	def __eq__(self, other):
+		return self.name == other.name and self.price == other.price
+	
+	def __add__(self, other):
+		return self.price += other.price
+		
+```
+
+```python
+@dataclass
+class Product:
+	name: str
+	price: int
+
+def discount(self, percent):
+	return self.price - self.price*percent/100
+```
