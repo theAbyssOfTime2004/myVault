@@ -1,0 +1,64 @@
+# PHIẾU KHẢO SÁT: YÊU CẦU QUẢN LÝ MÔ HÌNH DỰ BÁO CẤP CHÁY RỪNG
+
+**Hướng dẫn:** Đề nghị đánh dấu vào ô tương ứng (Đã thực hiện / Đang thực hiện / Chưa thực hiện) cho mỗi yêu cầu dưới đây, và ghi chú bổ sung nếu cần.
+
+**Nhóm 1: Yêu cầu kỹ thuật để triển khai mô hình dự báo cháy rừng**
+
+| Nội dung yêu cầu kỹ thuật                                                                                                                                                                                              | Đã thực hiện | Đang thực hiện | Chưa thực hiện | Ghi chú |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------- | -------------- | ------- |
+| Thu thập đầy đủ dữ liệu thời tiết (nhiệt độ, mưa, độ ẩm không khí, gió) và vật liệu cháy (độ ẩm thảm thực vật); tích hợp thông tin địa hình, hiện trạng rừng (loại rừng, thực bì) và lịch sử cháy vào hệ thống dự báo. | ☐            | ☐              | ☐              |         |
+| Áp dụng các chỉ số cảnh báo cháy rừng truyền thống (ví dụ: FWI của Canada, chỉ số P Nesterov) để tính toán cấp độ nguy cơ cháy.                                                                                        | ☐            | ☐              | ☐              |         |
+| Sử dụng mô hình trí tuệ nhân tạo/học máy (AI/ML) trên dữ liệu lịch sử (thời tiết, thảm thực vật, hoạt động con người…) để dự báo xác suất xảy ra cháy rừng.                                                            | ☐            | ☐              | ☐              |         |
+| Tích hợp hệ thống thông tin địa lý (GIS) để hiển thị và phân tích không gian, trực quan hóa vùng nguy cơ cháy trên bản đồ.                                                                                             | ☐            | ☐              | ☐              |         |
+| Triển khai các trạm khí tượng chuyên dụng trong rừng (đo nhiệt độ, độ ẩm, lượng mưa tại chỗ) để thu thập dữ liệu vi khí hậu.                                                                                           | ☐            | ☐              | ☐              |         |
+| Lắp đặt mạng cảm biến IoT không dây (cảm biến khói, nhiệt độ, khí CO/CO₂) trong rừng nhằm phát hiện sớm dấu hiệu cháy.                                                                                                 | ☐            | ☐              | ☐              |         |
+| Sử dụng ảnh vệ tinh (MODIS, VIIRS, v.v.) và camera giám sát để phát hiện nhanh các điểm phát nhiệt bất thường (điểm cháy).                                                                                             | ☐            | ☐              | ☐              |         |
+| Có hạ tầng truyền thông ổn định (mạng di động 3G/4G, vệ tinh, vô tuyến chuyên dụng) để truyền dữ liệu thời gian thực từ hiện trường về trung tâm.                                                                      | ☐            | ☐              | ☐              |         |
+| Thiết lập trung tâm điều hành với phần mềm phân tích tự động, hợp nhất dữ liệu từ các nguồn (cảm biến, vệ tinh, dự báo thời tiết...).                                                                                  | ☐            | ☐              | ☐              |         |
+| Xây dựng kiến trúc hệ thống nhiều tầng (cảm biến tại rừng → nút trung gian → trạm trung tâm) để xử lý dữ liệu và kích hoạt cảnh báo kịp thời.                                                                          | ☐            | ☐              | ☐              |         |
+| Có giao diện theo dõi trực quan (bản đồ cấp nguy cơ cháy rừng, bảng cảnh báo) để nhà quản lý dễ dàng giám sát tình hình.                                                                                               | ☐            | ☐              | ☐              |         |
+
+**Nhóm 2: Yêu cầu pháp lý và quy định quản lý liên quan**
+
+| Nội dung yêu cầu pháp lý/quy định                                                                                                                                            | Đã thực hiện | Đang thực hiện | Chưa thực hiện | Ghi chú |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------- | -------------- | ------- |
+| Lồng ghép nội dung phòng cháy, chữa cháy rừng (PCCR) vào quy hoạch, kế hoạch quản lý rừng theo Luật Lâm nghiệp 2017.                                                         | ☐            | ☐              | ☐              |         |
+| Có phương án PCCR được phê duyệt cho các khu rừng có nguy cơ cháy cao (theo yêu cầu của Luật Phòng cháy chữa cháy).                                                          | ☐            | ☐              | ☐              |         |
+| Xây dựng và duy trì các biện pháp phòng cháy tại rừng (đường băng cản lửa, biển cảnh báo, chòi quan sát...) đạt tiêu chuẩn an toàn theo quy định.                            | ☐            | ☐              | ☐              |         |
+| Phân vùng trọng điểm cháy và lập bản đồ mức độ nguy hiểm cháy rừng trên địa bàn (theo Nghị định 156/2018/NĐ-CP hướng dẫn Luật Lâm nghiệp).                                   | ☐            | ☐              | ☐              |         |
+| Tổ chức diễn tập phương án chữa cháy rừng định kỳ hàng năm, có sự phối hợp của các lực lượng liên quan (theo NĐ 156/2018).                                                   | ☐            | ☐              | ☐              |         |
+| Triển khai hệ thống dự báo và cảnh báo cháy rừng theo hướng dẫn tại Thông tư 25/2019/TT-BNNPTNT (đảm bảo cung cấp cấp dự báo cháy và cảnh báo sớm).                          | ☐            | ☐              | ☐              |         |
+| Chủ rừng sử dụng các thiết bị và ứng dụng công nghệ (viễn thám, camera, cảm biến) để giám sát lửa rừng theo yêu cầu của Thông tư 25/2019.                                    | ☐            | ☐              | ☐              |         |
+| Thực hiện thông tin cấp dự báo cháy rừng kịp thời trên các phương tiện (ví dụ: website Cục Kiểm lâm, đài phát thanh, SMS) đến cơ quan và người dân.                          | ☐            | ☐              | ☐              |         |
+| Khi cấp dự báo cháy rừng đạt cấp III, IV hoặc V: đã thông báo và tổ chức trực PCCR, cấm lửa, huy động lực lượng tại chỗ theo quy định.                                       | ☐            | ☐              | ☐              |         |
+| Hệ thống dự báo cháy rừng tuân thủ các chủ trương chuyển đổi số trong lâm nghiệp (áp dụng IoT, AI) và các tiêu chuẩn kỹ thuật quốc tế (khuyến nghị của WMO về cảnh báo sớm). | ☐            | ☐              | ☐              |         |
+
+**Nhóm 3: Yêu cầu về tổ chức quản lý và vận hành hệ thống**
+
+| Nội dung yêu cầu tổ chức & vận hành                                                                                                                                          | Đã thực hiện | Đang thực hiện | Chưa thực hiện | Ghi chú |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------- | -------------- | ------- |
+| Phân công rõ đầu mối quản lý hệ thống dự báo cháy rừng ở cấp trung ương (Cục Kiểm lâm) và cơ chế phối hợp với Cục Cảnh sát PCCC & CNCH.                                      | ☐            | ☐              | ☐              |         |
+| Phân công Chi cục Kiểm lâm tỉnh chịu trách nhiệm tiếp nhận thông tin dự báo, cảnh báo cháy rừng và hướng dẫn thực hiện PCCR tại địa phương.                                  | ☐            | ☐              | ☐              |         |
+| Hạt Kiểm lâm (cấp huyện/khu vực) được giao giám sát, kiểm tra rừng tại chỗ và có lực lượng PCCR cơ động ứng trực.                                                            | ☐            | ☐              | ☐              |         |
+| Kiểm lâm địa bàn hoặc chủ rừng thực hiện tuần tra, trực canh lửa rừng; thông báo nhanh cho Hạt Kiểm lâm ngay khi phát hiện cháy.                                             | ☐            | ☐              | ☐              |         |
+| Thiết lập kênh thông tin thông suốt từ chủ rừng/kiểm lâm địa bàn → Hạt Kiểm lâm → Chi cục Kiểm lâm tỉnh → Cục Kiểm lâm để báo cáo khi có cháy (theo quy định tại TT25/2019). | ☐            | ☐              | ☐              |         |
+| Kích hoạt Ban chỉ huy PCCR các cấp (do Chủ tịch UBND làm chỉ huy) khi nguy cơ cháy cao hoặc xảy ra cháy lớn để chỉ đạo ứng phó.                                              | ☐            | ☐              | ☐              |         |
+| Khi dự báo cháy rừng ở cấp IV-V: địa phương bố trí trực 24/24, cấm các hoạt động gây lửa, tăng cường kiểm tra các vùng rừng trọng điểm.                                      | ☐            | ☐              | ☐              |         |
+| Cơ chế phối hợp liên ngành (kiểm lâm, công an PCCC, quân đội, dân quân, chính quyền) được thiết lập với nguyên tắc chỉ huy thống nhất khi chữa cháy rừng.                    | ☐            | ☐              | ☐              |         |
+| Có đơn vị kỹ thuật chuyên trách vận hành hệ thống (theo dõi cảm biến, máy chủ, phần mềm) và kế hoạch bảo trì định kỳ cho thiết bị.                                           | ☐            | ☐              | ☐              |         |
+| Ban hành quy trình vận hành chuẩn (SOP) cho hệ thống: từ việc tiếp nhận tín hiệu cảnh báo, xác minh thông tin đến việc phát hành thông báo cho lực lượng PCCR.               | ☐            | ☐              | ☐              |         |
+| Định kỳ tổ chức đào tạo, diễn tập sử dụng hệ thống dự báo cháy rừng và phối hợp chữa cháy cho các lực lượng liên quan.                                                       | ☐            | ☐              |                |         |
+**Nhóm 4: Yêu cầu về tích hợp và chia sẻ dữ liệu**
+
+|Nội dung yêu cầu về dữ liệu|Đã thực hiện|Đang thực hiện|Chưa thực hiện|Ghi chú|
+|---|---|---|---|---|
+|Xây dựng cơ sở dữ liệu tập trung, tích hợp các nguồn thông tin: dữ liệu thời tiết khí tượng, ảnh viễn thám (điểm cháy), dữ liệu địa hình, hiện trạng rừng... phục vụ dự báo.|☐|☐|☐||
+|Chuẩn hóa dữ liệu từ các nguồn (định dạng, đơn vị đo, hệ tọa độ bản đồ) để các hệ thống có thể liên thông, sử dụng hiệu quả.|☐|☐|☐||
+|Tích hợp tự động dữ liệu dự báo thời tiết và thông tin điểm cháy (từ vệ tinh, camera) vào hệ thống trung tâm.|☐|☐|☐||
+|Từ trung ương đến địa phương: cung cấp kịp thời bản tin cấp dự báo cháy rừng và cảnh báo sớm (danh sách khu vực cấp IV-V, bản đồ nguy cơ, tin nhắn SMS) đến các đơn vị liên quan.|☐|☐|☐||
+|Từ cơ sở đến trung ương: có cơ chế để chủ rừng, kiểm lâm địa bàn báo cáo nhanh tình huống cháy hoặc điều kiện bất thường (qua ứng dụng di động, đường dây nóng) về hệ thống trung tâm.|☐|☐|☐||
+|Quy định phân quyền truy cập, quản lý dữ liệu rõ ràng (cấp trung ương, tỉnh, cơ sở được quyền xem, cập nhật những thông tin nào).|☐|☐|☐||
+|Chia sẻ dữ liệu hệ thống dự báo cháy rừng với các ngành liên quan (khí tượng thủy văn, môi trường, nông nghiệp) thông qua API hoặc nền tảng dùng chung.|☐|☐|☐||
+|Tích hợp hệ thống dự báo cháy rừng vào Trung tâm điều hành thông minh (IOC) của địa phương để lãnh đạo theo dõi, chỉ đạo đồng bộ.|☐|☐|☐||
+|Kết nối với hệ thống cảnh báo cháy rừng toàn cầu (Global Wildland Fire Early Warning System) để tiếp nhận thông tin dự báo nguy cơ khu vực và thế giới.|☐|☐|☐||
+|Chia sẻ dữ liệu điểm nóng, báo cáo cháy rừng của Việt Nam cho các tổ chức quốc tế (ví dụ: GFMC) theo định dạng chuẩn (tuân thủ khuyến nghị WMO, FAO, v.v.).|☐|☐|
