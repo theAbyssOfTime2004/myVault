@@ -17,5 +17,7 @@ Keyword: **adaptive learning rate & regularization.**
 		$$m_t = \beta_1 * m_{t-1} + (1-\beta_1) * g_t $$
 		- $\beta_1$ is a hyperparameter, typically set to 0.9. It controls how much wight we give to past gradients 
 	3. RMSprop calculation: 
-		- $v_t$ RMSprop at time step t. Calculated 
+		- $v_t$ : this is RMSprop at time step t. Calculated as weighted average of the squared current gradient and the previous RMSprop:
+		$$v_t = \beta_2 * v_{t-1} + (1 - \beta_2) * g{_t}^2 * $$
+		- $\beta_2$ is another hyperparameter, typically set to 0.999.  
 # References
