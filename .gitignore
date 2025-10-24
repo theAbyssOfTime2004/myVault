@@ -1,9 +1,17 @@
-*-pat.md
-6 - Main Notes/git-pat.md
-*-pat.md
+# Obsidian cache & workspace
+.obsidian/workspace.json
+.obsidian/plugins/
+.obsidian/snippets/
+.obsidian/cache/
+.obsidian/appearance.json
 
+# Local environment or secret files
+.smart-env/
+.env
+*.key
+*.pem
 
+# OS / editor junk
+.DS_Store
+Thumbs.db
 
-
-# Ignore Smart Environment folder
-.smart-env
