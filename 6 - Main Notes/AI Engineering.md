@@ -28,5 +28,6 @@ th
 
 #### 5. What's the difference between few-shot learning vs fine-tuning
 - Sự khác biệt chính nằm ở mechanic và resource:
-- **Few-shot Learning:** Là một dạng *in-context learning*. Hoạt động bằng cách cung cấp các ví dụ (shots) trong prompt mà không cần cập nhật model weights. Few-shot Learning bị giới 
+- **Few-shot Learning:** Là một dạng *in-context learning*. Hoạt động bằng cách cung cấp các ví dụ (shots) trong prompt mà không cần cập nhật model weights. Few-shot Learning bị giới hạn bởi context length 
+- **Fine-tuning**: là quá trình update weights của model bằng cách tiếp tục training trên data cụ thể, đòi hỏi data và tài nguyên tính toán lớn hơn nhưng cho phép mô hình chuyên môn hóa cao hơn 
 # References
