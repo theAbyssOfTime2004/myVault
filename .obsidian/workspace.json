@@ -48,7 +48,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -230,11 +230,11 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "64ab55f0de2c549e",
+  "active": "0c040245bdab915a",
   "lastOpenFiles": [
+    "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/AI Engineering.md",
     "6 - Main Notes/Early wldfire detection using different machine learning algorithms.md",
-    "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/khaosat.md",
     "6 - Main Notes/git-pat.md",
     "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
