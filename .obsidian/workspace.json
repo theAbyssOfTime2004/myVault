@@ -210,12 +210,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 405.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -232,7 +231,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "0c040245bdab915a",
+  "active": "0701ecb2f22c72ed",
   "lastOpenFiles": [
     "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/AI Engineering.md",
