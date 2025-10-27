@@ -12,4 +12,4 @@
 	- ví dụ: *nhân viên rất thân thiện*
 
 - Important: xử lý dataset 
-	- 
+- thử nghiệm sinh 4 label (ở trên) cho sample data
