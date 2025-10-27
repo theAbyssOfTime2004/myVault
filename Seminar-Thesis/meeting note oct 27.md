@@ -13,3 +13,4 @@
 
 - Important: xử lý dataset 
 - thử nghiệm sinh 4 label (ở trên) cho sample data
+- triplet: tạo ra relationship giữa các objects
