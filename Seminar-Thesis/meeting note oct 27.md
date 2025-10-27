@@ -10,3 +10,6 @@
 		- => polarity sentiment: phân loại cảm xúc (sentiment) 
 
 	- ví dụ: *nhân viên rất thân thiện*
+
+- Important: xử lý dataset 
+	- 
