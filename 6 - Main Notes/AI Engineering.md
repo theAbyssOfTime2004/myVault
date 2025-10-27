@@ -43,5 +43,8 @@ th
 	- **Quantization**: Giảm độ chính xác của mô hình để giảm kích thước và tăng tốc độ suy luận
 	- **Caching**: Lưu lại kết qủa cho các câu hỏi thường gặp
 	- **Prompt Optimize**: Viết prompt ngắn gọn hơn, yêu cầu câu trả lời ngắn hơn.
-	- 
+#### 8. Lựa chọn giữa API và open source
+- Đây là một câu hỏi về chiến lược và trade-off trong kỹ thuật.
+    - **Mô hình độc quyền (vd: OpenAI API)**: Dễ sử dụng, hiệu năng cao, không cần lo về hạ tầng, nhưng chi phí có thể cao, ít khả năng tùy chỉnh sâu và phụ thuộc vào bên thứ ba.
+    - **Mô hình mã nguồn mở (vd: Llama, Mistral)**: Toàn quyền kiểm soát, có thể fine-tune sâu, bảo mật dữ liệu tốt hơn, nhưng đòi hỏi đầu tư lớn vào hạ tầng, chuyên môn để vận hành và duy trì.
 # References
