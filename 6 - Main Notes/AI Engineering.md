@@ -43,4 +43,5 @@ th
 	- **Quantization**: Giảm độ chính xác của mô hình để giảm kích thước và tăng tốc độ suy luận
 	- **Caching**: Lưu lại kết qủa cho các câu hỏi thường gặp
 	- **Prompt Optimize**: Viết prompt ngắn gọn hơn, yêu cầu câu trả lời ngắn hơn.
+	- 
 # References
