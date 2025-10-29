@@ -80,7 +80,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "euler",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -101,7 +101,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -230,7 +231,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "0c040245bdab915a",
+  "active": "795cc0a4e8cdf0a2",
   "lastOpenFiles": [
     "6 - Main Notes/AI Engineering.md",
     "Seminar-Thesis/meeting note oct 27.md",
