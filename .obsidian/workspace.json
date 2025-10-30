@@ -38,13 +38,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Seminar-Thesis/meeting note oct 27.md",
+                "file": "6 - Main Notes/Workflow của agent.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "meeting note oct 27"
+              "title": "Workflow của agent"
             }
           }
         ],
@@ -80,7 +80,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "euler",
+                "query": "chunking",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -231,10 +231,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "795cc0a4e8cdf0a2",
+  "active": "0c040245bdab915a",
   "lastOpenFiles": [
-    "6 - Main Notes/AI Engineering.md",
     "Seminar-Thesis/meeting note oct 27.md",
+    "6 - Main Notes/AI Engineering.md",
     "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/Early wldfire detection using different machine learning algorithms.md",
     "6 - Main Notes/khaosat.md",
