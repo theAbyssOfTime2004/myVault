@@ -42,7 +42,7 @@ class LibraryManagement:
 	
 	def recommend_top_book_by_genre(self, genre):
 		genre_books = []
-		for book in books:
+		for book in self.books:
 			if book.genre == genre:
 				genre_books.append(book)
 		if genre_books == []

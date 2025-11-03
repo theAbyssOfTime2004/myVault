@@ -23,13 +23,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Seminar-Thesis/meeting note oct 27.md",
+                "file": "oop/exercise.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "meeting note oct 27"
+              "title": "exercise"
             }
           },
           {
@@ -232,11 +232,11 @@
   },
   "active": "64ab55f0de2c549e",
   "lastOpenFiles": [
+    "Seminar-Thesis/meeting note oct 27.md",
     "Seminar-Thesis/MeetingNote lần 1.md",
     "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
     "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/Workflow của agent.md",
-    "Seminar-Thesis/meeting note oct 27.md",
     "6 - Main Notes/AI Engineering.md",
     "6 - Main Notes/Early wldfire detection using different machine learning algorithms.md",
     "6 - Main Notes/khaosat.md",
