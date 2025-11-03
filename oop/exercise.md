@@ -45,7 +45,14 @@ class LibraryManagement:
 				self.books.remove(book)
 				print(f"removed book: {title}")
 				return 
-		print(f"No book found with title '{title}') 
+		print(f"No book found with title '{title}')
+	
+	def list_books(self):
+		if not self.books:
+			print("No books in the library")
+		else:
+			for book in self.books:
+				print(book) 
 	
 	def get_highest_rated_books(self, x):
 		sorted_books = sorted(self.books, key=lambda book: (book.rating, book.title), reverse=True)
@@ -60,4 +67,11 @@ class LibraryManagement:
 			return None
 		sorted_genre_book = sorted(genre_books, key=lambda book: (book.rating)
 			return sorted_genre_book[0]
+			
+	def borrow_book(self, title):
+		for book in self.books:
+			if book.title.lower() == title.lower() and not book.is_borrowed:
+			book.is_borrowed = False
+			return book
+		return None
 ```
