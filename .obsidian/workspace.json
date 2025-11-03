@@ -105,7 +105,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -230,8 +231,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "64ab55f0de2c549e",
+  "active": "0701ecb2f22c72ed",
   "lastOpenFiles": [
+    "oop/Day 6.md",
+    "oop/exercise.md",
     "Seminar-Thesis/meeting note oct 27.md",
     "Seminar-Thesis/MeetingNote lần 1.md",
     "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
@@ -250,8 +253,6 @@
     "6 - Main Notes/khaosat.docx",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "copilot/copilot-conversations/bạn_thấy_yêu_cầu_khảo_sát_tôi_soạn_bên_đây@20251023_180652.md",
-    "oop/Day 6.md",
-    "oop/exercise.md",
     "oop/day 1.md",
     "oop/Day 5.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",

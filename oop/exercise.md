@@ -27,7 +27,10 @@ class Book:
 		self.title = title
 		self.genre = genre
 		self.rating = rating
-		
+		self.is_borrowed = False
+	def __str__(self):
+		status = "Borrwed" if self.is_borrowed else "Available"
+		return f"{self.title} (self.genre) - * {self.rating} | {status}"
 		
 class LibraryManagement:
 	def __init__(self):
@@ -35,6 +38,14 @@ class LibraryManagement:
 	
 	def add_book(self, book):
 		self.books.append(book)
+	
+	def remove_book(self, book):
+		for book in self.books:
+			if book.title.lower() == title.lower():
+				self.books.remove(book)
+				print(f"removed book: {title}")
+				return 
+		print(f"No book found with title '{title}') 
 	
 	def get_highest_rated_books(self, x):
 		sorted_books = sorted(self.books, key=lambda book: (book.rating, book.title), reverse=True)
