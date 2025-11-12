@@ -75,3 +75,23 @@ class LibraryManagement:
 			return book
 		return None
 ```
+
+
+Chào anh/chị! Wakamono có nhiều sản phẩm chất lượng, nổi bật gồm:
+1. 🥢 Măng Wakamono với các vị:
+    - Cay nhẹ (phù hợp đa số khẩu vị)
+    - Ớt ngâm (cay đậm, thích hợp người mê cay)
+    - Không cay (an toàn cho mọi lứa tuổi)
+    - Teriyaki (vị ngọt thanh, phá cách)
+2. 🍵 Kỳ tử Wakamono:
+    - Kỳ tử sạch, nhập khẩu chính ngạch từ Ninh Hạ (Trung Quốc)
+    - Không phẩm màu, không chất bảo quản
+    - Đóng gói hút chân không, có giấy kiểm định VSATTP
+3. 🍄 Đông Trùng Hạ Thảo cao cấp Wakamono:
+    - Hộp 5g, dùng pha trà hoặc nấu ăn        
+    - Sấy thăng hoa, bảo quản tốt, dùng tiện lợi
+4. 🍃 Combo trà thảo dược Đông Trùng Hạ Thảo Wakamono:
+    - Combo 2 hộp (thìa canh + xạ đen)
+    - Combo 3 hộp (xạ đen + thìa canh + tía tô)
+    - Đóng gói 10 gói/hộp, không chất bảo quản
+Anh/chị muốn em tư vấn chi tiết sản phẩm nào hoặc gợi ý combo phù hợp không ạ?
