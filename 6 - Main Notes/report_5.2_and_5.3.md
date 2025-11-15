@@ -102,26 +102,21 @@ Việc triển khai đồng bộ các giải pháp trên, trong một khuôn kh�
 
 ## Reference
 
-1. **Bộ NN&PTNT (2023)** – Số liệu hiện trạng rừng Việt Nam năm 2022. _Nguồn trích dẫn:_ Tạp chí Môi trường, bài “Xây dựng hệ thống cảnh báo cháy rừng…”[tapchimoitruong.vn](https://tapchimoitruong.vn/nghien-cuu-23/xay-dung-he-thong-canh-bao-chay-rung-su-dung-cong-nghe-vien-tham-dua-tren-mo-hinh-ngon-ngu-lon-32428#:~:text=Ch%C3%A1y%20r%E1%BB%ABng%20l%C3%A0%20m%E1%BB%99t%20trong,camera%20c%E1%BB%91%20%C4%91%E1%BB%8Bnh%20kh%C3%B4ng%20bao).
-    
-2. **Báo Thanh Niên (2024)** – “Trong năm 2023, cả nước xảy ra 310 vụ cháy rừng…”, tác giả Đức Nhật, đăng ngày 05/05/2024. _Nguồn trích:_ Báo Thanh Niên điện tử[thanhnien.vn](https://thanhnien.vn/trong-nam-2023-ca-nuoc-xay-ra-310-vu-chay-rung-185240505190641751.htm#:~:text=Trong%20n%C4%83m%202023%2C%20c%E1%BA%A3%20n%C6%B0%E1%BB%9Bc,quy%20%C4%91%E1%BB%8Bnh%20c%E1%BB%A7a%20ph%C3%A1p%20lu%E1%BA%ADt)[thanhnien.vn](https://thanhnien.vn/trong-nam-2023-ca-nuoc-xay-ra-310-vu-chay-rung-185240505190641751.htm#:~:text=Ph%C3%B3%20th%E1%BB%A7%20t%C6%B0%E1%BB%9Bng%C2%A0Tr%E1%BA%A7n%20L%C6%B0u%20Quang,s%E1%BB%9Bm%20ch%C3%A1y%20r%E1%BB%ABng%20t%E1%BB%B1%20%C4%91%E1%BB%99ng%E2%80%A6).
-    
-3. **Thủ tướng Chính phủ (2024)** – Công điện 43/CĐ-TTg ngày 01/05/2024 về tăng cường PCCCR trên phạm vi cả nước. _Nguồn:_ Trích dẫn qua Báo Thanh Niên[thanhnien.vn](https://thanhnien.vn/thu-tuong-quyet-liet-phong-chay-chua-chay-rung-tren-pham-vi-ca-nuoc-185240501211303957.htm#:~:text=Chi%E1%BB%81u%201,tr%C3%AAn%20ph%E1%BA%A1m%20vi%20c%E1%BA%A3%20n%C6%B0%E1%BB%9Bc)[thanhnien.vn](https://thanhnien.vn/thu-tuong-quyet-liet-phong-chay-chua-chay-rung-tren-pham-vi-ca-nuoc-185240501211303957.htm#:~:text=%C4%90%E1%BB%83%20ti%E1%BA%BFp%20t%E1%BB%A5c%20ch%E1%BB%A7%20%C4%91%E1%BB%99ng,r%E1%BB%ABng%20t%E1%BB%AB%20s%E1%BB%9Bm%2C%20t%E1%BB%AB%20xa).
-    
-4. **European Environment Agency (2021)** – Định nghĩa chỉ số **FWI**. _Nguồn:_ Climate-ADAPT, mục Fire Weather Index[climate-adapt.eea.europa.eu](https://climate-adapt.eea.europa.eu/en/metadata/indicators/fire-weather-index#:~:text=Fire%20Weather%20Index%20%28Dimensionless%29,relative%20humidity%2C%20and%20wind%20speed).
-    
-5. **Keetch & Byram (1968)** – **Chỉ số hạn KBDI** do US Forest Service phát triển. _Nguồn:_ Earth Engine Data Catalog (ĐH Tokyo, 2015)[developers.google.com](https://developers.google.com/earth-engine/datasets/catalog/UTOKYO_WTLAB_KBDI_v1?hl=vi#:~:text=Thang%20%C4%91i%E1%BB%83m%20n%C3%A0y%20dao%20%C4%91%E1%BB%99ng,c%C3%A2y%20ph%E1%BB%A5%20thu%E1%BB%99c%20v%C3%A0o%20m%C6%B0a) và Wikipedia tiếng Việt[vi.wikipedia.org](https://vi.wikipedia.org/wiki/Ch%E1%BB%89_s%E1%BB%91_h%E1%BA%A1n_h%C3%A1n_Keetch-Byram#:~:text=KBDI%20l%C3%A0%20m%E1%BB%99t%20%C6%B0%E1%BB%9Bc%20t%C3%ADnh,k%E1%BB%83%20%C4%91%E1%BA%BFn%20t%C3%ADnh%20ch%E1%BA%A5t%20ch%C3%A1y).
-    
-6. **CSIRO (2018)** – **Chỉ số FFDI** (Forest Fire Danger Index) – Hướng dẫn đánh giá nguy cơ cháy rừng Úc. _Nguồn:_ CSIRO Bushfire Guide[research.csiro.au](https://research.csiro.au/bushfire/assessing-bushfire-hazards/hazard-identification/fire-danger-index/#:~:text=The%20Forest%20Fire%20Danger%20Index,uses%20FFDI%20to%20assign%20a).
-    
-7. **Roberts et al. (2006)** – Nghiên cứu sử dụng **NDWI** để giám sát độ ẩm nhiên liệu sống. _Nguồn:_ USFS Research (Int. J. Remote Sensing)[research.fs.usda.gov](https://research.fs.usda.gov/treesearch/41842#:~:text=33,chlorophyll%20absorption%20such%20as%20NDVI).
-    
-8. **USGS (2022)** – **Chỉ số FPI/WFPI** – Mô tả sản phẩm dự báo nguy cơ cháy. _Nguồn:_ USGS Fire Danger Forecast[usgs.gov](https://www.usgs.gov/fire-danger-forecast/fire-danger-data-products-and-tools#:~:text=The%20Wildland%20Fire%20Potential%20Index,burn%20more%20than%20500%20acres)[usgs.gov](https://www.usgs.gov/fire-danger-forecast/fire-danger-data-products-and-tools#:~:text=The%20WFPI%20model%20is%20primarily,windspeed%2C%20measured%20at%20flame%20height).
-    
-9. **Bui et al. (2019)** – Ứng dụng **AI (MARS-DFP)** dự báo nguy cơ cháy rừng tại Lào Cai, Việt Nam. _Nguồn:_ J. Environmental Management[pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/30825780/#:~:text=optimize%20the%20model,prediction%20of%20forest%20fire%20susceptibility).
-    
-10. **Báo Chính Phủ (2025)** – “Ngành Lâm nghiệp: Hướng tới phát triển bền vững, hiện đại…”. _Nguồn trích:_ Báo điện tử Chính phủ ngày 06/11/2025[baochinhphu.vn](https://baochinhphu.vn/nganh-lam-nghiep-huong-toi-phat-trien-ben-vung-hien-dai-va-da-gia-tri-102251106095615537.htm#:~:text=Tuy%20nhi%C3%AAn%2C%20v%E1%BB%9Bi%20n%E1%BB%81n%20t%E1%BA%A3ng,v%C3%A0%20th%C6%B0%C6%A1ng%20m%E1%BA%A1i%20b%E1%BB%81n%20v%E1%BB%AFng)[baochinhphu.vn](https://baochinhphu.vn/nganh-lam-nghiep-huong-toi-phat-trien-ben-vung-hien-dai-va-da-gia-tri-102251106095615537.htm#:~:text=ngh%E1%BB%89%20d%C6%B0%E1%BB%A1ng%20trong%20r%E1%BB%ABng%20%C4%91%C6%B0%E1%BB%A3c,500%20t%E1%BB%B7%20%C4%91%E1%BB%93ng%20n%C4%83m%202024).
-    
-11. **Tạp chí Môi trường (2025)** – “Xây dựng hệ thống cảnh báo cháy rừng sử dụng công nghệ viễn thám và mô hình ngôn ngữ lớn”. _Nguồn:_ Tạp chí MT số 08/2025[tapchimoitruong.vn](https://tapchimoitruong.vn/nghien-cuu-23/xay-dung-he-thong-canh-bao-chay-rung-su-dung-cong-nghe-vien-tham-dua-tren-mo-hinh-ngon-ngu-lon-32428#:~:text=v%C3%A0%20nghi%C3%AAm%20tr%E1%BB%8Dng%20h%C6%A1n%20do,cho%20ph%C3%A9p%20gi%C3%A1m%20s%C3%A1t%20hi%E1%BB%87n)[tapchimoitruong.vn](https://tapchimoitruong.vn/nghien-cuu-23/xay-dung-he-thong-canh-bao-chay-rung-su-dung-cong-nghe-vien-tham-dua-tren-mo-hinh-ngon-ngu-lon-32428#:~:text=Vehicle%20,kh%C3%B4ng%20ng%E1%BB%ABng%20c%E1%BB%A7a%20c%C3%B4ng%20ngh%E1%BB%87).
+**Phần I – Các yêu cầu tổng thể để xây dựng hệ thống**
 
-12. **FAO (2016)** – Đánh giá hiện trạng cháy rừng Việt Nam giai đoạn 1990–2015, _trích trong_: **State of the World’s Forests 2016** (báo cáo quốc gia Việt Nam)[openknowledge.fao.org](https://openknowledge.fao.org/items/594b22b1-c266-45d3-9e84-6bf2f2fc8cd7#:~:text=,2014).
+- [Mapping Forest Fire Risk and Development of Early Warning System for NW Vietnam using AHP & GIS – Hoang et al. 2020](https://www.mdpi.com/2076-3417/10/12/4348?utm_source=chatgpt.com)
+- [Enhancement of Fire Early Warning System in Vietnam using Spatial Data and Assimilation – ResearchGate 2018](https://www.researchgate.net/publication/324011154_Enhancement_of_Fire_Early_Warning_System_in_Vietnam_Using_Spatial_Data_and_Assimilation?utm_source=chatgpt.com)
+- [Status of Forest Fire Management and Control in Vietnam – Restec/GEOSS presentation](https://www.restec.or.jp/geoss_ap1/materials/PDF/ForestFire/2day/2day_8_Hien.pdf?utm_source=chatgpt.com)
+
+**Phần II – Phân tích chuyên sâu các chỉ số dự báo nguy cơ cháy rừng**
+
+- [Canadian Forest Fire Weather Index (FWI) System – Background Information (Natural Resources Canada)](https://cwfis.cfs.nrcan.gc.ca/background/summary/fwi?utm_source=chatgpt.com)
+- [Fire Weather Index | Indicators – Climate-ADAPT / EEA](https://climate-adapt.eea.europa.eu/en/metadata/indicators/fire-weather-index?utm_source=chatgpt.com)
+- [Global use of the Canadian Fire Weather Index: A review – Kudláčková et al. 2024](https://www.researchgate.net/publication/377851841_Global_use_of_the_Canadian_Fire_Weather_Index_A_review?utm_source=chatgpt.com)
+- [Feuerwetterindex (FWI) – Wikipedia (giới thiệu khái quát)](https://en.wikipedia.org/wiki/Forest_fire_weather_index?utm_source=chatgpt.com)
+
+**Phần III – Thực trạng và định hướng cho Việt Nam**
+
+- [Development of MODIS-based FireWatch system for forest fire management in Vietnam](https://hazeportal.asean.org/publications/development-of-modis-based-firewatch-system-for-forest-fire-management-in-vietnam/?utm_source=chatgpt.com)
+- [Forest fire risk prediction using geospatial data and machine learning – Vietnam case study (Doan Thi Nam Phuong et al. 2024)](https://jmes.humg.edu.vn/images/paper/2024/65_5/06.%20Doan%20Thi%20Nam%20Phuong%2050-60.pdf?utm_source=chatgpt.com)
+- [Fire fire and its key drivers in the tropical forests of northern Vietnam – PT Trang et al. 2022](https://connectsci.au/wf/article-lookup/doi/10.1071/WF21078?utm_source=chatgpt.com)
