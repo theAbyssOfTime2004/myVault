@@ -83,13 +83,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/meeting note nov 16.md",
+                "file": "6 - Main Notes/decorator.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "meeting note nov 16"
+              "title": "decorator"
             }
           }
         ],
@@ -258,7 +258,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 405.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -277,18 +277,21 @@
   },
   "active": "bb5a3942af0c6557",
   "lastOpenFiles": [
+    "Pasted image 20251117000636.png",
+    "3 - Tags/fsds.md",
+    "6 - Main Notes/report_5.3.md",
+    "Seminar-Thesis/meeting note oct 27.md",
+    "6 - Main Notes/decorator.md",
+    "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
+    "Seminar-Thesis/MeetingNote lần 1.md",
+    "6 - Main Notes/meeting note nov 16.md",
     "Pasted image 20251116230708.png",
     "Pasted image 20251116225647.png",
-    "Seminar-Thesis/meeting note oct 27.md",
-    "Seminar-Thesis/MeetingNote lần 1.md",
-    "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
-    "6 - Main Notes/meeting note nov 16.md",
     "Pasted image 20251116222429.png",
     "Seminar-Thesis/caption generation.md",
     "6 - Main Notes/baocao.md",
     "6 - Main Notes/baocao_5-2_and_5-3.docx",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
-    "6 - Main Notes/report_5.3.md",
     "oop/Day 6.md",
     "oop/exercise.md",
     "6 - Main Notes/Adamw and Adam (optimizer).md",
@@ -306,8 +309,6 @@
     "6 - Main Notes/khaosat.docx",
     "copilot/copilot-conversations/bạn_thấy_yêu_cầu_khảo_sát_tôi_soạn_bên_đây@20251023_180652.md",
     "oop/day 1.md",
-    "oop/Day 5.md",
-    "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/Untitled 1.base",
     "6 - Main Notes/Untitled.base",
     "report.docx",
@@ -324,7 +325,6 @@
     "2 - Source Material/Others/Pasted image 20250620124926.png",
     "2 - Source Material/Others/Pasted image 20250620123122.png",
     "2 - Source Material/Others/Pasted image 20250620112520.png",
-    "2 - Source Material/Others/Pasted image 20250620112516.png",
     "Untitled 1.canvas",
     "Untitled 2.canvas",
     "2 - Source Material/Others/Untitled 1.canvas",
