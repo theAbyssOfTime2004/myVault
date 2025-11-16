@@ -68,13 +68,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/report_5.2_and_5.3.md",
+                "file": "6 - Main Notes/baocao.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "report_5.2_and_5.3"
+              "title": "baocao"
             }
           }
         ],
@@ -135,8 +135,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -261,10 +260,11 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "0701ecb2f22c72ed",
+  "active": "1748f623e088dc9f",
   "lastOpenFiles": [
+    "6 - Main Notes/baocao_5-2_and_5-3.docx",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
-    "6 - Main Notes/report_5.2_and_5.3.md",
+    "6 - Main Notes/baocao.md",
     "6 - Main Notes/report_5.3.md",
     "oop/Day 6.md",
     "oop/exercise.md",
@@ -290,7 +290,6 @@
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
     "6 - Main Notes/10 Contrastive Learning Frameworks.md",
     "6 - Main Notes/(SLZ) playwright test.md",
-    "6 - Main Notes/(SLZ) llamaindex memory -> langGraph memory.md",
     "6 - Main Notes/Untitled 1.base",
     "6 - Main Notes/Untitled.base",
     "report.docx",
