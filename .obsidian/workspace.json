@@ -68,13 +68,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/baocao.md",
+                "file": "6 - Main Notes/meeting note nov 16.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "baocao"
+              "title": "meeting note nov 16"
             }
           }
         ],
@@ -262,14 +262,17 @@
   },
   "active": "1748f623e088dc9f",
   "lastOpenFiles": [
+    "Pasted image 20251116222429.png",
+    "Seminar-Thesis/meeting note oct 27.md",
+    "6 - Main Notes/meeting note nov 16.md",
+    "Seminar-Thesis/MeetingNote lần 1.md",
+    "Seminar-Thesis/caption generation.md",
+    "6 - Main Notes/baocao.md",
     "6 - Main Notes/baocao_5-2_and_5-3.docx",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
-    "6 - Main Notes/baocao.md",
     "6 - Main Notes/report_5.3.md",
     "oop/Day 6.md",
     "oop/exercise.md",
-    "Seminar-Thesis/meeting note oct 27.md",
-    "Seminar-Thesis/MeetingNote lần 1.md",
     "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
     "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/Workflow của agent.md",
@@ -288,8 +291,6 @@
     "oop/day 1.md",
     "oop/Day 5.md",
     "6 - Main Notes/Common Activation Function In Neural Networks.md",
-    "6 - Main Notes/10 Contrastive Learning Frameworks.md",
-    "6 - Main Notes/(SLZ) playwright test.md",
     "6 - Main Notes/Untitled 1.base",
     "6 - Main Notes/Untitled.base",
     "report.docx",
@@ -297,7 +298,6 @@
     "6 - Main Notes/Untitled 3.base",
     "copilot/copilot-conversations",
     "copilot/copilot-custom-prompts",
-    "copilot",
     "Untitled.canvas",
     "Pasted image 20251004201925.png",
     "Pasted image 20250819094205.png",
