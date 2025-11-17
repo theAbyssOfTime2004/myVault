@@ -1,7 +1,7 @@
 [[SLZ]]
 - Ngày 17/11/2025
 - Luồng memory hiện tại:
-	- quan tâm đến 2 endpoint `chat/summary` và `/chat-response`
+	- quan tâm đến endpoint `chat/summary` 
 	- Với `chat/summary`:
 		- **Đầu vào**: Nó nhận tin nhắn mới của người dùng và bản tóm tắt cũ.
 		- **Xử lý**: Nó gọi AI để tạo ra một bản tóm tắt mới, cập nhật hơn.
@@ -51,3 +51,10 @@ return SummaryResponse(
 	usage=usage_metadata,
 )
 ```
+
+
+- **Luồng hoạt động của hàm `handle_chat_and_build_prompt_stateless()`:
+	- phần đầu tiên là fetch prompt từ db - theo 2 cách có hoặc không có previous_summary - để tạo system_prompt tạo full_question bằng user_messages(gồm previous_summary (nếu có), ad_content, recent_messages và user_input. 
+	- phần thứ 2 là fetch system_prompt đó cùng user_message, truyền HistoryModel vào để đảm bảo output sẽ là dạng: class HistoryModel(BaseModel): sum_history: str full_question: str language: str 
+	- cuối cùng trả về output + `usage_metadata`
+	- `usage_metadata` là **thông tin chi tiết về việc sử dụng tokens của LLM call**, được OpenAI API trả về sau mỗi lần gọi. (mục đích quản lý chi phí, caching và monitoring)
