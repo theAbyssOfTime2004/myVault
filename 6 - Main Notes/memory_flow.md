@@ -58,3 +58,96 @@ return SummaryResponse(
 	- phần thứ 2 là fetch system_prompt đó cùng user_message, truyền HistoryModel vào để đảm bảo output sẽ là dạng: class HistoryModel(BaseModel): sum_history: str full_question: str language: str 
 	- cuối cùng trả về output + `usage_metadata`
 	- `usage_metadata` là **thông tin chi tiết về việc sử dụng tokens của LLM call**, được OpenAI API trả về sau mỗi lần gọi. (mục đích quản lý chi phí, caching và monitoring)
+
+- còn 1 implementation thứ 2 không được sử dụng(là file `langmem_process.py`), file này làm những việc sau: 
+```
+┌─────────────────────────────────────────────────────────┐
+│  1. EXTRACT PHASE                                     │
+├─────────────────────────────────────────────────────────┤
+│  Input: Conversation messages                          │
+│     ↓                                                 │
+│  LLM Extract (3 parallel calls)                        │
+│     ├─ Semantic Manager → [Triple1, Triple2, ...]      │
+│     ├─ Episodic Manager → [Episode1, Episode2, ...]    │
+│     └─ Profile Manager → UserProfile                   │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│  2. EMBEDDING PHASE                                   │
+├─────────────────────────────────────────────────────────┤
+│  For each extracted item:                              │
+│     Triple1 → embed("User thích màu đỏ")               │
+│         → [0.123, -0.456, ..., 0.789]  (1536 dims)      │
+│     Triple2 → embed("User có budget 30 triệu")          │
+│         → [0.321, 0.654, ..., -0.987]  (1536 dims)      │
+│     Episode1 → embed("Tình huống: ... Suy nghĩ: ...")   │
+│         → [0.111, 0.222, ..., 0.333]  (1536 dims)       │
+│     UserProfile → embed("Tên: A, Sở thích: gaming")     │
+│         → [0.444, 0.555, ..., 0.666]  (1536 dims)       │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│  3. STORAGE PHASE (InMemoryStore - RAM)                │
+├─────────────────────────────────────────────────────────┤
+│  Namespace Structure:                                  │
+│                                                       │
+│  ("memories", "user_001", "semantic")                  │
+│    ├─ id_1: {value: Triple1, embedding: [...]}         │
+│    ├─ id_2: {value: Triple2, embedding: [...]}         │
+│    └─ ...                                             │
+│                                                       │
+│  ("memories", "user_001", "episodic")                  │
+│    ├─ id_1: {value: Episode1, embedding: [...]}        │
+│    └─ ...                                             │
+│                                                       │
+│  ("users", "user_001", "profile")                      │
+│    └─ id_1: {value: UserProfile, embedding: [...]}     │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│  4. RETRIEVAL PHASE                                   │
+├─────────────────────────────────────────────────────────┤
+│  User Query: "sở thích người dùng"                     │
+│     ↓                                                 │
+│  Embed Query:                                         │
+│     query_embedding = embed("sở thích người dùng")     │
+│         → [0.234, 0.567, ..., 0.890]                   │
+│     ↓                                                 │
+│  Search InMemoryStore:                                 │
+│     For each namespace (semantic, episodic, profile):   │
+│         For each item in namespace:                    │
+│             similarity = cosine_similarity(            │
+│                 query_embedding,                      │
+│                 item.embedding                        │
+│             )                                         │
+│         Sort by similarity DESC                       │
+│         Return top K items                            │
+│     ↓                                                 │
+│  Results (Top 3 example):                              │
+│     1. Triple1: "User thích màu đỏ" (similarity: 0.92)  │
+│     2. UserProfile (similarity: 0.87)                   │
+│     3. Episode1 (similarity: 0.81)                      │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│  5. FORMATTING PHASE                                  │
+├─────────────────────────────────────────────────────────┤
+│  Format results as context string:                     │
+│                                                       │
+│  === THÔNG TIN NGƯỜI DÙNG ===                          │
+│  Tên: Nguyễn Văn A                                     │
+│  Sở thích: gaming                                      │
+│                                                       │
+│  === KÝ ỨC NGỮ NGHĨA ===                               │
+│  - User thích màu đỏ                                   │
+│  - User có budget 30 triệu                             │
+│                                                       │
+│  === KÝ ỨC SỰ KIỆN ===                                 │
+│  Tình huống: Khách hỏi PC gaming...                    │
+│  Suy nghĩ: Tôi nghĩ nên recommend i5...                │
+│  ...                                                  │
+└─────────────────────────────────────────────────────────┘
+```
+
+- Drawback: với implementation `langmem_process.py` này thì còn gặp lỗi bị lặp memory 
+- Implementation thứ 3 là `lg_memory.py` với langgraph memory
