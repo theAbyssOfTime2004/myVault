@@ -7,9 +7,6 @@
 		- **Xử lý**: Nó gọi AI để tạo ra một bản tóm tắt mới, cập nhật hơn.
 		- **Đầu ra**: Nó trả về một đối tượng JSON, trong đó có một trường quan trọng là [sum_history](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html). Giá trị của [sum_history](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) chính là **chuỗi tóm tắt mới** của cuộc trò chuyện.
 
-
-
-
 - Đi chi tiết vào `chat/summary`, để biết đã làm gì trong đó:
 	- hàm xử lý endpoint này là `create_stateless_summary`, mọi thông tin cần thiết cho hàm này đều phải được cung cấp trong `payload: SummaryRequest`  
 		- **Bước 1**: gọi hàm `handle_chat_and_build_prompt_stateless` và hàm này  sẽ nhận các thông tin sau: 
