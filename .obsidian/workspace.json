@@ -269,7 +269,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -290,7 +290,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "072cc113131eef8b",
+  "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
     "6 - Main Notes/memory_flow.md",
     "6 - Main Notes/decorator.md",
