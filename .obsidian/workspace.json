@@ -108,7 +108,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -292,8 +292,9 @@
   },
   "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
-    "New folder",
+    "oop/exercise.md",
     "6 - Main Notes/memory_flow.md",
+    "New folder",
     "6 - Main Notes/decorator.md",
     "6 - Main Notes/report_5.3.md",
     "Seminar-Thesis/meeting note oct 27.md",
@@ -312,7 +313,6 @@
     "6 - Main Notes/baocao_5-2_and_5-3.docx",
     "copilot/copilot-conversations/bạn_có_thể_đọc_qua_note_này_giúp_tôi_không@20251015_152141.md",
     "oop/Day 6.md",
-    "oop/exercise.md",
     "6 - Main Notes/Adamw and Adam (optimizer).md",
     "6 - Main Notes/AI Engineering.md",
     "6 - Main Notes/Early wldfire detection using different machine learning algorithms.md",
@@ -331,7 +331,6 @@
     "6 - Main Notes/Untitled 2.base",
     "6 - Main Notes/Untitled 3.base",
     "copilot/copilot-conversations",
-    "copilot/copilot-custom-prompts",
     "Untitled.canvas",
     "Pasted image 20251004201925.png",
     "Pasted image 20250819094205.png",
