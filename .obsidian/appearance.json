@@ -2,5 +2,6 @@
   "cssTheme": "Abyssal",
   "accentColor": "#9baa88",
   "theme": "obsidian",
-  "nativeMenus": false
+  "nativeMenus": false,
+  "baseFontSize": 17
 }
