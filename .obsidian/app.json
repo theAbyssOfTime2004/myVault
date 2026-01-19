@@ -15,5 +15,6 @@
     "downscalePercent": 100
   },
   "promptDelete": false,
-  "strictLineBreaks": false
+  "strictLineBreaks": false,
+  "vimMode": false
 }

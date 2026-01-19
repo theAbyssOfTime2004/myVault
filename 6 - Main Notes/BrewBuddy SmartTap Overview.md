@@ -132,4 +132,32 @@ set_chat_session() → app/services/chat_services/chat_service.py:51
 
 save_chat_history() → app/services/chat_services/chat_service.py:114
 ```
+
+1. Trigger Workflow:
+	- Sau khi `beer_ordering_chat (API)` thực hiện xong validate và lấy session state.
+	- Hàm` BeerOrderingWorkflow.run()` được gọi.
+	- `self.workflow.arun()` kích hoạt workflow engine.
+2. Execution Chain:
+	- Bước 1: *prepare_step*: (`_prepare_step_executor`): Chuẩn bị input, merge state hiện tại và request mới.
+	- Bước 2: Parallel:
+		- *compliance_step*: (`_check_compliance_step_executor`): Kiểm tra compliance -> gọi `compliance_service.check_compliance `  -> Trả về `compliance_result`.
+		- *extraction_step*: (`_extraction_step_executor`): Trích xuất thông tin (mood, flavor, etc.) -> Trả về `extracted_info`.
+	- Bước 3: Router:
+		- `compliance_router`: Nhận input từ Parallel trước đó.
+		- Kiểm tra `compliance_result.`
+		- Nếu Vi phạm (`is_violated`): -> Gọi i`nvalid_compliance_step`.
+		- Nếu An toàn: -> Gọi `decision_step`.
+3. Violation Path:
+	- invalid_compliance_step (_invalid_compliance_step_executor):
+	- Lưu lịch sử chat.
+	- Kết thúc session (`end_chat_session`).
+	- Trả về response với `renderingType="chat-terminated"`.
+4. Happy Path - Decision:
+	- decision_step (_decision_step_executor):
+		- Tổng hợp kết quả từ extraction và compliance.
+		- Cập nhật logic nghiệp vụ (ví dụ: state mapping, intent count).
+		- Gọi AI (`state_management_service`) để quyết định câu trả lời tiếp theo.
+	- finalize_step (_finalize_step_executor):
+		- Lưu state mới vào DB.
+		- Trả về response cuối cùng cho API.
 # References

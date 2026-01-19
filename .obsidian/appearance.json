@@ -3,5 +3,7 @@
   "accentColor": "#9baa88",
   "theme": "obsidian",
   "nativeMenus": false,
-  "baseFontSize": 17
+  "baseFontSize": 17,
+  "enabledCssSnippets": [],
+  "translucency": true
 }
