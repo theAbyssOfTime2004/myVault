@@ -133,6 +133,9 @@ set_chat_session() → app/services/chat_services/chat_service.py:51
 save_chat_history() → app/services/chat_services/chat_service.py:114
 ```
 
+
+### Workflow:
+
 1. Trigger Workflow:
 	- Sau khi `beer_ordering_chat (API)` thực hiện xong validate và lấy session state.
 	- Hàm` BeerOrderingWorkflow.run()` được gọi.
@@ -160,4 +163,40 @@ save_chat_history() → app/services/chat_services/chat_service.py:114
 	- finalize_step (_finalize_step_executor):
 		- Lưu state mới vào DB.
 		- Trả về response cuối cùng cho API.
+
+
+### Services 
+
+1. **check_compliance()**: sử dụng AI để *detect compliance*, *detect out of scope contents*, *detect clarifications that reset previous violations*
+- Flow chi tiết: 
+	- Nhận vào context: (`user_message`, `lang`, `session_id`, và `previous_ai_message`. - nếu không có `previous_ai_message` thì tự động gán 1 câu mặc định)
+	- Build prompt: Gồm `System_prompt` và `User_prompt`
+	```python
+	system_prompt = COMPLIANCE_CHECK_SYSTEM_PROMPT
+	user_prompt = prompt_service.format_user_prompt(
+	COMPLIANCE_CHECK_USER_PROMPT,
+	user_message=user_message,
+	previous_ai_message=previous_ai_message,
+	)
+	```
+	- Gọi AI từ Azure OpenAI: 
+```python
+response = (
+	await self.agent_service.with_messages(        #gửi request đến LLM
+	[{"role": "user", "content": user_prompt}] 
+	)
+	.with_system_prompt(system_prompt)
+	.with_session_id(session_id)
+	# yêu cầu trả về theo ComplianceCheckResponse
+	.with_response_model(ComplianceCheckResponse)  
+	.run_async()
+)
+```
+- 
+	- Nếu kết quả trả về đúng định dạng `ComplianceCheckResponse`, sử dụng trực tiếp.
+	- Nếu kết quả là chuỗi text (do lỗi định dạng), hàm `_parse_response` sẽ cố gắng parse JSON từ chuỗi đó một cách thủ công (fallback mechanism). 
+	- Log warning nếu phát hiện vi phạm (`is_violated=True`) hoặc thông tin nếu an toàn.
+	- Trả về object ComplianceCheckResponse chứa: `is_violated, violation_type, message, reasoning.`
+
+2. *extract_information*: 
 # References
