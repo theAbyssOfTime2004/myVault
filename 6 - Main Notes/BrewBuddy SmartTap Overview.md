@@ -4,65 +4,44 @@
 Tags: [[TigerTribe]], [[HNK-SMARTAP-BREWBUDDY]]
 
 # Overview Architecture
-┌─────────────────────────────────────────────────────────────┐
-│                    FastAPI Application                       │
-│                    (main.py)                                 │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────┐
-│              API Layer (app/api/chat.py)                     │
-│  - Authentication (X-API-KEY)                                │
-│  - Request Validation                                         │
-│  - Error Handling                                             │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-                       ▼
-┌─────────────────────────────────────────────────────────────┐
-│         Workflow Layer (BeerOrderingWorkflow)                │
-│  ┌──────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ Prepare  │→ │   Parallel   │→ │    Router    │          │
-│  │   Step   │  │   Analysis   │  │   Decision   │          │
-│  └──────────┘  └──────┬───────┘  └──────┬───────┘          │
-│                       │                  │                   │
-│              ┌────────┴────────┐         │                   │
-│              │                │         │                   │
-│      ┌───────▼──────┐  ┌──────▼──────┐  │                   │
-│      │ Compliance   │  │ Information │  │                   │
-│      │   Check      │  │ Extraction  │  │                   │
-│      └──────────────┘  └─────────────┘  │                   │
-│              │                  │         │                   │
-│              └────────┬────────┘         │                   │
-│                       │                  │                   │
-│              ┌────────▼──────────────────▼──────┐           │
-│              │      Decision & Finalize          │           │
-│              └──────────────────────────────────┘           │
-└─────────────────────────────────────────────────────────────┘
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│  Compliance  │ │ Information  │ │    State     │
-│   Service    │ │  Extraction  │ │  Management  │
-│              │ │   Service     │ │   Service    │
-└──────┬───────┘ └──────┬───────┘ └──────┬───────┘
-       │                │                 │
-       └────────────────┼─────────────────┘
-                        │
-                        ▼
-              ┌──────────────────┐
-              │  Agent Service   │
-              │  (Azure OpenAI)  │
-              └────────┬─────────┘
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│   Redis DB   │ │ Azure Blob   │ │   System     │
-│  (Memory)    │ │  Storage     │ │   Prompts    │
-└──────────────┘ └──────────────┘ └──────────────┘
+
+```mermaid
+graph LR
+    %% Entry Point
+    Main[main.py] --> API[API: chat.py]
+    
+    API --> Workflow[BeerOrderingWorkflow]
+    
+    %% Workflow Steps
+    Workflow --> Prepare[Prepare]
+    Prepare --> Parallel{Parallel}
+    Parallel -->|1| Compliance[Compliance Check]
+    Parallel -->|2| Extract[Info Extraction]
+    Compliance --> Decision[Decision]
+    Extract --> Decision
+    Decision --> Finalize[Finalize]
+    
+    %% Services
+    Compliance --> CompSvc[Compliance Service]
+    Extract --> ExtrSvc[Extraction Service]
+    Decision --> StateSvc[State Service]
+    
+    %% Agents
+    CompSvc --> Agent[Agent Service]
+    ExtrSvc --> Agent
+    StateSvc --> Agent
+    
+    %% Infrastructure
+    Agent --> Redis[(Redis)]
+    Agent --> Blob[(Azure Blob)]
+    Agent --> Prompts[Prompts]
+    
+    %% Styling
+    style Workflow fill:#e1f5fe
+    style Agent fill:#fff3e0
+    style Redis fill:#ffebee
+    style Blob fill:#ffebee
+```
  
 
 # References

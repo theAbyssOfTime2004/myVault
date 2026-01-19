@@ -228,7 +228,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 314.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -247,6 +248,7 @@
   },
   "active": "1748f623e088dc9f",
   "lastOpenFiles": [
+    "copilot/copilot-conversations/i_have_pasted_in_this_note_an_unfinished_graph,_can@20260119_143040.md",
     "3 - Tags/high_performance_python.md",
     "6 - Main Notes/memory_flow.md",
     "6 - Main Notes/BrewBuddy SmartTap Overview.md",
@@ -278,7 +280,6 @@
     "6 - Main Notes/git-pat.md",
     "copilot/copilot-conversations/có_thể_giúp_tôi_tạo_phiểu_khảo_sát_từ_note@20251022_153500.md",
     "6 - Main Notes/Multimodal Aspect-Based Sentiment Analysis with External Knowledge and Multi-granularity Image-Text Features (EKMG.md",
-    "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
     "6 - Main Notes/lu64826atx.tmp",
     "6 - Main Notes/khaosat.docx",
     "6 - Main Notes/Untitled 1.base",
