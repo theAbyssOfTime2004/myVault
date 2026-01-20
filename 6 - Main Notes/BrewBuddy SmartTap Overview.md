@@ -148,7 +148,7 @@ save_chat_history() → app/services/chat_services/chat_service.py:114
 	- Bước 3: Router:
 		- `compliance_router`: Nhận input từ Parallel trước đó.
 		- Kiểm tra `compliance_result.`
-		- Nếu Vi phạm (`is_violated`): -> Gọi i`nvalid_compliance_step`.
+		- Nếu Vi phạm (`is_violated`): -> Gọi `invalid_compliance_step`.
 		- Nếu An toàn: -> Gọi `decision_step`.
 3. Violation Path:
 	- invalid_compliance_step (_invalid_compliance_step_executor):
@@ -156,13 +156,56 @@ save_chat_history() → app/services/chat_services/chat_service.py:114
 	- Kết thúc session (`end_chat_session`).
 	- Trả về response với `renderingType="chat-terminated"`.
 4. Happy Path - Decision:
-	- decision_step (_decision_step_executor):
+	- decision_step (`_decision_step_executor`):
 		- Tổng hợp kết quả từ extraction và compliance.
 		- Cập nhật logic nghiệp vụ (ví dụ: state mapping, intent count).
 		- Gọi AI (`state_management_service`) để quyết định câu trả lời tiếp theo.
-	- finalize_step (_finalize_step_executor):
-		- Lưu state mới vào DB.
-		- Trả về response cuối cùng cho API.
+	- finalize_step (`_finalize_step_executor`):
+		-  **Lưu State**: Lưu session state mới nhất vào Azure Blob Storage.
+		- **Lưu History**: Lưu lịch sử chat vào Azure Blob Storage.
+		-  **Format Response**: Tạo object `ChatBeerOrderingResponse `để trả về cho API.
+
+
+Note về `_decision_step_executor`: 
+- **Logic "Intent Count" & "Surprise Me"**
+```python
+    if extracted_info.intent_score <= 0.4:
+        new_intent_count = stored_state.intent_count + 1 # Tăng đếm nếu ý định ko rõ ràng
+    else:
+        new_intent_count = 0 # Reset nếu người dùng nói rõ ý định
+
+    if new_intent_count >= 2 and extracted_info.flavor is None:
+        extracted_info.surpriseMe = True # Tự động bật Surprise Me
+        new_intent_count = 0
+```
+
+- Mục đích: Tránh việc AI hỏi đi hỏi lại mãi mà người dùng vẫn trả lời vòng vo.
+- Nếu người dùng trả lời không rõ ràng (`intent_score <= 0.4`) 2 lần liên tiếp (`new_intent_count >= 2`), hệ thống sẽ tự động chuyển sang chế độ `surpriseMe` để gợi ý luôn cho nhanh
+
+- **Inverse Mapping**:
+```python
+    extracted_info = self.inverse_map_mood_occasion(
+        current_state=extracted_info,
+        mapping_data=request.mappingData.mappings,
+    )
+```
+-  Logic: Nếu người dùng chọn bia (flavor) trước khi chọn mood/occasion.
+- Hàm này sẽ tra ngược từ bia ra `mood `và `occasion` tương ứng trong file config (`mappingData`) và tự động điền vào state. Giúp người dùng không phải trả lời lại những câu hỏi thừa.
+
+- **Decision**:
+```python
+decision: StateDecision = await self.state_management_service.decide_next_step(
+	user_message=request.message,
+	extracted_info=extracted_info,
+	lang=request.lang,
+	session_id=request.sessionId,
+	component_type=request.mappingData.componentsByType,
+	mappings=request.mappingData.mappings,
+)
+```
+- `StateManagementService` sẽ dùng AI để quyết định xem:
+	- Hệ thống nên nói câu gì với người dùng (`decision.message`)?
+	- Frontend nên hiển thị giao diện gì (`decision.renderingType`)? (Ví dụ: hiện bảng chọn mood, hay hiện nút xác nhận đơn hàng).
 
 
 ### Services 
@@ -198,5 +241,60 @@ response = (
 	- Log warning nếu phát hiện vi phạm (`is_violated=True`) hoặc thông tin nếu an toàn.
 	- Trả về object ComplianceCheckResponse chứa: `is_violated, violation_type, message, reasoning.`
 
-2. *extract_information*: 
+2. **extract_information**: Sử dụng AI để extract các thông tin quan trọng (mood, occasion, flavor, v.v.) từ tin nhắn của người dùng nhằm cập nhật state của đơn hàng 
+- Flow chi tiết: 
+	- Chuẩn bị context: - Tương tự `check_compliance`, kiểm tra và gán `previous_ai_message` mặc định nếu cần.
+	- Dynamic Prompting: 
+		- System Prompt: Gọi hàm `build_system_prompt(component_type)`. Hàm này lấy danh sách các available options hiện tại `(moods, occasions, flavors...)` từ database/config (component_type) và chèn chúng vào template INFORMATION_EXTRACTION_PROMPT. Điều này giúp AI biết chính xác những giá trị nào là hợp lệ để trích xuất.
+		- User Prompt: Format INFORMATION_EXTRACTION_USER_PROMPT với user_message, current_state (để AI biết đã có thông tin gì rồi) và previous_ai_message.
+	- Gọi AI từ Azure OpenAI:
+		- Gửi request tới LLM với prompt đã built
+		- Yêu cầu trả về theo model `ExtractedPreferencesWithCount` - Là 1 pydantic class (Structured Output).
+	- Validate output:
+		- *==Important==*: Gọi hàm `_validate_extracted_values` để kiểm tra lại các giá trị AI trích xuất có nằm trong danh sách cho phép (`component_type`) hay không. Nếu AI bịa ra một giá trị không có trong danh sách (hallucination), hệ thống sẽ set field đó về `None`.
+	- Logging and Return:
+		- Log thông tin đã extract được.
+		- Trả về object `ExtractedPreferencesWithCount` chứa các trường đã cập nhật.
+
+-  **State management service**: giúp hệ thống điều hướng và decision making bằng cách:
+	- Dựa trên những thông tin đã có (state hiện tại).
+	- Quyết định xem cần hỏi người dùng cái gì tiếp theo.
+	- Quyết định xem giao diện (UI) nào nên được hiển thị cho người dùng.
+- Các thành phần chính:
+	- Hàm `get_last_assistant_message`:
+	- 
+	```python
+	async def get_last_assistant_message(self, session_id: str) -> str:
+	```
+	- Chức năng: Lấy tin nhắn cuối cùng mà AI đã nói với người dùng từ lịch sử chat để cung cấp context cho AI
+	- Hàm `decide_next_step` (Core logic):
+	```python
+	  async def decide_next_step(
+    self,
+    extracted_info: ExtractedPreferences,
+    user_message: str,
+    # ... các tham số khác
+) -> StateDecision:
+	  ```
+	- Chuẩn bị ngữ cảnh:
+		- Nếu không có tin nhắn trước đó, gán câu mở đầu mặc định.
+	- Xây dựng Prompt (Lời nhắc cho AI):
+		- `User Prompt (STATE_MANAGEMENT_USER)`: Chứa thông tin hiện tại (current_state), tin nhắn mới của người dùng, và tin nhắn cũ của AI.
+		- `System Prompt (STATE_MANAGEMENT_PROMPT)`: Chứa toàn bộ "bộ luật" điều hướng. Nó được tạo động thông qua hàm build_system_prompt.
+	- Gọi AI Agent (Azure OpenAI):
+		- Sử dụng `agent_service` để gửi request.
+		- Yêu cầu AI trả về kết quả theo khuôn mẫu `StateDecision` (Pydantic model).
+	- Nhận kết quả (`StateDecision`):
+		- Kết quả trả về gồm 2 trường:
+		- `message`: Câu trả lời bằng ngôn ngữ tự nhiên để hiện ra cho người dùng (ví dụ: "Awesome! Bạn muốn độ cồn bao nhiêu?").
+		- `renderingType`: Chỉ thị cho Frontend biết nên hiện cái gì (ví dụ: abv-selection để hiện các button chọn độ cồn).
+	- Hàm `build_system_prompt`: tạo ra một dynamic prompt, vì danh sách các loại bia (`Flavor`), tâm trạng (`Mood`), dịp (`Occasion`) có thể thay đổi trong Database/Config. Hàm này sẽ lấy dữ liệu mới nhất (`component_type`) và chèn vào prompt, giúp AI luôn biết chính xác menu hiện tại của quán là gì mà không cần sửa code prompt cứng.
+	- Nó format các option thành dạng text dễ đọc cho AI (ví dụ: - mood-chilled (Chilled) - Relaxing vibes).
+	- Note về `STATE_MANAGEMENT_PROMPT`: 
+		1. Kiểm tra xem đã có đủ thông tin chưa? (Mood -> Occasion -> Flavor -> Intensity -> ABV).
+		2. Nếu thiếu cái gì thì hỏi cái đó. (Ví dụ: Có Mood rồi nhưng thiếu Occasion -> Trả về occasion-selection).
+		3. Ưu tiên thông tin đã có: Không bao giờ hỏi lại những gì người dùng đã khai báo (trừ khi họ muốn đổi ý)
+		4. Xử lý các tình huống đặc biệt
+			- Nếu is_early_drinking (uống sáng) -> Dùng từ ngữ trung tính, tránh cổ vũ.
+			- Nếu surpriseMe -> Bỏ qua các bước hỏi han, đề xuất luôn.
 # References
