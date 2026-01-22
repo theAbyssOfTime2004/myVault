@@ -8,23 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "563a0a556d21acd1",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": -1.2225167131413561,
-                  "zoom": 0
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
-            }
-          },
-          {
             "id": "c9808df2e06ba5c2",
             "type": "leaf",
             "state": {
@@ -39,8 +22,7 @@
               "title": "TTH cuối kỳ review"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,8 +207,8 @@
   },
   "active": "c9808df2e06ba5c2",
   "lastOpenFiles": [
-    "6 - Main Notes/TTH cuối kỳ review.md",
     "Untitled.canvas",
+    "6 - Main Notes/TTH cuối kỳ review.md",
     "6 - Main Notes/Chap2-summary.md",
     "6 - Main Notes/Basic Search Algorithms in Artificial Intelligence.md",
     "6 - Main Notes/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.pdf",
@@ -257,7 +239,6 @@
     "Pasted image 20251116230708.png",
     "Pasted image 20251116225647.png",
     "Pasted image 20251116222429.png",
-    "Seminar-Thesis/caption generation.md",
     "6 - Main Notes/baocao_5-2_and_5-3.docx",
     "6 - Main Notes/lu64826atx.tmp",
     "6 - Main Notes/khaosat.docx",
