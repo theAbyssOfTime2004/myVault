@@ -14,7 +14,14 @@ Tags: [[seminar HCMUS]]
 → Ensemble: Weighted voting/averaging
 ```
 
-
+**custom-DEQA**: 
+```
+Single Unified Model:
+├── Text Encoder (mDeBERTa-v3) - term + context
+├── Image Encoder (SigLIP/ResNet-152)
+└── Gated-Attention Fusion
+→ Direct classification
+```
 
 
 # References
