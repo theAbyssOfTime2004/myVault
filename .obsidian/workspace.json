@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Main Notes/BrewBuddy SmartTap Overview.md",
+                "file": "6 - Main Notes/custom DQPA.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "BrewBuddy SmartTap Overview"
+              "title": "custom DQPA"
             }
           }
         ]
@@ -207,6 +207,9 @@
   },
   "active": "c9808df2e06ba5c2",
   "lastOpenFiles": [
+    "3 - Tags/seminar HCMUS.md",
+    "6 - Main Notes/custom DQPA.md",
+    "6 - Main Notes/BrewBuddy SmartTap Overview.md",
     "6 - Main Notes/HNK-SMARTAP-BREWBUDDY.md",
     "6 - Main Notes/TTH cuối kỳ review.md",
     "Untitled.canvas",
@@ -218,7 +221,6 @@
     "report.md",
     "3 - Tags/diffusion models.md",
     "6 - Main Notes/VAE và các Diffusion Models.md",
-    "6 - Main Notes/BrewBuddy SmartTap Overview.md",
     "oop/exercise.md",
     "3 - Tags/high_performance_python.md",
     "6 - Main Notes/Pydantic Schema.md",
@@ -235,8 +237,6 @@
     "Pasted image 20251117000636.png",
     "3 - Tags/fsds.md",
     "Seminar-Thesis/MeetingNote lần 2 cùng todo-tasks.md",
-    "Seminar-Thesis/MeetingNote lần 1.md",
-    "6 - Main Notes/meeting note nov 16.md",
     "Pasted image 20251116230708.png",
     "Pasted image 20251116225647.png",
     "Pasted image 20251116222429.png",
