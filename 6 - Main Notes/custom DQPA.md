@@ -203,8 +203,46 @@ A: Ensemble đa dạng hơn, nhưng Gated-Attention học được và tự đ�
 ```
 
 
+## 6 Aspect Categories
 
+Trong Two-Stage approach, có 6 aspect categories:
 
+### 1. Facility (Cơ sở vật chất)
+
+- Ví dụ: "windows", "room", "walls", "doors"
+- Support: 770 samples (test set)
+- F1: 0.95
+
+### 2. Service (Dịch vụ)
+
+- Ví dụ: "staff", "service", "waiter"
+- Support: 111 samples (test set)
+- F1: 0.94
+
+### 3. Experience (Trải nghiệm)
+
+- Ví dụ: "view", "atmosphere", "experience"
+- Support: 93 samples (test set)
+- F1: 0.78
+
+### 4. Amenity (Tiện ích)
+
+- Ví dụ: "breakfast", "wifi", "parking"
+- Support: 60 samples (test set)
+- F1: 0.88
+
+### 5. Branding (Thương hiệu)
+
+- Ví dụ: "hotel", "brand", "reputation"
+- Support: 15 samples (test set)
+- F1: 0.67
+- Note: Loyalty đã được merge vào Branding (chỉ có 2 samples)
+
+### 6. NOT_REL (Không liên quan)
+
+- Các terms không thuộc 5 aspects trên
+- Support: 64 samples (test set)
+- F1: 0.81
 
 
 
