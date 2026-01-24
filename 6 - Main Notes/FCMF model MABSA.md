@@ -95,6 +95,17 @@ Input: Review Text + Multiple Images (7) + ROIs (4 per image)
 └─────────────────────────────────────────────────────────────┘
 ```
 
+Tóm lại, quy trình bắt đầu từ dataset gốc, ta chạy prepare_image_roi_labels.py để trích xuất bounding box và aspect labels, kết quả được lưu vào file roi_labels.csv.
 
+Trong quá trình chuẩn bị dữ liệu cho training (Dataset class), ta thực hiện hai việc song song:
+
+Thứ nhất, đối với văn bản, ta tạo thêm các câu phụ trợ (auxiliary sentences) chứa thông tin aspect của ảnh và ROI, sau đó tokenize toàn bộ bằng XLM-RoBERTa.
+
+Thứ hai, đối với hình ảnh, ta thực hiện cắt (crop) và chuẩn hóa (normalize) các vùng ROI dựa trên tọa độ từ file CSV đã chuẩn bị.
+
+Bước vào vòng lặp training (training loop), ta sử dụng mạng ResNet-152 (pretrained trên ImageNet) để trích xuất đặc trưng thị giác. Cụ thể là trích xuất đặc trưng toàn cục cho 7 ảnh và đặc trưng cục bộ cho 28 vùng ROI (4 ROI mỗi ảnh).
+
+Các đặc trưng này sau đó được đưa vào mô hình FCMF. Tại đây, luồng xử lý diễn ra song song cho từng aspect category. Đầu tiên, mô hình dùng XLM-RoBERTa để mã hóa đặc trưng văn bản. Tiếp theo, ta sử dụng cơ chế Attention đa tầng: lớp đầu tiên cầu nối (bridge) giữa đặc trưng văn bản và đặc trưng toàn cục của ảnh; lớp thứ hai là Geometric ROI-aware Attention giúp liên kết văn bản với từng vùng ROI cụ thể, có tính đến cả vị trí không gian của chúng. Cuối cùng, tất cả thông tin được tổng hợp qua bộ mã hóa đa phương thức (Multimodal Encoder) để đưa ra dự đoán đồng thời về cả aspect và sentiment trong một lần chạy duy nhất.
+![[Pasted image 20260124221623.png]]
 
 # References
