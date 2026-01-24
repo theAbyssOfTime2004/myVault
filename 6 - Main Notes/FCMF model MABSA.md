@@ -37,32 +37,62 @@ Input: Review Text + Multiple Images (7) + ROIs (4 per image)
 **FLOW**:
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  Dataset (vimacsa_dataset.py)                          │
-│  └─► Crop ROI từ image: image[:, y1:y2, x1:x2]         │
-│  └─► Transform: Resize + Normalize                     │
-│  └─► Output: roi_img_features [batch, 7, 4, 3, 224, 224]│
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 0: Prepare Image/ROI Aspect Labels                 │
+│  prepare_image_roi_labels.py + Train classifiers          │
+│  └─► Extract image/ROI aspects từ dataset                  │
+│  └─► Train image/ROI classifiers                           │
+│  └─► Generate: resnet152_image_label.json                  │
+│  └─► Generate: resnet152_roi_label.json                    │
+└─────────────────────────────────────────────────────────────┘
          │
          ▼
-┌─────────────────────────────────────────────────────────┐
-│  Training Loop (run_multimodal_fcmf.py)                │
-│  └─► For each image (7 images):                        │
-│      └─► For each ROI (4 ROIs):                        │
-│          └─► Extract features: resnet_roi(roi_image)    │
-│              └─► ResNet-152 forward pass               │
-│              └─► Output: [batch, 2048]                 │
-│  └─► Stack: [batch, 7, 4, 2048]                        │ 
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 1: Prepare ROI Labels                                │
+│  prepare_image_roi_labels.py                               │
+│  └─► Extract bbox + aspect từ dataset                       │
+│  └─► Tạo CSV: roi_labels.csv                                │
+└─────────────────────────────────────────────────────────────┘
          │
          ▼
-┌─────────────────────────────────────────────────────────┐
-│  FCMF Model                                             │
-│  └─► Input: encoded_roi [batch, 7, 4, 2048]            │
-│  └─► Project: [2048] → [768]                            │
-│  └─► Geometric attention                                │
-│  └─► Multimodal fusion                                  │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 2: Training Dataset                                  │
+│  vimacsa_dataset.py                                         │
+│  ├─► Text Processing:                                       │
+│  │   └─► Format: "[aspect] </s></s> review </s></s>        │
+│  │              image_aspects </s></s> roi_aspects"        │
+│  │   └─► Tokenize: [batch, 6, seq_len] (6 aspects)         │
+│  ├─► Image Processing:                                      │
+│  │   └─► Load 7 images: [batch, 7, 3, 224, 224]            │
+│  └─► ROI Processing:                                       │
+│      └─► Crop ROI từ bbox: [batch, 7, 4, 3, 224, 224]      │
+│      └─► Normalize coords: [batch, 7, 4, 4]                │
+└─────────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 3: Extract Visual Features                           │
+│  run_multimodal_fcmf.py (Training Loop)                     │
+│  ├─► Image Features:                                        │
+│  │   └─► ResNet-152: [batch, 7, 3, 224, 224]               │
+│  │   └─► Output: [batch, 7, 49, 2048]                      │
+│  └─► ROI Features:                                          │
+│      └─► ResNet-152: [batch, 7, 4, 3, 224, 224]            │
+│      └─► Output: [batch, 7, 4, 2048]                       │
+└─────────────────────────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PHASE 4: FCMF Model (Per-Aspect Processing)               │
+│  fcmf_framework/fcmf_modeling.py                            │
+│  └─► For each aspect (6 aspects):                          │
+│      ├─► Text Encoder: [batch, seq_len, 768]                │
+│      ├─► Text-Image Attention: [batch, 768]                │
+│      ├─► Text-ROI Attention (Geometric): [batch, 768]      │
+│      ├─► Multimodal Fusion: [batch, 768]                   │
+│      └─► Classify: [batch, 4] (None/Neg/Neu/Pos)           │
+│  └─► Final: [batch, 6, 4] (6 aspects × 4 sentiments)        │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 
