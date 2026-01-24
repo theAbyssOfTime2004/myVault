@@ -1,3 +1,6 @@
+---
+aliases:
+---
 2026-01-24 20:13
 
 
@@ -244,15 +247,65 @@ Trong Two-Stage approach, có 6 aspect categories:
 - Support: 64 samples (test set)
 - F1: 0.81
 
+## Lợi ích của Two-Stage Approach
 
+### 1. Giảm class imbalance
 
+```
+VẤN ĐỀ CỦA SINGE STATE
+Single-Stage: 6 aspects × 4 sentiments = 24 classes
+Distribution:
+- Facility+Positive: ~5,000 samples
+- Facility+Negative: ~1,000 samples
+- Branding+Positive: ~10 samples
+- Branding+Negative: ~2 samples
+→ Class imbalance nghiêm trọng!
+```
 
+Two-stage: 
+```
+Stage 1: 7 classes (6 aspects + NOT_REL)
+- Facility: 770 samples
+- Service: 111 samples
+- Branding: 15 samples
+→ Imbalance nhẹ hơn, dễ handle
 
+Stage 2: 3 classes (Neg/Neu/Pos)
+- Positive: 850 samples
+- Negative: 136 samples
+- Neutral: 63 samples
+→ Imbalance nhẹ, model học tốt hơn
+```
+
+### 2. Tách biệt concerns (Separation of Concerns)
+
+Single-Stage:
+```
+Model phải học cùng lúc:
+- Aspect detection (cái gì?)
+- Sentiment classification (cảm thấy thế nào?)
+→ 2 tasks khác nhau, khó học cùng lúc
+```
+
+two-stage: 
+```
+Stage 1: Chỉ focus vào "Cái gì?"
+- Model học: term "windows" → Facility
+- Không bị nhiễu bởi sentiment
+
+Stage 2: Chỉ focus vào "Cảm thấy thế nào?"
+- Model học: Facility "windows" → Negative
+- Đã biết aspect, chỉ cần classify sentiment
+```
+
+![[Pasted image 20260124212020.png]]
+- Vì flexible và modular nên dễ debug
+
+![[Pasted image 20260124212056.png]]
+
+Q: Tại sao không dùng joint training?
+
+A: Joint training phức tạp hơn và khó tune. Two-Stage đơn giản hơn, dễ implement và vẫn đạt performance chấp nhận được cho POC
 
 # References
-
-
-
-
-
 
