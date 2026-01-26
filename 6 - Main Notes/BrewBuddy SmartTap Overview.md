@@ -278,8 +278,7 @@ response = (
     ) -> StateDecision
 ```
 
- - 
-
+- Chức năng:
 	- Chuẩn bị ngữ cảnh:
 		- Nếu không có tin nhắn trước đó, gán câu mở đầu mặc định.
 	- Xây dựng Prompt (Lời nhắc cho AI):
@@ -301,3 +300,17 @@ response = (
 		4. Xử lý các tình huống đặc biệt
 			- Nếu is_early_drinking (uống sáng) -> Dùng từ ngữ trung tính, tránh cổ vũ.
 			- Nếu surpriseMe -> Bỏ qua các bước hỏi han, đề xuất luôn.
+
+---
+### Flow logic của các `renderingType`: 
+
+- `renderingType` điều khiển UI component được hiển thị, dựa trên trạng thái đơn hàng hiện tại và tiếp theo trong flow
+
+- Được định nghĩa trong `stage_management_system.py`:
+1. `chat-only`: cho những câu hỏi thông tin, chào hỏi hoặc cẩn làm rõ gì đó
+2. `order-confirmation`: Đã có đủ field và user đã confirmed 
+3. `order-ensure-confirmation`: đã có đủ field nhưng chưa confirm
+4. `intensity-selection`: Đã có flavor, thiếu intensity 
+5. `abv-selection`: Đã flavor + intensity, thiếu ABV
+6. `flavor-selection`: đã có mood + occasion, thiếu flavor
+7. `mood-selection` hoặc `occasion-selection`: thiếu mood/occasion
