@@ -268,14 +268,13 @@ response = (
 	```
 	- Chức năng: Lấy tin nhắn cuối cùng mà AI đã nói với người dùng từ lịch sử chat để cung cấp context cho AI
 	- Hàm `decide_next_step` (Core logic):
-	```python
+
 	  async def decide_next_step(
     self,
     extracted_info: ExtractedPreferences,
     user_message: str,
     # ... các tham số khác
 ) -> StateDecision:
-	  ```
 	- Chuẩn bị ngữ cảnh:
 		- Nếu không có tin nhắn trước đó, gán câu mở đầu mặc định.
 	- Xây dựng Prompt (Lời nhắc cho AI):
@@ -297,4 +296,3 @@ response = (
 		4. Xử lý các tình huống đặc biệt
 			- Nếu is_early_drinking (uống sáng) -> Dùng từ ngữ trung tính, tránh cổ vũ.
 			- Nếu surpriseMe -> Bỏ qua các bước hỏi han, đề xuất luôn.
-# References
