@@ -314,3 +314,10 @@ response = (
 5. `abv-selection`: Đã flavor + intensity, thiếu ABV
 6. `flavor-selection`: đã có mood + occasion, thiếu flavor
 7. `mood-selection` hoặc `occasion-selection`: thiếu mood/occasion
+
+--- 
+8. User message → Vibe Flow → Show 3 beers (có intensity + ABV)
+9. User chọn "first option" / tên bia
+10. Extract flavor, intensity, ABV từ selection
+11. Inverse mapping: Từ flavor → infer mood + occasion (nếu chưa có)
+12. Confirm order → Gửi đầy đủ: mood, occasion, flavor, intensity, ABV
