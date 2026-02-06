@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -266,10 +266,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "e33f51f4a0110c2a",
+  "active": "8f97f988d42663c7",
   "lastOpenFiles": [
-    "6 - Main Notes/vibe-flow overview.md",
     "6 - Main Notes/BrewBuddy SmartTap Overview.md",
+    "6 - Main Notes/vibe-flow overview.md",
     "3 - Tags/HNK-SMARTAP-BREWBUDDY.md",
     "6 - Main Notes/FCMF model MABSA.md",
     "6 - Main Notes/custom DQPA.md",

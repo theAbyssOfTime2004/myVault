@@ -321,3 +321,14 @@ response = (
 10. Extract flavor, intensity, ABV từ selection
 11. Inverse mapping: Từ flavor → infer mood + occasion (nếu chưa có)
 12. Confirm order → Gửi đầy đủ: mood, occasion, flavor, intensity, ABV
+
+
+- Vẫn cần extract information mỗi turn vì mỗi user msg có thể có:
+	- chọn beer -> cần flavor 
+	- reject (không thích recommended beer và muốn được recommend lại) -> tạo flag is_rejection 
+	- các câu hỏi liên quan đến intensity/flavor/abv
+- => bỏ mood/occasion extraction vì không còn dùng nữa, chỉ cần inverse mapping ở cuối flow 
+
+Mục tiêu:
+- Decision step không extract mood/occasion từ message.
+- Chỉ dùng inverse mapping để truyền mood/occasion ở cuối flow (order-ensure-confirmation).

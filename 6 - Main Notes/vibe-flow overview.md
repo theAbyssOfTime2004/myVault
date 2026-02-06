@@ -1,4 +1,6 @@
-2026-01-19 14:20 (Updated with Vibe Flow)
+2026-02-06 (Updated with current flow: Compliance 4 agents, Out-of-Scope, Continue Intent, Rejection Response)
+
+  
   
 
 Tags: [[TigerTribe]], [[HNK-SMARTAP-BREWBUDDY]]
@@ -19,19 +21,13 @@ API --> Workflow[BeerOrderingWorkflow]
 
 Workflow --> Prepare[Prepare]
 
-Prepare --> Parallel{Parallel}
-
-Parallel -->|1| Compliance[Compliance]
-
-Parallel -->|2| Extract[Extraction]
+Prepare --> Compliance[Compliance]
 
 Compliance --> Router[Router]
 
-Extract --> Router
+Router -->|is_violated| Invalid[Invalid Compliance]
 
-Router -->|violated| Invalid[Invalid Compliance]
-
-Router -->|initial/awaiting| VibeFlow[Vibe Flow]
+Router -->|initial/awaiting_preferences| VibeFlow[Vibe Flow]
 
 Router -->|recommendations_shown| Decision[Decision]
 
@@ -39,27 +35,53 @@ VibeFlow --> Finalize[Finalize]
 
 Decision --> Finalize
 
-Invalid --> Finalize
+Invalid --> Response[ChatBeerOrderingResponse]
 
 Compliance --> CompSvc[Compliance Service]
 
-Extract --> ExtrSvc[Extraction Service]
+CompSvc --> Clarifications[Clarifications Agent]
 
-VibeFlow --> VibeSvc[Vibe Services]
+CompSvc --> Safety[Safety Agent]
 
-Decision --> StateSvc[State Service]
+CompSvc --> Context[Context Agent]
 
-CompSvc --> Agent[Agent Service]
+CompSvc --> ContentScope[Content Scope Agent]
 
-ExtrSvc --> Agent
+VibeFlow --> ContinueIntent[Continue Intent Service]
 
-VibeSvc --> Agent
+VibeFlow --> ExtractVibe[extract_pop_culture_preferences]
+
+VibeFlow --> RecommendVibe[recommend_beers_from_vibe]
+
+Decision --> ExtractInfo[extract_information]
+
+Decision --> RejectionSvc[Rejection Response Service]
+
+Decision --> StateSvc[State Management Service]
+
+Clarifications & Safety & Context & ContentScope --> Agent[Agent Service]
+
+ContinueIntent --> Agent
+
+ExtractVibe --> Agent
+
+RecommendVibe --> Agent
+
+ExtractInfo --> Agent
+
+RejectionSvc --> Agent
 
 StateSvc --> Agent
 
 Agent --> Redis[(Redis)]
 
-Agent --> Blob[(Azure Blob)]
+Finalize --> SetSession[set_chat_session]
+
+Finalize --> SaveHistory[save_chat_history]
+
+SetSession --> Blob[(Azure Blob)]
+
+SaveHistory --> Blob
 
 style Workflow fill:#e1f5fe
 
@@ -103,43 +125,61 @@ WorkflowRun --> Prepare[_prepare_step_executor]
 
 Prepare --> GetLastMsg[state_management_service.get_last_assistant_message]
 
-Prepare --> Parallel{Parallel Analysis}
-
-Parallel -->|1| ComplianceStep[_check_compliance_step_executor]
-
-Parallel -->|2| ExtractStep[_extraction_step_executor]
+Prepare --> ComplianceStep[_check_compliance_step_executor]
 
 ComplianceStep --> CheckCompliance[compliance_service.check_compliance]
 
-ExtractStep --> ExtractInfo[information_extraction_service.extract_information]
+CheckCompliance --> CompParallel[4 agents parallel]
 
-CheckCompliance --> CompAgent[agent_service.run_async]
+CompParallel --> ClarAgent[clarifications agent]
 
-ExtractInfo --> ExtrAgent[agent_service.run_async]
+CompParallel --> SafetyAgent[safety agent]
 
-Parallel --> Router[compliance_router]
+CompParallel --> ContextAgent[context agent]
 
-Router -->|violated| InvalidStep[_invalid_compliance_step_executor]
+CompParallel --> ContentScopeAgent[content_scope agent]
 
-Router -->|initial/awaiting| VibeFlowStep[_vibe_flow_step_executor]
+ClarAgent & SafetyAgent & ContextAgent & ContentScopeAgent --> ResolvePriority[_resolve_priority]
+
+ResolvePriority --> Router[compliance_router]
+
+Router -->|is_violated| InvalidStep[_invalid_compliance_step_executor]
+
+Router -->|initial/awaiting_preferences| VibeFlowStep[_vibe_flow_step_executor]
 
 Router -->|recommendations_shown| DecisionStep[_decision_step_executor]
 
-InvalidStep --> EndSession[chat_service.end_chat_session]
-
 InvalidStep --> SaveHistory1[chat_service.save_chat_history]
 
-VibeFlowStep --> ExtractVibe[information_extraction_service.extract_pop_culture_preferences]
+InvalidStep --> EndSession[chat_service.end_chat_session]
 
-ExtractVibe --> VibeAgent1[agent_service.run_async]
+InvalidStep --> ResponseInvalid[ChatBeerOrderingResponse]
 
-VibeFlowStep --> RecommendBeers[state_management_service.recommend_beers_from_vibe]
+VibeFlowStep --> CheckOOS{is_out_of_scope?}
 
-RecommendBeers --> VibeAgent2[agent_service.run_async]
+CheckOOS -->|yes, not OOS this turn| ContinueIntent[continue_intent_service.detect_continue_intent]
 
-DecisionStep --> DecideNext[state_management_service.decide_next_step]
+CheckOOS -->|violation_type=out_of_scope| RedirectOOS[return redirect message, set is_out_of_scope=True]
 
-DecideNext --> StateAgent[agent_service.run_async]
+CheckOOS -->|no| ExtractVibe[extract_pop_culture_preferences]
+
+ContinueIntent -->|is_continue_intent| ResetOOS[reset is_out_of_scope, start fresh message]
+
+ExtractVibe --> RecommendBeers[state_management_service.recommend_beers_from_vibe]
+
+DecisionStep --> UpdateFlags[update compliance flags incl. out_of_scope]
+
+DecisionStep --> ExtractInfo[information_extraction_service.extract_information]
+
+DecisionStep --> RejectionCheck{recommendations_shown + is_rejection?}
+
+RejectionCheck -->|yes| RejectionMsg[rejection_response_service.generate_rejection_message]
+
+RejectionCheck -->|no| OOSInDecision{is_out_of_scope?}
+
+OOSInDecision -->|yes| UseComplianceMsg[use compliance message]
+
+OOSInDecision -->|no| DecideNext[state_management_service.decide_next_step]
 
 DecisionStep --> InverseMap[inverse_map_mood_occasion]
 
@@ -155,31 +195,21 @@ SetSession --> UpsertSession[chat_session_repository.upsert_session]
 
 SaveHistory2 --> SaveHistoryRepo[chat_history_session_repository.save_session]
 
-CompAgent & ExtrAgent & VibeAgent1 & VibeAgent2 & StateAgent --> Redis[(Redis DB)]
+UpsertSession --> Blob[(Azure Blob Storage)]
 
-UpsertSession & SaveHistoryRepo --> Blob[(Azure Blob Storage)]
+SaveHistoryRepo --> Blob
 
 Finalize --> Response[ChatBeerOrderingResponse]
 
 style WorkflowRun fill:#e1f5fe
 
-style Parallel fill:#fff3e0
-
 style Router fill:#f3e5f5
 
 style VibeFlowStep fill:#e8f5e9
 
-style CompAgent fill:#ffebee
+style CompParallel fill:#fff3e0
 
-style ExtrAgent fill:#ffebee
-
-style VibeAgent1 fill:#c8e6c9
-
-style VibeAgent2 fill:#c8e6c9
-
-style StateAgent fill:#ffebee
-
-style Redis fill:#e8f5e9
+style ContinueIntent fill:#e3f2fd
 
 style Blob fill:#e8f5e9
 
@@ -194,81 +224,99 @@ style Blob fill:#e8f5e9
 
 beer_ordering_chat() → app/api/chat.py:48
 
-  
+_is_valid_ulid() → app/api/chat.py (validate)
 
-_is_valid_ulid() → app/api/chat.py:191
-
-  
-
-_validate_payload() → app/api/chat.py:198
+_validate_payload() → app/api/chat.py (validate)
 
   
 
-get_chat_session() → app/services/chat_services/chat_service.py:26
+get_chat_session() → app/services/chat_services/chat_service.py:29
 
-beer_ordering_workflow.run() → app/services/workflows/beer_ordering_workflow.py:67
-
-  
-
-_prepare_step_executor() → app/services/workflows/beer_ordering_workflow.py:124
-
-_check_compliance_step_executor() → app/services/workflows/beer_ordering_workflow.py:164
-
-_extraction_step_executor() → app/services/workflows/beer_ordering_workflow.py:180
-
-_vibe_flow_step_executor() → app/services/workflows/beer_ordering_workflow.py:204 (NEW)
+beer_ordering_workflow.run() → app/services/workflows/beer_ordering_workflow.py:71
 
   
 
-check_compliance() → app/services/chat_services/compliance_service.py:17
+_prepare_step_executor() → app/services/workflows/beer_ordering_workflow.py:132
 
-check_out_of_scope() → app/services/chat_services/compliance_service.py:89 (NEW)
+_check_compliance_step_executor() → app/services/workflows/beer_ordering_workflow.py:173
 
-  
+_vibe_flow_step_executor() → app/services/workflows/beer_ordering_workflow.py:207
 
-extract_information() → app/services/chat_services/information_extraction.py:20
+_decision_step_executor() → app/services/workflows/beer_ordering_workflow.py:414
 
-extract_pop_culture_preferences() → app/services/chat_services/information_extraction.py:133 (NEW)
+_finalize_step_executor() → app/services/workflows/beer_ordering_workflow.py:649
 
-  
+compliance_router() → app/services/workflows/beer_ordering_workflow.py:745
 
-compliance_router() → app/services/workflows/beer_ordering_workflow.py:550
-
-  
-
-_invalid_compliance_step_executor() → app/services/workflows/beer_ordering_workflow.py:600
-
-_decision_step_executor() → app/services/workflows/beer_ordering_workflow.py:289
+_invalid_compliance_step_executor() → app/services/workflows/beer_ordering_workflow.py:786
 
   
 
-decide_next_step() → app/services/chat_services/state_management.py:39
+check_compliance() → app/services/chat_services/compliance_service.py:49
 
-recommend_beers_from_vibe() → app/services/chat_services/state_management.py:122 (NEW)
-
-  
-
-_finalize_step_executor() → app/services/workflows/beer_ordering_workflow.py:478
+check_out_of_scope() → app/services/chat_services/compliance_service.py:264 (backward compat)
 
   
 
-set_chat_session() → app/services/chat_services/chat_service.py:51
+extract_information() → app/services/chat_services/information_extraction.py:26
 
-save_chat_history() → app/services/chat_services/chat_service.py:114
+extract_pop_culture_preferences() → app/services/chat_services/information_extraction.py:137
+
+  
+
+decide_next_step() → app/services/chat_services/state_management.py:42
+
+recommend_beers_from_vibe() → app/services/chat_services/state_management.py:122
+
+  
+
+detect_continue_intent() → app/services/chat_services/continue_intent_service.py:18
+
+generate_rejection_message() → app/services/chat_services/rejection_response_service.py
+
+  
+
+set_chat_session() → app/services/chat_services/chat_service.py:54
+
+save_chat_history() → app/services/chat_services/chat_service.py:122
 
 ```
 
   
 
-- System Prompts mới:
+- System prompts / agents:
 
 ```python
 
-POP_CULTURE_EXTRACTION_PROMPT → app/systemprompt/pop_culture_extraction_system.py (NEW)
+# Compliance (4 agents)
 
-BEER_RECOMMENDATION_PROMPT → app/systemprompt/beer_recommendation_system.py (NEW)
+CLARIFICATIONS_AGENT_SYSTEM_PROMPT, build_clarifications_user_prompt → app/systemprompt/compliance_agent_prompts.py, compliance_agent_user_prompts.py
 
-OUT_OF_SCOPE_DETECTION_PROMPT → app/systemprompt/out_of_scope_detection_system.py (NEW)
+SAFETY_AGENT_SYSTEM_PROMPT, build_safety_user_prompt → idem
+
+CONTEXT_AGENT_SYSTEM_PROMPT, build_context_user_prompt → idem
+
+CONTENT_SCOPE_AGENT_SYSTEM_PROMPT, build_content_scope_user_prompt → idem (out_of_scope, excessive_drinking)
+
+  
+
+# Vibe & state
+
+POP_CULTURE_EXTRACTION → app/systemprompt/pop_culture_extraction_system.py
+
+BEER_RECOMMENDATION_PROMPT → app/systemprompt/beer_recommendation_system.py
+
+STATE_MANAGEMENT_PROMPT → app/systemprompt/state_management_system.py
+
+INFORMATION_EXTRACTION → app/systemprompt/information_extraction_system.py
+
+  
+
+# Continue intent & rejection
+
+CONTINUE_INTENT_SYSTEM_PROMPT → app/systemprompt/continue_intent_system.py
+
+REJECTION_RESPONSE → app/systemprompt/rejection_response_system.py
 
 ```
 
@@ -289,39 +337,21 @@ OUT_OF_SCOPE_DETECTION_PROMPT → app/systemprompt/out_of_scope_detection_system
 
 2. Execution Chain:
 
-- Bước 1: *prepare_step*: (`_prepare_step_executor`): Chuẩn bị input, merge state hiện tại và request mới.
+- Bước 1: *prepare_step* (`_prepare_step_executor`): Merge request + stored_state thành `current_state`, lấy `previous_ai_message` từ history.
 
-- Bước 2: Parallel:
+- Bước 2: *compliance_step* (`_check_compliance_step_executor`): Gọi `compliance_service.check_compliance()` → chạy **4 agent song song** (clarifications, safety, context, content_scope), `_resolve_priority()` → trả `compliance_check`.
 
-- *compliance_step*: (`_check_compliance_step_executor`): Kiểm tra compliance -> gọi `compliance_service.check_compliance ` -> Trả về `compliance_result`.
+- (Không còn extraction step song song; extraction chạy bên trong vibe_flow và decision_step.)
 
-- *extraction_step*: (`_extraction_step_executor`): Trích xuất thông tin (mood, flavor, etc.) -> Trả về `extracted_info`.
+- Bước 3: Router (`compliance_router`): Chỉ dùng `compliance_check` và `current_state.conversation_stage`.
 
-- Bước 3: Router:
+- Nếu `is_violated` → chạy `invalid_compliance_step` (trả response ngay, không chạy finalize).
 
-- `compliance_router`: Nhận input từ Parallel trước đó.
-
-- Kiểm tra `compliance_result.`
-
-- Nếu Vi phạm (`is_violated`): -> Gọi `invalid_compliance_step`.
-
-- Nếu An toàn: Kiểm tra `conversation_stage` từ `current_state`:
-
-- Nếu `stage in ["initial", "awaiting_preferences"]`: -> Gọi `vibe_flow_step` (Flow mới: Vibe-Based Recommendations)
-
-- Nếu `stage == "recommendations_shown"`: -> Gọi `decision_step` (Flow cũ: Traditional step-by-step)
-
-- Các stage khác: -> Gọi `decision_step` (Default)
+- Nếu an toàn: theo `conversation_stage`: `initial`/`awaiting_preferences` → vibe_flow + finalize; `recommendations_shown` → decision + finalize.
 
 3. Violation Path:
 
-- invalid_compliance_step (_invalid_compliance_step_executor):
-
-- Lưu lịch sử chat.
-
-- Kết thúc session (`end_chat_session`).
-
-- Trả về response với `renderingType="chat-terminated"`.
+- invalid_compliance_step: save_chat_history, end_chat_session, trả ChatBeerOrderingResponse với renderingType="chat-terminated".
 
   
 
@@ -329,9 +359,11 @@ OUT_OF_SCOPE_DETECTION_PROMPT → app/systemprompt/out_of_scope_detection_system
 
   
 
-**4a. Vibe Flow (New - For Initial Recommendations):**
+**4a. Vibe Flow** (stage = initial / awaiting_preferences):
 
 - vibe_flow_step (`_vibe_flow_step_executor`):
+
+- **Out-of-scope & Continue Intent** (kiểm tra trước): Nếu `current_state.is_out_of_scope` và lần này không báo `out_of_scope` → gọi `continue_intent_service.detect_continue_intent()`; nếu user muốn tiếp tục → reset `is_out_of_scope=False`, trả message "Let's start fresh", không recommend. Nếu `compliance_check.violation_type == "out_of_scope"` → trả message redirect (bartender persona từ Content Scope Agent), set `is_out_of_scope=True`, return.
 
 - **Step 1**: Extract vibe từ user message:
 
@@ -361,9 +393,17 @@ OUT_OF_SCOPE_DETECTION_PROMPT → app/systemprompt/out_of_scope_detection_system
 
   
 
-**4b. Decision Flow (Traditional - For Order Handling):**
+**4b. Decision Flow** (stage = recommendations_shown):
 
 - decision_step (`_decision_step_executor`):
+
+- Cập nhật compliance flags từ `compliance_check` (pregnancy, driving, out_of_scope, excessive_drinking, mild_negative_emotion, early_drinking, clarifications).
+
+- Gọi `extract_information()` (mood, occasion, flavor, intensity, abv, is_rejection, …).
+
+- **Rejection**: Nếu `conversation_stage == "recommendations_shown"` và `is_rejection` → tăng `rejection_count`, gọi `rejection_response_service.generate_rejection_message()`, reset stage về `awaiting_preferences` (trừ khi đã đạt max rejections).
+
+- **Out-of-scope trong decision**: Nếu `is_out_of_scope` và `violation_type == "out_of_scope"` → dùng `compliance_check.message`, không gọi `decide_next_step`.
 
 - Tổng hợp kết quả từ extraction và compliance.
 
@@ -479,9 +519,23 @@ mappings=request.mappingData.mappings,
 
   
 
-1. **check_compliance()**: sử dụng AI để *detect compliance*, *detect out of scope contents*, *detect clarifications that reset previous violations*
+1. **check_compliance()**: chạy **4 agent song song** (asyncio.gather) rồi gộp kết quả bằng `_resolve_priority()`.
 
-- Flow chi tiết:
+- **Clarifications agent**: detect pregnancy_clarified, driving_clarified (reset flags).
+
+- **Safety agent**: detect underage, mental_health, allergy, profanity, ordering_for_others (is_violated=True → terminate).
+
+- **Context agent**: detect pregnancy, driving (is_violated=false, restrict 0% ABV).
+
+- **Content Scope agent**: detect **out_of_scope**, excessive_drinking (is_violated=false; out_of_scope → redirect bartender persona, excessive_drinking → refusal message).
+
+- `_resolve_priority()`: ưu tiên CLARIFICATION > HARD_STOP > SOFT_RESTRICTION > INFO_ONLY; trả ComplianceCheckResponse (is_violated, violation_type, message, reasoning).
+
+- **check_out_of_scope()** (backward compat): gọi `check_compliance()`, trả dict is_beer_related / redirect_message nếu violation_type == "out_of_scope".
+
+  
+
+- (Flow chi tiết cũ - tham khảo code compliance_service.check_compliance và 4 _check_* methods):
 
 - Nhận vào context: (`user_message`, `lang`, `session_id`, và `previous_ai_message`. - nếu không có `previous_ai_message` thì tự động gán 1 câu mặc định)
 
@@ -657,6 +711,14 @@ await self.agent_service.with_messages( #gửi request đến LLM
 
   
 
+5. **continue_intent_service.detect_continue_intent()**: Phát hiện user muốn tiếp tục recommend bia sau khi đã bị redirect out-of-scope (ví dụ "yes", "continue", "tìm bia giúp tôi"). Dùng CONTINUE_INTENT_SYSTEM_PROMPT và ContinueIntentResponse (is_continue_intent: bool). Chỉ gọi khi `current_state.is_out_of_scope == True` và lần này compliance không báo out_of_scope.
+
+  
+
+6. **rejection_response_service.generate_rejection_message()**: Tạo message thân thiện khi user reject recommendations (không thích 3 options). Dùng REJECTION_RESPONSE system prompt. Gọi trong decision_step khi `conversation_stage == "recommendations_shown"` và extraction trả `is_rejection == True` (trừ khi đã đạt max rejection_count).
+
+  
+
 - **State management service**: giúp hệ thống điều hướng và decision making bằng cách:
 
 - Dựa trên những thông tin đã có (state hiện tại).
@@ -739,7 +801,9 @@ user_message: str,
 
 3. Ưu tiên thông tin đã có: Không bao giờ hỏi lại những gì người dùng đã khai báo (trừ khi họ muốn đổi ý)
 
-4. **NEW - Recommendation List Selection**:
+4. **is_out_of_scope / compliance flags**: Nếu `currentOrderSelection.is_out_of_scope` (hoặc is_excessive_drinking, is_mild_negative_emotion) → trả message redirect và renderingType="chat-only", không đi tiếp flow mood/occasion/flavor.
+
+5. **NEW - Recommendation List Selection**:
 
 - Nếu Previous AI Message chứa numbered list recommendations với intensity + ABV
 
@@ -749,7 +813,7 @@ user_message: str,
 
 - → Trả về `order-ensure-confirmation` ngay (không hỏi intensity/ABV lại)
 
-5. Xử lý các tình huống đặc biệt
+6. Xử lý các tình huống đặc biệt
 
 - Nếu is_early_drinking (uống sáng) -> Dùng từ ngữ trung tính, tránh cổ vũ.
 
@@ -769,11 +833,7 @@ user_message: str,
 
 2. `"awaiting_preferences"`: Đang chờ user mô tả preferences
 
-3. `"recommendations_shown"`: Đã hiển thị 3 beer recommendations
-
-4. `"order_selection"`: User đang chọn từ recommendations
-
-5. `"order_confirmed"`: User đã confirm order
+3. `"recommendations_shown"`: Đã hiển thị 3 beer recommendations (sau đó routing sẽ dùng Decision Flow để handle order selection/confirmation)
 
   
 
