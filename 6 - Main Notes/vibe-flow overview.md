@@ -1,4 +1,4 @@
-2026-02-06 (Updated with current flow: Compliance 4 agents, Out-of-Scope, Continue Intent, Rejection Response)
+2026-02-06 (Updated: Vibe flow = 1 LLM call recommend từ raw message, bỏ extract pop culture; Compliance 4 agents, Out-of-Scope, Continue Intent, Rejection Response)
 
   
   
@@ -49,8 +49,6 @@ CompSvc --> ContentScope[Content Scope Agent]
 
 VibeFlow --> ContinueIntent[Continue Intent Service]
 
-VibeFlow --> ExtractVibe[extract_pop_culture_preferences]
-
 VibeFlow --> RecommendVibe[recommend_beers_from_vibe]
 
 Decision --> ExtractInfo[extract_information]
@@ -62,8 +60,6 @@ Decision --> StateSvc[State Management Service]
 Clarifications & Safety & Context & ContentScope --> Agent[Agent Service]
 
 ContinueIntent --> Agent
-
-ExtractVibe --> Agent
 
 RecommendVibe --> Agent
 
@@ -161,11 +157,9 @@ CheckOOS -->|yes, not OOS this turn| ContinueIntent[continue_intent_service.dete
 
 CheckOOS -->|violation_type=out_of_scope| RedirectOOS[return redirect message, set is_out_of_scope=True]
 
-CheckOOS -->|no| ExtractVibe[extract_pop_culture_preferences]
+CheckOOS -->|no| RecommendBeers[state_management_service.recommend_beers_from_vibe]
 
 ContinueIntent -->|is_continue_intent| ResetOOS[reset is_out_of_scope, start fresh message]
-
-ExtractVibe --> RecommendBeers[state_management_service.recommend_beers_from_vibe]
 
 DecisionStep --> UpdateFlags[update compliance flags incl. out_of_scope]
 
@@ -260,13 +254,13 @@ check_out_of_scope() → app/services/chat_services/compliance_service.py:264 (b
 
 extract_information() → app/services/chat_services/information_extraction.py:26
 
-extract_pop_culture_preferences() → app/services/chat_services/information_extraction.py:137
+extract_pop_culture_preferences() → app/services/chat_services/information_extraction.py:137 (không dùng trong vibe flow; vibe flow chỉ gọi recommend_beers_from_vibe)
 
   
 
 decide_next_step() → app/services/chat_services/state_management.py:42
 
-recommend_beers_from_vibe() → app/services/chat_services/state_management.py:122
+recommend_beers_from_vibe(user_message, ...) → app/services/chat_services/state_management.py:122
 
   
 
@@ -302,9 +296,9 @@ CONTENT_SCOPE_AGENT_SYSTEM_PROMPT, build_content_scope_user_prompt → idem (out
 
 # Vibe & state
 
-POP_CULTURE_EXTRACTION → app/systemprompt/pop_culture_extraction_system.py
+BEER_RECOMMENDATION_PROMPT → app/systemprompt/beer_recommendation_system.py (input: raw user message; AI infer vibe + recommend 3 beers trong một bước)
 
-BEER_RECOMMENDATION_PROMPT → app/systemprompt/beer_recommendation_system.py
+POP_CULTURE_EXTRACTION → app/systemprompt/pop_culture_extraction_system.py (không dùng trong flow hiện tại)
 
 STATE_MANAGEMENT_PROMPT → app/systemprompt/state_management_system.py
 
@@ -361,35 +355,27 @@ REJECTION_RESPONSE → app/systemprompt/rejection_response_system.py
 
 **4a. Vibe Flow** (stage = initial / awaiting_preferences):
 
-- vibe_flow_step (`_vibe_flow_step_executor`):
+- vibe_flow_step (`_vibe_flow_step_executor`) — thực chất là **một branch một bước**, không phải pipeline nhiều bước:
 
 - **Out-of-scope & Continue Intent** (kiểm tra trước): Nếu `current_state.is_out_of_scope` và lần này không báo `out_of_scope` → gọi `continue_intent_service.detect_continue_intent()`; nếu user muốn tiếp tục → reset `is_out_of_scope=False`, trả message "Let's start fresh", không recommend. Nếu `compliance_check.violation_type == "out_of_scope"` → trả message redirect (bartender persona từ Content Scope Agent), set `is_out_of_scope=True`, return.
 
-- **Step 1**: Extract vibe từ user message:
+- **Recommend từ raw message** (một LLM call):
 
-- Gọi `information_extraction_service.extract_pop_culture_preferences()`
+- Gọi `state_management_service.recommend_beers_from_vibe(user_message=request.message, ...)`
 
-- Trích xuất: movies, music, food, colors, energy_level, social_context, mood_essence
+- Prompt (`BEER_RECOMMENDATION_PROMPT`) yêu cầu AI: nhận **raw user message** → tự infer vibe (pop culture, mood, energy) trong đầu → chọn đúng 3 bia từ catalog
 
-- Hỗ trợ cả pop culture references (The Office, jazz, pizza) và mood/occasion descriptions (feeling blue, night walk)
+- Không còn bước extract pop culture ra thành các trường (movies, music, food, …); AI phân tích message trực tiếp khi recommend
 
-- **Step 2**: Generate beer recommendations:
+- Output: opening_message + 3 beers (beer_name, intensity, abv, personality_link, bartender_note); restriction 0% ABV vẫn áp dụng khi driving/pregnancy
 
-- Gọi `state_management_service.recommend_beers_from_vibe()`
+- **Update state**:
 
-- AI tạo 3 beer recommendations với intensity và ABV đã được chọn sẵn
-
-- Format message với opening_message và 3 beers (beer_name, intensity, abv, personality_link, bartender_note)
-
-- **Step 3**: Update state:
-
-- Set `conversation_stage = "recommendations_shown"`
-
-- Reset `intent_count = 0`
+- Set `conversation_stage = "recommendations_shown"`, reset `intent_count = 0`
 
 - Return `renderingType = "chat-only"` với recommendations message
 
-- **Ưu điểm**: User chỉ cần mô tả vibe một lần → Nhận ngay 3 options → Chọn một → Confirm (nhanh hơn flow cũ)
+- **Ưu điểm**: Một lần gọi LLM thay vì hai (bỏ extract) → User mô tả vibe → Nhận ngay 3 options → Chọn một → Confirm
 
   
 
@@ -637,73 +623,29 @@ await self.agent_service.with_messages( #gửi request đến LLM
 
   
 
-3. **extract_pop_culture_preferences** (NEW): Trích xuất "vibe" từ user message để tạo recommendations
-
-- Flow chi tiết:
-
-- Input: User message có thể chứa:
-
-- **Pop Culture References**: Movies/TV ("The Office"), Music ("jazz", "Coldplay"), Food ("pizza"), Colors ("blue")
-
-- **Mood/Occasion Descriptions**: Feelings ("feeling blue"), Activities ("night walk"), Context ("after work")
-
-- Gọi AI với `POP_CULTURE_EXTRACTION_PROMPT`:
-
-- AI tự động detect ngôn ngữ và respond cùng ngôn ngữ
-
-- Extract: movies, music, food, colors (lists)
-
-- Infer: energy_level, social_context, mood_essence, time_of_day_hint
-
-- Generate: extracted_vibe (mô tả personality/mood)
-
-- Return Dict với:
-
-- `movies`, `music`, `food`, `colors`: Lists
-
-- `extracted_vibe`: String mô tả vibe
-
-- `energy_level`: "chill" | "balanced" | "energetic"
-
-- `social_context`: "solo" | "friends" | "romantic" | "mixed"
-
-- `mood_essence`: "playful" | "contemplative" | "adventurous" | "nostalgic"
-
-- `time_of_day_hint`: "morning" | "afternoon" | "evening" | "night" | null
+3. **extract_pop_culture_preferences**: Trích xuất "vibe" thành các trường (movies, music, food, colors, extracted_vibe, …). **Hiện không được gọi trong vibe flow**; vibe flow chỉ dùng `recommend_beers_from_vibe` với raw user message. Hàm và prompt `POP_CULTURE_EXTRACTION` vẫn tồn tại trong repo (có thể dùng lại sau nếu cần).
 
   
 
-4. **recommend_beers_from_vibe** (NEW): Generate 3 beer recommendations dựa trên vibe đã extract
+4. **recommend_beers_from_vibe**: Generate 3 beer recommendations từ **raw user message** (một LLM call)
 
 - Flow chi tiết:
 
-- Input: `vibe_data` Dict từ `extract_pop_culture_preferences`
+- Input: `user_message` (raw), `lang`, `session_id`, `restriction_context` / `restriction_message` (nếu driving/pregnancy)
 
 - Load brew catalog từ `data/brew_catalog.json`
 
 - Gọi AI với `BEER_RECOMMENDATION_PROMPT`:
 
-- System prompt chứa brew catalog
+- System prompt chứa brew catalog và hướng dẫn: nhận user message → **tự infer vibe** (pop culture, mood, energy) → chọn đúng 3 bia
 
-- User message chứa vibe details (energy_level, social_context, mood_essence, pop culture references)
-
-- AI tự động detect ngôn ngữ và respond cùng ngôn ngữ
+- User prompt = raw message + (nếu có) instruction 0% ABV + ngôn ngữ đáp
 
 - AI trả về JSON với:
 
 - `opening_message`: Warm intro với emojis
 
-- `recommendations`: Array 3 beers, mỗi beer có:
-
-- `beer_id`, `beer_name`
-
-- `intensity`: "Easy" | "Full" | "Bold"
-
-- `abv`: "3.0%", "4.5%", etc.
-
-- `personality_link`: Connection giữa user preferences và beer
-
-- `bartender_note`: Witty, playful comment
+- `recommendations`: Array 3 beers (beer_id, beer_name, intensity, abv, personality_link, bartender_note)
 
 - Format message: Combine opening_message + 3 formatted recommendations
 
@@ -839,7 +781,7 @@ user_message: str,
 
 - **Routing Logic**: `compliance_router` sử dụng `conversation_stage` để quyết định flow:
 
-- `initial` hoặc `awaiting_preferences` → Vibe Flow (extract vibe → recommend 3 beers)
+- `initial` hoặc `awaiting_preferences` → Vibe Flow (recommend 3 beers từ raw message; AI infer vibe trong một bước)
 
 - `recommendations_shown` → Decision Flow (handle order selection/confirmation)
 
@@ -899,14 +841,14 @@ User → Mood Selection → Occasion Selection → Flavor Selection → Intensit
 
 ```
 
-User mô tả vibe → AI extract vibe → AI recommend 3 beers (có intensity + ABV) → User chọn một → Confirm
+User mô tả vibe → AI recommend 3 beers (infer vibe từ message trong một bước, có intensity + ABV) → User chọn một → Confirm
 
 ```
 
-- Chỉ 1 lần mô tả
+- Chỉ 1 lần mô tả, **1 lần gọi LLM** (không còn bước extract riêng)
 
 - Nhận ngay 3 options đầy đủ
 
 - Nhanh hơn, tự nhiên hơn
 
-- Hỗ trợ cả pop culture references và mood/occasion descriptions
+- Prompt yêu cầu AI tự infer pop culture / mood / energy từ raw message rồi chọn 3 bia
