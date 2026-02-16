@@ -1,7 +1,7 @@
 2025-03-25 16:14
 
 
-Tags: [[Backpropagation]], [[data scientist]], [[DeepLearning]], [[beginner]]
+Tags: [[Backpropagation]], [[data scientist]], [[Deep Learning]], [[beginner]]
 
 # multivariable chain rule
 ### Đồ thị tính toán

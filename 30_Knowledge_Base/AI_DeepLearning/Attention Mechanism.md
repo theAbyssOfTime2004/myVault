@@ -1,7 +1,7 @@
 2025-07-06 01:10
 
 
-Tags: [[NLP]], [[DeepLearning]], [[Neural Networks]]
+Tags: [[NLP]], [[Deep Learning]], [[Neural Networks]]
 
 # Attention Mechanism
 

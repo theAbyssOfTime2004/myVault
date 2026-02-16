@@ -1,6 +1,6 @@
 2024-11-22 15:21
 
-[[DeepLearning]] [[Gradient Descent]], [[beginner]], [[Neural Networks]], [[học sâu]] 
+[[Deep Learning]] [[Gradient Descent]], [[beginner]], [[Neural Networks]], [[học sâu]] 
 
 
 Tags:
@@ -9,7 +9,7 @@ Tags:
 
 ## Overview
 
-Backpropagation is the fundamental algorithm behind training [[neural networks]]. It calculates gradients of the loss function with respect to the network's weights and biases, enabling the network to learn from its errors.
+Backpropagation is the fundamental algorithm behind training [[Neural Networks]]. It calculates gradients of the loss function with respect to the network's weights and biases, enabling the network to learn from its errors.
 
 ## Key Components
 ![[Pasted image 20250415153904.png]]

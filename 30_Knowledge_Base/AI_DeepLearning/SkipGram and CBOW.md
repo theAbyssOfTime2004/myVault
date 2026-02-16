@@ -1,7 +1,7 @@
 2025-03-27 23:36
 
 
-Tags: [[data scientist]], [[DeepLearning]], [[Mathematics]], [[NLP]]
+Tags: [[data scientist]], [[Deep Learning]], [[Mathematics]], [[NLP]]
 
 # SkipGram and CBOW
 

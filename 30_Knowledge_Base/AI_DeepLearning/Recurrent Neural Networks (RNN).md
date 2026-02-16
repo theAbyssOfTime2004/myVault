@@ -1,7 +1,7 @@
 2025-03-24 15:16
 
 
-Tags: [[DeepLearning]], [[data scientist]], [[NLP]], [[Neural Networks]]
+Tags: [[Deep Learning]], [[data scientist]], [[NLP]], [[Neural Networks]]
 
 # Recurrent Neural Networks (RNN)
 

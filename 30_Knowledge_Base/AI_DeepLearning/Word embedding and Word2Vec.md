@@ -1,7 +1,7 @@
 2025-03-24 12:48
 
 
-Tags: [[data scientist]], [[Neural Network]], [[DeepLearning]], [[NLP]]
+Tags: [[data scientist]], [[Neural Network]], [[Deep Learning]], [[NLP]]
 
 # Word embedding and Word2Vec
 

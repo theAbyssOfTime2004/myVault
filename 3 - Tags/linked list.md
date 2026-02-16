@@ -1,1 +1,1 @@
-[[dsa]], [[stack]], [[queue]]
+[[DSA]], [[stack]], [[queue]]

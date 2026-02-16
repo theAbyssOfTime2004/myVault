@@ -11,7 +11,7 @@ Tags:
 2025-01-15 01:02
 
 
-Tags: [[Neural Network]], [[DeepLearning]], 
+Tags: [[Neural Network]], [[Deep Learning]], 
 
 # Neural Network
 

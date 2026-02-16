@@ -1,7 +1,7 @@
 2024-12-10 12:27
 
 
-Tags: [[DeepLearning]], [[Object Detection]], [[Computer Vision]], [[Neural Networks]]
+Tags: [[Deep Learning]], [[Object Detection]], [[Computer Vision]], [[Neural Networks]]
 
 # Convolutional Neural Networks
 

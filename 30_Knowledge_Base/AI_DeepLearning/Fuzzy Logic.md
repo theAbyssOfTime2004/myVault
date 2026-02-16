@@ -1,7 +1,7 @@
 2024-11-23 10:12
 
 
-Tags: [[DeepLearning]], [[Mathematics]], [[data scientist]]
+Tags: [[Deep Learning]], [[Mathematics]], [[data scientist]]
 # Fuzzy Logic
 ## Introduction to fuzzy thinking
 

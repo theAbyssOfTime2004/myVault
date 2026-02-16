@@ -1,7 +1,7 @@
 2025-04-21 11:54
 
 
-Tags: [[data scientist]], [[beginner]], [[DeepLearning]], [[Machine Learning]]
+Tags: [[data scientist]], [[beginner]], [[Deep Learning]], [[Machine Learning]]
 
 # Vanishing and Exploding Gradient
 

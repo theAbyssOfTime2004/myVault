@@ -1,7 +1,7 @@
 2024-11-08 21:28
 
 
-Tags: [[DeepLearning]], [[Mathematics]], [[Neural Networks]], 
+Tags: [[Deep Learning]], [[Mathematics]], [[Neural Networks]], 
 
 
 # Tensor

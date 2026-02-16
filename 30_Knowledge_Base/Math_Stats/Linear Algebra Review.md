@@ -1,7 +1,7 @@
 2025-03-14 20:47
 
 
-Tags: [[Machine Learning]], [[DeepLearning]], [[data scientist]], [[beginner]], [[Mathematics]]
+Tags: [[Machine Learning]], [[Deep Learning]], [[data scientist]], [[beginner]], [[Mathematics]]
 
 # Linear Algebra Review
 

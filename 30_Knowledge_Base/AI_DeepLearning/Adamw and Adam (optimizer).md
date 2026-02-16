@@ -1,7 +1,7 @@
 2025-10-24 10:05
 
 
-Tags: [[DeepLearning]], [[optimizer]]
+Tags: [[Deep Learning]], [[optimizer]]
 Keyword: **adaptive learning rate & regularization.**
 
 # Adamw and Adam (optimizer)

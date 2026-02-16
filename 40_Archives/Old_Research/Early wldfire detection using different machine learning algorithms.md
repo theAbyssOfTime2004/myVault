@@ -1,7 +1,7 @@
 2025*-04-26 14:28
 
 
-Tags: [[DeepLearning]], [[Machine Learning]]
+Tags: [[Deep Learning]], [[Machine Learning]]
 
 # Early wldfire detection using different machine learning algorithms
 

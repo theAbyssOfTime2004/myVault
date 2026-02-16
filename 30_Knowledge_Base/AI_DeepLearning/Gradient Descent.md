@@ -1,14 +1,14 @@
 2024-11-19 22:55
 
 
-Tags: [[Machine Learning]], [[DeepLearning]], [[beginner]]
+Tags: [[Machine Learning]], [[Deep Learning]], [[beginner]]
 
 
 # Gradient Descent: Quick note
 
 ## Definition
 
-Gradient descent is an optimization algorithm used to find the minimum value of a function by iteratively adjusting parameters in [[machine learning]] models.
+Gradient descent is an optimization algorithm used to find the minimum value of a function by iteratively adjusting parameters in [[Machine Learning]] models.
 
 ## Core Mechanism
 
@@ -39,7 +39,7 @@ Gradient descent is an optimization algorithm used to find the minimum value of 
 ## Applications
 
 - Training neural networks
-- Optimizing [[machine learning]] models
+- Optimizing [[Machine Learning]] models
 - Solving non-linear optimization problems
 
 ## Important Considerations

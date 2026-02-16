@@ -1,7 +1,7 @@
 2025-12-15 09:57
 
 
-Tags: [[DeepLearning]], [[Machine Learning]], [[Gradient Descent]]
+Tags: [[Deep Learning]], [[Machine Learning]], [[Gradient Descent]]
 
 # FGSM
 

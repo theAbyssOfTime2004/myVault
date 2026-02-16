@@ -1,7 +1,7 @@
 2025-03-24 18:11
 
 
-Tags: [[Neural Network]], [[DeepLearning]], [[data scientist]]
+Tags: [[Neural Network]], [[Deep Learning]], [[data scientist]]
 
 # Neural networks foundation
 ### Perceptron

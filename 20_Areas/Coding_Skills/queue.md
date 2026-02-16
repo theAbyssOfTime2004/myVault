@@ -1,1 +1,1 @@
-[[dsa]], [[stack]], [[linked list]]
+[[DSA]], [[stack]], [[linked list]]

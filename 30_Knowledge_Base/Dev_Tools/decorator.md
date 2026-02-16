@@ -4,7 +4,7 @@ Chắc chắn rồi, đây là phiên bản hoàn chỉnh cho note của bạn, 
 
 2025-11-17 00:03
 
-Tags: [[fsds]], [[high_performance_python]]
+Tags: [[FSDS]], [[High Performance Python]]
 
 # Decorator, Context Manager và High-Order Function
 

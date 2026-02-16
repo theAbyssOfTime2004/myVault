@@ -1,7 +1,7 @@
 2025-04-19 21:49
 
 
-Tags: [[Data_Mining_Lab3_Report]], [[Data Mining Lab2 Report]], [[Data Mining Lab1 Report]]
+Tags: [[Data Mining Lab3 Report]], [[Data Mining Lab2 Report]], [[Data Mining Lab1 Report]]
 
 **Họ và Tên**: Mai Phong Đăng
 **MSSV**: 22280008

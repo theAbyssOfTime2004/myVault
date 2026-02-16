@@ -1,7 +1,7 @@
 2024-11-20 13:44
 
 
-Tags: [[Mathematics]] , [[DeepLearning]] 
+Tags: [[Mathematics]] , [[Deep Learning]] 
 
 # Fourier series and transform
 

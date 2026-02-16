@@ -1,7 +1,7 @@
 2025-03-17 23:01
 
 
-Tags: [[DeepLearning]], 
+Tags: [[Deep Learning]], 
 
 # Mask R-CNN
 
