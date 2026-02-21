@@ -23,5 +23,5 @@ Provide an overview of the task and related details.
 - [x] ~~tạo prototype~~
 - [x] ~~Code lại phần contrastive learning~~
 - [ ] Code phần pretraining
-	- [ ] Chỉnh lại Image Features (V) đúng với yêu cầu input của **[[Qformer]]** (có bridging/alignment phức tạp)
+	- [ ] Chỉnh lại Image Features (V) đúng với yêu cầu input của **[[QFORMER]]** (có bridging/alignment phức tạp)
 - [ ] Tìm cách align code và data đang có
