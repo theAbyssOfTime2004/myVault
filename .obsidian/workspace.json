@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/14_Thesis_WorldModel/Xây dựng Hệ thống Agentic AI suy luận thời gian thực cho IoT-Robotics sử dụng Latent World Models (JEPA) trên nền tảng Apache Flink và Kafka.md",
+                "file": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Xây dựng Hệ thống Agentic AI suy luận thời gian thực cho IoT-Robotics sử dụng Latent World Models (JEPA) trên nền tảng Apache Flink và Kafka"
+              "title": "BrewBuddy SmartTap Overview"
             }
           }
         ],
@@ -238,8 +238,8 @@
   },
   "active": "49f778fd265b4234",
   "lastOpenFiles": [
-    "10_Projects/12_TigerTribe_Intern/vibe-flow overview.md",
     "10_Projects/14_Thesis_WorldModel/Xây dựng Hệ thống Agentic AI suy luận thời gian thực cho IoT-Robotics sử dụng Latent World Models (JEPA) trên nền tảng Apache Flink và Kafka.md",
+    "10_Projects/12_TigerTribe_Intern/vibe-flow overview.md",
     "10_Projects/14_Thesis_WorldModel",
     "10_Projects/12_TigerTribe_Intern/Workflow của agent.md",
     "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview.md",
