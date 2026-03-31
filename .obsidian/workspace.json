@@ -183,7 +183,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -204,11 +204,13 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "c9808df2e06ba5c2",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
-    "Daily_Notes/31-03-2026.md",
+    "60_Monthly_Notes",
+    "50_Weekly_Notes",
+    "70_Daily_Notes/31-03-2026.md",
     "20_Areas/Personal_Growth/Plan for April.md",
-    "Daily_Notes/03-03-2026.md",
+    "70_Daily_Notes/03-03-2026.md",
     "99_System/Plugin_Data/copilot/copilot-conversations/bạn_thấy_yêu_cầu_khảo_sát_tôi_soạn_bên_đây@20251023_180652.md",
     "10_Projects/14_Thesis_WorldModel/Xây dựng Hệ thống Agentic AI suy luận thời gian thực cho IoT-Robotics sử dụng Latent World Models (JEPA) trên nền tảng Apache Flink và Kafka.md",
     "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas.md",
@@ -235,8 +237,7 @@
     "copilot/copilot-custom-prompts/Remove URLs.md",
     "copilot/copilot-custom-prompts/Generate table of contents.md",
     "copilot/copilot-custom-prompts/Make shorter.md",
-    "copilot/copilot-custom-prompts/Emojify.md",
-    "Daily_Notes",
+    "70_Daily_Notes",
     "10_Projects/14_Thesis_SDPO",
     "copilot/copilot-custom-prompts",
     "copilot",
@@ -246,7 +247,6 @@
     "count_tags.py",
     "99_System/Assets/Files/Untitled 1.canvas",
     "40_Archives/output.html",
-    "40_Archives/Untitled.base",
     "99_System/Assets/Images/tikz0.png",
     "99_System/Assets/Images/tikz0 1.png",
     "99_System/Assets/Images/Pasted image 20250709183047.png",
