@@ -19,4 +19,6 @@
 - Sun: [[<% tp.date.now("YYYY-MM-DD", 6, tp.file.title, "gggg-[W]ww") %>]]
 
 ### Review
-- **Wins:** - **Blockers:** - **Next Week:** ```
+- **Wins:** 
+- **Blockers:** 
+- **Next Week:** ```

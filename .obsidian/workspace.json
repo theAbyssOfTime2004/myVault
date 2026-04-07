@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/Untitled.md",
+                "file": "99_System/Templates/Weekly Note.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Weekly Note"
             }
           }
         ],
@@ -189,16 +189,6 @@
             }
           },
           {
-            "id": "0701ecb2f22c72ed",
-            "type": "leaf",
-            "state": {
-              "type": "copilot-chat-view",
-              "state": {},
-              "icon": "message-square",
-              "title": "Copilot"
-            }
-          },
-          {
             "id": "ff4ebdd271b43a7c",
             "type": "leaf",
             "state": {
@@ -213,7 +203,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 558.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -234,16 +224,22 @@
   },
   "active": "baffabd2a43aead8",
   "lastOpenFiles": [
-    "99_System/Templates/Main Note.md",
-    "00_Dashboard/Untitled.md",
+    "50_Weekly_Notes/2026-W15.md",
+    "60_Monthly_Notes/2026-04.md",
+    "00_Dashboard/2026-W15.md",
+    "70_Daily_Notes/2026-04-07.md",
+    "70_Daily_Notes/2026-04-04.md",
+    "70_Daily_Notes/31-03-2026.md",
+    "70_Daily_Notes/03-03-2026.md",
+    "70_Daily_Notes/2026-04-08.md",
     "99_System/Templates/Daily Note.md",
+    "00_Dashboard/Untitled.md",
+    "99_System/Templates/Main Note.md",
     "99_System/Templates/Monthly Note.md",
     "99_System/Templates/Weekly Note.md",
     "99_System/Templates/Problem Template.md",
-    "60_Monthly_Notes/2026-04.md",
     "50_Weekly_Notes/2026-W14.md",
     "2026-W14.md",
-    "70_Daily_Notes/2026-04-04.md",
     "20_Areas/Coding_Skills/oop/Day 6.md",
     "00_Dashboard/refactor_plan.md",
     "00_Dashboard/Untitled 1.md",
@@ -254,17 +250,11 @@
     "20_Areas/Personal_Growth/Plan for April.md",
     "60_Monthly_Notes",
     "50_Weekly_Notes",
-    "70_Daily_Notes/31-03-2026.md",
-    "70_Daily_Notes/03-03-2026.md",
     "99_System/Plugin_Data/copilot/copilot-conversations/bạn_thấy_yêu_cầu_khảo_sát_tôi_soạn_bên_đây@20251023_180652.md",
     "10_Projects/14_Thesis_WorldModel/Xây dựng Hệ thống Agentic AI suy luận thời gian thực cho IoT-Robotics sử dụng Latent World Models (JEPA) trên nền tảng Apache Flink và Kafka.md",
     "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas.md",
     "20_Areas/Coding_Skills/Days 1 - 30 Days of Pandas.md",
     "20_Areas/Coding_Skills/oop/day 4.md",
-    "20_Areas/Coding_Skills/queue.md",
-    "20_Areas/Personal_Growth/Movies that i should watch.md",
-    "20_Areas/Personal_Growth/Mangas that i saved for future.md",
-    "30_Knowledge_Base/Dev_Tools/Pydantic Schema.md",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",
     "99_System/Assets/Images/Pasted image 20241123103323.png",
