@@ -25,3 +25,7 @@ Pipeline rõ ràng:
 - ngoài ra, mở rộng thêm:
 	-  **Đo cả self-teacher dynamics** (entropy, advantage distribution, teacher-student KL theo step) — không chỉ behavior bề mặt như length/filler. 
 	- **Thêm metric CTC** (compute-to-correct, đo wall-clock/FLOPs) bên cạnh discovery@k. Paper chỉ đo theo số attempts, che mất chi phí compute thật.
+
+
+
+[self-distillation-analysis - a beanie00 Collection](https://huggingface.co/collections/beanie00/self-distillation-analysis): Link trained checkpoint trên qwen3-8b và DeepSeek Distill 7B với GRPO và SDPO 
