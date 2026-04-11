@@ -29,3 +29,4 @@ Pipeline rõ ràng:
 
 
 [self-distillation-analysis - a beanie00 Collection](https://huggingface.co/collections/beanie00/self-distillation-analysis): Link trained checkpoint trên qwen3-8b và DeepSeek Distill 7B với GRPO và SDPO 
+[Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?](https://beanie00.notion.site/why-does-self-distillation-degrade-reasoning)
