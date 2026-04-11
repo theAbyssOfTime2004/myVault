@@ -21,3 +21,7 @@ Pipeline rõ ràng:
 6. **Cross-tabulate**: template nào → behavior pattern nào → discovery outcome nào.
 7. **Phân tích định tính**: chọn 3–5 case representative, đọc tay xem model thực sự generate gì step-by-step. So sánh template "verbose stack trace" vs "minimal error type" → model có reasoning khác nhau thế nào?
 8. **Viết** thesis.
+
+- ngoài ra, mở rộng thêm:
+	-  **Đo cả self-teacher dynamics** (entropy, advantage distribution, teacher-student KL theo step) — không chỉ behavior bề mặt như length/filler. 
+	- **Thêm metric CTC** (compute-to-correct, đo wall-clock/FLOPs) bên cạnh discovery@k. Paper chỉ đo theo số attempts, che mất chi phí compute thật.
