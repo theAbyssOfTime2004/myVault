@@ -1,0 +1,8 @@
+- trong phần future work của bài báo gốc có nói về 1 hướng đi khá hay: *Long-horizon and agentic settings. RLRF is particularly appealing when trajectories are long or expose information about intermediate states. Evaluating SDPO in agentic environments is a natural next step.*
+	- Nhưng để thực hiện được trong phạm vi bachelor thesis này thì rất khó và không khả thi, vì phải dev được một agentic environment with long trajectories, ví dụ:
+		- "Input: một GitHub issue thực tế từ một repo Python lớn (django, sympy, scikit-learn, flask, ...) tại một commit cụ thể. Ví dụ: "Bug: when calling Model.objects.filter(x__in=qs), raises TypeError if qs is empty" 
+		- Model phải: đọc cấu trúc repo → tìm đúng file chứa bug → đọc code xung quanh → suy luận root cause → edit đúng dòng → chạy test suite của repo → đọc failure → sửa tiếp → ... (có thể 20–100 tool calls trong một attempt)
+		- Verifier: apply patch của model, chạy hidden test → pass/fail Một "attempt" = một trajectory dài với nhiều bước tool call, mỗi bước thay đổi state của filesystem"
+		=> rất khó để làm trong 3 tháng 
+- còn 1 approach khác dễ làm hơn và possible hơn là: *Behavioral differences in reasoning. We observed that SDPO induces qualitatively different reasoning patterns than GRPO, notably avoiding the latter’s tendency toward verbosity and superficial reasoning. Future work should systematically study how individual aspects, such as the reprompt template, influence behavior.*
+	- Sử dụng code có sẵn của paper,  dùng pipeline  LCBv6 + Qwen3-8B mà paper đã release
