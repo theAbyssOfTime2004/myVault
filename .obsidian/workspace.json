@@ -13,16 +13,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/k8s Storage.md",
+                "file": "3 - Tags/workload.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "k8s Storage"
+              "title": "workload"
+            }
+          },
+          {
+            "id": "b4f1000884e0f8ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "30_Knowledge_Base/Devops/Job và Cronjob.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Job và Cronjob"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,12 +223,17 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "c9808df2e06ba5c2",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
-    "00_Dashboard/k8s Services.md",
-    "00_Dashboard/k8s Storage.md",
+    "30_Knowledge_Base/Devops/K8s.md",
+    "30_Knowledge_Base/AI_DeepLearning/double descent.md",
+    "30_Knowledge_Base/Devops/k8s Services.md",
+    "30_Knowledge_Base/Devops",
+    "30_Knowledge_Base/Untitled.md",
+    "3 - Tags/workload.md",
+    "30_Knowledge_Base/Devops/Job và Cronjob.md",
+    "30_Knowledge_Base/Devops/k8s Storage.md",
     "70_Daily_Notes/2026-04-16.md",
-    "00_Dashboard/K8s.md",
     "3 - Tags/devops.md",
     "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11.md",
     "70_Daily_Notes/2026-04-12.md",
@@ -220,7 +241,6 @@
     "70_Daily_Notes/2026-04-11.md",
     "70_Daily_Notes/2026-04-10.md",
     "20_Areas/Personal_Growth/Plan for April.md",
-    "00_Dashboard/double descent.md",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "70_Daily_Notes/2026-04-07.md",
     "70_Daily_Notes/2026-04-08.md",
@@ -232,10 +252,6 @@
     "60_Monthly_Notes/2026-04.md",
     "00_Dashboard/2026-W15.md",
     "70_Daily_Notes/31-03-2026.md",
-    "70_Daily_Notes/03-03-2026.md",
-    "99_System/Templates/Daily Note.md",
-    "00_Dashboard/Untitled.md",
-    "99_System/Templates/Monthly Note.md",
     "00_Dashboard/Untitled 1.base",
     "00_Dashboard/Untitled.base",
     "00_Dashboard/Untitled 2.base",
@@ -249,7 +265,6 @@
     "10_Projects/14_Thesis_SDPO",
     "copilot/copilot-custom-prompts",
     "copilot",
-    "_refactor_tags.py",
     "99_System/Assets/Files/Untitled 1.canvas",
     "99_System/Assets/Images/tikz0.png",
     "99_System/Assets/Images/tikz0 1.png",
