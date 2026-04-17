@@ -26,4 +26,13 @@ Tags: [[K8s]], [[devops]], [[workload]], [[infrastructure]]
     - **Khởi tạo và kết thúc có thứ tự:** Các Pod được khởi tạo tuần tự từ `0` đến `N-1`. Pod sau chỉ được khởi tạo khi Pod trước đó đã ở trạng thái sẵn sàng. Khi thu hồi, hệ thống xóa Pod theo thứ tự ngược lại (từ `N-1` về `0`).
     - **Lưu trữ độc lập:** Mỗi Pod được liên kết với một PersistentVolumeClaim (PVC) riêng. Nếu Pod bị điều phối sang Node khác, cấu hình lưu trữ cũ vẫn được tự động gắn lại vào Pod để bảo toàn dữ liệu.
 - **Ứng dụng:** Triển khai các hệ thống cơ sở dữ liệu phân tán hoặc công cụ trung gian (message broker) như MongoDB, MySQL Cluster, Elasticsearch, Kafka.
+
+### 4. DaemonSet
+
+- **Mục đích:** Đảm bảo rằng trên mỗi Worker Node (hoặc trên một tập hợp Node cụ thể được chỉ định) luôn có đúng một bản sao của Pod đang hoạt động.
+- **Cơ chế hoạt động:** Khi máy chủ mới (Node) được thêm vào cụm Kubernetes, DaemonSet tự động khởi tạo một Pod trên Node đó. Khi máy chủ bị xóa khỏi cụm, Pod đó cũng bị thu hồi dọn dẹp.
+- **Ứng dụng:** Triển khai các dịch vụ nền (background services) cần hoạt động tại cấp độ máy chủ, chẳng hạn như:
+    - Trình thu thập log hệ thống (Fluentd, Logstash).
+    - Tác nhân giám sát tài nguyên phần cứng (Prometheus Node Exporter, Datadog Agent).
+    - Trình điều khiển thiết bị cấp độ phần cứng (như NVIDIA Device Plugin để hệ thống nhận diện GPU).
 # References
