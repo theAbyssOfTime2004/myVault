@@ -11,10 +11,15 @@
             "id": "81a56b3f61ffaf6f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Deployment, ReplicaSet, StatefulSet, DaemonSet"
             }
           }
         ]
@@ -204,6 +209,7 @@
   },
   "active": "81a56b3f61ffaf6f",
   "lastOpenFiles": [
+    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
     "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning.md",
@@ -244,7 +250,6 @@
     "70_Daily_Notes",
     "10_Projects/14_Thesis_SDPO",
     "copilot/copilot-custom-prompts",
-    "copilot",
     "99_System/Assets/Files/Untitled 1.canvas",
     "99_System/Assets/Images/tikz0.png",
     "99_System/Assets/Images/tikz0 1.png",
