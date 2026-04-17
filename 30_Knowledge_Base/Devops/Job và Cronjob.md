@@ -3,8 +3,7 @@
 
 Tags: [[K8s]], [[workload]]
 
-# Job và Cronjob
-
+# Job và Cronjob: Quản lý tác vụ ngắn hạn 
 
 
 # References
