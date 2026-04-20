@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
+                "file": "70_Daily_Notes/2026-04-19.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Deployment, ReplicaSet, StatefulSet, DaemonSet"
+              "title": "2026-04-19"
             }
           }
         ]
@@ -187,8 +187,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 389.5,
-    "collapsed": true
+    "width": 389.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -209,9 +208,10 @@
   },
   "active": "81a56b3f61ffaf6f",
   "lastOpenFiles": [
+    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
+    "70_Daily_Notes/2026-04-19.md",
     "00_Dashboard/ConfigMap và Secret.md",
     "30_Knowledge_Base/Devops/Job và Cronjob.md",
-    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "3 - Tags/infrastructure.md",
     "00_Dashboard/Helm.md",
     "00_Dashboard/Ingress.md",
@@ -238,7 +238,6 @@
     "70_Daily_Notes/2026-04-10.md",
     "20_Areas/Personal_Growth/Plan for April.md",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
-    "70_Daily_Notes/2026-04-07.md",
     "00_Dashboard/Untitled 1.base",
     "00_Dashboard/Untitled 2.base",
     "60_Monthly_Notes",
