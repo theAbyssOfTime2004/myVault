@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70_Daily_Notes/2026-04-19.md",
+                "file": "30_Knowledge_Base/Devops/K8s.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-19"
+              "title": "K8s"
             }
           }
         ]
@@ -208,13 +208,13 @@
   },
   "active": "81a56b3f61ffaf6f",
   "lastOpenFiles": [
-    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
+    "00_Dashboard/Ingress.md",
     "70_Daily_Notes/2026-04-19.md",
+    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "00_Dashboard/ConfigMap và Secret.md",
     "30_Knowledge_Base/Devops/Job và Cronjob.md",
     "3 - Tags/infrastructure.md",
     "00_Dashboard/Helm.md",
-    "00_Dashboard/Ingress.md",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
     "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning.md",
