@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "50_Weekly_Notes/2026-W17.md",
+                "file": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026-W17"
+              "title": "src_hubotter2026_self_distillation"
             }
           }
         ]
@@ -208,12 +208,23 @@
   },
   "active": "81a56b3f61ffaf6f",
   "lastOpenFiles": [
-    "50_Weekly_Notes/2026-W16.md",
+    "10_Projects/14_Thesis_SDPO/wiki/index.md",
+    "70_Daily_Notes/2026-04-22.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback.md",
+    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench.md",
+    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr.md",
+    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo.md",
+    "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation.md",
+    "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo.md",
+    "10_Projects/14_Thesis_SDPO/CLAUDE.md",
+    "10_Projects/14_Thesis_SDPO/wiki/log.md",
     "50_Weekly_Notes/2026-W17.md",
+    "50_Weekly_Notes/2026-W16.md",
     "60_Monthly_Notes/2026-04.md",
     "00_Dashboard/2026-W16.md",
     "50_Weekly_Notes/2026-W15.md",
-    "70_Daily_Notes/2026-04-22.md",
     "70_Daily_Notes/2026-04-07.md",
     "70_Daily_Notes/2026-04-10.md",
     "70_Daily_Notes/2026-04-11.md",
@@ -223,19 +234,8 @@
     "70_Daily_Notes/2026-04-19.md",
     "30_Knowledge_Base/Devops/K8s.md",
     "00_Dashboard/Ingress.md",
-    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
-    "00_Dashboard/ConfigMap và Secret.md",
-    "30_Knowledge_Base/Devops/Job và Cronjob.md",
-    "3 - Tags/infrastructure.md",
-    "00_Dashboard/Helm.md",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
-    "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning.md",
-    "00_Dashboard/Untitled.md",
-    "00_Dashboard/[Crontab.guru.md",
-    "40_Archives/Uni_Year1_3/Data_Mining_Lab7_Report.md",
-    "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview.md",
-    "3 - Tags/workload.md",
     "30_Knowledge_Base/Devops",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "00_Dashboard/Untitled 1.base",

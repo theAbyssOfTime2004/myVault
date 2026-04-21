@@ -4,7 +4,8 @@
       "Bash(find \"C:\\\\Users\\\\Maidanng\\\\Repos\\\\myVault\\\\10_Projects\\\\14_Thesis_SDPO\" -type f -exec ls -lh {} \\\\;)",
       "Bash(awk '{print $5, $9}')",
       "Bash(sort -k2)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "WebFetch(domain:arxiv.org)"
     ]
   }
 }
