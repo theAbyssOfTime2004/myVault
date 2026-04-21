@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70_Daily_Notes/2026-04-22.md",
+                "file": "50_Weekly_Notes/2026-W17.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-22"
+              "title": "2026-W17"
             }
           }
         ]
@@ -208,8 +208,13 @@
   },
   "active": "81a56b3f61ffaf6f",
   "lastOpenFiles": [
-    "70_Daily_Notes/2026-04-07.md",
+    "50_Weekly_Notes/2026-W16.md",
+    "50_Weekly_Notes/2026-W17.md",
+    "60_Monthly_Notes/2026-04.md",
+    "00_Dashboard/2026-W16.md",
+    "50_Weekly_Notes/2026-W15.md",
     "70_Daily_Notes/2026-04-22.md",
+    "70_Daily_Notes/2026-04-07.md",
     "70_Daily_Notes/2026-04-10.md",
     "70_Daily_Notes/2026-04-11.md",
     "70_Daily_Notes/2026-04-12.md",
@@ -231,12 +236,7 @@
     "40_Archives/Uni_Year1_3/Data_Mining_Lab7_Report.md",
     "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview.md",
     "3 - Tags/workload.md",
-    "30_Knowledge_Base/AI_DeepLearning/double descent.md",
-    "30_Knowledge_Base/Devops/k8s Services.md",
     "30_Knowledge_Base/Devops",
-    "30_Knowledge_Base/Untitled.md",
-    "30_Knowledge_Base/Devops/k8s Storage.md",
-    "3 - Tags/devops.md",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "00_Dashboard/Untitled 1.base",
     "00_Dashboard/Untitled 2.base",
