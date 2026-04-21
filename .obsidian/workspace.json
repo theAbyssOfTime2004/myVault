@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher.md",
+                "file": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "con_self_teacher"
+              "title": "SDPO 2026-04-11"
             }
           }
         ]
@@ -208,11 +208,12 @@
   },
   "active": "4bf3aead57ac6ec2",
   "lastOpenFiles": [
+    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher.md",
     "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k.md",
     "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation.md",
     "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct.md",
-    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo.md",
@@ -224,7 +225,6 @@
     "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation.md",
     "10_Projects/14_Thesis_SDPO/wiki/index.md",
     "70_Daily_Notes/2026-04-22.md",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench.md",
     "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo.md",
     "10_Projects/14_Thesis_SDPO/CLAUDE.md",
