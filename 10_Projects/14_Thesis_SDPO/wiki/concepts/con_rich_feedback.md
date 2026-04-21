@@ -6,23 +6,25 @@ tags: [rl, signal, feedback]
 sources: [src_hubotter2026_self_distillation]
 ---
 
-# Rich feedback (in RL training)
+# Rich feedback (trong RL training)
 
-A training signal that carries more information than a scalar reward — e.g. natural-language critique, structured error messages, tokenized explanations of what went wrong. Formalized as a problem setting ("RL with rich feedback") in [[src_hubotter2026_self_distillation]].
+Training signal chứa nhiều thông tin hơn scalar reward — ví dụ: natural-language critique, structured error message, tokenized explanation về chỗ sai. Được formalize hoá thành problem setting *"RL with rich feedback"* trong [[src_hubotter2026_self_distillation]].
 
-## Contrast
+## So sánh
 
-| Signal type | Example | Density |
+| Loại signal | Ví dụ | Density |
 |---|---|---|
-| Outcome reward ([[ent_rlvr]]) | 1 if tests pass else 0 | 1 / episode |
-| Step reward | +0.2 per passed subtest | 1 / step |
-| **Rich feedback** | "Line 12 returns wrong type because..." | Token-level once conditioned |
+| Outcome reward ([[ent_rlvr]]) | 1 nếu test pass, 0 nếu không | 1 / episode |
+| Step reward | +0.2 mỗi subtest pass | 1 / step |
+| **Rich feedback** | "Line 12 trả về sai type vì..." | Token-level sau khi condition |
 
-## Consumers
+Điểm khác biệt bản chất: rich feedback chỉ "dày" được khi có model hiểu được ngôn ngữ — đó chính là lý do SDPO dùng chính model làm teacher.
 
-- [[ent_sdpo]] — feeds rich feedback into the model as teacher-side conditioning, then distills back.
+## Ai consume
 
-## Open / links to thesis
+- [[ent_sdpo]] — đưa rich feedback vào làm teacher-side conditioning, rồi distill ngược.
 
-- What feedback **formats** are most useful? → directly maps onto thesis RQ1 and [[con_reprompt_template]] taxonomy.
-- Does feedback format affect [[con_epistemic_verbalization]] suppression? → thesis RQ2.
+## Liên hệ thesis
+
+- **Format** của feedback nào hữu dụng nhất? → map thẳng vào thesis **RQ1** và [[con_reprompt_template]] taxonomy.
+- Format có ảnh hưởng tới [[con_epistemic_verbalization]] suppression không? → thesis **RQ2**.

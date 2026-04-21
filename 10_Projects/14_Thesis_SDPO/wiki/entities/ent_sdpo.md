@@ -9,35 +9,37 @@ aliases: [Self-Distillation Policy Optimization, SDPO]
 
 # SDPO — Self-Distillation Policy Optimization
 
-RL post-training method introduced in [[src_hubotter2026_self_distillation]]. Core mechanism: the model, conditioned on textual feedback, acts as an internal teacher; its retrospective predictions are distilled back into the unconditioned policy.
+Phương pháp RL post-training được giới thiệu trong [[src_hubotter2026_self_distillation]]. Cơ chế cốt lõi: model khi được condition trên textual feedback đóng vai trò *internal teacher*; retrospective predictions của nó được distill ngược về unconditioned policy.
 
-## Why it exists
+## Vì sao cần SDPO
 
-Solves the [[con_credit_assignment]] weakness of [[ent_rlvr]]: scalar outcome rewards are too sparse for efficient RL on code/math. SDPO turns textual feedback into dense per-token supervision using the model's own [[con_self_teacher]] capability.
+Giải quyết điểm yếu [[con_credit_assignment]] của [[ent_rlvr]]: outcome-only reward quá sparse để train hiệu quả trên code/math. SDPO biến [[con_rich_feedback]] thành per-token supervision bằng cách tận dụng khả năng [[con_self_teacher]] của chính model.
 
-## Key properties
+## Tính chất chính
 
-- **Self-teacher** — no external teacher or reward model required.
-- **Consumes [[con_rich_feedback]]** — textual, not scalar.
-- **Dense signal** — per-token, not per-episode.
+- **Self-teacher** — không cần external teacher hay reward model riêng.
+- **Consumes [[con_rich_feedback]]** — textual, không phải scalar.
+- **Dense signal** — per-token, không phải per-episode.
 
-## Train-time vs test-time (important for thesis)
+## Train-time vs test-time (quan trọng với thesis)
 
-| | Train-time SDPO (Hübotter 2026) | Test-time SDPO (thesis scope) |
+| | Train-time SDPO (Hübotter 2026) | Test-time SDPO (scope thesis) |
 |---|---|---|
-| What moves? | Weights | Nothing — frozen model |
-| Signal use | Gradient updates | Iterated reprompting at inference |
-| Thesis RQs | Background | RQ1 (templates), RQ2 (suppression), RQ3 (CTC) |
+| Cái gì di chuyển? | Weights | Không gì cả — model frozen |
+| Dùng signal thế nào? | Gradient update | Iterated reprompting lúc inference |
+| RQs của thesis | Background | RQ1 (templates), RQ2 (suppression), RQ3 (CTC) |
 
-## Known results (from origin paper)
+Phân biệt này là lằn ranh của thesis — origin paper làm train-time, thesis làm test-time và nghiên cứu behavior chứ không train weights.
 
-- ≥ RLVR baselines on: scientific reasoning, tool use, competitive programming.
-- 3× sample efficiency vs best-of-k on hard tasks.
-- Evaluated on [[ent_livecodebench]].
+## Known results (từ origin paper)
 
-## Open thesis questions
+- ≥ RLVR baselines trên: scientific reasoning, tool use, competitive programming.
+- 3× sample efficiency vs best-of-k trên hard tasks.
+- Eval trên [[ent_livecodebench]].
 
-- Does train-time SDPO suppress [[con_epistemic_verbalization]]? (Kim et al. 2026 says yes for math; replication on code pending.)
-- Does test-time SDPO exhibit the same suppression? → thesis RQ2.
-- Which [[con_reprompt_template]] variants help or worsen it? → thesis RQ1.
-- How does [[con_ctc_metric]] behave across template variants? → thesis RQ3.
+## Open questions (thesis)
+
+- Train-time SDPO có suppress [[con_epistemic_verbalization]] không? (Kim et al. 2026 nói có trên math; replication trên code chưa ai làm.)
+- Test-time SDPO có cùng hiện tượng suppression đó không? → thesis **RQ2**.
+- Biến thể [[con_reprompt_template]] nào giúp / làm tệ hơn? → thesis **RQ1**.
+- [[con_ctc_metric]] thay đổi ra sao giữa các template? → thesis **RQ3**.

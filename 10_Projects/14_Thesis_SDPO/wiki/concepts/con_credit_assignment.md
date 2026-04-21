@@ -8,20 +8,20 @@ sources: [src_hubotter2026_self_distillation]
 
 # Credit assignment (RL)
 
-The problem of determining which tokens/actions in a trajectory were responsible for the final reward. Core difficulty of RL; made especially hard by sparse/outcome-only rewards.
+Bài toán xác định **token / action nào** trong một trajectory chịu trách nhiệm cho final reward. Là khó khăn cốt lõi của RL; đặc biệt khó khi reward sparse hoặc chỉ có ở outcome-level.
 
-## Why it matters for code / math
+## Vì sao quan trọng với code / math
 
-A correct solution may span dozens of reasoning tokens — which ones mattered? Outcome reward doesn't say. Poor credit assignment → sample-inefficient training → slow learning, noisy gradients.
+Một solution đúng có thể trải dài hàng chục reasoning tokens — token nào thực sự quyết định? Outcome reward không cho biết. Credit assignment kém → training sample-inefficient → học chậm, gradient noisy.
 
-## [[ent_rlvr]] weakness
+## Điểm yếu của [[ent_rlvr]]
 
-Verifiable rewards are binary at episode level. Every token shares the same scalar signal, so the gradient has no per-token discrimination.
+Verifiable reward là binary ở episode level. Mọi token share cùng một scalar signal → gradient không có khả năng phân biệt theo token.
 
-## How [[ent_sdpo]] sidesteps it
+## [[ent_sdpo]] giải quyết thế nào
 
-Converts [[con_rich_feedback]] into per-token signals via the [[con_self_teacher]]. The densified signal gives implicit credit assignment without changing the verifier.
+Chuyển [[con_rich_feedback]] thành per-token signal qua [[con_self_teacher]]. Signal dense đi kèm implicit credit assignment, không cần thay đổi verifier.
 
 ## Links
 
-- [[src_hubotter2026_self_distillation]] — motivation and proposed fix.
+- [[src_hubotter2026_self_distillation]] — motivation và fix được đề xuất.

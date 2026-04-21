@@ -9,18 +9,18 @@ aliases: [LiveCodeBench, LCB]
 
 # LiveCodeBench
 
-Competitive programming benchmark for evaluating LLM code reasoning. Released to mitigate contamination by using problems scraped after known training cutoffs. Thesis targets **v6**, hard and very-hard splits.
+Competitive programming benchmark để eval code reasoning của LLM. Thiết kế để chống contamination bằng cách scrape problems sau known training cutoff. Thesis target **v6**, split hard và very-hard.
 
-## Why the thesis uses it
+## Vì sao thesis chọn LCB
 
-- Hard / very-hard splits are sensitive to reasoning quality — suited to test-time SDPO ablations.
-- Versioned → contamination control.
-- Measures both correctness and compute (→ input to [[con_ctc_metric]]).
+- Split **hard / very-hard** nhạy với chất lượng reasoning → phù hợp để ablation test-time SDPO.
+- **Versioned** → kiểm soát contamination.
+- Đo cả correctness và compute → dùng làm input cho [[con_ctc_metric]].
 
-## Where it appears
+## Xuất hiện ở đâu
 
-- [[src_hubotter2026_self_distillation]] — one of the evaluation benchmarks for SDPO vs RLVR.
+- [[src_hubotter2026_self_distillation]] — một trong các benchmark eval SDPO vs RLVR.
 
 ## Gaps
 
-- LCB origin paper not yet ingested. Clip it into [[raw/]] and re-ingest to populate: contamination protocol, problem sourcing, scoring.
+- Chưa ingest LCB origin paper. Cần clip vào [[raw/]] rồi re-ingest để populate: contamination protocol, nguồn problem, cách scoring.

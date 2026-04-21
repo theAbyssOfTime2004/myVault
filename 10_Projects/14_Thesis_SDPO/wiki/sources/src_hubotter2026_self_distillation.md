@@ -12,50 +12,50 @@ depth: abstract-only
 
 # Hübotter et al. 2026 — Reinforcement Learning via Self-Distillation
 
-**Authors**: J. Hübotter, F. Lübeck, L. Behric, A. Baumann, M. Bagatella, D. Marta, I. Hakimi, I. Shenfeld, T. Kleine Buening, C. Guestrin, A. Krause.
+**Tác giả**: J. Hübotter, F. Lübeck, L. Behric, A. Baumann, M. Bagatella, D. Marta, I. Hakimi, I. Shenfeld, T. Kleine Buening, C. Guestrin, A. Krause.
 
-**arXiv**: [2601.20802](https://arxiv.org/abs/2601.20802) · submitted 2026-01-28 · revised 2026-02-16 · categories cs.LG, cs.AI.
+**arXiv**: [2601.20802](https://arxiv.org/abs/2601.20802) · submitted 2026-01-28 · revised 2026-02-16 · cs.LG, cs.AI.
 
-**Status**: abstract-only ingest. Full PDF needs to be downloaded to [[raw/hubotter2026_sdpo]] and re-ingested for method/results depth.
+**Status**: abstract-only ingest. Chưa đọc full PDF — cần tải về [[raw/hubotter2026_sdpo]] rồi re-ingest để deepen method/results.
 
 ## TL;DR
 
-RLVR (scalar outcome reward) has weak credit assignment. SDPO densifies the signal by using the model-conditioned-on-feedback as an internal teacher, then distilling those retrospective predictions back into the unconditioned policy. No external teacher or reward model needed. Reported 3× efficiency over best-of-k on hard tasks.
+[[ent_rlvr]] (scalar outcome reward) có signal quá sparse → [[con_credit_assignment]] yếu. SDPO densify signal bằng cách dùng chính model conditioned on feedback làm *internal teacher*, rồi distill retrospective predictions của nó ngược về policy gốc. Không cần external teacher hay reward model. Báo cáo **3× efficiency** so với best-of-k trên hard tasks.
 
 ## Problem setting
 
-- Baseline: [[ent_rlvr]] (RL with Verifiable Rewards) — code/math post-training standard.
-- Gap: outcome-only reward → sparse signal → poor [[con_credit_assignment]] → sample-inefficient training.
+- Baseline: [[ent_rlvr]] — tiêu chuẩn hiện tại để post-train LLM trên code/math.
+- Gap: reward chỉ ở outcome-level → signal sparse → [[con_credit_assignment]] kém → sample-inefficient khi bài toán khó.
 
 ## Key contributions
 
-1. Formalizes **"RL with rich feedback"** as a new problem setting beyond scalar rewards — see [[con_rich_feedback]].
-2. **[[ent_sdpo]] method**: model conditioned on textual feedback acts as a [[con_self_teacher]]; its predictions are distilled into the base policy.
-3. Empirical wins over RLVR across: scientific reasoning, tool use, competitive programming ([[ent_livecodebench]]).
-4. **3× efficiency** vs best-of-k sampling on hard tasks.
+1. Formalize hoá **"RL with rich feedback"** như một problem setting mới, vượt ra khỏi scalar reward — xem [[con_rich_feedback]].
+2. Đề xuất phương pháp **[[ent_sdpo]]**: model conditioned on textual feedback đóng vai trò [[con_self_teacher]]; predictions của nó được distill về policy gốc.
+3. Thực nghiệm vượt RLVR baselines trên: scientific reasoning, tool use, competitive programming ([[ent_livecodebench]]).
+4. **3× compute efficiency** so với best-of-k sampling trên hard tasks.
 
-## Method (high-level, pending PDF read)
+## Method (high-level, chờ PDF)
 
-SDPO treats `π(· | state, feedback)` as an internal teacher. Textual feedback conditions the model into producing better next-token predictions, which are then distilled back into `π(· | state)` via self-distillation. Signal becomes dense/per-token instead of sparse/per-episode.
+SDPO coi `π(· | state, feedback)` là internal teacher. Textual feedback condition model để nó sinh ra next-token predictions tốt hơn, sau đó distill về `π(· | state)` qua self-distillation. Signal trở thành dense/per-token thay vì sparse/per-episode.
 
-## Results (pending PDF read)
+## Results (chờ PDF cho con số cụ thể)
 
-- Scientific reasoning: ✅ (numbers pending)
-- Tool use: ✅ (numbers pending)
-- Competitive programming on [[ent_livecodebench]]: ✅ (numbers pending)
-- 3× compute efficiency vs best-of-k on hard-split tasks.
+- Scientific reasoning: ✅
+- Tool use: ✅
+- Competitive programming trên [[ent_livecodebench]]: ✅
+- 3× compute efficiency vs best-of-k ở hard-split.
 
-## Relation to this thesis
+## Liên quan tới thesis
 
-- **Origin paper** for the SDPO method the thesis studies.
-- Thesis RQ1 explores **test-time** variants of SDPO (reprompt templates) — this paper covers the **train-time** case.
-- Thesis RQ2 asks whether the Kim et al. 2026 uncertainty-suppression finding transfers to test-time SDPO on code — a phenomenon this paper does not directly examine.
+- Đây là **origin paper** của SDPO — mọi thứ thesis nghiên cứu đều dựa trên method này.
+- **RQ1** của thesis xoáy vào biến thể **test-time** (reprompt template ablation), trong khi paper này chỉ cover **train-time** setup.
+- **RQ2** hỏi liệu hiện tượng uncertainty-suppression mà Kim et al. 2026 phát hiện (trên math) có xuất hiện ở test-time SDPO trên code không — paper này không đề cập trực tiếp.
 
 ## Open questions
 
-- Exact distillation objective (KL? token cross-entropy? temperature?) — need PDF.
-- Feedback format sensitivity — maps directly onto thesis's [[con_reprompt_template]] taxonomy.
-- Does SDPO suppress [[con_epistemic_verbalization]]? (Not reported here; Kim et al. 2026 suggests yes in math domain.)
+- Distillation objective chính xác là gì? KL divergence tới teacher posterior? Token-level cross-entropy? Temperature setting? — cần đọc PDF.
+- Feedback format sensitivity — map trực tiếp vào [[con_reprompt_template]] taxonomy của thesis.
+- SDPO có suppress [[con_epistemic_verbalization]] không? Paper không report; Kim et al. 2026 gợi ý là có (ít nhất trên math domain).
 
 ## Links
 

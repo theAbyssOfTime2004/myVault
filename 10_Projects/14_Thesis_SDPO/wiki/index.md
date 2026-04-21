@@ -13,19 +13,19 @@ Catalog of all wiki pages. Read this first when answering queries.
 
 ## Sources (1)
 
-- [[src_hubotter2026_self_distillation]] — Hübotter et al. 2026, arXiv:2601.20802. Origin paper for SDPO. *Abstract-only ingest; full PDF pending.*
+- [[src_hubotter2026_self_distillation]] — Hübotter et al. 2026, arXiv:2601.20802. Origin paper của SDPO. *Abstract-only ingest; PDF đầy đủ còn chờ.*
 
 ## Entities (3)
 
-- [[ent_sdpo]] — Self-Distillation Policy Optimization, the method at the heart of the thesis.
+- [[ent_sdpo]] — Self-Distillation Policy Optimization, method trung tâm của thesis.
 - [[ent_rlvr]] — Reinforcement Learning with Verifiable Rewards (baseline setting).
-- [[ent_livecodebench]] — competitive programming benchmark (v6 hard/very-hard).
+- [[ent_livecodebench]] — competitive programming benchmark (v6 hard / very-hard).
 
 ## Concepts (3)
 
-- [[con_rich_feedback]] — textual/structured training signal beyond scalar rewards.
-- [[con_self_teacher]] — model-conditioned-on-feedback as internal teacher.
-- [[con_credit_assignment]] — per-token attribution problem that SDPO densifies.
+- [[con_rich_feedback]] — textual / structured training signal vượt khỏi scalar reward.
+- [[con_self_teacher]] — model conditioned on feedback làm internal teacher.
+- [[con_credit_assignment]] — bài toán per-token attribution mà SDPO densify.
 
 ## Still planned (from thesis proposal)
 

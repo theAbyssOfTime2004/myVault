@@ -89,7 +89,13 @@ Output a report. Do not edit during lint.
 - Every ingest: update `index.md` AND append `log.md`.
 - Every new note: use YAML frontmatter + snake_case file name.
 - Cross-link liberally — this vault's value is in the graph.
-- Bilingual OK: keep note in the language it was written; don't auto-translate.
+
+## Language convention
+
+- **Note mới: body tiếng Việt**, code-switch sang English cho terminology (attention, backprop, gradient descent, embedding...), tên model, tên paper.
+- **Note cũ**: giữ nguyên ngôn ngữ (đừng auto-translate). Chỉ Việt hóa khi user yêu cầu rewrite.
+- **Metadata (YAML, log entries, file names): English** cho ổn định tooling.
+- Không cứng nhắc — natural flow quan trọng hơn tỷ lệ VN/EN.
 
 ## Known issues (lint snapshot 2026-04-22)
 

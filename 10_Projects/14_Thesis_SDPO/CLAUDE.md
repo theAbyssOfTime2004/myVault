@@ -91,4 +91,13 @@ Do not edit during lint — output a report, let the user decide.
 - Every non-trivial claim in `synthesis/` must cite at least one `[[src_*]]`.
 - When in doubt about page type or naming, ask the user.
 - Update `index.md` on every wiki change. Append `log.md` on every ingest.
-- Bilingual OK: English for structure/metadata, Vietnamese OK for body where natural.
+
+## Language convention
+
+- **Body: tiếng Việt** — giải thích, transition, narrative, open questions.
+- **Code-switch tự nhiên sang English** cho:
+  - Terminology & methods: *SDPO, RLVR, credit assignment, self-teacher, epistemic verbalization, reprompt template*
+  - Tên model / benchmark / tác giả / paper title
+  - Technical ngắn gọn không có từ Việt tương đương hoặc dịch ra thì kỳ
+- **Metadata (YAML frontmatter, log entries, file names): English** — giữ ổn định cho tooling.
+- Không cần cứng nhắc — đọc thấy tự nhiên là được. Tránh dịch tên riêng hoặc dịch ép technical term.
