@@ -14,7 +14,12 @@
       "Bash(wsl -d Ubuntu -- bash -c \"python3 -c 'import pypdf; r = pypdf.PdfReader\\(\\\\\"/home/theabyssoftime/Repos/SDPO_thesis/sdpo.pdf\\\\\"\\); print\\(f\\\\\"Pages: {len\\(r.pages\\)}\\\\\"\\); [print\\(f\\\\\"---PAGE {i+1}---\\\\\"\\); print\\(p.extract_text\\(\\)\\) for i, p in enumerate\\(r.pages[:7]\\)]' 2>&1 | head -500\")",
       "Bash(wsl -d *)",
       "Bash(cp \"C:/Users/Maidanng/Downloads/2603.24472v1.pdf\" /tmp/kim2026.pdf)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "WebSearch",
+      "WebFetch(domain:scholar.google.com)",
+      "WebFetch(domain:dblp.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.beanie00.com)"
     ]
   }
 }
