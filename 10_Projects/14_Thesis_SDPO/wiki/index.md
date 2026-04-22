@@ -30,7 +30,7 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[ent_olmo3_7b_instruct]] — secondary model (chemistry 6× speedup result).
 - [[ent_deepseek_distill_7b]] — high-reasoning checkpoint, primary test model của Kim et al.
 
-## Concepts (9)
+## Concepts (10)
 
 - [[con_rich_feedback]] — textual / structured training signal vượt khỏi scalar reward.
 - [[con_self_teacher]] — model conditioned on feedback làm internal teacher (fixed vs moving regime).
@@ -41,6 +41,7 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[con_epistemic_verbalization]] — uncertainty tokens (wait/hmm/maybe...). **Core của RQ2.**
 - [[con_uncertainty_suppression]] — hiện tượng SD suppress epistemic tokens. **Core RQ2.**
 - [[con_task_coverage]] — modulating factor: narrow OK, broad harmful.
+- [[con_sdpo_loss_mechanics]] — derivation KL/gradient/IS/EMA của SDPO loss. Formal mechanism cho RQ1/RQ2 ablations.
 
 ## Still planned (from thesis proposal)
 

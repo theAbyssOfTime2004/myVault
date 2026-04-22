@@ -41,6 +41,12 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-04-23] concept | SDPO loss mechanics derivation
+
+- Created: [[con_sdpo_loss_mechanics]] — derivation kỹ thuật KL divergence → gradient per logit = π_S − π_T, generalized JSD (α), IS correction, EMA teacher update, top-K approximation. Includes code refs (`core_algos.py:1085`) và implications cho RQ1/RQ2/RQ3.
+- Updated: `wiki/index.md` (concepts 9→10).
+- Key takeaway: formal mechanism chứng minh template (c) và α là knobs trực tiếp trên gradient direction — không chỉ là hyperparam empirical. α ablation là new angle RQ2 chưa ai test.
+
 ## [2026-04-23] ingest | lasgroup/SDPO codebase (GitHub raw API)
 
 - Source: https://github.com/lasgroup/SDPO — read via curl GitHub raw (không clone). Files covered: `README.md`, `verl/trainer/config/sdpo.yaml`, `verl/trainer/config/actor/actor.yaml` (templates + defaults), `verl/trainer/ppo/core_algos.py` (`compute_self_distillation_loss` line 1085), `verl/workers/actor/dp_actor.py` (`TrustRegionTeacher`, `_update_teacher` EMA), `experiments/{generalization,rich_feedback,ttt}/*.sh`, `baseline_multiturn/multiturn.py`, `run_local_sdpo.sh`.
