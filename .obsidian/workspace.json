@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "2dd09c82bd5ff341",
+        "id": "6b3201c2c4e91627",
         "type": "tabs",
         "children": [
           {
-            "id": "4bf3aead57ac6ec2",
+            "id": "c0a2a54752672fe2",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -70,13 +70,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 241.5,
-    "collapsed": true
+    "width": 241.5
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -203,7 +201,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "4bf3aead57ac6ec2",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
     "30_Knowledge_Base/Devops/K8s.md",
     "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
