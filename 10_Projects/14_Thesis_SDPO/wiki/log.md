@@ -41,3 +41,10 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-04-22] synthesis | Kim 2026 thesis impact consolidation
+
+- Created: [[syn_kim2026_thesis_impact]] — first synthesis page của thesis.
+- Purpose: gom thesis impact notes rải trong entities/concepts về 1 page, chuẩn bị cho proposal/chapter writing.
+- Contains: RQ1/2/3 impact mapping, hyperparam contradiction table (Hübotter vs Kim), validation framing với direct quotes, testable hypotheses, action items.
+- Updated: `wiki/index.md` (synthesis section giờ có 1 page + proposal stub).
+
