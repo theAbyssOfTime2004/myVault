@@ -19,7 +19,12 @@
       "WebFetch(domain:scholar.google.com)",
       "WebFetch(domain:dblp.org)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:www.beanie00.com)"
+      "WebFetch(domain:www.beanie00.com)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(curl -s \"https://api.github.com/repos/lasgroup/SDPO\")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('Name:',d.get\\('name'\\)\\); print\\('Desc:',d.get\\('description'\\)\\); print\\('Lang:',d.get\\('language'\\)\\); print\\('Stars:',d.get\\('stargazers_count'\\)\\); print\\('Default:',d.get\\('default_branch'\\)\\)\")",
+      "Bash(wsl bash *)"
     ]
   }
 }

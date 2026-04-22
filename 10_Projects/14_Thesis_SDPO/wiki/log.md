@@ -41,6 +41,14 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-04-23] ingest | lasgroup/SDPO codebase (GitHub raw API)
+
+- Source: https://github.com/lasgroup/SDPO — read via curl GitHub raw (không clone). Files covered: `README.md`, `verl/trainer/config/sdpo.yaml`, `verl/trainer/config/actor/actor.yaml` (templates + defaults), `verl/trainer/ppo/core_algos.py` (`compute_self_distillation_loss` line 1085), `verl/workers/actor/dp_actor.py` (`TrustRegionTeacher`, `_update_teacher` EMA), `experiments/{generalization,rich_feedback,ttt}/*.sh`, `baseline_multiturn/multiturn.py`, `run_local_sdpo.sh`.
+- Created: [[src_lasgroup_sdpo_repo]].
+- Updated: `wiki/index.md` (sources 3→4).
+- Key findings: (1) **no dedicated TTT-SDPO script** — `experiments/ttt/` chỉ có multi-turn baseline, thesis phải tự wire up; (2) default `remove_thinking_from_demonstration=True` trùng Kim's `c=s\think`; (3) rich_feedback LCBv6 hyperparams khác default đáng kể — ALPHA=1.0 (reverse KL), LR=1e-6, mini_batch=1, topk=20, ema=0.01; (4) α knob (forward/JSD/reverse KL) chưa được Kim ablate — thesis RQ2 ablation mới; (5) fixed teacher bật qua `teacher_update_rate=0.0` không cần code change; (6) 19 LCB hard question IDs = {1,3,10,43,46,59,69,74,86,91,92,95,100,103,111,120,125,127,129}; (7) templates là plain strings với placeholders — trivial cho RQ1 taxonomy.
+- Key takeaway: infrastructure cho RQ1 và RQ2 (ngoại trừ TTT loop) có sẵn qua config flags. Thesis implementation cost chính = TTT-SDPO loop + epistemic token logging callback. Hyperparam differentials giữa §3 và §4 cho biết code regime cần tuning riêng từ scratch.
+
 ## [2026-04-22] synthesis | Kim 2026 thesis impact consolidation
 
 - Created: [[syn_kim2026_thesis_impact]] — first synthesis page của thesis.
