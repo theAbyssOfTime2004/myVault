@@ -3,7 +3,7 @@ type: concept
 created: 2026-04-22
 updated: 2026-04-22
 tags: [test-time, discovery, core-thesis]
-sources: [src_hubotter2026_self_distillation]
+sources: [src_hubotter2026_self_distillation, src_kim2026_why_self_distillation_degrades]
 aliases: [Test-Time Self-Distillation, TTT-SDPO, test-time SDPO]
 ---
 
@@ -73,9 +73,30 @@ Câu hỏi RQ2 đặt ra: trong quá trình iterate, uncertainty language (try/e
 ## Hyperparameters paper dùng (reference cho thesis)
 
 - Batch size 16 (ablation Figure 19: marginal differences 1/8/16).
-- Regularized teacher (EMA hoặc trust-region) — critical.
+- Regularized teacher (EMA hoặc trust-region) — critical. **Contest từ Kim et al. 2026: EMA 0.0 better than 0.05** ở math; cần test trên code.
 - 2750 generations budget per question.
 - 5 random seeds per question.
+
+## RQ2 gap mà [[src_kim2026_why_self_distillation_degrades]] leave open
+
+Kim et al. 2026 đo [[con_uncertainty_suppression]] ở:
+- Train-time (multi-question).
+- Math domain (DAPO-Math-17k, AIME, MATH500).
+- |D| ∈ {1, 8, 64, 128, 512, 14000}.
+
+**Không ai đo** test-time SDPO (|D|=1 effective) trên code domain.
+
+### Hypotheses thesis có thể test
+- H1: Suppression xảy ra monotonic qua iterations trên LCBv6 hard.
+- H2: Magnitude nhỏ hơn math vì code baseline có ít generic epistemic tokens như "wait/hmm" nhưng nhiều code-specific signals (try/except, assert — xem [[con_code_uncertainty_signals]] stub).
+- H3: Theo Kim framework, narrow coverage = suppression OK → thesis *có thể không thấy* degradation ở discovery@k nhưng thấy ở cross-question generalization.
+
+### Measurement protocol (đề xuất)
+Mỗi iteration, log:
+- `E(y_k) = Σ count(t, y_k)` cho 10 epistemic tokens.
+- Response length L(y_k).
+- Code-specific uncertainty signals (defensive branching count).
+- Track cross với discovery event.
 
 ## Links
 

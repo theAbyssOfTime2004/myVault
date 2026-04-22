@@ -3,7 +3,7 @@ type: concept
 created: 2026-04-22
 updated: 2026-04-22
 tags: [template, prompting, core-thesis, rq1]
-sources: [src_hubotter2026_self_distillation]
+sources: [src_hubotter2026_self_distillation, src_kim2026_why_self_distillation_degrades]
 aliases: [teacher reprompt template, SDPO template]
 ---
 
@@ -54,6 +54,25 @@ Các slot:
 5. **Uncertainty elicitation** ("Rate confidence before answering").
 6. **Behavior impact**: template có thay đổi [[con_epistemic_verbalization]], response length, hedging language không?
 7. **Test-time context**: paper chỉ test train-time templates.
+
+## Template là suppression lever (Kim et al. 2026 framing)
+
+[[src_kim2026_why_self_distillation_degrades]] cho thấy `I(y; c|x)` — information richness của teacher context — quyết định mức độ [[con_uncertainty_suppression]].
+
+Template **là cái chứa `c`** → template design = knob trực tiếp điều khiển suppression.
+
+Kim et al. test 4 điểm trên spectrum `I`:
+- `c = ∅` (no suppression).
+- `c = s\think` (mid).
+- `c = ỹ` (mid-high).
+- `c = s` (max suppression).
+
+**Gap**: họ chỉ vary *what goes into c*, không vary *how c is formatted/framed*. Thesis taxonomy có thể giữ content roughly constant nhưng vary:
+- **Phrasing**: "Correctly solve" vs "Identify your mistake" vs "Rate your confidence first".
+- **Ordering**: feedback-first vs solution-first.
+- **Explicit uncertainty elicitation**: "Before answering, note any uncertainty."
+
+→ Nếu template có thể **preserve epistemic tokens** mà vẫn deliver credit signal, đó là contribution đáng kể.
 
 ## Thesis RQ1 scope
 

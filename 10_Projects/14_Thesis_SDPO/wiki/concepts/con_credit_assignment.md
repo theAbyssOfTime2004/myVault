@@ -3,7 +3,7 @@ type: concept
 created: 2026-04-22
 updated: 2026-04-22
 tags: [rl, signal, credit-assignment]
-sources: [src_hubotter2026_self_distillation]
+sources: [src_hubotter2026_self_distillation, src_kim2026_why_self_distillation_degrades]
 ---
 
 # Credit assignment (RL)
@@ -41,6 +41,18 @@ Paper §4.2 tách 3 cấp độ density:
 Credit assignment dày đặc → gradient chỉ "bump" đúng những token cần thiết → model không cần dài dòng để đạt accuracy. Đây lý giải hiện tượng §3.3: SDPO responses **3×–11× ngắn hơn** GRPO mà accuracy cao hơn.
 
 → Liên hệ RQ1 của thesis: khác biệt behavior reasoning giữa SDPO và GRPO *có thể trace* về credit assignment pattern.
+
+## Caveat từ Kim et al. 2026
+
+Dense credit assignment **không penalize [[con_uncertainty_suppression]]**.
+
+- Credit chỉ follow teacher: token nào teacher prefer → student push toward.
+- Nếu teacher (có rich context) confident → teacher không emit `wait/hmm/maybe` → student bị push away khỏi những token đó.
+- Objective KL/advantage không có term bảo vệ epistemic signals.
+
+→ Dense signal **accurate** cho what teacher wants, nhưng what teacher wants (confident style) có thể hurt generalization. Credit assignment không phải neutral information transfer; nó copy teacher's behavioral biases cùng với correctness.
+
+Thesis implication: nếu thêm penalty term bảo tồn epistemic token distribution ở student, có thể giữ dense credit nhưng giảm suppression. Potential future work sau RQ2.
 
 ## Alternative approaches
 

@@ -3,7 +3,7 @@ type: entity
 created: 2026-04-22
 updated: 2026-04-22
 tags: [method, rl, self-distillation, core]
-sources: [src_hubotter2026_self_distillation]
+sources: [src_hubotter2026_self_distillation, src_kim2026_why_self_distillation_degrades]
 aliases: [Self-Distillation Policy Optimization, SDPO]
 ---
 
@@ -88,6 +88,28 @@ SDPO generations **ngắn hơn 3×–11×** so với GRPO nhưng accuracy cao h�
 ### Compute overhead nhẹ (§2.2)
 
 +5.8% (no env) đến +17.1% (with code env) time/step so với GRPO.
+
+## Critique from Kim et al. 2026
+
+[[src_kim2026_why_self_distillation_degrades]] chứng minh SDPO **suppress [[con_epistemic_verbalization]]** khi context `c` giàu. Với DeepSeek-R1-Distill-7B trên DAPO-Math:
+
+- SDPO `c=s` (full solution): AIME24 drop **~40%**, AMC23 drop ~15%.
+- Suppression lớn nhất ở `wait` (-60.8), `maybe` (-17.1), `perhaps` (-17.1) tokens.
+- Effect scale với task coverage: SDPO win khi `|D|≤128`, lose khi `|D|≥512` (Figure 7–8).
+
+### Contradiction hyperparam với Hübotter
+
+| | Hübotter 2026 default | Kim et al. 2026 finding |
+|---|---|---|
+| Teacher regularization best | Trust-region > EMA 0.05 > frozen | **Frozen (EMA 0.0) > EMA 0.05** |
+
+Kim frame moving teacher = feedback loop: student confident → teacher (same model) càng confident → amplify. Fixed initial teacher break loop. **Thesis MUST test cả hai.**
+
+### Với thesis
+
+- Hai papers không contradict — complementary: Hübotter đo in-domain narrow, Kim đo OOD broad.
+- Test-time SDPO (thesis) = extreme narrow (`|D|=1`) → theo Kim framework nên safe. Nhưng measurement của suppression chưa ai làm.
+- → **RQ2 scope intact**.
 
 ## Limitations (thừa nhận trong paper §7)
 

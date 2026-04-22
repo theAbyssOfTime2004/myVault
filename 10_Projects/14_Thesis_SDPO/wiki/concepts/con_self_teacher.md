@@ -3,7 +3,7 @@ type: concept
 created: 2026-04-22
 updated: 2026-04-22
 tags: [self-distillation, training, teacher-student, mechanism]
-sources: [src_hubotter2026_self_distillation]
+sources: [src_hubotter2026_self_distillation, src_kim2026_why_self_distillation_degrades]
 aliases: [self-distillation, internal teacher, retrospective teacher]
 ---
 
@@ -38,6 +38,27 @@ Paper note (§4.1): ability này **emergent với scale**. Model yếu (Qwen2.5-
 - Teacher generation accuracy tăng theo training.
 - Student eventually > initial teacher → true bootstrapping.
 - Cần [[con_teacher_regularization]] (EMA hoặc trust-region) để tránh teacher collapse về student và ignore `f`.
+
+## Teacher update regime — contradiction giữa Hübotter và Kim
+
+| Paper | Best regime |
+|---|---|
+| Hübotter 2026 §4.3 (code, narrow) | Trust-region > EMA 0.05 > frozen |
+| [[src_kim2026_why_self_distillation_degrades]] §5.4 (math, broad) | **Frozen (EMA 0.0) > EMA 0.05** |
+
+Kim frame moving teacher như **feedback loop**:
+```
+Student confident → teacher (cùng model) càng confident
+                 → student suppress epistemic mạnh hơn
+                 → amplify over iterations
+```
+
+Fixed initial teacher break loop vì teacher giữ epistemic baseline của base model.
+
+### Thesis implication
+- **Must ablate EMA 0.0 vs 0.05** — không default theo Hübotter.
+- Trust-region chưa ai test cross-domain → open question.
+- Test-time SDPO: loop chỉ ~170 steps/câu, có thể chưa đủ dài để manifest feedback loop → empirical test.
 
 ## Phân biệt với các setup khác
 
