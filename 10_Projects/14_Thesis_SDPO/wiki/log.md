@@ -41,6 +41,22 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-04-23] experiment | multi-turn inference loop — first working end-to-end
+
+- **Status**: Pipeline hoạt động end-to-end trên LCBv6, 1 câu/lần chạy.
+- **Components confirmed working**:
+  - Load 1 bài từ `train.parquet`
+  - Model sinh lời giải (Qwen3-8B, vLLM)
+  - Evaluator chạy test cases → trả rich feedback
+  - Reprompt loop với feedback → lặp đến khi pass hoặc hết budget
+  - Logging đầy đủ: reward/acc, prompt+response token length, feedback detail, total runtime
+- **Observed behavior trên 3 câu**:
+  - `q_2`: pass gần như ngay (easy case)
+  - `q_120`: pass sau số turn trung bình
+  - `q_1`: pass sau **54 turns**, nhiều lỗi trung gian (MemoryError) trước khi hội tụ — cho thấy hard-case cần nhiều iteration
+- **Note**: Đây là **multi-turn inference** (không có weight update) — baseline tương đương `baseline_multiturn/multiturn.py` trong [[src_lasgroup_sdpo_repo]]. Bước tiếp theo là thêm SDPO gradient step để thành test-time SDPO thật sự.
+- **Infrastructure gap đã bridge**: pipeline 1-câu hoạt động → foundation để add weight update layer lên trên.
+
 ## [2026-04-23] concept | SDPO loss mechanics derivation
 
 - Created: [[con_sdpo_loss_mechanics]] — derivation kỹ thuật KL divergence → gradient per logit = π_S − π_T, generalized JSD (α), IS correction, EMA teacher update, top-K approximation. Includes code refs (`core_algos.py:1085`) và implications cho RQ1/RQ2/RQ3.
