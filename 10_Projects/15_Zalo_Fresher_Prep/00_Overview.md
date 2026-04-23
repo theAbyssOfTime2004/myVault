@@ -1,39 +1,26 @@
 ---
-tags: [project, interview-prep, zalo]
+tags: [project, interview-prep, zalo, mlops]
 status: active
-deadline: 2026-05-14
 ---
 
-# Zalo Tech Fresher — 21-Day Prep Plan
+# Zalo Tech Fresher — Master Plan
 
-**Mục tiêu**: Đậu Zalo Tech Fresher Entry Test + Interview
-**Thời gian**: 2–3 tiếng/ngày, song song thesis + 2 môn học
-**Format Entry Test**: ~200 câu MCQ (DSA + CS Fundamentals có trong đó, không tách riêng)
+## Structure
 
-## Tiến độ
+| Phase | Mục tiêu | File | Thời gian |
+|-------|----------|------|-----------|
+| 1 | Build MLOps Project | [[Phase1_Week1_Foundation]] · [[Phase1_Week2_MLOps_Core]] · [[Phase1_Week3_Polish]] | 21 ngày · 2–3h/ngày |
+| 2 | Entry Test Sprint | [[Phase2_Entry_Test_Sprint]] | 1–2 tuần sau nộp CV · 4–5h/ngày |
+| 3 | Interview Prep | [[Phase3_Interview_Prep]] | Sau Entry Test |
 
-| Tuần | Chủ đề | File |
-|------|--------|------|
-| 1 | DSA MCQ (Ngày 1–7) | [[Week_1_DSA_MCQ]] |
-| 2 | CS Fundamentals (Ngày 8–14) | [[Week_2_CS_Fundamentals]] |
-| 3 | CV Deep Dive + Mock Interview (Ngày 15–21) | [[Week_3_CV_Mock_Interview]] |
+## Stack Phase 1
 
-## Nguyên tắc cắt bỏ
+| Tuần | Tech |
+|------|------|
+| 1 | GKE · FastAPI · Docker · Helm · MLflow · DVC |
+| 2 | KServe · GitHub Actions · Prometheus · Grafana · Evidently |
+| 3 | Jaeger · Loki · NGINX · Terraform · HPA |
 
-**Giữ lại**
-- DSA cơ bản — MCQ level, không cần code
-- CS Fundamentals: OS / Network / OOP
-- CV deep dive — số liệu và quyết định kỹ thuật
+## CV bullet (copy khi xong Phase 1)
 
-**Bỏ hoàn toàn**
-- LeetCode coding practice (Entry Test không yêu cầu tự viết code)
-- Toán rời rạc sâu (ROI thấp)
-- Computer Architecture sâu
-
-## Checklist cuối kỳ
-
-- [ ] CV Tiger Tribe — thêm metric cụ thể
-- [ ] CV AISIA Lab — thêm kết quả benchmark
-- [ ] CV Face Anti-Spoofing — ghi "In Development" nếu chưa xong
-- [ ] Link GitHub còn active
-- [ ] Mock interview với bạn ZTF đã lên lịch (Ngày 18)
+> Built end-to-end MLOps platform on GKE: KServe serving (scale-to-zero), Helm deployment, Prometheus/Grafana monitoring, Evidently drift detection, Jaeger tracing, CI/CD with >80% test coverage
