@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
+                "file": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Phase1_Week2_MLOps_Core"
+              "title": "src_lasgroup_sdpo_repo"
             }
           }
         ]
@@ -202,19 +202,18 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Open Copilot Chat": false,
-      "templater-obsidian:Templater": false,
-      "periodic-notes:Open today": false
+      "templater-obsidian:Templater": false
     }
   },
   "active": "e376f26ed6d3dc19",
   "lastOpenFiles": [
+    "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep.md",
+    "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation.md",
     "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
     "70_Daily_Notes/2026-04-23.md",
-    "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish.md",
-    "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
     "70_Daily_Notes/2026-04-16.md",
     "70_Daily_Notes/2026-04-11.md",
     "10_Projects/15_Zalo_Fresher_Prep/Week_2_CS_Fundamentals.md",
