@@ -31,12 +31,12 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- graph.json; then
+          git add graph.json
+          if git diff --cached --quiet; then
             echo "graph.json unchanged"
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add graph.json
           git commit -m "chore: rebuild graph.json"
           git push
