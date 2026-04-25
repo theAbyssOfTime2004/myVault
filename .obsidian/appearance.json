@@ -1,9 +1,11 @@
 {
-  "cssTheme": "Abyssal",
-  "accentColor": "#9baa88",
+  "cssTheme": "",
+  "accentColor": "#C3C88C",
   "theme": "obsidian",
   "nativeMenus": false,
   "baseFontSize": 17,
-  "enabledCssSnippets": [],
+  "enabledCssSnippets": [
+    "abyss-theme"
+  ],
   "translucency": true
 }

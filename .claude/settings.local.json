@@ -24,7 +24,10 @@
       "Bash(gh api *)",
       "Bash(curl -s \"https://api.github.com/repos/lasgroup/SDPO\")",
       "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('Name:',d.get\\('name'\\)\\); print\\('Desc:',d.get\\('description'\\)\\); print\\('Lang:',d.get\\('language'\\)\\); print\\('Stars:',d.get\\('stargazers_count'\\)\\); print\\('Default:',d.get\\('default_branch'\\)\\)\")",
-      "Bash(wsl bash *)"
+      "Bash(wsl bash *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:theabyssoftime2004.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

@@ -1,37 +1,48 @@
-# Home
+# ⬛ Mai Đăng · Home
+
+> `Developer · Data · AI/ML` — [[00_Dashboard/Home|⟳ refresh]]
 
 ---
 
-## Active Projects
+## // active_projects
 
-| Project               | Mục tiêu                         | Folder                               |
-| --------------------- | -------------------------------- | ------------------------------------ |
-| **Zalo Fresher Prep** | Pass vòng entry test + interview | [[15_Zalo_Fresher_Prep/00_Overview]] |
-| **Thesis SDPO**       | Hoàn thành nghiên cứu & báo cáo  | [[14_Thesis_SDPO]]                   |
-| **Uni Retake**        | Ôn thi lại                       | [[13_Uni_Retake]]                    |
-
-
----
-
-## Knowledge Base
-
-| Lĩnh vực | Link |
-|---|---|
-| AI / Deep Learning | [[30_Knowledge_Base/AI_DeepLearning]] |
-| DevOps / K8s | [[30_Knowledge_Base/Devops]] |
-| CS / Networking / OS | [[30_Knowledge_Base/CS_Networking_OS]] |
-| Math / Stats | [[30_Knowledge_Base/Math_Stats]] |
-| Dev Tools | [[30_Knowledge_Base/Dev_Tools]] |
+| Project               | Mục tiêu                        | Status         | Link                                                     |
+| --------------------- | ------------------------------- | -------------- | -------------------------------------------------------- |
+| **Zalo Fresher Prep** | Pass entry test + interview     | 🟡 In Progress | [[10_Projects/15_Zalo_Fresher_Prep/00_Overview\|→ open]] |
+| **Thesis SDPO**       | Hoàn thành nghiên cứu & báo cáo | 🟡 In Progress | [[10_Projects/14_Thesis_SDPO\|→ open]]                   |
+| **Uni Retake**        | Ôn thi lại                      | 🔴 Urgent      | [[10_Projects/13_Uni_Retake\|→ open]]                    |
 
 ---
 
-## Areas
+## // knowledge_base
 
-- [[20_Areas/Coding_Skills]] — DSA, OOP, Leetcode
-- [[20_Areas/Personal_Growth]]
+| Domain | Tags | Link |
+|---|---|---|
+| `AI / Deep Learning` | #ml #dl #pytorch | [[30_Knowledge_Base/AI_DeepLearning\|→ open]] |
+| `DevOps / K8s` | #devops #k8s #docker | [[30_Knowledge_Base/Devops\|→ open]] |
+| `CS / Networking / OS` | #cs #networking #os | [[30_Knowledge_Base/CS_Networking_OS\|→ open]] |
+| `Math / Stats` | #math #stats | [[30_Knowledge_Base/Math_Stats\|→ open]] |
+| `Dev Tools` | #tools #git #cli | [[30_Knowledge_Base/Dev_Tools\|→ open]] |
 
 ---
 
-## Quick Capture
+## // areas
 
-> Ghi nhanh ý tưởng, link, snippet ở đây trước khi phân loại vào đúng chỗ.
+- ▹ [[20_Areas/Coding_Skills]] — DSA · OOP · Leetcode
+- ▹ [[20_Areas/Personal_Growth]] — Habits · Goals · Reflection
+
+---
+
+## // quick_capture
+
+> [!note] Scratch pad
+> Ghi nhanh ý tưởng, link, snippet trước khi phân loại.
+
+---
+
+## // navigation
+
+| | | |
+|---|---|---|
+| [[50_Weekly_Notes\|📅 Weekly]] | [[60_Monthly_Notes\|📆 Monthly]] | [[70_Daily_Notes\|📝 Daily]] |
+| [[10_Projects\|🚀 Projects]] | [[30_Knowledge_Base\|🧠 Knowledge]] | [[99_System\|⚙️ System]] |
