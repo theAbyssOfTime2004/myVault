@@ -206,8 +206,9 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "aeb4bd27f266b875",
+  "active": "fa18f94b19c7c994",
   "lastOpenFiles": [
+    "graph.json",
     "30_Knowledge_Base/Devops/Helm.md",
     "99_System/Vault_Redesign_Log.md",
     "scripts/build_graph.py",
@@ -235,7 +236,6 @@
     "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "00_Dashboard/ConfigMap và Secret.md",
     "00_Dashboard/con_ctc_metric.md",
-    "30_Knowledge_Base/Devops/k8s Storage.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
