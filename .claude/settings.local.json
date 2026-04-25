@@ -27,7 +27,8 @@
       "Bash(wsl bash *)",
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "WebFetch(domain:theabyssoftime2004.github.io)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://raw.githubusercontent.com/theAbyssOfTime2004/theAbyssOfTime2004.github.io/main/index.html)"
     ]
   }
 }
