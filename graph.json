@@ -1,0 +1,4516 @@
+{
+  "nodes": [
+    {
+      "id": "50_Weekly_Notes/2026-W15",
+      "title": "2026-W15",
+      "group": "periodic",
+      "degree": 14
+    },
+    {
+      "id": "50_Weekly_Notes/2026-W16",
+      "title": "2026-W16",
+      "group": "periodic",
+      "degree": 8
+    },
+    {
+      "id": "50_Weekly_Notes/2026-W17",
+      "title": "2026-W17",
+      "group": "periodic",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/devops",
+      "title": "devops",
+      "group": "other",
+      "degree": 8
+    },
+    {
+      "id": "3 - Tags/infrastructure",
+      "title": "infrastructure",
+      "group": "other",
+      "degree": 3
+    },
+    {
+      "id": "3 - Tags/socket programming with UDP and TCP",
+      "title": "socket programming with UDP and TCP",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/linked list",
+      "title": "linked list",
+      "group": "other",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/P2P applications",
+      "title": "P2P applications",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/workload",
+      "title": "workload",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/Neural Networks",
+      "title": "Neural Networks",
+      "group": "other",
+      "degree": 13
+    },
+    {
+      "id": "3 - Tags/Mathematics",
+      "title": "Mathematics",
+      "group": "other",
+      "degree": 8
+    },
+    {
+      "id": "3 - Tags/Web and HTTP",
+      "title": "Web and HTTP",
+      "group": "other",
+      "degree": 11
+    },
+    {
+      "id": "3 - Tags/Computer Vision",
+      "title": "Computer Vision",
+      "group": "other",
+      "degree": 4
+    },
+    {
+      "id": "3 - Tags/statistical",
+      "title": "statistical",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/classification",
+      "title": "classification",
+      "group": "other",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/diffusion models",
+      "title": "diffusion models",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/The Domain Name System DNS",
+      "title": "The Domain Name System DNS",
+      "group": "other",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/SLZ",
+      "title": "SLZ",
+      "group": "other",
+      "degree": 5
+    },
+    {
+      "id": "3 - Tags/video streaming and content distribution networks",
+      "title": "video streaming and content distribution networks",
+      "group": "other",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/beginner",
+      "title": "beginner",
+      "group": "other",
+      "degree": 25
+    },
+    {
+      "id": "3 - Tags/Mangas",
+      "title": "Mangas",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/High Performance Python",
+      "title": "High Performance Python",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/data scientist",
+      "title": "data scientist",
+      "group": "other",
+      "degree": 35
+    },
+    {
+      "id": "3 - Tags/supervised learning",
+      "title": "supervised learning",
+      "group": "other",
+      "degree": 13
+    },
+    {
+      "id": "3 - Tags/array",
+      "title": "array",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/information theory",
+      "title": "information theory",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/30 Days of Pandas - Leetcode",
+      "title": "30 Days of Pandas - Leetcode",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/tool",
+      "title": "tool",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/stack",
+      "title": "stack",
+      "group": "other",
+      "degree": 7
+    },
+    {
+      "id": "3 - Tags/dict, set",
+      "title": "dict, set",
+      "group": "other",
+      "degree": 5
+    },
+    {
+      "id": "3 - Tags/NLP",
+      "title": "NLP",
+      "group": "other",
+      "degree": 7
+    },
+    {
+      "id": "3 - Tags/Email, SMTP, IMAP",
+      "title": "Email, SMTP, IMAP",
+      "group": "other",
+      "degree": 4
+    },
+    {
+      "id": "3 - Tags/review",
+      "title": "review",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/regression",
+      "title": "regression",
+      "group": "other",
+      "degree": 7
+    },
+    {
+      "id": "3 - Tags/seminar HCMUS",
+      "title": "seminar HCMUS",
+      "group": "other",
+      "degree": 7
+    },
+    {
+      "id": "3 - Tags/Self-Supervised Learning",
+      "title": "Self-Supervised Learning",
+      "group": "other",
+      "degree": 6
+    },
+    {
+      "id": "3 - Tags/data mining",
+      "title": "data mining",
+      "group": "other",
+      "degree": 10
+    },
+    {
+      "id": "3 - Tags/uninformed search",
+      "title": "uninformed search",
+      "group": "other",
+      "degree": 7
+    },
+    {
+      "id": "3 - Tags/dsa",
+      "title": "dsa",
+      "group": "other",
+      "degree": 5
+    },
+    {
+      "id": "3 - Tags/informed search",
+      "title": "informed search",
+      "group": "other",
+      "degree": 3
+    },
+    {
+      "id": "3 - Tags/Machine Learning",
+      "title": "Machine Learning",
+      "group": "other",
+      "degree": 33
+    },
+    {
+      "id": "3 - Tags/HNK-SMARTAP-BREWBUDDY",
+      "title": "HNK-SMARTAP-BREWBUDDY",
+      "group": "other",
+      "degree": 2
+    },
+    {
+      "id": "3 - Tags/computer networking",
+      "title": "computer networking",
+      "group": "other",
+      "degree": 21
+    },
+    {
+      "id": "3 - Tags/search algorithm",
+      "title": "search algorithm",
+      "group": "other",
+      "degree": 14
+    },
+    {
+      "id": "3 - Tags/fsds",
+      "title": "fsds",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/Object Detection",
+      "title": "Object Detection",
+      "group": "other",
+      "degree": 3
+    },
+    {
+      "id": "3 - Tags/Graph Theory",
+      "title": "Graph Theory",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "3 - Tags/Deep Learning",
+      "title": "Deep Learning",
+      "group": "other",
+      "degree": 39
+    },
+    {
+      "id": "3 - Tags/Segmentation",
+      "title": "Segmentation",
+      "group": "other",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/CLAUDE",
+      "title": "CLAUDE",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11",
+      "title": "SDPO 2026-04-11",
+      "group": "projects",
+      "degree": 3
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
+      "title": "hubotter2026_sdpo",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/raw/kim2026_why_self_distillation_degrades",
+      "title": "kim2026_why_self_distillation_degrades",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "title": "index",
+      "group": "projects",
+      "degree": 24
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "title": "log",
+      "group": "projects",
+      "degree": 23
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b",
+      "title": "ent_qwen3_8b",
+      "group": "projects",
+      "degree": 11
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "title": "ent_rlvr",
+      "group": "projects",
+      "degree": 13
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct",
+      "title": "ent_olmo3_7b_instruct",
+      "group": "projects",
+      "degree": 9
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
+      "title": "ent_deepseek_distill_7b",
+      "group": "projects",
+      "degree": 8
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "title": "ent_rlrf",
+      "group": "projects",
+      "degree": 12
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "title": "ent_sdpo",
+      "group": "projects",
+      "degree": 27
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench",
+      "title": "ent_livecodebench",
+      "group": "projects",
+      "degree": 12
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
+      "title": "ent_grpo",
+      "group": "projects",
+      "degree": 12
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "title": "src_kim2026_why_self_distillation_degrades",
+      "group": "projects",
+      "degree": 27
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "title": "src_hubotter2026_self_distillation",
+      "group": "projects",
+      "degree": 28
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation",
+      "title": "src_kim2026_strategic_info_allocation",
+      "group": "projects",
+      "degree": 7
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "title": "src_lasgroup_sdpo_repo",
+      "group": "projects",
+      "degree": 10
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "title": "con_epistemic_verbalization",
+      "group": "projects",
+      "degree": 20
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "title": "con_uncertainty_suppression",
+      "group": "projects",
+      "degree": 17
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "title": "con_rich_feedback",
+      "group": "projects",
+      "degree": 13
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
+      "title": "con_discovery_at_k",
+      "group": "projects",
+      "degree": 11
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "title": "con_credit_assignment",
+      "group": "projects",
+      "degree": 13
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "title": "con_test_time_self_distillation",
+      "group": "projects",
+      "degree": 18
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "title": "con_task_coverage",
+      "group": "projects",
+      "degree": 12
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "title": "con_self_teacher",
+      "group": "projects",
+      "degree": 17
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "title": "con_reprompt_template",
+      "group": "projects",
+      "degree": 18
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "title": "con_sdpo_loss_mechanics",
+      "group": "projects",
+      "degree": 8
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "title": "syn_kim2026_thesis_impact",
+      "group": "projects",
+      "degree": 16
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/TTH cuối kỳ review",
+      "title": "TTH cuối kỳ review",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/Linear_Algebra_Mastery",
+      "title": "Linear_Algebra_Mastery",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/ôn tập",
+      "title": "ôn tập",
+      "group": "projects",
+      "degree": 3
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/khaosat",
+      "title": "khaosat",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/giải đề ck datamining 2023-2024",
+      "title": "giải đề ck datamining 2023-2024",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/Linear_Programming_Plan",
+      "title": "Linear_Programming_Plan",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "title": "General_Physics_Tracker",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
+      "title": "BrewBuddy SmartTap Overview",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/(SLZ) langgraph memory  - summarizing context",
+      "title": "(SLZ) langgraph memory  - summarizing context",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/Workflow của agent",
+      "title": "Workflow của agent",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/vibe-flow overview",
+      "title": "vibe-flow overview",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/(SLZ) llamaindex memory - langGraph memory",
+      "title": "(SLZ) llamaindex memory - langGraph memory",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/12_TigerTribe_Intern/(SLZ) playwright test",
+      "title": "(SLZ) playwright test",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/meeting note nov 16",
+      "title": "meeting note nov 16",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/FCMF model MABSA",
+      "title": "FCMF model MABSA",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/QFORMER",
+      "title": "QFORMER",
+      "group": "projects",
+      "degree": 3
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/memory_flow",
+      "title": "memory_flow",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/seminar báo cáo",
+      "title": "seminar báo cáo",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/caption generation",
+      "title": "caption generation",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/MeetingNote lần 2 cùng todo-tasks",
+      "title": "MeetingNote lần 2 cùng todo-tasks",
+      "group": "projects",
+      "degree": 2
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/Multimodal Aspect-Based Sentiment Analysis with External Knowledge and Multi-granularity Image-Text Features (EKMG",
+      "title": "Multimodal Aspect-Based Sentiment Analysis with External Knowledge and Multi-granularity Image-Text Features (EKMG",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/draft...",
+      "title": "draft...",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/MeetingNote lần 1",
+      "title": "MeetingNote lần 1",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/SynGraph và SemGraph trong DASCO",
+      "title": "SynGraph và SemGraph trong DASCO",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/AETS (Aspect Enhancement and Text Simplification)",
+      "title": "AETS (Aspect Enhancement and Text Simplification)",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/meeting note oct 27",
+      "title": "meeting note oct 27",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/dasco implementation",
+      "title": "dasco implementation",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/EKMG-Methodology-Input-Output",
+      "title": "EKMG-Methodology-Input-Output",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/baocao",
+      "title": "baocao",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/11_Seminar_MABSA/custom DQPA",
+      "title": "custom DQPA",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation",
+      "title": "Phase1_Week1_Foundation",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
+      "title": "Phase3_Interview_Prep",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint",
+      "title": "Phase2_Entry_Test_Sprint",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "title": "00_Overview",
+      "group": "projects",
+      "degree": 6
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish",
+      "title": "Phase1_Week3_Polish",
+      "group": "projects",
+      "degree": 2
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core",
+      "title": "Phase1_Week2_MLOps_Core",
+      "group": "projects",
+      "degree": 1
+    },
+    {
+      "id": "60_Monthly_Notes/2026-04",
+      "title": "2026-04",
+      "group": "periodic",
+      "degree": 6
+    },
+    {
+      "id": "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas",
+      "title": "Days 2 - 30 days of Pandas",
+      "group": "areas",
+      "degree": 1
+    },
+    {
+      "id": "20_Areas/Coding_Skills/Days 1 - 30 Days of Pandas",
+      "title": "Days 1 - 30 Days of Pandas",
+      "group": "areas",
+      "degree": 2
+    },
+    {
+      "id": "20_Areas/Coding_Skills/queue",
+      "title": "queue",
+      "group": "areas",
+      "degree": 6
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Progress Tracker",
+      "title": "Progress Tracker",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Python Big-O",
+      "title": "Python Big-O",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-14",
+      "title": "Ngày 2025-08-14",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-10",
+      "title": "Ngày 2025-08-10",
+      "group": "areas",
+      "degree": 1
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-21",
+      "title": "Ngày 2025-08-21",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-09",
+      "title": "Ngày 2025-08-09",
+      "group": "areas",
+      "degree": 1
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-12",
+      "title": "Ngày 2025-08-12",
+      "group": "areas",
+      "degree": 2
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-11",
+      "title": "Ngày 2025-08-11",
+      "group": "areas",
+      "degree": 2
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 6 - Backtracking & Sliding Window/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 7 - Dynamic Programming I/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 4 - Tree/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 8 - Dynamic Programming II/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 3 - Binary Search & Recursion/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 5 - Graph/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 2 - Linked List & Stack/Notes",
+      "title": "Notes",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/dsa_plan/Week 2 - Linked List & Stack/Ngày 2025-08-25",
+      "title": "Ngày 2025-08-25",
+      "group": "areas",
+      "degree": 3
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/Day 3",
+      "title": "Day 3",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/Day 6",
+      "title": "Day 6",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/day 1",
+      "title": "day 1",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/Day 5",
+      "title": "Day 5",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/day 4",
+      "title": "day 4",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/day 2",
+      "title": "day 2",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Coding_Skills/oop/exercise",
+      "title": "exercise",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Personal_Growth/Mangas that i saved for future",
+      "title": "Mangas that i saved for future",
+      "group": "areas",
+      "degree": 2
+    },
+    {
+      "id": "20_Areas/Personal_Growth/Movies that i should watch",
+      "title": "Movies that i should watch",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "20_Areas/Personal_Growth/Plan for April",
+      "title": "Plan for April",
+      "group": "areas",
+      "degree": 0
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-23",
+      "title": "2026-04-23",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/03-03-2026",
+      "title": "03-03-2026",
+      "group": "periodic",
+      "degree": 0
+    },
+    {
+      "id": "70_Daily_Notes/31-03-2026",
+      "title": "31-03-2026",
+      "group": "periodic",
+      "degree": 0
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-07",
+      "title": "2026-04-07",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-04",
+      "title": "2026-04-04",
+      "group": "periodic",
+      "degree": 0
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-16",
+      "title": "2026-04-16",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-13",
+      "title": "2026-04-13",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-12",
+      "title": "2026-04-12",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-22",
+      "title": "2026-04-22",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-10",
+      "title": "2026-04-10",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-19",
+      "title": "2026-04-19",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-08",
+      "title": "2026-04-08",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-06",
+      "title": "2026-04-06",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-11",
+      "title": "2026-04-11",
+      "group": "periodic",
+      "degree": 4
+    },
+    {
+      "id": "40_Archives/README",
+      "title": "README",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/report",
+      "title": "report",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/directory_structure",
+      "title": "directory_structure",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Mạng máy tính",
+      "title": "Mạng máy tính",
+      "group": "archive",
+      "degree": 3
+    },
+    {
+      "id": "40_Archives/Untitled",
+      "title": "Untitled",
+      "group": "archive",
+      "degree": 1
+    },
+    {
+      "id": "40_Archives/Untitled 1",
+      "title": "Untitled 1",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report",
+      "title": "Data Mining Lab1 Report",
+      "group": "archive",
+      "degree": 5
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Chap2-summary",
+      "title": "Chap2-summary",
+      "group": "archive",
+      "degree": 1
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report",
+      "title": "Data Mining Lab2 Report",
+      "group": "archive",
+      "degree": 5
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data_Mining_Lab6_Report",
+      "title": "Data_Mining_Lab6_Report",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/report_5.3",
+      "title": "report_5.3",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Bài tập thực hành KTDL tuần 9",
+      "title": "Bài tập thực hành KTDL tuần 9",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data_Mining_Lab3_Report",
+      "title": "Data_Mining_Lab3_Report",
+      "group": "archive",
+      "degree": 3
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data_Mining_Lab5_report",
+      "title": "Data_Mining_Lab5_report",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report",
+      "title": "Data_Mining_Lab4_Report",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Uni_Year1_3/Data_Mining_Lab7_Report",
+      "title": "Data_Mining_Lab7_Report",
+      "group": "archive",
+      "degree": 1
+    },
+    {
+      "id": "40_Archives/Old_Research/A Survey of Deep Learning in Sports Applications",
+      "title": "A Survey of Deep Learning in Sports Applications",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Old_Research/Globfire Dataset",
+      "title": "Globfire Dataset",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/Early Wildfire Detection and Distance Estimation Using Aerial Visible-Infrared Images",
+      "title": "Early Wildfire Detection and Distance Estimation Using Aerial Visible-Infrared Images",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/so sánh 2 phương pháp FF detection system using WSN",
+      "title": "so sánh 2 phương pháp FF detection system using WSN",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches",
+      "title": "tóm tắt Forest Fire Detection and Notification Method Based on AI and IoT Approaches",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution",
+      "title": "Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt Early FF Detection System Using WSN and DL",
+      "title": "tóm tắt Early FF Detection System Using WSN and DL",
+      "group": "archive",
+      "degree": 4
+    },
+    {
+      "id": "40_Archives/Old_Research/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV",
+      "title": "Early Detection of Forest Fire Using Mixed Learning Techniques and UAV",
+      "group": "archive",
+      "degree": 3
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt FF detection system using WSN and ML",
+      "title": "tóm tắt FF detection system using WSN and ML",
+      "group": "archive",
+      "degree": 4
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction",
+      "title": "tóm tắt Advancing Forest-Fire Management Exploring Sensor Networks, Data Mining Techniques, and SVM Algorithm for Prediction",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt Developing novel ML based fire weather indices",
+      "title": "tóm tắt Developing novel ML based fire weather indices",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt bài báo 1.pdf",
+      "title": "tóm tắt bài báo 1.pdf",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "40_Archives/Old_Research/Early wldfire detection using different machine learning algorithms",
+      "title": "Early wldfire detection using different machine learning algorithms",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Old_Research/Early Forest-Fire Detection Utilizing Regression Models",
+      "title": "Early Forest-Fire Detection Utilizing Regression Models",
+      "group": "archive",
+      "degree": 2
+    },
+    {
+      "id": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "title": "A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "group": "archive",
+      "degree": 5
+    },
+    {
+      "id": "40_Archives/Old_Research/tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms",
+      "title": "tóm tắt Deep Learning-Based Forest Fire Risk Research on Monitoring and Early Warning Algorithms",
+      "group": "archive",
+      "degree": 0
+    },
+    {
+      "id": "00_Dashboard/Home",
+      "title": "Home",
+      "group": "dashboard",
+      "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
+      "title": "So Sánh Giữa PCA, SVD và LSA",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "title": "Logistic Regression review 1",
+      "group": "knowledge",
+      "degree": 8
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
+      "title": "ISOMAP",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
+      "title": "Linear Regression for more complex models",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
+      "title": "Convolutional Neural Networks",
+      "group": "knowledge",
+      "degree": 10
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search",
+      "title": "Uniformed-cost search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation",
+      "title": "Neural Networks Foundation",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/transformer",
+      "title": "transformer",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
+      "title": "VAE và các Diffusion Models",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/A-star search",
+      "title": "A-star search",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
+      "title": "Iterative-deepening search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Foundations of NLP - Machine Learning, Deep Learning, and Representation",
+      "title": "Foundations of NLP - Machine Learning, Deep Learning, and Representation",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
+      "title": "Fuzzy Logic",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
+      "title": "Word embedding and Word2Vec",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
+      "title": "Model Generalization",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Neural Network",
+      "title": "Neural Network",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "title": "10 Contrastive Learning Frameworks",
+      "group": "knowledge",
+      "degree": 8
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
+      "title": "Gradient Descent",
+      "group": "knowledge",
+      "degree": 10
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
+      "title": "Gradient Descent in Linear Regression",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
+      "title": "Attention Mechanism",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/FGSM",
+      "title": "FGSM",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
+      "title": "Logistic Regression review 2",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
+      "title": "Gradient Descent Variants",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
+      "title": "Basic Search Algorithms in Artificial Intelligence",
+      "group": "knowledge",
+      "degree": 13
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/index",
+      "title": "index",
+      "group": "knowledge",
+      "degree": 58
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "title": "Contrastive Learning",
+      "group": "knowledge",
+      "degree": 13
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
+      "title": "Contrastive Learning Loss Functions",
+      "group": "knowledge",
+      "degree": 8
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/log",
+      "title": "log",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word Representation",
+      "title": "Word embedding and Word Representation",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
+      "title": "Depth-first search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "title": "Common Activation Function In Neural Networks",
+      "group": "knowledge",
+      "degree": 12
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
+      "title": "SkipGram and CBOW",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
+      "title": "SVM Classification Model",
+      "group": "knowledge",
+      "degree": 9
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks",
+      "title": "The Basics Data Types and Major Building Blocks",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/CLAUDE",
+      "title": "CLAUDE",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "title": "Recurrent Neural Networks (RNN)",
+      "group": "knowledge",
+      "degree": 8
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/AI Engineering",
+      "title": "AI Engineering",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
+      "title": "Graph Search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm",
+      "title": "Generic Algorithm",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "title": "So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining",
+      "title": "Introduction to Data Mining",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
+      "title": "Depth-Limited Search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Compositional Semantics",
+      "title": "Compositional Semantics",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/SubWord Models",
+      "title": "SubWord Models",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "title": "Backpropagation",
+      "group": "knowledge",
+      "degree": 12
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/regularization",
+      "title": "regularization",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
+      "title": "Local Search Algorithm",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/CNN review",
+      "title": "CNN review",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
+      "title": "Best-first search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/double descent",
+      "title": "double descent",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch",
+      "title": "Creating ML pipeline from scratch",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
+      "title": "Decision Tree",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
+      "title": "Logistic Regression",
+      "group": "knowledge",
+      "degree": 11
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
+      "title": "Bread-first search",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Faster R-CNN",
+      "title": "Faster R-CNN",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
+      "title": "Linear Regression",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
+      "title": "Adamw and Adam (optimizer)",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
+      "title": "Về các thuật toán tìm kiếm",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
+      "title": "Normalizing Inputs",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/SVD for denoising",
+      "title": "SVD for denoising",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
+      "title": "Vanishing and Exploding Gradient",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/decorator",
+      "title": "decorator",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/LangChain",
+      "title": "LangChain",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/Docker",
+      "title": "Docker",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/datalab pdf to markdown",
+      "title": "datalab pdf to markdown",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/Playwright for testing",
+      "title": "Playwright for testing",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/Dev_Tools/Pydantic Schema",
+      "title": "Pydantic Schema",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/The RFC",
+      "title": "The RFC",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/P2P architecture",
+      "title": "P2P architecture",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/video streaming and CDNs",
+      "title": "video streaming and CDNs",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/BitTorrent",
+      "title": "BitTorrent",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Socket Programming",
+      "title": "Socket Programming",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Content distribution networks (CDNs)",
+      "title": "Content distribution networks (CDNs)",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Cookies",
+      "title": "Cookies",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/DNS name resolution",
+      "title": "DNS name resolution",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Email.",
+      "title": "Email.",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/DOMAIN NAME SYSTEM",
+      "title": "DOMAIN NAME SYSTEM",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Conditional GET",
+      "title": "Conditional GET",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Web caches (Proxy server)",
+      "title": "Web caches (Proxy server)",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Scalability Issues And The Streaming Scenario",
+      "title": "Scalability Issues And The Streaming Scenario",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/HTTP_2",
+      "title": "HTTP_2",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Caching example",
+      "title": "Caching example",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Caching, Updating DNS Records",
+      "title": "Caching, Updating DNS Records",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/CS_Networking_OS/Streaming Multimedia - DASH",
+      "title": "Streaming Multimedia - DASH",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "title": "k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
+      "title": "k8s ConfigMap và Secret",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Storage",
+      "title": "k8s Storage",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/Ingress",
+      "title": "Ingress",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/Helm",
+      "title": "Helm",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/K8s",
+      "title": "K8s",
+      "group": "knowledge",
+      "degree": 10
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/Job và Cronjob",
+      "title": "Job và Cronjob",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Services",
+      "title": "k8s Services",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
+      "title": "k8s Autoscaling - HPA và KEDA",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
+      "title": "Curse of dimensionality",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Fourier series and transformation",
+      "title": "Fourier series and transformation",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Toán tổ hợp",
+      "title": "Toán tổ hợp",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Tensor",
+      "title": "Tensor",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
+      "title": "hàm phi tuyến",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
+      "title": "multivariable chain rule",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "title": "Linear Algebra Review",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông",
+      "title": "Đường Đi, Chu Trình, Liên Thông",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "title": "Non-symmetry of the Kullback-Leibler divergence",
+      "group": "knowledge",
+      "degree": 6
+    }
+  ],
+  "links": [
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "60_Monthly_Notes/2026-04"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-06"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-07"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-08"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-10"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-11"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W15",
+      "target": "70_Daily_Notes/2026-04-12"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W16",
+      "target": "60_Monthly_Notes/2026-04"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W16",
+      "target": "70_Daily_Notes/2026-04-13"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W16",
+      "target": "70_Daily_Notes/2026-04-16"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W16",
+      "target": "70_Daily_Notes/2026-04-19"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W17",
+      "target": "60_Monthly_Notes/2026-04"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W17",
+      "target": "70_Daily_Notes/2026-04-22"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W17",
+      "target": "70_Daily_Notes/2026-04-23"
+    },
+    {
+      "source": "3 - Tags/linked list",
+      "target": "3 - Tags/dsa"
+    },
+    {
+      "source": "3 - Tags/linked list",
+      "target": "3 - Tags/stack"
+    },
+    {
+      "source": "3 - Tags/linked list",
+      "target": "20_Areas/Coding_Skills/queue"
+    },
+    {
+      "source": "3 - Tags/Neural Networks",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "3 - Tags/Neural Networks",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/Neural Networks",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "3 - Tags/Neural Networks",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "3 - Tags/Neural Networks",
+      "target": "30_Knowledge_Base/Math_Stats/Tensor"
+    },
+    {
+      "source": "3 - Tags/Mathematics",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+    },
+    {
+      "source": "3 - Tags/Mathematics",
+      "target": "30_Knowledge_Base/Math_Stats/Fourier series and transformation"
+    },
+    {
+      "source": "3 - Tags/Web and HTTP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Cookies"
+    },
+    {
+      "source": "3 - Tags/Web and HTTP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Web caches (Proxy server)"
+    },
+    {
+      "source": "3 - Tags/Web and HTTP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/HTTP_2"
+    },
+    {
+      "source": "3 - Tags/Web and HTTP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Conditional GET"
+    },
+    {
+      "source": "3 - Tags/Web and HTTP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Caching example"
+    },
+    {
+      "source": "3 - Tags/Computer Vision",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/Computer Vision",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "3 - Tags/classification",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+    },
+    {
+      "source": "3 - Tags/classification",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "3 - Tags/The Domain Name System DNS",
+      "target": "30_Knowledge_Base/CS_Networking_OS/DNS name resolution"
+    },
+    {
+      "source": "3 - Tags/The Domain Name System DNS",
+      "target": "30_Knowledge_Base/CS_Networking_OS/DOMAIN NAME SYSTEM"
+    },
+    {
+      "source": "3 - Tags/The Domain Name System DNS",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Caching, Updating DNS Records"
+    },
+    {
+      "source": "3 - Tags/video streaming and content distribution networks",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Content distribution networks (CDNs)"
+    },
+    {
+      "source": "3 - Tags/video streaming and content distribution networks",
+      "target": "30_Knowledge_Base/CS_Networking_OS/video streaming and CDNs"
+    },
+    {
+      "source": "3 - Tags/video streaming and content distribution networks",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Streaming Multimedia - DASH"
+    },
+    {
+      "source": "3 - Tags/beginner",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm"
+    },
+    {
+      "source": "3 - Tags/beginner",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "3 - Tags/beginner",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "3 - Tags/beginner",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "3 - Tags/Mangas",
+      "target": "20_Areas/Personal_Growth/Mangas that i saved for future"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/Math_Stats/Curse of dimensionality"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/ISOMAP"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/Math_Stats/Linear Algebra Review"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/Math_Stats/multivariable chain rule"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "10_Projects/13_Uni_Retake/ôn tập"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW"
+    },
+    {
+      "source": "3 - Tags/data scientist",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions"
+    },
+    {
+      "source": "3 - Tags/supervised learning",
+      "target": "30_Knowledge_Base/Math_Stats/Curse of dimensionality"
+    },
+    {
+      "source": "3 - Tags/array",
+      "target": "3 - Tags/dsa"
+    },
+    {
+      "source": "3 - Tags/stack",
+      "target": "3 - Tags/dsa"
+    },
+    {
+      "source": "3 - Tags/stack",
+      "target": "3 - Tags/linked list"
+    },
+    {
+      "source": "3 - Tags/stack",
+      "target": "20_Areas/Coding_Skills/queue"
+    },
+    {
+      "source": "3 - Tags/dict, set",
+      "target": "3 - Tags/dsa"
+    },
+    {
+      "source": "3 - Tags/NLP",
+      "target": "30_Knowledge_Base/Dev_Tools/LangChain"
+    },
+    {
+      "source": "3 - Tags/Email, SMTP, IMAP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Email."
+    },
+    {
+      "source": "3 - Tags/Email, SMTP, IMAP",
+      "target": "30_Knowledge_Base/CS_Networking_OS/The RFC"
+    },
+    {
+      "source": "3 - Tags/regression",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "3 - Tags/regression",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "3 - Tags/regression",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "3 - Tags/Self-Supervised Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks"
+    },
+    {
+      "source": "3 - Tags/Self-Supervised Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/Self-Supervised Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions"
+    },
+    {
+      "source": "3 - Tags/Machine Learning",
+      "target": "30_Knowledge_Base/Math_Stats/Curse of dimensionality"
+    },
+    {
+      "source": "3 - Tags/Machine Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+    },
+    {
+      "source": "3 - Tags/Machine Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "3 - Tags/Machine Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "3 - Tags/computer networking",
+      "target": "30_Knowledge_Base/CS_Networking_OS/Cookies"
+    },
+    {
+      "source": "3 - Tags/computer networking",
+      "target": "40_Archives/Mạng máy tính"
+    },
+    {
+      "source": "3 - Tags/search algorithm",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm"
+    },
+    {
+      "source": "3 - Tags/search algorithm",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "3 - Tags/Object Detection",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "3 - Tags/Object Detection",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/Dev_Tools/LangChain"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/Math_Stats/Fourier series and transformation"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+    },
+    {
+      "source": "3 - Tags/Deep Learning",
+      "target": "30_Knowledge_Base/Math_Stats/Tensor"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/raw/kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_olmo3_7b_instruct"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/ôn tập",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/ôn tập",
+      "target": "3 - Tags/review"
+    },
+    {
+      "source": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
+      "target": "3 - Tags/HNK-SMARTAP-BREWBUDDY"
+    },
+    {
+      "source": "10_Projects/12_TigerTribe_Intern/(SLZ) langgraph memory  - summarizing context",
+      "target": "3 - Tags/SLZ"
+    },
+    {
+      "source": "10_Projects/12_TigerTribe_Intern/vibe-flow overview",
+      "target": "3 - Tags/HNK-SMARTAP-BREWBUDDY"
+    },
+    {
+      "source": "10_Projects/12_TigerTribe_Intern/(SLZ) llamaindex memory - langGraph memory",
+      "target": "3 - Tags/SLZ"
+    },
+    {
+      "source": "10_Projects/12_TigerTribe_Intern/(SLZ) playwright test",
+      "target": "3 - Tags/SLZ"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/FCMF model MABSA",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/QFORMER",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/QFORMER",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/memory_flow",
+      "target": "3 - Tags/SLZ"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/seminar báo cáo",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/MeetingNote lần 2 cùng todo-tasks",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/MeetingNote lần 2 cùng todo-tasks",
+      "target": "10_Projects/11_Seminar_MABSA/QFORMER"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/MeetingNote lần 1",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/SynGraph và SemGraph trong DASCO",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/11_Seminar_MABSA/custom DQPA",
+      "target": "3 - Tags/seminar HCMUS"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/00_Overview"
+    },
+    {
+      "source": "60_Monthly_Notes/2026-04",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "60_Monthly_Notes/2026-04",
+      "target": "50_Weekly_Notes/2026-W16"
+    },
+    {
+      "source": "60_Monthly_Notes/2026-04",
+      "target": "50_Weekly_Notes/2026-W17"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas",
+      "target": "3 - Tags/30 Days of Pandas - Leetcode"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/Days 1 - 30 Days of Pandas",
+      "target": "3 - Tags/30 Days of Pandas - Leetcode"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/Days 1 - 30 Days of Pandas",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/queue",
+      "target": "3 - Tags/dsa"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/queue",
+      "target": "3 - Tags/stack"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/queue",
+      "target": "3 - Tags/linked list"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-10",
+      "target": "3 - Tags/dict, set"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-09",
+      "target": "3 - Tags/dict, set"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-12",
+      "target": "3 - Tags/array"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-12",
+      "target": "3 - Tags/dict, set"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-11",
+      "target": "3 - Tags/dict, set"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 1 - Array & Hashing/Ngày 2025-08-11",
+      "target": "3 - Tags/stack"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 2 - Linked List & Stack/Ngày 2025-08-25",
+      "target": "3 - Tags/linked list"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 2 - Linked List & Stack/Ngày 2025-08-25",
+      "target": "3 - Tags/stack"
+    },
+    {
+      "source": "20_Areas/Coding_Skills/dsa_plan/Week 2 - Linked List & Stack/Ngày 2025-08-25",
+      "target": "20_Areas/Coding_Skills/queue"
+    },
+    {
+      "source": "20_Areas/Personal_Growth/Mangas that i saved for future",
+      "target": "3 - Tags/Mangas"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-23",
+      "target": "50_Weekly_Notes/2026-W17"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-07",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-16",
+      "target": "50_Weekly_Notes/2026-W16"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-13",
+      "target": "50_Weekly_Notes/2026-W16"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-12",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-22",
+      "target": "50_Weekly_Notes/2026-W17"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-10",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-19",
+      "target": "50_Weekly_Notes/2026-W16"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-08",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-06",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-11",
+      "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-11",
+      "target": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-11",
+      "target": "30_Knowledge_Base/AI_DeepLearning/double descent"
+    },
+    {
+      "source": "40_Archives/Mạng máy tính",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "40_Archives/Mạng máy tính",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "40_Archives/Untitled",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Chap2-summary",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab3_Report",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab3_Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab3_Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab2 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report",
+      "target": "40_Archives/Uni_Year1_3/Data Mining Lab1 Report"
+    },
+    {
+      "source": "40_Archives/Uni_Year1_3/Data_Mining_Lab7_Report",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Survey of Deep Learning in Sports Applications",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Survey of Deep Learning in Sports Applications",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/so sánh 2 phương pháp FF detection system using WSN",
+      "target": "40_Archives/Old_Research/tóm tắt FF detection system using WSN and ML"
+    },
+    {
+      "source": "40_Archives/Old_Research/so sánh 2 phương pháp FF detection system using WSN",
+      "target": "40_Archives/Old_Research/tóm tắt Early FF Detection System Using WSN and DL"
+    },
+    {
+      "source": "40_Archives/Old_Research/tóm tắt Early FF Detection System Using WSN and DL",
+      "target": "40_Archives/Old_Research/tóm tắt FF detection system using WSN and ML"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early Detection of Forest Fire Using Mixed Learning Techniques and UAV",
+      "target": "3 - Tags/Computer Vision"
+    },
+    {
+      "source": "40_Archives/Old_Research/tóm tắt FF detection system using WSN and ML",
+      "target": "40_Archives/Old_Research/tóm tắt Early FF Detection System Using WSN and DL"
+    },
+    {
+      "source": "40_Archives/Old_Research/tóm tắt Developing novel ML based fire weather indices",
+      "target": "40_Archives/Old_Research/tóm tắt FF detection system using WSN and ML"
+    },
+    {
+      "source": "40_Archives/Old_Research/tóm tắt Developing novel ML based fire weather indices",
+      "target": "40_Archives/Old_Research/tóm tắt Early FF Detection System Using WSN and DL"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early wldfire detection using different machine learning algorithms",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early wldfire detection using different machine learning algorithms",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early Forest-Fire Detection Utilizing Regression Models",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/Early Forest-Fire Detection Utilizing Regression Models",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "target": "3 - Tags/Segmentation"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
+      "target": "3 - Tags/Object Detection"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
+      "target": "3 - Tags/Computer Vision"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Network"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation",
+      "target": "30_Knowledge_Base/Math_Stats/hàm phi tuyến"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
+      "target": "3 - Tags/diffusion models"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A-star search",
+      "target": "3 - Tags/informed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A-star search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A-star search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Network"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Neural Network",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "target": "3 - Tags/Self-Supervised Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/FGSM",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/FGSM",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/FGSM",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/A-star search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Best-first search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Bread-first search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Depth-first search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Graph Search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Network"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Networks Foundation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/double descent"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Foundations of NLP - Machine Learning, Deep Learning, and Representation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word Representation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SubWord Models"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Compositional Semantics"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/CNN review"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Faster R-CNN"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/FGSM"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Decision Tree"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/SVD for denoising"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/ISOMAP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/regularization"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/AI Engineering"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "target": "3 - Tags/Self-Supervised Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
+      "target": "3 - Tags/Self-Supervised Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "30_Knowledge_Base/Math_Stats/multivariable chain rule"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/CNN review",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/CNN review",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/CNN review",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
+      "target": "3 - Tags/informed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Faster R-CNN",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
+      "target": "3 - Tags/search algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
+      "target": "3 - Tags/informed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
+      "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/decorator",
+      "target": "3 - Tags/fsds"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/decorator",
+      "target": "3 - Tags/High Performance Python"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/LangChain",
+      "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/LangChain",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/Docker",
+      "target": "3 - Tags/tool"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/Playwright for testing",
+      "target": "3 - Tags/SLZ"
+    },
+    {
+      "source": "30_Knowledge_Base/Dev_Tools/Pydantic Schema",
+      "target": "30_Knowledge_Base/AI_DeepLearning/AI Engineering"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/The RFC",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/The RFC",
+      "target": "3 - Tags/Email, SMTP, IMAP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/P2P architecture",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/P2P architecture",
+      "target": "3 - Tags/P2P applications"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/video streaming and CDNs",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/video streaming and CDNs",
+      "target": "3 - Tags/video streaming and content distribution networks"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/BitTorrent",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/BitTorrent",
+      "target": "3 - Tags/P2P applications"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Socket Programming",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Socket Programming",
+      "target": "3 - Tags/socket programming with UDP and TCP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Content distribution networks (CDNs)",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Content distribution networks (CDNs)",
+      "target": "3 - Tags/video streaming and content distribution networks"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Cookies",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Cookies",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/DNS name resolution",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/DNS name resolution",
+      "target": "3 - Tags/The Domain Name System DNS"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Email.",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Email.",
+      "target": "3 - Tags/Email, SMTP, IMAP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/DOMAIN NAME SYSTEM",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/DOMAIN NAME SYSTEM",
+      "target": "3 - Tags/The Domain Name System DNS"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Conditional GET",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Conditional GET",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Web caches (Proxy server)",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Web caches (Proxy server)",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Scalability Issues And The Streaming Scenario",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/HTTP_2",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/HTTP_2",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Caching example",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Caching example",
+      "target": "3 - Tags/Web and HTTP"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Caching, Updating DNS Records",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Caching, Updating DNS Records",
+      "target": "3 - Tags/The Domain Name System DNS"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Streaming Multimedia - DASH",
+      "target": "3 - Tags/computer networking"
+    },
+    {
+      "source": "30_Knowledge_Base/CS_Networking_OS/Streaming Multimedia - DASH",
+      "target": "3 - Tags/video streaming and content distribution networks"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "target": "3 - Tags/workload"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Storage",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Storage",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Ingress",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Ingress",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Helm",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Helm",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Helm",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/K8s",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/K8s",
+      "target": "30_Knowledge_Base/Dev_Tools/Docker"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/K8s",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Job và Cronjob",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Job và Cronjob",
+      "target": "3 - Tags/workload"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Services",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Services",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Fourier series and transformation",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Fourier series and transformation",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Tensor",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Tensor",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Tensor",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
+      "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông",
+      "target": "3 - Tags/Graph Theory"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "target": "3 - Tags/statistical"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "target": "3 - Tags/information theory"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
+      "target": "3 - Tags/Machine Learning"
+    }
+  ],
+  "stats": {
+    "node_count": 293,
+    "link_count": 687
+  }
+}
