@@ -1,0 +1,42 @@
+name: build-graph
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+      - "scripts/build_graph.py"
+      - ".github/workflows/build-graph.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-graph
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build graph.json
+        run: python scripts/build_graph.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- graph.json; then
+            echo "graph.json unchanged"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add graph.json
+          git commit -m "chore: rebuild graph.json"
+          git push

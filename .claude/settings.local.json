@@ -28,7 +28,9 @@
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "WebFetch(domain:theabyssoftime2004.github.io)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(curl -s https://raw.githubusercontent.com/theAbyssOfTime2004/theAbyssOfTime2004.github.io/main/index.html)"
+      "Bash(curl -s https://raw.githubusercontent.com/theAbyssOfTime2004/theAbyssOfTime2004.github.io/main/index.html)",
+      "Bash(python scripts/build_graph.py)",
+      "PowerShell($candidates = @\\(\"py\", \"python3\", \"python\"\\); $found=$null; foreach \\($c in $candidates\\) { try { & $c --version 2>&1 | Out-Null; if \\($?\\) { $found=$c; break } } catch {} }; if \\($found\\) { Write-Output \"FOUND: $found\"; & $found --version } else { Write-Output \"NO PYTHON\" })"
     ]
   }
 }

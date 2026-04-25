@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/Home.md",
+                "file": "30_Knowledge_Base/Devops/Helm.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "Helm"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:metric",
+                "query": "helm",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,8 +206,11 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "aeb4bd27f266b875",
+  "active": "276200ddcf2b0fe5",
   "lastOpenFiles": [
+    "scripts/build_graph.py",
+    "00_Dashboard/Home.md",
+    "scripts",
     "70_Daily_Notes/2026-04-23.md",
     "70_Daily_Notes/2026-04-22.md",
     "70_Daily_Notes/2026-04-19.md",
@@ -216,7 +219,6 @@
     "70_Daily_Notes/2026-04-10.md",
     "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence.md",
     "30_Knowledge_Base/Math_Stats/multivariable chain rule.md",
-    "00_Dashboard/Home.md",
     "30_Knowledge_Base/Math_Stats/Tensor.md",
     "00_Dashboard/14_Thesis_SDPO.md",
     "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
@@ -233,7 +235,6 @@
     "00_Dashboard/ConfigMap và Secret.md",
     "00_Dashboard/con_ctc_metric.md",
     "30_Knowledge_Base/Devops/k8s Storage.md",
-    "30_Knowledge_Base/Devops/k8s Services.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
@@ -248,7 +249,6 @@
     "99_System/Assets/Images/Pasted image 20241123103323.png",
     "99_System/Assets/Images/Pasted image 20241026110613.png",
     "70_Daily_Notes",
-    "10_Projects/14_Thesis_SDPO",
     "99_System/Assets/Files/Untitled 1.canvas",
     "99_System/Assets/Images/tikz0.png",
     "99_System/Assets/Images/tikz0 1.png",
