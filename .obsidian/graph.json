@@ -2,21 +2,57 @@
   "collapse-filter": false,
   "search": "",
   "showTags": true,
-  "showAttachments": true,
+  "showAttachments": false,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color-groups": false,
-  "colorGroups": [],
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:10_Projects",
+      "color": {
+        "a": 1,
+        "rgb": 12114298
+      }
+    },
+    {
+      "query": "path:30_Knowledge_Base",
+      "color": {
+        "a": 1,
+        "rgb": 10925759
+      }
+    },
+    {
+      "query": "path:20_Areas",
+      "color": {
+        "a": 1,
+        "rgb": 12558456
+      }
+    },
+    {
+      "query": "path:70_Daily_Notes OR path:50_Weekly_Notes OR path:60_Monthly_Notes",
+      "color": {
+        "a": 1,
+        "rgb": 8881272
+      }
+    },
+    {
+      "query": "path:40_Archives",
+      "color": {
+        "a": 1,
+        "rgb": 5066328
+      }
+    }
+  ],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1.01875,
-  "lineSizeMultiplier": 1,
+  "textFadeMultiplier": -0.5,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1.5,
   "collapse-forces": false,
-  "centerStrength": 0.448116231037675,
-  "repelStrength": 8.05070863898583,
+  "centerStrength": 0.474033580632565,
+  "repelStrength": 10.6802030456853,
   "linkStrength": 1,
   "linkDistance": 500,
-  "scale": 0.09248814381517896,
-  "close": true
+  "scale": 0.20809833002157702,
+  "close": false
 }

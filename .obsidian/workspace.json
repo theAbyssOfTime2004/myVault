@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d5dc75f4d9675847",
+        "id": "50f348c46917eccc",
         "type": "tabs",
         "children": [
           {
-            "id": "e968ee5f9a8f0232",
+            "id": "aeb4bd27f266b875",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -201,9 +201,10 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "e968ee5f9a8f0232",
+  "active": "aeb4bd27f266b875",
   "lastOpenFiles": [
     "00_Dashboard/Home.md",
+    "30_Knowledge_Base/Math_Stats/Tensor.md",
     "00_Dashboard/14_Thesis_SDPO.md",
     "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
     "99_System/refactor_plan.md",
@@ -228,7 +229,6 @@
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation.md",
     "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
-    "70_Daily_Notes/2026-04-23.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
