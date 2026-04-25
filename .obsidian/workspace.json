@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "04bdfd7570ee7810",
+        "id": "d5dc75f4d9675847",
         "type": "tabs",
         "children": [
           {
-            "id": "e376f26ed6d3dc19",
+            "id": "e968ee5f9a8f0232",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "k8s Autoscaling - HPA và KEDA"
             }
           }
         ]
@@ -178,7 +183,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -197,11 +202,24 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Open Copilot Chat": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "periodic-notes:Open today": false
     }
   },
-  "active": "e376f26ed6d3dc19",
+  "active": "e968ee5f9a8f0232",
   "lastOpenFiles": [
+    "00_Dashboard/Ingress.md",
+    "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
+    "00_Dashboard/refactor_plan.md",
+    "00_Dashboard/Helm.md",
+    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
+    "00_Dashboard/ConfigMap và Secret.md",
+    "00_Dashboard/con_ctc_metric.md",
+    "30_Knowledge_Base/Devops/k8s Storage.md",
+    "30_Knowledge_Base/Devops/k8s Services.md",
+    "30_Knowledge_Base/Devops/K8s.md",
+    "30_Knowledge_Base/Devops/Job và Cronjob.md",
+    "50_Weekly_Notes/2026-W15.md",
     "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep.md",
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
@@ -216,18 +234,6 @@
     "10_Projects/15_Zalo_Fresher_Prep/Week_1_DSA_MCQ.md",
     "30_Knowledge_Base/AI_DeepLearning/index.md",
     "3 - Tags/Machine Learning.md",
-    "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo.md",
-    "10_Projects/14_Thesis_SDPO/raw/kim2026_why_self_distillation_degrades.md",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics.md",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization.md",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k.md",
-    "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact.md",
-    "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades.md",
-    "00_Dashboard/con_ctc_metric.md",
-    "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation.md",
-    "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation.md",
-    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo.md",
-    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
