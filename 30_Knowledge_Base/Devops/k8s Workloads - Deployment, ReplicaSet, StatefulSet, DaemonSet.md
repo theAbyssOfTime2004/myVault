@@ -1,4 +1,4 @@
-2026-04-17 14:32
+2026-04-26
 
 
 Tags: [[K8s]], [[devops]], [[workload]], [[infrastructure]]
@@ -35,4 +35,18 @@ Tags: [[K8s]], [[devops]], [[workload]], [[infrastructure]]
     - Trình thu thập log hệ thống (Fluentd, Logstash).
     - Tác nhân giám sát tài nguyên phần cứng (Prometheus Node Exporter, Datadog Agent).
     - Trình điều khiển thiết bị cấp độ phần cứng (như NVIDIA Device Plugin để hệ thống nhận diện GPU).
+
+---
+
+### So sánh nhanh
+
+| | ReplicaSet | Deployment | StatefulSet | DaemonSet |
+|---|---|---|---|---|
+| **Dùng trực tiếp?** | Không (dùng qua Deployment) | ✅ | ✅ | ✅ |
+| **Stateless/Stateful** | Stateless | Stateless | Stateful | - |
+| **Định danh Pod** | Ngẫu nhiên | Ngẫu nhiên | Cố định có thứ tự | Một Pod/Node |
+| **Rolling Update** | ❌ | ✅ | ✅ (tuần tự) | ✅ |
+| **Storage riêng/Pod** | ❌ | ❌ | ✅ (PVC riêng) | Tuỳ |
+| **Use case** | - | Web, API, ML Inference | DB, Kafka, Elasticsearch | Log agent, Monitor agent, GPU plugin |
+
 # References
