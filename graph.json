@@ -16,7 +16,13 @@
       "id": "50_Weekly_Notes/2026-W17",
       "title": "2026-W17",
       "group": "periodic",
-      "degree": 6
+      "degree": 7
+    },
+    {
+      "id": "50_Weekly_Notes/2026-W18",
+      "title": "2026-W18",
+      "group": "periodic",
+      "degree": 3
     },
     {
       "id": "3 - Tags/devops",
@@ -688,7 +694,7 @@
       "id": "60_Monthly_Notes/2026-04",
       "title": "2026-04",
       "group": "periodic",
-      "degree": 6
+      "degree": 8
     },
     {
       "id": "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas",
@@ -881,6 +887,12 @@
       "title": "31-03-2026",
       "group": "periodic",
       "degree": 0
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-26",
+      "title": "2026-04-26",
+      "group": "periodic",
+      "degree": 2
     },
     {
       "id": "70_Daily_Notes/2026-04-07",
@@ -1869,6 +1881,14 @@
     {
       "source": "50_Weekly_Notes/2026-W17",
       "target": "70_Daily_Notes/2026-04-23"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W17",
+      "target": "70_Daily_Notes/2026-04-26"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W18",
+      "target": "60_Monthly_Notes/2026-04"
     },
     {
       "source": "3 - Tags/linked list",
@@ -3095,6 +3115,10 @@
       "target": "50_Weekly_Notes/2026-W17"
     },
     {
+      "source": "60_Monthly_Notes/2026-04",
+      "target": "50_Weekly_Notes/2026-W18"
+    },
+    {
       "source": "20_Areas/Coding_Skills/Days 2 - 30 days of Pandas",
       "target": "3 - Tags/30 Days of Pandas - Leetcode"
     },
@@ -3161,6 +3185,10 @@
     {
       "source": "70_Daily_Notes/2026-04-23",
       "target": "50_Weekly_Notes/2026-W17"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-26",
+      "target": "50_Weekly_Notes/2026-W18"
     },
     {
       "source": "70_Daily_Notes/2026-04-07",
@@ -4612,7 +4640,7 @@
     }
   ],
   "stats": {
-    "node_count": 302,
-    "link_count": 699
+    "node_count": 304,
+    "link_count": 703
   }
 }
