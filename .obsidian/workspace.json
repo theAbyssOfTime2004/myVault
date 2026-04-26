@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "50_Weekly_Notes/2026-W17.md",
+                "file": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026-W17"
+              "title": "KServe - Extra Steps (Transformer và Inference Graph)"
             }
           }
         ]
@@ -129,13 +129,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "50_Weekly_Notes/2026-W17.md",
+                "file": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-W17"
+              "title": "Outline of KServe - Extra Steps (Transformer và Inference Graph)"
             }
           },
           {
@@ -183,7 +183,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -208,10 +208,12 @@
   },
   "active": "5b38c6598317ded4",
   "lastOpenFiles": [
+    "30_Knowledge_Base/MLOPS/Model Serving Patterns.md",
+    "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
+    "50_Weekly_Notes/2026-W17.md",
     "50_Weekly_Notes/2026-W18.md",
     "50_Weekly_Notes/2026-W15.md",
     "50_Weekly_Notes/2026-W16.md",
-    "50_Weekly_Notes/2026-W17.md",
     "70_Daily_Notes/2026-04-26.md",
     "00_Dashboard/2026-W18.md",
     "30_Knowledge_Base/Devops/KServe và CRD.md",
@@ -230,10 +232,8 @@
     "30_Knowledge_Base/Data Science/Linear Regression.md",
     "30_Knowledge_Base/Data Science/Data Drift và Concept Drift.md",
     "30_Knowledge_Base/Data Science/Creating ML pipeline from scratch.md",
-    "30_Knowledge_Base/MLOPS/Model Serving Patterns.md",
     "30_Knowledge_Base/Data Science/Gradient Descent Variants.md",
     "30_Knowledge_Base/Data Science/Gradient Descent.md",
-    "30_Knowledge_Base/Data Science/So Sánh Giữa PCA, SVD và LSA.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
