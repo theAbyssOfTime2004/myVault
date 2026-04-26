@@ -35,7 +35,7 @@
 | --------------------- | ------------------------------- | ----------- | -------------------------------------------------------- |
 | **Zalo Fresher Prep** | Pass entry test + interview     | in_progress | [[10_Projects/15_Zalo_Fresher_Prep/00_Overview\|→ open]] |
 | **Thesis SDPO**       | Hoàn thành nghiên cứu & báo cáo | in_progress | [[10_Projects/14_Thesis_SDPO\|→ open]]                   |
-| **Uni Retake**        | Ôn thi lại                      | urgent      | [[10_Projects/13_Uni_Retake\|→ open]]                    |
+| **Học cải thiện**     | thi 9 - 10d                     | urgent      | [[10_Projects/13_Uni_Retake\|→ open]]                    |
 
 ---
 

@@ -11,10 +11,15 @@
             "id": "2f93a44be6f0132f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "30_Knowledge_Base/Devops/KServe và CRD.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "KServe và CRD"
             }
           }
         ]
@@ -202,6 +207,7 @@
   },
   "active": "2f93a44be6f0132f",
   "lastOpenFiles": [
+    "00_Dashboard/Home.md",
     "3 - Tags/beginner.md",
     "30_Knowledge_Base/Data Science/regularization.md",
     "30_Knowledge_Base/Data Science/So Sánh Giữa PCA, SVD và LSA.md",
@@ -227,7 +233,6 @@
     "30_Knowledge_Base/Data Science/Linear Regression for more complex models.md",
     "30_Knowledge_Base/Data Science/Linear Regression.md",
     "30_Knowledge_Base/Data Science/Data Drift và Concept Drift.md",
-    "30_Knowledge_Base/Data Science/Creating ML pipeline from scratch.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
