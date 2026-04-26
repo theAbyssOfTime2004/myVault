@@ -23,13 +23,18 @@
             }
           },
           {
-            "id": "a81b382acb6d5a25",
+            "id": "d2b2cec31a81bb74",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "k8s RBAC - ServiceAccount và Role Based Access Control"
             }
           }
         ],
@@ -213,16 +218,23 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Open Copilot Chat": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "periodic-notes:Open today": false
     }
   },
-  "active": "a81b382acb6d5a25",
+  "active": "d2b2cec31a81bb74",
   "lastOpenFiles": [
     "00_Dashboard/Home.md",
+    "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
+    "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
+    "30_Knowledge_Base/Cloud",
+    "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
+    "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
+    "30_Knowledge_Base/Devops/K8s.md",
+    "30_Knowledge_Base/Devops/Helm.md",
     "3 - Tags/array.md",
     "99_System/Vault_Redesign_Log.md",
     "graph.json",
-    "30_Knowledge_Base/Devops/Helm.md",
     "scripts/build_graph.py",
     "scripts",
     "70_Daily_Notes/2026-04-23.md",
@@ -235,18 +247,13 @@
     "30_Knowledge_Base/Math_Stats/multivariable chain rule.md",
     "30_Knowledge_Base/Math_Stats/Tensor.md",
     "00_Dashboard/14_Thesis_SDPO.md",
-    "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
     "99_System/refactor_plan.md",
     "30_Knowledge_Base/AI_DeepLearning/index.md",
-    "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
     "30_Knowledge_Base/Devops/Ingress.md",
     "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "00_Dashboard/Ingress.md",
     "00_Dashboard/refactor_plan.md",
     "00_Dashboard/Helm.md",
-    "00_Dashboard/Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
-    "00_Dashboard/ConfigMap và Secret.md",
-    "00_Dashboard/con_ctc_metric.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
@@ -254,7 +261,6 @@
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "00_Dashboard/Untitled 1.base",
     "00_Dashboard/Untitled 2.base",
-    "60_Monthly_Notes",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",
     "99_System/Assets/Images/Pasted image 20241123103323.png",

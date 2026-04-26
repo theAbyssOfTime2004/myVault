@@ -45,6 +45,7 @@
 | ---------------------- | --------------------- | ----------------------------------------------- |
 | `AI / Deep Learning`   | #ml #dl #pytorch      | [[30_Knowledge_Base/AI_DeepLearning\|→ open]]   |
 | `DevOps / K8s`         | #devops #k8s #docker  | [[30_Knowledge_Base/Devops\|→ open]]            |
+| `Cloud`                | #cloud #serverless    | [[30_Knowledge_Base/Cloud\|→ open]]             |
 | `CS / Networking / OS` | #cs #networking #os   | [[30_Knowledge_Base/CS_Networking_OS\|→ open]]  |
 | `Math / Stats`         | #math #stats          | [[30_Knowledge_Base/Math_Stats\|→ open]]        |
 | `Dev Tools`            | #tools #git #cli      | [[30_Knowledge_Base/Dev_Tools\|→ open]]         |
