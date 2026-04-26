@@ -1147,30 +1147,6 @@
       "degree": 0
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
-      "title": "So Sánh Giữa PCA, SVD và LSA",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "title": "Logistic Regression review 1",
-      "group": "knowledge",
-      "degree": 8
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
-      "title": "ISOMAP",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
-      "title": "Linear Regression for more complex models",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
       "title": "Convolutional Neural Networks",
       "group": "knowledge",
@@ -1219,20 +1195,8 @@
       "degree": 1
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
-      "title": "Fuzzy Logic",
-      "group": "knowledge",
-      "degree": 7
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
       "title": "Word embedding and Word2Vec",
-      "group": "knowledge",
-      "degree": 6
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
-      "title": "Model Generalization",
       "group": "knowledge",
       "degree": 6
     },
@@ -1249,18 +1213,6 @@
       "degree": 8
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
-      "title": "Gradient Descent",
-      "group": "knowledge",
-      "degree": 10
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
-      "title": "Gradient Descent in Linear Regression",
-      "group": "knowledge",
-      "degree": 5
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
       "title": "Attention Mechanism",
       "group": "knowledge",
@@ -1269,18 +1221,6 @@
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/FGSM",
       "title": "FGSM",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
-      "title": "Logistic Regression review 2",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
-      "title": "Gradient Descent Variants",
       "group": "knowledge",
       "degree": 4
     },
@@ -1339,18 +1279,6 @@
       "degree": 6
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
-      "title": "SVM Classification Model",
-      "group": "knowledge",
-      "degree": 9
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks",
-      "title": "The Basics Data Types and Major Building Blocks",
-      "group": "knowledge",
-      "degree": 2
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/CLAUDE",
       "title": "CLAUDE",
       "group": "knowledge",
@@ -1381,18 +1309,6 @@
       "degree": 4
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
-      "title": "So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
-      "group": "knowledge",
-      "degree": 2
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining",
-      "title": "Introduction to Data Mining",
-      "group": "knowledge",
-      "degree": 2
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
       "title": "Depth-Limited Search",
       "group": "knowledge",
@@ -1417,12 +1333,6 @@
       "degree": 12
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/regularization",
-      "title": "regularization",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
       "title": "Local Search Algorithm",
       "group": "knowledge",
@@ -1441,30 +1351,6 @@
       "degree": 5
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/double descent",
-      "title": "double descent",
-      "group": "knowledge",
-      "degree": 2
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch",
-      "title": "Creating ML pipeline from scratch",
-      "group": "knowledge",
-      "degree": 2
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
-      "title": "Decision Tree",
-      "group": "knowledge",
-      "degree": 5
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
-      "title": "Logistic Regression",
-      "group": "knowledge",
-      "degree": 11
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
       "title": "Bread-first search",
       "group": "knowledge",
@@ -1477,12 +1363,6 @@
       "degree": 2
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
-      "title": "Linear Regression",
-      "group": "knowledge",
-      "degree": 5
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
       "title": "Adamw and Adam (optimizer)",
       "group": "knowledge",
@@ -1493,18 +1373,6 @@
       "title": "Về các thuật toán tìm kiếm",
       "group": "knowledge",
       "degree": 5
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
-      "title": "Normalizing Inputs",
-      "group": "knowledge",
-      "degree": 3
-    },
-    {
-      "id": "30_Knowledge_Base/AI_DeepLearning/SVD for denoising",
-      "title": "SVD for denoising",
-      "group": "knowledge",
-      "degree": 1
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
@@ -1753,6 +1621,138 @@
       "degree": 2
     },
     {
+      "id": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
+      "title": "So Sánh Giữa PCA, SVD và LSA",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "title": "Logistic Regression review 1",
+      "group": "knowledge",
+      "degree": 8
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/ISOMAP",
+      "title": "ISOMAP",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Linear Regression for more complex models",
+      "title": "Linear Regression for more complex models",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic",
+      "title": "Fuzzy Logic",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Model Generalization",
+      "title": "Model Generalization",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent",
+      "title": "Gradient Descent",
+      "group": "knowledge",
+      "degree": 10
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression",
+      "title": "Gradient Descent in Linear Regression",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 2",
+      "title": "Logistic Regression review 2",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent Variants",
+      "title": "Gradient Descent Variants",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
+      "title": "SVM Classification Model",
+      "group": "knowledge",
+      "degree": 9
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/The Basics Data Types and Major Building Blocks",
+      "title": "The Basics Data Types and Major Building Blocks",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "title": "So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Introduction to Data Mining",
+      "title": "Introduction to Data Mining",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/regularization",
+      "title": "regularization",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/double descent",
+      "title": "double descent",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch",
+      "title": "Creating ML pipeline from scratch",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Decision Tree",
+      "title": "Decision Tree",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression",
+      "title": "Logistic Regression",
+      "group": "knowledge",
+      "degree": 11
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Linear Regression",
+      "title": "Linear Regression",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Normalizing Inputs",
+      "title": "Normalizing Inputs",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/SVD for denoising",
+      "title": "SVD for denoising",
+      "group": "knowledge",
+      "degree": 1
+    },
+    {
       "id": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
       "title": "Curse of dimensionality",
       "group": "knowledge",
@@ -1890,7 +1890,7 @@
     },
     {
       "source": "3 - Tags/Neural Networks",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "3 - Tags/Neural Networks",
@@ -1898,7 +1898,7 @@
     },
     {
       "source": "3 - Tags/Mathematics",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic"
     },
     {
       "source": "3 - Tags/Mathematics",
@@ -1934,7 +1934,7 @@
     },
     {
       "source": "3 - Tags/classification",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model"
     },
     {
       "source": "3 - Tags/classification",
@@ -1974,7 +1974,7 @@
     },
     {
       "source": "3 - Tags/beginner",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "3 - Tags/beginner",
@@ -1990,19 +1990,19 @@
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model"
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic"
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/ISOMAP"
+      "target": "30_Knowledge_Base/DATA SCIENCE/ISOMAP"
     },
     {
       "source": "3 - Tags/data scientist",
@@ -2010,15 +2010,15 @@
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1"
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 2"
     },
     {
       "source": "3 - Tags/data scientist",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Model Generalization"
     },
     {
       "source": "3 - Tags/data scientist",
@@ -2050,11 +2050,11 @@
     },
     {
       "source": "3 - Tags/supervised learning",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
     },
     {
       "source": "3 - Tags/supervised learning",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model"
     },
     {
       "source": "3 - Tags/supervised learning",
@@ -2106,7 +2106,7 @@
     },
     {
       "source": "3 - Tags/regression",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
     },
     {
       "source": "3 - Tags/regression",
@@ -2114,7 +2114,7 @@
     },
     {
       "source": "3 - Tags/regression",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "3 - Tags/Self-Supervised Learning",
@@ -2134,11 +2134,11 @@
     },
     {
       "source": "3 - Tags/Machine Learning",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model"
     },
     {
       "source": "3 - Tags/Machine Learning",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
     },
     {
       "source": "3 - Tags/Machine Learning",
@@ -2198,7 +2198,7 @@
     },
     {
       "source": "3 - Tags/Deep Learning",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic"
     },
     {
       "source": "3 - Tags/Deep Learning",
@@ -3202,7 +3202,7 @@
     },
     {
       "source": "70_Daily_Notes/2026-04-11",
-      "target": "30_Knowledge_Base/AI_DeepLearning/double descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/double descent"
     },
     {
       "source": "40_Archives/Mạng máy tính",
@@ -3341,58 +3341,6 @@
       "target": "3 - Tags/Deep Learning"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
-      "target": "3 - Tags/data mining"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
-      "target": "3 - Tags/beginner"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "target": "3 - Tags/regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "target": "3 - Tags/classification"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
-      "target": "3 - Tags/data mining"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/ISOMAP",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
-      "target": "3 - Tags/beginner"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
       "target": "3 - Tags/Deep Learning"
     },
@@ -3473,18 +3421,6 @@
       "target": "3 - Tags/uninformed search"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
-      "target": "3 - Tags/Deep Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
-      "target": "3 - Tags/Mathematics"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic",
-      "target": "3 - Tags/data scientist"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
       "target": "3 - Tags/data scientist"
     },
@@ -3499,18 +3435,6 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word2Vec",
       "target": "3 - Tags/NLP"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Generalization",
-      "target": "3 - Tags/beginner"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Neural Network",
@@ -3537,30 +3461,6 @@
       "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
-      "target": "3 - Tags/Deep Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent",
-      "target": "3 - Tags/beginner"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
-      "target": "3 - Tags/beginner"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
       "target": "3 - Tags/NLP"
     },
@@ -3582,27 +3482,7 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/FGSM",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
-      "target": "3 - Tags/beginner"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
@@ -3658,15 +3538,15 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent Variants"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent Variants"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent in Linear Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3678,7 +3558,7 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Normalizing Inputs"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3698,11 +3578,11 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Model Generalization"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/double descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/double descent"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3770,47 +3650,47 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Linear Regression"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Linear Regression for more complex models"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Linear Regression for more complex models"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 1"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression review 2"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 2"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Decision Tree"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Decision Tree"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/SVD for denoising"
+      "target": "30_Knowledge_Base/DATA SCIENCE/SVD for denoising"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA"
+      "target": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/ISOMAP"
+      "target": "30_Knowledge_Base/DATA SCIENCE/ISOMAP"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means"
+      "target": "30_Knowledge_Base/DATA SCIENCE/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3818,7 +3698,7 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/regularization"
+      "target": "30_Knowledge_Base/DATA SCIENCE/regularization"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3826,19 +3706,19 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Introduction to Data Mining"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks"
+      "target": "30_Knowledge_Base/DATA SCIENCE/The Basics Data Types and Major Building Blocks"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Fuzzy Logic"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
@@ -3933,26 +3813,6 @@
       "target": "3 - Tags/NLP"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
-      "target": "3 - Tags/supervised learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/SVM Classification Model",
-      "target": "3 - Tags/classification"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/The Basics Data Types and Major Building Blocks",
-      "target": "3 - Tags/data mining"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
       "target": "3 - Tags/Deep Learning"
     },
@@ -3974,7 +3834,7 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Graph Search",
@@ -4005,14 +3865,6 @@
       "target": "3 - Tags/Machine Learning"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
-      "target": "3 - Tags/data mining"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Introduction to Data Mining",
-      "target": "3 - Tags/data mining"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search",
       "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
     },
@@ -4034,7 +3886,7 @@
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Gradient Descent"
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
@@ -4051,18 +3903,6 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
       "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/regularization",
-      "target": "3 - Tags/Deep Learning"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
@@ -4101,42 +3941,6 @@
       "target": "3 - Tags/beginner"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Creating ML pipeline from scratch",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
-      "target": "3 - Tags/supervised learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
-      "target": "3 - Tags/regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Decision Tree",
-      "target": "3 - Tags/classification"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
-      "target": "3 - Tags/data scientist"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
-      "target": "3 - Tags/regression"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Logistic Regression",
-      "target": "3 - Tags/supervised learning"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Bread-first search",
       "target": "3 - Tags/search algorithm"
     },
@@ -4157,14 +3961,6 @@
       "target": "3 - Tags/Deep Learning"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
-      "target": "3 - Tags/Machine Learning"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Linear Regression",
-      "target": "3 - Tags/beginner"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
       "target": "3 - Tags/Deep Learning"
     },
@@ -4183,14 +3979,6 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
       "target": "3 - Tags/uninformed search"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
-      "target": "30_Knowledge_Base/AI_DeepLearning/Model Generalization"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Normalizing Inputs",
-      "target": "3 - Tags/data scientist"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
@@ -4487,6 +4275,218 @@
     {
       "source": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
       "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/ISOMAP",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/ISOMAP",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Linear Regression for more complex models",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Linear Regression for more complex models",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Linear Regression for more complex models",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic",
+      "target": "3 - Tags/Mathematics"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Model Generalization",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Model Generalization",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Model Generalization",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 2",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 1"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression review 2",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent Variants",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent Variants",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent Variants",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/The Basics Data Types and Major Building Blocks",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Introduction to Data Mining",
+      "target": "3 - Tags/data mining"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/regularization",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/regularization",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/regularization",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Decision Tree",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Decision Tree",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Decision Tree",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Decision Tree",
+      "target": "3 - Tags/classification"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression",
+      "target": "3 - Tags/data scientist"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression",
+      "target": "3 - Tags/regression"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Logistic Regression",
+      "target": "3 - Tags/supervised learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Linear Regression",
+      "target": "3 - Tags/Machine Learning"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Linear Regression",
+      "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Normalizing Inputs",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Model Generalization"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Normalizing Inputs",
+      "target": "3 - Tags/data scientist"
     },
     {
       "source": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
