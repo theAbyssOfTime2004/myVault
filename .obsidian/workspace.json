@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_Knowledge_Base/API/Webhook.md",
+                "file": "30_Knowledge_Base/AI_DeepLearning/regularization.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Webhook"
+              "title": "regularization"
             }
           }
         ]
@@ -208,9 +208,19 @@
   },
   "active": "5b38c6598317ded4",
   "lastOpenFiles": [
+    "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW.md",
+    "30_Knowledge_Base/AI_DeepLearning/SubWord Models.md",
+    "30_Knowledge_Base/AI_DeepLearning/So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means.md",
+    "30_Knowledge_Base/AI_DeepLearning/So Sánh Giữa PCA, SVD và LSA.md",
+    "30_Knowledge_Base/AI_DeepLearning/transformer.md",
+    "30_Knowledge_Base/AI_DeepLearning/Uniformed-cost search.md",
+    "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models.md",
+    "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient.md",
+    "30_Knowledge_Base/AI_DeepLearning/Word embedding and Word Representation.md",
+    "30_Knowledge_Base/API/Webhook.md",
+    "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns.md",
     "30_Knowledge_Base/AI_DeepLearning/index.md",
     "30_Knowledge_Base/API/WebSocket.md",
-    "30_Knowledge_Base/API/Webhook.md",
     "30_Knowledge_Base/API/REST API.md",
     "30_Knowledge_Base/API/gRPC.md",
     "00_Dashboard/Home.md",
@@ -226,19 +236,9 @@
     "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
     "30_Knowledge_Base/Cloud",
     "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
-    "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
-    "30_Knowledge_Base/Devops/K8s.md",
-    "3 - Tags/array.md",
-    "99_System/Vault_Redesign_Log.md",
     "graph.json",
     "scripts/build_graph.py",
     "scripts",
-    "70_Daily_Notes/2026-04-23.md",
-    "70_Daily_Notes/2026-04-22.md",
-    "70_Daily_Notes/2026-04-19.md",
-    "70_Daily_Notes/2026-04-13.md",
-    "70_Daily_Notes/2026-04-11.md",
-    "70_Daily_Notes/2026-04-10.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
