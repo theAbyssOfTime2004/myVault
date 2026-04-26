@@ -28,7 +28,7 @@
       "id": "3 - Tags/infrastructure",
       "title": "infrastructure",
       "group": "other",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "3 - Tags/socket programming with UDP and TCP",
@@ -1321,6 +1321,12 @@
       "degree": 1
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
+      "title": "Model Serving Patterns",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
       "title": "Depth-first search",
       "group": "knowledge",
@@ -1564,7 +1570,7 @@
       "id": "30_Knowledge_Base/API/Webhook",
       "title": "Webhook",
       "group": "knowledge",
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "30_Knowledge_Base/API/gRPC",
@@ -1690,7 +1696,7 @@
       "id": "30_Knowledge_Base/Devops/KServe và CRD",
       "title": "KServe và CRD",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
@@ -1744,7 +1750,7 @@
       "id": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
       "title": "k8s Autoscaling - HPA và KEDA",
       "group": "knowledge",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
@@ -3875,6 +3881,22 @@
       "target": "3 - Tags/supervised learning"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
+      "target": "30_Knowledge_Base/Devops/KServe và CRD"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
+      "target": "30_Knowledge_Base/API/Webhook"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
+      "target": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
       "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
     },
@@ -4572,7 +4594,7 @@
     }
   ],
   "stats": {
-    "node_count": 300,
-    "link_count": 692
+    "node_count": 301,
+    "link_count": 696
   }
 }
