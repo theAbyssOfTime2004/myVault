@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b324b47be1f6c666",
+        "id": "4b2647946fad9249",
         "type": "tabs",
         "children": [
           {
-            "id": "5b38c6598317ded4",
+            "id": "2f93a44be6f0132f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "KServe - Extra Steps (Transformer và Inference Graph)"
+              "title": "New tab"
             }
           }
         ]
@@ -129,13 +124,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of KServe - Extra Steps (Transformer và Inference Graph)"
+              "title": "Outline"
             }
           },
           {
@@ -206,10 +200,13 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "5b38c6598317ded4",
+  "active": "2f93a44be6f0132f",
   "lastOpenFiles": [
-    "30_Knowledge_Base/MLOPS/Model Serving Patterns.md",
+    "3 - Tags/beginner.md",
+    "30_Knowledge_Base/Data Science/regularization.md",
+    "30_Knowledge_Base/Data Science/So Sánh Giữa PCA, SVD và LSA.md",
     "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
+    "30_Knowledge_Base/MLOPS/Model Serving Patterns.md",
     "50_Weekly_Notes/2026-W17.md",
     "50_Weekly_Notes/2026-W18.md",
     "50_Weekly_Notes/2026-W15.md",
@@ -217,7 +214,6 @@
     "70_Daily_Notes/2026-04-26.md",
     "00_Dashboard/2026-W18.md",
     "30_Knowledge_Base/Devops/KServe và CRD.md",
-    "30_Knowledge_Base/Data Science/regularization.md",
     "30_Knowledge_Base/Data Science/Decision Tree.md",
     "30_Knowledge_Base/Data Science/double descent.md",
     "30_Knowledge_Base/Data Science/Fuzzy Logic.md",
@@ -232,8 +228,6 @@
     "30_Knowledge_Base/Data Science/Linear Regression.md",
     "30_Knowledge_Base/Data Science/Data Drift và Concept Drift.md",
     "30_Knowledge_Base/Data Science/Creating ML pipeline from scratch.md",
-    "30_Knowledge_Base/Data Science/Gradient Descent Variants.md",
-    "30_Knowledge_Base/Data Science/Gradient Descent.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
