@@ -1432,7 +1432,7 @@
       "id": "30_Knowledge_Base/API/Webhook",
       "title": "Webhook",
       "group": "knowledge",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/API/gRPC",
@@ -1444,7 +1444,7 @@
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
       "title": "Model Serving Patterns",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
@@ -1564,7 +1564,7 @@
       "id": "30_Knowledge_Base/Devops/KServe và CRD",
       "title": "KServe và CRD",
       "group": "knowledge",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
@@ -1679,6 +1679,12 @@
       "title": "Gradient Descent Variants",
       "group": "knowledge",
       "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/DATA SCIENCE/Data Drift và Concept Drift",
+      "title": "Data Drift và Concept Drift",
+      "group": "knowledge",
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
@@ -4397,6 +4403,18 @@
       "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent in Linear Regression"
     },
     {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Data Drift và Concept Drift",
+      "target": "30_Knowledge_Base/MLOPS/Model Serving Patterns"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Data Drift và Concept Drift",
+      "target": "30_Knowledge_Base/Devops/KServe và CRD"
+    },
+    {
+      "source": "30_Knowledge_Base/DATA SCIENCE/Data Drift và Concept Drift",
+      "target": "30_Knowledge_Base/API/Webhook"
+    },
+    {
       "source": "30_Knowledge_Base/DATA SCIENCE/SVM Classification Model",
       "target": "3 - Tags/Machine Learning"
     },
@@ -4594,7 +4612,7 @@
     }
   ],
   "stats": {
-    "node_count": 301,
-    "link_count": 696
+    "node_count": 302,
+    "link_count": 699
   }
 }
