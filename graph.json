@@ -1456,7 +1456,13 @@
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
       "title": "Model Serving Patterns",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
+    },
+    {
+      "id": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)",
+      "title": "KServe - Extra Steps (Transformer và Inference Graph)",
+      "group": "knowledge",
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
@@ -1576,7 +1582,7 @@
       "id": "30_Knowledge_Base/Devops/KServe và CRD",
       "title": "KServe và CRD",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
@@ -4075,6 +4081,14 @@
       "target": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA"
     },
     {
+      "source": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)",
+      "target": "30_Knowledge_Base/Devops/KServe và CRD"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)",
+      "target": "30_Knowledge_Base/MLOPS/Model Serving Patterns"
+    },
+    {
       "source": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
       "target": "3 - Tags/devops"
     },
@@ -4640,7 +4654,7 @@
     }
   ],
   "stats": {
-    "node_count": 304,
-    "link_count": 703
+    "node_count": 305,
+    "link_count": 705
   }
 }
