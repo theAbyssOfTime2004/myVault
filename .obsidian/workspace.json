@@ -4,26 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "058738b7f400cb5e",
+        "id": "b324b47be1f6c666",
         "type": "tabs",
         "children": [
           {
-            "id": "3b2bc1362a7fce2d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00_Dashboard/Home.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Home"
-            }
-          },
-          {
-            "id": "2fbb95ad4393c8fd",
+            "id": "5b38c6598317ded4",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -216,9 +201,17 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "3b2bc1362a7fce2d",
+  "active": "5b38c6598317ded4",
   "lastOpenFiles": [
+    "30_Knowledge_Base/AI_DeepLearning/index.md",
+    "30_Knowledge_Base/API/WebSocket.md",
+    "30_Knowledge_Base/API/Webhook.md",
+    "30_Knowledge_Base/API/REST API.md",
+    "30_Knowledge_Base/API/gRPC.md",
     "00_Dashboard/Home.md",
+    "30_Knowledge_Base/Math_Stats/Toán tổ hợp.md",
+    "30_Knowledge_Base/Devops/KServe và CRD.md",
+    "30_Knowledge_Base/API",
     "3 - Tags/fsds.md",
     "30_Knowledge_Base/Dev_Tools/decorator.md",
     "30_Knowledge_Base/Dev_Tools/datalab pdf to markdown.md",
@@ -241,20 +234,12 @@
     "70_Daily_Notes/2026-04-13.md",
     "70_Daily_Notes/2026-04-11.md",
     "70_Daily_Notes/2026-04-10.md",
-    "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence.md",
-    "30_Knowledge_Base/Math_Stats/multivariable chain rule.md",
-    "30_Knowledge_Base/Math_Stats/Tensor.md",
-    "00_Dashboard/14_Thesis_SDPO.md",
-    "99_System/refactor_plan.md",
-    "30_Knowledge_Base/AI_DeepLearning/index.md",
-    "30_Knowledge_Base/Devops/Ingress.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
     "30_Knowledge_Base/Devops",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "00_Dashboard/Untitled 1.base",
-    "00_Dashboard/Untitled 2.base",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",
     "99_System/Assets/Images/Pasted image 20241123103323.png",
