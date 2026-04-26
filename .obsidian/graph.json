@@ -5,7 +5,7 @@
   "showAttachments": true,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:10_Projects",
@@ -53,6 +53,6 @@
   "repelStrength": 10.6802030456853,
   "linkStrength": 1,
   "linkDistance": 500,
-  "scale": 0.09248814381517867,
+  "scale": 0.09248814381517863,
   "close": true
 }

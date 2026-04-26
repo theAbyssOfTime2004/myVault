@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "50f348c46917eccc",
+        "id": "058738b7f400cb5e",
         "type": "tabs",
         "children": [
           {
-            "id": "aeb4bd27f266b875",
+            "id": "3b2bc1362a7fce2d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -23,22 +23,16 @@
             }
           },
           {
-            "id": "d2b2cec31a81bb74",
+            "id": "2fbb95ad4393c8fd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "k8s RBAC - ServiceAccount và Role Based Access Control"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -222,16 +216,20 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "d2b2cec31a81bb74",
+  "active": "3b2bc1362a7fce2d",
   "lastOpenFiles": [
     "00_Dashboard/Home.md",
+    "3 - Tags/fsds.md",
+    "30_Knowledge_Base/Dev_Tools/decorator.md",
+    "30_Knowledge_Base/Dev_Tools/datalab pdf to markdown.md",
+    "30_Knowledge_Base/Devops/Helm.md",
+    "30_Knowledge_Base/Devops/Job và Cronjob.md",
     "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
     "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
     "30_Knowledge_Base/Cloud",
     "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
     "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
     "30_Knowledge_Base/Devops/K8s.md",
-    "30_Knowledge_Base/Devops/Helm.md",
     "3 - Tags/array.md",
     "99_System/Vault_Redesign_Log.md",
     "graph.json",
@@ -250,10 +248,6 @@
     "99_System/refactor_plan.md",
     "30_Knowledge_Base/AI_DeepLearning/index.md",
     "30_Knowledge_Base/Devops/Ingress.md",
-    "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
-    "00_Dashboard/Ingress.md",
-    "00_Dashboard/refactor_plan.md",
-    "00_Dashboard/Helm.md",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
     "40_Archives/Untitled 1.base",
