@@ -1321,12 +1321,6 @@
       "degree": 1
     },
     {
-      "id": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
-      "title": "Model Serving Patterns",
-      "group": "knowledge",
-      "degree": 4
-    },
-    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
       "title": "Depth-first search",
       "group": "knowledge",
@@ -1577,6 +1571,12 @@
       "title": "gRPC",
       "group": "knowledge",
       "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
+      "title": "Model Serving Patterns",
+      "group": "knowledge",
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
@@ -3881,22 +3881,6 @@
       "target": "3 - Tags/supervised learning"
     },
     {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
-      "target": "3 - Tags/infrastructure"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
-      "target": "30_Knowledge_Base/Devops/KServe và CRD"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
-      "target": "30_Knowledge_Base/API/Webhook"
-    },
-    {
-      "source": "30_Knowledge_Base/AI_DeepLearning/Model Serving Patterns",
-      "target": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA"
-    },
-    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Depth-first search",
       "target": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence"
     },
@@ -4251,6 +4235,22 @@
     {
       "source": "30_Knowledge_Base/Dev_Tools/Pydantic Schema",
       "target": "30_Knowledge_Base/AI_DeepLearning/AI Engineering"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
+      "target": "30_Knowledge_Base/Devops/KServe và CRD"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
+      "target": "30_Knowledge_Base/API/Webhook"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
+      "target": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA"
     },
     {
       "source": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
