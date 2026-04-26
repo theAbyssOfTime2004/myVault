@@ -22,13 +22,13 @@
       "id": "3 - Tags/devops",
       "title": "devops",
       "group": "other",
-      "degree": 10
+      "degree": 11
     },
     {
       "id": "3 - Tags/infrastructure",
       "title": "infrastructure",
       "group": "other",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "3 - Tags/socket programming with UDP and TCP",
@@ -1661,6 +1661,12 @@
       "title": "k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
       "group": "knowledge",
       "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/KServe và CRD",
+      "title": "KServe và CRD",
+      "group": "knowledge",
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
@@ -4353,6 +4359,14 @@
       "target": "3 - Tags/infrastructure"
     },
     {
+      "source": "30_Knowledge_Base/Devops/KServe và CRD",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/KServe và CRD",
+      "target": "3 - Tags/infrastructure"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
       "target": "30_Knowledge_Base/Devops/K8s"
     },
@@ -4534,7 +4548,7 @@
     }
   ],
   "stats": {
-    "node_count": 295,
-    "link_count": 690
+    "node_count": 296,
+    "link_count": 692
   }
 }
