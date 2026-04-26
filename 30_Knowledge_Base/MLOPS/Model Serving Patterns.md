@@ -69,31 +69,24 @@ UI → Backend App + Serving Model → prediction
 
 Diagram dưới mô tả một hệ thống production dùng cả hai pattern đồng thời, tích hợp thêm pipeline phát hiện drift:
 
-```
-                     ┌─────────────────────────────┐
-                     │  backend app service         │
-User → UI ──────────►│         ↓                   │──── prediction
-                     │  serving model service       │
-                     └─────────────────────────────┘
-                              │
-                              │ Knative Eventing
-                              ▼
-User → UI ──────────► backend app + serving model ──── prediction
-                              │
-                              │ emit event
-                              ▼
-                           Broker
-                              │
-                           Trigger
-                              │
-                              ▼
-                    Drift Prediction Service
-                              │
-                           Webhook
-                              │
-                              ▼
-                         Chat Channel
-                      (Slack, Teams, ...)
+```mermaid
+flowchart TD
+    User1([User]) --> UI1[UI]
+    User2([User]) --> UI2[UI]
+
+    UI1 --> BackendSvc[backend app service]
+    BackendSvc -->|HTTP/gRPC| ServingModel[serving model service]
+    ServingModel --> P1([prediction])
+
+    UI2 --> BackendDep[backend app + serving model]
+    BackendDep --> P2([prediction])
+
+    BackendSvc -->|Knative Eventing| Broker[[Broker]]
+    BackendDep -->|emit event| Broker
+
+    Broker --> Trigger[[Trigger]]
+    Trigger --> Drift[drift prediction service]
+    Drift -->|webhook| Chat([chat channel\nSlack / Teams])
 ```
 
 **Luồng hoạt động:**
