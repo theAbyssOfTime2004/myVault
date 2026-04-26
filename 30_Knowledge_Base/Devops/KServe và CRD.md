@@ -54,6 +54,45 @@ KServe dùng `Storage Initializer` — một init container chạy trước Pred
 
 Model được mount vào `/mnt/models` trong Predictor container.
 
+### Cơ chế load model chi tiết
+
+Khi một InferenceService pod khởi động, quá trình diễn ra theo hai giai đoạn:
+
+**Giai đoạn 1 — Init:**
+
+```mermaid
+flowchart LR
+    SI[Storage Initializer\ninit container] -->|download model| Vol[(shared volume\n/mnt/models)]
+    Vol --> MS[Model Server]
+    QP[Queue Proxy] -->|route| MS
+```
+
+Storage Initializer chạy trước tất cả container khác. Nó pull model từ remote storage và ghi vào shared volume. Model server chưa nhận traffic.
+
+**Giai đoạn 2 — Ready:**
+
+Sau khi Storage Initializer exit với code 0, Kubernetes đánh dấu init container là `Completed` và start các container chính. Model server đọc model từ `/mnt/models`, load vào memory, và Queue Proxy bắt đầu route traffic vào.
+
+```
+Pod lifecycle:
+  Init containers:  [storage-initializer] → Completed ✓
+  Containers:       [queue-proxy] [kserve-container] → Running
+```
+
+**Điểm quan trọng:** Storage Initializer exit sau khi download xong là **hành vi đúng** của init container — không phải crash. Kubernetes chỉ báo lỗi nếu init container exit với non-zero code.
+
+## Key Features
+
+| Feature | Mô tả |
+|---|---|
+| **Scale to/from zero** | Serverless mode dùng Knative — pod scale down về 0 khi không có traffic, scale up khi có request đến |
+| **Request batching** | Gom nhiều request lại thành một batch trước khi đưa vào model — tăng throughput, tận dụng GPU hiệu quả hơn |
+| **Request-based autoscaling** | Scale số pod dựa trên số concurrent request, áp dụng được cả cho workload CPU lẫn GPU |
+| **Request/Response Logging** | Capture toàn bộ inference input/output, gửi vào Knative Eventing broker — dùng cho drift monitoring, audit, retraining data collection |
+| **Traffic management** | Chia traffic theo tỷ lệ giữa nhiều model revision (VD: 90% → v1, 10% → v2) — dùng cho canary deployment |
+| **Out-of-the-box metrics** | Expose sẵn các Prometheus metrics: request count, latency, queue depth, v.v. |
+| **Shadow deployment / A/B testing** | Deploy model mới song song với model đang chạy, mirror traffic vào cả hai nhưng chỉ trả response của model cũ về client — so sánh kết quả mà không ảnh hưởng user |
+
 ## Supported Runtimes
 
 KServe có sẵn `ClusterServingRuntime` và `ServingRuntime` CRD để định nghĩa model server. Built-in runtimes:
