@@ -3,9 +3,6 @@
 
 Tags: [[Machine Learning]], [[data scientist]], [[supervised learning]], [[classification]]
 
-
-
-
 # SVM Model And its variations
 
 ## Ý tưởng
