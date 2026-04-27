@@ -28,7 +28,7 @@
       "id": "3 - Tags/devops",
       "title": "devops",
       "group": "other",
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "3 - Tags/infrastructure",
@@ -1582,7 +1582,7 @@
       "id": "30_Knowledge_Base/Devops/KServe và CRD",
       "title": "KServe và CRD",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s ConfigMap và Secret",
@@ -1597,10 +1597,16 @@
       "degree": 2
     },
     {
+      "id": "30_Knowledge_Base/Devops/Istio",
+      "title": "Istio",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
       "id": "30_Knowledge_Base/Devops/Ingress",
       "title": "Ingress",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Devops/Helm",
@@ -1630,7 +1636,7 @@
       "id": "30_Knowledge_Base/Devops/k8s Services",
       "title": "k8s Services",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
@@ -4265,6 +4271,22 @@
       "target": "3 - Tags/devops"
     },
     {
+      "source": "30_Knowledge_Base/Devops/Istio",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Istio",
+      "target": "30_Knowledge_Base/Devops/KServe và CRD"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Istio",
+      "target": "30_Knowledge_Base/Devops/k8s Services"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/Istio",
+      "target": "30_Knowledge_Base/Devops/Ingress"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/Ingress",
       "target": "30_Knowledge_Base/Devops/K8s"
     },
@@ -4654,7 +4676,7 @@
     }
   ],
   "stats": {
-    "node_count": 305,
-    "link_count": 705
+    "node_count": 306,
+    "link_count": 709
   }
 }
