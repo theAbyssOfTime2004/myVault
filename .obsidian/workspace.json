@@ -196,8 +196,7 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Open Copilot Chat": false,
-      "templater-obsidian:Templater": false,
-      "periodic-notes:Open today": false
+      "templater-obsidian:Templater": false
     }
   },
   "active": "2f93a44be6f0132f",
