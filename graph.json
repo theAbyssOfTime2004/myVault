@@ -22,7 +22,7 @@
       "id": "50_Weekly_Notes/2026-W18",
       "title": "2026-W18",
       "group": "periodic",
-      "degree": 5
+      "degree": 7
     },
     {
       "id": "3 - Tags/devops",
@@ -921,6 +921,12 @@
     {
       "id": "70_Daily_Notes/2026-04-12",
       "title": "2026-04-12",
+      "group": "periodic",
+      "degree": 2
+    },
+    {
+      "id": "70_Daily_Notes/2026-04-29",
+      "title": "2026-04-29",
       "group": "periodic",
       "degree": 2
     },
@@ -1911,6 +1917,10 @@
     {
       "source": "50_Weekly_Notes/2026-W18",
       "target": "70_Daily_Notes/2026-04-28"
+    },
+    {
+      "source": "50_Weekly_Notes/2026-W18",
+      "target": "70_Daily_Notes/2026-04-29"
     },
     {
       "source": "3 - Tags/linked list",
@@ -3227,6 +3237,10 @@
     {
       "source": "70_Daily_Notes/2026-04-12",
       "target": "50_Weekly_Notes/2026-W15"
+    },
+    {
+      "source": "70_Daily_Notes/2026-04-29",
+      "target": "50_Weekly_Notes/2026-W18"
     },
     {
       "source": "70_Daily_Notes/2026-04-22",
@@ -4690,7 +4704,7 @@
     }
   ],
   "stats": {
-    "node_count": 307,
-    "link_count": 711
+    "node_count": 308,
+    "link_count": 713
   }
 }
