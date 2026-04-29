@@ -28,7 +28,7 @@
       "id": "3 - Tags/devops",
       "title": "devops",
       "group": "other",
-      "degree": 12
+      "degree": 16
     },
     {
       "id": "3 - Tags/infrastructure",
@@ -1477,6 +1477,12 @@
       "degree": 2
     },
     {
+      "id": "30_Knowledge_Base/Cloud/Cloud Service Models",
+      "title": "Cloud Service Models",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
       "id": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
       "title": "Server vs Serverless Architecture",
       "group": "knowledge",
@@ -1588,7 +1594,7 @@
       "id": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
       "title": "k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Devops/KServe và CRD",
@@ -1618,7 +1624,13 @@
       "id": "30_Knowledge_Base/Devops/Ingress",
       "title": "Ingress",
       "group": "knowledge",
-      "degree": 3
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "title": "k8s Internal DNS - cluster.local",
+      "group": "knowledge",
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/Devops/Helm",
@@ -1630,7 +1642,7 @@
       "id": "30_Knowledge_Base/Devops/K8s",
       "title": "K8s",
       "group": "knowledge",
-      "degree": 11
+      "degree": 15
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control",
@@ -1648,13 +1660,31 @@
       "id": "30_Knowledge_Base/Devops/k8s Services",
       "title": "k8s Services",
       "group": "knowledge",
-      "degree": 3
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "title": "k8s DNS - Pod vs Service",
+      "group": "knowledge",
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
       "title": "k8s Autoscaling - HPA và KEDA",
       "group": "knowledge",
       "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/CoreDNS",
+      "title": "CoreDNS",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "title": "k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "group": "knowledge",
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
@@ -4323,6 +4353,26 @@
       "target": "3 - Tags/devops"
     },
     {
+      "source": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "target": "30_Knowledge_Base/Devops/CoreDNS"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "target": "30_Knowledge_Base/Devops/k8s Services"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
+      "target": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/Helm",
       "target": "30_Knowledge_Base/Devops/K8s"
     },
@@ -4371,8 +4421,68 @@
       "target": "3 - Tags/devops"
     },
     {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "30_Knowledge_Base/Devops/CoreDNS"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "30_Knowledge_Base/Devops/k8s Services"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service",
+      "target": "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA",
       "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CoreDNS",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CoreDNS",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CoreDNS",
+      "target": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CoreDNS",
+      "target": "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CoreDNS",
+      "target": "30_Knowledge_Base/Devops/k8s Services"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "target": "30_Knowledge_Base/Devops/Ingress"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer",
+      "target": "30_Knowledge_Base/Devops/k8s Services"
     },
     {
       "source": "30_Knowledge_Base/DATA SCIENCE/So Sánh Giữa PCA, SVD và LSA",
@@ -4704,7 +4814,7 @@
     }
   ],
   "stats": {
-    "node_count": 308,
-    "link_count": 713
+    "node_count": 313,
+    "link_count": 733
   }
 }
