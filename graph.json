@@ -1477,12 +1477,6 @@
       "degree": 2
     },
     {
-      "id": "30_Knowledge_Base/Cloud/Cloud Service Models",
-      "title": "Cloud Service Models",
-      "group": "knowledge",
-      "degree": 0
-    },
-    {
       "id": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
       "title": "Server vs Serverless Architecture",
       "group": "knowledge",
@@ -4710,7 +4704,7 @@
     }
   ],
   "stats": {
-    "node_count": 309,
+    "node_count": 308,
     "link_count": 713
   }
 }
