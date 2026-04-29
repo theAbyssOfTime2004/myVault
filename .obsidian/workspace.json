@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer.md",
+                "file": "30_Knowledge_Base/Data Science/Gradient Descent Variants.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "k8s Service Exposure - NodePort vs Ingress vs LoadBalancer"
+              "title": "Gradient Descent Variants"
             }
           }
         ]
@@ -208,6 +208,9 @@
   },
   "active": "5f983b7e633e7f72",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Data Science/Gradient Descent in Linear Regression.md",
+    "30_Knowledge_Base/Data Science/Gradient Descent.md",
+    "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer.md",
     "30_Knowledge_Base/Devops/CoreDNS.md",
     "30_Knowledge_Base/Devops/Helm.md",
     "30_Knowledge_Base/Devops/Ingress.md",
@@ -215,7 +218,6 @@
     "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
     "30_Knowledge_Base/Devops/k8s Storage.md",
     "30_Knowledge_Base/Devops/k8s Services.md",
-    "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer.md",
     "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
     "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local.md",
     "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
@@ -232,8 +234,6 @@
     "70_Daily_Notes/2026-04-26.md",
     "00_Dashboard/Home.md",
     "3 - Tags/beginner.md",
-    "30_Knowledge_Base/Data Science/regularization.md",
-    "30_Knowledge_Base/Data Science/So Sánh Giữa PCA, SVD và LSA.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
