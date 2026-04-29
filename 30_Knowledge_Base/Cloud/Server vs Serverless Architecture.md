@@ -5,8 +5,6 @@ Tags: [[cloud]], [[devops]], [[serverless]], [[architecture]]
 
 # Server vs Serverless Architecture
 
----
-
 ## 1. Traditional Server Architecture
 
 Bạn **thuê/mua máy chủ**, cài OS, runtime, deploy app lên đó — máy chạy **24/7** dù có request hay không.

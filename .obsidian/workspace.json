@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70_Daily_Notes/2026-04-29.md",
+                "file": "30_Knowledge_Base/Cloud/Cloud Service Models.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-29"
+              "title": "Cloud Service Models"
             }
           }
         ]
@@ -202,13 +202,16 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
       "copilot:Open Copilot Chat": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "periodic-notes:Open today": false
     }
   },
   "active": "5f983b7e633e7f72",
   "lastOpenFiles": [
-    "50_Weekly_Notes/2026-W18.md",
+    "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
+    "30_Knowledge_Base/Cloud/Cloud Service Models.md",
     "70_Daily_Notes/2026-04-29.md",
+    "50_Weekly_Notes/2026-W18.md",
     "70_Daily_Notes/2026-04-28.md",
     "70_Daily_Notes/2026-04-22.md",
     "70_Daily_Notes/2026-04-26.md",
@@ -231,8 +234,6 @@
     "30_Knowledge_Base/Data Science/ISOMAP.md",
     "30_Knowledge_Base/Data Science/Normalizing Inputs.md",
     "30_Knowledge_Base/Data Science/SVM Classification Model.md",
-    "30_Knowledge_Base/Data Science/The Basics Data Types and Major Building Blocks.md",
-    "30_Knowledge_Base/Data Science/SVD for denoising.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
