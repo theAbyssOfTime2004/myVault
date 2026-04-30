@@ -28,7 +28,7 @@
       "id": "3 - Tags/devops",
       "title": "devops",
       "group": "other",
-      "degree": 16
+      "degree": 17
     },
     {
       "id": "3 - Tags/infrastructure",
@@ -1444,7 +1444,7 @@
       "id": "30_Knowledge_Base/API/REST API",
       "title": "REST API",
       "group": "knowledge",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/API/WebSocket",
@@ -1468,7 +1468,7 @@
       "id": "30_Knowledge_Base/API/API Gateway",
       "title": "API Gateway",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
@@ -1615,6 +1615,12 @@
       "degree": 2
     },
     {
+      "id": "30_Knowledge_Base/Devops/NGINX",
+      "title": "NGINX",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
       "id": "30_Knowledge_Base/Devops/k8s Storage",
       "title": "k8s Storage",
       "group": "knowledge",
@@ -1624,13 +1630,13 @@
       "id": "30_Knowledge_Base/Devops/Istio",
       "title": "Istio",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Devops/Ingress",
       "title": "Ingress",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
@@ -4343,6 +4349,26 @@
       "target": "3 - Tags/devops"
     },
     {
+      "source": "30_Knowledge_Base/Devops/NGINX",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/NGINX",
+      "target": "30_Knowledge_Base/API/API Gateway"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/NGINX",
+      "target": "30_Knowledge_Base/Devops/Ingress"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/NGINX",
+      "target": "30_Knowledge_Base/Devops/Istio"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/NGINX",
+      "target": "30_Knowledge_Base/API/REST API"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/k8s Storage",
       "target": "30_Knowledge_Base/Devops/K8s"
     },
@@ -4836,7 +4862,7 @@
     }
   ],
   "stats": {
-    "node_count": 314,
-    "link_count": 737
+    "node_count": 315,
+    "link_count": 742
   }
 }
