@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a2cf3dcb53082442",
+        "id": "609eb9beb6b46564",
         "type": "tabs",
         "children": [
           {
-            "id": "43aa818db0f49fbc",
+            "id": "7deda504b542d284",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -201,8 +201,9 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "43aa818db0f49fbc",
+  "active": "7deda504b542d284",
   "lastOpenFiles": [
+    "40_Archives/Old_Research/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "30_Knowledge_Base/Devops/NGINX.md",
     "30_Knowledge_Base/API/API Gateway.md",
     "30_Knowledge_Base/API/gRPC.md",
@@ -228,7 +229,6 @@
     "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
     "70_Daily_Notes/2026-04-29.md",
     "50_Weekly_Notes/2026-W18.md",
-    "70_Daily_Notes/2026-04-28.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
