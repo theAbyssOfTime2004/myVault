@@ -34,7 +34,7 @@
       "id": "3 - Tags/infrastructure",
       "title": "infrastructure",
       "group": "other",
-      "degree": 6
+      "degree": 5
     },
     {
       "id": "3 - Tags/socket programming with UDP and TCP",
@@ -1450,7 +1450,7 @@
       "id": "30_Knowledge_Base/API/WebSocket",
       "title": "WebSocket",
       "group": "knowledge",
-      "degree": 1
+      "degree": 0
     },
     {
       "id": "30_Knowledge_Base/API/Webhook",
@@ -1462,13 +1462,13 @@
       "id": "30_Knowledge_Base/API/gRPC",
       "title": "gRPC",
       "group": "knowledge",
-      "degree": 1
+      "degree": 0
     },
     {
       "id": "30_Knowledge_Base/API/API Gateway",
       "title": "API Gateway",
       "group": "knowledge",
-      "degree": 5
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
@@ -1630,13 +1630,13 @@
       "id": "30_Knowledge_Base/Devops/Istio",
       "title": "Istio",
       "group": "knowledge",
-      "degree": 5
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Devops/Ingress",
       "title": "Ingress",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
@@ -4142,19 +4142,15 @@
     },
     {
       "source": "30_Knowledge_Base/API/API Gateway",
-      "target": "3 - Tags/infrastructure"
+      "target": "30_Knowledge_Base/Devops/NGINX"
+    },
+    {
+      "source": "30_Knowledge_Base/API/API Gateway",
+      "target": "30_Knowledge_Base/Devops/Ingress"
     },
     {
       "source": "30_Knowledge_Base/API/API Gateway",
       "target": "30_Knowledge_Base/API/REST API"
-    },
-    {
-      "source": "30_Knowledge_Base/API/API Gateway",
-      "target": "30_Knowledge_Base/API/gRPC"
-    },
-    {
-      "source": "30_Knowledge_Base/API/API Gateway",
-      "target": "30_Knowledge_Base/API/WebSocket"
     },
     {
       "source": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
@@ -4359,10 +4355,6 @@
     {
       "source": "30_Knowledge_Base/Devops/NGINX",
       "target": "30_Knowledge_Base/Devops/Ingress"
-    },
-    {
-      "source": "30_Knowledge_Base/Devops/NGINX",
-      "target": "30_Knowledge_Base/Devops/Istio"
     },
     {
       "source": "30_Knowledge_Base/Devops/NGINX",
@@ -4863,6 +4855,6 @@
   ],
   "stats": {
     "node_count": 315,
-    "link_count": 742
+    "link_count": 740
   }
 }
