@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "609eb9beb6b46564",
+        "id": "d0f32f3e347a10a9",
         "type": "tabs",
         "children": [
           {
-            "id": "7deda504b542d284",
+            "id": "1113c4d12b701b76",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "10_Projects/13_Uni_Retake/ôn tập.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "ôn tập"
             }
           }
         ]
@@ -201,8 +206,24 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "7deda504b542d284",
+  "active": "1113c4d12b701b76",
   "lastOpenFiles": [
+    "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên.md",
+    "3 - Tags/review.md",
+    "10_Projects/13_Uni_Retake/General_Physics_Tracker.md",
+    "10_Projects/13_Uni_Retake/giải đề ck datamining 2023-2024.md",
+    "10_Projects/13_Uni_Retake/General_Physics_Tracker.md.tmp.5268.1777574139430",
+    "40_Archives/Uni_Year1_3/report_5.3.md",
+    "40_Archives/Uni_Year1_3/Data_Mining_Lab7_Report.md",
+    "40_Archives/directory_structure.md",
+    "40_Archives/Mạng máy tính.md",
+    "40_Archives/Uni_Year1_3/Data_Mining_Lab6_Report.md",
+    "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report.md",
+    "40_Archives/Uni_Year1_3/Data Mining Lab2 Report.md",
+    "40_Archives/Uni_Year1_3/Data Mining Lab1 Report.md",
+    "40_Archives/Uni_Year1_3/Chap2-summary.md",
+    "40_Archives/Uni_Year1_3/Bài tập thực hành KTDL tuần 9.md",
+    "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer.md",
     "40_Archives/Old_Research/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "30_Knowledge_Base/Devops/NGINX.md",
     "30_Knowledge_Base/API/API Gateway.md",
@@ -214,21 +235,6 @@
     "30_Knowledge_Base/Devops/CoreDNS.md",
     "30_Knowledge_Base/Devops/Helm.md",
     "30_Knowledge_Base/Devops/Ingress.md",
-    "30_Knowledge_Base/Devops/KServe và CRD.md",
-    "30_Knowledge_Base/Devops/k8s Workloads - Deployment, ReplicaSet, StatefulSet, DaemonSet.md",
-    "30_Knowledge_Base/Devops/k8s Storage.md",
-    "30_Knowledge_Base/Devops/k8s Services.md",
-    "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control.md",
-    "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local.md",
-    "30_Knowledge_Base/Devops/k8s Autoscaling - HPA và KEDA.md",
-    "30_Knowledge_Base/Devops/k8s ConfigMap và Secret.md",
-    "30_Knowledge_Base/Devops/k8s DNS - Pod vs Service.md",
-    "30_Knowledge_Base/Devops/Job và Cronjob.md",
-    "30_Knowledge_Base/Devops/Istio.md",
-    "30_Knowledge_Base/Cloud/Cloud Service Models.md",
-    "30_Knowledge_Base/Cloud/Server vs Serverless Architecture.md",
-    "70_Daily_Notes/2026-04-29.md",
-    "50_Weekly_Notes/2026-W18.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
@@ -238,7 +244,6 @@
     "scripts",
     "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
     "00_Dashboard/Untitled.base",
-    "40_Archives/Untitled 1.base",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",
