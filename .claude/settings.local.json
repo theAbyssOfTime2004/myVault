@@ -32,7 +32,10 @@
       "Bash(python scripts/build_graph.py)",
       "PowerShell($candidates = @\\(\"py\", \"python3\", \"python\"\\); $found=$null; foreach \\($c in $candidates\\) { try { & $c --version 2>&1 | Out-Null; if \\($?\\) { $found=$c; break } } catch {} }; if \\($found\\) { Write-Output \"FOUND: $found\"; & $found --version } else { Write-Output \"NO PYTHON\" })",
       "Bash(mkdir -p \"C:/Users/Maidanng/Repos/myVault/30_Knowledge_Base/DATA SCIENCE\")",
-      "Bash(mv 'Introduction to Data Mining.md' 'Decision Tree.md' 'Linear Regression.md' 'Linear Regression for more complex models.md' 'Logistic Regression.md' 'Logistic Regression review 1.md' 'Logistic Regression review 2.md' 'SVM Classification Model.md' 'Model Generalization.md' regularization.md 'Normalizing Inputs.md' 'double descent.md' ISOMAP.md 'SVD for denoising.md' 'So Sánh Giữa PCA, SVD và LSA.md' 'So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means.md' 'Gradient Descent.md' 'Gradient Descent Variants.md' 'Gradient Descent in Linear Regression.md' 'Creating ML pipeline from scratch.md' 'Fuzzy Logic.md' 'The Basics Data Types and Major Building Blocks.md' '../DATA SCIENCE/')"
+      "Bash(mv 'Introduction to Data Mining.md' 'Decision Tree.md' 'Linear Regression.md' 'Linear Regression for more complex models.md' 'Logistic Regression.md' 'Logistic Regression review 1.md' 'Logistic Regression review 2.md' 'SVM Classification Model.md' 'Model Generalization.md' regularization.md 'Normalizing Inputs.md' 'double descent.md' ISOMAP.md 'SVD for denoising.md' 'So Sánh Giữa PCA, SVD và LSA.md' 'So sánh sự khác nhau giữa Kmeans, K_medoids, Kernel K-Means.md' 'Gradient Descent.md' 'Gradient Descent Variants.md' 'Gradient Descent in Linear Regression.md' 'Creating ML pipeline from scratch.md' 'Fuzzy Logic.md' 'The Basics Data Types and Major Building Blocks.md' '../DATA SCIENCE/')",
+      "Bash(rm .git/ORIG_HEAD)",
+      "Bash(git pull *)",
+      "Bash(git push *)"
     ]
   }
 }
