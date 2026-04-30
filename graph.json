@@ -292,7 +292,7 @@
       "id": "3 - Tags/Deep Learning",
       "title": "Deep Learning",
       "group": "other",
-      "degree": 39
+      "degree": 40
     },
     {
       "id": "3 - Tags/Segmentation",
@@ -496,7 +496,7 @@
       "id": "10_Projects/13_Uni_Retake/ôn tập",
       "title": "ôn tập",
       "group": "projects",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "10_Projects/13_Uni_Retake/khaosat",
@@ -3103,6 +3103,10 @@
       "target": "3 - Tags/review"
     },
     {
+      "source": "10_Projects/13_Uni_Retake/ôn tập",
+      "target": "3 - Tags/Deep Learning"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "target": "3 - Tags/review"
     },
@@ -4873,6 +4877,6 @@
   ],
   "stats": {
     "node_count": 316,
-    "link_count": 743
+    "link_count": 744
   }
 }
