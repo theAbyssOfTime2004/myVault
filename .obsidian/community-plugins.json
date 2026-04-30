@@ -5,5 +5,6 @@
   "obsidian-pandoc",
   "periodic-notes",
   "calendar",
-  "templater-obsidian"
+  "templater-obsidian",
+  "dynamic-outline"
 ]
