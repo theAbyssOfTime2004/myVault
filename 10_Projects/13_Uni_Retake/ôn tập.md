@@ -285,14 +285,15 @@ Tags: [[data scientist]], [[review]], [[AI engineer]], [[LLM]], [[deep learning]
 	- **Bidirectional (BERT)** không có causal mask → mỗi token thấy toàn bộ context → tốt cho understanding (NLU), không tự nhiên cho generation
 
 18. ==Encoder-only vs Decoder-only vs Encoder-Decoder Transformer==
-	| Loại | Ví dụ | Đặc điểm | Use case |
-	|---|---|---|---|
-	| Encoder-only | BERT, RoBERTa, DeBERTa | Bidirectional attention, MLM training | Classification, NER, embedding, search |
-	| Decoder-only | GPT, LLaMA, Mistral, Qwen | Causal attention, next-token prediction | Generation, chat, code (modern LLM standard) |
-	| Encoder-Decoder | T5, BART, FLAN-T5 | Cross-attention từ decoder sang encoder | Translation, summarization |
 
-	- Trend 2024-2026: **decoder-only thống trị** vì scale tốt và đa năng (in-context learning, instruction following)
-	- BERT-style vẫn dùng nhiều cho embedding/retrieval (BGE, E5, Jina)
+| Loại | Ví dụ | Đặc điểm | Use case |
+|---|---|---|---|
+| Encoder-only | BERT, RoBERTa, DeBERTa | Bidirectional attention, MLM training | Classification, NER, embedding, search |
+| Decoder-only | GPT, LLaMA, Mistral, Qwen | Causal attention, next-token prediction | Generation, chat, code (modern LLM standard) |
+| Encoder-Decoder | T5, BART, FLAN-T5 | Cross-attention từ decoder sang encoder | Translation, summarization |
+
+- Trend 2024-2026: **decoder-only thống trị** vì scale tốt và đa năng (in-context learning, instruction following)
+- BERT-style vẫn dùng nhiều cho embedding/retrieval (BGE, E5, Jina)
 
 ---
 
@@ -549,16 +550,17 @@ Tags: [[data scientist]], [[review]], [[AI engineer]], [[LLM]], [[deep learning]
 	- **Critical reading**: hỏi "claim này có over-stated không?", "ablation đầy đủ chưa?", "compare baseline có fair không?", "code release không?", "scale có thực tế không?"
 
 33. ==Một AI Engineer khác data scientist như thế nào?==
-	| | Data Scientist | AI/ML Engineer | AI Researcher |
-	|---|---|---|---|
-	| Mục tiêu | Insight, business decision | Production AI systems | Push SOTA, novel methods |
-	| Output | Reports, dashboards, A/B test | APIs, deployed models, pipelines | Papers, prototypes |
-	| Skills | Stats, SQL, viz, exp design | SWE + ML, MLOps, system design | DL theory, math, research taste |
-	| Codebase | Notebooks, scripts | Production code, tests, CI/CD | Research code (often messy) |
-	| Stakeholders | Business teams | Eng teams, infra | Academic + internal research |
 
-	- **AI Engineer hiện đại (2024-2026)** thường overlap mạnh với **LLM/RAG/Agent engineering**: prompt engineering, eval frameworks, vector DB, tool use, multi-agent orchestration, observability cho LLM apps (LangSmith, Langfuse)
-	- Vietnam market 2026: VinAI, VinBigData, FPT.AI, Zalo AI, Viettel AI, Cinnamon AI → đa phần tìm AI Engineer hybrid (research-aware nhưng ship product được)
+| | Data Scientist | AI/ML Engineer | AI Researcher |
+|---|---|---|---|
+| Mục tiêu | Insight, business decision | Production AI systems | Push SOTA, novel methods |
+| Output | Reports, dashboards, A/B test | APIs, deployed models, pipelines | Papers, prototypes |
+| Skills | Stats, SQL, viz, exp design | SWE + ML, MLOps, system design | DL theory, math, research taste |
+| Codebase | Notebooks, scripts | Production code, tests, CI/CD | Research code (often messy) |
+| Stakeholders | Business teams | Eng teams, infra | Academic + internal research |
+
+- **AI Engineer hiện đại (2024-2026)** thường overlap mạnh với **LLM/RAG/Agent engineering**: prompt engineering, eval frameworks, vector DB, tool use, multi-agent orchestration, observability cho LLM apps (LangSmith, Langfuse)
+- Vietnam market 2026: VinAI, VinBigData, FPT.AI, Zalo AI, Viettel AI, Cinnamon AI → đa phần tìm AI Engineer hybrid (research-aware nhưng ship product được)
 
 34. ==Câu hỏi thường gặp về project cá nhân (behavioral)==
 	- **STAR framework**: Situation, Task, Action, Result
@@ -577,6 +579,230 @@ Tags: [[data scientist]], [[review]], [[AI engineer]], [[LLM]], [[deep learning]
 
 ---
 
+## VII. Coding / Implementation questions (whiteboard)
+
+> Interviewer hay yêu cầu code "from scratch" hoặc "in NumPy/PyTorch only" để check hiểu sâu, không chỉ biết dùng API.
+
+35. ==Implement Scaled Dot-Product Attention from scratch (PyTorch)==
+```python
+import torch
+import torch.nn.functional as F
+import math
+
+def scaled_dot_product_attention(Q, K, V, mask=None):
+    """
+    Q: (batch, seq_q, d_k)
+    K: (batch, seq_k, d_k)
+    V: (batch, seq_k, d_v)
+    mask: (batch, seq_q, seq_k) — bool, True = mask out
+    """
+    d_k = Q.size(-1)
+    # (batch, seq_q, seq_k)
+    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)
+
+    if mask is not None:
+        scores = scores.masked_fill(mask, float('-inf'))
+
+    attn = F.softmax(scores, dim=-1)            # (batch, seq_q, seq_k)
+    out  = torch.matmul(attn, V)                # (batch, seq_q, d_v)
+    return out, attn
+```
+- **Follow-up trap**: tại sao `mask` cộng `-inf` chứ không nhân 0? → vì softmax có $e^x$, $-\infty$ → 0; nếu nhân 0 sau softmax thì các weights còn lại không tổng = 1.
+- **Hỏi mở rộng**: extend thành multi-head — split last dim thành `(num_heads, d_head)`, transpose, attention song song trên các heads, concat back, linear projection.
+
+36. ==Implement Multi-Head Attention module==
+```python
+import torch.nn as nn
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model, num_heads, dropout=0.1):
+        super().__init__()
+        assert d_model % num_heads == 0
+        self.d_model   = d_model
+        self.num_heads = num_heads
+        self.d_head    = d_model // num_heads
+
+        self.W_q = nn.Linear(d_model, d_model)
+        self.W_k = nn.Linear(d_model, d_model)
+        self.W_v = nn.Linear(d_model, d_model)
+        self.W_o = nn.Linear(d_model, d_model)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x, mask=None):
+        B, T, _ = x.shape
+        # (B, T, d_model) -> (B, num_heads, T, d_head)
+        def split(t): return t.view(B, T, self.num_heads, self.d_head).transpose(1, 2)
+
+        Q, K, V = split(self.W_q(x)), split(self.W_k(x)), split(self.W_v(x))
+        scores = (Q @ K.transpose(-2, -1)) / (self.d_head ** 0.5)
+        if mask is not None:
+            scores = scores.masked_fill(mask, float('-inf'))
+        attn = self.dropout(scores.softmax(dim=-1))
+        out  = attn @ V                                              # (B, h, T, d_head)
+        out  = out.transpose(1, 2).contiguous().view(B, T, self.d_model)
+        return self.W_o(out)
+```
+- **Common bug**: quên `.contiguous()` trước `.view()` sau `transpose` → RuntimeError.
+
+37. ==Implement basic training loop in PyTorch (correct version)==
+```python
+model.train()
+for epoch in range(num_epochs):
+    for x, y in train_loader:
+        x, y = x.to(device), y.to(device)
+        optimizer.zero_grad()              # 1. clear old gradients
+        logits = model(x)                  # 2. forward
+        loss = criterion(logits, y)        # 3. compute loss
+        loss.backward()                    # 4. backward (autograd)
+        torch.nn.utils.clip_grad_norm_(    # 5. (optional) clip
+            model.parameters(), max_norm=1.0
+        )
+        optimizer.step()                   # 6. update weights
+
+    # Validation
+    model.eval()
+    with torch.no_grad():
+        for x, y in val_loader:
+            ...
+    model.train()
+```
+- **Lỗi kinh điển**: quên `optimizer.zero_grad()` → gradient cộng dồn qua các batch → train sai
+- Quên `model.eval()`/`model.train()` → BatchNorm/Dropout hành xử sai trong eval
+- Quên `torch.no_grad()` ở val → tốn memory cho computation graph không cần
+- `loss.backward()` 2 lần mà không zero_grad → cộng dồn gradients
+
+38. ==Implement Layer Normalization from scratch==
+```python
+class LayerNorm(nn.Module):
+    def __init__(self, d_model, eps=1e-5):
+        super().__init__()
+        self.gamma = nn.Parameter(torch.ones(d_model))
+        self.beta  = nn.Parameter(torch.zeros(d_model))
+        self.eps   = eps
+
+    def forward(self, x):
+        # x: (..., d_model) — normalize trên feature dim
+        mean = x.mean(dim=-1, keepdim=True)
+        var  = x.var(dim=-1, keepdim=True, unbiased=False)
+        x_hat = (x - mean) / torch.sqrt(var + self.eps)
+        return self.gamma * x_hat + self.beta
+```
+- **Follow-up**: viết RMSNorm — bỏ `mean`, chỉ chia bởi RMS:
+```python
+def rms_norm(x, gamma, eps=1e-6):
+    rms = x.pow(2).mean(dim=-1, keepdim=True).sqrt()
+    return gamma * x / (rms + eps)
+```
+
+39. ==Implement minimal RAG pipeline (pseudo-code)==
+```python
+# 1. Indexing (offline)
+chunks = []
+for doc in documents:
+    for chunk in chunk_text(doc, chunk_size=512, overlap=64):
+        emb = embedder.encode(chunk)        # vd sentence-transformer
+        chunks.append({"text": chunk, "embedding": emb, "doc_id": doc.id})
+
+vector_db.upsert(chunks)
+
+# 2. Query (online)
+def answer(query, k=5):
+    q_emb       = embedder.encode(query)
+    top_chunks  = vector_db.search(q_emb, k=k)               # cosine sim
+    context     = "\n\n".join(c["text"] for c in top_chunks)
+    prompt = f"""Dựa trên context dưới, trả lời câu hỏi.
+Nếu không có thông tin trong context, trả lời "Tôi không biết".
+
+Context:
+{context}
+
+Câu hỏi: {query}
+Trả lời:"""
+    return llm.generate(prompt)
+```
+- **Follow-up câu hay hỏi**: làm sao handle khi `top_chunks` không relevant? (threshold similarity, reranker, fallback to "không biết"). Làm sao evaluate? (RAGAs: faithfulness, context relevance).
+
+40. ==Implement Cross-Entropy loss from scratch (sanity check hiểu)==
+```python
+import torch
+import torch.nn.functional as F
+
+def cross_entropy_manual(logits, targets):
+    """
+    logits:  (N, C) — raw scores
+    targets: (N,)   — class indices
+    """
+    # log_softmax = log(softmax(x)) = x - logsumexp(x)
+    log_probs = logits - torch.logsumexp(logits, dim=-1, keepdim=True)
+    # gather log-prob của class đúng
+    nll = -log_probs.gather(1, targets.unsqueeze(1)).squeeze(1)
+    return nll.mean()
+
+# Verify
+logits  = torch.randn(4, 10)
+targets = torch.tensor([3, 1, 7, 2])
+print(cross_entropy_manual(logits, targets))
+print(F.cross_entropy(logits, targets))    # nên gần bằng nhau
+```
+- **Trick question**: tại sao dùng `logsumexp` thay vì log(sum(exp))? → **numerical stability**. `exp(large_number)` → inf. `logsumexp` trừ max trước.
+
+41. ==Câu hỏi mẹo / common pitfalls thường gặp==
+- **"Train accuracy 99%, test accuracy 60%, em làm gì?"** → overfitting → regularization, more data, simpler model, dropout, augmentation. Đừng nhảy ngay vào "train thêm".
+- **"Model dự đoán toàn class 0 trên imbalanced data, accuracy 95%, ổn không?"** → KHÔNG. Accuracy lừa. Check confusion matrix, F1, recall của minority class.
+- **"Validation loss giảm nhưng training loss tăng, lý do?"** → có thể do dropout/data augmentation chỉ active khi train + thiếu warmup. Hoặc batch ordering, regularization quá mạnh.
+- **"Em đặt batch_size = 1 vs 1024, có gì khác?"** → BS nhỏ: noisy gradient, có thể escape local minima, BatchNorm fail. BS lớn: smooth gradient, throughput cao, có thể overfit/converge kém (sharp minima theo Keskar et al.). Cần adjust LR theo BS (linear scaling rule).
+- **"Tại sao model train trên A100 cho kết quả khác V100 dù cùng seed?"** → CUDA non-determinism, mixed precision khác, cuDNN algorithm selection. Repro hoàn toàn rất khó.
+- **"Loss = NaN sau vài epoch, debug như thế nào?"** → check exploding gradient (clip), LR quá lớn, division by zero (eps), bad data (NaN/inf trong input), `log(0)` (clamp probabilities), mixed precision overflow.
+- **"Embed query xong cosine sim < 0 với mọi doc, sao?"** → một số embedding model output có thể có dim âm; cosine có thể âm. Hoặc query domain khác doc domain. Check normalization.
+
+---
+
+## VIII. Test-Time Training (TTT) — chuyên môn của bạn
+
+> Section này dành cho TTT pipeline bạn đang làm trên LCBv6. Interviewer sẽ đào sâu nếu bạn list nó trong CV.
+
+42. ==Test-Time Training là gì? Khác gì với fine-tuning thông thường?==
+- **TTT**: model **update weights tại inference time**, dựa trên test instance hiện tại (hoặc một mini-dataset xung quanh nó), trước khi predict
+- **Pipeline điển hình**:
+	1. Pretrained model nhận test input $x$
+	2. Tạo self-supervised task từ $x$ (vd rotation prediction, masked reconstruction, augmentation invariance)
+	3. Update weights vài steps trên loss self-supervised đó
+	4. Predict trên $x$ với weights đã update
+	5. (Optional) reset weights cho test instance tiếp theo
+- **Khác fine-tuning**:
+	- FT update 1 lần dùng labeled training set, inference dùng weights cố định
+	- TTT update **mỗi test instance** (hoặc cluster), không cần label, adapt với distribution shift
+- **Use cases**: domain adaptation, distribution shift, long-tail, in-context learning task mới (Akyürek et al. 2024 chứng minh TTT improve ARC benchmark drastically)
+- **Tham khảo**: Sun et al. (2020) "Test-Time Training with Self-Supervision", Akyürek et al. (2024) "The Surprising Effectiveness of Test-Time Training for Abstract Reasoning"
+
+43. ==Trade-off của TTT==
+- **Pros**: adapt tốt với distribution shift, no need labels at test time, có thể fix specific instance
+- **Cons**:
+	- **Latency cao**: phải train mỗi inference → không phù hợp real-time
+	- **Compute cost**: train cost mỗi test instance
+	- **Catastrophic forgetting**: update weights có thể phá pretrained knowledge nếu không cẩn thận
+	- **Self-supervised task design**: chọn aux task phù hợp khó
+	- **Stability**: weights drift theo thời gian nếu không reset
+- **Mitigation**:
+	- LoRA-style adapter cho TTT (chỉ update low-rank, base model frozen)
+	- Reset adapters per instance/cluster
+	- Học rate rất nhỏ, ít step
+	- Cache TTT-adapted weights cho cluster inputs tương tự
+
+44. ==Multi-turn TTT inference loop (mà bạn đang làm)==
+- Khái niệm: thay vì 1 lần TTT update + predict, làm **nhiều turns**:
+	- Turn 1: TTT update → predict → observe feedback/error signal
+	- Turn 2: TTT update lại với info mới → predict tốt hơn
+	- ...
+- **Câu hỏi interviewer có thể hỏi**:
+	- "Stopping criterion cho multi-turn loop là gì?" (convergence của loss, max turns, confidence threshold)
+	- "Làm sao tránh oscillation giữa các turns?" (regularization, momentum, weight decay)
+	- "Compute scale linearly với số turns?" (yes, đó là cost chính)
+	- "Khác gì với iterative refinement của LLM (CoT, self-correct)?" → CoT chỉ generate thêm tokens, weights không đổi. TTT update weights thật.
+- **Weight update step bạn chưa thêm**: đây là điểm interviewer sẽ probe — chuẩn bị giải thích plan, lý do chưa add (prioritize stability of inference loop trước), expected behavior khi add (loss curve, accuracy gain).
+
+---
+
 # References
 
 - Vaswani et al. (2017). *Attention is All You Need*. NeurIPS.
@@ -588,6 +814,9 @@ Tags: [[data scientist]], [[review]], [[AI engineer]], [[LLM]], [[deep learning]
 - Loshchilov & Hutter (2017). *Decoupled Weight Decay Regularization (AdamW)*. ICLR.
 - Su et al. (2021). *RoFormer: Enhanced Transformer with Rotary Position Embedding*.
 - Lin et al. (2017). *Focal Loss for Dense Object Detection*. ICCV.
+- Sun et al. (2020). *Test-Time Training with Self-Supervision for Generalization under Distribution Shifts*. ICML.
+- Akyürek et al. (2024). *The Surprising Effectiveness of Test-Time Training for Abstract Reasoning*. arXiv:2411.07279.
+- Keskar et al. (2017). *On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima*. ICLR.
 
 **Repos & community resources:**
 - [`amitshekhariitbhu/ai-engineering-interview-questions`](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) — 200+ AI engineering questions

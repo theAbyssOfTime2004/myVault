@@ -187,7 +187,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 425.5
+    "width": 418.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -208,6 +208,8 @@
   },
   "active": "1113c4d12b701b76",
   "lastOpenFiles": [
+    "99_System/Vault_Redesign_Log.md",
+    "10_Projects/13_Uni_Retake/ôn tập.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên.md",
     "3 - Tags/review.md",
     "10_Projects/13_Uni_Retake/General_Physics_Tracker.md",
@@ -233,8 +235,6 @@
     "30_Knowledge_Base/Data Science/Gradient Descent.md",
     "30_Knowledge_Base/Devops/k8s Service Exposure - NodePort vs Ingress vs LoadBalancer.md",
     "30_Knowledge_Base/Devops/CoreDNS.md",
-    "30_Knowledge_Base/Devops/Helm.md",
-    "30_Knowledge_Base/Devops/Ingress.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
