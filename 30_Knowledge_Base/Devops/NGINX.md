@@ -1,162 +1,144 @@
 2026-04-30
 
 
-Tags: [[devops]], [[networking]], [[api-gateway]], [[reverse-proxy]], [[load-balancing]]
+Tags: [[devops]], [[networking]], [[api-gateway]], [[reverse-proxy]]
 
 # NGINX
 
-> [!info] NGINX (đọc là "engine-x") là một web server mã nguồn mở, hiệu năng cao, được dùng phổ biến làm **reverse proxy**, **load balancer** và **API Gateway**. Kiến trúc event-driven cho phép xử lý hàng chục nghìn connection cùng lúc trên một máy với footprint rất nhẹ.
+> [!info] NGINX (đọc là "engine-x") là **một phần mềm** đóng vai [[API Gateway]]. Nó nhận hết request từ ngoài internet, rồi đẩy vào đúng service bên trong. Là giải pháp gateway phổ biến nhất hiện nay — kiểu như PyTorch trong thế giới deep learning.
 
 ---
 
-## 1. NGINX dùng để làm gì
+## 1. NGINX là cái gì
 
-NGINX có 3 vai trò chính, thường chạy đồng thời:
-
-- **Web server**: phục vụ static file (HTML, CSS, JS, ảnh)
-- **Reverse proxy**: đứng trước backend app server, nhận request rồi forward vào trong
-- **API Gateway / Load balancer**: phân phối traffic đến nhiều service backend
-
-Trong kiến trúc microservices hiện đại, NGINX thường đóng vai [[API Gateway]] — đứng ở biên hệ thống, lo trọn các tác vụ chung như SSL, auth, rate limit, logging trước khi route request vào service.
-
----
-
-## 2. Vì sao NGINX phổ biến
-
-- **Event-driven, non-blocking**: không tạo thread mới cho mỗi request như Apache cũ → xử lý 10K+ connection đồng thời với RAM thấp
-- **Cấu hình bằng file text**: dễ đọc, dễ version control với Git
-- **Mã nguồn mở, miễn phí**: bản trả phí (NGINX Plus) chỉ thêm tính năng nâng cao
-- **Linh hoạt**: chạy được ở mọi tầng — CDN edge, [[Ingress]] controller K8s, reverse proxy nội bộ
-- **Ổn định**: production-tested ở quy mô cực lớn (Netflix, Cloudflare, GitHub đều dùng)
-
----
-
-## 3. Load Balancing
-
-Khi có nhiều backend instance giống nhau, NGINX phân phối request để không server nào bị quá tải.
-
-**Tầng hoạt động:**
-- **Layer 7 (application)**: hiểu HTTP, route theo URL path, header, cookie — linh hoạt
-- **Layer 4 (transport)**: chỉ nhìn TCP/UDP — nhanh hơn nhưng kém thông minh
-
-**Thuật toán cân bằng tải:**
-
-| Thuật toán | Cách hoạt động | Khi nào dùng |
-|---|---|---|
-| **Round Robin** | Chia đều lần lượt cho từng server | Default, các backend đồng đều |
-| **Least Connections** | Gửi đến server đang ít kết nối nhất | Request có thời gian xử lý khác nhau |
-| **Random** | Chọn ngẫu nhiên | Đơn giản, tránh hot spot |
-| **IP Hash** | Cùng client IP → cùng server | Cần session affinity (sticky session) |
-
----
-
-## 4. Traffic Management
-
-- **A/B testing**: chia % traffic cho nhiều phiên bản backend (VD: 90% v1, 10% v2 để test canary)
-- **GeoIP**: nhận diện vị trí client theo IP → chặn theo quốc gia hoặc route đến region gần nhất
-- **Rate limiting**: giới hạn số request/giây cho mỗi client
-- **Connection limiting**: giới hạn số kết nối đồng thời
-- **Bandwidth limiting**: giới hạn tốc độ download cho mỗi client
-- **Caching**: cache response để giảm tải backend
-
-Tác dụng chính: **chống abuse, chống DDoS, smooth rollout phiên bản mới**.
-
----
-
-## 5. Authentication & Security
-
-- **SSL/TLS termination**: NGINX giải mã HTTPS tại edge → traffic vào nội bộ là HTTP, backend không phải tự lo SSL
-- **HTTPS redirect**: tự động redirect `http://` → `https://`
-- **Basic auth, JWT, OAuth**: tích hợp qua module hoặc Lua script (OpenResty)
-- **mTLS**: xác thực hai chiều giữa client và server
-- **WAF (Web Application Firewall)**: chặn các pattern tấn công phổ biến (qua ModSecurity hoặc NGINX App Protect)
-
-**Lợi ích tập trung SSL ở gateway:** chỉ phải quản lý một bộ certificate, các service backend không cần biết SSL tồn tại.
-
----
-
-## 6. Monitoring & Observability
-
-NGINX không chỉ proxy — nó còn là điểm quan sát tốt nhất của hệ thống vì mọi traffic đều đi qua.
-
-- **OpenTelemetry**: thu thập telemetry (trace, metric, log) theo chuẩn mở
-- **Log handling**: chia log thành nhiều file (`access.log`, `error.log`) và stream về log server tập trung
-- **Metrics exporter**: xuất metric ra [[Prometheus]] để dashboard và alert
-
-**Pipeline điển hình:**
+**Đơn giản nhất:** NGINX là một phần mềm chạy trên server, đứng giữa user và app của bạn.
 
 ```
-NGINX → OpenTelemetry → Prometheus → Grafana
-                     → Loki / ELK   → Log dashboard
+User (internet) ──► NGINX ──► App của bạn (FastAPI, Flask, Node...)
 ```
+
+**Quan hệ với "API Gateway":**
+- "API Gateway" = khái niệm, vai trò
+- "NGINX" = một sản phẩm cụ thể đóng vai trò đó
+
+> Giống như "model phân loại ảnh" (khái niệm) vs "ResNet50" (sản phẩm cụ thể).
+
+Có nhiều phần mềm khác cũng làm gateway: Kong, Traefik, HAProxy. Nhưng NGINX phổ biến nhất.
 
 ---
 
-## 7. Cấu hình mẫu
+## 2. NGINX làm được những gì
 
-Một file `nginx.conf` đơn giản cho reverse proxy + load balancing:
+### Vai trò 1 — Web server (phục vụ file tĩnh)
+
+User gõ `example.com` → NGINX trả về file `index.html`, `style.css`, ảnh. Vai trò gốc của NGINX, đơn giản nhất.
+
+### Vai trò 2 — Reverse proxy (đẩy request vào app)
+
+User gõ `example.com/api/predict` → NGINX đẩy request vào FastAPI đang chạy ở `localhost:8000`.
+
+> "Reverse proxy" = một thằng đứng trước app, nhận request thay app rồi đẩy vào trong.
+
+### Vai trò 3 — API Gateway / Load Balancer
+
+User gọi → NGINX phân phối request đến nhiều instance giống nhau để không server nào quá tải:
+
+```
+                ┌─► FastAPI instance 1 (GPU 1)
+User ─► NGINX ──┼─► FastAPI instance 2 (GPU 2)
+                └─► FastAPI instance 3 (GPU 3)
+```
+
+Đây là cách deploy model AI điển hình ở production.
+
+---
+
+## 3. NGINX dùng như thế nào
+
+Bạn **không code NGINX bằng Python**. Bạn viết một **file config** rồi chạy NGINX với file đó.
+
+Ví dụ file config đơn giản:
 
 ```nginx
-upstream backend {
-    least_conn;
-    server backend1.internal:8080;
-    server backend2.internal:8080;
-    server backend3.internal:8080;
+# Khi có request đến /predict → đẩy về FastAPI ở port 8000
+location /predict {
+    proxy_pass http://localhost:8000;
 }
 
-server {
-    listen 443 ssl;
-    server_name api.example.com;
-
-    ssl_certificate     /etc/nginx/cert.pem;
-    ssl_certificate_key /etc/nginx/key.pem;
-
-    # Rate limit: 10 req/s mỗi IP
-    limit_req zone=api_limit burst=20 nodelay;
-
-    location /api/ {
-        proxy_pass http://backend;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
+# Khi có request đến /ocr → đẩy về FastAPI khác ở port 8001
+location /ocr {
+    proxy_pass http://localhost:8001;
 }
 ```
 
----
-
-## 8. Hình dung tổng thể
-
-```
-                  ┌──────────────┐
-Client (HTTPS) ─► │    NGINX     │
-                  │              │
-                  │ • SSL term   │
-                  │ • Auth       │
-                  │ • Rate limit │
-                  │ • Logging    │
-                  │ • Routing    │
-                  └──────┬───────┘
-                         │ (HTTP nội bộ)
-            ┌────────────┼────────────┐
-            ▼            ▼            ▼
-        Backend 1    Backend 2    Backend 3
-```
-
-NGINX đứng ở **biên** hệ thống, lo các tác vụ chung trước khi forward request vào service nội bộ.
+Chạy `nginx -c config.conf` → xong, bạn vừa có một API Gateway.
 
 ---
 
-## 9. Khi nào KHÔNG nên dùng NGINX
+## 4. 4 nhóm tính năng chính (theo slides)
 
-- **Service mesh phức tạp**: cần mTLS giữa hàng trăm service nội bộ → [[Istio]] / Linkerd phù hợp hơn
-- **Traffic gRPC streaming nặng**: NGINX hỗ trợ gRPC nhưng Envoy tối ưu hơn
-- **Logic gateway phức tạp**: cần nhiều plugin → Kong (built trên NGINX) hoặc Traefik dễ quản lý hơn
+### a. Load Balancing — chia tải
+
+Khi có nhiều bản sao của cùng một service, NGINX chia request đều cho các bản sao. Các thuật toán:
+
+- **Round Robin** — chia lần lượt, đều như chia bài
+- **Least Connections** — gửi cho server đang ít kết nối nhất
+- **Random** — chọn ngẫu nhiên
+- **IP Hash** — cùng một user IP luôn vào cùng server (giữ session)
+
+**Liên hệ data/AI:** Giả sử bạn có 4 GPU mỗi GPU chạy 1 instance model. NGINX chia request inference đều cho 4 GPU.
+
+### b. Traffic Management — quản lý lưu lượng
+
+- **A/B testing**: chia 90% traffic sang model v1, 10% sang model v2 để test
+- **GeoIP**: chặn theo quốc gia, hoặc route user Việt Nam sang server Singapore
+- **Rate limiting**: "user free chỉ được gọi 100 lần/ngày"
+
+### c. Authentication & Security
+
+- **SSL/TLS**: NGINX lo mã hóa HTTPS — backend của bạn không phải tự cài SSL
+- **HTTPS redirect**: user gõ `http://...` tự động chuyển sang `https://...`
+
+### d. Monitoring — giám sát
+
+Vì mọi request đi qua NGINX, đây là chỗ tốt nhất để thu thập số liệu:
+
+- **OpenTelemetry**: gửi trace/metric ra hệ thống quan sát
+- **Logging**: ghi mọi request vào file
+- **Prometheus exporter**: xuất metric (số request/giây, latency...) cho Prometheus → Grafana vẽ biểu đồ
 
 ---
 
-## 10. Liên hệ
+## 5. Tại sao NGINX phổ biến đến vậy
 
-- [[API Gateway]] — NGINX là một trong các giải pháp gateway phổ biến nhất
-- [[Ingress]] — NGINX Ingress Controller là implementation phổ biến nhất cho K8s Ingress
-- [[Istio]] — service mesh, đối thủ ở tầng nội bộ
+- **Nhẹ, nhanh**: xử lý hàng chục nghìn user cùng lúc trên một máy — RAM thấp
+- **Cấu hình đơn giản**: một file text, có thể commit Git
+- **Miễn phí, mã nguồn mở**
+- **Production-tested**: Netflix, Cloudflare, GitHub đều dùng
+
+---
+
+## 6. Khi nào bạn (data/AI) sẽ đụng tới NGINX
+
+| Tình huống | NGINX làm gì |
+|---|---|
+| Deploy FastAPI model lên server | Đứng trước FastAPI, lo HTTPS + rate limit |
+| Có nhiều GPU instance chạy cùng model | Chia request đều cho các GPU |
+| Deploy ML trên Kubernetes | "NGINX Ingress Controller" — bản chất là NGINX (xem [[Ingress]]) |
+| Build platform cho team data nội bộ | Gateway để route request, log usage |
+
+---
+
+## 7. Tóm gọn 3 dòng
+
+- NGINX = phần mềm đóng vai API Gateway, đứng trước app của bạn
+- Bạn không code NGINX, bạn viết file config kiểu "URL này đẩy vào port kia"
+- Production deploy AI gần như chắc chắn có NGINX ở phía trước
+
+---
+
+## 8. Liên hệ
+
+- [[API Gateway]] — khái niệm, NGINX là một implementation
+- [[Ingress]] — NGINX trong thế giới Kubernetes
 - [[REST API]] — phần lớn traffic NGINX proxy là REST/HTTP

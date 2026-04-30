@@ -1,110 +1,120 @@
 2026-04-30
 
 
-Tags: [[api]], [[microservices]], [[backend]], [[networking]], [[infrastructure]]
+Tags: [[api]], [[microservices]], [[backend]], [[networking]]
 
 # API Gateway
 
-> [!info] API Gateway là một **cổng vào duy nhất** (single entry point) đứng giữa client và hệ thống microservices. Mọi request từ client đều đi qua gateway, sau đó được định tuyến đến đúng service xử lý. Client không cần biết bên trong có bao nhiêu service hay chúng nằm ở đâu.
+> [!info] API Gateway là **một anh gác cổng** đứng trước tất cả service trong hệ thống. Mọi request từ ngoài đều phải qua nó, sau đó nó phân phối vào đúng service xử lý. Client chỉ cần biết một địa chỉ duy nhất.
 
 ---
 
-## 1. Tại sao cần API Gateway
+## 1. Vấn đề: khi hệ thống có nhiều service
 
-Trong kiến trúc microservices, hệ thống bị chia nhỏ thành hàng chục service. Nếu client gọi trực tiếp từng service:
+Giả sử bạn deploy nhiều model AI thành các service riêng:
 
-- Client phải biết địa chỉ của tất cả service → coupling chặt
-- Mỗi service phải tự xử lý auth, rate limit, SSL → trùng lặp logic
-- Mỗi service public ra internet → diện tấn công lớn
-- Đổi vị trí hay tách service → client phải sửa code
+- Service A: model phân loại ảnh (port 8000)
+- Service B: model OCR (port 8001)
+- Service C: lưu lịch sử user (port 8002)
+- Service D: tính tiền user (port 8003)
 
-API Gateway giải quyết bằng cách trở thành **lớp trung gian duy nhất**: client chỉ nói chuyện với gateway, gateway lo phần còn lại.
+Đây gọi là **microservices** — chia hệ thống thành nhiều dịch vụ nhỏ thay vì một app to.
 
-**Hình dung:** Gateway giống như **lễ tân của một tòa nhà văn phòng**. Khách không cần biết công ty nào ở tầng nào — chỉ cần đến quầy lễ tân, lễ tân sẽ hướng dẫn hoặc gọi giúp người cần gặp.
-
----
-
-## 2. Cách hoạt động
+**Nếu không có gateway, app mobile phải tự gọi từng service:**
 
 ```
-Client  ─►  API Gateway  ─►  Service A (REST)
-                        ─►  Service B (REST)
-                        ─►  Service C (REST) ─► Database
+App mobile → server.com:8000/predict   (cho ảnh)
+App mobile → server.com:8001/ocr       (cho OCR)
+App mobile → server.com:8002/history   (cho lịch sử)
+App mobile → server.com:8003/billing   (cho tiền)
 ```
 
-1. Client gửi request đến địa chỉ duy nhất của gateway
-2. Gateway xác thực, kiểm tra rate limit, đọc URL
-3. Gateway forward (proxy) request đến service phù hợp
-4. Service xử lý xong → trả response qua gateway → về client
-
-Backend service có thể đổi địa chỉ, đổi công nghệ, tách thành nhiều instance — client không bị ảnh hưởng vì gateway che hết.
+Vấn đề:
+- App phải nhớ 4 địa chỉ, 4 port khác nhau
+- Mỗi service phải tự lo auth, HTTPS, chặn spam, ghi log → copy-paste code khắp nơi
+- Đổi port hay tách service → app phải sửa code
 
 ---
 
-## 3. Các tính năng chính
+## 2. Giải pháp: thêm một anh gác cổng
 
-| Tính năng | Mô tả |
+```
+                    ┌─────────────┐
+App mobile ────────►│ API Gateway │────► Service A (ảnh)
+                    │             │────► Service B (OCR)
+                    │             │────► Service C (history)
+                    │             │────► Service D (billing)
+                    └─────────────┘
+```
+
+App chỉ cần biết **một địa chỉ duy nhất**: `api.example.com`.
+
+Gateway nhìn URL rồi đẩy vào đúng service:
+- `api.example.com/predict` → Service A
+- `api.example.com/ocr` → Service B
+- `api.example.com/history` → Service C
+
+---
+
+## 3. Liên hệ với data/AI
+
+Giống như **Hugging Face Inference API** hay **OpenAI API**.
+
+Bạn gọi `api.openai.com/v1/chat/completions` — bạn không biết bên trong họ chạy bao nhiêu GPU, model nằm ở server nào, có bao nhiêu instance. Họ có **một cổng vào duy nhất** thay mặt cho cả rừng service bên trong.
+
+Đó chính là API Gateway.
+
+---
+
+## 4. Gateway làm hộ những việc gì
+
+Vì mọi request đều đi qua nó, gateway là chỗ tốt nhất để làm các việc chung:
+
+| Việc | Giải thích |
 |---|---|
-| **Authentication** | Verify token (JWT, API key, OAuth) tập trung tại gateway |
-| **IP allowlist/blocklist** | Chặn hoặc cho phép theo IP |
-| **Rate limiting** | Giới hạn số request mỗi client để chống abuse |
-| **Logging & monitoring** | Ghi lại mọi request — một chỗ duy nhất để quan sát traffic |
-| **Traffic routing** | Định tuyến request đến service đúng dựa trên URL path |
-| **SSL termination** | Giải mã HTTPS tại gateway, traffic nội bộ có thể là HTTP |
-| **Service discovery** | Giấu vị trí thật của service instance |
-| **Request aggregation** | Gọi song song nhiều service rồi gộp kết quả trả cho client |
+| **Auth** | Kiểm tra token một lần ở cổng → service bên trong khỏi lo |
+| **Rate limit** | "User free chỉ được gọi 100 lần/ngày" → chặn ngay tại cổng |
+| **HTTPS** | Gateway lo mã hóa, service nội bộ dùng HTTP thường cho nhanh |
+| **Logging** | Ghi tất cả request vào một chỗ duy nhất |
+| **Load balancing** | Service A có 3 bản sao chạy cùng lúc → gateway chia đều request |
+| **Routing** | Nhìn URL để biết đẩy vào service nào |
 
-**Ví dụ aggregation:** Client cần load dashboard với data từ `user-service`, `order-service`, `notification-service`. Thay vì client gọi 3 lần, gateway gọi song song 3 service nội bộ rồi gộp thành một response duy nhất.
+**Lợi ích lớn nhất:** mỗi service backend chỉ cần lo logic của nó. Mọi việc "ngoại vi" (auth, log, SSL) gateway lo hết.
 
 ---
 
-## 4. Lợi ích chính
+## 5. Các phần mềm gateway phổ biến
 
-- **Reverse proxy**: ẩn cấu trúc nội bộ, client không thấy được có bao nhiêu service
-- **Cross-cutting concerns tập trung**: auth, logging, rate limit chỉ làm một chỗ thay vì lặp ở mỗi service
-- **Giảm bề mặt tấn công**: chỉ một endpoint public ra internet
-- **Decoupling**: backend đổi cấu trúc không ảnh hưởng client
-- **Performance**: caching, request aggregation, compression đều có thể làm tại gateway
+API Gateway là **khái niệm**, không phải sản phẩm cụ thể. Có nhiều phần mềm đóng vai trò này:
 
----
+- **NGINX** — phổ biến nhất, nhẹ, nhanh (xem [[NGINX]])
+- **Kong** — built trên NGINX, có thêm plugin
+- **Traefik** — tự động phát hiện service trong Docker/K8s
+- **HAProxy** — chuyên load balancing
+- **AWS API Gateway** — managed service trên AWS
 
-## 5. Các giải pháp phổ biến
-
-**Reverse proxy server** (nhẹ, tự build logic):
-- **NGINX** — phổ biến nhất, hiệu năng cao, cấu hình bằng file
-- **HAProxy** — chuyên load balancing, rất ổn định
-- **Traefik** — auto-discovery với Docker/Kubernetes
-- **Kong** — built trên NGINX, có plugin ecosystem cho auth/rate limit
-
-**Service mesh ingress controller** (cho Kubernetes):
-- **Istio** — service mesh đầy đủ, có ingress gateway
-- **Ambassador** — Kubernetes-native, dựa trên Envoy
-- **Linkerd** — service mesh nhẹ, ưu tiên đơn giản
-
-**Managed cloud:**
-- AWS API Gateway, Google Cloud API Gateway, Azure API Management
+> Quan hệ: "API Gateway" với "NGINX" giống như "model phân loại ảnh" với "ResNet50". Một là khái niệm, một là implementation cụ thể.
 
 ---
 
-## 6. Hạn chế cần lưu ý
+## 6. Khi nào bạn (data/AI) sẽ đụng tới
 
-- **Single point of failure**: gateway chết là cả hệ thống chết → cần chạy nhiều instance, có load balancer phía trước
-- **Latency**: thêm một hop trong đường đi của request
-- **Bottleneck**: mọi traffic đi qua gateway → cần scale tốt
-- **Phức tạp khi cấu hình**: routing rule, plugin, retry policy có thể trở nên rối
+- **Deploy model lên production**: phía trước FastAPI/Triton luôn có gateway để lo HTTPS, rate limit, load balancing giữa nhiều GPU instance
+- **Build internal AI platform**: nhiều team dùng chung → gateway route request và tính usage
+- **Dùng Kubernetes deploy ML pipeline**: "Ingress Controller" trong K8s bản chất là một gateway (xem [[Ingress]])
 
 ---
 
-## 7. Khi nào KHÔNG cần API Gateway
+## 7. Tóm gọn 3 dòng
 
-- Hệ thống monolith — chỉ có một backend, không cần định tuyến
-- Hệ thống nhỏ với 2–3 service và client nội bộ — overhead không đáng
-- Internal service-to-service communication — service mesh phù hợp hơn
+- Hệ thống có nhiều service → cần một anh gác cổng đứng trước
+- Anh gác cổng = API Gateway, lo auth + rate limit + HTTPS + log + routing
+- Giống cách OpenAI/Hugging Face cho bạn gọi một địa chỉ duy nhất, đằng sau là cả rừng service
 
 ---
 
 ## 8. Liên hệ
 
+- [[NGINX]] — phần mềm gateway phổ biến nhất
 - [[REST API]] — phần lớn traffic qua gateway là REST
-- [[gRPC]] — gateway có thể proxy gRPC hoặc làm gRPC-to-REST translation
-- [[WebSocket]] — một số gateway hỗ trợ WebSocket passthrough
+- [[Ingress]] — gateway trong thế giới Kubernetes
