@@ -202,7 +202,7 @@
       "id": "3 - Tags/review",
       "title": "review",
       "group": "other",
-      "degree": 1
+      "degree": 3
     },
     {
       "id": "3 - Tags/regression",
@@ -475,6 +475,12 @@
       "degree": 16
     },
     {
+      "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
+      "title": "Lý 1 - Chương 1 - Chuyển động ném xiên",
+      "group": "projects",
+      "degree": 2
+    },
+    {
       "id": "10_Projects/13_Uni_Retake/TTH cuối kỳ review",
       "title": "TTH cuối kỳ review",
       "group": "projects",
@@ -514,7 +520,7 @@
       "id": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "title": "General_Physics_Tracker",
       "group": "projects",
-      "degree": 0
+      "degree": 2
     },
     {
       "id": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
@@ -3085,12 +3091,24 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
     },
     {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
+      "target": "3 - Tags/review"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/data scientist"
     },
     {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/review"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "3 - Tags/review"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên"
     },
     {
       "source": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
@@ -4854,7 +4872,7 @@
     }
   ],
   "stats": {
-    "node_count": 315,
-    "link_count": 740
+    "node_count": 316,
+    "link_count": 743
   }
 }
