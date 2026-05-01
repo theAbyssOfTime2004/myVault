@@ -223,6 +223,7 @@
   },
   "active": "b92dff537d76753e",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Devops/CI-CD.md",
     "00_Dashboard/Home.md",
     "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
     "10_Projects/14_Thesis_SDPO/CLAUDE.md",
@@ -249,7 +250,6 @@
     "40_Archives/Old_Research/A Method for 3D Multimodal Brain Tumor Segmentation Using Swin Transformer.md",
     "40_Archives/Old_Research/Early Wildfire Detection with CubeSat Images Using Single Image Super-Resolution.md",
     "30_Knowledge_Base/Devops/NGINX.md",
-    "30_Knowledge_Base/API/API Gateway.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
