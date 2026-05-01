@@ -15,11 +15,11 @@ status: active
 
 ## Stack Phase 1
 
-| Tuần | Tech |
-|------|------|
-| 1 | GKE · FastAPI · Docker · Helm · MLflow · DVC |
-| 2 | KServe · GitHub Actions · Prometheus · Grafana · Evidently |
-| 3 | Jaeger · Loki · NGINX · Terraform · HPA |
+| Tuần | Tech                                                       |
+| ---- | ---------------------------------------------------------- |
+| 1    | GKE · FastAPI · Docker · Helm · MLflow · DVC               |
+| 2    | KServe · GitHub Actions · Prometheus · Grafana · Evidently |
+| 3    | Jaeger · Loki · NGINX · Terraform · HPA                    |
 
 ## CV bullet (copy khi xong Phase 1)
 
