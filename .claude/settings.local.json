@@ -41,7 +41,9 @@
       "Read(//mnt/c/Users/Maidanng/Repos/SDPO/experiments/**)",
       "Read(//mnt/c/Users/Maidanng/Repos/**)",
       "Bash(xargs grep *)",
-      "WebFetch(domain:openreview.net)"
+      "WebFetch(domain:openreview.net)",
+      "WebFetch(domain:voz.vn)",
+      "WebFetch(domain:qhdn-hcmuni.fpt.edu.vn)"
     ]
   }
 }

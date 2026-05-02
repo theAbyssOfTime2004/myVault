@@ -4,6 +4,8 @@ tags: [zalo-prep, mlops, phase-1, week-3]
 
 # Phase 1 · Tuần 3 — Tracing + Logging + IaC + NGINX + Polish
 
+> **Option A path (Tier 1):** Ngày 19 → 20 → 21. **Skip Ngày 15-18 (Jaeger, Loki, NGINX Ingress, Terraform).** Lý do: scope tradeoff cho thesis. Có thể quay lại Phase E nếu cần upgrade CV cho công ty tiếp theo.
+
 ## Ngày 15 — Jaeger distributed tracing
 
 - [ ] Cài Jaeger Operator bằng Helm (hoặc Tempo nếu muốn Grafana stack)

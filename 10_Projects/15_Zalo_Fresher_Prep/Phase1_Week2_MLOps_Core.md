@@ -4,6 +4,8 @@ tags: [zalo-prep, mlops, phase-1, week-2]
 
 # Phase 1 · Tuần 2 — KServe + CI/CD + Monitoring
 
+> **Option A path (Tier 1):** Ngày 10 → 11 → 12 → 14. **Skip Ngày 8-9 (KServe + Knative scale-to-zero) và Ngày 13 (Evidently).** Dùng raw K8s Deployment + HPA thay KServe; bỏ drift detection.
+
 ## Ngày 8 — KServe installation + InferenceService
 
 - [ ] Cài Istio: `istioctl install --set profile=default`

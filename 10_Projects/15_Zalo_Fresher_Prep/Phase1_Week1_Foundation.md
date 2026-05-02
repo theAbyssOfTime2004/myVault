@@ -4,6 +4,8 @@ tags: [zalo-prep, mlops, phase-1, week-1]
 
 # Phase 1 · Tuần 1 — GKE + FastAPI + Docker + Helm
 
+> **Option A path (Tier 1):** Ngày 1 → 2 → 3 → 4 → 5 → 7. **Skip Ngày 6 (DVC)** — MLflow đã đủ versioning signal.
+
 ## Ngày 1 — GKE cluster + project structure
 
 - [x] Tạo GCP project, enable billing ($300 free credit), enable APIs: `container.googleapis.com`, `artifactregistry.googleapis.com`

@@ -5,7 +5,9 @@ tags: [zalo-prep, entry-test, phase-2]
 # Phase 2 — Entry Test Sprint
 
 **Khi nào bắt đầu**: Sau khi nộp CV và nhận email thông báo Entry Test date
-**Cường độ**: 4–5h/ngày · không còn áp lực build project · tập trung 100% vào MCQ
+**Cường độ**: 2.5h/ngày DSA + 1.5h thesis + 30 phút finals warmup (Option A constraint)
+
+> **Option A pre-load:** ~80% nội dung tuần 1 + đầu tuần 2 đã refresh trong Phase A (11/5 → 31/5, 30 phút/ngày). Phase 2 sprint focus chính vào: Security, SQL, CV deep dive, mock test 200 câu, mock interview. Master timeline: [[01_Master_Timeline]].
 
 ---
 
