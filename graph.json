@@ -28,7 +28,7 @@
       "id": "3 - Tags/devops",
       "title": "devops",
       "group": "other",
-      "degree": 17
+      "degree": 18
     },
     {
       "id": "3 - Tags/infrastructure",
@@ -1480,7 +1480,7 @@
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
       "title": "Model Serving Patterns",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)",
@@ -1654,13 +1654,13 @@
       "id": "30_Knowledge_Base/Devops/Helm",
       "title": "Helm",
       "group": "knowledge",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Devops/K8s",
       "title": "K8s",
       "group": "knowledge",
-      "degree": 15
+      "degree": 16
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s RBAC - ServiceAccount và Role Based Access Control",
@@ -1691,6 +1691,12 @@
       "title": "k8s Autoscaling - HPA và KEDA",
       "group": "knowledge",
       "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Devops/CI-CD",
+      "title": "CI-CD",
+      "group": "knowledge",
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Devops/CoreDNS",
@@ -4511,6 +4517,22 @@
       "target": "3 - Tags/devops"
     },
     {
+      "source": "30_Knowledge_Base/Devops/CI-CD",
+      "target": "3 - Tags/devops"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CI-CD",
+      "target": "30_Knowledge_Base/MLOPS/Model Serving Patterns"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CI-CD",
+      "target": "30_Knowledge_Base/Devops/K8s"
+    },
+    {
+      "source": "30_Knowledge_Base/Devops/CI-CD",
+      "target": "30_Knowledge_Base/Devops/Helm"
+    },
+    {
       "source": "30_Knowledge_Base/Devops/CoreDNS",
       "target": "30_Knowledge_Base/Devops/K8s"
     },
@@ -4876,7 +4898,7 @@
     }
   ],
   "stats": {
-    "node_count": 316,
-    "link_count": 744
+    "node_count": 317,
+    "link_count": 748
   }
 }
