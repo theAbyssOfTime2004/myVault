@@ -1330,7 +1330,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks",
       "title": "Common Activation Function In Neural Networks",
       "group": "knowledge",
-      "degree": 12
+      "degree": 13
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
@@ -1348,7 +1348,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline",
       "title": "PyTorch Data Pipeline",
       "group": "knowledge",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
@@ -1396,13 +1396,13 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
       "title": "PyTorch Autograd",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
       "title": "Backpropagation",
       "group": "knowledge",
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
@@ -1438,7 +1438,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
       "title": "Adamw and Adam (optimizer)",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Về các thuật toán tìm kiếm",
@@ -1447,10 +1447,16 @@
       "degree": 5
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "title": "A Recipe for Training Neural Networks (Karpathy)",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
       "title": "Vanishing and Exploding Gradient",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/Dev_Tools/decorator",
@@ -4285,6 +4291,30 @@
       "target": "3 - Tags/uninformed search"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/A Recipe for Training Neural Networks (Karpathy)",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
       "target": "3 - Tags/data scientist"
     },
@@ -5066,7 +5096,7 @@
     }
   ],
   "stats": {
-    "node_count": 325,
-    "link_count": 778
+    "node_count": 326,
+    "link_count": 784
   }
 }
