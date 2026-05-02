@@ -1,6 +1,12 @@
 {
   "nodes": [
     {
+      "id": "2026-04-12-sdpo-thesis-design",
+      "title": "2026-04-12-sdpo-thesis-design",
+      "group": "other",
+      "degree": 0
+    },
+    {
       "id": "50_Weekly_Notes/2026-W15",
       "title": "2026-W15",
       "group": "periodic",
@@ -4898,7 +4904,7 @@
     }
   ],
   "stats": {
-    "node_count": 317,
+    "node_count": 318,
     "link_count": 748
   }
 }
