@@ -26,10 +26,15 @@
             "id": "b92dff537d76753e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "syn_template_taxonomy_rationale"
             }
           }
         ],
@@ -218,14 +223,19 @@
   },
   "active": "b92dff537d76753e",
   "lastOpenFiles": [
-    "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale.md",
-    "30_Knowledge_Base/Devops/CI-CD.md",
+    "10_Projects/14_Thesis_SDPO/experiments/plans/ttt_sdpo_w2_implementation_plan.md",
+    "10_Projects/14_Thesis_SDPO/experiments/plans",
+    "10_Projects/14_Thesis_SDPO/experiments",
+    "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact.md",
     "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal.md",
+    "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale.md",
+    "10_Projects/14_Thesis_SDPO/CLAUDE.md",
+    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo.md",
+    "30_Knowledge_Base/Devops/CI-CD.md",
     "2026-04-12-sdpo-thesis-design.md",
     "10_Projects/13_Uni_Retake/ôn tập.md",
     "00_Dashboard/Home.md",
     "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
-    "10_Projects/14_Thesis_SDPO/CLAUDE.md",
     "30_Knowledge_Base/AI_DeepLearning/FGSM.md",
     "30_Knowledge_Base/AI_DeepLearning/A-star search.md",
     "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer).md",
@@ -242,9 +252,6 @@
     "40_Archives/Uni_Year1_3/Data_Mining_Lab6_Report.md",
     "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report.md",
     "40_Archives/Uni_Year1_3/Data Mining Lab2 Report.md",
-    "40_Archives/Uni_Year1_3/Data Mining Lab1 Report.md",
-    "40_Archives/Uni_Year1_3/Chap2-summary.md",
-    "40_Archives/Uni_Year1_3/Bài tập thực hành KTDL tuần 9.md",
     "30_Knowledge_Base/Data Science",
     "30_Knowledge_Base/MLOPS",
     "30_Knowledge_Base/API",
@@ -252,8 +259,6 @@
     "graph.json",
     "scripts/build_graph.py",
     "scripts",
-    "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b.md.tmp.8276.1776802439937",
-    "00_Dashboard/Untitled.base",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",

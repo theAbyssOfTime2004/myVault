@@ -37,7 +37,11 @@
       "Bash(git pull *)",
       "Bash(git push *)",
       "Bash(git fetch *)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Read(//mnt/c/Users/Maidanng/Repos/SDPO/experiments/**)",
+      "Read(//mnt/c/Users/Maidanng/Repos/**)",
+      "Bash(xargs grep *)",
+      "WebFetch(domain:openreview.net)"
     ]
   }
 }
