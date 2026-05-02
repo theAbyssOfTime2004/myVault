@@ -1504,11 +1504,17 @@
       "id": "30_Knowledge_Base/MLOPS/Model Serving Patterns",
       "title": "Model Serving Patterns",
       "group": "knowledge",
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)",
       "title": "KServe - Extra Steps (Transformer và Inference Graph)",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
+      "id": "30_Knowledge_Base/MLOPS/vLLM",
+      "title": "vLLM",
       "group": "knowledge",
       "degree": 2
     },
@@ -4301,6 +4307,14 @@
       "target": "30_Knowledge_Base/MLOPS/Model Serving Patterns"
     },
     {
+      "source": "30_Knowledge_Base/MLOPS/vLLM",
+      "target": "30_Knowledge_Base/MLOPS/Model Serving Patterns"
+    },
+    {
+      "source": "30_Knowledge_Base/MLOPS/vLLM",
+      "target": "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph)"
+    },
+    {
       "source": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
       "target": "3 - Tags/devops"
     },
@@ -4994,7 +5008,7 @@
     }
   ],
   "stats": {
-    "node_count": 321,
-    "link_count": 766
+    "node_count": 322,
+    "link_count": 768
   }
 }
