@@ -41,6 +41,12 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-05-02] synthesis | template taxonomy rationale
+
+- Created: [[syn_template_taxonomy_rationale]] — principled justification cho 7 templates qua 3 dimensions: (1) information content ← Kim et al. `I(y;c|x)`; (2) instruction framing ← Hübotter §4.6 + §7 open question; (3) memory depth ← Hübotter §5 sliding window + Kim suppression accumulation.
+- Updated: `wiki/index.md` (synthesis 2→3).
+- Key takeaway: taxonomy defensible mà không cần cite source mới — derive trực tiếp từ 2 papers đã có. Template T2 là anchor, 6 còn lại vary đúng 1 dimension mỗi cái → clean ablation design.
+
 ## [2026-05-02] migrate | thesis design spec → syn_thesis_proposal
 
 - Source: `2026-04-12-sdpo-thesis-design.md` (Cursor, generated 2026-04-12) — bản đầy đủ nhất của thesis plan, chưa được ingest vào wiki.

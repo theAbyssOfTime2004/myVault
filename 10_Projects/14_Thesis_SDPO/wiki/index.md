@@ -7,9 +7,10 @@ updated: 2026-04-22
 
 Catalog of all wiki pages. Read this first when answering queries.
 
-## Synthesis (2)
+## Synthesis (3)
 
 - [[syn_thesis_proposal]] — **ground truth thesis design spec** (migrated từ `2026-04-12-sdpo-thesis-design.md`). Title, RQs, 7 templates, 4 components, budget, timeline, risks.
+- [[syn_template_taxonomy_rationale]] — nguồn gốc và justification cho 7 templates. 3 dimensions derive từ Kim + Hübotter. Dùng khi viết methodology section.
 - [[syn_kim2026_thesis_impact]] — thesis impact consolidation của Kim et al. 2026 paper (RQ1/2/3 mapping, hyperparam contradiction, validation framing).
 
 ## Sources (4)
