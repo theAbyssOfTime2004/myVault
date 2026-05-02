@@ -41,6 +41,13 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway cho thesis: paper fill RQ2 framework formally — suppression là phenomenon documented, nhưng **chưa ai đo ở test-time code**. RQ2 scope intact, thậm chí strengthened vì có reference quantitative. Contradiction EMA forces thesis phải ablate hyperparam. RQ1 × RQ2 intersection formalized: template là "suppression lever" qua `I(y;c|x)`.
 - Note: hai papers chính của thesis (Hübotter + Kim) **agree là open problems đó chính là thesis RQs**. Hübotter §7 future work explicit về template, Kim §7 explicit về preserving uncertainty-aware reasoning.
 
+## [2026-05-02] migrate | thesis design spec → syn_thesis_proposal
+
+- Source: `2026-04-12-sdpo-thesis-design.md` (Cursor, generated 2026-04-12) — bản đầy đủ nhất của thesis plan, chưa được ingest vào wiki.
+- Created: [[syn_thesis_proposal]] — ground truth design spec với title, RQ1/2/3, 7 templates (T1–T7), 4 components, budget ~$200, timeline 12 tuần, cut-list, risks.
+- Updated: `wiki/index.md` (synthesis 1→2, removed old SDPO 2026-04-11 stub link).
+- Key new info so với wiki cũ: 7 templates đã define đầy đủ (T1 Minimal / T2 Standard / T3 Verbose / T4 JSON / T5 Reasoning-inducing / T6 First-person / T7 Cumulative); budget là ~$200 không phải $100; pilot model là Qwen3-1.7B; 2 waves experiment.
+
 ## [2026-04-23] experiment | multi-turn inference loop — first working end-to-end
 
 - **Status**: Pipeline hoạt động end-to-end trên LCBv6, 1 câu/lần chạy.
