@@ -6,10 +6,10 @@ tags: [zalo-prep, mlops, phase-1, week-1]
 
 ## Ngày 1 — GKE cluster + project structure
 
-- [ ] Tạo GCP project, enable billing ($300 free credit), enable APIs: `container.googleapis.com`, `artifactregistry.googleapis.com`
-- [ ] Cài gcloud CLI + kubectl + helm local
-- [ ] Tạo GKE cluster: `gcloud container clusters create ztf-cluster --num-nodes=3 --machine-type=e2-standard-2 --zone=asia-southeast1-a`
-- [ ] Setup Artifact Registry repo để push Docker image
+- [x] Tạo GCP project, enable billing ($300 free credit), enable APIs: `container.googleapis.com`, `artifactregistry.googleapis.com`
+- [x] Cài gcloud CLI + kubectl + helm local
+- [x] Tạo GKE cluster: `gcloud container clusters create ztf-cluster --num-nodes=3 --machine-type=e2-standard-2 --zone=asia-southeast1-a`
+- [x] Setup Artifact Registry repo để push Docker image
 - [ ] Tổ chức folder: `app/`, `helm/`, `terraform/`, `ci/`, `monitoring/`
 - [ ] Đọc: [GKE Quickstart](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster) — chỉ phần "Before you begin" + "Create cluster"
 
