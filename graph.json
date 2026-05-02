@@ -316,7 +316,7 @@
       "id": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11",
       "title": "SDPO 2026-04-11",
       "group": "projects",
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
@@ -340,7 +340,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/log",
       "title": "log",
       "group": "projects",
-      "degree": 23
+      "degree": 24
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_qwen3_8b",
@@ -394,13 +394,13 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
       "title": "src_kim2026_why_self_distillation_degrades",
       "group": "projects",
-      "degree": 27
+      "degree": 28
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
       "title": "src_hubotter2026_self_distillation",
       "group": "projects",
-      "degree": 28
+      "degree": 29
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation",
@@ -412,19 +412,19 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
       "title": "src_lasgroup_sdpo_repo",
       "group": "projects",
-      "degree": 10
+      "degree": 11
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
       "title": "con_epistemic_verbalization",
       "group": "projects",
-      "degree": 20
+      "degree": 21
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
       "title": "con_uncertainty_suppression",
       "group": "projects",
-      "degree": 17
+      "degree": 18
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
@@ -436,7 +436,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
       "title": "con_discovery_at_k",
       "group": "projects",
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
@@ -448,7 +448,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
       "title": "con_test_time_self_distillation",
       "group": "projects",
-      "degree": 18
+      "degree": 19
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
@@ -466,7 +466,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
       "title": "con_reprompt_template",
       "group": "projects",
-      "degree": 18
+      "degree": 19
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
@@ -475,10 +475,16 @@
       "degree": 8
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "title": "syn_thesis_proposal",
+      "group": "projects",
+      "degree": 11
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
       "title": "syn_kim2026_thesis_impact",
       "group": "projects",
-      "degree": 16
+      "degree": 17
     },
     {
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
@@ -2332,11 +2338,11 @@
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
-      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
-      "target": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11"
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
@@ -2505,6 +2511,10 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/log",
       "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/log",
@@ -3049,6 +3059,42 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
@@ -4904,7 +4950,7 @@
     }
   ],
   "stats": {
-    "node_count": 318,
-    "link_count": 748
+    "node_count": 319,
+    "link_count": 758
   }
 }
