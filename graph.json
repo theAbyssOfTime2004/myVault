@@ -1258,7 +1258,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Neural Network",
       "title": "Neural Network",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/10 Contrastive Learning Frameworks",
@@ -1381,10 +1381,16 @@
       "degree": 1
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
+      "title": "PyTorch Autograd",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
       "title": "Backpropagation",
       "group": "knowledge",
-      "degree": 12
+      "degree": 13
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Local Search Algorithm",
@@ -1432,7 +1438,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
       "title": "Vanishing and Exploding Gradient",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Dev_Tools/decorator",
@@ -4127,6 +4133,18 @@
       "target": "3 - Tags/uninformed search"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Neural Network"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
       "target": "3 - Tags/Deep Learning"
     },
@@ -5008,7 +5026,7 @@
     }
   ],
   "stats": {
-    "node_count": 322,
-    "link_count": 768
+    "node_count": 323,
+    "link_count": 771
   }
 }
