@@ -1222,7 +1222,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/transformer",
       "title": "transformer",
       "group": "knowledge",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
@@ -1267,10 +1267,16 @@
       "degree": 8
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "title": "PyTorch LLM Techniques",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
       "title": "Attention Mechanism",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/FGSM",
@@ -1339,6 +1345,12 @@
       "degree": 0
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline",
+      "title": "PyTorch Data Pipeline",
+      "group": "knowledge",
+      "degree": 3
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
       "title": "Recurrent Neural Networks (RNN)",
       "group": "knowledge",
@@ -1384,7 +1396,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
       "title": "PyTorch Autograd",
       "group": "knowledge",
-      "degree": 3
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
@@ -1522,7 +1534,7 @@
       "id": "30_Knowledge_Base/MLOPS/vLLM",
       "title": "vLLM",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Cloud/Cloud Service Models",
@@ -3713,6 +3725,26 @@
       "target": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques",
+      "target": "30_Knowledge_Base/MLOPS/vLLM"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
       "target": "3 - Tags/NLP"
     },
@@ -4063,6 +4095,14 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/SkipGram and CBOW",
       "target": "3 - Tags/NLP"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline",
+      "target": "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Recurrent Neural Networks (RNN)",
@@ -5026,7 +5066,7 @@
     }
   ],
   "stats": {
-    "node_count": 323,
-    "link_count": 771
+    "node_count": 325,
+    "link_count": 778
   }
 }
