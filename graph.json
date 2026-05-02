@@ -331,6 +331,12 @@
       "degree": 1
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/experiments/plans/ttt_sdpo_w2_implementation_plan",
+      "title": "ttt_sdpo_w2_implementation_plan",
+      "group": "projects",
+      "degree": 1
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/wiki/index",
       "title": "index",
       "group": "projects",
@@ -478,7 +484,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
       "title": "syn_thesis_proposal",
       "group": "projects",
-      "degree": 12
+      "degree": 13
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
@@ -2341,6 +2347,10 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/raw/kim2026_why_self_distillation_degrades",
       "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/experiments/plans/ttt_sdpo_w2_implementation_plan",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
@@ -4984,7 +4994,7 @@
     }
   ],
   "stats": {
-    "node_count": 320,
-    "link_count": 765
+    "node_count": 321,
+    "link_count": 766
   }
 }
