@@ -688,37 +688,43 @@
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation",
       "title": "Phase1_Week1_Foundation",
       "group": "projects",
-      "degree": 1
+      "degree": 2
+    },
+    {
+      "id": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "title": "01_Master_Timeline",
+      "group": "projects",
+      "degree": 8
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
       "title": "Phase3_Interview_Prep",
       "group": "projects",
-      "degree": 1
+      "degree": 3
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint",
       "title": "Phase2_Entry_Test_Sprint",
       "group": "projects",
-      "degree": 1
+      "degree": 3
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
       "title": "00_Overview",
       "group": "projects",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish",
       "title": "Phase1_Week3_Polish",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core",
       "title": "Phase1_Week2_MLOps_Core",
       "group": "projects",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "60_Monthly_Notes/2026-04",
@@ -3307,6 +3313,38 @@
       "target": "3 - Tags/seminar HCMUS"
     },
     {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
+    },
+    {
+      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
+      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
+    },
+    {
       "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
       "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation"
     },
@@ -5096,7 +5134,7 @@
     }
   ],
   "stats": {
-    "node_count": 326,
-    "link_count": 784
+    "node_count": 327,
+    "link_count": 792
   }
 }
