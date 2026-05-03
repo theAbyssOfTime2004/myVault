@@ -36,9 +36,29 @@ $$t_{\max} = \frac{v_0 \sin\theta}{g}$$
 $$H = \frac{v_0^2 \sin^2\theta}{2g}$$
 - **Thời gian bay (về lại $y = 0$)**:
 $$T = \frac{2 v_0 \sin\theta}{g}$$
-- **Tầm xa**:
+- **Tầm xa** (max khi $\theta = 45°$):
 $$L = \frac{v_0^2 \sin 2\theta}{g}$$
-- **Phương trình quỹ đạo** (khử $t$):
+- **Phương trình quỹ đạo** (khử $t$, quỹ đạo là **parabol**):
 $$y = x \tan\theta - \frac{g}{2 v_0^2 \cos^2\theta} x^2$$
+
+## Ném ngang (trường hợp đặc biệt $\theta = 0$)
+
+| | Trục x (ngang) | Trục y (đứng) |
+|---|---|---|
+| Vận tốc đầu | $v_{0x} = v_0$ | $v_{0y} = 0$ |
+| Gia tốc | $a_x = 0$ | $a_y = -g$ |
+| Vị trí | $x = v_0 t$ | $y = -\tfrac{1}{2} g t^2$ |
+| Vận tốc | $v_x = v_0$ | $v_y = -g t$ |
+
+- Trục x: chuyển động **đều**
+- Trục y: **rơi tự do** (bắt đầu từ nghỉ)
+- Vận tốc tổng hợp tại t: $v = \sqrt{v_0^2 + g^2 t^2}$
+
+## Mẹo ôn thi
+
+- **Vẽ hình ngay** khi đọc đề — nhất là bài ném xiên/ném ngang để chọn trục và dấu đúng
+- **Tách 2 trục độc lập** — trục x và trục y không ảnh hưởng nhau
+- Mẹo tìm quỹ đạo: từ $x(t)$ rút $t$ theo $x$, thế vào $y(t)$
+- Lý thuyết hay bị hỏi: phân biệt **vận tốc trung bình** vs **tốc độ trung bình**, ý nghĩa $a_t$ và $a_n$, điều kiện các loại chuyển động đặc biệt
 
 # References
