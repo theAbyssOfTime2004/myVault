@@ -44,7 +44,8 @@
       "WebFetch(domain:openreview.net)",
       "WebFetch(domain:voz.vn)",
       "WebFetch(domain:qhdn-hcmuni.fpt.edu.vn)",
-      "mcp__Claude_in_Chrome__computer"
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__read_page"
     ]
   }
 }
