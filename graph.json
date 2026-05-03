@@ -502,7 +502,7 @@
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
       "title": "Lý 1 - Chương 1 - Chuyển động ném xiên",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/13_Uni_Retake/TTH cuối kỳ review",
@@ -544,7 +544,7 @@
       "id": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "title": "General_Physics_Tracker",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
@@ -1205,6 +1205,12 @@
       "title": "Home",
       "group": "dashboard",
       "degree": 0
+    },
+    {
+      "id": "00_Dashboard/lý 1",
+      "title": "lý 1",
+      "group": "dashboard",
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
@@ -3230,6 +3236,10 @@
     },
     {
       "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
+      "target": "00_Dashboard/lý 1"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
       "target": "3 - Tags/review"
     },
     {
@@ -3243,6 +3253,10 @@
     {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/Deep Learning"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "00_Dashboard/lý 1"
     },
     {
       "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
@@ -5134,7 +5148,7 @@
     }
   ],
   "stats": {
-    "node_count": 327,
-    "link_count": 792
+    "node_count": 328,
+    "link_count": 794
   }
 }
