@@ -208,7 +208,7 @@
       "id": "3 - Tags/review",
       "title": "review",
       "group": "other",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "3 - Tags/regression",
@@ -497,6 +497,12 @@
       "title": "syn_template_taxonomy_rationale",
       "group": "projects",
       "degree": 7
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn",
+      "title": "Lý 1 - Chương 1 - Chuyển động tròn",
+      "group": "projects",
+      "degree": 2
     },
     {
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
@@ -1210,7 +1216,7 @@
       "id": "00_Dashboard/lý 1",
       "title": "lý 1",
       "group": "dashboard",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
@@ -3235,6 +3241,14 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
     },
     {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn",
+      "target": "00_Dashboard/lý 1"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn",
+      "target": "3 - Tags/review"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
       "target": "00_Dashboard/lý 1"
     },
@@ -5148,7 +5162,7 @@
     }
   ],
   "stats": {
-    "node_count": 328,
-    "link_count": 794
+    "node_count": 329,
+    "link_count": 796
   }
 }
