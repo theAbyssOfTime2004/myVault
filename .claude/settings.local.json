@@ -43,7 +43,8 @@
       "Bash(xargs grep *)",
       "WebFetch(domain:openreview.net)",
       "WebFetch(domain:voz.vn)",
-      "WebFetch(domain:qhdn-hcmuni.fpt.edu.vn)"
+      "WebFetch(domain:qhdn-hcmuni.fpt.edu.vn)",
+      "mcp__Claude_in_Chrome__computer"
     ]
   }
 }
