@@ -4,14 +4,17 @@ tags: [zalo-prep, interview, phase-3]
 
 # Phase 3 — Interview Prep
 
-**Khi nào**: Sau khi pass Entry Test (~đầu 7/2026 estimate)
-**Constraint Option A**: ~1.5h/ngày, song song thesis push. Concentrated 2-3 ngày trước interview. Master timeline: [[01_Master_Timeline]].
+**Date:** 31/5 → 14/6/2026 (~2 tuần, sau entry test). **Interview window 15-26/6** (offline @ VNG Campus).
+**Cường độ:** 2h/ngày interview prep + 1.5h thesis + 1h finals warmup. Master timeline: [[01_Master_Timeline]].
+
+> **Path A1 strategy:** Schedule interview càng sớm trong 15-26/6 càng tốt — target 15-20/6 để né finals 23-25/6.
 
 ---
 
 ## Gap Fix — Critical only (compressed)
 
-> Defer Karpathy GPT-from-scratch + RAG deepen + paper reading lượt 1 → Phase E (sau defense 26/7).
+> Defer Karpathy GPT-from-scratch + RAG deepen + paper reading lượt 1 → Phase F (sau defense 26/7).
+> **Total time budget: ~5-6 ngày trong window 31/5 → 14/6.**
 
 ### Training loop from scratch — TAY GÕ KHÔNG AI (3-4 ngày)
 
@@ -109,12 +112,26 @@ Viết ra giấy, nói to không nhìn notes:
 
 ---
 
-## Reality check — Option A constraint
+## Offer negotiation prep (chuẩn bị trước interview)
 
-Phase 3 này **chỉ ~30% so với plan gốc 6 tuần** vì priority là thesis defense 25-26/7. Accept rằng:
+Nếu pass interview → likely có offer ~đầu 7. Program nhập học chính thức **13/7**, đụng thesis defense 25-26/7. Cần negotiate delay.
+
+**Script template (gửi HR sau khi nhận offer):**
+
+> "Em nhận offer Zalo Tech Fresher rất vui và quyết tâm tham gia. Tuy nhiên, em đang trong giai đoạn cuối luận văn tốt nghiệp với ngày bảo vệ chính thức **25-26/7/2026** (Khoa Toán Tin, ĐH KHTN-VNUHCM). Em xin phép được delay ngày nhập học sang **~28/7 hoặc 3/8** để hoàn thành tốt nghiệp đúng quy định trường. Em cam kết full commitment trong toàn bộ 12 tuần program và sẽ bù bằng performance."
+
+**Backup plan nếu Zalo cứng:** decline politely, focus thesis, apply công ty khác sau defense (Path A3).
+
+**Action item trước interview:** reach out anh chị ZTF 2025 hỏi về precedent — Zalo có từng flex start date cho lý do tốt nghiệp không?
+
+---
+
+## Reality check — Option A / Path A1
+
+Phase 3 này **chỉ ~5-6 ngày gap fix + 1 tuần CV/behavioral** vì priority là thesis defense. Accept rằng:
 
 - Có thể không trả lời sâu được câu PyTorch/transformer internals
 - Có thể stutter ở câu "implement self-attention từ scratch"
-- Strategy: lead với strength (RAG/agent thực chiến + thesis research) thay vì cố deep ML fundamentals
+- Strategy: lead với strength (thesis SDPO research + RAG/agent thực chiến) thay vì cố deep ML fundamentals
 
-Nếu trượt Zalo: không bi kịch. Phase E sẽ expand gap fix cho công ty khác.
+Nếu trượt Zalo hoặc decline offer: không bi kịch. Phase F sẽ expand gap fix cho công ty khác.

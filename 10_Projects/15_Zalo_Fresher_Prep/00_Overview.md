@@ -5,15 +5,19 @@ status: active
 
 # Zalo Tech Fresher — Master Plan
 
-> **Strategy lock:** Option A — thesis priority. Concrete timeline + phase breakdown ở [[01_Master_Timeline]]. Cập nhật 3/5/2026.
+> **Strategy lock:** Option A (thesis priority) / Path A1 (negotiate delay). Concrete timeline ở [[01_Master_Timeline]]. Cập nhật 3/5/2026 với official ZTF dates.
+
+## Official ZTF 2026 dates
+
+CV đóng **22/5** · Entry Test **30/5** · Interview **15-26/6** · Nhập học **13/7**
 
 ## Structure
 
-| Phase | Mục tiêu | File | Thời gian (Option A) |
-|-------|----------|------|---------------------|
-| 1 | Build MLOps Project (Tier 1 only) | [[Phase1_Week1_Foundation]] · [[Phase1_Week2_MLOps_Core]] · [[Phase1_Week3_Polish]] | ~12 ngày (11/5 → 22/5) |
-| 2 | Entry Test Sprint | [[Phase2_Entry_Test_Sprint]] | sau CV submit (DSA pre-loaded từ Phase A) |
-| 3 | Interview Prep + Gap Fix (compressed) | [[Phase3_Interview_Prep]] | song song thesis push (~1.5h/ngày tháng 7) |
+| Phase | Mục tiêu | File | Date |
+|-------|----------|------|------|
+| 1 | MLOps Project (Tier 1) | [[Phase1_Week1_Foundation]] · [[Phase1_Week2_MLOps_Core]] · [[Phase1_Week3_Polish]] | 11/5 → 22/5 |
+| 2 | Entry Test Sprint (8 ngày compressed) | [[Phase2_Entry_Test_Sprint]] | 23/5 → 30/5 |
+| 3 | Interview Prep + Gap Fix | [[Phase3_Interview_Prep]] | 31/5 → 14/6 |
 
 ## Stack Phase 1
 

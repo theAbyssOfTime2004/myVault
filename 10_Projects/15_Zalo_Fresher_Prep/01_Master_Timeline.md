@@ -2,110 +2,141 @@
 tags: [project, interview-prep, zalo, mlops, timeline]
 status: active
 strategy: option-A-thesis-priority
+path: A1-negotiate-delay
 ---
 
-# Master Timeline — Option A: Thesis Priority
+# Master Timeline — Option A / Path A1
 
-> **Decision lock (3/5/2026):** thesis SDPO defense (~25-26/7) ưu tiên hơn Zalo interview. Khi conflict trong tháng 7, thesis full intensity, Zalo "best effort".
+> **Decision lock (3/5/2026):**
+> - Option A: thesis SDPO defense (~25-26/7) ưu tiên hơn Zalo
+> - Path A1: apply Zalo, nếu đậu **negotiate delay start sang sau 26/7**. Fallback A3 (decline) nếu Zalo cứng.
 
-## Concrete dates
+## Official ZTF 2026 dates
+
+| Mốc | Ngày |
+|---|---|
+| CV mở | 4/5/2026 |
+| **CV đóng** | **22/5/2026** |
+| **Entry Test** | **30/5/2026** (offline @ VNG Campus) |
+| **Phỏng vấn** | **15-26/6/2026** (offline @ VNG Campus) |
+| **Nhập học** | **13/7/2026** ← conflict thesis defense |
+| Kết thúc program | 22/10/2026 |
+
+## Other key dates
 
 | Mốc | Ngày | Source |
 |---|---|---|
-| ZTF 2026 CV mở | 5/5/2026 | confirmed |
 | Midterm xong | ~10/5/2026 | school |
-| Submit CV Zalo (early) | ~22/5/2026 | self-set |
-| ZTF CV đóng | ~2/6/2026 (estimate) | based on ZTF 2025 4-week window |
-| Entry test | mid-late 6/2026 (estimate) | based on ZTF 2025 |
-| Finals | ~25/6/2026 | school |
-| Kết quả entry test | đầu 7/2026 | estimate |
-| Zalo interview (if pass) | giữa 7/2026 | estimate |
-| Submit báo cáo thesis | ~10-15/7/2026 | based on HK2/2024-2025 pattern |
-| **Bảo vệ KLTN (Khoa học Dữ liệu)** | **~25-26/7/2026** | based on HK2/2024-2025 |
+| Finals | ~23-25/6/2026 | 1.5 tháng sau midterm |
+| Submit báo cáo thesis | ~10-15/7/2026 | HK2/2024-2025 pattern |
+| **Bảo vệ KLTN (KHDL)** | **~25-26/7/2026** | HK2/2024-2025 pattern |
 
 ## Phase breakdown
 
 ### Phase 0: 3/5 → 10/5 — Midterm only
-Nothing else. Một tuần.
 
-### Phase A: 11/5 → 22/5 (~12 ngày) — MLOps Tier 1 + apply early
+### Phase A: 11/5 → 22/5 (~12 ngày) — MLOps Tier 1 + DSA elevated
 
 | Block | Time/day |
 |---|---|
 | MLOps Phase 1 **Tier 1 only** | 2.5-3h |
 | Thesis SDPO (maintain) | 1h |
-| DSA refresh light | 30 phút |
+| **DSA refresh elevated** | **1h** (vì sprint Phase B chỉ 8 ngày) |
 
 **Tier 1 scope:** GKE + FastAPI + Docker + Helm + MLflow + GitHub Actions + Prometheus + Grafana + HPA + README. **Skip:** KServe, Knative, Evidently, Jaeger, Loki, NGINX Ingress, Terraform.
 
-**Checkpoint 22/5:** submit CV → [[Phase1_Week1_Foundation]] · [[Phase1_Week2_MLOps_Core]] · [[Phase1_Week3_Polish]]
+**Checkpoint 22/5 EOD:** submit CV + bảng điểm. Hard deadline.
 
-### Phase B: 23/5 → entry test (~3-4 tuần) — DSA sprint + thesis ramp
+[[Phase1_Week1_Foundation]] · [[Phase1_Week2_MLOps_Core]] · [[Phase1_Week3_Polish]]
 
-| Block | Time/day |
-|---|---|
-| DSA + CS sprint | 2.5h |
-| Thesis (start weight update) | 1.5h |
-| Finals warmup | 30-45 phút |
-
-**Detail:** [[Phase2_Entry_Test_Sprint]] (~80% nội dung đã pre-load trong Phase A, focus vào security/SQL/CV deep dive/mock test)
-
-### Phase C: 20/6 → 25/6 — Finals priority
+### Phase B: 23/5 → 30/5 (8 ngày) — DSA sprint full intensity
 
 | Block | Time/day |
 |---|---|
-| Finals (10/10 target) | 4-5h |
+| DSA + CS sprint | 3-4h |
 | Thesis maintain | 1h |
-| Phase 3 gap-fix | **defer** |
+| Mock test 28-29/5 | included |
 
-### Phase D: 26/6 → 26/7 (~1 tháng) — THESIS PUSH + light Zalo prep
+**Checkpoint 30/5:** Entry Test offline @ VNG Campus.
+
+[[Phase2_Entry_Test_Sprint]]
+
+### Phase B.5: 31/5 → 14/6 (~2 tuần) — Wait + Interview prep + Finals warmup
+
+| Block | Time/day |
+|---|---|
+| Phase 3 prep (CV deep dive + behavioral + gap fix critical) | 2h |
+| Thesis (start weight update) | 1.5h |
+| Finals warmup | 1h |
+
+**Sub-actions:**
+- ~6-10/6: nhận kết quả entry test (estimate)
+- Nếu pass → schedule interview **càng sớm trong window 15-26/6 càng tốt** (target 15-20/6 để né finals 23-25/6)
+- Phase 3 gap fix: training loop tay gõ + sampling + GPU memory (xem [[Phase3_Interview_Prep]])
+
+### Phase C: 15/6 → 25/6 — Interview + Finals push
+
+| Block | Time/day |
+|---|---|
+| Zalo interview (1 ngày, offline @ VNG) | scheduled |
+| Finals study | 4-5h |
+| Thesis maintain | 1h |
+
+### Phase D: 26/6 → 12/7 (~2.5 tuần) — THESIS PUSH + offer negotiation
 
 | Block | Time/day |
 |---|---|
 | Thesis main push (weight update finish, experiments, viết báo cáo) | 4-5h |
-| Phase 3 critical only | 1.5h |
-| Zalo interview prep | concentrated 2-3 ngày trước interview |
+| **Negotiate delay start với Zalo** (nếu nhận offer) | as needed |
 
-**Phase 3 compressed scope:**
-- Training loop from scratch trên MNIST (3-4 ngày, **tay gõ không AI**)
-- Sampling strategies — đọc HF blog "How to generate text" + code 1 sampler tay (1-2 ngày)
-- GPU memory math (30 phút)
-- **Skip:** Karpathy GPT-from-scratch, RAG deepen, paper reading lượt 1 — defer Phase E
+**Negotiation script (template):**
+> "Em nhận offer Zalo Tech Fresher rất vui. Tuy nhiên, em đang trong giai đoạn cuối luận văn tốt nghiệp với ngày bảo vệ chính thức 25-26/7/2026. Em xin phép được delay nhập học sang ~28/7 hoặc 3/8 để hoàn thành tốt nghiệp. Em sẽ giữ full commitment và bù bằng performance trong program."
 
-**Thesis sub-milestones:**
-- 10-15/7: submit báo cáo
-- 20-25/7: slide prep
-- 25-26/7: defense
+**Submit báo cáo thesis: ~10-12/7**
 
-**Detail:** [[Phase3_Interview_Prep]]
+### Phase E: 13/7 → 26/7 — Final thesis prep + Decision on ZTF
 
-### Phase E: 27/7+ — Recovery + expand
+**Scenario A1.1 (negotiation success):**
+- Defense 25-26/7
+- Bắt đầu ZTF ~28/7-3/8
 
-- Nghỉ vài ngày
-- Tiếp tục job hunt với full attention
-- Phase 3 expanded (transformer from scratch, RAG deepen, paper reading) cho interviews tiếp theo
-- Apply tier 2/3 companies song song
+**Scenario A1.2 (negotiation fail) → Path A3:**
+- Decline offer politely
+- Focus thesis defense
+- Apply công ty khác sau defense
 
-## Tradeoffs accepted
+| Block | Time/day |
+|---|---|
+| Thesis slide prep + practice defense | 4h |
+| Polish báo cáo cuối | 1-2h |
+| Buffer | 2h |
+
+### Phase F: 27/7+ — Recovery + next phase
+
+- A1.1: nghỉ vài ngày → ZTF onboarding → 12 tuần program → 22/10 evaluation
+- A1.2: nghỉ → expand Phase 3 (transformer scratch, RAG deepen, paper reading) → apply tier 2/3 companies
+
+## Tradeoffs (re-confirmed under official dates)
 
 | Cái mất | Cái được |
 |---|---|
-| Zalo technical interview có thể không nail PyTorch deep questions | Thesis chất lượng cao, defense vững |
-| Tier 2/3 MLOps (KServe/Jaeger/Terraform) skip | Đủ stack core fresher, không over-engineer |
-| Phase 3 chỉ làm ~30% plan gốc | Buffer cho thesis emergency |
-| Có thể trượt Zalo | Path research-leaning được preserve |
+| Phase 3 chỉ còn ~2 tuần (vs 3-4 tuần plan cũ) | CV submitted on-time, thesis defense vững |
+| DSA sprint chỉ 8 ngày sau CV | Pre-loaded trong Phase A bù lại |
+| Có thể không nail PyTorch deep questions | Lead với strength: thesis SDPO + RAG/agent thực chiến |
+| Có thể phải decline ZTF nếu không negotiate được | Thesis chất lượng, ZTF 2027 vẫn open |
 
 ## Quy tắc bất biến
 
-1. Thesis vibecode OK nhưng phải hiểu rationale trước khi commit (không vibecode novelty / SDPO core / weight update math)
-2. Phase 3 chỉ trigger sau khi pass entry test — không pre-emptive
-3. Finals 10/10 — non-negotiable
-4. 1 ngày off/tuần
-5. Interview live coding nguy cơ cao → training loop trong Phase 3 phải tay gõ, không AI
+1. CV deadline 22/5 EOD — không trễ một phút
+2. Schedule interview càng sớm trong 15-26/6 càng tốt
+3. Thesis vibecode OK với bar hiểu rationale — không vibecode SDPO core / weight update math
+4. Phase 3 gap fix training loop **tay gõ** (interview live coding risk)
+5. Finals 10/10 — non-negotiable
+6. Negotiate ZTF delay ngay khi nhận offer, không trì hoãn
 
-## Verification points
+## Verification
 
-- [ ] Verify ZTF CV deadline khi Zalo announce (5/5)
-- [ ] Verify entry test date khi nhận email
-- [ ] Verify lịch defense khi khoa announce (~đầu 7)
+- [x] Verify ZTF dates → confirmed via zalo.careers/techfresher
 - [ ] Verify finals exact dates từ trường
+- [ ] Verify lịch defense khi khoa announce (~đầu 7)
+- [ ] Reach out anh chị ZTF 2025 hỏi về flex start date precedent

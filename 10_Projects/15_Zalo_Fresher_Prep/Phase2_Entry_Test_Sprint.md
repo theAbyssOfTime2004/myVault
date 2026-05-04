@@ -4,10 +4,20 @@ tags: [zalo-prep, entry-test, phase-2]
 
 # Phase 2 — Entry Test Sprint
 
-**Khi nào bắt đầu**: Sau khi nộp CV và nhận email thông báo Entry Test date
-**Cường độ**: 2.5h/ngày DSA + 1.5h thesis + 30 phút finals warmup (Option A constraint)
+**Date:** 23/5 → 30/5/2026 (8 ngày). Entry Test offline @ VNG Campus 30/5.
+**Cường độ:** 3-4h/ngày DSA + 1h thesis maintain.
 
-> **Option A pre-load:** ~80% nội dung tuần 1 + đầu tuần 2 đã refresh trong Phase A (11/5 → 31/5, 30 phút/ngày). Phase 2 sprint focus chính vào: Security, SQL, CV deep dive, mock test 200 câu, mock interview. Master timeline: [[01_Master_Timeline]].
+> **Path A1 timeline:** Sprint **chỉ 8 ngày** sau CV deadline 22/5. Vì vậy Phase A (11/5 → 22/5) đã pre-load DSA refresh ở mức 1h/ngày (intensified). Phase 2 sprint focus full vào toàn bộ DSA + CS + mock test. Master timeline: [[01_Master_Timeline]].
+>
+> **8-day compressed schedule:**
+> - 23/5 (T7): DSA review tổng hợp tuần 1 plan + làm 30 câu quiz
+> - 24/5 (CN): Tree + BST + Heap deep, 30 câu quiz
+> - 25/5 (T2): Sort + Graph + Bit ops
+> - 26/5 (T3): OOP + OS deep
+> - 27/5 (T4): Networking + Security
+> - 28/5 (T5): SQL + CV Deep Dive (mở code Solazu, Tiger Tribe, MLOps mới build)
+> - 29/5 (T6): **Full mock 200 câu timed** + review câu sai + Mock interview
+> - 30/5 (T7): **ENTRY TEST DAY** — đến VNG Campus sớm, ngủ đủ đêm trước
 
 ---
 
