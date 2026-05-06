@@ -208,7 +208,7 @@
       "id": "3 - Tags/review",
       "title": "review",
       "group": "other",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "3 - Tags/regression",
@@ -499,10 +499,16 @@
       "degree": 7
     },
     {
+      "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
+      "title": "Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
+      "group": "projects",
+      "degree": 3
+    },
+    {
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn",
       "title": "Lý 1 - Chương 1 - Chuyển động tròn",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
@@ -550,7 +556,7 @@
       "id": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "title": "General_Physics_Tracker",
       "group": "projects",
-      "degree": 3
+      "degree": 5
     },
     {
       "id": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
@@ -1216,7 +1222,7 @@
       "id": "00_Dashboard/lý 1",
       "title": "lý 1",
       "group": "dashboard",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
@@ -3241,6 +3247,14 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
     },
     {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
+      "target": "00_Dashboard/lý 1"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
+      "target": "3 - Tags/review"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn",
       "target": "00_Dashboard/lý 1"
     },
@@ -3279,6 +3293,14 @@
     {
       "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng"
     },
     {
       "source": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
@@ -5162,7 +5184,7 @@
     }
   ],
   "stats": {
-    "node_count": 329,
-    "link_count": 796
+    "node_count": 330,
+    "link_count": 800
   }
 }
