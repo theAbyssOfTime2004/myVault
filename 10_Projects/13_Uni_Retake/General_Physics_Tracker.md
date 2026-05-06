@@ -6,5 +6,7 @@ Tags: [[lý 1]], [[tracker]], [[review]]
 
 ## Chương trình
 - [[Lý 1 - Chương 1 - Chuyển động ném xiên]]
+- [[Lý 1 - Chương 1 - Chuyển động tròn]]
+- [[Lý 1 - Chương 2 - Hệ vật & Định lý động năng]]
 
 # References
