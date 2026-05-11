@@ -1,0 +1,267 @@
+{
+  "main": {
+    "id": "2a14e5f1d1b72c36",
+    "type": "split",
+    "children": [
+      {
+        "id": "5fec0e776e678976",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2abaff1cde553181",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "60_Monthly_Notes/2026-04.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-04"
+            }
+          },
+          {
+            "id": "89a982332a69a5e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "10_Projects/16_Tymex_Test/Tymex_Assessment_Answers.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Tymex_Assessment_Answers"
+            }
+          },
+          {
+            "id": "3c53aebe2bc59c8f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "10_Projects/16_Tymex_Test/Tymex_Code_Solutions.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Tymex_Code_Solutions"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "76f8cea7caf3de53",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "045f8faea505e530",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "37af04051bc64198",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "15b59fa037d36a66",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "3150ac8930c7c286",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-ghost",
+          "title": "all-properties"
+        }
+      },
+      {
+        "id": "b7b0cd67e1f808f2",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "5a385e2c67affd30",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "150ede8cbc9d5267",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Untitled.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "8206201c100f1cb0",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Untitled.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "c6f59ec5ee6b1f7a",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Untitled.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      },
+      {
+        "id": "b02c1045cc7a4593",
+        "type": "leaf",
+        "state": {
+          "type": "git-view",
+          "state": {},
+          "icon": "git-pull-request",
+          "title": "Source Control"
+        }
+      }
+    ],
+    "currentTab": 3
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "smart-random-note:Open Random Note from Search": false,
+      "obsidian-kanban:Create new board": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "3c53aebe2bc59c8f",
+  "lastOpenFiles": [
+    "/40_Archives/output.html",
+    "/40_Archives/Untitled.md",
+    "/40_Archives/Untitled 1.md",
+    "/40_Archives/README.md",
+    "/40_Archives/Mạng máy tính.md",
+    "/3 - Tags/video streaming and content distribution networks.md",
+    "/3 - Tags/uninformed search.md",
+    "/3 - Tags/tool.md",
+    "/3 - Tags/supervised learning.md",
+    "/3 - Tags/statistical.md",
+    "/3 - Tags/socket programming with UDP and TCP.md",
+    "/3 - Tags/search algorithm.md",
+    "/3 - Tags/review.md",
+    "/3 - Tags/regression.md",
+    "/3 - Tags/informed search.md",
+    "/3 - Tags/information theory.md",
+    "/3 - Tags/data scientist.md",
+    "/3 - Tags/data mining.md",
+    "/3 - Tags/computer networking.md",
+    "/3 - Tags/beginner.md",
+    "/3 - Tags/Web and HTTP.md",
+    "/3 - Tags/The Domain Name System DNS.md",
+    "/3 - Tags/Self-Supervised Learning.md",
+    "/3 - Tags/Segmentation.md",
+    "/3 - Tags/P2P applications.md",
+    "/3 - Tags/Object Detection.md",
+    "/graph.json",
+    "/40_Archives",
+    "/3 - Tags",
+    "/10_Projects/16_Tymex_Test",
+    "/10_Projects",
+    "scripts/build_graph.py",
+    "graph.json",
+    "/scripts/build_graph.py",
+    "/99_System/Assets/Images/Pasted image 20260411180330.png",
+    "99_System/Assets/Images/Pasted image 20260411180330.png",
+    "/99_System/Assets/Images",
+    "99_System/Assets/Images/Pasted image 20251116222429.png",
+    "99_System/Assets/Images/Pasted image 20250620124926.png",
+    "99_System/Assets/Images/Pasted image 20250620112520.png",
+    "99_System/Assets/Images/Pasted image 20250524215755.png",
+    "99_System/Assets/Images/Pasted image 20250524214954.png",
+    "99_System/Assets/Images/Pasted image 20250513153737.png",
+    "99_System/Assets/Images/Pasted image 20250507144958.png",
+    "99_System/Assets/Images/Pasted image 20250506144221.png",
+    "99_System/Assets/Files/Untitled.canvas",
+    "99_System/Assets/Files/Untitled 1.canvas",
+    "99_System/Assets/Files/Data Mining review.canvas"
+  ]
+}
