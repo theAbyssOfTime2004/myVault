@@ -43,8 +43,7 @@ tags: [interview, assessment, tymex]
 **Original question:**
 > *Passage:* You are an intern working on a cross-functional Agile team developing an AI-powered recommendation feature for a product in the competitive AI market. During a sprint, you are assigned to integrate a data preprocessing module. However, you notice that the requirements in the task ticket differ from what the developer working on the model expects. The product owner is currently busy preparing for a stakeholder demo and has not responded to your clarification message. The sprint deadline is approaching, and your work depends on aligning with both the developer and the product owner.
 > *Question:* What is the most effective action you should take to handle this situation?
-> A. Escalate the issue immediately to your manager, emphasizing the product owner's unresponsiveness, without attempting to align directly with the developer or clarify assumptions first.
-> B. Proceed with the implementation strictly based on the task ticket to avoid delays, assuming any inconsistencies can be identified and fixed later without immediate clarification.
+> A. Escalate the issue immediately to your manager, emphasizing the product strictly based on the task ticket to avoid delays, assuming any inconsistencies can be identified and fixed later without immediate clarification.
 > C. Initiate a quick alignment discussion with the developer and attempt to clarify assumptions, document the agreed approach, and share it with the product owner for confirmation while continuing progress.
 > D. Pause your work entirely until the product owner provides explicit instructions, avoiding any interim assumptions or alignment efforts to ensure correctness.
 
