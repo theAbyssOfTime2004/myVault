@@ -6,6 +6,43 @@ tags: [zalo-prep, mlops, phase-1, week-1]
 
 > **Option A path (Tier 1):** Ngày 1 → 2 → 3 → 4 → 5 → 7. **Skip Ngày 6 (DVC)** — MLflow đã đủ versioning signal.
 
+## Recalibrate 14/5 — compressed schedule
+
+> **Tình hình**: tới 14/5 mới xong foundation course (DVC + MLflow), còn 4h video observability. CV deadline 22/5 — còn 8 ngày. Quyết định: hôm nay cày nốt video, từ 15/5 build. Thesis + DSA tuần này = 0h.
+
+> **Thêm Terraform** (Path A — destroy & rebuild) vào N6 thay slot DVC đã skip. Lý do: signal mạnh cho CV MLOps role.
+
+| Ngày | Task | Notes |
+|---|---|---|
+| 14 (Th5) | **Skip observability video** (JIT learn ngày 20). N1 folder + N2 FastAPI scaffold (`/predict` `/health` `/metrics` với `prometheus-client`) | BUILD START |
+| 15 (Th6) | N3 Dockerfile multi-stage + push Artifact Registry | |
+| 16 (Th7) | N4 Helm chart + deploy GKE, curl EXTERNAL-IP → 200 | |
+| 17 (CN) | N5 MLflow trên K8s + log từ train script | |
+| 18 (Th2) | **N6 Terraform (Path A)**: backup describe → delete cluster manual → setup GCS backend → viết `main.tf`/`variables.tf` → `init`/`plan`/`apply` → re-deploy Helm | replace DVC slot |
+| 19 (Th3) | N7 pytest (`/health`, `/predict` mock) + `helm lint` clean | |
+| 20 (Th4) | **Observability day**: install `kube-prometheus-stack`, Grafana dashboard, gắn HPA. JIT đọc docs. | |
+| 21 (Th5) | GitHub Actions CI/CD | |
+| 22 (Th6) | README + screenshot stack → **submit CV EOD** | HARD DEADLINE |
+
+### N6 Terraform — Path A checklist
+
+- [ ] `gcloud container clusters describe ztf-cluster --zone=asia-southeast1-a > backup.yaml` (reference)
+- [ ] `gcloud container clusters delete ztf-cluster --zone=asia-southeast1-a`
+- [ ] Tạo GCS bucket cho remote state: `gsutil mb -l asia-southeast1 gs://tfstate-ztf-<random>` + enable versioning
+- [ ] Viết `backend.tf` (gcs backend), `main.tf` (cluster + node pool + artifact registry), `variables.tf`, `terraform.tfvars` (gitignore nếu sensitive)
+- [ ] `terraform init` → `plan` → `apply`
+- [ ] Re-deploy Helm chart (liveness app) lên cluster mới
+- [ ] Verify: `terraform plan` ra "no changes"
+
+### Cắt bỏ tuần này
+
+- Thesis: define 7 templates **dời sang sau 22/5**
+- DSA refresh: dời full sang Phase B sprint (23–30/5)
+- Loki / Jaeger / KServe / Knative / NGINX Ingress / Evidently: skip (không trong Tier 1)
+- DVC implementation: skip (đã học foundation là đủ, không build vào project)
+
+---
+
 ## Ngày 1 — GKE cluster + project structure
 
 - [x] Tạo GCP project, enable billing ($300 free credit), enable APIs: `container.googleapis.com`, `artifactregistry.googleapis.com`
