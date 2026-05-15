@@ -204,7 +204,8 @@ face-spoofing-detection/
 - `helm/liveness-chart/templates/hpa.yaml`: HPA target CPU 70%, min=2, max=5.
 
 **Verify**:
-- `kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring` → Grafana UI, login admin/<password>, dashboard import được, panels có data sau khi gửi vài request `/predict`.
+- `kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring` 
+- Grafana UI, login admin/<password>, dashboard import được, panels có data sau khi gửi vài request `/predict`.
 - `kubectl get hpa` → HPA active.
 - Load test (`hey -z 30s -c 10 http://<EXTERNAL-IP>/health`) → HPA scale up.
 
