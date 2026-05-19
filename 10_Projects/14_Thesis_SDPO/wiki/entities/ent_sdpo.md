@@ -24,6 +24,8 @@ L_SDPO(θ) = Σ_t KL( π_θ(·|x, y<t) || stopgrad(π_θ(·|x, f, y<t)) )
 
 Trong practice dùng **Jensen-Shannon divergence** (symmetric) thay cho plain KL để stability.
 
+![[Pasted image 20260519151613.png]]
+
 ## Thuật toán (Algorithm 1 của paper)
 
 ```
