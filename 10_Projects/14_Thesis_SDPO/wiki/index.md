@@ -13,14 +13,15 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[syn_template_taxonomy_rationale]] — nguồn gốc và justification cho 7 templates. 3 dimensions derive từ Kim + Hübotter. Dùng khi viết methodology section.
 - [[syn_kim2026_thesis_impact]] — thesis impact consolidation của Kim et al. 2026 paper (RQ1/2/3 mapping, hyperparam contradiction, validation framing).
 
-## Sources (6)
+## Sources (7)
 
 - [[src_hubotter2026_self_distillation]] — Hübotter et al. 2026, arXiv:2601.20802. Origin paper của SDPO. **Full-PDF ingest.**
 - [[src_kim2026_why_self_distillation_degrades]] — Kim et al. 2026, arXiv:2603.24472. Paper critique SDPO về suppression of epistemic verbalization. **Full-PDF ingest.**
 - [[src_kim2026_strategic_info_allocation]] — Kim et al. 2026 (original). Nguồn của epistemic verbalization concept. **STUB.**
-- [[src_lasgroup_sdpo_repo]] — github.com/lasgroup/SDPO official codebase (verl fork). Config surface, loss code, experiment hyperparams, TTT gap.
+- [[src_lasgroup_sdpo_repo]] — github.com/lasgroup/SDPO official codebase (verl fork). Scientific reference; implementation superseded bởi TRL (2026-05-19).
 - [[src_shenfeld2026_sdft]] — Shenfeld et al. 2026, arXiv:2601.19897. Sister paper, SDFT cho continual learning. **Abstract + transcript-explanation ingest.**
 - [[src_youtube_hubotter_shenfeld_discussion]] — YouTube panel với 2 tác giả (Hübotter + Shenfeld). Primary source cho wedge angle RQ2 + TRL integration confirmation. **Full transcript grep.**
+- [[src_trl_sdpo_sdft_docs]] — ⭐ HuggingFace TRL v1.4.0 SDPO/SDFT trainer docs. **Implementation reference** cho thesis (switch từ verl). LoRA built-in, template configurable, TTT loop tự wrap.
 
 ## Entities (7)
 

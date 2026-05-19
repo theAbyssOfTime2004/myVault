@@ -105,3 +105,23 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway 4 (limitation): Hübotter quote "as you scale models you get better self teachers" → Qwen3-8B teacher có thể yếu hơn Qwen3-32B/72B → thesis nên acknowledge trong limitation, có Plan B framing nếu không reproduce 2.4× speedup.
 - Lint pending: [[src_shenfeld2026_sdft]] mới ở depth `abstract+transcript-explanation`, chưa full-PDF ingest. Cần upgrade khi có thời gian để verify "minimum change" có formal statement (bound/theorem) trong §3-4 không.
 
+## [2026-05-19] ingest+decision | TRL SDPO/SDFT trainer integration → switch implementation từ verl sang TRL
+
+- Sources fetched:
+  - https://huggingface.co/docs/trl/en/sdpo_trainer (SDPO trainer docs, full)
+  - https://huggingface.co/docs/trl/sdft_trainer (SDFT trainer docs, full)
+  - https://github.com/huggingface/trl/blob/main/trl/experimental/sdpo/sdpo_trainer.py (partial, code structure)
+- Also fetched (for comparison, ruled out): https://github.com/Gen-Verse/OpenClaw-RL — production agent framework, 8× GPU requirement, OPD = SDPO-inspired variant không phải canonical → citation only, không reference implementation.
+- Created: [[src_trl_sdpo_sdft_docs]] — full source page với 5 finding, 3 caveat, 3-way comparison verl vs TRL vs OpenClaw, implementation roadmap 5 stage, code template Phase 3.
+- Updated: [[src_lasgroup_sdpo_repo]] — supersession note ở top: scientific reference giữ nguyên, implementation switch sang TRL.
+- Updated: `wiki/index.md` (sources 6→7, marked TRL as ⭐ implementation reference).
+- Key takeaway 1 (decision): switch verl → TRL. Tiết kiệm ~1-2 tuần infrastructure work. Critical wins: LoRA/PEFT built-in (must-have với compute budget), template ablation qua Python dict thay vì YAML.
+- Key takeaway 2 (trade-off): mất trust-region teacher mode (Hübotter §4.3 best). EMA + frozen mode (Kim ablation) vẫn cover được core RQ2 contradiction. Document trong limitation section.
+- Key takeaway 3 (risk): TTT loop phải tự wrap (~100-200 dòng glue). Bug risk cao ở: weight persist giữa các `.train()` call, LoRA adapter save/restore, generation dùng updated weight. Phải test ở Stage 1 sanity trên 0.5B local trước khi commit.
+- Key takeaway 4 (unknown): vLLM support cho SDPO unclear. SDFT docs explicit "does not support `use_vllm=True`". Cần verify SDPO bằng cách đọc source code hoặc test thực tế. Mitigation plan: decouple generation (vLLM) và training (TRL).
+- Action items next:
+  - [ ] `pip install trl==1.4.0 peft datasets accelerate` trên local + smoke test trên Qwen2.5-0.5B
+  - [ ] Verify TRL SDPO vLLM support (read source code)
+  - [ ] Implement TTT wrap loop, test weight persistence
+  - [ ] Define 7 templates (still blocker cho RQ1)
+

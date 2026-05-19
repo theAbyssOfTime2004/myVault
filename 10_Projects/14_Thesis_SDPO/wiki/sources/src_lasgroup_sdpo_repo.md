@@ -1,8 +1,8 @@
 ---
 type: source
 created: 2026-04-23
-updated: 2026-04-23
-tags: [codebase, implementation, verl, reference]
+updated: 2026-05-19
+tags: [codebase, implementation, verl, reference, scientific-reference]
 sources: [src_lasgroup_sdpo_repo]
 aliases: [lasgroup/SDPO, SDPO repo, official SDPO code]
 ---
@@ -10,6 +10,8 @@ aliases: [lasgroup/SDPO, SDPO repo, official SDPO code]
 # lasgroup/SDPO — Official codebase
 
 Repo: https://github.com/lasgroup/SDPO — verl fork implementing SDPO paper ([[src_hubotter2026_self_distillation]]). Ingest dựa trên read các file cấu hình + loss + experiment scripts qua GitHub raw API (không clone).
+
+> **⚠️ Implementation supersession note (2026-05-19)**: Thesis đã quyết định **switch implementation sang [[src_trl_sdpo_sdft_docs]]** (HuggingFace TRL v1.4.0). Lasgroup repo giữ vai trò **scientific reference** (paper code, canonical hyperparams cho LCBv6) chứ không phải implementation base. Lý do chính: TRL có LoRA/PEFT built-in (must-have với compute budget thesis), template ablation qua Python dict thay vì YAML config, code base nhẹ hơn 100×. Trade-off: mất trust-region teacher mode (chấp nhận, document trong limitation). Chi tiết comparison ở [[src_trl_sdpo_sdft_docs]].
 
 ## Cấu trúc repo
 
