@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/15_Zalo_Fresher_Prep/Handoff_MLOps_Week1_Spec.md",
+                "file": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Handoff_MLOps_Week1_Spec"
+              "title": "ent_sdpo"
             }
           }
         ]
@@ -75,8 +75,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -208,6 +207,10 @@
   },
   "active": "eef5c9ae081599d0",
   "lastOpenFiles": [
+    "99_System/Assets/Images/Pasted image 20260519115758.png",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics.md",
+    "10_Projects/15_Zalo_Fresher_Prep/Handoff_MLOps_Week1_Spec.md",
     "30_Knowledge_Base/MLOPS/MLflow.md",
     "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
     "30_Knowledge_Base/MLOPS/DVC.md",
@@ -230,10 +233,6 @@
     "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core.md",
     "30_Knowledge_Base/AI_DeepLearning/FGSM.md",
     "30_Knowledge_Base/AI_DeepLearning/Faster R-CNN.md",
-    "30_Knowledge_Base/AI_DeepLearning/Depth-Limited Search.md",
-    "30_Knowledge_Base/AI_DeepLearning/Depth-first search.md",
-    "30_Knowledge_Base/Dev_Tools/LangChain.md",
-    "3 - Tags/Deep Learning.md",
     "10_Projects/14_Thesis_SDPO/experiments/plans",
     "10_Projects/14_Thesis_SDPO/experiments",
     "10_Projects/13_Uni_Retake/General_Physics_Tracker.md.tmp.5268.1777574139430",

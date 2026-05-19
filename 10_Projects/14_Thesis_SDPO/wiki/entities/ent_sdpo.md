@@ -11,6 +11,7 @@ aliases: [Self-Distillation Policy Optimization, SDPO]
 
 Algorithm RL on-policy được giới thiệu trong [[src_hubotter2026_self_distillation]]. Instantiate paradigm [[ent_rlrf]]: chuyển tokenized feedback thành logit-level credit assignment, dùng chính policy (conditioned on feedback) làm [[con_self_teacher]].
 
+![[Pasted image 20260519115758.png]]
 ## Công thức loss
 
 ```
