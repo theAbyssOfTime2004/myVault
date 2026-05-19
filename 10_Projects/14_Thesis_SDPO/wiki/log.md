@@ -91,3 +91,17 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Contains: RQ1/2/3 impact mapping, hyperparam contradiction table (Hübotter vs Kim), validation framing với direct quotes, testable hypotheses, action items.
 - Updated: `wiki/index.md` (synthesis section giờ có 1 page + proposal stub).
 
+## [2026-05-19] ingest | Shenfeld et al. 2026 (SDFT) + YouTube discussion + RQ2 wedge angle
+
+- Sources ingested:
+  - `arXiv:2601.19897` (Shenfeld, Damani, **Hübotter**, Agrawal) — abstract via WebFetch + author-narrated mechanism từ YouTube transcript.
+  - YouTube panel `OgEGV7apEzI` — auto-caption transcript `C:/Users/Maidanng/Downloads/[English (auto-generated)] Why Self-Distillation Is Taking Over LLM Post-Training (w the Researchers).txt` (2458 lines).
+- Created: [[src_shenfeld2026_sdft]], [[src_youtube_hubotter_shenfeld_discussion]].
+- Updated: [[syn_kim2026_thesis_impact]] — thêm section "Wedge angle RQ2" với verbatim quote Hübotter tự thừa nhận giảm hmm/wait (positive framing) vs Kim (negative framing); validation framing extended với quote thứ ba.
+- Updated: `wiki/index.md` (sources 4→6).
+- Key takeaway 1 (mechanism): Shenfeld giải thích **"implicit bias toward minimum change"** là cơ chế chính SDFT avoid catastrophic forgetting — on-policy gradient tự nhiên hội tụ về policy gần π_prior nhất, không cần KL regularization explicit. Generality claim: validate trên LLM, robotic foundation model, MLP MNIST.
+- Key takeaway 2 (wedge): Hübotter **tự thừa nhận** SDPO dùng ít hmm/wait — frame là "efficiency, no circular reasoning" — đối lập với Kim et al. frame "suppression of epistemic uncertainty, AIME24 drop 40%". Thesis RQ2 position: **first test-time CODE evidence trên debate này**.
+- Key takeaway 3 (implementation): HuggingFace TRL đã merge cả SDFT lẫn SDPO (2026-05). Thesis có thể **drop verl path**, switch sang `trl + peft + LoRA`. Action item: WebFetch TRL repo verify API.
+- Key takeaway 4 (limitation): Hübotter quote "as you scale models you get better self teachers" → Qwen3-8B teacher có thể yếu hơn Qwen3-32B/72B → thesis nên acknowledge trong limitation, có Plan B framing nếu không reproduce 2.4× speedup.
+- Lint pending: [[src_shenfeld2026_sdft]] mới ở depth `abstract+transcript-explanation`, chưa full-PDF ingest. Cần upgrade khi có thời gian để verify "minimum change" có formal statement (bound/theorem) trong §3-4 không.
+

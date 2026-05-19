@@ -1,9 +1,9 @@
 ---
 type: synthesis
 created: 2026-04-22
-updated: 2026-04-22
-tags: [thesis-impact, rq1, rq2, rq3, synthesis]
-sources: [src_kim2026_why_self_distillation_degrades, src_hubotter2026_self_distillation]
+updated: 2026-05-19
+tags: [thesis-impact, rq1, rq2, rq3, synthesis, wedge]
+sources: [src_kim2026_why_self_distillation_degrades, src_hubotter2026_self_distillation, src_youtube_hubotter_shenfeld_discussion]
 ---
 
 # Kim et al. 2026 — Thesis impact synthesis
@@ -64,6 +64,40 @@ Validation: hai papers chính của thesis ([[src_hubotter2026_self_distillation
 
 **Reference pages**: [[con_uncertainty_suppression]], [[con_epistemic_verbalization]], [[con_test_time_self_distillation]] (section "RQ2 gap"), [[con_code_uncertainty_signals]] (stub — cần tạo).
 
+#### ⭐ Wedge angle RQ2 — Hübotter vs Kim đối lập framing trên cùng phenomenon
+
+**Phát hiện mới từ [[src_youtube_hubotter_shenfeld_discussion]]**: Hübotter **tự thừa nhận** SDPO dùng ít hmm/wait — nhưng frame phenomenon này **positive**, không phải negative như Kim.
+
+**Hübotter verbatim** [YouTube transcript line 1759-1820]:
+> *"it uses rather less of these typical reasoning tokens such as **hmm and wait** etc. which GRPO tends to produce."*
+
+Mechanism Hübotter đưa ra (positive framing):
+> *"hindsight policy being able in a more informed state being able to tell the policy okay, here this was like a **circular reasoning loop** that wasn't necessary."*
+
+**Kim verbatim** [src_kim2026_... §7]:
+> *"post-training objectives need to account not only for answer correctness, but also for **eliciting and preserving uncertainty-aware reasoning** behaviors."*
+
+→ **Hai camps cùng quan sát một phenomenon nhưng frame ngược nhau**:
+
+| Camp | Phenomenon name | Framing | Evidence regime |
+|---|---|---|---|
+| Hübotter 2026 | "efficient reasoning" | ✅ positive — shorter, less circular, more direct | RLVR train-time, Chemistry + LCBv6 narrow |
+| Kim 2026 | "epistemic verbalization suppression" | ❌ negative — accuracy drop 40% OOD | SFT/SDPO train-time math, DAPO 14k broad |
+
+**Thesis position**: cung cấp **first test-time CODE evidence** trên debate này.
+
+- Cùng phenomenon: hmm/wait giảm qua SDPO update.
+- Câu hỏi: ở regime test-time code (LCBv6 hard, 1-question, weight update per turn), giảm hmm/wait có **hurt discovery@K** không?
+  - Nếu **không hurt** → support Hübotter framing (suppression = efficiency in narrow regime).
+  - Nếu **hurt** → support Kim framing (uncertainty-aware reasoning critical kể cả code).
+  - Nếu **mixed by template** → RQ1 contribution: template modulate trade-off.
+
+**Strengthening Claim 2 của thesis**: paper số 2 (Kim) chỉ trích trên math train-time; paper số 1 (Hübotter) tự thừa nhận trên code train-time nhưng frame positive. **Không ai test ở test-time code** → thesis fill clean gap.
+
+**Operational implication**:
+- Phải log epistemic token frequency **per turn × per template** (RQ2 + RQ1 cross).
+- Cần measure cả **rate of decrease** (= speed of suppression) chứ không chỉ final count, vì Hübotter argue rằng suppression hữu ích khi nó "trim circular loop"; Kim argue rằng suppression có hại khi nó "remove epistemic reflexes".
+
 ### RQ3 — CTC metric
 
 **Kim finding relevant**: suppression → response ngắn nhưng wrong. Length alone không đủ để đánh giá.
@@ -101,7 +135,10 @@ Quote trực tiếp có thể cite:
 **Kim 2026 §7 (Conclusion)**:
 > *"post-training objectives need to account not only for answer correctness, but also for eliciting and preserving uncertainty-aware reasoning behaviors."*
 
-→ Thesis sit ở **intersection của hai open problems** được authoritative papers khẳng định là mở. Bản thân proposal có thể citing cả hai để frame RQs.
+**Hübotter, YouTube discussion 2026** [[src_youtube_hubotter_shenfeld_discussion]] [line 1759-1820]:
+> *"it uses rather less of these typical reasoning tokens such as hmm and wait etc. which GRPO tends to produce ... [this was a] circular reasoning loop that wasn't necessary."*
+
+→ Thesis sit ở **intersection của ba quan điểm**: Hübotter (open future work + positive framing on hmm/wait reduction), Kim (negative framing trên cùng phenomenon ở math), và untouched regime (test-time code). Có thể citing cả ba để frame RQ2 như **debate-resolving contribution**.
 
 ## Non-contradicted strengths của SDPO
 
@@ -129,6 +166,8 @@ Thesis regime (test-time, LCBv6 hard, 1-question) = **extreme narrow** theo Kim 
 
 - [[src_kim2026_why_self_distillation_degrades]] (primary)
 - [[src_hubotter2026_self_distillation]] (counter-paper)
+- [[src_youtube_hubotter_shenfeld_discussion]] (wedge angle source)
+- [[src_shenfeld2026_sdft]] (sister paper, continual learning angle)
 - [[con_epistemic_verbalization]] · [[con_uncertainty_suppression]] · [[con_task_coverage]]
 - [[con_reprompt_template]] · [[con_test_time_self_distillation]] · [[con_discovery_at_k]]
 - [[ent_sdpo]] · [[ent_qwen3_8b]] · [[ent_deepseek_distill_7b]]
