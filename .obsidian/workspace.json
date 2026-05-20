@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "RQ",
+                "query": "kramer",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,7 +206,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "eef5c9ae081599d0",
+  "active": "795cc0a4e8cdf0a2",
   "lastOpenFiles": [
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.074d41dc67d6",
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.7dd0da80517e",
