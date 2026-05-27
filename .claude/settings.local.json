@@ -52,7 +52,9 @@
       "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO\" && find . -maxdepth 3 -name \"ttt*\" -o -name \"*trl*\" 2>&1 | grep -v \".git\" | head -30)",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/**)",
       "Bash(ls \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/.github\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/helm\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/k8s\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/monitoring\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/terraform\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/app\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/src\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/tests\")",
-      "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\theabyssoftime\\\\Repos\\\\face-spoofing-detection\")"
+      "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\theabyssoftime\\\\Repos\\\\face-spoofing-detection\")",
+      "Bash(python -c ' *)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
