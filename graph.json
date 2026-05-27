@@ -619,6 +619,12 @@
       "degree": 6
     },
     {
+      "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập",
+      "title": "ĐSTT_Chương3_Bài_Tập",
+      "group": "knowledge",
+      "degree": 0
+    },
+    {
       "id": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
       "title": "Non-symmetry of the Kullback-Leibler divergence",
       "group": "knowledge",
@@ -5638,7 +5644,7 @@
     }
   ],
   "stats": {
-    "node_count": 375,
+    "node_count": 376,
     "link_count": 846
   }
 }
