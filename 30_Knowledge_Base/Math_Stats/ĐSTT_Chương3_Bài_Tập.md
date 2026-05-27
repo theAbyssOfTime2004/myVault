@@ -256,4 +256,185 @@ Vì $\{p,q,r\}$ độc lập: hệ $\{\alpha+\beta-\gamma=0,\; -\alpha+\beta+\ga
 
 ---
 
-*Ghi chú: Các bài từ 3.11 trở đi không thuộc phạm vi ghi lời giải ở file này.*
+---
+
+## Bài 3.11 — Chứng minh
+
+> **Mệnh đề:** $W_1\cup W_2$ là không gian con của $V$ $\Longleftrightarrow$ $W_1\subset W_2$ hoặc $W_2\subset W_1$.
+
+**($\Leftarrow$):** Nếu $W_1\subset W_2$ thì $W_1\cup W_2=W_2$ là không gian con. Tương tự cho $W_2\subset W_1$.
+
+**($\Rightarrow$):** Giả sử $W_1\cup W_2$ là không gian con nhưng $W_1\not\subset W_2$ và $W_2\not\subset W_1$. Khi đó tồn tại $u\in W_1\setminus W_2$ và $v\in W_2\setminus W_1$.
+
+Vì $W_1\cup W_2$ đóng với phép cộng: $u+v\in W_1\cup W_2$.
+- Nếu $u+v\in W_1$: $v=(u+v)-u\in W_1$ (vì $W_1$ đóng với phép trừ). **Mâu thuẫn** với $v\notin W_1$.
+- Nếu $u+v\in W_2$: $u=(u+v)-v\in W_2$. **Mâu thuẫn** với $u\notin W_2$.
+
+Vậy giả thiết ban đầu sai. $\blacksquare$
+
+---
+
+## Bài 3.12 — Chứng minh tập sinh
+
+**Nhắc lại:** Để chứng minh $S$ sinh ra không gian $V$, đủ chứng minh $\text{span}(S)=V$. Cách nhanh: tìm một tập con của $S$ là cơ sở của $V$.
+
+### a) $S=\{(1,-1),(-2,3)\}$ sinh ra $\mathbb{R}^2$
+
+Mọi $(a,b)\in\mathbb{R}^2$ ta giải: $\alpha(1,-1)+\beta(-2,3)=(a,b)$
+
+$$\alpha-2\beta=a,\quad -\alpha+3\beta=b \implies \beta=a+b,\;\alpha=3a+2b$$
+
+Nghiệm tồn tại với mọi $a,b$ $\Rightarrow$ $S$ là tập sinh của $\mathbb{R}^2$. $\blacksquare$
+
+### b) $S=\{(1,1),(1,2),(2,-1)\}$ sinh ra $\mathbb{R}^2$
+
+$\det\begin{pmatrix}1&1\\1&2\end{pmatrix}=1\neq0$ $\Rightarrow$ $\{(1,1),(1,2)\}$ là cơ sở của $\mathbb{R}^2$ $\Rightarrow$ $S\supset$ cơ sở nên $S$ sinh ra $\mathbb{R}^2$. $\blacksquare$
+
+### c) $S=\{(1,1,1),(1,1,0),(0,1,1)\}$ sinh ra $\mathbb{R}^3$
+
+$$\det\begin{pmatrix}1&1&1\\1&1&0\\0&1&1\end{pmatrix}=1(1-0)-1(1-0)+1(1-0)=1\neq0$$
+
+Ba vectơ độc lập tuyến tính trong không gian 3 chiều $\Rightarrow$ đây là cơ sở $\Rightarrow$ tập sinh. $\blacksquare$
+
+---
+
+## Bài 3.13 — Chứng minh tập sinh của $\mathbb{R}_2[t]$
+
+$f_1=1+2t-7t^2$, $f_2=3+t+t^2$, $f_3=7+2t+4t^2$.
+
+$$\det\begin{pmatrix}1&2&-7\\3&1&1\\7&2&4\end{pmatrix}=1(4-2)-2(12-7)+(-7)(6-7)=2-10+7=-1\neq0$$
+
+Ba đa thức độc lập tuyến tính trong không gian 3 chiều $\mathbb{R}_2[t]$ $\Rightarrow$ đây là cơ sở, do đó là tập sinh. $\blacksquare$
+
+---
+
+## Bài 3.14 — Kiểm tra cơ sở của $\mathbb{R}^3$
+
+| Câu | Các vectơ | $\det$ | Kết luận |
+|-----|-----------|--------|----------|
+| a | $(2,1,1),(1,2,1),(1,1,2)$ | $4\neq0$ | **Cơ sở** |
+| b | $(1,1,0),(1,0,1),(0,1,1)$ | $-2\neq0$ | **Cơ sở** |
+| c | $(1,1,0),(1,1,1),(0,1,-1)$ | $-1\neq0$ | **Cơ sở** |
+| d | $(-1,1,1),(1,2,1),(1,5,3)$ | $0$ | **Không là cơ sở** |
+
+**Chi tiết câu d:**
+
+$$\det\begin{pmatrix}-1&1&1\\1&2&1\\1&5&3\end{pmatrix}=-1(6-5)-1(3-1)+1(5-2)=-1-2+3=0$$
+
+---
+
+## Bài 3.15 — Chứng minh $\{1,t-1,(t-1)^2,\ldots,(t-1)^n\}$ là cơ sở của $\mathbb{R}_n[t]$
+
+Tập có $n+1$ phần tử bằng $\dim\mathbb{R}_n[t)$. Chỉ cần chứng minh độc lập tuyến tính.
+
+Giả sử $a_0+a_1(t-1)+a_2(t-1)^2+\cdots+a_n(t-1)^n=0$ (đồng nhất thức).
+
+- Thay $t=1$: $a_0=0$.
+- Lấy đạo hàm, thay $t=1$: $a_1=0$.
+- Lấy đạo hàm bậc $k$, thay $t=1$: $k!\,a_k=0\Rightarrow a_k=0$.
+
+Vậy mọi $a_k=0$ $\Rightarrow$ tập độc lập tuyến tính $\Rightarrow$ là cơ sở. $\blacksquare$
+
+---
+
+## Bài 3.16 — $\{1+t,\;t+t^2,\;t^2+t^3,\ldots,t^{n-1}+t^n\}$ có là cơ sở của $\mathbb{R}_n[t]$ không?
+
+Tập này chỉ có **$n$ phần tử**, trong khi $\dim\mathbb{R}_n[t]=n+1$.
+
+**Không là cơ sở** — thiếu một phần tử để sinh ra toàn bộ không gian.
+
+---
+
+## Bài 3.17 — $W=\langle u_1,u_2,u_3\rangle$, kiểm tra $S$ có là cơ sở không
+
+$u_1=(1,0,1,0)$, $u_2=(1,-1,0,1)$, $u_3=(1,2,1,-1)$.
+
+Kiểm tra độc lập của $S=\{u_1,u_2,u_3\}$:
+
+$$\begin{pmatrix}1&0&1&0\\1&-1&0&1\\1&2&1&-1\end{pmatrix}\xrightarrow{R_2-R_1,\;R_3-R_1}\begin{pmatrix}1&0&1&0\\0&-1&-1&1\\0&2&0&-1\end{pmatrix}\xrightarrow{R_3+2R_2}\begin{pmatrix}1&0&1&0\\0&-1&-1&1\\0&0&-2&1\end{pmatrix}$$
+
+Hạng = 3 = số vectơ $\Rightarrow$ $S$ độc lập tuyến tính $\Rightarrow$ **$S$ là cơ sở của $W$**.
+
+$$\boxed{\dim W = 3}$$
+
+---
+
+## Bài 3.18 — $S=\{u_1=(1,1,2),\;u_2=(1,2,5),\;u_3=(5,3,4)\}$, $W=\langle S\rangle$
+
+### a) Chứng minh $S$ không là cơ sở của $W$
+
+$$\det\begin{pmatrix}1&1&2\\1&2&5\\5&3&4\end{pmatrix}=1(8-15)-1(4-25)+2(3-10)=-7+21-14=0$$
+
+$S$ phụ thuộc tuyến tính $\Rightarrow$ $S$ **không là cơ sở**. $\blacksquare$
+
+### b) Tìm cơ sở $B\subset S$
+
+Khử Gauss trên ma trận hàng:
+
+$$\begin{pmatrix}1&1&2\\1&2&5\\5&3&4\end{pmatrix}\xrightarrow{R_2-R_1,\;R_3-5R_1}\begin{pmatrix}1&1&2\\0&1&3\\0&-2&-6\end{pmatrix}\xrightarrow{R_3+2R_2}\begin{pmatrix}1&1&2\\0&1&3\\0&0&0\end{pmatrix}$$
+
+Hạng = 2. Hai hàng pivot tương ứng $u_1$ và $u_2$.
+
+$$\boxed{B=\{u_1,u_2\}=\{(1,1,2),(1,2,5)\},\quad\dim W=2}$$
+
+---
+
+## Bài 3.19 — $S=\{u_1=(1,1,2),\;u_2=(1,2,5)\}\subset\mathbb{R}^3$
+
+### a) Chứng minh $S$ độc lập tuyến tính
+
+Giả sử $\alpha u_1+\beta u_2=\mathbf{0}$:
+
+$$\alpha+\beta=0,\quad\alpha+2\beta=0,\quad 2\alpha+5\beta=0$$
+
+Từ 2 phương trình đầu: $\beta=0$, $\alpha=0$. $\Rightarrow$ $S$ **độc lập tuyến tính**. $\blacksquare$
+
+### b) Điều kiện để $S\cup\{u=(a,b,c)\}$ là cơ sở của $\mathbb{R}^3$
+
+$S\cup\{u\}$ là cơ sở $\Leftrightarrow$ $\{u_1,u_2,u\}$ độc lập $\Leftrightarrow$ $\det[u_1,u_2,u]^\top\neq0$.
+
+$$\det\begin{pmatrix}1&1&2\\1&2&5\\a&b&c\end{pmatrix}=1(2c-5b)-1(c-5a)+2(b-2a)=a-3b+c$$
+
+$$\boxed{a-3b+c\neq0}$$
+
+---
+
+## Bài 3.20 — Tìm cơ sở cho không gian sinh
+
+**Phương pháp:** Lập ma trận có hàng là các vectơ, khử Gauss, các hàng khác không sau khử là cơ sở (hoặc giữ lại các vectơ gốc tương ứng với pivot).
+
+### a) $u_1=(1,2,3)$, $u_2=(2,3,4)$, $u_3=(3,4,5)$
+
+$$\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\end{pmatrix}\xrightarrow{R_2-2R_1,\;R_3-3R_1}\begin{pmatrix}1&2&3\\0&-1&-2\\0&-2&-4\end{pmatrix}\xrightarrow{R_3-2R_2}\begin{pmatrix}1&2&3\\0&-1&-2\\0&0&0\end{pmatrix}$$
+
+Hạng = 2. $u_3=u_1+u_2$ (phụ thuộc).
+
+$$\boxed{B=\{(1,2,3),(2,3,4)\}}$$
+
+### b) $u_1=(1,1,0)$, $u_2=(1,0,1)$, $u_3=(0,1,1)$
+
+$$\det\begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix}=1(0-1)-1(1-0)+0=-2\neq0$$
+
+Ba vectơ độc lập tuyến tính.
+
+$$\boxed{B=\{(1,1,0),(1,0,1),(0,1,1)\}}$$
+
+### c) $u_1=(1,2,3,1)$, $u_2=(1,2,1,-2)$, $u_3=(1,3,2,1)$, $u_4=(2,1,3,-7)$
+
+$$\begin{pmatrix}1&2&3&1\\1&2&1&-2\\1&3&2&1\\2&1&3&-7\end{pmatrix}\xrightarrow{R_2-R_1,\;R_3-R_1,\;R_4-2R_1}\begin{pmatrix}1&2&3&1\\0&0&-2&-3\\0&1&-1&0\\0&-3&-3&-9\end{pmatrix}\xrightarrow{\text{đổi }R_2\leftrightarrow R_3}\begin{pmatrix}1&2&3&1\\0&1&-1&0\\0&0&-2&-3\\0&-3&-3&-9\end{pmatrix}$$
+
+$$\xrightarrow{R_4+3R_2}\begin{pmatrix}1&2&3&1\\0&1&-1&0\\0&0&-2&-3\\0&0&-6&-9\end{pmatrix}\xrightarrow{R_4-3R_3}\begin{pmatrix}1&2&3&1\\0&1&-1&0\\0&0&-2&-3\\0&0&0&0\end{pmatrix}$$
+
+Hạng = 3 $\Rightarrow$ $u_4\in\langle u_1,u_2,u_3\rangle$. Kiểm tra $\{u_1,u_2,u_3\}$ độc lập: hạng của 3 hàng đầu bằng 3 ✓.
+
+$$\boxed{B=\{u_1,u_2,u_3\}=\{(1,2,3,1),(1,2,1,-2),(1,3,2,1)\}}$$
+
+### d) $u_1=(1,1,-1,2)$, $u_2=(1,-1,-2,1)$, $u_3=(1,3,2,1)$, $u_4=(2,1,2,-1)$
+
+$$\begin{pmatrix}1&1&-1&2\\1&-1&-2&1\\1&3&2&1\\2&1&2&-1\end{pmatrix}\xrightarrow{R_2-R_1,\;R_3-R_1,\;R_4-2R_1}\begin{pmatrix}1&1&-1&2\\0&-2&-1&-1\\0&2&3&-1\\0&-1&4&-5\end{pmatrix}$$
+
+$$\xrightarrow{R_3+R_2,\;2R_4-R_2}\begin{pmatrix}1&1&-1&2\\0&-2&-1&-1\\0&0&2&-2\\0&0&9&-9\end{pmatrix}\xrightarrow{R_4-\frac{9}{2}R_3}\begin{pmatrix}1&1&-1&2\\0&-2&-1&-1\\0&0&2&-2\\0&0&0&0\end{pmatrix}$$
+
+Hạng = 3 $\Rightarrow$ $u_4\in\langle u_1,u_2,u_3\rangle$. Kiểm tra $\{u_1,u_2,u_3\}$ độc lập: hạng bằng 3 ✓.
+
+$$\boxed{B=\{u_1,u_2,u_3\}=\{(1,1,-1,2),(1,-1,-2,1),(1,3,2,1)\}}$$
