@@ -1,11 +1,20 @@
 ---
-tags: [project, interview-prep, zalo, mlops]
-status: active
+tags: [project, interview-prep, zalo, mlops, archived]
+status: archived
+archived_date: 2026-05-25
+archived_reason: ZTF 2026 CV-round rejection
+active_plan: "[[02_Active_Plan_PostZalo]]"
 ---
 
-# Zalo Tech Fresher — Master Plan
+# Zalo Tech Fresher — Master Plan (ARCHIVED)
 
-> **Strategy lock:** Option A (thesis priority) / Path A1 (negotiate delay). Concrete timeline ở [[01_Master_Timeline]]. Cập nhật 3/5/2026 với official ZTF dates.
+> ⚠️ **ARCHIVED 25/5/2026** — rớt CV round Zalo Tech Fresher 2026. Plan này không còn active. Active plan hiện tại: [[02_Active_Plan_PostZalo]].
+>
+> **Lý do giữ lại (không xóa):** reference cho ZTF 2027 hoặc các program tương tự. Phase 1 MLOps notes vẫn relevant.
+
+## Original strategy (archived)
+
+> Strategy lock: Option A (thesis priority) / Path A1 (negotiate delay). Concrete timeline ở [[01_Master_Timeline]]. Cập nhật 3/5/2026 với official ZTF dates.
 
 ## Official ZTF 2026 dates
 

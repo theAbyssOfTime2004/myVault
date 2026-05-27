@@ -47,7 +47,12 @@
       "mcp__Claude_in_Chrome__computer",
       "mcp__Claude_in_Chrome__read_page",
       "mcp__Claude_in_Chrome__browser_batch",
-      "WebFetch(domain:zalo.careers)"
+      "WebFetch(domain:zalo.careers)",
+      "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO\" && ls experiments/ baseline_multiturn/ 2>&1 | head -50)",
+      "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO\" && find . -maxdepth 3 -name \"ttt*\" -o -name \"*trl*\" 2>&1 | grep -v \".git\" | head -30)",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/**)",
+      "Bash(ls \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/.github\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/helm\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/k8s\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/monitoring\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/terraform\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/app\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/src\" \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/tests\")",
+      "Bash(ls \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\theabyssoftime\\\\Repos\\\\face-spoofing-detection\")"
     ]
   }
 }

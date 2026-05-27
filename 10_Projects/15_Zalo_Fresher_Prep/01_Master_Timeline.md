@@ -1,11 +1,16 @@
 ---
-tags: [project, interview-prep, zalo, mlops, timeline]
-status: active
+tags: [project, interview-prep, zalo, mlops, timeline, archived]
+status: archived
+archived_date: 2026-05-25
+archived_reason: ZTF 2026 CV-round rejection
+active_plan: "[[02_Active_Plan_PostZalo]]"
 strategy: option-A-thesis-priority
 path: A1-negotiate-delay
 ---
 
-# Master Timeline — Option A / Path A1
+# Master Timeline — Option A / Path A1 (ARCHIVED)
+
+> ⚠️ **ARCHIVED 25/5/2026** — rớt CV round. Active plan: [[02_Active_Plan_PostZalo]].
 
 > **Decision lock (3/5/2026):**
 > - Option A: thesis SDPO defense (~25-26/7) ưu tiên hơn Zalo
