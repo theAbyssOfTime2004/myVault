@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/17_onbai/tongquat_dsa.md",
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "tongquat_dsa"
+              "title": "ĐSTT_Chương3_Bài_Tập"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "kramer",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -207,6 +207,8 @@
   },
   "active": "eef5c9ae081599d0",
   "lastOpenFiles": [
+    "30_Knowledge_Base/MLOPS/DVC.md",
+    "10_Projects/17_onbai/tongquat_dsa.md",
     "10_Projects/17_onbai/CLAUDE.md",
     "10_Projects/17_onbai/dsa/06_prefix_sum/ly_thuyet.md",
     "10_Projects/17_onbai/dsa/01_bigo/ly_thuyet.md",
@@ -237,11 +239,9 @@
     "10_Projects/15_Zalo_Fresher_Prep/Handoff_MLOps_Week1_Spec.md",
     "30_Knowledge_Base/MLOPS/MLflow.md",
     "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
-    "30_Knowledge_Base/MLOPS/DVC.md",
     "10_Projects/16_Tymex_Test/Tymex_Code_Solutions.md",
     "10_Projects/16_Tymex_Test/Tymex_Assessment_Answers.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn.md",
-    "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
     "10_Projects/14_Thesis_SDPO/experiments/plans",
     "10_Projects/14_Thesis_SDPO/experiments",
     "10_Projects/13_Uni_Retake/General_Physics_Tracker.md.tmp.5268.1777574139430",
