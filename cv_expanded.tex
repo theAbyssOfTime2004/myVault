@@ -1,0 +1,130 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{setspace}
+\usepackage{tabularx}
+
+\titlespacing*{\section}{0pt}{0.8ex plus 0.1ex minus 0.1ex}{0.25ex}
+
+\definecolor{darkblue}{RGB}{0, 51, 102}
+\definecolor{lightgray}{RGB}{128, 128, 128}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=darkblue,
+  linkcolor=darkblue
+}
+
+\titleformat{\section}
+  {\large\bfseries\color{darkblue}}
+  {}
+  {0em}
+  {\uppercase}
+  [\vspace{0.05em}\color{darkblue}\hrule height 0.8pt\vspace{0.1em}]
+
+\pagestyle{empty}
+\setstretch{0.95}
+
+\begin{document}
+
+%==================== HEADER ====================
+\begin{center}
+  {\LARGE\bfseries MAI PHONG DANG} \\[0.2em]
+  \href{mailto:maidang.forwork@gmail.com}{\color{darkblue}maidang.forwork@gmail.com} $\bullet$ (+84) 394407454 \\[0.1em]
+  Dien Hong Ward, HCMC \\[0.1em]
+  \href{https://github.com/theAbyssOfTime2004}{\color{darkblue}GitHub} $\bullet$
+  \href{https://www.linkedin.com/in/mai-%C4%91%C4%83ng-124b13302/}{\color{darkblue}LinkedIn} $\bullet$
+  \href{https://theabyssoftime2004.github.io/}{\color{darkblue}Portfolio}
+\end{center}
+
+\vspace{-0.1em}
+
+%==================== PROFESSIONAL SUMMARY ====================
+\section{Professional Summary}
+Final-year Data Science student with hands-on experience in LLM agent systems, retrieval-augmented generation, and transformer-based vision models. Comfortable with Python, the Hugging Face ecosystem, multi-agent orchestration, and production-grade serving across two real AI Engineer internships. \textbf{Targeting a Fresher/Junior AI Engineer role in Vietnam, focused on shipping LLM and agentic RAG products under production constraints} — rather than experimental prototypes.
+
+%==================== TECHNICAL SKILLS ====================
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages:} & Python \\
+\textbf{Generative AI \& LLM Systems:} & RAG Pipelines, Multi-Agent Systems, Agent Orchestration, Function Calling, Prompt Engineering (CoT, Few-shot), Persona Conditioning, Tool Use Integration \\
+\textbf{LLM Frameworks:} & LlamaIndex, LangChain, LangGraph, Hugging Face Transformers \\
+\textbf{Model Training \& Efficiency:} & Fine-tuning (LoRA), ONNX, Model Benchmarking, Vision–Language Workflows \\
+\textbf{Core ML \& CV:} & PyTorch, TensorFlow, Scikit-learn, OpenCV, ViT, YOLO \\
+\textbf{Backend \& Serving:} & FastAPI, Async (asyncio), REST APIs, SSE Streaming, Microservices \\
+\textbf{Cloud \& Databases:} & AWS, GCP (GKE), Azure (Blob Storage), MySQL, PostgreSQL, MongoDB, Redis, Pinecone, Supabase (pgvector) \\
+\textbf{DevOps \& MLOps:} & Docker, Kubernetes (HPA, Helm), Terraform, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Git \\
+\end{tabularx}
+
+%==================== EXPERIENCE ====================
+\section{Experience}
+
+\textbf{AI Engineer Intern} \hfill \textbf{Jan 2026 - Mar 2026} \\
+\textit{Tiger Tribe (A Heineken Company) -- BrewBuddy SmartTap, HCMC} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Architected a \textbf{4-agent parallel moderation pipeline} (Python \texttt{asyncio} orchestration) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
+    \item Designed a \textbf{stateful workflow router with function-calling logic}, dynamically branching conversations into Vibe-based or Decision-based agent flows to extract user preferences across multi-turn dialogue.
+    \item Engineered a session state layer (\textbf{Redis} + \textbf{Azure Blob Storage}) and persona-conditioned generation to maintain a coherent multilingual ``witty bartender'' identity in production.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textbf{AI Engineer Intern} \hfill \textbf{Jul 2025 - Dec 2025} \\
+\textit{Solazu JSC -- Agentic RAG E-commerce Chatbot, Binh Thanh, HCMC} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Contributed to deploying an \textbf{agentic RAG service} (FastAPI + Supabase/PostgreSQL, Docker) with a \textbf{multi-tool agent} routing between retrieval, summarization, and extraction tools — reducing end-to-end response latency by \textbf{$\sim$30\%}.
+    \item Built a \textbf{LlamaIndex/LangChain ingestion pipeline} (sitemap crawl / clean / chunk / embed) over \textbf{Supabase pgvector} with \texttt{text-embedding-3-small} (1536-dim) and an \textbf{HNSW + cosine} index, improving top-$k$ recall \textbf{$\sim$20\%} on document Q\&A.
+    \item Implemented a \textbf{parallel retrieval} path and a \textbf{QA-match short-circuit} (similarity-threshold gating) that returns curated answers directly and bypasses LLM generation on high-confidence hits, cutting cost and latency on FAQ-style traffic.
+    \item Built \textbf{LangGraph} agent memory (Supabase checkpointer) for multi-session context persistence and a \textbf{reflection engine}; orchestrated LangChain chains for automated summarization and structured data extraction, with \textbf{SSE token streaming} to the chat frontend.
+\end{itemize}
+
+%==================== RESEARCH ====================
+\section{Research}
+
+\noindent\textbf{Bachelor Thesis --- Test-Time Self-Distillation for Code LLMs} \hfill \textbf{Apr 2026 - Jul 2026} \\
+\quad Title: \textit{Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Extending \textbf{train-time SDPO} (Hübotter et al., 2026) to the \textbf{test-time regime} for code generation on \textbf{Qwen3-8B}, with online preference updates during multi-turn inference on \textbf{LiveCodeBench v6} (hard + very-hard splits).
+    \item Built a multi-turn inference loop with \textbf{execution-guided trajectory collection} and designed a \textbf{7-variant reprompt template taxonomy} to ablate template formulation effects on discovery@$k$.
+    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single \textbf{L4 GPU} with a Qwen-1.5B proof-of-concept, confirming real per-step learning before scaling.
+    \item Proposing \textbf{Compute-to-Correct (CTC)}, a compute-aware test-time discovery metric, and analyzing per-step \textbf{epistemic uncertainty suppression} — first test-time code analog of Kim et al. (2026) train-time math findings.
+\end{itemize}
+
+%==================== PROJECTS ====================
+\section{Projects}
+
+\noindent\textbf{Face Anti-Spoofing Detection MLOps Platform} \hfill \href{https://github.com/theAbyssOfTime2004/face-spoofing-detection}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+    \item Built a liveness pipeline with quality gate, \textbf{SCRFD} face detection/alignment, and a \textbf{Global+Local ONNX ensemble} (MiniFASNetV2 + DeepPixBiS) reaching \textbf{F1 90.1\%} (Acc 89.3\%, Recall 93.1\%); YAML-driven threshold/weight tuning across environments.
+    \item \textbf{Deployed} a FastAPI inference service (\texttt{/predict}, \texttt{/livez}, \texttt{/readyz}, \texttt{/metrics}) on \textbf{GKE} via \textbf{Helm}, with HPA autoscaling and \textbf{Prometheus + Grafana} observability.
+    \item Provisioned cloud infrastructure with \textbf{Terraform} and automated \textbf{CI/CD via GitHub Actions} (WIF-based GCP auth, coverage-gated pytest); integrated \textbf{MLflow} for experiment tracking and model versioning.
+\end{itemize}
+
+\vspace{0.2em}
+\noindent\textbf{Viettel AI Race --- PDF Parsing \& Document QnA Pipeline} \hfill \href{https://github.com/theAbyssOfTime2004/Viettel-AI-Race}{\color{darkblue}[GitHub]} \\
+\vspace{-1.1em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+  \item Built an end-to-end PDF parsing pipeline using \textbf{Dots.OCR}, extracting layout-aware content (text, tables, formulas, images) into structured Markdown.
+  \item Improved extraction quality with document preprocessing (crop/whiteout) and \textbf{bbox-based table-image post-processing} for correct cell-level merging.
+  \item Developed a \textbf{RAG-based multiple-choice QnA module} (\textbf{LlamaIndex} VectorStoreIndex, \texttt{bge-small-en} embeddings, \textbf{Qwen3-4B-Instruct}) over parsed documents; achieved $\sim$\textbf{85\%} on private test.
+\end{itemize}
+
+%==================== EDUCATION ====================
+\section{Education}
+\textbf{Bachelor of Science in Data Science} \hfill \textbf{Aug 2022 -- Sep 2026 (expected)} \\
+VNUHCM - University of Science, Ho Chi Minh City \hfill \textbf{GPA: 3.5/4.0} \\
+\textbf{TOEIC – L \& R: 900/990 – W \& S: 300/400}
+
+%==================== CERTIFICATIONS ====================
+\section{Certifications}
+
+\noindent\textbf{Coursera:} \href{https://coursera.org/share/218c9c7d0f22004848c2b9f7546901a5}{\color{darkblue}Deep Learning Specialization} $\bullet$ \href{https://coursera.org/share/218c9c7d0f22004848c2b9f7546901a5}{\color{darkblue}Google Advanced Data Analytics} \\ \textbf{Oracle:} \href{https://catalog-education.oracle.com/ords/certview/sharebadge?id=30F284CA7068AF4CACBE9B0909A33655D60B859E3E67A230D0BCCFD0F197FCB3}{\color{darkblue}OCI 2025 Data Science Professional} $\bullet$ \href{https://catalog-education.oracle.com/ords/certview/sharebadge?id=E4BE1CEE4B001665E4F0C2982D1DC4BC36F15FFD068FF4C62B8D3F2B8B10D661}{\color{darkblue}OCI 2025 AI Foundations Associate}
+
+\end{document}

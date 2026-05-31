@@ -7,11 +7,12 @@ updated: 2026-05-19
 
 Catalog of all wiki pages. Read this first when answering queries.
 
-## Synthesis (3)
+## Synthesis (4)
 
 - [[syn_thesis_proposal]] — **ground truth thesis design spec** (migrated từ `2026-04-12-sdpo-thesis-design.md`). Title, RQs, 7 templates, 4 components, budget, timeline, risks.
 - [[syn_template_taxonomy_rationale]] — nguồn gốc và justification cho 7 templates. 3 dimensions derive từ Kim + Hübotter. Dùng khi viết methodology section.
 - [[syn_kim2026_thesis_impact]] — thesis impact consolidation của Kim et al. 2026 paper (RQ1/2/3 mapping, hyperparam contradiction, validation framing).
+- [[syn_implementation_status]] — **status + roadmap (2026-05-29)**. Cloud kickoff milestone (proof-of-mechanism, loss≠0 trên abc387_a), SDPO mechanism trace (reprompt_template config arg, Path A/B distillation), divergence verl→TRL, 4-phase forward plan.
 
 ## Sources (7)
 

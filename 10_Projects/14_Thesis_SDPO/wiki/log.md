@@ -105,6 +105,27 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway 4 (limitation): Hübotter quote "as you scale models you get better self teachers" → Qwen3-8B teacher có thể yếu hơn Qwen3-32B/72B → thesis nên acknowledge trong limitation, có Plan B framing nếu không reproduce 2.4× speedup.
 - Lint pending: [[src_shenfeld2026_sdft]] mới ở depth `abstract+transcript-explanation`, chưa full-PDF ingest. Cần upgrade khi có thời gian để verify "minimum change" có formal statement (bound/theorem) trong §3-4 không.
 
+## [2026-05-29] experiment | Phase 1 — feedback path (Path B) proven on Colab L4
+
+- **Status**: Phase 1 PASS. Script `experiments/ttt_trl/06_feedback_path_test.py` (copy của 05 + bật Path B).
+- Config thay đổi: `include_environment_feedback=True`, `environment_feedback_only_without_solution=True`, `privileged_context` = public test cases (parse JSON string từ raw row).
+- Kết quả vs kickoff (05): abc387_b loss 0→0.0049, abc387_f loss 0→0.0045. **abc387_f có ZERO successful rollout** (rewards [0,0,0,0] cả 2 step, warning "did not find any successful rollouts") nhưng loss≠0 → loss chỉ có thể từ Path B = bằng chứng sạch feedback path hoạt động trên bài hard không có lời giải đúng.
+- Caveat trung thực: (1) signal feedback YẾU, ~20x nhỏ hơn Path A (teacher-with-hint không đổi distribution nhiều trên completion đã fail → KL nhỏ); (2) abc387_a step2 cải thiện là sampling NOISE không phải Path B (nó dùng Path A vì có solution; chưa set seed); (3) vẫn chưa proof-of-effectiveness — loss≠0 nhưng reward chưa cải thiện trong 2 step.
+- `privileged_context`=public-tests là static-hint thay thế tạm; Phase 2 multi-turn sẽ thay bằng feedback từ attempt fail thật.
+- Updated: [[syn_implementation_status]] (Phase 1 → DONE).
+- Key takeaway: tầng 2 (feedback/reprompt) chạm được — Path B densify learning cho bài khó. Next = Phase 2 multi-turn loop + kéo pre/post eval vào để đo effectiveness.
+
+## [2026-05-29] experiment+synthesis | cloud kickoff — TTT-SDPO weight-update working on Colab L4
+
+- **Status**: proof-of-mechanism đạt. Full TTT-SDPO pipeline (gen→eval→weight update) chạy thật trên Colab L4 + Qwen2.5-1.5B + LoRA r=32 qua `trl.experimental.sdpo.SDPOTrainer`. Lần đầu `train_loss ≠ 0` trên data thật (abc387_a = 0.0492).
+- Created: [[syn_implementation_status]] — status snapshot + SDPO mechanism trace + 4-phase forward plan.
+- Updated: `wiki/index.md` (synthesis 3→4).
+- Kickoff results (3 bài, 2 step): solvable 2/3 (abc387_a, abc387_b), useful signal 2/3. Qwen 0.5B trước đó all-zero → model size là gating factor; 1.5B giải được LCBv6 easy. Peak VRAM 7.4/22GB, ~32s/step, bf16 no NaN.
+- Mechanism trace (trl source): `reprompt_template` là SDPOConfig string arg ({prompt}/{solution}/{feedback}) = biến RQ1, đổi string không cần sửa code. Distill kích hoạt iff has_solution (rollout reward≥success_reward_threshold default 1.0) OR use_feedback (include_environment_feedback=True + privileged_context). Kickoff chỉ Path A bật → giải thích abc387_b reward 0.35<1.0 nên loss=0.
+- Divergence: W2 plan giả định hand-rolled `ttt_sdpo/` module (port core_algos.py loss + EMATeacher); thực tế dùng thẳng TRL SDPOTrainer (đúng quyết định switch verl→TRL 2026-05-19). §3/§9 của W2 plan superseded.
+- Repo: `theAbyssOfTime2004/thesis-ttt-sdpo` (private). W&B: `ttt-sdpo-thesis`. Colab deps gap: ray, tensordict, omegaconf, hydra-core, pylatexenc, torchao>=0.16.
+- Key takeaway: engine khởi động được + biết chính xác đòn bẩy thesis nằm ở `reprompt_template` + Path B (feedback). Next = Phase 1 bật feedback path. Còn gap: proof-of-effectiveness (pre/post eval) chưa làm.
+
 ## [2026-05-19] ingest+decision | TRL SDPO/SDFT trainer integration → switch implementation từ verl sang TRL
 
 - Sources fetched:
