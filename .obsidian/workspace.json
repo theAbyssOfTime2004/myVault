@@ -11,10 +11,15 @@
             "id": "eef5c9ae081599d0",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "ĐSTT_Chương4_Ánh_xạ_tuyến_tính"
             }
           }
         ]
@@ -196,7 +201,8 @@
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "periodic-notes:Open today": false
     }
   },
   "active": "eef5c9ae081599d0",
