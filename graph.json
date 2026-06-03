@@ -241,6 +241,18 @@
       "degree": 0
     },
     {
+      "id": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học",
+      "title": "Chương 6 - Nguyên lý I Nhiệt động lực học",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
+      "id": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng",
+      "title": "Chương 5 - Khí lý tưởng",
+      "group": "knowledge",
+      "degree": 2
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
       "title": "Basic Search Algorithms in Artificial Intelligence",
       "group": "knowledge",
@@ -2583,6 +2595,14 @@
     {
       "source": "30_Knowledge_Base/API/API Gateway",
       "target": "30_Knowledge_Base/API/REST API"
+    },
+    {
+      "source": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học",
+      "target": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng"
+    },
+    {
+      "source": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng",
+      "target": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Basic Search Algorithms in Artificial Intelligence",
@@ -5710,7 +5730,7 @@
     }
   ],
   "stats": {
-    "node_count": 379,
-    "link_count": 858
+    "node_count": 381,
+    "link_count": 860
   }
 }
