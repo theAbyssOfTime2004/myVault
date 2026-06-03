@@ -59,7 +59,12 @@
       "Bash(echo \"===== FACE README =====\"; cat \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection/README.md\" 2>/dev/null | head -120)",
       "Bash(echo \"===== VIETTEL README =====\"; cat \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/VIETTEL_AI_RACE/README.md\" 2>/dev/null | head -120)",
       "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/VIETTEL_AI_RACE\" 2>/dev/null; echo \"=== qa dir ===\"; ls qa 2>/dev/null; echo \"=== src ===\"; find src -maxdepth 3 -type f 2>/dev/null | head; echo \"=== qa rag head ===\"; head -60 qa/rag_pipeline.py 2>/dev/null)",
-      "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection\"; echo \"dvc dirs:\"; ls -d .dvc 2>/dev/null; echo \"dvc files:\"; find . -name \"*.dvc\" -not -path \"*/.git/*\" 2>/dev/null; echo \"grep:\"; grep -ril \"dvc\" . 2>/dev/null | grep -v \"/.git/\" | head)"
+      "Bash(cd \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/face-spoofing-detection\"; echo \"dvc dirs:\"; ls -d .dvc 2>/dev/null; echo \"dvc files:\"; find . -name \"*.dvc\" -not -path \"*/.git/*\" 2>/dev/null; echo \"grep:\"; grep -ril \"dvc\" . 2>/dev/null | grep -v \"/.git/\" | head)",
+      "PowerShell(wsl bash -lc 'cd ~/Repos/lichess-feature-store && ls -R docker spark 2>&1; echo \"===STATUS===\"; git status --short')",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Read(//c/Users/Maidanng/Desktop/Đại số tuyến tính/Đại số tuyến tính/**)",
+      "Bash(pdftotext -enc UTF-8 \"Chuong 4_Anh xa tuyen tinh.pdf\" -)"
     ]
   }
 }
