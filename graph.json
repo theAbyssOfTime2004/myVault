@@ -628,19 +628,19 @@
       "id": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
       "title": "Linear Algebra Review",
       "group": "knowledge",
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "title": "ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "group": "knowledge",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập",
       "title": "ĐSTT_Chương3_Bài_Tập",
       "group": "knowledge",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Non-symmetry of the Kullback-Leibler divergence",
@@ -677,6 +677,12 @@
       "title": "Toán tổ hợp",
       "group": "knowledge",
       "degree": 0
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
+      "title": "ĐSTT_Chương3_Không_gian_vectơ",
+      "group": "knowledge",
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông",
@@ -3567,6 +3573,18 @@
       "target": "3 - Tags/supervised learning"
     },
     {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
+      "target": "30_Knowledge_Base/Math_Stats/Linear Algebra Review"
+    },
+    {
       "source": "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông",
       "target": "3 - Tags/Graph Theory"
     },
@@ -5744,7 +5762,7 @@
     }
   ],
   "stats": {
-    "node_count": 382,
-    "link_count": 862
+    "node_count": 383,
+    "link_count": 865
   }
 }
