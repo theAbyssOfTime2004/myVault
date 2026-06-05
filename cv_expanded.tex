@@ -57,6 +57,7 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 \textbf{Core ML \& CV:} & PyTorch, TensorFlow, Scikit-learn, OpenCV, ViT, YOLO \\
 \textbf{Backend \& Serving:} & FastAPI, Async (asyncio), REST APIs, SSE Streaming, Microservices \\
 \textbf{Cloud \& Databases:} & AWS, GCP (GKE), Azure (Blob Storage), MySQL, PostgreSQL, MongoDB, Redis, Pinecone, Supabase (pgvector) \\
+\textbf{Data Engineering:} & Apache Spark, Kafka, Flink (windowed stream processing), Airflow, Trino, Delta Lake, MinIO, Lakehouse / Medallion architecture, Feature Store \\
 \textbf{DevOps \& MLOps:} & Docker, Kubernetes (HPA, Helm), Terraform, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Git \\
 \end{tabularx}
 
@@ -99,6 +100,16 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 %==================== PROJECTS ====================
 \section{Projects}
 
+\noindent\textbf{Chess Feature Store --- End-to-End Lakehouse Data Platform (Lichess, 100GB+)} \hfill \href{https://github.com/theAbyssOfTime2004/lichess-feature-store}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+    \item Built a \textbf{Medallion Lakehouse} (Bronze/Silver/Gold) over 100GB+ of Lichess game dumps on \textbf{MinIO + Delta Lake}, parsing PGN at scale with \textbf{Apache Spark} (distributed \texttt{python-chess} UDFs) and \textbf{Trino} SQL transforms + data-quality checks.
+    \item Engineered a dual batch + streaming \textbf{Feature Store}: offline player/opening features served from Delta, and real-time behavioral features via a \textbf{Kafka $\rightarrow$ Flink windowed-aggregation} path materialized to a \textbf{Redis} online store behind a \textbf{FastAPI} feature API.
+    \item Implemented \textbf{point-in-time correct} feature joins (no future-leak) powering an \textbf{IsolationForest cheat/anomaly-detection} consumer, demonstrating training/serving consistency.
+    \item \textbf{Orchestrated} ingestion $\rightarrow$ Spark Bronze$\rightarrow$Silver$\rightarrow$Gold $\rightarrow$ Redis materialization with \textbf{Airflow}; fully deployed on \textbf{GKE} via \textbf{Terraform} (Spot + autoscale-to-0 cost control) with \textbf{Prometheus + Grafana} observability.
+\end{itemize}
+
+\vspace{0.2em}
 \noindent\textbf{Face Anti-Spoofing Detection MLOps Platform} \hfill \href{https://github.com/theAbyssOfTime2004/face-spoofing-detection}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
 
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
