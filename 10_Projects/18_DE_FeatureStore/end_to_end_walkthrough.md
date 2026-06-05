@@ -10,7 +10,7 @@ source_of_truth: repo README.md + docs/phase*.md + source code
 
 # Lichess Feature Store — End-to-End Walkthrough
 
-Tài liệu này giải thích **toàn bộ** project từ đầu đến cuối: nó là gì, dữ liệu chảy thế nào, từng component làm gì (kèm logic thật trong code), cách nó được build (de-risk-first), và **mọi bug đã gặp + cách debug**. Viết để sau khi vibecode nhiều vẫn nắm được tường tận và đủ tự tin trình bày khi phỏng vấn.
+Tài liệu này giải thích **toàn bộ** project từ đầu đến cuối: nó là gì, data streaming thế nào, từng component làm gì (kèm logic thật trong code), cách nó được build (de-risk-first), và **mọi bug đã gặp + cách debug**. Viết để sau khi vibecode nhiều vẫn nắm được tường tận và đủ tự tin trình bày khi phỏng vấn.\
 
 > Cảnh báo trung thực: code đã chạy verified **end-to-end trên dev month (`2013-01`)** và một tháng có eval/clock thật. Phần **full-scale >100GB demo + live-stream demo chung + CI/CD** vẫn là TODO (xem mục 11). Đừng nói "đã chạy 120GB" trong interview — nói "kiến trúc + pipeline sẵn sàng, đã verify trên tháng thật có annotation, scale run là bước cuối".
 
