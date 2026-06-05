@@ -10,21 +10,21 @@ source_of_truth: repo README.md + docs/phase*.md + source code
 
 # Lichess Feature Store — End-to-End Walkthrough
 
-Tài liệu này giải thích **toàn bộ** project từ đầu đến cuối: nó là gì, data streaming thế nào, từng component làm gì (kèm logic thật trong code), cách nó được build (de-risk-first), và **mọi bug đã gặp + cách debug**. Viết để sau khi vibecode nhiều vẫn nắm được tường tận và đủ tự tin trình bày khi phỏng vấn.\
+Tài liệu này giải thích toàn bộ project từ đầu đến cuối: nó là gì, dữ liệu đi qua những đâu, từng component làm gì (kèm logic thật trong code), nó được dựng theo trình tự nào, và mọi bug đã gặp cùng cách xử lý. Mục đích là sau khi vibecode khá nhiều vẫn nắm lại được mạch và đủ tự tin nói khi phỏng vấn.
 
-> Cảnh báo trung thực: code đã chạy verified **end-to-end trên dev month (`2013-01`)** và một tháng có eval/clock thật. Phần **full-scale >100GB demo + live-stream demo chung + CI/CD** vẫn là TODO (xem mục 11). Đừng nói "đã chạy 120GB" trong interview — nói "kiến trúc + pipeline sẵn sàng, đã verify trên tháng thật có annotation, scale run là bước cuối".
+> Một lưu ý thẳng thắn để khỏi nói quá: pipeline mới chạy thông end-to-end trên dev month (`2013-01`) và một tháng có eval/clock thật, chứ chưa chạy full-scale. Phần demo >100GB, demo live-stream chạy chung, và CI/CD vẫn còn dang dở (xem mục 11). Khi phỏng vấn đừng nói "đã chạy 120GB" — nói "kiến trúc và pipeline đã sẵn, verify trên tháng thật có annotation, còn lần chạy full-scale là bước cuối".
 
 ---
 
 ## 1. Tóm tắt
 
-Một **data + feature platform** end-to-end trên dữ liệu cờ vua công khai của Lichess: fetch PGN dump hàng tháng (batch) + live game stream (real-time), dựng **Lakehouse** (Medallion bronze→silver→gold), phục vụ **offline + online feature store**, và dev 1 **ML consumer nhẹ** (phát hiện gian lận/anomaly không giám sát) — tất cả deploy trên **một cluster GKE** bằng **Terraform**, orchestrate bởi **Airflow**, observe bằng **Prometheus + Grafana**.
+Một data platform kiêm feature store chạy end-to-end trên dữ liệu cờ vua công khai của Lichess. Nó đọc PGN dump hàng tháng (đường batch) và live stream từ Lichess TV (đường real-time), dựng một Lakehouse theo kiến trúc Medallion (bronze → silver → gold), phục vụ feature ở cả hai dạng offline và online, rồi nuôi một model nhẹ phát hiện gian lận (anomaly detection không giám sát). Toàn bộ chạy trên một cluster GKE: Terraform dựng hạ tầng, Airflow điều phối, Prometheus + Grafana giám sát.
 
-Mục tiêu học thuật: chứng minh một lakehouse + feature store hình dạng production — parse phân tán ở scale, feature engineering **point-in-time-correct**, batch + streaming, online serving có observability.
+Mục tiêu của môn học là chứng minh một lakehouse + feature store đúng hình dạng production: parse phân tán ở scale lớn, feature engineering point-in-time-correct, kết hợp batch và streaming, và online serving có quan sát được.
 
 ---
 
-## 2. Overview — hai đường dữ liệu
+## 2. Tổng quan — hai đường dữ liệu
 
 **BATCH (lịch sử → offline features)**
 
@@ -49,15 +49,15 @@ Lichess TV feed (NDJSON)
   → Redis online:movetime:<game_id>
 ```
 
-**SERVING**: FastAPI Feature API đọc Redis → `/features/player`, `/features/movetime`, `/predict/player`, `/metrics`.
+**SERVING**: Feature API (FastAPI) đọc Redis, phơi ra `/features/player`, `/features/movetime`, `/predict/player`, `/metrics`.
 
-Tất cả nằm trên 1 GKE cluster. Terraform dựng infra; Helm + K8s Operators (Spark, Strimzi/Kafka, Flink, Airflow) dựng platform; Cloud Build build image.
+Tất cả nằm trên một cluster GKE. Terraform lo phần hạ tầng; các K8s Operator (Spark, Strimzi/Kafka, Flink, Airflow) cài qua Helm lo phần platform; image thì build bằng Cloud Build.
 
 ---
 
 ## 3. Phương pháp build — "de-risk trước, logic sau"
 
-Đây là điểm quan trọng nhất để hiểu *tại sao repo có cấu trúc như vậy*. Mỗi phase mở đầu bằng một **spike** chứng minh đường ống kỹ thuật rủi ro nhất hoạt động, TRƯỚC khi viết business logic. Thứ tự thực tế (theo `docs/`):
+Hiểu được phần này thì sẽ hiểu vì sao repo lại có cấu trúc như hiện tại. Quy tắc xuyên suốt: mỗi phase mở đầu bằng một spike nhỏ để chứng minh đoạn tích hợp rủi ro nhất chạy được, rồi mới viết logic nghiệp vụ. Trình tự thực tế (theo thư mục `docs/`):
 
 | Phase | Mục tiêu | Rủi ro được khử |
 |---|---|---|
@@ -77,7 +77,7 @@ Tất cả nằm trên 1 GKE cluster. Terraform dựng infra; Helm + K8s Operato
 | 4.0 | Airflow trên GKE **spike** | hello_dag chạy (KubernetesExecutor) |
 | 4.1 | Batch orchestration DAG | DAG điều phối ingest→Spark→materialize |
 
-Bài học xuyên suốt: **spike tích hợp trước** (2.0, 3.0, 4.0 đều là "prove the pipe first"). Đây cũng là lý do bug ít gây sốc — mỗi rủi ro được cô lập và đập sớm.
+Để ý các phase 2.0, 3.0, 4.0 đều là spike tích hợp ("prove the pipe first") trước khi làm thật. Chính vì cô lập và xử lý rủi ro sớm nên về sau ít gặp bug kiểu sập cả hệ thống.
 
 ---
 
@@ -127,9 +127,9 @@ Hai bảng Gold Delta:
 
 `gold/opening_features` (1 row/ECO): `popularity (count), white_win_rate, black_win_rate, draw_rate, avg_plies, avg_player_rating`.
 
-### 5.5 Point-in-time training set — **viên ngọc** (`spark/jobs/build_training_set.py`)
+### 5.5 Point-in-time training set — phần lõi (`spark/jobs/build_training_set.py`)
 
-Đây là phần "ăn điểm" và quan trọng nhất về mặt khái niệm. Khi tạo dữ liệu train cho model phát hiện gian lận, feature lịch sử của một player ở ván X **chỉ được tính từ các ván TRƯỚC X**, không được leak ván tương lai. Cờ vua có thứ tự thời gian tự nhiên (`game_datetime`) nên minh hoạ PIT join rất sạch.
+Đây là phần đáng giá nhất về mặt khái niệm, cũng là chỗ dễ ăn điểm nhất. Khi tạo dữ liệu train cho model phát hiện gian lận, feature lịch sử của một player ở ván X chỉ được phép tính từ các ván trước X — không được để lọt thông tin từ ván tương lai. Cờ vua có sẵn thứ tự thời gian (`game_datetime`) nên đây là ví dụ minh hoạ point-in-time join rất sạch.
 
 Cơ chế (code thật):
 
@@ -145,11 +145,11 @@ player_window = (
 - `acpl_dev = cur_acpl - avg_acpl_so_far` (ván này chính xác bất thường so với chính mình?)
 - `move_time_dev = cur_avg_move_time - avg_move_time_so_far`
 
-Đó chính là tín hiệu gian lận: một player đột nhiên đánh chính xác hơn / nhịp đều hơn quá khứ của họ. Ghi Delta `gold/training_set`, dynamic partition overwrite, `mergeSchema=true`.
+Hai cột này chính là tín hiệu nghi vấn: một player bỗng đánh chính xác hơn hẳn hoặc nhịp ra nước đều hơn hẳn so với quá khứ của chính họ. Kết quả ghi xuống Delta `gold/training_set` với dynamic partition overwrite và `mergeSchema=true`.
 
 ### 5.6 Cheat model (`model/train_cheat_model.py`)
 
-Mục đích: chứng minh feature store **nuôi được model thật** — KHÔNG phải showcase ML. Giữ nhẹ, unsupervised.
+Mục đích ở đây là chứng minh feature store nuôi được một model thật, chứ không phải khoe kỹ thuật ML. Nên giữ model đơn giản, không giám sát.
 
 - Đọc `gold/training_set` bằng **delta-rs (`deltalake` Python, không phải Spark)** → PyArrow table.
 - Filter: `cur_acpl` hợp lệ AND `games_played_so_far >= 5` (cần đủ lịch sử).
@@ -230,9 +230,9 @@ Operators: `KubernetesPodOperator` (ingest, materialize) + `SparkKubernetesOpera
 
 ---
 
-## 10. 🐛 Bugs & debugging — war stories (grounded trong code/docs)
+## 10. Bug đã gặp và cách xử lý
 
-Đây là phần học được nhiều nhất. Mỗi mục là bug thật + cách sửa.
+Phần này là chỗ học được nhiều nhất, mỗi mục là một bug có thật cùng cách sửa, đều lấy từ code và docs trong repo.
 
 ### Dữ liệu & parser
 
