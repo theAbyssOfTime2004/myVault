@@ -16,15 +16,15 @@ Tài liệu này giải thích **toàn bộ** project từ đầu đến cuối:
 
 ---
 
-## 1. Một câu là gì
+## 1. Tóm tắt
 
-Một **data + feature platform** end-to-end trên dữ liệu cờ vua công khai của Lichess: fetch PGN dump hàng tháng (batch) + live game stream (real-time), dựng **Lakehouse** (Medallion bronze→silver→gold), phục vụ **offline + online feature store**, và nuôi một **ML consumer nhẹ** (phát hiện gian lận/anomaly không giám sát) — tất cả deploy trên **một cluster GKE** bằng **Terraform**, điều phối bởi **Airflow**, quan sát bằng **Prometheus + Grafana**.
+Một **data + feature platform** end-to-end trên dữ liệu cờ vua công khai của Lichess: fetch PGN dump hàng tháng (batch) + live game stream (real-time), dựng **Lakehouse** (Medallion bronze→silver→gold), phục vụ **offline + online feature store**, và dev 1 **ML consumer nhẹ** (phát hiện gian lận/anomaly không giám sát) — tất cả deploy trên **một cluster GKE** bằng **Terraform**, orchestrate bởi **Airflow**, observe bằng **Prometheus + Grafana**.
 
 Mục tiêu học thuật: chứng minh một lakehouse + feature store hình dạng production — parse phân tán ở scale, feature engineering **point-in-time-correct**, batch + streaming, online serving có observability.
 
 ---
 
-## 2. Bức tranh lớn — hai đường dữ liệu
+## 2. Overview — hai đường dữ liệu
 
 **BATCH (lịch sử → offline features)**
 
