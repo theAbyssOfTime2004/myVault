@@ -2011,6 +2011,12 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough",
+      "title": "end_to_end_walkthrough",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/18_DE_FeatureStore/plan",
       "title": "plan",
       "group": "projects",
@@ -5762,7 +5768,7 @@
     }
   ],
   "stats": {
-    "node_count": 383,
+    "node_count": 384,
     "link_count": 865
   }
 }
