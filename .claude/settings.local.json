@@ -64,7 +64,8 @@
       "Skill(update-config)",
       "Skill(update-config:*)",
       "Read(//c/Users/Maidanng/Desktop/Đại số tuyến tính/Đại số tuyến tính/**)",
-      "Bash(pdftotext -enc UTF-8 \"Chuong 4_Anh xa tuyen tinh.pdf\" -)"
+      "Bash(pdftotext -enc UTF-8 \"Chuong 4_Anh xa tuyen tinh.pdf\" -)",
+      "Bash(REPO=\"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store\"; echo \"=== top level ===\"; ls -la \"$REPO\" 2>&1 | head -40)"
     ]
   }
 }
