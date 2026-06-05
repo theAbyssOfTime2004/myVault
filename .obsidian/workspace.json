@@ -75,7 +75,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 241.5
+    "width": 241.5,
+    "collapsed": true
   },
   "right": {
     "id": "100d9b88155bef54",
@@ -203,6 +204,7 @@
   },
   "active": "eef5c9ae081599d0",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
     "cv_nttdata.tex",
     "cv_nttdata.tex.tmp.15604.7aca209ad3b1",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md",
@@ -240,7 +242,6 @@
     "30_Knowledge_Base/MLOPS/MLflow.md",
     "30_Knowledge_Base/MLOPS/KServe - Extra Steps (Transformer và Inference Graph).md",
     "10_Projects/14_Thesis_SDPO/experiments/plans",
-    "10_Projects/14_Thesis_SDPO/experiments",
     "99_System/Assets/Images/Pasted image 20260411180330.png",
     "99_System/Assets/Images/image.png",
     "99_System/Assets/Images/Pasted image 20241125205921.png",
