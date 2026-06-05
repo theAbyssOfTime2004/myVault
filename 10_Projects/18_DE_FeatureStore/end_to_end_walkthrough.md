@@ -31,7 +31,7 @@ Mục tiêu của project là làm một lakehouse + feature store đúng hình 
 ```
 Lichess dump .pgn.zst
   → [ingest]    curl | mc pipe → MinIO bronze (raw .zst, không đổi)
-  → [shred]     1 pass stream-decompress, cắt theo ranh giới ván → nhiều shard .pgn.gz
+  → [shred]     1 pass stream-decompress, cắt theo ranh giới ván → nhiều shard .pgn.gz - vì file .zst không splittable
   → [Spark]     bronze_to_silver: parse PGN (python-chess) → Delta silver/games (partition year_month, speed)
   → [Spark]     silver_to_gold: player_features + opening_features (Delta)
   → [Spark]     build_training_set: ma trận point-in-time (không leak tương lai)
