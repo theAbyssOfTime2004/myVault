@@ -18,9 +18,9 @@ Tài liệu này giải thích toàn bộ project từ đầu đến cuối: nó
 
 ## 1. Tóm tắt
 
-Một data platform kiêm feature store chạy end-to-end trên dữ liệu cờ vua công khai của Lichess. Nó đọc PGN dump hàng tháng (đường batch) và live stream từ Lichess TV (đường real-time), dựng một Lakehouse theo kiến trúc Medallion (bronze → silver → gold), phục vụ feature ở cả hai dạng offline và online, rồi nuôi một model nhẹ phát hiện gian lận (anomaly detection không giám sát). Toàn bộ chạy trên một cluster GKE: Terraform dựng hạ tầng, Airflow điều phối, Prometheus + Grafana giám sát.
+Một data platform kiêm feature store chạy end-to-end trên dữ liệu cờ vua công khai của Lichess. Nó đọc PGN dump hàng tháng (đường batch) và live stream từ Lichess TV (đường real-time), dựng một Lakehouse theo kiến trúc Medallion (bronze → silver → gold), phục vụ feature ở cả hai dạng offline và online, rồi build một model nhẹ phát hiện gian lận (anomaly detection không giám sát). Toàn bộ chạy trên một cluster GKE: Terraform dựng hạ tầng, Airflow điều phối, Prometheus + Grafana giám sát.
 
-Mục tiêu của môn học là chứng minh một lakehouse + feature store đúng hình dạng production: parse phân tán ở scale lớn, feature engineering point-in-time-correct, kết hợp batch và streaming, và online serving có quan sát được.
+Mục tiêu của project là làm một lakehouse + feature store đúng hình dạng production: parse phân tán ở scale lớn, feature engineering point-in-time-correct, kết hợp batch và streaming, và online serving có quan sát được.
 
 ---
 
