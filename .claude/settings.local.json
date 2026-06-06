@@ -71,7 +71,10 @@
       "Bash(echo)",
       "Bash(echo \"=== code thật: stream/collector/collect_tv.py \\(URL dùng thật\\) ===\")",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store/stream/collector/**)",
-      "WebFetch(domain:lichess.org)"
+      "WebFetch(domain:lichess.org)",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/**)",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO/experiments/**)",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/thesis-ttt-sdpo/experiments/**)"
     ]
   }
 }
