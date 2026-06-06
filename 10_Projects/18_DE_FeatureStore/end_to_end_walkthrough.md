@@ -98,40 +98,89 @@ Schema mỗi ván (một row), trích trong `spark/jobs/pgn_parse.py`:
 
 ## 5. Batch pipeline — chi tiết từng bước
 
-### 5.1 Bronze ingestion (`deploy/ingest/ingest-bronze-job.yaml`)
+Cốt lõi là **kiến trúc Medallion**: dữ liệu đi qua các tầng bronze → silver → gold, mỗi tầng "sạch" và "có giá trị" hơn tầng trước. Đi theo đúng thứ tự dữ liệu chảy.
 
-K8s Job chạy **trong cluster** stream dump thẳng URL→MinIO bằng `curl -sSL <url> | mc pipe <target>`. Lý do: dữ liệu KHÔNG đi qua laptop (dùng băng thông GCP), KHÔNG lưu full file trên disk pod. Bronze = file `.zst` thô, không đổi (chưa parse). Idempotent: `mc stat` trước, đã có thì skip. Object key partition theo tháng:
-`bronze/lichess/standard/rated/year_month=<MONTH>/...pgn.zst`.
+### Dòng 0 — điểm xuất phát
 
-### 5.2 Shred — fix bottleneck scale (`spark/jobs/shred_bronze.py`)
+```
+Lichess dump .pgn.zst
+```
 
-**Vấn đề**: `.zst` là file không splittable → Spark đọc 1 file = **1 task duy nhất** = ~62–75h cho một tháng gần đây. Không khả thi.
+File gốc tải từ Lichess: một tháng cờ vua, định dạng **PGN** (text mô tả ván cờ: ai đánh với ai, Elo, kết quả, từng nước đi) nén bằng **zstd** (`.zst`). Một tháng gần đây ~30GB nén, bung ra >150GB. Đây là dữ liệu thô, máy chưa "hiểu" được gì — chỉ là một khối text khổng lồ.
 
-**Cách giải**: thêm bước "shred" — một pass **chỉ stream-decompress (KHÔNG parse python-chess → nhanh, ~phút cho 30GB)**, cắt theo ranh giới ván (dòng bắt đầu bằng `[Event ` = ván mới), cứ ~30000 ván flush thành một shard `.pgn.gz`. Bronze→Silver sau đó đọc **N shard → N partition → parse song song**. Kết quả: parse một tháng thật **~75 phút → ~4 phút**. `parse_games` không phải sửa gì — chỉ đổi nguồn từ 1 file thành N shard.
+### 5.1 ingest — đưa vào kho (`deploy/ingest/ingest-bronze-job.yaml`)
 
-### 5.3 Bronze→Silver (`spark/jobs/bronze_to_silver.py` + `pgn_parse.py`)
+```
+→ [ingest]  curl | mc pipe → MinIO bronze (raw .zst, không đổi)
+```
 
-Job Spark: boto3 list shard keys → `parallelize(keys, numSlices=len(keys))` → `flatMap` mỗi task stream shard → gzip decompress → `parse_games(text_stream)` → Row dicts. **Stream, không bao giờ load full object vào RAM.** Derive `year_month` từ key, `speed` (bullet/blitz/rapid/classical) từ field `event`. Clean: drop null `game_id`, dedupe theo `game_id`. Ghi **Delta** `s3a://silver/games` partition theo `year_month, speed`.
+- **MinIO** = kho lưu trữ object kiểu S3 (như ổ cứng đám mây). **Bronze** là bucket tầng thấp nhất.
+- `curl | mc pipe`: `curl` tải file từ URL Lichess, `mc pipe` đẩy thẳng dòng dữ liệu vào MinIO. Dấu `|` (pipe) nghĩa là dữ liệu chảy thẳng **URL → MinIO, không rớt xuống ổ cứng máy bạn**. Job chạy trong cluster GCP nên dùng băng thông GCP, không đụng laptop. (Idempotent: `mc stat` trước, đã có thì skip.)
+- **"raw .zst, không đổi"** — nguyên tắc tầng Bronze: *lưu y nguyên file gốc, không parse, không sửa*. Lý do: sau này logic parse sai vẫn còn bản gốc chạy lại, khỏi tải lại 30GB.
+- Object key partition theo tháng: `bronze/lichess/standard/rated/year_month=<MONTH>/...pgn.zst`.
 
-**Logic parser quan trọng** (cùng module dùng cả ở Phase 0 local lẫn trong Spark):
+→ Kết quả: file `.zst` nằm trong MinIO, vẫn nén, vẫn thô.
 
-- **ACPL (centipawn loss)**: eval token → centipawn (`float * 100`); mate `#n`/`#-n` clamp về `±mate_cp` (mặc định 1000). Mỗi nước: loss của bên đi = `max(0, mất điểm)`. Trắng (ply lẻ): `loss = prev_eval - cur_eval`. Đen (ply chẵn): `loss = cur_eval - prev_eval` (vì eval theo góc nhìn trắng — đen "được" khi eval giảm). ACPL = trung bình các loss, **chỉ khi `has_eval`**. `max(0, ...)` để không cộng "điểm thưởng" khi đi nước tốt.
-- **Move-time**: per side, duration nước = `max(0, prev_clock - cur_clock + increment)`. Increment parse từ `TimeControl` "300+3" → 3.0. Tính `avg` + **population std** (`statistics.pstdev`).
+### 5.2 shred — cắt nhỏ để chạy song song (`spark/jobs/shred_bronze.py`)
+
+```
+→ [shred]  1 pass stream-decompress, cắt theo ranh giới ván → nhiều shard .pgn.gz
+```
+
+Đây là bước **tối ưu tốc độ**, lý do tồn tại rất quan trọng:
+
+- File `.zst` **"không splittable"** — Spark không thể chia một file nén zstd cho nhiều máy cùng đọc. Một file = một máy đọc tuần tự = **~62–75 tiếng** cho một tháng. Không xài được.
+- **Shred** giải quyết: đọc file một lần (`1 pass`), **chỉ giải nén** (không phân tích nội dung — nên rất nhanh), rồi **cắt theo ranh giới ván**. Trong PGN mỗi ván mới bắt đầu bằng dòng `[Event ...]`, nên cứ gom ~30.000 ván thì cắt thành một mảnh (**shard**) lưu dạng `.pgn.gz`.
+- `parse_games` không phải sửa gì — chỉ đổi nguồn từ 1 file thành N shard.
+
+→ Kết quả: thay vì 1 file to, giờ có **N mảnh nhỏ**. Bước sau cho N máy đọc N mảnh **cùng lúc** → song song → **~75 phút xuống ~4 phút**.
+
+> Ẩn dụ: thay vì một người đọc cả cuốn sách 1000 trang, ta xé thành 30 tập rồi giao 30 người đọc đồng thời.
+
+### 5.3 bronze_to_silver — biến text thành bảng (`bronze_to_silver.py` + `pgn_parse.py`)
+
+```
+→ [Spark]  parse PGN (python-chess) → Delta silver/games (partition year_month, speed)
+```
+
+- **Spark** = engine xử lý dữ liệu phân tán (chia việc cho nhiều máy). Cơ chế: boto3 list shard keys → `parallelize(keys, numSlices=len(keys))` → mỗi task stream một shard → gzip decompress → `parse_games()` (luôn stream, không load full object vào RAM).
+- **parse PGN (python-chess)**: giờ mới thực sự "đọc hiểu" từng ván — bóc ra ai trắng ai đen, Elo, kết quả, số nước, và quan trọng là **ACPL** (độ chính xác) + **move-time** (mỗi nước nghĩ bao lâu).
+- **Silver** = tầng giữa: dữ liệu đã **sạch và có cấu trúc**, mỗi ván thành **một dòng trong bảng** với cột rõ ràng.
+- **Delta** = định dạng bảng (Delta Lake), như một database table nằm trên MinIO, hỗ trợ ghi đè an toàn + versioning.
+- **partition year_month, speed**: bảng chia ngăn theo tháng + loại cờ (bullet/blitz/rapid...). Giống chia tủ hồ sơ theo ngăn — query "blitz tháng 12" chỉ mở đúng ngăn, không quét cả tủ. (`speed` suy từ field `event`; clean: drop null `game_id`, dedupe theo `game_id`.)
+
+→ Kết quả: từ đống text thô → một **bảng games sạch, một dòng một ván**.
+
+**Chi tiết logic parser (đáng nhớ để phỏng vấn):**
+- **ACPL (centipawn loss)**: eval token → centipawn (`float * 100`); mate `#n`/`#-n` clamp về `±mate_cp` (mặc định 1000). Mỗi nước, loss của bên đi = `max(0, mất điểm)`. Trắng (ply lẻ): `loss = prev_eval - cur_eval`; Đen (ply chẵn): `loss = cur_eval - prev_eval` (eval theo góc nhìn trắng — đen "được" khi eval giảm). ACPL = trung bình các loss, **chỉ khi `has_eval`**. `max(0, ...)` để không cộng "điểm thưởng" khi đi nước tốt.
+- **Move-time**: duration mỗi nước = `max(0, prev_clock - cur_clock + increment)`. Increment parse từ `TimeControl` ("300+3" → 3.0). Tính `avg` + **population std**.
 - **Robustness**: `parse_games` bọc mỗi ván trong `try/except: continue` → một ván hỏng (vd đuôi zstd bị cắt) không làm chết cả job.
 
-### 5.4 Silver→Gold features (`spark/jobs/silver_to_gold.py`)
+### 5.4 silver_to_gold — tính ra feature (`spark/jobs/silver_to_gold.py`)
 
-Hai bảng Gold Delta:
+```
+→ [Spark]  player_features + opening_features (Delta)
+```
 
-`gold/player_features` (1 row/player, có thể theo speed): unpivot mỗi ván thành 2 row (góc nhìn trắng + đen), aggregate: `games_played, wins/draws/losses, win_rate, elo (latest theo datetime), avg_acpl, acpl_std, avg_move_time, move_time_std, opening_diversity (số ECO distinct/entropy), accuracy_vs_rating_gap, last_game_datetime`.
+**Gold** = tầng cao nhất, dữ liệu đã **tổng hợp thành thông tin có giá trị trực tiếp**:
 
-`gold/opening_features` (1 row/ECO): `popularity (count), white_win_rate, black_win_rate, draw_rate, avg_plies, avg_player_rating`.
+- **player_features** (1 row/player, có thể theo speed): gom tất cả ván của từng người → hồ sơ mỗi player. Cách làm: unpivot mỗi ván thành 2 row (góc nhìn trắng + đen) rồi aggregate: `games_played, wins/draws/losses, win_rate, elo (latest theo datetime), avg_acpl, acpl_std, avg_move_time, move_time_std, opening_diversity (số ECO distinct/entropy), accuracy_vs_rating_gap, last_game_datetime`.
+- **opening_features** (1 row/ECO): gom theo khai cuộc → `popularity (count), white_win_rate, black_win_rate, draw_rate, avg_plies, avg_player_rating`.
 
-### 5.5 Point-in-time training set — phần lõi (`spark/jobs/build_training_set.py`)
+Silver là "từng ván một"; Gold là "đã rút ra kết luận về player và khai cuộc". Đây chính là **feature** — đầu vào cho model và cho API.
 
-Đây là phần đáng giá nhất về mặt khái niệm, cũng là chỗ dễ ăn điểm nhất. Khi tạo dữ liệu train cho model phát hiện gian lận, feature lịch sử của một player ở ván X chỉ được phép tính từ các ván trước X — không được để lọt thông tin từ ván tương lai. Cờ vua có sẵn thứ tự thời gian (`game_datetime`) nên đây là ví dụ minh hoạ point-in-time join rất sạch.
+### 5.5 build_training_set — chuẩn bị data train, chống "gian lận thời gian" (`build_training_set.py`)
 
-Cơ chế (code thật):
+```
+→ [Spark]  ma trận point-in-time (không leak tương lai)
+```
+
+Đây là phần **tinh tế nhất về mặt khái niệm**, cũng là chỗ dễ ăn điểm nhất. Để train model phát hiện gian lận, ta cần với mỗi ván biết "trước ván này player đó đánh thế nào".
+
+- **point-in-time / không leak tương lai**: khi tính lịch sử của player ở ván X, **chỉ được dùng các ván TRƯỚC X**, tuyệt đối không dùng ván sau X. Lỡ dùng ván tương lai thì model "gian lận" — lúc train đẹp nhưng thực tế vô dụng (lúc dự đoán làm gì có dữ liệu tương lai). Lỗi này gọi là **data leakage**, rất hay gặp và nguy hiểm.
+- **ma trận**: bảng kết quả, mỗi dòng = (player, ván) kèm đặc trưng lịch sử tính đúng đến thời điểm đó, và độ lệch của ván hiện tại so với lịch sử.
+
+Cờ vua có sẵn mốc thời gian từng ván nên minh hoạ point-in-time join rất sạch. Cơ chế (code thật):
 
 ```python
 player_window = (
@@ -141,35 +190,52 @@ player_window = (
 )
 ```
 
-`rowsBetween(unboundedPreceding, -1)` = tổng hợp **mọi ván trước, trừ ván hiện tại**. Từ window này tính: `games_played_so_far, win_rate_so_far, avg_acpl_so_far, acpl_std_so_far, avg_move_time_so_far, move_time_std_so_far`. Rồi so ván hiện tại với lịch sử:
+`rowsBetween(unboundedPreceding, -1)` = tổng hợp **mọi ván trước, trừ ván hiện tại**. Từ đó tính `games_played_so_far, win_rate_so_far, avg_acpl_so_far, acpl_std_so_far, avg_move_time_so_far, move_time_std_so_far`. Rồi so ván hiện tại với lịch sử:
 - `acpl_dev = cur_acpl - avg_acpl_so_far` (ván này chính xác bất thường so với chính mình?)
 - `move_time_dev = cur_avg_move_time - avg_move_time_so_far`
 
-Hai cột này chính là tín hiệu nghi vấn: một player bỗng đánh chính xác hơn hẳn hoặc nhịp ra nước đều hơn hẳn so với quá khứ của chính họ. Kết quả ghi xuống Delta `gold/training_set` với dynamic partition overwrite và `mergeSchema=true`.
+→ Hai cột này chính là tín hiệu nghi vấn: một player bỗng đánh chính xác hơn hẳn hoặc nhịp ra nước đều hơn hẳn quá khứ của họ. Ghi Delta `gold/training_set` (dynamic partition overwrite, `mergeSchema=true`).
 
-### 5.6 Cheat model (`model/train_cheat_model.py`)
+### 5.6 train_cheat_model — huấn luyện model (`model/train_cheat_model.py`)
 
-Mục đích ở đây là chứng minh feature store nuôi được một model thật, chứ không phải khoe kỹ thuật ML. Nên giữ model đơn giản, không giám sát.
+```
+→ [sklearn]  IsolationForest → gold/cheat_scores + model artifact
+```
 
-- Đọc `gold/training_set` bằng **delta-rs (`deltalake` Python, không phải Spark)** → PyArrow table.
-- Filter: `cur_acpl` hợp lệ AND `games_played_so_far >= 5` (cần đủ lịch sử).
-- 8 feature: `cur_elo, cur_acpl, acpl_dev, avg_acpl_so_far, acpl_std_so_far, cur_move_time_std, move_time_dev, win_rate_so_far`. NaN impute bằng median (lưu median vào metadata để serving nhất quán).
-- `IsolationForest(n_estimators=200, contamination=0.02, random_state=42)`.
-- `decision_function` → anomaly_score; `predict == -1` → is_anomaly.
-- Ghi `gold/cheat_scores` (Delta) + upload `models/cheat/isoforest.joblib` + `metadata.json` lên MinIO. In top-10 anomaly.
+- **IsolationForest**: thuật toán phát hiện **bất thường (anomaly) không giám sát** — không cần ai gán nhãn "đây là kẻ gian lận". Nó tự học "đa số player trông thế nào" rồi chấm điểm ai lệch khỏi số đông (đánh quá chuẩn so với Elo, nhịp ra nước đều như máy...).
+- **gold/cheat_scores**: bảng điểm bất thường từng ván, lưu trên MinIO.
+- **model artifact**: bản thân model đã train (`.joblib`) cũng lưu lại, dùng sau khỏi train lại.
 
-### 5.7 Materialize offline→online (`stream/materialize/materialize_redis.py` + `materialize_cheat.py`)
+Chi tiết: đọc `gold/training_set` bằng **delta-rs** (`deltalake` Python, không cần Spark) → PyArrow. Filter `cur_acpl` hợp lệ AND `games_played_so_far >= 5`. 8 feature: `cur_elo, cur_acpl, acpl_dev, avg_acpl_so_far, acpl_std_so_far, cur_move_time_std, move_time_dev, win_rate_so_far` (NaN impute bằng median, lưu median vào metadata để serving nhất quán). `IsolationForest(n_estimators=200, contamination=0.02, random_state=42)`. `decision_function` → anomaly_score; `predict == -1` → is_anomaly. Upload `models/cheat/isoforest.joblib` + `metadata.json` lên MinIO.
 
-Job nhẹ (no Spark): đọc Gold Delta bằng delta-rs → ghi Redis hash:
-- `offline:player:<player>:<speed>` ← player features.
-- `online:cheat:<player>:<speed>` ← anomaly score, is_suspicious, worst game.
+→ Lưu ý: mục đích chỉ để **chứng minh feature store nuôi được model thật**, không phải khoe ML — nên model giữ đơn giản có chủ đích.
 
-### 5.8 Trino + Hive Metastore (`deploy/trino/`)
+### 5.7 materialize — đẩy feature ra nơi phục vụ nhanh (`materialize_redis.py` + `materialize_cheat.py`)
 
-Trino's `delta_lake` connector **bắt buộc metastore** → deploy thrift Hive Metastore (`apache/hive:4.0.1`) backed by Postgres 16, cấu hình S3A→MinIO. Trino (`trino/trino` chart 1.42.2, Trino 480) 1 coordinator + 1 worker. Việc Trino làm (đúng rubric "Computing/Transformation", không chỉ query):
-- `register_tables.sql`: `CALL delta.system.register_table(...)` đăng ký Delta tables sẵn có.
-- `dq_checks.sql`: data-quality SQL (no null game_id, win_rate ∈ [0,1], popularity > 0...).
-- `transform.sql`: CTAS tạo `gold_opening_summary` — một bảng Delta mới **do Trino ghi** (chứng minh Trino là transformation engine, không chỉ đọc).
+```
+→ [materialize]  Gold Delta → Redis (offline:player:*, online:cheat:*)
+```
+
+- **Vấn đề**: Delta trên MinIO query mất vài giây — quá chậm cho API cần trả lời tức thì.
+- **Redis**: database in-memory, tra cứu cực nhanh (mili-giây). **Materialize** = copy feature từ Gold (chậm, đầy đủ) sang Redis (nhanh, để phục vụ). Job nhẹ, không Spark — đọc Gold bằng delta-rs → ghi Redis hash.
+- `offline:player:<player>:<speed>` ← player features; `online:cheat:<player>:<speed>` ← anomaly score, is_suspicious, worst game.
+
+→ Đây chính là ý nghĩa **feature store 2 tầng**: **offline store** (Delta — để train, đầy đủ, chậm) và **online store** (Redis — để serving, nhanh). Cùng một feature, hai nơi, hai mục đích.
+
+### 5.8 Trino + Hive Metastore — truy vấn SQL trực tiếp (nhánh phụ) (`deploy/trino/`)
+
+```
+Trino + Hive Metastore: query / DQ / transform SQL trực tiếp trên Delta ở MinIO
+```
+
+Cái này **không nằm trong dây chuyền chính** (nên tách riêng, không có mũi tên nối tiếp) — nó là một cổng để làm việc với dữ liệu bằng SQL:
+
+- **Trino**: engine query SQL — gõ `SELECT ... FROM silver_games` là đọc thẳng bảng Delta trên MinIO, không cần qua Spark.
+- **Hive Metastore**: "danh bạ" cho Trino biết bảng nào nằm ở đâu trên MinIO (Trino bắt buộc phải có cái này mới đọc được Delta). Backed by Postgres 16; Trino chart 1.42.2 (Trino 480), 1 coordinator + 1 worker.
+- **3 việc Trino làm** (đúng rubric "Computing/Transformation", không chỉ query):
+  - **query** (`register_tables.sql`): `CALL delta.system.register_table(...)` đăng ký Delta tables rồi tra cứu ad-hoc.
+  - **DQ — data quality** (`dq_checks.sql`): kiểm tra bằng SQL (không có game_id nào null chứ? win_rate ∈ [0,1]? popularity > 0?).
+  - **transform** (`transform.sql`): CTAS tạo `gold_opening_summary` — một bảng Delta mới **do Trino ghi**, chứng minh Trino không chỉ đọc mà còn *biến đổi* được dữ liệu.
 
 ---
 
