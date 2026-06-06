@@ -190,6 +190,25 @@ PyFlink DataStream — đây là phần "window" được chấm điểm (full 1
 
 Tín hiệu gian lận stream: `stddev` move-time quá thấp = nhịp đánh đều như máy (consistency bất thường) — **không cần chạy engine**.
 
+### 6.3 Các bài toán khó của true streaming — cái nào né, cái nào còn thiếu
+
+True streaming kéo theo một loạt bài toán khó (watermark/late-data, state, exactly-once, fault tolerance, vận hành 24/7). Job Flink này **cố tình đơn giản hoá** đúng theo use case — quan trọng là biết mình né cái nào và vì sao né được.
+
+| Bài toán | Trong job này | Bằng chứng / lý do |
+|---|---|---|
+| State management | ✅ Có (mức cơ bản) | `ValueState` `last_wc`/`last_bc` keyed theo game_id để suy ra move-time |
+| Watermark / late data | ⏭️ Né hẳn | `WatermarkStrategy.no_watermarks()` + `SlidingProcessingTimeWindows` (processing-time, không phải event-time) → khỏi xử lý event đến trễ |
+| Exactly-once | ⏭️ Né (chấp nhận at-most-once) | `offsets.latest()`, sink Redis là Map thường (không transactional), `parallelism=1`. Ghi Redis là `hset` ghi đè + TTL nên mất vài cập nhật lúc restart không ảnh hưởng |
+| Fault tolerance / recovery | ❌ Chưa làm | phase3.0 ghi rõ "NO checkpointing yet" → Flink restart là mất sạch state |
+| Vận hành 24/7 | ⏭️ Chưa đối mặt thật | cụm ephemeral, demo live-stream chạy chung vẫn là TODO |
+
+**Lỗ hổng tiềm ẩn (đề phòng bị đào sâu):**
+- **Flink state phình vô hạn**: keyed theo game_id nhưng **không có state TTL/cleanup** cho ván đã kết thúc → chạy lâu thì state ván cũ không bao giờ xóa (Redis có TTL, nhưng *Flink state* thì không). Production cần state TTL hoặc timer để clear.
+- **Không checkpoint = không recovery** (đã nêu ở bảng).
+- **parallelism=1** → chưa kiểm chứng scale ngang.
+
+**Câu trả lời chuẩn khi phỏng vấn:** "Dùng Flink cho true streaming move-time, nhưng cố tình đơn giản hoá theo use case: processing-time + no watermark (né event-time complexity), at-most-once + Redis overwrite có TTL (né exactly-once vì mất vài cập nhật không sao), hoãn checkpointing. Lên production sẽ thêm **state TTL** (chống state phình), **checkpoint xuống MinIO** (recovery), và cân nhắc **exactly-once sink** nếu nghiệp vụ cần." → cho thấy hiểu các bài toán tồn tại, biết đã né cái nào và vì sao, biết phải thêm gì.
+
 ---
 
 ## 7. Serving — Feature API (`service/feature_api/app.py`)
