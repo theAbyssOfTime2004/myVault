@@ -89,7 +89,7 @@ Hiểu được phần này thì sẽ hiểu vì sao repo lại có cấu trúc 
 - `{"t":"featured","d":{"id":"<gameId>",...}}` — ván mới bắt đầu.
 - `{"t":"fen","d":{"fen":"...","lm":"e2e4","wc":180,"bc":175}}` — một nước: `lm` last move, `wc`/`bc` = clock còn lại (giây) của trắng/đen.
 
-**Caveat dữ liệu quan trọng**: `%eval` (Stockfish) chỉ có ở subset ván được phân tích engine. → features dựa **accuracy (ACPL)** chỉ tính được trên subset đó; features dựa **timing/activity** tính được trên toàn bộ. **Tháng cũ (2013) hầu như KHÔNG có `%eval`/`%clk`** — đây là gốc rễ của vài bug (mục 10).
+**Caveat dữ liệu quan trọng**: `%eval` (Stockfish) chỉ có ở subset ván được phân tích engine. → features dựa trên **accuracy (ACPL)** chỉ tính được trên subset đó; features dựa trên **timing/activity** tính được trên toàn bộ. **Tháng cũ (2013) hầu như KHÔNG có `%eval`/`%clk`** — đây là gốc rễ của vài bug (mục 10).
 
 Schema mỗi ván (một row), trích trong `spark/jobs/pgn_parse.py`:
 `game_id, white, black, white_elo, black_elo, result, eco, opening, time_control, termination, event, game_datetime, plies, has_eval, has_clock, white/black_avg_move_time, white/black_move_time_std, white/black_acpl`.
