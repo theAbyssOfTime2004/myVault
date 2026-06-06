@@ -65,7 +65,13 @@
       "Skill(update-config:*)",
       "Read(//c/Users/Maidanng/Desktop/Đại số tuyến tính/Đại số tuyến tính/**)",
       "Bash(pdftotext -enc UTF-8 \"Chuong 4_Anh xa tuyen tinh.pdf\" -)",
-      "Bash(REPO=\"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store\"; echo \"=== top level ===\"; ls -la \"$REPO\" 2>&1 | head -40)"
+      "Bash(REPO=\"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store\"; echo \"=== top level ===\"; ls -la \"$REPO\" 2>&1 | head -40)",
+      "Bash(echo \"=== spec: docs/phase3_1.md \\(đoạn SOURCE\\) ===\")",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store/docs/**)",
+      "Bash(echo)",
+      "Bash(echo \"=== code thật: stream/collector/collect_tv.py \\(URL dùng thật\\) ===\")",
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/lichess-feature-store/stream/collector/**)",
+      "WebFetch(domain:lichess.org)"
     ]
   }
 }
