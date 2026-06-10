@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md",
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "end_to_end_walkthrough"
+              "title": "ĐSTT_Đề_Ôn_Chương3-4_Giải"
             }
           }
         ]
@@ -205,18 +205,19 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "fa18f94b19c7c994",
+  "active": "eef5c9ae081599d0",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
+    "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md",
     "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md.tmp.8464.27b6bfafb9e4",
     "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md.tmp.13788.e5e52fd52df8",
     "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md.tmp.17396.c93fc7182f5a",
     "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md.tmp.17396.94b56998163a",
     "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md.tmp.17396.01ba125bd583",
-    "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough.md",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
     "cv_nttdata.tex",
     "cv_nttdata.tex.tmp.15604.7aca209ad3b1",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập.md",
     "30_Knowledge_Base/MLOPS/DVC.md",
     "10_Projects/17_onbai/tongquat_dsa.md",
@@ -234,7 +235,6 @@
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.7dd0da80517e",
     "10_Projects/14_Thesis_SDPO/wiki/sources/src_trl_sdpo_sdft_docs.md",
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.8b82fe8c082a",
-    "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.0c7a4171fff9",
     "10_Projects/14_Thesis_SDPO/wiki/sources/src_youtube_hubotter_shenfeld_discussion.md",
     "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k.md",
     "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment.md",
