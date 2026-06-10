@@ -74,7 +74,8 @@
       "WebFetch(domain:lichess.org)",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/**)",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO/experiments/**)",
-      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/thesis-ttt-sdpo/experiments/**)"
+      "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/thesis-ttt-sdpo/experiments/**)",
+      "PowerShell(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTime=\\(Get-Date\\).AddDays\\(-2\\)} -ErrorAction SilentlyContinue | Select-Object TimeCreated, Id, ProviderName, LevelDisplayName, @{N='Msg';E={$_.Message.Substring\\(0,[Math]::Min\\(200,$_.Message.Length\\)\\)}} | Sort-Object TimeCreated -Descending | Select-Object -First 30 | Format-List)"
     ]
   }
 }

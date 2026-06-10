@@ -56,9 +56,9 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 \textbf{Model Training \& Efficiency:} & Fine-tuning (LoRA), ONNX, Model Benchmarking, Vision–Language Workflows \\
 \textbf{Core ML \& CV:} & PyTorch, TensorFlow, Scikit-learn, OpenCV, ViT, YOLO \\
 \textbf{Backend \& Serving:} & FastAPI, Async (asyncio), REST APIs, SSE Streaming, Microservices \\
-\textbf{Cloud \& Databases:} & AWS, GCP (GKE), Azure (Blob Storage), MySQL, PostgreSQL, MongoDB, Redis, Pinecone, Supabase (pgvector) \\
+\textbf{Cloud \& Databases:} & AWS, GCP (GKE), Azure (Blob Storage, Container Apps), MySQL, PostgreSQL, MongoDB, Redis, Pinecone, Supabase (pgvector) \\
 \textbf{Data Engineering:} & Apache Spark, Kafka, Flink (windowed stream processing), Airflow, Trino, Delta Lake, MinIO, Lakehouse / Medallion architecture, Feature Store \\
-\textbf{DevOps \& MLOps:} & Docker, Kubernetes (HPA, Helm), Terraform, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Git \\
+\textbf{DevOps \& MLOps:} & Docker, Kubernetes (HPA, Helm), Terraform, GitHub Actions \& Azure DevOps (CI/CD), MLflow, Prometheus, Grafana, Git \\
 \end{tabularx}
 
 %==================== EXPERIENCE ====================
@@ -71,6 +71,7 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
     \item Architected a \textbf{4-agent parallel moderation pipeline} (Python \texttt{asyncio} orchestration) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
     \item Designed a \textbf{stateful workflow router with function-calling logic}, dynamically branching conversations into Vibe-based or Decision-based agent flows to extract user preferences across multi-turn dialogue.
     \item Engineered a session state layer (\textbf{Redis} + \textbf{Azure Blob Storage}) and persona-conditioned generation to maintain a coherent multilingual ``witty bartender'' identity in production.
+    \item Containerized the agent service (\textbf{Docker} multi-stage builds) and supported production deployment on \textbf{Azure Container Apps}, with \textbf{Azure DevOps} CI/CD pipelines, health-check endpoints, and release validation for the SmartTap rollout.
 \end{itemize}
 
 \vspace{0.3em}

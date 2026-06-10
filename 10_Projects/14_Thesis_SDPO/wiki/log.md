@@ -105,6 +105,15 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Key takeaway 4 (limitation): Hübotter quote "as you scale models you get better self teachers" → Qwen3-8B teacher có thể yếu hơn Qwen3-32B/72B → thesis nên acknowledge trong limitation, có Plan B framing nếu không reproduce 2.4× speedup.
 - Lint pending: [[src_shenfeld2026_sdft]] mới ở depth `abstract+transcript-explanation`, chưa full-PDF ingest. Cần upgrade khi có thời gian để verify "minimum change" có formal statement (bound/theorem) trong §3-4 không.
 
+## [2026-06-09] experiment+rootcause | max_prompt_length bug found → first real effectiveness on medium problem
+
+- **Root cause của mọi "rambling rollout"**: TRL `max_prompt_length` default = **512 token** âm thầm cắt cụt đề bài dài trong TRAINING rollout (eval code của mình không cắt → eval ra code, training lảm nhảm). idx 23 prompt = 644 token > 512 → model thấy đề cụt → viết tiếp đề (" below: #.#.#...") → reward 0 mọi step. Fix: `max_prompt_length=4096` trong SDPOConfig.
+- **Invalidate các kết luận trước**: "4B không giải nổi bài grid" (sai — eval score 1.0), "8B cũng ramble nên không phải size" (run 8B dính cùng bug cắt), "easy work / hard fail" (thật ra là đề NGẮN lọt 512 / đề DÀI bị cắt — difficulty tương quan với độ dài đề).
+- **Debug method tìm ra bug**: in completion training qua reward_fn (thấy " below:" nối tiếp đề) → in prompt trainer nhận qua `prompts` arg của reward_fn → đếm token rendered prompt (644) so với trainer.max_prompt_length.
+- **Post-fix run (idx 23 abc390_c medium, Qwen3-4B, 15 step, 16 eval, A100, seed 0)**: rollout = code thật có variance, discovery curve LEO 0.58 → plateau 1.00, pass_rate 0.375→0.750 (+0.375), VERDICT IMPROVED. Nuance: greedy đã 1.0 từ trước → improvement = sampling reliability consolidation.
+- **Tổng bằng chứng effectiveness**: idx 19 (easy, greedy 0.85→1.0, 2026-06-06) + idx 23 (medium, pass 2x) → TTT-SDPO work end-to-end trên 2 mức độ khó. Còn thiếu: replicate seeds.
+- Key takeaway: hạ tầng đã vững → pivot sang phần đóng góp chính: so sánh `reprompt_template` (RQ1) trên các testbed frontier [7,19,23,29].
+
 ## [2026-05-29] experiment | Phase 1 — feedback path (Path B) proven on Colab L4
 
 - **Status**: Phase 1 PASS. Script `experiments/ttt_trl/06_feedback_path_test.py` (copy của 05 + bật Path B).
