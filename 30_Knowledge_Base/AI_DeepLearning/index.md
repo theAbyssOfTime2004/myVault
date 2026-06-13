@@ -1,7 +1,7 @@
 ---
 type: index
-updated: 2026-04-22
-note_count: 58
+updated: 2026-06-14
+note_count: 59
 ---
 
 # AI / Deep Learning — Wiki Index
@@ -111,6 +111,10 @@ Legend: **[stub]** = < 500 B, **[empty]** = 0 B, **[VN]** = written in Vietnames
 
 - [[Fuzzy Logic]] — fuzzy set theory basics
 - [[Generic Algorithm]] — (likely "Genetic Algorithm" — rename candidate)
+
+## 15. LLM Efficiency & Fine-tuning (1)
+
+- [[quantization_lora_qlora]] **[VN]** — byte/params, precision (FP32/FP16/BF16), quantization (PTQ/QAT, GPTQ/AWQ/NF4), LoRA, QLoRA; memory budgeting
 
 ---
 

@@ -1,0 +1,1 @@
+vậy chủ yếu sẽ xoay quanh việc chạy TTT nhiều lần với các template khác nhau (rq1) , ở mỗi template sẽ đo xem model có dính vào hiện tượng reducing epistemic uncertainty không? và nếu có/không thì sẽ như train-time hay là phụ thuộc vào template?(rq2) sau đó tính chi phí tính toán tổng thể - là metric CTC để xem với mỗi template CTC thế nào (rq3)? vậy thesis sẽ gồm những cái trên
