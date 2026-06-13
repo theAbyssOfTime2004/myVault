@@ -268,7 +268,7 @@
       "id": "30_Knowledge_Base/DATA SCIENCE/regularization",
       "title": "regularization",
       "group": "knowledge",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/DATA SCIENCE/SVD for denoising",
@@ -433,6 +433,12 @@
       "degree": 4
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "title": "quantization_lora_qlora",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
       "title": "VAE và các Diffusion Models",
       "group": "knowledge",
@@ -442,7 +448,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Backpropagation",
       "title": "Backpropagation",
       "group": "knowledge",
-      "degree": 14
+      "degree": 16
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
@@ -454,7 +460,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/log",
       "title": "log",
       "group": "knowledge",
-      "degree": 0
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/CNN review",
@@ -484,7 +490,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)",
       "title": "Adamw and Adam (optimizer)",
       "group": "knowledge",
-      "degree": 3
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Convolutional Neural Networks",
@@ -496,7 +502,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/transformer",
       "title": "transformer",
       "group": "knowledge",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
@@ -622,13 +628,13 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/index",
       "title": "index",
       "group": "knowledge",
-      "degree": 58
+      "degree": 59
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
       "title": "Vanishing and Exploding Gradient",
       "group": "knowledge",
-      "degree": 7
+      "degree": 9
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Best-first search",
@@ -2113,6 +2119,12 @@
       "degree": 4
     },
     {
+      "id": "00_Dashboard/Untitled",
+      "title": "Untitled",
+      "group": "dashboard",
+      "degree": 0
+    },
+    {
       "id": "50_Weekly_Notes/2026-W15",
       "title": "2026-W15",
       "group": "periodic",
@@ -2909,6 +2921,26 @@
       "target": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
+      "target": "30_Knowledge_Base/DATA SCIENCE/regularization"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
       "target": "3 - Tags/diffusion models"
     },
@@ -2951,6 +2983,30 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Iterative-deepening search",
       "target": "3 - Tags/uninformed search"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer)"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Backpropagation"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/DATA SCIENCE/regularization"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/CNN review",
@@ -3491,6 +3547,10 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
       "target": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
@@ -5782,7 +5842,7 @@
     }
   ],
   "stats": {
-    "node_count": 385,
-    "link_count": 867
+    "node_count": 387,
+    "link_count": 879
   }
 }
