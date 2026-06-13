@@ -184,7 +184,7 @@ Ba đóng góp kỹ thuật chính:
 
 ---
 
-## 6. Cây quyết định nhanh
+## 6. Very Fast Decision Tree 
 
 - **Chỉ inference, GPU đủ lớn** → FP16/BF16, không cần quantize.
 - **Inference, GPU nhỏ / nhiều request** → weight-only quantization (GPTQ/AWQ 4-bit, hoặc GGUF cho CPU/edge).
