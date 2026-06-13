@@ -45,33 +45,32 @@
 
 %==================== PROFESSIONAL SUMMARY ====================
 \section{Professional Summary}
-Final-year Data Science student with hands-on experience in LLM agent systems, retrieval-augmented generation, and transformer-based vision models. Comfortable with Python, the Hugging Face ecosystem, multi-agent orchestration, and production-grade serving across two real AI Engineer internships. \textbf{Targeting a Fresher/Junior AI Engineer role in Vietnam, focused on shipping LLM and agentic RAG products under production constraints} — rather than experimental prototypes.
+Final-year Data Science student with hands-on experience building LLM agent and retrieval-augmented generation (RAG) systems across two AI Engineer internships, plus computer-vision work. Comfortable with Python and the Hugging Face ecosystem. \textbf{Targeting a Fresher/Junior AI Engineer role in Vietnam}, focused on shipping practical LLM and RAG features.
 
 %==================== TECHNICAL SKILLS ====================
 \section{Technical Skills}
-\begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Languages:} & Python \\
-\textbf{Generative AI \& LLM Systems:} & RAG Pipelines, Multi-Agent Systems, Agent Orchestration, Function Calling, Prompt Engineering (CoT, Few-shot), Persona Conditioning, Tool Use Integration \\
-\textbf{LLM Frameworks:} & LlamaIndex, LangChain, LangGraph, Hugging Face Transformers \\
-\textbf{Model Training \& Efficiency:} & Fine-tuning (LoRA), ONNX, Model Benchmarking, Vision–Language Workflows \\
-\textbf{Core ML \& CV:} & PyTorch, TensorFlow, Scikit-learn, OpenCV, ViT, YOLO \\
-\textbf{Backend \& Serving:} & FastAPI, Async (asyncio), REST APIs, SSE Streaming, Microservices \\
-\textbf{Cloud \& Databases:} & AWS, GCP (GKE), Azure (Blob Storage, Container Apps), MySQL, PostgreSQL, MongoDB, Redis, Pinecone, Supabase (pgvector) \\
-\textbf{Data Engineering:} & Apache Spark, Kafka, Flink (windowed stream processing), Airflow, Trino, Delta Lake, MinIO, Lakehouse / Medallion architecture, Feature Store \\
-\textbf{DevOps \& MLOps:} & Docker, Kubernetes (HPA, Helm), Terraform, GitHub Actions \& Azure DevOps (CI/CD), MLflow, Prometheus, Grafana, Git \\
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X@{}}
+\textbf{Languages:} & Python, SQL \\
+\textbf{LLM \& GenAI:} & RAG pipelines, multi-agent systems, function calling, prompt engineering; LlamaIndex, LangChain, LangGraph, Hugging Face Transformers \\
+\textbf{Model Training:} & Fine-tuning (LoRA), ONNX, model benchmarking \\
+\textbf{Core ML \& CV:} & PyTorch, TensorFlow, scikit-learn, OpenCV, ViT, YOLO \\
+\textbf{Backend \& Serving:} & FastAPI, async (asyncio), REST APIs \\
+\textbf{Cloud \& Databases:} & AWS, GCP, Azure; PostgreSQL, MongoDB, Redis, pgvector \\
+\textbf{Data Engineering:} & Apache Spark, Kafka, Airflow, Lakehouse architecture \\
+\textbf{DevOps \& MLOps:} & Docker, Kubernetes, Terraform, CI/CD (GitHub Actions), MLflow, Git \\
 \end{tabularx}
 
 %==================== EXPERIENCE ====================
 \section{Experience}
 
-\textbf{AI Engineer Intern} \hfill \textbf{Jan 2026 - Mar 2026} \\
+\textbf{AI Engineer Intern} \hfill \textbf{Jan 2026 - May 2026} \\
 \textit{Tiger Tribe (A Heineken Company) -- BrewBuddy SmartTap, HCMC} \\
 \vspace{-0.3em}
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
-    \item Architected a \textbf{4-agent parallel moderation pipeline} (Python \texttt{asyncio} orchestration) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
-    \item Designed a \textbf{stateful workflow router with function-calling logic}, dynamically branching conversations into Vibe-based or Decision-based agent flows to extract user preferences across multi-turn dialogue.
-    \item Engineered a session state layer (\textbf{Redis} + \textbf{Azure Blob Storage}) and persona-conditioned generation to maintain a coherent multilingual ``witty bartender'' identity in production.
-    \item Containerized the agent service (\textbf{Docker} multi-stage builds) and supported production deployment on \textbf{Azure Container Apps}, with \textbf{Azure DevOps} CI/CD pipelines, health-check endpoints, and release validation for the SmartTap rollout.
+    \item Built a 4-agent parallel moderation pipeline (Python \texttt{asyncio}) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
+    \item Designed a stateful workflow router with function-calling logic that branches conversations into Vibe-based or Decision-based flows to extract user preferences across multi-turn dialogue.
+    \item Engineered a session state layer (Redis + Azure Blob Storage) and persona-conditioned generation to keep a coherent multilingual ``witty bartender'' identity in production.
+    \item Containerized the agent service (Docker multi-stage builds) and supported deployment on Azure Container Apps, with Azure DevOps CI/CD, health-check endpoints, and release validation for the SmartTap rollout.
 \end{itemize}
 
 \vspace{0.3em}
@@ -79,10 +78,10 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 \textit{Solazu JSC -- Agentic RAG E-commerce Chatbot, Binh Thanh, HCMC} \\
 \vspace{-0.3em}
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
-    \item Contributed to deploying an \textbf{agentic RAG service} (FastAPI + Supabase/PostgreSQL, Docker) with a \textbf{multi-tool agent} routing between retrieval, summarization, and extraction tools — reducing end-to-end response latency by \textbf{$\sim$30\%}.
-    \item Built a \textbf{LlamaIndex/LangChain ingestion pipeline} (sitemap crawl / clean / chunk / embed) over \textbf{Supabase pgvector} with \texttt{text-embedding-3-small} (1536-dim) and an \textbf{HNSW + cosine} index, improving top-$k$ recall \textbf{$\sim$20\%} on document Q\&A.
-    \item Implemented a \textbf{parallel retrieval} path and a \textbf{QA-match short-circuit} (similarity-threshold gating) that returns curated answers directly and bypasses LLM generation on high-confidence hits, cutting cost and latency on FAQ-style traffic.
-    \item Built \textbf{LangGraph} agent memory (Supabase checkpointer) for multi-session context persistence and a \textbf{reflection engine}; orchestrated LangChain chains for automated summarization and structured data extraction, with \textbf{SSE token streaming} to the chat frontend.
+    \item Contributed to an agentic RAG service (FastAPI + Supabase/PostgreSQL, Docker) with role-based routing pipelines (LangChain \texttt{RunnableBranch}) over retrieval, summarization, and extraction flows -- reducing end-to-end response latency by $\sim$30\%.
+    \item Built a LlamaIndex/LangChain ingestion pipeline (sitemap crawl / clean / chunk / embed) over Supabase pgvector with \texttt{text-embedding-3-small} and a vector index, improving retrieval context recall by $\sim$20\% on document Q\&A.
+    \item Implemented a parallel retrieval path and FAQ/QA-match gating (similarity-threshold) that injects high-confidence curated answers as grounded context, cutting tokens and latency on FAQ-style traffic.
+    \item Built LangGraph agent memory (Supabase checkpointer) for multi-session context and a reflection step; orchestrated LangChain chains for summarization and structured extraction, with SSE token streaming to the chat frontend.
 \end{itemize}
 
 %==================== RESEARCH ====================
@@ -92,10 +91,10 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 \quad Title: \textit{Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation} \\
 \vspace{-0.3em}
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
-    \item Extending \textbf{train-time SDPO} (Hübotter et al., 2026) to the \textbf{test-time regime} for code generation on \textbf{Qwen3-8B}, with online preference updates during multi-turn inference on \textbf{LiveCodeBench v6} (hard + very-hard splits).
-    \item Built a multi-turn inference loop with \textbf{execution-guided trajectory collection} and designed a \textbf{7-variant reprompt template taxonomy} to ablate template formulation effects on discovery@$k$.
-    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single \textbf{L4 GPU} with a Qwen-1.5B proof-of-concept, confirming real per-step learning before scaling.
-    \item Proposing \textbf{Compute-to-Correct (CTC)}, a compute-aware test-time discovery metric, and analyzing per-step \textbf{epistemic uncertainty suppression} — first test-time code analog of Kim et al. (2026) train-time math findings.
+    \item Extending train-time SDPO (Hübotter et al., 2026) to the test-time regime for code generation on Qwen3-8B, with online preference updates during multi-turn inference on LiveCodeBench v6 (hard + very-hard splits).
+    \item Built a multi-turn inference loop with execution-guided trajectory collection and a 7-variant reprompt template taxonomy to study template effects on discovery@$k$.
+    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single L4 GPU with a Qwen-1.5B proof-of-concept, confirming real per-step learning before scaling.
+    \item Proposing Compute-to-Correct (CTC), a compute-aware test-time discovery metric, and analyzing per-step epistemic uncertainty suppression.
 \end{itemize}
 
 %==================== PROJECTS ====================
@@ -104,28 +103,28 @@ Final-year Data Science student with hands-on experience in LLM agent systems, r
 \noindent\textbf{Chess Feature Store --- End-to-End Lakehouse Data Platform (Lichess, 100GB+)} \hfill \href{https://github.com/theAbyssOfTime2004/lichess-feature-store}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
 
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
-    \item Built a \textbf{Medallion Lakehouse} (Bronze/Silver/Gold) over 100GB+ of Lichess game dumps on \textbf{MinIO + Delta Lake}, parsing PGN at scale with \textbf{Apache Spark} (distributed \texttt{python-chess} UDFs) and \textbf{Trino} SQL transforms + data-quality checks.
-    \item Engineered a dual batch + streaming \textbf{Feature Store}: offline player/opening features served from Delta, and real-time behavioral features via a \textbf{Kafka $\rightarrow$ Flink windowed-aggregation} path materialized to a \textbf{Redis} online store behind a \textbf{FastAPI} feature API.
-    \item Implemented \textbf{point-in-time correct} feature joins (no future-leak) powering an \textbf{IsolationForest cheat/anomaly-detection} consumer, demonstrating training/serving consistency.
-    \item \textbf{Orchestrated} ingestion $\rightarrow$ Spark Bronze$\rightarrow$Silver$\rightarrow$Gold $\rightarrow$ Redis materialization with \textbf{Airflow}; fully deployed on \textbf{GKE} via \textbf{Terraform} (Spot + autoscale-to-0 cost control) with \textbf{Prometheus + Grafana} observability.
+    \item Built a Medallion Lakehouse (Bronze/Silver/Gold) over 100GB+ of Lichess dumps on MinIO + Delta Lake, parsing PGN at scale with Spark (\texttt{python-chess} UDFs) and Trino SQL transforms.
+    \item Engineered a dual batch + streaming Feature Store: offline features from Delta, and real-time behavioral features via Kafka $\rightarrow$ Flink windowed aggregation, materialized to a Redis online store behind a FastAPI API.
+    \item Implemented point-in-time-correct feature joins (no future leak) feeding an IsolationForest anomaly-detection consumer.
+    \item Orchestrated the pipeline with Airflow; deployed on GKE via Terraform (Spot + autoscale-to-0) with Prometheus + Grafana monitoring.
 \end{itemize}
 
 \vspace{0.2em}
 \noindent\textbf{Face Anti-Spoofing Detection MLOps Platform} \hfill \href{https://github.com/theAbyssOfTime2004/face-spoofing-detection}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
 
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
-    \item Built a liveness pipeline with quality gate, \textbf{SCRFD} face detection/alignment, and a \textbf{Global+Local ONNX ensemble} (MiniFASNetV2 + DeepPixBiS) reaching \textbf{F1 90.1\%} (Acc 89.3\%, Recall 93.1\%); YAML-driven threshold/weight tuning across environments.
-    \item \textbf{Deployed} a FastAPI inference service (\texttt{/predict}, \texttt{/livez}, \texttt{/readyz}, \texttt{/metrics}) on \textbf{GKE} via \textbf{Helm}, with HPA autoscaling and \textbf{Prometheus + Grafana} observability.
-    \item Provisioned cloud infrastructure with \textbf{Terraform} and automated \textbf{CI/CD via GitHub Actions} (WIF-based GCP auth, coverage-gated pytest); integrated \textbf{MLflow} for experiment tracking and model versioning.
+    \item Built a liveness pipeline (quality gate, SCRFD detection/alignment, Global+Local ONNX ensemble of MiniFASNetV2 + DeepPixBiS) reaching F1 90.1\%, with YAML-driven threshold tuning.
+    \item Deployed a FastAPI inference service on GKE via Helm, with HPA autoscaling and Prometheus + Grafana monitoring.
+    \item Provisioned infrastructure with Terraform and CI/CD via GitHub Actions (WIF auth, coverage-gated pytest); integrated MLflow for experiment tracking.
 \end{itemize}
 
 \vspace{0.2em}
 \noindent\textbf{Viettel AI Race --- PDF Parsing \& Document QnA Pipeline} \hfill \href{https://github.com/theAbyssOfTime2004/Viettel-AI-Race}{\color{darkblue}[GitHub]} \\
 \vspace{-1.1em}
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
-  \item Built an end-to-end PDF parsing pipeline using \textbf{Dots.OCR}, extracting layout-aware content (text, tables, formulas, images) into structured Markdown.
-  \item Improved extraction quality with document preprocessing (crop/whiteout) and \textbf{bbox-based table-image post-processing} for correct cell-level merging.
-  \item Developed a \textbf{RAG-based multiple-choice QnA module} (\textbf{LlamaIndex} VectorStoreIndex, \texttt{bge-small-en} embeddings, \textbf{Qwen3-4B-Instruct}) over parsed documents; achieved $\sim$\textbf{85\%} on private test.
+  \item Built a PDF parsing pipeline with Dots.OCR, extracting layout-aware content (text, tables, formulas) into structured Markdown.
+  \item Improved extraction with preprocessing (crop/whiteout) and bbox-based post-processing for correct table-cell merging.
+  \item Built a RAG multiple-choice QnA module (LlamaIndex, \texttt{bge-small-en} embeddings, Qwen3-4B) over parsed docs; $\sim$85\% on private test.
 \end{itemize}
 
 %==================== EDUCATION ====================

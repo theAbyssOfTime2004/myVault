@@ -75,7 +75,11 @@
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/**)",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO/experiments/**)",
       "Read(///wsl.localhost/Ubuntu/home/theabyssoftime/Repos/thesis-ttt-sdpo/experiments/**)",
-      "PowerShell(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTime=\\(Get-Date\\).AddDays\\(-2\\)} -ErrorAction SilentlyContinue | Select-Object TimeCreated, Id, ProviderName, LevelDisplayName, @{N='Msg';E={$_.Message.Substring\\(0,[Math]::Min\\(200,$_.Message.Length\\)\\)}} | Sort-Object TimeCreated -Descending | Select-Object -First 30 | Format-List)"
+      "PowerShell(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTime=\\(Get-Date\\).AddDays\\(-2\\)} -ErrorAction SilentlyContinue | Select-Object TimeCreated, Id, ProviderName, LevelDisplayName, @{N='Msg';E={$_.Message.Substring\\(0,[Math]::Min\\(200,$_.Message.Length\\)\\)}} | Sort-Object TimeCreated -Descending | Select-Object -First 30 | Format-List)",
+      "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\aicb-ecom-backend\\\\.git\" -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\aicb-ecom-backend-ai\\\\.git\" -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\chatbot-ecom-web\\\\.git\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Output \"Done removing nested .git folders\")"
     ]
   }
 }
