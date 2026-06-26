@@ -66,7 +66,7 @@ flowchart TD
     KLT --> U
 ```
 
-Điểm mấu chốt cần nhớ trước khi vào chi tiết: **student-first distill trên *attempt thất bại của student*; teacher-first distill trên *trajectory đúng do teacher sinh ra và đã được lọc***. Tất cả phần còn lại (loss, model, hyperparam) được giữ giống nhau để cô lập đúng biến này.
+Khác biệt cốt lõi giữa hai arm gói gọn ở một câu: **student-first distill trên *attempt thất bại của student*, teacher-first distill trên *trajectory đúng do teacher sinh ra và đã được lọc***. Phần còn lại (loss, model, hyperparam) giữ giống nhau để cô lập đúng biến này.
 
 ---
 
@@ -223,7 +223,9 @@ Hai caveat domain của math (giữ kèm mọi kết luận math):
 1. **Model confound**: code dùng Qwen3-4B (đã escape), math dùng Gemma-4-E4B — *khác reasoner*. "Math no-escape" có thể một phần là tính chất model, không phải domain.
 2. **Reference answer-only**: AIME chỉ có đáp án số, không có worked solution, nên `privileged_context` viết cứng trả về đáp án → teacher chỉ chép được. MATH-500 (có field `solution`) là hướng khử confound này (Chương 6), không nằm trong scope kết quả hiện tại.
 
-Việc chọn bài (problem selection) dùng **model pass-rate** $\in (0,1)$ (frontier theo *mô hình*), không theo nhãn contest — vì reward binary của math chỉ có variance khi mô hình giải đúng ~30–70% (§3.6, §4).
+Ngân sách TTT cũng khác giữa hai domain (chi tiết đầy đủ ở Phụ lục A): code chạy **15 step, eval 16 mẫu, teacher_n=10**; math chạy **3 step, eval 4 mẫu, teacher_n=4, max_new_tokens=16384** (8192 bị truncate làm mất `\boxed` → score-0 giả). Khác biệt ngân sách này là một biến cần lưu ý khi đối chiếu hai domain, không chỉ model/reference.
+
+Việc chọn bài (problem selection) dùng **model pass-rate** $\in (0,1)$ (frontier theo *mô hình*), không theo nhãn contest, vì reward binary của math chỉ có variance khi mô hình giải đúng ~30–70% (§3.6, §4).
 
 ---
 
