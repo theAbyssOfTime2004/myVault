@@ -7,7 +7,7 @@ updated: 2026-05-19
 
 Catalog of all wiki pages. Read this first when answering queries.
 
-## Synthesis (7)
+## Synthesis (8)
 
 - [[syn_thesis_proposal]] — **ground truth thesis design spec** (migrated từ `2026-04-12-sdpo-thesis-design.md`). Title, RQs, 7 templates, 4 components, budget, timeline, risks.
 - [[syn_template_taxonomy_rationale]] — nguồn gốc và justification cho 7 templates. 3 dimensions derive từ Kim + Hübotter. Dùng khi viết methodology section.
@@ -15,6 +15,7 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[syn_core_result]] — ⭐ **CORE RESULT (2026-06-16)**: teacher-first ≥ student-first SDPO ở 8/8 matched seed (idx39+idx12), weak dominance replicated. Bản nháp Results.
 - [[syn_teacher_first_impl_spec]] — ⭐ **implementation spec (2026-06-14)** cho `09_teacher_first.py`. Custom loop, teacher rollout + filter + few-shot + KL. Hand cho Cursor. 2 quyết định treo: reference source (code), loss_utils API.
 - [[syn_math_pilot]] — **MATH PILOT (2026-06-24)**: TF trên AIME2026 (Gemma-4-E4B, thinking). idx9 too-hard KHÔNG escape, nhưng judge bắt leak (75% copy) + epistemic mimicry. Contrast với code escape-zero. Negative sạch, viết được làm pilot.
+- [[syn_report_outline]] — ⭐ **WRITING HUB (2026-06-26)**: outline report 30+ trang (tới subsection) + Discussion (3 điều kiện teacher-first work, value-vs-procedure) + Limitations/Future Work tinh chỉnh. Đọc file này để viết luận văn.
 - [[syn_implementation_status]] — **status + roadmap (2026-05-29)**. Cloud kickoff milestone (proof-of-mechanism, loss≠0 trên abc387_a), SDPO mechanism trace (reprompt_template config arg, Path A/B distillation), divergence verl→TRL, 4-phase forward plan.
 
 ## Sources (7)

@@ -74,6 +74,14 @@ Bài xác suất xúc xắc/sticker. Nhãn frontier (pass 0.5 ở scan n_samples
 
 (Vận hành: idx8 chạy trọn 4.1h sau khi thêm `retries=2` + monitoring sạch — các crash trước là preempt/cancel ngắt quãng, không phải bug.)
 
+## Phát hiện 4 — Fallback ép distill copy + judge degrade (verify trong log idx8)
+
+Đọc log idx8 (run 463y4fjr): **mọi verdict judge = is_copy=true** (cái duy nhất is_copy=false thì rq=2 <3 → cũng bad). Vậy `n_good=1` mỗi step **đến từ FALLBACK** (`filter_trajectories` ~line782: "không có good nhưng có trajectory đúng → giữ cái đúng tốt nhất"). → **good_pool idx8 = các bản chép mà judge ĐÃ từ chối, fallback ép giữ.** Fallback "keep-best-correct" **vô hiệu hóa chính judge** khi teacher chỉ sinh copy.
+
+Đối lập idx9 (run fi5m0as1): có 1 verdict is_copy=false rq=4 (genuine-label) ở step1. → **judge degrade khi beyond-capability**: bắt được copy trắng trợn nhưng không phân biệt nổi "derivation thật" vs "confabulation hướng-đáp-án" (cả hai chạm đúng số). TODO: đọc trực tiếp trajectory good idx9 để xác nhận.
+
+→ Discussion/Limitations/Future Work đầy đủ + outline report: xem [[syn_report_outline]].
+
 ## Kết luận pilot (2 bài: idx9, idx8 — đều KHÔNG escape)
 
 > Teacher-first **escape khi reference cho method-trong-tầm-với** (code, [[syn_core_result]]) nhưng **fail khi teacher chỉ có đáp án trên bài beyond-capability** (AIME too-hard, **2/2 bài**): teacher copy đáp án (judge bắt ~75%), leak truyền **form ≠ substance** (replicated 2 bài), student không thoát 0. **Contrast này mạnh hơn "work everywhere"** — nó characterize cơ chế: escape cần *reachable capability*, không phải chỉ *đáp án đúng*.

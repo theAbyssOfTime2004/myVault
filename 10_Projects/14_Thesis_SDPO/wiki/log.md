@@ -267,3 +267,10 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Caveat: n=2 seed, số tuyệt đối nhỏ → directional. SF arm; chưa probe TF×template.
 - Updated [[syn_core_result]] (section RQ1). Budget còn ~$12. **Thí nghiệm đóng — chuyển sang viết.**
 
+## [2026-06-26] synthesis | Report writing hub + Discussion/Limitations tinh chỉnh
+
+- Tạo [[syn_report_outline]] = writing hub: outline 30+ trang (tới subsection) + Discussion notes (3 điều kiện teacher-first work, value-vs-procedure, rich-feedback nối tiền đề SDPO) + Limitations (model confound code=Qwen/math=Gemma, judge degrade beyond-capability, fallback ép distill copy) + Future Work (Qwen3-4B+thinking CẢ 2 domain → 8B, MATH-500 + worked-solution reference).
+- Thêm Phát hiện 4 vào [[syn_math_pilot]]: log idx8 chứng minh good_pool = bản chép fallback-rescued (mọi verdict is_copy=true) → fallback vô hiệu hóa judge khi beyond-capability.
+- Cài skill `academic-paper` (Imbad0202/academic-research-skills) thủ công vào `.claude/skills/` (Desktop không có /plugin) — 12-agent pipeline viết paper. Discovery work.
+- **Trạng thái: thí nghiệm + synthesis ĐÓNG. Sẵn sàng viết report.** Mọi context của thảo luận 2026-06-26 đã vào wiki → phiên mới đọc wiki là đủ.
+

@@ -1,0 +1,164 @@
+---
+tags: [linear-algebra, university, cheo-hoa, tri-rieng]
+aliases: [ĐSTT Ch5, Chéo hóa ma trận, Trị riêng, Eigenvalue]
+---
+
+# Đại số tuyến tính – Chương 5: Chéo hóa ma trận
+
+> Nguồn: Chuong 5_Cheo hoa ma tran.pdf (ĐH KHTN TP.HCM, LVL©2025). Liên quan: [[ĐSTT_Chương3_Không_gian_vectơ]], [[ĐSTT_Chương4_Ánh_xạ_tuyến_tính]], [[Linear Algebra Review]].
+
+> [!abstract] Bản đồ chương — phủ **Câu 3 (2,5đ) + Câu 4 (1đ)** đề thi cuối kỳ
+> **Bài toán gốc:** cho $A$ vuông, tìm $P$ khả nghịch để $P^{-1}AP$ là ma trận **đường chéo**. Sợi chỉ đỏ: **trị riêng → vectơ riêng → không gian riêng $E(\lambda)$ → kiểm điều kiện chéo hóa → lập $P$ từ các cơ sở $E(\lambda_i)$**. Ứng dụng chính: tính $A^n$, giải hệ truy hồi, Fibonacci.
+> *Lưu ý: cả chương viết vectơ theo **dạng cột**.*
+
+---
+
+## 1. Trị riêng và vectơ riêng (Câu 4)
+
+### 1.1. Định nghĩa
+
+Cho $A\in M_n(\mathbb{R})$. Vectơ $v\in\mathbb{R}^n$ là **vectơ riêng** của $A$ nếu:
+1. $v\neq 0$;
+2. tồn tại $\lambda\in\mathbb{R}$ sao cho $\;Av=\lambda v.$
+
+Khi đó $\lambda$ là **trị riêng**, $v$ là vectơ riêng **ứng với** $\lambda$.
+
+> [!note] Nhận xét
+> Nếu $v$ là vectơ riêng ứng với $\lambda$ thì $\mu v\ (\mu\neq 0)$ cũng vậy → vectơ riêng không duy nhất (cả một đường thẳng/không gian con).
+
+> [!tip] Cách kiểm "v có là vectơ riêng?"
+> Tính $Av$. Nếu $Av=\lambda v$ với một $\lambda$ nào đó → có (đọc luôn $\lambda$). Nếu $Av$ không tỉ lệ với $v$ → không.
+> **VD.** $A=\begin{pmatrix}1&6\\5&2\end{pmatrix}$: $A\binom{6}{-5}=\binom{-24}{20}=-4\binom{6}{-5}$ ⇒ $v=(6,-5)$ là vtr ứng $\lambda=-4$. Còn $A\binom{3}{-2}=\binom{-9}{11}$ không tỉ lệ ⇒ không phải vtr.
+
+### 1.2. Đa thức đặc trưng & phương trình đặc trưng
+
+> [!important] Định nghĩa then chốt
+> **Đa thức đặc trưng** của $A$: $\quad P_A(\lambda) := \det(A-\lambda I_n).$
+> **Mệnh đề:** $\lambda$ là trị riêng của $A\iff P_A(\lambda)=0$ (phương trình đặc trưng).
+
+- $P_A$ có bậc $n$, hệ số đầu $(-1)^n$.
+- **VD.** $A=\begin{pmatrix}1&2\\-1&4\end{pmatrix}$: $P_A(\lambda)=\lambda^2-5\lambda+6=(\lambda-2)(\lambda-3)$ ⇒ trị riêng $\lambda_1=2,\lambda_2=3$.
+
+---
+
+## 2. Không gian riêng $E(\lambda)$
+
+> [!important] Định nghĩa
+> Nếu $\lambda$ là trị riêng thì
+> $$E(\lambda) := \{v\in\mathbb{R}^n \mid Av=\lambda v\}$$
+> là **không gian con** của $\mathbb{R}^n$, gọi là **không gian riêng** ứng với $\lambda$.
+> **Mấu chốt tính toán:** $E(\lambda)$ chính là **không gian nghiệm** của hệ thuần nhất $\;(A-\lambda I_n)X=0.$
+
+→ Tìm cơ sở & $\dim E(\lambda)$ = giải hệ $(A-\lambda I)X=0$ rồi đọc nghiệm cơ bản (đúng quy trình [[ĐSTT_Chương3_Không_gian_vectơ|Ch3 §5]]). Nhắc lại: $\dim E(\lambda)=n-r(A-\lambda I)$.
+
+> [!important] Mệnh đề chặn số chiều (cực kỳ quan trọng cho chéo hóa)
+> Nếu $\lambda$ là trị riêng **bội $m$** (bội đại số, tức bội nghiệm của $P_A$) thì
+> $$1\le \dim E(\lambda) \le m.$$
+> ($\dim E(\lambda)$ = bội **hình học**.)
+
+---
+
+## 3. Ma trận chéo hóa được (Câu 3a)
+
+> [!important] Định nghĩa
+> $A\in M_n(\mathbb{R})$ **chéo hóa được** nếu tồn tại $P$ khả nghịch sao cho $P^{-1}AP$ là ma trận đường chéo.
+
+> [!important] Định lý điều kiện chéo hóa (PHẢI THUỘC)
+> $A$ chéo hóa được $\iff$ thỏa **cả hai**:
+> 1. $P_A(\lambda)$ **phân rã trên $\mathbb{R}$**: $P_A(\lambda)=(-1)^n(\lambda-\lambda_1)^{m_1}\cdots(\lambda-\lambda_p)^{m_p}$ với $\lambda_i\in\mathbb{R}$, $\sum m_i=n$ (đủ nghiệm thực kể bội).
+> 2. $\forall i:\ \dim E(\lambda_i)=m_i$ (bội hình học = bội đại số với **mọi** trị riêng).
+
+> [!tip] Hệ quả loại nhanh
+> Nếu $A$ có **đúng $n$ trị riêng phân biệt** thì $A$ chéo hóa được ngay (khỏi kiểm dim, vì mỗi $m_i=1$).
+
+> [!summary] Thuật toán chéo hóa (3 bước)
+> **B1.** Tìm $P_A(\lambda)=\det(A-\lambda I)$. Nếu **không phân rã** trên $\mathbb{R}$ → **không** chéo hóa được, dừng.
+> **B2.** Tìm các trị riêng $\lambda_i$ và bội $m_i$. Với mỗi $i$ tính $\dim E(\lambda_i)$. Nếu có $\dim E(\lambda_i)<m_i$ → **không** chéo hóa được, dừng.
+> **B3.** Với mỗi $i$ tìm cơ sở $\mathcal{B}_i$ của $E(\lambda_i)$. Xếp tất cả vectơ làm **cột** của $P$. Khi đó
+> $$P^{-1}AP=\operatorname{diag}(\underbrace{\lambda_1,\dots,\lambda_1}_{m_1},\dots,\underbrace{\lambda_p,\dots,\lambda_p}_{m_p}).$$
+> *(Thứ tự trị riêng trên đường chéo khớp thứ tự cột vectơ riêng trong $P$.)*
+
+> [!warning] Hai kiểu "KHÔNG chéo hóa được" hay gặp
+> - **Không phân rã:** $P_A=-(\lambda-4)(\lambda^2+4)$ — $\lambda^2+4$ vô nghiệm thực ⇒ không chéo hóa được (trên $\mathbb{R}$).
+> - **Thiếu vectơ riêng:** $P_A=-(\lambda-1)^2(\lambda-2)$ nhưng $\dim E(1)=1<2$ ⇒ không chéo hóa được.
+
+---
+
+## 4. Ứng dụng: tính $A^n$ (Câu 3b)
+
+> [!important] Công thức
+> $A$ chéo hóa được, $P^{-1}AP=D=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$ ⇒ $A=PDP^{-1}$, do đó
+> $$\boxed{A^n=PD^nP^{-1},\qquad D^n=\operatorname{diag}(\lambda_1^n,\dots,\lambda_n^n).}$$
+
+> [!tip] Quy trình Câu 3b
+> 1. Chéo hóa được $P, D$ (từ câu a). 2. Viết $D^n$. 3. Tính $P^{-1}$. 4. Nhân $P\,D^n\,P^{-1}$. 5. **Kiểm tra nhanh tại $n=1$** phải ra lại $A$ (và $n=0$ ra $I$).
+
+**VD (cấp 2).** $A=\begin{pmatrix}1&-1\\2&4\end{pmatrix}$: $P_A=(\lambda-2)(\lambda-3)$; $E(2)=\langle(-1,1)\rangle$, $E(3)=\langle(-1,2)\rangle$.
+$P=\begin{pmatrix}-1&-1\\1&2\end{pmatrix},\ D=\begin{pmatrix}2&0\\0&3\end{pmatrix},\ P^{-1}=\begin{pmatrix}-2&-1\\1&1\end{pmatrix}$ ⇒
+$$A^n=\begin{pmatrix}2^{n+1}-3^n & 2^n-3^n\\ -2^{n+1}+2\cdot 3^n & -2^n+2\cdot 3^n\end{pmatrix}.$$
+
+**Các ứng dụng khác:** hệ truy hồi $X_{n+1}=AX_n\Rightarrow X_n=A^nX_0$; **Fibonacci** với $A=\begin{pmatrix}1&1\\1&0\end{pmatrix}$ cho công thức Binet $F_k=\frac{1}{\sqrt5}\big[(\tfrac{1+\sqrt5}{2})^k-(\tfrac{1-\sqrt5}{2})^k\big]$, tỉ số $F_{k+1}/F_k\to\frac{1+\sqrt5}{2}\approx1{,}618$ (tỉ lệ vàng).
+
+---
+
+## 5. Ví dụ "tự làm" trong slide — đã giải
+
+### VD A (slide 20) — Chéo hóa $A=\begin{pmatrix}1&-4&-4\\8&-11&-8\\-8&8&5\end{pmatrix}$
+
+**B1. Đa thức đặc trưng.** Khai triển $\det(A-\lambda I)$:
+$$P_A(\lambda)=(1-\lambda)(\lambda+3)^2 = -(\lambda-1)(\lambda+3)^2.$$
+*(Kiểm: vết $=1-11+5=-5=1+(-3)+(-3)$ ✓; $\det A=9=1\cdot(-3)^2$ ✓.)*
+
+**B2. Trị riêng:** $\lambda_1=1$ (bội 1), $\lambda_2=-3$ (bội 2). Phân rã ✓.
+
+- $E(1):\ (A-I)X=0\Rightarrow$ nghiệm $t(-1,-2,2)$. $\dim E(1)=1=m_1$ ✓.
+- $E(-3):\ (A+3I)X=0$, mọi dòng tỉ lệ $[1,-1,-1]$ ⇒ $x_1=x_2+x_3$, nghiệm $\langle(1,1,0),(1,0,1)\rangle$. $\dim E(-3)=2=m_2$ ✓.
+
+Cả hai bằng bội ⇒ **$A$ chéo hóa được**.
+
+**B3.**
+$$P=\begin{pmatrix}-1&1&1\\-2&1&0\\2&0&1\end{pmatrix},\qquad P^{-1}AP=\operatorname{diag}(1,-3,-3).$$
+
+### VD B (slide 23) — Tìm $A^n$ với $A=\begin{pmatrix}2&-1&-2\\0&5&6\\0&-1&0\end{pmatrix}$
+
+**Đa thức đặc trưng** (khai triển theo cột 1, vì cột 1 $=(2,0,0)$):
+$$P_A(\lambda)=(2-\lambda)\big[(5-\lambda)(-\lambda)+6\big]=(2-\lambda)(\lambda-2)(\lambda-3)=-(\lambda-2)^2(\lambda-3).$$
+
+**Trị riêng:** $\lambda=2$ (bội 2), $\lambda=3$ (bội 1).
+- $E(2):\ (A-2I)X=0$, hệ rút về $x_2+2x_3=0$ ⇒ $\langle(1,0,0),(0,-2,1)\rangle$, $\dim=2=m$ ✓.
+- $E(3):\ \langle(1,-3,1)\rangle$, $\dim=1$ ✓. ⇒ **chéo hóa được**.
+
+$$P=\begin{pmatrix}1&0&1\\0&-2&-3\\0&1&1\end{pmatrix},\quad D=\operatorname{diag}(2,2,3),\quad P^{-1}=\begin{pmatrix}1&1&2\\0&1&3\\0&-1&-2\end{pmatrix}.$$
+
+$A^n=P\,\operatorname{diag}(2^n,2^n,3^n)\,P^{-1}$:
+$$\boxed{A^n=\begin{pmatrix}2^n & 2^n-3^n & 2^{n+1}-2\cdot 3^n\\[2pt] 0 & 3^{n+1}-2^{n+1} & 2\cdot 3^{n+1}-3\cdot 2^{n+1}\\[2pt] 0 & 2^n-3^n & 3\cdot 2^n-2\cdot 3^n\end{pmatrix}}$$
+*(Kiểm $n=1$ ra đúng $A$, $n=0$ ra $I_3$ ✓.)*
+
+---
+
+## 6. Tổng kết — Bản đồ ôn nhanh (Câu 3 & 4)
+
+| Hỏi gì | Công cụ |
+|---|---|
+| $v$ có là vectơ riêng? | Tính $Av$, xem có $=\lambda v$ |
+| Tìm trị riêng | Giải $P_A(\lambda)=\det(A-\lambda I)=0$ |
+| Cơ sở $E(\lambda)$ | Giải hệ thuần nhất $(A-\lambda I)X=0$ → nghiệm cơ bản |
+| $A$ có chéo hóa được? | (1) $P_A$ phân rã trên $\mathbb{R}$; (2) $\dim E(\lambda_i)=m_i\ \forall i$ |
+| Loại nhanh "được" | Có đủ $n$ trị riêng phân biệt |
+| Lập $P, D$ | Cột $P$ = vectơ cơ sở các $E(\lambda_i)$; $D=\operatorname{diag}(\lambda_i)$ cùng thứ tự |
+| Tính $A^n$ | $A^n=PD^nP^{-1}$, $D^n=\operatorname{diag}(\lambda_i^n)$ |
+
+> [!note] Công thức/điều kiện phải thuộc
+> - $P_A(\lambda)=\det(A-\lambda I)$; trị riêng $\iff P_A=0$.
+> - $E(\lambda)=\ker(A-\lambda I)$, $\dim E(\lambda)=n-r(A-\lambda I)$, và $1\le\dim E(\lambda)\le$ bội.
+> - Chéo hóa được $\iff$ phân rã **và** mọi bội hình học = bội đại số.
+> - $A^n=PD^nP^{-1}$.
+
+> [!warning] Bẫy thường gặp
+> - $P_A$ còn nhân tử bậc 2 vô nghiệm thực ($\lambda^2+c,\ c>0$) ⇒ **không** chéo hóa được trên $\mathbb{R}$.
+> - Trị riêng bội $\ge 2$ **phải** kiểm $\dim E(\lambda)$ — đừng kết luận "được" vội.
+> - $P$ xếp vectơ riêng theo **cột**; thứ tự cột và thứ tự $\lambda$ trên $D$ phải khớp.
+> - Tính $A^n$ xong nhớ **thử $n=1$** để bắt lỗi số học.
+
+---
+*Ghi chú ôn thi tự động hóa từ slide Chương 5 (28 trang). Đề thi cuối kỳ: xem map tại [[ĐSTT_Đề_Ôn_Chương3-4_Giải]] (Câu 1–2) và chương này (Câu 3–4).*

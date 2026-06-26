@@ -135,6 +135,10 @@ Probe trực tiếp câu hỏi titular ("reprompt template formulation"). SF arm
 - → **Template CÓ ảnh hưởng, effect rõ nhất ở bài khó** (nơi có room phân biệt). RQ1 có data.
 - Caveat: **n=2 seed, số tuyệt đối nhỏ → directional, chưa mạnh power.** SF arm (baseline), chưa probe TF × template.
 
+## Discussion + Report outline
+
+Lý lẽ Discussion (3 điều kiện teacher-first work, value-vs-procedure, rich-feedback), Limitations tinh chỉnh (model confound, judge degrade, fallback-copy), Future Work (Qwen cả 2 domain, MATH-500 method-reference), và **outline report 30+ trang** → tập trung ở **[[syn_report_outline]]** (writing hub).
+
 ## Limitations
 
 - **Weak dominance**: nhiều ô hòa, margin thường nhỏ; win lớn là seed-specific.
