@@ -112,7 +112,7 @@
       "id": "30_Knowledge_Base/Math_Stats/Linear Algebra Review",
       "title": "Linear Algebra Review",
       "group": "knowledge",
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Curse of dimensionality",
@@ -127,10 +127,22 @@
       "degree": 6
     },
     {
+      "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
+      "title": "ĐSTT_Chương5_Chéo_hóa",
+      "group": "knowledge",
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "title": "ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải",
       "title": "ĐSTT_Đề_Ôn_Chương3-4_Giải",
       "group": "knowledge",
-      "degree": 2
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông",
@@ -142,7 +154,7 @@
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
       "title": "ĐSTT_Chương3_Không_gian_vectơ",
       "group": "knowledge",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Toán tổ hợp",
@@ -154,7 +166,7 @@
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "title": "ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "group": "knowledge",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
@@ -1123,6 +1135,366 @@
       "degree": 4
     },
     {
+      "id": ".claude/skills/academic-paper/SKILL",
+      "title": "SKILL",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/structure_architect_agent",
+      "title": "structure_architect_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/visualization_agent",
+      "title": "visualization_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/abstract_bilingual_agent",
+      "title": "abstract_bilingual_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/argument_builder_agent",
+      "title": "argument_builder_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/literature_strategist_agent",
+      "title": "literature_strategist_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/peer_reviewer_agent",
+      "title": "peer_reviewer_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/citation_compliance_agent",
+      "title": "citation_compliance_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/draft_writer_agent",
+      "title": "draft_writer_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/intake_agent",
+      "title": "intake_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/revision_coach_agent",
+      "title": "revision_coach_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/formatter_agent",
+      "title": "formatter_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/agents/socratic_mentor_agent",
+      "title": "socratic_mentor_agent",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/theoretical_paper_template",
+      "title": "theoretical_paper_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/revision_tracking_template",
+      "title": "revision_tracking_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/funding_statement_template",
+      "title": "funding_statement_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/imrad_template",
+      "title": "imrad_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/literature_review_template",
+      "title": "literature_review_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/case_study_template",
+      "title": "case_study_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/bilingual_abstract_template",
+      "title": "bilingual_abstract_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/credit_statement_template",
+      "title": "credit_statement_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/policy_brief_template",
+      "title": "policy_brief_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/templates/conference_paper_template",
+      "title": "conference_paper_template",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/plan_mode_protocol",
+      "title": "plan_mode_protocol",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/domain_evidence_profiles",
+      "title": "domain_evidence_profiles",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/anti_leakage_protocol",
+      "title": "anti_leakage_protocol",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/failure_paths",
+      "title": "failure_paths",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/journal_submission_guide",
+      "title": "journal_submission_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/writing_judgment_framework",
+      "title": "writing_judgment_framework",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/citation_format_switcher",
+      "title": "citation_format_switcher",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/policy_anchor_table",
+      "title": "policy_anchor_table",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/writing_quality_check",
+      "title": "writing_quality_check",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/latex_template_reference",
+      "title": "latex_template_reference",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/academic_writing_style",
+      "title": "academic_writing_style",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/hei_domain_glossary",
+      "title": "hei_domain_glossary",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/abstract_writing_guide",
+      "title": "abstract_writing_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/workflow_phase_details",
+      "title": "workflow_phase_details",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/apa7_extended_guide",
+      "title": "apa7_extended_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/credit_authorship_guide",
+      "title": "credit_authorship_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/paper_structure_patterns",
+      "title": "paper_structure_patterns",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/changelog",
+      "title": "changelog",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/funding_statement_guide",
+      "title": "funding_statement_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/policy_anchor_disclosure_protocol",
+      "title": "policy_anchor_disclosure_protocol",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/disclosure_mode_protocol",
+      "title": "disclosure_mode_protocol",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/venue_disclosure_policies",
+      "title": "venue_disclosure_policies",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/vlm_figure_verification",
+      "title": "vlm_figure_verification",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/mode_selection_guide",
+      "title": "mode_selection_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/statistical_visualization_standards",
+      "title": "statistical_visualization_standards",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/revision_patch_protocol",
+      "title": "revision_patch_protocol",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/references/apa7_chinese_citation_guide",
+      "title": "apa7_chinese_citation_guide",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/clinical_epistemic_status_example",
+      "title": "clinical_epistemic_status_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/revision_recovery_example",
+      "title": "revision_recovery_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/commitment_ledger_example",
+      "title": "commitment_ledger_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/chinese_paper_example",
+      "title": "chinese_paper_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/version_family_reconciliation_example",
+      "title": "version_family_reconciliation_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/revision_mode_example",
+      "title": "revision_mode_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/plan_mode_guided_writing",
+      "title": "plan_mode_guided_writing",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/literature_review_example",
+      "title": "literature_review_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/clinical_citation_verification_checklist",
+      "title": "clinical_citation_verification_checklist",
+      "group": "other",
+      "degree": 0
+    },
+    {
+      "id": ".claude/skills/academic-paper/examples/imrad_hei_example",
+      "title": "imrad_hei_example",
+      "group": "other",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/12_TigerTribe_Intern/BrewBuddy SmartTap Overview",
       "title": "BrewBuddy SmartTap Overview",
       "group": "projects",
@@ -1174,25 +1546,25 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/log",
       "title": "log",
       "group": "projects",
-      "degree": 33
+      "degree": 34
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/index",
       "title": "index",
       "group": "projects",
-      "degree": 33
+      "degree": 34
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
       "title": "ent_sdpo",
       "group": "projects",
-      "degree": 30
+      "degree": 31
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
       "title": "ent_grpo",
       "group": "projects",
-      "degree": 12
+      "degree": 13
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlrf",
@@ -1216,7 +1588,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr",
       "title": "ent_rlvr",
       "group": "projects",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b",
@@ -1234,7 +1606,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
       "title": "src_hubotter2026_self_distillation",
       "group": "projects",
-      "degree": 37
+      "degree": 38
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_trl_sdpo_sdft_docs",
@@ -1264,7 +1636,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_shenfeld2026_sdft",
       "title": "src_shenfeld2026_sdft",
       "group": "projects",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_youtube_hubotter_shenfeld_discussion",
@@ -1276,7 +1648,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics",
       "title": "con_sdpo_loss_mechanics",
       "group": "projects",
-      "degree": 10
+      "degree": 11
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_task_coverage",
@@ -1288,61 +1660,67 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
       "title": "con_epistemic_verbalization",
       "group": "projects",
-      "degree": 25
+      "degree": 26
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
       "title": "con_uncertainty_suppression",
       "group": "projects",
-      "degree": 22
+      "degree": 23
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
       "title": "con_credit_assignment",
       "group": "projects",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
       "title": "con_reprompt_template",
       "group": "projects",
-      "degree": 25
+      "degree": 26
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
       "title": "con_rich_feedback",
       "group": "projects",
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
       "title": "con_self_teacher",
       "group": "projects",
-      "degree": 21
+      "degree": 22
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
       "title": "con_teacher_first_judge",
       "group": "projects",
-      "degree": 17
+      "degree": 18
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
       "title": "con_test_time_self_distillation",
       "group": "projects",
-      "degree": 23
+      "degree": 24
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
       "title": "con_discovery_at_k",
       "group": "projects",
-      "degree": 16
+      "degree": 17
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "title": "syn_report_outline",
+      "group": "projects",
+      "degree": 23
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
       "title": "syn_thesis_proposal",
       "group": "projects",
-      "degree": 16
+      "degree": 17
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
@@ -1360,13 +1738,13 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
       "title": "syn_core_result",
       "group": "projects",
-      "degree": 11
+      "degree": 13
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale",
       "title": "syn_template_taxonomy_rationale",
       "group": "projects",
-      "degree": 9
+      "degree": 10
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_implementation_status",
@@ -1378,7 +1756,19 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
       "title": "syn_math_pilot",
       "group": "projects",
-      "degree": 8
+      "degree": 10
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/00_references",
+      "title": "00_references",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/ch3_phuong_phap",
+      "title": "ch3_phuong_phap",
+      "group": "projects",
+      "degree": 0
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
@@ -2533,6 +2923,38 @@
     {
       "source": "30_Knowledge_Base/Math_Stats/multivariable chain rule",
       "target": "3 - Tags/beginner"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
+      "target": "30_Knowledge_Base/Math_Stats/Linear Algebra Review"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải"
     },
     {
       "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải",
@@ -4343,6 +4765,10 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot"
     },
     {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
@@ -4365,6 +4791,10 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
@@ -5179,6 +5609,82 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_livecodebench"
     },
     {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_rlvr"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_shenfeld2026_sdft"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
       "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
     },
@@ -5304,6 +5810,10 @@
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
     },
     {
@@ -5393,6 +5903,10 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_report_outline"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
@@ -6060,7 +6574,7 @@
     }
   ],
   "stats": {
-    "node_count": 392,
-    "link_count": 926
+    "node_count": 457,
+    "link_count": 957
   }
 }
