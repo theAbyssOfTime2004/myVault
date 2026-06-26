@@ -256,7 +256,7 @@
       "id": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch",
       "title": "Creating ML pipeline from scratch",
       "group": "knowledge",
-      "degree": 2
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/DATA SCIENCE/Gradient Descent",
@@ -424,7 +424,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism",
       "title": "Attention Mechanism",
       "group": "knowledge",
-      "degree": 5
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/FGSM",
@@ -436,7 +436,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora",
       "title": "quantization_lora_qlora",
       "group": "knowledge",
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/VAE và các Diffusion Models",
@@ -460,7 +460,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/log",
       "title": "log",
       "group": "knowledge",
-      "degree": 6
+      "degree": 10
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/CNN review",
@@ -502,7 +502,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/transformer",
       "title": "transformer",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/PyTorch Autograd",
@@ -547,6 +547,12 @@
       "degree": 13
     },
     {
+      "id": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "title": "inference_engineering_roadmap",
+      "group": "knowledge",
+      "degree": 7
+    },
+    {
       "id": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
       "title": "Contrastive Learning Loss Functions",
       "group": "knowledge",
@@ -586,7 +592,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/AI Engineering",
       "title": "AI Engineering",
       "group": "knowledge",
-      "degree": 2
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Generic Algorithm",
@@ -628,7 +634,7 @@
       "id": "30_Knowledge_Base/AI_DeepLearning/index",
       "title": "index",
       "group": "knowledge",
-      "degree": 59
+      "degree": 60
     },
     {
       "id": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
@@ -1168,19 +1174,19 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/log",
       "title": "log",
       "group": "projects",
-      "degree": 29
+      "degree": 33
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/index",
       "title": "index",
       "group": "projects",
-      "degree": 29
+      "degree": 33
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
       "title": "ent_sdpo",
       "group": "projects",
-      "degree": 29
+      "degree": 30
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_grpo",
@@ -1228,7 +1234,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation",
       "title": "src_hubotter2026_self_distillation",
       "group": "projects",
-      "degree": 34
+      "degree": 37
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_trl_sdpo_sdft_docs",
@@ -1240,13 +1246,13 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo",
       "title": "src_lasgroup_sdpo_repo",
       "group": "projects",
-      "degree": 14
+      "degree": 16
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades",
       "title": "src_kim2026_why_self_distillation_degrades",
       "group": "projects",
-      "degree": 32
+      "degree": 35
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_strategic_info_allocation",
@@ -1258,7 +1264,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_shenfeld2026_sdft",
       "title": "src_shenfeld2026_sdft",
       "group": "projects",
-      "degree": 13
+      "degree": 14
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/sources/src_youtube_hubotter_shenfeld_discussion",
@@ -1282,13 +1288,13 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization",
       "title": "con_epistemic_verbalization",
       "group": "projects",
-      "degree": 23
+      "degree": 25
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression",
       "title": "con_uncertainty_suppression",
       "group": "projects",
-      "degree": 20
+      "degree": 22
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_credit_assignment",
@@ -1300,7 +1306,7 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template",
       "title": "con_reprompt_template",
       "group": "projects",
-      "degree": 23
+      "degree": 25
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_rich_feedback",
@@ -1312,25 +1318,31 @@
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher",
       "title": "con_self_teacher",
       "group": "projects",
-      "degree": 20
+      "degree": 21
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "title": "con_teacher_first_judge",
+      "group": "projects",
+      "degree": 17
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
       "title": "con_test_time_self_distillation",
       "group": "projects",
-      "degree": 21
+      "degree": 23
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k",
       "title": "con_discovery_at_k",
       "group": "projects",
-      "degree": 14
+      "degree": 16
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal",
       "title": "syn_thesis_proposal",
       "group": "projects",
-      "degree": 15
+      "degree": 16
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact",
@@ -1339,16 +1351,34 @@
       "degree": 20
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec",
+      "title": "syn_teacher_first_impl_spec",
+      "group": "projects",
+      "degree": 6
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "title": "syn_core_result",
+      "group": "projects",
+      "degree": 11
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale",
       "title": "syn_template_taxonomy_rationale",
       "group": "projects",
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_implementation_status",
       "title": "syn_implementation_status",
       "group": "projects",
-      "degree": 12
+      "degree": 13
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "title": "syn_math_pilot",
+      "group": "projects",
+      "degree": 8
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
@@ -3009,6 +3039,22 @@
       "target": "30_Knowledge_Base/DATA SCIENCE/regularization"
     },
     {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/AI_DeepLearning/AI Engineering"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/log",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch"
+    },
+    {
       "source": "30_Knowledge_Base/AI_DeepLearning/CNN review",
       "target": "3 - Tags/Deep Learning"
     },
@@ -3163,6 +3209,26 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning",
       "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "target": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "target": "30_Knowledge_Base/AI_DeepLearning/transformer"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "target": "30_Knowledge_Base/AI_DeepLearning/Attention Mechanism"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "target": "30_Knowledge_Base/AI_DeepLearning/AI Engineering"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap",
+      "target": "30_Knowledge_Base/DATA SCIENCE/Creating ML pipeline from scratch"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Contrastive Learning Loss Functions",
@@ -3551,6 +3617,10 @@
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/index",
       "target": "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora"
+    },
+    {
+      "source": "30_Knowledge_Base/AI_DeepLearning/index",
+      "target": "30_Knowledge_Base/AI_DeepLearning/inference_engineering_roadmap"
     },
     {
       "source": "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient",
@@ -4257,6 +4327,22 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_trl_sdpo_sdft_docs"
     },
     {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/log",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
@@ -4267,6 +4353,18 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_kim2026_thesis_impact"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
@@ -4371,6 +4469,10 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/index",
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_sdpo_loss_mechanics"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/index",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo",
@@ -4981,6 +5083,54 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
     },
     {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_self_teacher"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_implementation_status"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation",
       "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_sdpo"
     },
@@ -5125,6 +5275,50 @@
       "target": "10_Projects/14_Thesis_SDPO/wiki/entities/ent_deepseek_distill_7b"
     },
     {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_lasgroup_sdpo_repo"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_reprompt_template"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_test_time_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_shenfeld2026_sdft"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_teacher_first_impl_spec"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
@@ -5183,6 +5377,30 @@
     {
       "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_implementation_status",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_template_taxonomy_rationale"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_core_result"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_kim2026_why_self_distillation_degrades"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_uncertainty_suppression"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/concepts/con_epistemic_verbalization"
+    },
+    {
+      "source": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_math_pilot",
+      "target": "10_Projects/14_Thesis_SDPO/wiki/sources/src_hubotter2026_self_distillation"
     },
     {
       "source": "10_Projects/14_Thesis_SDPO/raw/hubotter2026_sdpo",
@@ -5842,7 +6060,7 @@
     }
   ],
   "stats": {
-    "node_count": 387,
-    "link_count": 879
+    "node_count": 392,
+    "link_count": 926
   }
 }
