@@ -7,11 +7,14 @@ updated: 2026-05-19
 
 Catalog of all wiki pages. Read this first when answering queries.
 
-## Synthesis (4)
+## Synthesis (7)
 
 - [[syn_thesis_proposal]] — **ground truth thesis design spec** (migrated từ `2026-04-12-sdpo-thesis-design.md`). Title, RQs, 7 templates, 4 components, budget, timeline, risks.
 - [[syn_template_taxonomy_rationale]] — nguồn gốc và justification cho 7 templates. 3 dimensions derive từ Kim + Hübotter. Dùng khi viết methodology section.
 - [[syn_kim2026_thesis_impact]] — thesis impact consolidation của Kim et al. 2026 paper (RQ1/2/3 mapping, hyperparam contradiction, validation framing).
+- [[syn_core_result]] — ⭐ **CORE RESULT (2026-06-16)**: teacher-first ≥ student-first SDPO ở 8/8 matched seed (idx39+idx12), weak dominance replicated. Bản nháp Results.
+- [[syn_teacher_first_impl_spec]] — ⭐ **implementation spec (2026-06-14)** cho `09_teacher_first.py`. Custom loop, teacher rollout + filter + few-shot + KL. Hand cho Cursor. 2 quyết định treo: reference source (code), loss_utils API.
+- [[syn_math_pilot]] — **MATH PILOT (2026-06-24)**: TF trên AIME2026 (Gemma-4-E4B, thinking). idx9 too-hard KHÔNG escape, nhưng judge bắt leak (75% copy) + epistemic mimicry. Contrast với code escape-zero. Negative sạch, viết được làm pilot.
 - [[syn_implementation_status]] — **status + roadmap (2026-05-29)**. Cloud kickoff milestone (proof-of-mechanism, loss≠0 trên abc387_a), SDPO mechanism trace (reprompt_template config arg, Path A/B distillation), divergence verl→TRL, 4-phase forward plan.
 
 ## Sources (7)
@@ -35,7 +38,7 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[ent_olmo3_7b_instruct]] — secondary model (chemistry 6× speedup result).
 - [[ent_deepseek_distill_7b]] — high-reasoning checkpoint, primary test model của Kim et al.
 
-## Concepts (10)
+## Concepts (11)
 
 - [[con_rich_feedback]] — textual / structured training signal vượt khỏi scalar reward.
 - [[con_self_teacher]] — model conditioned on feedback làm internal teacher (fixed vs moving regime).
@@ -47,6 +50,7 @@ Catalog of all wiki pages. Read this first when answering queries.
 - [[con_uncertainty_suppression]] — hiện tượng SD suppress epistemic tokens. **Core RQ2.**
 - [[con_task_coverage]] — modulating factor: narrow OK, broad harmful.
 - [[con_sdpo_loss_mechanics]] — derivation KL/gradient/IS/EMA của SDPO loss. Formal mechanism cho RQ1/RQ2 ablations.
+- [[con_teacher_first_judge]] — ⭐ **method idea của advisor (2026-06-14)**. Teacher-first + judge filter + few-shot teacher để tránh information leak. Code + math, ablation Option 1/2, nối Kim.
 
 ## Still planned (from thesis proposal)
 

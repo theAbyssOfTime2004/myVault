@@ -1,7 +1,7 @@
 ---
 type: index
 updated: 2026-06-14
-note_count: 59
+note_count: 60
 ---
 
 # AI / Deep Learning — Wiki Index
@@ -115,6 +115,10 @@ Legend: **[stub]** = < 500 B, **[empty]** = 0 B, **[VN]** = written in Vietnames
 ## 15. LLM Efficiency & Fine-tuning (1)
 
 - [[quantization_lora_qlora]] **[VN]** — byte/params, precision (FP32/FP16/BF16), quantization (PTQ/QAT, GPTQ/AWQ/NF4), LoRA, QLoRA; memory budgeting
+
+## 16. Inference & Deployment (1)
+
+- [[inference_engineering_roadmap]] **[VN]** — lộ trình Inference Engineer; ONNX/ORT/TensorRT, KV cache, PagedAttention/vLLM, continuous batching, speculative decoding, serving; memory-bound roofline
 
 ---
 

@@ -11,10 +11,10 @@
             "id": "e592feb1a0800245",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -202,8 +202,9 @@
   },
   "active": "e592feb1a0800245",
   "lastOpenFiles": [
-    "3 - Tags/Deep Learning.md",
     "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora.md",
+    "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient.md",
+    "3 - Tags/Deep Learning.md",
     "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer).md",
     "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques.md",
     "30_Knowledge_Base/AI_DeepLearning/PyTorch Data Pipeline.md",
@@ -237,7 +238,6 @@
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.7dd0da80517e",
     "10_Projects/14_Thesis_SDPO/wiki/sources/src_trl_sdpo_sdft_docs.md",
     "10_Projects/14_Thesis_SDPO/wiki/index.md.tmp.22428.8b82fe8c082a",
-    "10_Projects/14_Thesis_SDPO/wiki/sources/src_youtube_hubotter_shenfeld_discussion.md",
     "99_System/Assets/Images/Pasted image 20260519151613.png",
     "99_System/Assets/Images/Pasted image 20260519115758.png",
     "99_System/Assets/Images/Pasted image 20260411180330.png",

@@ -155,3 +155,115 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
   - [ ] Implement TTT wrap loop, test weight persistence
   - [ ] Define 7 templates (still blocker cho RQ1)
 
+## [2026-06-14] experiment+concept | RQ1 template pilot + advisor's teacher-first idea
+
+- **RQ1 pilot (code, Qwen3-4B, A100):** added `--reprompt_template` presets (T1/T2/T5/T6) to `07_discovery_curve.py`, pushed. Ran 3 templates × idx19(easy)/idx23(medium) × 1 seed = 6 runs, all IMPROVED.
+  - Tentative signal: T5_reasoning yếu nhất ở cả 2 bài/2 metric; T1≈T2. **1 seed → chưa kết luận**, cần seeds. idx19 ceiling effect (base mean 0.906) → ít discriminate; idx23 informative hơn.
+  - Confirmed: flat-reward warning xuất hiện đúng ở near-ceiling steps (variance = 0 → GRPO advantage collapse).
+- **Created: [[con_teacher_first_judge]]** — method idea advisor đề xuất 2026-06-14. Teacher-first: teacher sinh N trajectory → judge/verifier lọc good/bad → few-shot good (Option 2) hoặc good+bad+label (Option 1) vào prompt teacher để steer → student học KL trên y_good. Mục tiêu: tránh information leak (Kim degradation).
+- **Verl verifier check:** `feedback/math.py` là drop-in sibling của `feedback/code.py` → math wiring rẻ. Phát hiện: math reward **binary (0/1)** + "rich feedback" = đọc luôn đáp án → math là case leak cực đoan, lý tưởng để chứng minh + nối Kim.
+- Plan chốt: teacher-first chạy **code + math**; student-first math làm baseline đối chứng (cần cho claim Kim). Ablation Option 1 vs 2 = contrastive vs positive = leak vs no-leak.
+- Updated: `wiki/index.md` (concepts 10→11).
+- Key takeaway: thesis từ empirical-thuần (RQ1 template) thêm **method contribution** (teacher-first anti-leak) — đúng hướng advisor muốn. Rủi ro: 3 trục mới (method + math + RQ2 metric) chồng lên 4 tuần → ưu tiên P0 code teacher-first.
+
+## [2026-06-14] spec | teacher-first implementation spec → Cursor handoff
+
+- Created: [[syn_teacher_first_impl_spec]] — spec cho `09_teacher_first.py` (custom loop, không dùng SDPOTrainer). Components: teacher_generate (few-shot good/bad), filter_trajectories (verifier + difflib similarity), teacher_first_step (KL reverse top-k, stopgrad teacher, căn token y_good), main loop (good_pool tích lũy, cold-start handling).
+- Updated: `wiki/index.md` (synthesis 4→5).
+- 2 quyết định treo cho Cursor surface: (1) reference_text cho code (LCBv6 có solution field không? → in row.keys()), (2) trl loss_utils có KL tái dùng không.
+- Flow: Claude viết spec → user đưa Cursor implement → Claude review (checklist mục 7: token alignment, stopgrad, few-shot không lọt eval, cold-start).
+- Key takeaway: P0 = code teacher-first, idx23, good_only, difflib similarity. P1 = good_bad ablation. P2 = math.
+
+## [2026-06-14] experiment | teacher-first P0 first result (idx23) — pipeline verified, beats student-first (1 seed)
+
+- `09_teacher_first.py` ran end-to-end on Colab A100 (Qwen3-4B, idx23, T2, good_only, best_in_batch, 15 steps, seed 0). 24 min, peak 13.8 GB, no crash.
+- **Pipeline verified:** KL-sanity `KL(token-mean)=0.200` (>0, finite); token alignment correct (student_prefix=644, teacher_prefix=1617, both slices L=469 -> same y_good positions); stopgrad/filter/pool/cold-start all functioning.
+- **Result (teacher-first):** pass_rate 0.500 -> **1.000** (Δ+0.500), mean 0.819 -> **1.000** (Δ+0.181). VERDICT IMPROVED.
+- **vs student-first baseline (07, idx23 T2):** 0.500->0.750 (+0.250), 0.819->0.909 (+0.091). Teacher-first ~**doubled** both deltas; even beat student-first's best template (T1, +0.375 pass).
+- **Caveats (do NOT overclaim):** (1) 1 seed, 1 problem, eval n=8. (2) NOT compute-matched — teacher_n=10 -> ~2.5x generations vs 07's num_generations=4; advantage may be partly "more samples" (-> RQ3/CTC). (3) Fast convergence: from step 2 batch_r=1.0, mean_sim≈0.9, n_good stuck at 1 (diversity collapse) -> anti-copy filter barely exercised; idx23 too easy. (4) greedy unchanged 1.0->1.0 -> gain is reliability, not discovery.
+- Bugs fixed en route: wrong-version import (`SelfDistillationMixin` -> `trl.experimental.sdpo.loss_utils.compute_topk_self_distillation_loss`, 1.6.0 API); dangling `k` -> `kl_topk` in sanity print; `apply_chat_template(return_tensors="pt")` returns BatchEncoding -> render `tokenize=False` then `tokenizer(text)`.
+- Next: (1) `08_frontier_scan` to find a real frontier problem (pass ~0.15-0.45, doesn't converge at step 2); (2) both arms × 2 seeds there; (3) log total generations -> CTC for fair compute comparison. Then Option 1 (good_bad) ablation + math P2.
+
+## [2026-06-16] experiment | MATCHED comparison idx39 (hard) — teacher-first weakly dominates student-first
+
+- **Setup:** frontier scan picked idx39 (abc393_d, hard, base pass≈0.1). Ran BOTH arms × **4 seeds** × **eval_samples=16** on **L4** (Qwen3-4B, 15 steps, T2). PRE-eval is identical per seed across arms (same base+seed) → clean matched comparison.
+- **Result (POST pass_rate):**
+  - seed0: PRE 0.000 → TF **0.438** / SF 0.188
+  - seed1: PRE 0.000 → TF 0.062 / SF 0.000
+  - seed2: PRE 0.062 → TF 0.125 / SF 0.125
+  - seed3: PRE 0.188 → TF 0.062 / SF 0.062
+  - **Mean POST: TF 0.172 vs SF 0.094 (~1.8×); mean Δ: TF +0.109 vs SF +0.031 (~3.5×).**
+- **Verdict:** teacher-first **≥ student-first on ALL 4 seeds**, strictly > on 2/4 (paired diff +0.250/+0.062/0/0, never negative). NOT a wash, NOT noise — consistent directional signal. = **core positive result** (weak dominance).
+- **Two honest findings:**
+  1. **seed3 (high PRE 0.188) → BOTH arms degrade** to 0.062, identically → over-distillation when base already decent, **affects both arms equally** (not TF-specific). Confirms "start-high → degrade" pattern.
+  2. Earlier "student-first stalls at 0" (eval 8) was eval noise; with eval16/4seed student-first does improve slightly on some seeds but **always ≤ TF**.
+- **Caveats:** single problem; gains modest + noisy (per-seed diffs ~1 eval sample); strongest signal = mean + seed0. → need **≥1 more hard problem** to confirm "TF ≥ SF" generalizes.
+- **Method confirmed on L4** (~13-18 min/run; teacher-first heavier). eval_samples=16 + 4 seeds = the rigor floor that distinguished signal from the earlier eval-8 noise.
+- Next: 1 more hard problem (both arms × 4 seed × eval16) to confirm generalization; ask advisor whether his POC was train-time (would reconcile test-time instability as a regime difference).
+
+## [2026-06-16] experiment | idx12 matched + 2-problem conclusion — teacher-first weakly dominates (REPLICATED)
+
+- idx12 (abc389_b, nhãn "easy" nhưng model pass≈0.12 → model-hard; "frontier" tính theo MODEL pass-rate, không phải nhãn contest). Both arms × 4 seed × eval16, L4, T2. PRE khớp từng seed.
+- **idx12 POST pass:** TF = 1.000/1.000/1.000/1.000 (mean 1.000); SF = 0.938/0.500/1.000/0.938 (mean 0.844). TF ≥ SF cả 4 seed, strictly > 3/4 (seed1: TF 1.0 vs SF 0.5). TF cũng **variance thấp hơn** (1.0 đều vs SF dao động).
+- **TỔNG 2 bài × 4 seed = 8 matched comparisons:** TF ≥ SF **8/8**, strictly > **5/8**, tie 3/8, **TF < SF: 0/8**. Sign test thô (5 thắng / 0 thua trên cặp không-hòa) → p≈0.03.
+- **CORE RESULT:** teacher-first weakly dominates student-first SDPO ở test-time discovery — ≥ mọi seed/bài, thường hơn, không bao giờ tệ hơn, ổn định hơn. Pattern **replicated qua 2 bài độc lập** → refute "kết quả ngẫu nhiên". Cơ chế: TF (off-policy-leaning) bơm solution đúng từ teacher → student học chắc/ổn hơn SF (on-policy, kém ổn khi rollout hiếm trúng).
+- Caveat: weak dominance (nhiều hòa, margin nhỏ); 2 bài / 4B / T2 only; TF ~2.5× generation (CTC caveat); idx12 fixable-bug → margin nhỏ; idx39 harder → SF yếu hơn.
+- Updated [[con_teacher_first_judge]] với idx12 matched + tổng 2 bài.
+- Next options: (a) write-up core result; (b) RQ1 template ablation (T1/T5 vs T2) trên 2 arm; (c) more problems để tăng power; (d) math P2. Vẫn nên hỏi advisor POC regime.
+
+## [2026-06-16] synthesis | core result write-up → syn_core_result.md
+
+- Created [[syn_core_result]] — bản nháp Results: câu hỏi, setup, 2 bảng matched (idx39+idx12), tổng 8/8, kết luận weak-dominance, cơ chế on/off-policy + SDFT positioning, qualitative (discovery, collapse), limitations, hướng mở rộng.
+- Updated `index.md` (synthesis 5→6).
+- Dùng làm base để viết Method+Results thesis + mang đi bàn advisor.
+
+## [2026-06-16] experiment | judge ablation (difflib vs LLM) — judge-invariant
+
+- Implemented LLM-judge: provider chain groq(`llama-3.3-70b`) primary + gemini fallback + difflib final (cache, retry, key-filter). **Gemini free tier = 20 req/DAY** (quá thấp — tôi ước lượng sai trước đó) → groq primary. Ran good_only × {idx39,idx12} × 4 seed, all clean (judge_fallbacks=0).
+- **mean POST pass (good_only):** idx39 — SF 0.094, TF-difflib 0.172, TF-LLM 0.266. idx12 — SF 0.844, TF-difflib 1.000, TF-LLM 0.984.
+- **Conclusion: judge-invariant** — TF ≥ SF cả 2 bài cả 2 judge; difflib vs LLM cho POST ~như nhau. NHƯNG hai judge dán nhãn khác rõ: LLM (semantic) gọi ít copy hơn difflib (string≥0.9) → idx12 LLM n_good tới 10 vs difflib n_good=1. Labeling khác, outcome không đổi.
+- rq luôn 4–5 (gemini+groq) + thinking off → judge = semantic copy-detector, KHÔNG đo reasoning.
+- good_bad (Option 1) chưa chạy — optional, kỳ vọng cũng invariant.
+- Updated [[con_teacher_first_judge]]. Recommendation: ablation đủ, chuyển sang viết.
+
+## [2026-06-16] experiment | Option 1 (good_bad) judge LLM — Option 1 ≈ Option 2
+
+- Ran good_bad × {idx39,idx12} × 4 seed, judge LLM-groq, T2, eval16, matched PRE (judge_fallbacks=0 cả 8 run).
+- **mean POST pass (good_bad·LLM):** idx39 **0.250**, idx12 **1.000**.
+- **So Option 1 vs Option 2 (good_only·LLM):** idx39 0.250 vs 0.266 (chênh trong noise), idx12 1.000 vs 0.984 (good_bad nhỉnh cực nhẹ). → **Option 1 ≈ Option 2: mối lo "leak" của advisor KHÔNG xuất hiện trên data này.** Thêm exemplar bad/copy vào few-shot teacher không đổi outcome.
+- Matched vs SF: **7 thắng / 1 hòa / 0 thua** (idx39 thắng cả 4 — matched-win sạch nhất trên bài khó; idx12 thắng 3 + hòa 1). Sign test thô p ≈ 0.5⁷ ≈ 0.008. Vẫn weak dominance (n=2 bài).
+- Updated [[syn_core_result]] (thêm section ablation Judge × Option). **Ablation phase ĐÓNG. Chuyển sang viết.**
+
+## [2026-06-17] experiment | hard-frontier matched (idx64, idx77) — escape-zero trap
+
+- Frontier scan idx0-90 (lưu scan.json): frontier mới = [46,58,59,64,69,77,78]. Chọn 2 bài hard pass-thấp (idx64 abc397_e 0.25, idx77 abc399_f 0.25) chạy matched SF+TF × 4 seed eval16.
+- **idx64** (judge LLM-groq, sạch): SF TB 0.047 vs TF TB 0.422 — TF thắng 4/4, escape-zero seed1+seed2 (SF kẹt 0, TF thoát 0.375/0.062). Ca mạnh nhất (~9×).
+- **idx77** (judge difflib, groq cạn TPD nên chuyển difflib): SF TB 0.203 vs TF TB 0.344 — TF thắng 3/1 hòa. Không escape-zero (SF không kẹt 0 ở bài này).
+- **Tổng 3 bài hard (+ idx39 cũ): TF > SF cả 3, 9 thắng/3 hòa/0 thua, p≈0.002, escape-zero 3 instance.** Claim nâng từ "weak dominance" → "TF thoát flat-reward trap trên hard".
+- **Bài học vận hành**: groq 100K TPD ≈ chỉ ~4 TF-run/ngày → idx64 LLM đã ăn hết budget; idx77 buộc difflib. Re-run idx64 LLM cho số khác (LLM judge non-deterministic) → KHÔNG đè data cũ. difflib là lựa chọn reproducible cho bảng chính.
+- Updated [[syn_core_result]] (section hard-frontier extension).
+
+## [2026-06-24] experiment | Math pilot AIME2026 (Gemma-4-E4B, thinking ON) — clean run, KHÔNG escape, judge bắt leak
+
+- Migrate sang **Modal A100-80GB** (Colab CU hết). Hạ tầng giải quyết: `.spawn()`+`--detach` (miễn nhiễm crash máy), `PYTHONUNBUFFERED=1`, full `requirements.txt`. Bug fix: `get_reference_text` nhận int answer; judge `TimeoutError` không catch → crash (cap candidate `[-10000:]` + timeout 180s); 8192→**16384** chống truncate (8192 cụt → mất `\boxed` → score 0 giả).
+- **Frontier scan 30 bài AIME2026**: frontier=[8,11,21,25], too-hard=15 bài, ceiling nhiều. Độ khó rải rác.
+- **Run idx9 (aime2026_10, too-hard, đáp án 156)** — clean run TF math đầu tiên (judge chạy trọn 3 step + POST, không crash): **PRE 0 → POST 0, KHÔNG escape**. Boxed 148→168 (đều sai). `n_good=1 n_bad=3` mỗi step, `judge_calls=4`.
+- **Phát hiện chính**: (1) judge bắt leak — teacher leaked-answer → **75% trajectory is_copy=true** (chỉ khẳng định 156, không derive); (2) idx9 beyond-capability (thinking-đầy-đủ vẫn sai → không phải thiếu compute); (3) "too hard" ≠ regime escape-zero của code (code=reachable, AIME too-hard=beyond-capability); (4) epistemic: satisficing số đẹp, suppression, self-correction theater, **TTT đổi form ≠ substance** (POST ngắn hơn + tự tin hơn nhưng vẫn sai = vegetative mimicry).
+- Created [[syn_math_pilot]]. **Negative SẠCH + judge-leak finding → viết được làm pilot/contrast với code.**
+- Next: thử frontier idx8 (regime đúng) HOẶC chốt report. Budget còn ~$50.
+
+## [2026-06-24] experiment | Math idx8 replication — 2/2 bài AIME KHÔNG escape, chốt pilot
+
+- idx8 (aime2026_9, đáp án 29): chạy trọn 4.1h (sau khi thêm `retries=2` chống preempt + monitoring sạch — crash trước là preempt/cancel ngắt quãng). **PRE 0 → POST 0, NO IMPROVEMENT.** PRE boxed 40201, POST boxed 17 (sai). Nhãn "frontier" từ scan n=2 sai — thực tế PRE=0/4 = beyond-capability.
+- **Nuance**: POST idx8 rigorous HƠN (casework đếm, p=4/13) — ngược idx9 (POST lười shortcut 2K). Cả hai sai → TTT đổi form không đổi substance, **replicated 2 bài**.
+- **Kết luận math pilot (idx9 + idx8, 2/2 KHÔNG escape)**: teacher-first cần *reachable capability* để escape (như code), không escape được khi teacher chỉ có đáp án trên bài beyond-capability → chỉ copy (judge bắt ~75%). Updated [[syn_math_pilot]].
+- **DỪNG đốt AIME.** Report = code escape-zero (lõi) + math pilot (judge-leak + epistemic mimicry + contrast). Budget còn ~$35.
+
+## [2026-06-25] experiment | RQ1 template ablation (SF/code, Modal) — T5 > T2 > T1 trên bài hard
+
+- Smoke code-path trên Modal OK (sandbox execute, score non-trivial, ~20 phút/run Qwen-4B/15step). Dùng $20 dư cho RQ1.
+- RQ1: SF (07, Qwen3-4B thinking-off, 15step eval16) × {T1_minimal, T2_standard, T5_reasoning} × {idx12, idx39} × 2 seed = 12 run (~$8). 1 lệnh chained, single-quote bash loop.
+- **Kết quả POST pass@16**: idx39 (hard) **monotone T5(0.13) > T2(0.06) > T1(0.03)**, T5 ổn định 2 seed; idx12 (easy) T2≈T5 bão hòa 0.97, T1 tụt 0.66. → **template formulation CÓ ảnh hưởng, rõ nhất ở bài khó** (reprompt ép reasoning > anchor > tối giản). **RQ1 (titular) giờ có data.**
+- Caveat: n=2 seed, số tuyệt đối nhỏ → directional. SF arm; chưa probe TF×template.
+- Updated [[syn_core_result]] (section RQ1). Budget còn ~$12. **Thí nghiệm đóng — chuyển sang viết.**
+
