@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/14_Thesis_SDPO/report/00_references.md",
+                "file": "10_Projects/14_Thesis_SDPO/report/ch3_method.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "00_references"
+              "title": "ch3_method"
             }
           }
         ]
@@ -207,10 +207,10 @@
   },
   "active": "e592feb1a0800245",
   "lastOpenFiles": [
+    "10_Projects/14_Thesis_SDPO/report/00_references.md",
     "10_Projects/14_Thesis_SDPO/report/ch3_phuong_phap.md",
     "10_Projects/14_Thesis_SDPO/report/ch3_method.md",
     "10_Projects/14_Thesis_SDPO/report/ch3_phuong_phap.md.tmp.18032.5f19e15c13d7",
-    "10_Projects/14_Thesis_SDPO/report/00_references.md",
     "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora.md",
     "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient.md",
     "3 - Tags/Deep Learning.md",
