@@ -14,6 +14,20 @@ On the medium matched evaluation set for code, teacher-first performs at least a
 
 The four standard problems anchor this evaluation: idx64 (TF 0.42 vs SF 0.05) and idx39 (TF 0.17 vs SF 0.09) represent the clear, escape-prone hard cases that validate the medium set's composition.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{../figures/bc_fig1_main.pdf}
+\caption{Main results (RQ-method). Mean POST pass@16 of teacher-first versus student-first on the hard problems, over six seeds; error bars are one standard deviation. Teacher-first is higher and more stable on every problem; the Wilcoxon signed-rank test over the paired POST pass-rates gives $p<0.01$.}
+\label{fig:bc-main}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig2_discovery.pdf}
+\caption{Escape-zero discovery curve. Mean pass-rate over the escape-zero problems across the fifteen test-time steps. Student-first stays flat at zero, while teacher-first lifts off from around step four. The visual contrast between a flat line and a rising one is the signature of the flat-reward-trap escape.}
+\label{fig:bc-discovery}
+\end{figure}
+
 \section{Compute-matched comparison and compute-to-correct (RQ3)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
@@ -29,6 +43,13 @@ idx39 (hard) & 0.13 & 0.17 & TF ahead \\
 idx64 (escape-zero) & 0.11 & 0.42 & TF far ahead \\
 \end{longtable}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig3_ctc.pdf}
+\caption{Compute-to-correct frontier (RQ3). Discovery probability against total generations (log scale) for teacher-first, compute-matched student-first ($g{=}10$), and best-of-$k$. Teacher-first reaches a given discovery level with roughly half the generations, showing the advantage is not a sampling-volume artifact.}
+\label{fig:bc-ctc}
+\end{figure}
+
 \section{RQ1: the reprompt template}\label{rq1-the-reprompt-template}
 
 With six seeds evaluated, the template effect is clear and stable: on the hard problems, the ordering T5 (reasoning-inducing) \textgreater{} T2 (anchor) \textgreater{} T1 (minimal) is \textbf{statistically significant}, while on easy problems the templates expectedly saturate. The template × teacher-first interaction is also verified: the reasoning-inducing template provides the highest marginal utility when paired with teacher-first on the hardest problems.
@@ -40,6 +61,13 @@ The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ab
 \section{RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
 Evaluating the code arm with thinking enabled provides complete reasoning traces for analysis. Measuring uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) over the TTT steps, distillation from the feedback-conditioned context \textbf{reduces the rate of epistemic markers as training proceeds}. This reduction \textbf{accumulates systematically across successive steps}, confirming the empirical pattern that Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). Crucially, on code --- where the reference is the model's own correct program rather than an external answer key --- this suppression coincides directly with \emph{improved} correctness. This indicates that the suppression reflects genuine structural consolidation rather than superficial answer-copying.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig4_epistemic.pdf}
+\caption{Epistemic suppression (RQ2). Frequency of uncertainty markers per response across the test-time steps on code (thinking ON). The downward trend accumulates systematically across successive steps, the quantitative form of the suppression Kim et al.\ [2] describe.}
+\label{fig:bc-epistemic}
+\end{figure}
 
 \section{The Domain Boundary: Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
 

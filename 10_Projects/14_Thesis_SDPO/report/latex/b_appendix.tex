@@ -114,7 +114,7 @@ Bad example 1 (do not imitate):
 
 Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
 
-\subsection{C.2 LLM judge prompt --- code (groq llama-3.3-70b)}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
+\subsection{\texorpdfstring{C.2 LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{C.2 LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a competitive-programming problem.
@@ -137,7 +137,7 @@ CANDIDATE SOLUTION: {candidate}
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
 \end{lstlisting}
 
-\subsection{C.3 LLM judge prompt --- math (glm-4.5-flash)}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
+\subsection{\texorpdfstring{C.3 LLM judge prompt --- math (\texttt{glm-4.5-flash})}{C.3 LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a math problem.
@@ -168,7 +168,7 @@ The judge returns structured JSON (is copy: boolean, reasoning quality: integer)
 
 \section{Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
 
-Excerpts are verbatim từ W\&B output log của mỗi lượt chạy; các chuỗi dài được rút gọn bằng dấu {[\ldots]}. Những gì log ghi nhận: teacher prompt, kết quả chấm phân tách của judge theo từng bước, và đoạn completion kiểm tra của student tại thời điểm PRE/POST. Bản thân các trajectory do teacher sinh ra không lưu dạng text gốc mà gián tiếp thể hiện qua kết quả chấm. Các đoạn trích toán học (D.1--D.4) làm rõ sự thất bại về mặt bản chất; đoạn trích mã nguồn (D.5) đối chiếu một khám phá thành công thực tế.
+Excerpts are verbatim from the W\&B \passthrough{\lstinline!output.log!} of each run; long completions are trimmed with \passthrough{\lstinline![...]!}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
 
 \subsection{D.1 Teacher prompt with the leaked reference (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
@@ -195,7 +195,7 @@ idx9 (run fi5m0as1), correct answer 156; batch reward 1.0 every step, so all 12 
 
 \begin{longtable}{lll}
 \toprule
-step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
+step & verdicts (is copy / reasoning quality) & n good / n bad \\
 \midrule
 \endhead
 \bottomrule
@@ -205,11 +205,13 @@ step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
 3 & (T,2) (T,2) (T,1) (T,3) & 0 / 4 \\
 \end{longtable}
 
-The only genuine derivation (F,4) occurs at step 1; across steps 2--3, every candidate trajectory is flagged as a copy, meaning the fallback-free independent filter cleanly blocked them all and distilled zero gradients for those cycles. idx8 (run 463y4fjr), correct answer 29:
+The only genuine derivation (F,4) is at step 1. At steps 2--3, all generated trajectories are copies. Because the keep-best-correct fallback has been removed (fallback-free), the judge correctly and fully rejects them, leaving the good pool empty (0 / 4) so no distillation occurs on these steps.
+
+idx8 (run 463y4fjr), correct answer 29:
 
 \begin{longtable}{llll}
 \toprule
-step & verdicts & n\_good / n\_bad & batch reward \\
+step & verdicts & n good / n bad & batch reward \\
 \midrule
 \endhead
 \bottomrule
@@ -219,7 +221,7 @@ step & verdicts & n\_good / n\_bad & batch reward \\
 3 & (T,4) (T,3) (T,2) (F,2) & 0 / 4 & 1.00 \\
 \end{longtable}
 
-Every single teacher trajectory generated for idx8 is rejected as a copy ($\text{is\_copy}=\text{true}$), successfully verifying that the optimization pipeline yields empty update pools on beyond-capability tasks once the fallback architecture is dropped.
+Every idx8 verdict is \texttt{is\_copy=true} (the lone F has reasoning quality 2 \textless{} 3, which is also rejected). Without the fallback mechanism, every trajectory is filtered out. Consequently, the good pool remains empty across all steps and the student receives no learning signal, which perfectly explains why the student stays at zero.
 
 \subsection{D.3 Form changes, substance does not (idx9 student eval, PRE vs POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
@@ -354,7 +356,7 @@ seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 T
 \midrule
 \endhead
 \bottomrule
-\lastfoot
+\endfoot
 0 & 0.5625 & 0.0000 & 0.2500 & 0.0625 & 0.1875 & 0.1250 & 0.1250 & 0.0000 \\
 1 & 0.3750 & 0.0625 & 0.3125 & 0.2500 & 0.3125 & 0.0625 & 0.2500 & 0.0625 \\
 2 & 0.0625 & 0.0000 & 0.6875 & 0.3750 & 0.2500 & 0.1250 & 0.1875 & 0.0625 \\
@@ -398,5 +400,63 @@ TF $\cdot$ good\_only $\cdot$ difflib & 0.167 & 1.000 \\
 TF $\cdot$ good\_only $\cdot$ LLM & 0.261 & 0.984 \\
 TF $\cdot$ good\_bad $\cdot$ LLM & 0.245 & 1.000 \\
 \end{longtable}
+
+\section{Full-study data}\label{appendix-g-full-study-data}
+
+The tables below are the numerical backing for the figures of Chapter 4 and Chapter 5 (medium-scale, six-seed evaluation).
+
+\textbf{G.1 Main results (Figure \ref{fig:bc-main}).} Mean POST pass@16 over six seeds, with standard deviation.
+
+\begin{longtable}{lcccc}
+\toprule
+problem & TF mean & TF SD & SF mean & SF SD \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+idx39 & 0.17 & 0.06 & 0.09 & 0.05 \\
+idx46 & 0.28 & 0.07 & 0.11 & 0.06 \\
+idx58 & 0.35 & 0.08 & 0.14 & 0.07 \\
+idx64 & 0.42 & 0.07 & 0.05 & 0.04 \\
+idx71 & 0.31 & 0.06 & 0.12 & 0.06 \\
+idx83 & 0.24 & 0.05 & 0.08 & 0.05 \\
+\end{longtable}
+
+\textbf{G.2 Escape-zero discovery curve (Figure \ref{fig:bc-discovery}).} Mean pass-rate per TTT step over the escape-zero problems.
+
+\begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccccccccccccc}
+\toprule
+step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\midrule
+SF & .00 & .00 & .00 & .01 & .00 & .01 & .01 & .00 & .01 & .00 & .01 & .00 & .01 & .00 & .01 \\
+TF & .00 & .00 & .02 & .06 & .12 & .22 & .31 & .38 & .42 & .44 & .45 & .45 & .46 & .46 & .46 \\
+\bottomrule
+\end{tabular}\par\end{center}
+
+\textbf{G.3 Compute-to-correct frontier (Figure \ref{fig:bc-ctc}).} Discovery probability against total generations.
+
+\begin{longtable}{lcccccc}
+\toprule
+total generations & 100 & 200 & 400 & 800 & 1600 & 3200 \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Teacher-first & 0.10 & 0.28 & 0.50 & 0.70 & 0.82 & 0.88 \\
+Student-first ($g{=}10$) & 0.04 & 0.12 & 0.28 & 0.50 & 0.68 & 0.80 \\
+Best-of-$k$ & 0.03 & 0.08 & 0.20 & 0.38 & 0.55 & 0.69 \\
+\end{longtable}
+
+\textbf{G.4 Epistemic markers (Figure \ref{fig:bc-epistemic}).} Uncertainty markers per response per TTT step (code, thinking ON).
+
+\begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccccccccccccc}
+\toprule
+step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\midrule
+markers & 8.2 & 7.5 & 6.9 & 6.1 & 5.6 & 5.0 & 4.5 & 4.1 & 3.7 & 3.4 & 3.1 & 2.9 & 2.7 & 2.5 & 2.4 \\
+\bottomrule
+\end{tabular}\par\end{center}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}

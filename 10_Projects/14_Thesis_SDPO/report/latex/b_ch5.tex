@@ -10,6 +10,13 @@ The critical extension established by this full study is that this advantage \te
 
 By evaluating the pipeline across two fundamentally different domains—LiveCodeBench v6 for code and AIME 2026 for math—the experimental results validate a sharp architectural boundary: escape from the flat-reward trap occurs precisely when the privileged context encodes an in-reach \emph{method} and not when it encodes only a static \emph{value}. This empirical contrast elevates the value-versus-procedure hypothesis to a core structural boundary governing execution-guided self-distillation.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{../figures/bc_fig5_boundary.pdf}
+\caption{The value-versus-procedure boundary. When the privileged reference encodes an in-reach method (a correct program), distillation installs a procedure that generalizes and the model escapes; when it encodes only a value (an answer-only math reference), the teacher can only copy and the model does not escape.}
+\label{fig:bc-boundary}
+\end{figure}
+
 In the programming domain, the model's output is intrinsically a procedure—a functional program capable of generalizing across unseen test instances. The execution feedback (compilation errors, runtime outputs, and multi-case evaluation metrics) provides a rich, multi-dimensional learning signal that allows the teacher policy to locate and rectify algorithmic flaws. In contrast, the mathematical feedback provided by the AIME pilot is limited strictly to a static numeric value without any step-by-step derivation. 
 
 When the unconditioned base model cannot independently discover the correct solution, this value-only feedback forces the teacher into a shallow copy-regime. Because the reference contains no underlying procedure or worked rationale, the self-distillation process stalls, leaving the student stuck at zero. This explicitly demonstrates that rich context degrades into answer-copying unless it carries a structural method that the student can internalize.
