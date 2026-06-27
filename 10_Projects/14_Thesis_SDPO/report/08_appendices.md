@@ -99,17 +99,13 @@ The teacher prompt is `question + few-shot block + feedback + trailing instructi
 Here are correct, independent example solutions:
 
 Correct example 1:
-```python
-<good trajectory, post-think solution only>
-```
+    [good trajectory, post-think solution only, fenced as a python block]
 
-[good_bad option only:]
+[good_bad option only — appended after the good examples:]
 Here are INCORRECT or copied attempts to avoid:
 
 Bad example 1 (do not imitate):
-```python
-<bad / copied trajectory>
-```
+    [bad / copied trajectory, fenced as a python block]
 ```
 
 Under `good_only` (Option 2) only the "Correct example" exemplars appear; under `good_bad` (Option 1) the "Bad example" block is appended, which is what re-introduces reference-like content (§3.3.4).
