@@ -1759,6 +1759,12 @@
       "degree": 10
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/report/00_abstract",
+      "title": "00_abstract",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/report/ch4_experiments",
       "title": "ch4_experiments",
       "group": "projects",
@@ -1789,8 +1795,26 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/report/ch2_related_work",
+      "title": "ch2_related_work",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/ch7_conclusion",
+      "title": "ch7_conclusion",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/report/ch5_discussion",
       "title": "ch5_discussion",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/08_appendices",
+      "title": "08_appendices",
       "group": "projects",
       "degree": 0
     },
@@ -1803,6 +1827,12 @@
     {
       "id": "10_Projects/14_Thesis_SDPO/report/planning/ch5_argument_blueprint",
       "title": "ch5_argument_blueprint",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/figures/README",
+      "title": "README",
       "group": "projects",
       "degree": 0
     },
@@ -6610,7 +6640,7 @@
     }
   ],
   "stats": {
-    "node_count": 463,
+    "node_count": 468,
     "link_count": 957
   }
 }
