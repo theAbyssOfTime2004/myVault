@@ -106,6 +106,23 @@ where $\mathcal{G}$ is the good pool (§3.3.3). Conceptually, teacher-first sits
 
 Because `SDPOTrainer` hard-codes the student-first rollout internally, teacher-first is implemented as a **custom training loop** (script `09_teacher_first.py`) that reuses the helpers of `07` (`build_privileged_context`, `build_dynamic_feedback`, `evaluate_solution`, evaluation).
 
+```mermaid
+flowchart TD
+    C[privileged context c: feedback + few-shot] --> T[self-teacher samples N trajectories]
+    T --> V[verifier: correctness score]
+    V --> J[judge: is_copy / independence]
+    J --> GP[good pool: correct AND independent]
+    J --> BP[bad pool: copies reference]
+    GP --> FS[few-shot block: good_only or good_bad]
+    BP -. good_bad only .-> FS
+    FS --> T
+    GP --> KL[KL distill student toward y_good]
+    KL --> U[update theta]
+```
+
+**Figure 3.2**
+*The teacher-first step.* The self-teacher generates under the privileged context, a verifier and a judge filter trajectories into a good pool, the good (and optionally bad) exemplars steer the next teacher rollout in-context, and the student is distilled only toward the filtered good trajectories. The few-shot loop trains no teacher weights.
+
 ### 3.3.2 Teacher rollout and privileged context
 
 At each step the teacher samples $N$ trajectories (`teacher_n`) at high temperature for diversity:
@@ -190,6 +207,20 @@ The reprompt template determines the content of $c$ that the teacher sees, which
 | T5 | Reasoning-inducing | Instruction framing (diagnostic) | T2 + "First, identify root cause, then fix." |
 | T6 | First-person | Instruction framing (reframe) | "I attempted this and got X. Let me reconsider." |
 | T7 | Cumulative history | Memory depth | all N prior attempts, not just the latest |
+
+```mermaid
+flowchart TD
+    A[T2 standard: anchor]
+    A --- D1[Dim 1: information content]
+    A --- D2[Dim 2: instruction framing]
+    A --- D3[Dim 3: memory depth]
+    D1 --> T1[T1 minimal] & T3[T3 verbose]
+    D2 --> T4[T4 JSON] & T5[T5 reasoning] & T6[T6 first-person]
+    D3 --> T7[T7 cumulative]
+```
+
+**Figure 3.3**
+*The reprompt-template design space.* Each template varies one dimension away from the T2 anchor: information content (T1, T3), instruction framing (T4, T5, T6), or memory depth (T7). The experiments probe T1/T2/T5 (§4.3).
 
 The three dimensions and their grounding:
 

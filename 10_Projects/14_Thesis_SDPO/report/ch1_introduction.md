@@ -24,10 +24,15 @@ The setting is test-time training (TTT): one hard problem, a verifiable reward, 
 
 ## 1.3 Research questions
 
+Two primary questions drive the study:
+
 - **RQ-method.** At test time, does a teacher-first organization, which distills filtered teacher-generated trajectories, beat the student-first baseline, which distills the student's own failed rollout, at discovering solutions to hard code problems?
 - **RQ1.** Does the reprompt-template formulation of the execution feedback affect discovery, and in which regime?
-- **RQ2.** Does self-distillation from rich context suppress epistemic verbalization at test time? This question is examined only in a limited pilot, since the code runs produce no reasoning trace.
-- **RQ3.** How does discovery trade off against compute? This is addressed at the level of outcome here and left largely to future work.
+
+Two secondary, exploratory questions situate the work within the wider self-distillation literature:
+
+- **RQ2 (exploratory).** Does self-distillation from rich context suppress epistemic verbalization at test time? Only a limited math pilot bears on this, since the code runs produce no reasoning trace.
+- **RQ3 (exploratory).** How does discovery trade off against compute? This thesis quantifies the compute overhead of teacher-first and identifies the compute-matched comparison a full answer requires; the compute-to-correct Pareto itself is left to future work (§4.2.5, §6.2.4).
 
 ## 1.4 Contributions
 

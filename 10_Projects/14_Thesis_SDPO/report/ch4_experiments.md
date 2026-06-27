@@ -70,6 +70,18 @@ Teacher-first is **≥ student-first on all 8 seeds, strictly better on 5, never
 
 A control observation supports that the effect is real rather than an artifact of TF being more aggressive. On idx39 seed 3, where PRE is already high (0.188), *both* arms degrade identically. This is over-distillation when the base starts strong, and it applies to both arms equally, so it is not a TF-specific failure.
 
+The aggregate means are shown in Figure 4.1 and the per-seed trajectories in Figure 4.2.
+
+![Figure 4.1](figures/fig_4_1_main_result.png)
+
+**Figure 4.1**
+*Mean POST pass@16, teacher-first versus student-first.* Dots are per-seed values for idx39 and idx12 ($n=4$); idx64 and idx77 show means only, as per-seed values were not exported. Error bars are $\pm 1$ SD where available.
+
+![Figure 4.2](figures/fig_4_2_per_seed_slope.png)
+
+**Figure 4.2**
+*Per-seed PRE→POST change.* Each line is one seed. Teacher-first (solid) is at or above student-first (dashed) on every seed; teacher-first reaches 1.0 on all seeds of idx12 while student-first varies.
+
 ### 4.2.3 Hard-frontier escape-zero
 
 The main result is weak dominance. The sharper claim comes from extending the matched comparison to harder, lower-pass problems, to test the flat-reward-trap hypothesis directly: on-policy SF should stay stuck at zero where the bare student rarely rolls a correct attempt, while TF escapes because the teacher can generate a correct solution to distill.
@@ -85,6 +97,11 @@ Three findings. TF beats SF on all three hard problems and never loses; the crud
 
 Two honest caveats. idx39 appears in both §4.2.2 and this table, so the two groupings are not independent. And the judge differs across problems (idx64 uses the LLM judge, idx39/77 use difflib), which is acceptable only because §4.4 separately establishes judge-invariance.
 
+![Figure 4.3](figures/fig_4_3_escape_zero.png)
+
+**Figure 4.3**
+*Escape-zero instances.* On three seeds, student-first POST stays at 0 (or falls back to it) while teacher-first lifts off zero. Black marks are PRE (shared by both arms). The per-step 15-step discovery curve is pending log export.
+
 > **Claim, calibrated.** The contribution is not "TF wins by a small margin." It is: *teacher-first learns on hard problems where on-policy SDPO is caught in a flat-reward trap, the margin is large, and escape-zero is replicated.* The claim is bounded by n: 2–3 problems, one 4B model, template T2, and no compute matching (TF generates roughly 2.5× more, so it wins on outcome, not yet on compute).
 
 ### 4.2.4 Discovery curves and qualitative behavior
@@ -92,6 +109,12 @@ Two honest caveats. idx39 appears in both §4.2.2 and this table, so the two gro
 Beyond aggregate pass-rate, the runs show genuine discovery rather than confidence inflation. On idx12, greedy decoding moves 0.075 → 1.0; on idx39, 0.175 → 0.225. The model learns to solve problems it deterministically failed before. One concrete trace: idx12 base uses `math.factorial(X)` in the wrong direction, the feedback reports a runtime error, and the model learns to iterate to find N. In an exploratory run (idx29), the base calls `exit()` (unavailable in the sandbox), the feedback reports a `NameError`, and the model corrects it.
 
 Two further observations. On easy-to-fix exploratory problems (idx23, idx29 at eval-8), both arms solve almost equally, so differentiation is clearer on harder problems. And from around step 2 the teacher tends to converge (batch reward = 1.0, mean similarity ≈ 0.9, `n_good` → 1); when the base starts high, both arms can over-distill, consistent with the idx39 seed-3 control above.
+
+### 4.2.5 Compute considerations (RQ3, partial)
+
+The comparisons above are matched on seeds and on the step budget, but not on generations. Teacher-first draws `teacher_n=10` samples per step against student-first's four, roughly a 2.5× generation overhead, so the results establish an outcome advantage rather than a compute-fair one. Two observations bound what can be said. The discovery curves (§4.2.4) show teacher-first reaching a high pass-rate within the 15-step budget, and the escape-zero seeds show student-first failing across its own 60 generations (4 per step over 15 steps) while teacher-first escapes. This points to the *kind* of distilled trajectory, rather than raw sample volume, as the driver of the gap.
+
+The point is suggestive, not conclusive. Student-first was never run at teacher-first's generation budget, and no best-of-k baseline was measured at matched compute, so more student-first sampling cannot be ruled out as an alternative route to escape. A full answer needs a compute-to-correct frontier that holds total generations fixed and logs token and GPU-time cost; §6.2.4 sets this out as future work. RQ3 is therefore answered only in part here: the overhead is quantified and the missing comparison is identified, but the Pareto trade-off itself is not measured.
 
 ---
 
@@ -108,6 +131,11 @@ RQ1 probes the titular question directly. Holding the SF arm fixed (script 07, Q
 On the hard problem the ordering is monotone, **T5 > T2 > T1** (0.13 > 0.06 > 0.03), and T5 is stable across its two seeds (.125 / .125). A reasoning-inducing reprompt beats the plain anchor, which beats the minimal one. On the easy problem T2 and T5 saturate together near 0.97 while T1 drops to 0.66 (partly one unlucky seed).
 
 The template has an effect, and that effect is clearest on the hard problem where there is room to differentiate. This is directional evidence for RQ1, not a strong-power result: n = 2 seeds and the absolute counts are small. The probe is also on the SF arm only; the template × teacher-first interaction is left for future work (Chapter 6).
+
+![Figure 4.4](figures/fig_4_4_template.png)
+
+**Figure 4.4**
+*Reprompt-template effect on POST pass@16.* On the hard problem (idx39) the ordering is monotone T5 > T2 > T1; on the easy problem (idx12) T2 and T5 saturate. Directional only ($n=2$ seeds).
 
 ---
 
@@ -136,6 +164,11 @@ Option 1 (good_bad) feeds reference-like "bad" exemplars back to the teacher and
 
 good_bad ≈ good_only (idx39 0.250 vs 0.266; idx12 1.000 vs 0.984). Showing the teacher labeled "bad/copy" exemplars does **not** change the result, so the advisor's information-leak concern does not materialize on this data. This is the predicted leak-null for code (§3.5): the reference is best-in-batch plus public tests, not an author solution, so there is little to leak. Against SF, good_bad scores 7 wins / 1 tie / 0 loss (idx39 wins 4/4, cleaner than good_only); crude sign test $0.5^7 \approx 0.008$. This corroborates the main result without raising the claim, since it is still 2 problems.
 
+![Figure 4.5](figures/fig_4_5_ablation.png)
+
+**Figure 4.5**
+*Judge × few-shot ablation, mean POST pass@16.* Teacher-first stays at or above the student-first baseline across both judges (difflib, LLM) and both few-shot options (good_only, good_bad); good_bad ≈ good_only indicates the leak is null on code.
+
 ---
 
 ## 4.5 Math pilot: a boundary characterization
@@ -145,6 +178,11 @@ The math pilot extends the comparison to the domain where the advisor and Kim et
 ### 4.5.1 Setup and frontier scan
 
 Gemma-4-E4B (thinking ON) on MathArena AIME 2026 [10] (30 problems, integer answers), `reference_mode = ground_truth` (the teacher always sees the correct answer, the extreme leak regime), LLM judge `glm-4.5-flash` with a derive-vs-copy prompt. A frontier scan (n_samples = 2) spreads the problems out: frontier (0 < pass < 1) at idx 8, 11, 21, 25; too-hard (pass = 0) at 15 problems; ceiling (pass = 1) at 11 problems. Gemma-4 with thinking solves many AIME 2026 problems, so difficulty is scattered rather than monotone.
+
+![Figure 4.7](figures/fig_4_7_frontier_bands.png)
+
+**Figure 4.7**
+*AIME 2026 frontier-scan band membership.* Of 30 problems, 4 are frontier (0 < pass < 1), 15 too-hard (pass = 0), and 11 at ceiling (pass = 1). The two pilot problems (idx9, idx8) are drawn from the too-hard band.
 
 ### 4.5.2 No escape on too-hard problems
 
@@ -159,6 +197,11 @@ The first clean run, idx9 (triangle 13-14-15 rotated about the circumcenter, hex
 Discovery curve 1.00 → 1.00 → 1.00, with `n_good=1, n_bad=3` each step. Teacher-first does **not** pull the too-hard problem off zero. idx8 (a dice/sticker probability problem, correct answer 29) replicates this: labeled frontier by the noisy scan but actually PRE pass = 0 at 4 samples, PRE boxed 40201 → POST boxed 17, still wrong, PRE 0 → POST 0.
 
 The reason is regime, not compute. With thinking ON and 16384 tokens (no truncation), the model reasons to completion and still answers wrong with confidence (148, 168). This rules out "did not think enough" and identifies a **capability ceiling**. Because the reference is only the number 156, the teacher can copy but has no in-reach method to distill, and distilling a few answer-aware traces cannot install a capability the model lacks. The code notion of "hard" is reachable-but-stuck (solvable once unblocked by feedback or best-in-batch); the AIME "too-hard" problems are beyond-capability. The wrong regime was selected, which is precisely the boundary the pilot characterizes.
+
+![Figure 4.6](figures/fig_4_6_math_discovery.png)
+
+**Figure 4.6**
+*Math teacher-batch discovery versus student escape.* The teacher's batch "discovers" the answer across the three steps (it copies the leaked answer), yet the student's eval pass@4 stays at 0 both PRE and POST. The boxed answer drifts (148→168, 40201→17) without reaching the correct value, illustrating form changing while substance does not.
 
 ### 4.5.3 Measured leak, and a fallback that defeats the judge
 

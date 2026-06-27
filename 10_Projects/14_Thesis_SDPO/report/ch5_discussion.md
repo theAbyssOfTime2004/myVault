@@ -32,6 +32,18 @@ The second condition deserves a sharper statement, because it is the intellectua
 
 The idx9 traces make this concrete (§4.5.4). After test-time training the student produces a more confident reasoning *style* learned from the answer-aware teacher, but not a correct method, and it does not even memorize the target 156. Form transfers; substance does not. This is what distilling a value rather than a procedure looks like from the inside.
 
+```mermaid
+flowchart TD
+    R[Reference in the privileged context]
+    R --> CODE[Code: output is a program = a METHOD]
+    R --> MATH[Math answer-only: output is a number = a VALUE]
+    CODE --> CE[generalizes to new inputs; distilling it installs a procedure --> ESCAPE]
+    MATH --> ME[number does not generalize; teacher copies it; form transfers not substance --> NO ESCAPE]
+```
+
+**Figure 5.1**
+*The value-versus-procedure boundary.* When the reference encodes an in-reach method, as a correct program does, distillation transfers a reusable procedure and the model escapes. When it encodes only a value, as an answer-only math reference does, the teacher copies the value and only reasoning style transfers, so the model stays stuck.
+
 A fair objection is that this may be an artifact of AIME specifically, since MATH-500 does include worked solutions. That objection is welcome, because it is precisely the prediction the value-versus-procedure view makes: supplying a method-bearing reference should move math toward escape. The claim is conceptual and carries one falsifiable test, which Chapter 6 names. It is not yet established.
 
 ## 5.4 Reward landscape: a cliff and a slope

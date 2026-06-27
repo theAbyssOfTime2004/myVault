@@ -7,7 +7,9 @@ tags: [report, references, bibliography]
 
 # Tài liệu tham khảo (master bibliography)
 
-Numbered IEEE style. Đánh số ổn định, dùng chung cho mọi chương. **Pass `citation-check` cuối cùng sẽ verify DOI/arXiv/tác giả** — các entry gắn `⚠ verify` là well-known nhưng chi tiết bib (tác giả đầy đủ, năm, ID) chưa được kiểm trong wiki, KHÔNG bịa.
+Numbered IEEE style. Đánh số ổn định, dùng chung cho mọi chương.
+
+**Citation-check status (2026-06-26):** entries [6]–[11] web-verified (arXiv ID / dataset URL confirmed). [1]–[3] from the wiki source records (2026 papers). [12]–[13] canonical pre-cutoff works (high confidence; not web-searched this pass). [4]–[5] are code/docs references.
 
 [1] J. Hübotter, F. Lübeck, L. Behric, A. Baumann, M. Bagatella, D. Marta, I. Hakimi, I. Shenfeld, T. Kleine Buening, C. Guestrin, A. Krause, "Reinforcement Learning via Self-Distillation," arXiv:2601.20802, 2026. Code: github.com/lasgroup/SDPO.
 
@@ -19,16 +21,18 @@ Numbered IEEE style. Đánh số ổn định, dùng chung cho mọi chương. *
 
 [5] HuggingFace, "TRL v1.4.0 — SDPO/SDFT Trainer documentation," 2026.
 
-[6] N. Jain et al., "LiveCodeBench: Holistic and Contamination-Free Evaluation of Large Language Models for Code," (LCB origin). ⚠ verify chi tiết bib.
+[6] N. Jain, K. Han, A. Gu, W.-D. Li, F. Yan, T. Zhang, S. Wang, A. Solar-Lezama, K. Sen, and I. Stoica, "LiveCodeBench: Holistic and Contamination-Free Evaluation of Large Language Models for Code," arXiv:2403.07974, 2024.
 
-[7] Qwen Team, "Qwen3 Technical Report," 2025. ⚠ verify arXiv ID.
+[7] Qwen Team, "Qwen3 Technical Report," arXiv:2505.09388, 2025.
 
-[8] Z. Shao et al., "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" (GRPO). ⚠ verify chi tiết bib.
+[8] Z. Shao et al., "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models," arXiv:2402.03300, 2024. (introduces GRPO.)
 
-[9] M. Chen et al., "Evaluating Large Language Models Trained on Code," arXiv:2107.03374, 2021. (pass@k). ⚠ verify.
+[9] M. Chen et al., "Evaluating Large Language Models Trained on Code," arXiv:2107.03374, 2021. (pass@k.)
 
-[10] MathArena, "AIME 2026 benchmark," HuggingFace dataset `MathArena/aime_2026`. ⚠ verify citation form.
+[10] MathArena, "AIME 2026," HuggingFace dataset `MathArena/aime_2026`, 2026. URL: https://huggingface.co/datasets/MathArena/aime_2026.
 
-[11] R. Agarwal et al., "On-Policy Distillation of Language Models / generalized JSD," 2024. ⚠ verify (Hübotter cite cho JSD stability).
+[11] R. Agarwal et al., "On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes," arXiv:2306.13649, 2023. (GKD; generalized JSD, cited by Hübotter for JSD stability.)
 
-[12] E. D. Dolan and J. J. Moré, "Benchmarking optimization software with performance profiles," Math. Program., 2002. (discovery-time / performance-profile metric lineage, theo Hübotter note 8).
+[12] E. D. Dolan and J. J. Moré, "Benchmarking optimization software with performance profiles," Math. Program., vol. 91, no. 2, pp. 201–213, 2002. (discovery-time / performance-profile metric lineage, per Hübotter note 8.)
+
+[13] G. Hinton, O. Vinyals, and J. Dean, "Distilling the Knowledge in a Neural Network," arXiv:1503.02531, 2015. (knowledge-distillation lineage anchor.)
