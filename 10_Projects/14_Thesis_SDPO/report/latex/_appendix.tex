@@ -1,6 +1,6 @@
 \chapter{Appendices}\label{appendices}
 
-Appendices A--F are complete. B and C are reproduced verbatim from the codebase (\texttt{07\_discovery\_curve.py}, \texttt{09\_teacher\_first.py}); D from the W\&B \texttt{output.log} files (math pilot and a code exemplar); E/F from the W\&B export and reconciliation. The one remaining optional addition is the full idx0--90 code frontier-scan table (F.2), for which only the four problems actually used are listed.
+Appendices A--F are complete. B and C are reproduced verbatim from the codebase (\passthrough{\lstinline!07\_discovery\_curve.py!}, \passthrough{\lstinline!09\_teacher\_first.py!}); D from the W\&B \passthrough{\lstinline!output.log!} files (math pilot and a code exemplar); E/F from the W\&B export and reconciliation. The one remaining optional addition is the full idx0--90 code frontier-scan table (F.2), for which only the four problems actually used are listed.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -18,8 +18,8 @@ Setting & Value \\
 Model & Qwen3-4B, LoRA r=32, bf16, thinking OFF \\
 Optimizer & AdamW, lr = 1e-5 \\
 TTT steps \(K\) & 15 \\
-Teacher samples \texttt{teacher\_n} (TF) & 10 \\
-\texttt{num\_generations} (SF baseline) & 4 \\
+Teacher samples \passthrough{\lstinline!teacher\_n!} (TF) & 10 \\
+\passthrough{\lstinline!num\_generations!} (SF baseline) & 4 \\
 Teacher temperature & \textasciitilde1.0 \\
 Eval samples \(N_{\text{eval}}\) & 16 (student-only, PRE and POST) \\
 Seeds & 0, 1, 2, 3 (matched PRE per seed) \\
@@ -28,10 +28,10 @@ KL top-K & 20 \\
 KL direction \(\alpha\) & 1.0 (reverse KL) \\
 Importance-sampling clip & 2.0 \\
 Similarity threshold (difflib judge) & \textasciitilde0.9 \\
-Few-shot exemplars \texttt{max\_fewshot} & 3 \\
+Few-shot exemplars \passthrough{\lstinline!max\_fewshot!} & 3 \\
 Few-shot option & good\_only (main); good\_bad (leak ablation) \\
-Judge & difflib (string-sim) or groq \texttt{llama-3.3-70b} (semantic) \\
-\texttt{reference\_mode} & best\_in\_batch \\
+Judge & difflib (string-sim) or groq \passthrough{\lstinline!llama-3.3-70b!} (semantic) \\
+\passthrough{\lstinline!reference\_mode!} & best\_in\_batch \\
 Hardware & Colab L4 (22 GB) / A100 \\
 \end{longtable}
 
@@ -52,12 +52,12 @@ Value
 \endlastfoot
 Model & google/gemma-4-E4B-it, LoRA all-linear, thinking ON \\
 TTT steps \(K\) & 3 \\
-Teacher samples \texttt{teacher\_n} & 4 \\
+Teacher samples \passthrough{\lstinline!teacher\_n!} & 4 \\
 Eval samples & 4 \\
-\texttt{max\_new\_tokens} & 16384 (8192 truncated \texttt{\textbackslash{}boxed}, producing spurious zeros) \\
+\passthrough{\lstinline!max\_new\_tokens!} & 16384 (8192 truncated \passthrough{\lstinline!\\boxed!}, producing spurious zeros) \\
 Sampling & top\_p 0.95, top\_k 64 \\
-\texttt{reference\_mode} & ground\_truth (leak regime) \\
-Judge & \texttt{zai:glm-4.5-flash}, derive-vs-copy (\texttt{is\_copy} + \texttt{reasoning\_quality} 1--5) \\
+\passthrough{\lstinline!reference\_mode!} & ground\_truth (leak regime) \\
+Judge & \passthrough{\lstinline!zai:glm-4.5-flash!}, derive-vs-copy (\passthrough{\lstinline!is\_copy!} + \passthrough{\lstinline!reasoning\_quality!} 1--5) \\
 Data & MathArena/aime\_2026 (30 problems, integer answers) \\
 Hardware & Modal A100-80GB \\
 \end{longtable}
@@ -68,11 +68,11 @@ Shared distillation core (both domains): per-token top-K reverse KL with teacher
 
 \section{Appendix B --- Reprompt templates (verbatim)}\label{appendix-b-reprompt-templates-verbatim}
 
-Each preset overrides the SDPO template \emph{slots} only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. The TRL 1.6.0 slots are \texttt{reprompt\_template\ →\ \{prompt\}\{solution\}\{feedback\}}, \texttt{feedback\_template\ →\ \{feedback\_raw\}} (this \texttt{\{feedback\_raw\}} is the privileged context), and \texttt{solution\_template\ →\ \{successful\_previous\_attempt\}}. T2 is the TRL/paper default verbatim.
+Each preset overrides the SDPO template \emph{slots} only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. The TRL 1.6.0 slots are \passthrough{\lstinline!reprompt\_template → \{prompt\}\{solution\}\{feedback\}!}, \passthrough{\lstinline!feedback\_template → \{feedback\_raw\}!} (this \passthrough{\lstinline!\{feedback\_raw\}!} is the privileged context), and \passthrough{\lstinline!solution\_template → \{successful\_previous\_attempt\}!}. T2 is the TRL/paper default verbatim.
 
-\textbf{Honest scope note.} The codebase (\texttt{07\_discovery\_curve.py}, \texttt{REPROMPT\_TEMPLATES}) implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.3); T6 is implemented but unprobed.
+\textbf{Honest scope note.} The codebase (\passthrough{\lstinline!07\_discovery\_curve.py!}, \passthrough{\lstinline!REPROMPT\_TEMPLATES!}) implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.3); T6 is implemented but unprobed.
 
-\begin{verbatim}
+\begin{lstlisting}[language=Python]
 # T1 - Minimal: teacher is told the attempt was wrong but NOT why
 #   (feedback_template drops the {feedback_raw} test/error detail).
 "T1_minimal": {
@@ -95,7 +95,7 @@ Each preset overrides the SDPO template \emph{slots} only; the model, the feedba
     "reprompt_template": "{prompt}{solution}{feedback}\n\nI attempted this problem and my solution was incorrect. Let me reconsider and write a correct solution.\n",
     "feedback_template": "\nHere is the feedback from my unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
 },
-\end{verbatim}
+\end{lstlisting}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -103,9 +103,9 @@ Each preset overrides the SDPO template \emph{slots} only; the model, the feedba
 
 \subsection{C.1 Teacher prompt and few-shot block}\label{c.1-teacher-prompt-and-few-shot-block}
 
-The teacher prompt is \texttt{question\ +\ few-shot\ block\ +\ feedback\ +\ trailing\ instruction}, where the feedback and trailing instruction come from the selected reprompt preset (Appendix B). A worked instance of the assembled prompt (with the leaked math reference) is shown in Appendix D.1. The few-shot block (\texttt{09\_teacher\_first.py}, \texttt{\_build\_fewshot\_block}) is assembled as follows; exemplars are stripped of their thinking traces and capped at 1500 characters:
+The teacher prompt is \passthrough{\lstinline!question + few-shot block + feedback + trailing instruction!}, where the feedback and trailing instruction come from the selected reprompt preset (Appendix B). A worked instance of the assembled prompt (with the leaked math reference) is shown in Appendix D.1. The few-shot block (\passthrough{\lstinline!09\_teacher\_first.py!}, \passthrough{\lstinline!\_build\_fewshot\_block!}) is assembled as follows; exemplars are stripped of their thinking traces and capped at 1500 characters:
 
-\begin{verbatim}
+\begin{lstlisting}
 Here are correct, independent example solutions:
 
 Correct example 1:
@@ -116,13 +116,13 @@ Here are INCORRECT or copied attempts to avoid:
 
 Bad example 1 (do not imitate):
     [bad / copied trajectory, fenced as a python block]
-\end{verbatim}
+\end{lstlisting}
 
-Under \texttt{good\_only} (Option 2) only the ``Correct example'' exemplars appear; under \texttt{good\_bad} (Option 1) the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
+Under \passthrough{\lstinline!good\_only!} (Option 2) only the ``Correct example'' exemplars appear; under \passthrough{\lstinline!good\_bad!} (Option 1) the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
 
 \subsection{\texorpdfstring{C.2 LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{C.2 LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
-\begin{verbatim}
+\begin{lstlisting}
 You are judging a CANDIDATE solution to a competitive-programming problem.
 
 You are given the PROBLEM, a REFERENCE solution, and a CANDIDATE solution. The
@@ -141,11 +141,11 @@ REFERENCE SOLUTION: {reference}
 CANDIDATE SOLUTION: {candidate}
 
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{\texorpdfstring{C.3 LLM judge prompt --- math (\texttt{glm-4.5-flash})}{C.3 LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
 
-\begin{verbatim}
+\begin{lstlisting}
 You are judging a CANDIDATE solution to a math problem.
 
 You are given the PROBLEM, the KNOWN CORRECT ANSWER, and the CANDIDATE's full
@@ -166,22 +166,22 @@ KNOWN CORRECT ANSWER: {reference}
 CANDIDATE OUTPUT (including any <think> reasoning): {candidate}
 
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
-\end{verbatim}
+\end{lstlisting}
 
-The judge returns structured JSON (\texttt{is\_copy}: boolean, \texttt{reasoning\_quality}: integer). Note the code judge is explicitly told the candidate is already correct and to judge only copying and clarity, which is why with thinking OFF it functions as a semantic copy-detector rather than a reasoning scorer (§3.3.3).
+The judge returns structured JSON (\passthrough{\lstinline!is\_copy!}: boolean, \passthrough{\lstinline!reasoning\_quality!}: integer). Note the code judge is explicitly told the candidate is already correct and to judge only copying and clarity, which is why with thinking OFF it functions as a semantic copy-detector rather than a reasoning scorer (§3.3.3).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Appendix D --- Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
 
-Excerpts are verbatim from the W\&B \texttt{output.log} of each run; long completions are trimmed with \texttt{{[}...{]}}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
+Excerpts are verbatim from the W\&B \passthrough{\lstinline!output.log!} of each run; long completions are trimmed with \passthrough{\lstinline![...]!}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
 
 \subsection{\texorpdfstring{D.1 Teacher prompt with the leaked reference (idx9, run \texttt{fi5m0as1})}{D.1 Teacher prompt with the leaked reference (idx9, run fi5m0as1)}}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
-\begin{verbatim}
+\begin{lstlisting}
 <|turn>user
-Let △ABC have side lengths AB = 13, BC = 14, and CA = 15. Triangle △A'B'C'
-is obtained by rotating △ABC about its circumcenter so that AC is
+Let triangle ABC have side lengths AB = 13, BC = 14, and CA = 15. Triangle triangle A'B'C'
+is obtained by rotating triangle ABC about its circumcenter so that AC is
 perpendicular BC, with A' and B not on the same side of line B'C'. Find the
 integer closest to the area of hexagon AA'CC'BB'.
 
@@ -191,13 +191,13 @@ Reference: the correct final answer is 156.
 
 Correctly solve the original question.
 [...]
-\end{verbatim}
+\end{lstlisting}
 
 The reference is the bare answer 156; there is no worked solution to distill, only the number to copy (§3.5).
 
 \subsection{D.2 Judge verdict sequences}\label{d.2-judge-verdict-sequences}
 
-idx9 (run \texttt{fi5m0as1}), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
+idx9 (run \passthrough{\lstinline!fi5m0as1!}), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
@@ -211,7 +211,7 @@ step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
 3 & (T,2) (T,2) (T,1) (T,3) & 1 / 3 \\
 \end{longtable}
 
-The only genuine derivation (F,4) is at step 1; steps 2--3 are all copies, so the kept ``good'' comes from the fallback. idx8 (run \texttt{463y4fjr}), correct answer 29:
+The only genuine derivation (F,4) is at step 1; steps 2--3 are all copies, so the kept ``good'' comes from the fallback. idx8 (run \passthrough{\lstinline!463y4fjr!}), correct answer 29:
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
@@ -225,7 +225,7 @@ step & verdicts & n\_good / n\_bad & batch reward \\
 3 & (T,4) (T,3) (T,2) (F,2) & 1 / 3 & 1.00 \\
 \end{longtable}
 
-Every idx8 verdict is \texttt{is\_copy=true} (the lone \texttt{F} has reasoning\_quality 2 \textless{} 3), so every kept ``good'' is a fallback-retained copy.
+Every idx8 verdict is \passthrough{\lstinline!is\_copy=true!} (the lone \passthrough{\lstinline!F!} has reasoning\_quality 2 \textless{} 3), so every kept ``good'' is a fallback-retained copy.
 
 \subsection{D.3 Form changes, substance does not (idx9 student eval, PRE vs POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
@@ -251,19 +251,19 @@ idx8 drifts the other way. \textbf{PRE} (boxed \textbf{40201}) treats the rolls 
 
 \subsection{\texorpdfstring{D.5 Genuine discovery on code (idx12, run \texttt{teacherfirst-...-idx12})}{D.5 Genuine discovery on code (idx12, run teacherfirst-...-idx12)}}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
-The contrast with the math pilot is the point of the thesis. Here the output is a \emph{program}, and teacher-first installs a working one. Problem \texttt{abc389\_b}: given \(X\), find \(N\) with \(N! = X\).
+The contrast with the math pilot is the point of the thesis. Here the output is a \emph{program}, and teacher-first installs a working one. Problem \passthrough{\lstinline!abc389\_b!}: given \(X\), find \(N\) with \(N! = X\).
 
 \textbf{PRE} (greedy score 0.075, pass@16 = 0.000). The student inverts the task, computing a factorial instead of finding \(N\), which also overflows the integer-string limit on large inputs:
 
-\begin{verbatim}
+\begin{lstlisting}[language=Python]
 import math
 X = int(input())
 print(math.factorial(X))
-\end{verbatim}
+\end{lstlisting}
 
 \textbf{Execution feedback} (the privileged context --- this is what ``execution-guided'' means):
 
-\begin{verbatim}
+\begin{lstlisting}
 Your solution must satisfy these test cases:
 - Input: 6  ->  Expected: 3
 - Input: 2432902008176640000  ->  Expected: 20
@@ -271,11 +271,11 @@ Result of running your earlier attempt:
 Runtime Error
 ValueError: Exceeds the limit (4300 digits) for integer string conversion ...
 Last Executed Input: 5040
-\end{verbatim}
+\end{lstlisting}
 
 \textbf{POST} (greedy score 1.000, pass@16 = 1.000). The student now iterates to find \(N\), a correct algorithm that generalizes to any input:
 
-\begin{verbatim}
+\begin{lstlisting}[language=Python]
 import sys
 def find_n_factorial(X):
     n = 1
@@ -289,7 +289,7 @@ def main():
     print(find_n_factorial(X))
 if __name__ == "__main__":
     main()
-\end{verbatim}
+\end{lstlisting}
 
 PRE pass 0.000 → POST pass 1.000 (discovery curve 0.85 → 1.0 → \ldots{} → 1.0; greedy 0.075 → 1.0). Unlike the math pilot, the distilled output is a method: a program that solves the problem for every input, not a value to copy. This is the value-versus-procedure boundary (Chapter 5) made concrete.
 
@@ -364,7 +364,7 @@ idx64 & abc397\_e & LLM-groq & 0.047 & 0.422 & 4/0/0 & s1 (SF 0.062→0, TF 0.37
 idx77 & abc399\_f & difflib & 0.203 & 0.344 & 3/1/0 & --- \\
 \end{longtable}
 
-Per-seed POST pass@16 for idx64 and idx77, recovered from the W\&B export and reconciled to the published means (canonical runs: idx64 = LLM judge, idx77 = difflib, both good\_only / T2; dedup to the latest run per seed; \texttt{data/reconcile.py}):
+Per-seed POST pass@16 for idx64 and idx77, recovered from the W\&B export and reconciled to the published means (canonical runs: idx64 = LLM judge, idx77 = difflib, both good\_only / T2; dedup to the latest run per seed; \passthrough{\lstinline!data/reconcile.py!}):
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}

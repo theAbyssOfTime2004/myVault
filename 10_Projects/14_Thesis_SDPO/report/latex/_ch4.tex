@@ -14,7 +14,7 @@ A standing caveat applies to every number below. The sample sizes are small (2--
 
 \textbf{Hardware.} Code runs on Colab L4 (22 GB) and A100; math runs on Modal A100-80GB (Colab compute units were exhausted).
 
-\textbf{TTT protocol.} Per problem, the model is reset to base, then run for \(K\) steps; the student is evaluated PRE and POST with no context (§3.6). Code: \(K=15\), eval 16 samples, \texttt{teacher\_n=10}. Math: \(K=3\), eval 4 samples, \texttt{teacher\_n=4}, \texttt{max\_new\_tokens=16384}. The distillation core is identical to §3.3.5 (AdamW lr=1e-5, top-K=20, \(\alpha=1.0\) reverse KL, IS clip 2.0). Full hyperparameters are in Appendix A.
+\textbf{TTT protocol.} Per problem, the model is reset to base, then run for \(K\) steps; the student is evaluated PRE and POST with no context (§3.6). Code: \(K=15\), eval 16 samples, \passthrough{\lstinline!teacher\_n=10!}. Math: \(K=3\), eval 4 samples, \passthrough{\lstinline!teacher\_n=4!}, \passthrough{\lstinline!max\_new\_tokens=16384!}. The distillation core is identical to §3.3.5 (AdamW lr=1e-5, top-K=20, \(\alpha=1.0\) reverse KL, IS clip 2.0). Full hyperparameters are in Appendix A.
 
 \textbf{Seeds and matching.} Code uses 4 seeds (0--3). Both arms share base and seed, so PRE matches per seed, giving a paired (matched) comparison (§3.6).
 
@@ -145,13 +145,13 @@ Two honest caveats. idx39 appears in both §4.2.2 and this table, so the two gro
 
 \subsection{4.2.4 Discovery curves and qualitative behavior}\label{discovery-curves-and-qualitative-behavior}
 
-Beyond aggregate pass-rate, the runs show genuine discovery rather than confidence inflation. On idx12, greedy decoding moves 0.075 → 1.0; on idx39, 0.175 → 0.225. The model learns to solve problems it deterministically failed before. One concrete trace (full excerpt in Appendix D.5): idx12 base uses \texttt{math.factorial(X)} in the wrong direction, the feedback reports a runtime error, and the model learns to iterate to find N. In an exploratory run (idx29), the base calls \texttt{exit()} (unavailable in the sandbox), the feedback reports a \texttt{NameError}, and the model corrects it.
+Beyond aggregate pass-rate, the runs show genuine discovery rather than confidence inflation. On idx12, greedy decoding moves 0.075 → 1.0; on idx39, 0.175 → 0.225. The model learns to solve problems it deterministically failed before. One concrete trace (full excerpt in Appendix D.5): idx12 base uses \passthrough{\lstinline!math.factorial(X)!} in the wrong direction, the feedback reports a runtime error, and the model learns to iterate to find N. In an exploratory run (idx29), the base calls \passthrough{\lstinline!exit()!} (unavailable in the sandbox), the feedback reports a \passthrough{\lstinline!NameError!}, and the model corrects it.
 
-Two further observations. On easy-to-fix exploratory problems (idx23, idx29 at eval-8), both arms solve almost equally, so differentiation is clearer on harder problems. And from around step 2 the teacher tends to converge (batch reward = 1.0, mean similarity ≈ 0.9, \texttt{n\_good} → 1); when the base starts high, both arms can over-distill, consistent with the idx39 seed-3 control above.
+Two further observations. On easy-to-fix exploratory problems (idx23, idx29 at eval-8), both arms solve almost equally, so differentiation is clearer on harder problems. And from around step 2 the teacher tends to converge (batch reward = 1.0, mean similarity ≈ 0.9, \passthrough{\lstinline!n\_good!} → 1); when the base starts high, both arms can over-distill, consistent with the idx39 seed-3 control above.
 
 \subsection{4.2.5 Compute considerations (RQ3, partial)}\label{compute-considerations-rq3-partial}
 
-The comparisons above are matched on seeds and on the step budget, but not on generations. Teacher-first draws \texttt{teacher\_n=10} samples per step against student-first's four, roughly a 2.5× generation overhead, so the results establish an outcome advantage rather than a compute-fair one. Two observations bound what can be said. The discovery curves (§4.2.4) show teacher-first reaching a high pass-rate within the 15-step budget, and the escape-zero seeds show student-first failing across its own 60 generations (4 per step over 15 steps) while teacher-first escapes. This points to the \emph{kind} of distilled trajectory, rather than raw sample volume, as the driver of the gap.
+The comparisons above are matched on seeds and on the step budget, but not on generations. Teacher-first draws \passthrough{\lstinline!teacher\_n=10!} samples per step against student-first's four, roughly a 2.5× generation overhead, so the results establish an outcome advantage rather than a compute-fair one. Two observations bound what can be said. The discovery curves (§4.2.4) show teacher-first reaching a high pass-rate within the 15-step budget, and the escape-zero seeds show student-first failing across its own 60 generations (4 per step over 15 steps) while teacher-first escapes. This points to the \emph{kind} of distilled trajectory, rather than raw sample volume, as the driver of the gap.
 
 The point is suggestive, not conclusive. Student-first was never run at teacher-first's generation budget, and no best-of-k baseline was measured at matched compute, so more student-first sampling cannot be ruled out as an alternative route to escape. A full answer needs a compute-to-correct frontier that holds total generations fixed and logs token and GPU-time cost; §6.2.4 sets this out as future work. RQ3 is therefore answered only in part here: the overhead is quantified and the missing comparison is identified, but the Pareto trade-off itself is not measured.
 
@@ -197,7 +197,7 @@ The template has an effect, and that effect is clearest on the hard problem wher
 
 \subsection{4.4.1 Judge-invariance}\label{judge-invariance}
 
-The independence judge can be a cheap string-similarity check (difflib) or a semantic LLM judge (groq \texttt{llama-3.3-70b}). Mean POST pass over 4 seeds, good\_only:
+The independence judge can be a cheap string-similarity check (difflib) or a semantic LLM judge (groq \passthrough{\lstinline!llama-3.3-70b!}). Mean POST pass over 4 seeds, good\_only:
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
@@ -210,7 +210,7 @@ idx39 & 0.094 & 0.172 & 0.266 \\
 idx12 & 0.844 & 1.000 & 0.984 \\
 \end{longtable}
 
-TF ≥ SF under both judges on both problems, and the two judges give similar student POST, so the core result is \textbf{invariant to the judge choice}. The two judges do label differently: the semantic LLM calls fewer trajectories ``copy'' than difflib (on idx12 the LLM keeps \texttt{n\_good} up to 10 versus 1 for difflib), but the \emph{outcome} is unchanged, because the update is driven by correctness and convergence rather than by the exact copy boundary. As noted in §3.3.3, with thinking OFF the judge's \texttt{reasoning\_quality} saturates at 4--5, so it functions only as a copy-detector; no claim is made about reasoning quality.
+TF ≥ SF under both judges on both problems, and the two judges give similar student POST, so the core result is \textbf{invariant to the judge choice}. The two judges do label differently: the semantic LLM calls fewer trajectories ``copy'' than difflib (on idx12 the LLM keeps \passthrough{\lstinline!n\_good!} up to 10 versus 1 for difflib), but the \emph{outcome} is unchanged, because the update is driven by correctness and convergence rather than by the exact copy boundary. As noted in §3.3.3, with thinking OFF the judge's \passthrough{\lstinline!reasoning\_quality!} saturates at 4--5, so it functions only as a copy-detector; no claim is made about reasoning quality.
 
 \subsection{4.4.2 Leak ablation (good\_only vs good\_bad)}\label{leak-ablation-good_only-vs-good_bad}
 
@@ -243,7 +243,7 @@ The math pilot extends the comparison to the domain where the advisor and Kim et
 
 \subsection{4.5.1 Setup and frontier scan}\label{setup-and-frontier-scan}
 
-Gemma-4-E4B (thinking ON) on MathArena AIME 2026 {[}10{]} (30 problems, integer answers), \texttt{reference\_mode\ =\ ground\_truth} (the teacher always sees the correct answer, the extreme leak regime), LLM judge \texttt{glm-4.5-flash} with a derive-vs-copy prompt. A frontier scan (n\_samples = 2) spreads the problems out: frontier (0 \textless{} pass \textless{} 1) at idx 8, 11, 21, 25; too-hard (pass = 0) at 15 problems; ceiling (pass = 1) at 11 problems. Gemma-4 with thinking solves many AIME 2026 problems, so difficulty is scattered rather than monotone.
+Gemma-4-E4B (thinking ON) on MathArena AIME 2026 {[}10{]} (30 problems, integer answers), \passthrough{\lstinline!reference\_mode = ground\_truth!} (the teacher always sees the correct answer, the extreme leak regime), LLM judge \passthrough{\lstinline!glm-4.5-flash!} with a derive-vs-copy prompt. A frontier scan (n\_samples = 2) spreads the problems out: frontier (0 \textless{} pass \textless{} 1) at idx 8, 11, 21, 25; too-hard (pass = 0) at 15 problems; ceiling (pass = 1) at 11 problems. Gemma-4 with thinking solves many AIME 2026 problems, so difficulty is scattered rather than monotone.
 
 \begin{center}\includegraphics[width=0.85\linewidth]{../figures/fig_4_7_frontier_bands.pdf}\end{center}
 
@@ -266,7 +266,7 @@ greedy & 0.000 & 0.000 \\
 boxed answer & 148 & 168 \\
 \end{longtable}
 
-Discovery curve 1.00 → 1.00 → 1.00, with \texttt{n\_good=1,\ n\_bad=3} each step. Teacher-first does \textbf{not} pull the too-hard problem off zero. idx8 (a dice/sticker probability problem, correct answer 29) replicates this: labeled frontier by the noisy scan but actually PRE pass = 0 at 4 samples, PRE boxed 40201 → POST boxed 17, still wrong, PRE 0 → POST 0.
+Discovery curve 1.00 → 1.00 → 1.00, with \passthrough{\lstinline!n\_good=1, n\_bad=3!} each step. Teacher-first does \textbf{not} pull the too-hard problem off zero. idx8 (a dice/sticker probability problem, correct answer 29) replicates this: labeled frontier by the noisy scan but actually PRE pass = 0 at 4 samples, PRE boxed 40201 → POST boxed 17, still wrong, PRE 0 → POST 0.
 
 The reason is regime, not compute. With thinking ON and 16384 tokens (no truncation), the model reasons to completion and still answers wrong with confidence (148, 168). This rules out ``did not think enough'' and identifies a \textbf{capability ceiling}. Because the reference is only the number 156, the teacher can copy but has no in-reach method to distill, and distilling a few answer-aware traces cannot install a capability the model lacks. The code notion of ``hard'' is reachable-but-stuck (solvable once unblocked by feedback or best-in-batch); the AIME ``too-hard'' problems are beyond-capability. The wrong regime was selected, which is precisely the boundary the pilot characterizes.
 
@@ -297,9 +297,9 @@ genuine derivation (independent, rq ≥ 3)
 count (of 12) & \textbf{10 (≈83\%)} & \textbf{1} \\
 \end{longtable}
 
-The single genuine derivation appears only at step 1 (is\_copy=false, reasoning\_quality 4); at steps 2 and 3 every trajectory is a copy. The filter keeps one trajectory as good each step (\texttt{n\_good=1,\ n\_bad=3}), a 75\% per-step reject rate, but at steps 2--3 that one ``good'' is itself a copy retained by the keep-best-correct fallback (§3.3.3). So the privileged teacher mostly copies the answer rather than deriving it, the judge detects this, and this is measurable information leak, exactly the concern of {[}2{]} and the contrast with code, where leak is null (§4.4).
+The single genuine derivation appears only at step 1 (is\_copy=false, reasoning\_quality 4); at steps 2 and 3 every trajectory is a copy. The filter keeps one trajectory as good each step (\passthrough{\lstinline!n\_good=1, n\_bad=3!}), a 75\% per-step reject rate, but at steps 2--3 that one ``good'' is itself a copy retained by the keep-best-correct fallback (§3.3.3). So the privileged teacher mostly copies the answer rather than deriving it, the judge detects this, and this is measurable information leak, exactly the concern of {[}2{]} and the contrast with code, where leak is null (§4.4).
 
-The idx8 log (run 463y4fjr) sharpens the second-order problem. There, \emph{every} judge verdict across all three steps is \texttt{is\_copy=true} (the single \texttt{is\_copy=false} has reasoning\_quality 2 \textless{} 3, so it is also bad). The \texttt{n\_good=1} per step therefore comes \emph{entirely} from the fallback: the good pool consists only of copies the judge already rejected. The fallback defeats the judge when the teacher produces nothing but copies. This is also a judge-degradation effect: the judge catches blatant copying but cannot reliably separate a genuine derivation from an answer-directed confabulation on beyond-capability problems, where both reach the right number.
+The idx8 log (run 463y4fjr) sharpens the second-order problem. There, \emph{every} judge verdict across all three steps is \passthrough{\lstinline!is\_copy=true!} (the single \passthrough{\lstinline!is\_copy=false!} has reasoning\_quality 2 \textless{} 3, so it is also bad). The \passthrough{\lstinline!n\_good=1!} per step therefore comes \emph{entirely} from the fallback: the good pool consists only of copies the judge already rejected. The fallback defeats the judge when the teacher produces nothing but copies. This is also a judge-degradation effect: the judge catches blatant copying but cannot reliably separate a genuine derivation from an answer-directed confabulation on beyond-capability problems, where both reach the right number.
 
 \subsection{4.5.4 Epistemic pathology: form changes, substance does not}\label{epistemic-pathology-form-changes-substance-does-not}
 
@@ -315,4 +315,4 @@ Across two too-hard AIME problems, teacher-first does not escape, and the non-es
 
 \section{In-chapter citations}\label{in-chapter-citations}
 
-Numbered per the master bibliography (\texttt{00\_references.md}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}7{]} Qwen3 · {[}10{]} MathArena AIME 2026. (Full method and metric definitions in Chapter 3.)
+Numbered per the master bibliography (\passthrough{\lstinline!00\_references.md!}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}7{]} Qwen3 · {[}10{]} MathArena AIME 2026. (Full method and metric definitions in Chapter 3.)

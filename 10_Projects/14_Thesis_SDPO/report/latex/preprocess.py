@@ -96,6 +96,20 @@ def process(path):
         return raw(r"\begin{center}\includegraphics[width=0.85\linewidth]{../" + p + r"}\end{center}")
     text = re.sub(r"!\[[^\]]*\]\((figures/[^)]+)\)", img, text)
 
+    # ASCII-ize unicode INSIDE fenced code blocks (verbatim can't use newunicodechar)
+    code_map = {"θ": "theta", "←": "<-", "−": "-", "·": "*",
+                "∇": "grad", "∅": "{}", "≠": "!=", "△": "triangle ",
+                "→": "->", "≈": "~", "≥": ">=", "×": "x",
+                "π": "pi", "α": "alpha", "°": "deg", "±": "+/-",
+                "…": "...", "§": "sec "}
+
+    def fence_ascii(m):
+        s = m.group(0)
+        for u, a in code_map.items():
+            s = s.replace(u, a)
+        return s
+    text = re.sub(r"```.*?```", fence_ascii, text, flags=re.DOTALL)
+
     sys.stdout.write(text)
 
 

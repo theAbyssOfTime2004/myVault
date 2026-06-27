@@ -6,7 +6,7 @@ cd "$R/latex"
 PY=~/tfig/bin/python
 PANDOC=~/bin/pandoc
 TECT=~/bin/tectonic
-PFLAGS="--top-level-division=chapter --no-highlight --wrap=preserve"
+PFLAGS="--top-level-division=chapter --listings --wrap=preserve"
 
 echo "[1] chapters ..."
 declare -A MAP=( [_ch1]=ch1_introduction [_ch2]=ch2_related_work [_ch3]=ch3_method \

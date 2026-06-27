@@ -26,7 +26,7 @@ SDPO distills the self-teacher's retrospective next-token distribution into the 
 \mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
 \]
 
-where \texttt{stopgrad} prevents the teacher from collapsing onto the student to ignore \(f\) {[}1{]}. With the teacher detached, the gradient at a student logit is \(\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)\), so the optimizer raises every logit the teacher trusts more than the student does. The contrast with GRPO is the density of the target:
+where \passthrough{\lstinline!stopgrad!} prevents the teacher from collapsing onto the student to ignore \(f\) {[}1{]}. With the teacher detached, the gradient at a student logit is \(\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)\), so the optimizer raises every logit the teacher trusts more than the student does. The contrast with GRPO is the density of the target:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -109,4 +109,4 @@ The parent paper studies a student-first, on-policy SDPO, focuses its analysis o
 
 \section{In-chapter citations}\label{in-chapter-citations}
 
-Numbered per the master bibliography (\texttt{00\_references.md}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}3{]} Shenfeld et al.~2026 · {[}4{]} lasgroup SDPO repo · {[}6{]} LiveCodeBench · {[}8{]} GRPO / DeepSeekMath · {[}9{]} Chen et al.~2021 · {[}11{]} Agarwal et al.~2023 · {[}12{]} Dolan \& Moré 2002 · {[}13{]} Hinton et al.~2015.
+Numbered per the master bibliography (\passthrough{\lstinline!00\_references.md!}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}3{]} Shenfeld et al.~2026 · {[}4{]} lasgroup SDPO repo · {[}6{]} LiveCodeBench · {[}8{]} GRPO / DeepSeekMath · {[}9{]} Chen et al.~2021 · {[}11{]} Agarwal et al.~2023 · {[}12{]} Dolan \& Moré 2002 · {[}13{]} Hinton et al.~2015.
