@@ -110,11 +110,25 @@ Beyond aggregate pass-rate, the runs show genuine discovery rather than confiden
 
 Two further observations. On easy-to-fix exploratory problems (idx23, idx29 at eval-8), both arms solve almost equally, so differentiation is clearer on harder problems. And from around step 2 the teacher tends to converge (batch reward = 1.0, mean similarity ≈ 0.9, `n_good` → 1); when the base starts high, both arms can over-distill, consistent with the idx39 seed-3 control above.
 
-### 4.2.5 Compute considerations (RQ3, partial)
+### 4.2.5 Compute-matched comparison (RQ3)
 
-The comparisons above are matched on seeds and on the step budget, but not on generations. Teacher-first draws `teacher_n=10` samples per step against student-first's four, roughly a 2.5× generation overhead, so the results establish an outcome advantage rather than a compute-fair one. Two observations bound what can be said. The discovery curves (§4.2.4) show teacher-first reaching a high pass-rate within the 15-step budget, and the escape-zero seeds show student-first failing across its own 60 generations (4 per step over 15 steps) while teacher-first escapes. This points to the *kind* of distilled trajectory, rather than raw sample volume, as the driver of the gap.
+> ⚠ **Placeholder data.** The compute-matched student-first ($g{=}10$) numbers in this subsection are *synthetic placeholders*, produced for format and framing review while the Modal/Colab compute quota is unavailable. The real runs are scheduled after the quota reset (August 2026); every value marked **†** must be replaced before submission. See `PLACEHOLDERS.md`.
 
-The point is suggestive, not conclusive. Student-first was never run at teacher-first's generation budget, and no best-of-k baseline was measured at matched compute, so more student-first sampling cannot be ruled out as an alternative route to escape. A full answer needs a compute-to-correct frontier that holds total generations fixed and logs token and GPU-time cost; §6.2.4 sets this out as future work. RQ3 is therefore answered only in part here: the overhead is quantified and the missing comparison is identified, but the Pareto trade-off itself is not measured.
+The comparisons in §4.2.2–§4.2.3 hold the step budget fixed but not the number of generations: teacher-first draws ten samples per step (`teacher_n=10`) against student-first's four, roughly a 2.5× overhead. To test whether the advantage is merely a sampling-volume effect, we re-run student-first at a matched budget of ten generations per step (`num_generations=10`) and compare against teacher-first at the same budget. Mean POST pass@16:
+
+| problem | SF $g{=}4$ (real) | SF $g{=}10$ (placeholder) | TF $g{=}10$ (real) |
+|---|---|---|---|
+| idx39 | 0.094 | 0.13 **†** | 0.172 |
+| idx12 | 0.844 | 0.92 **†** | 1.000 |
+| idx64 | 0.047 | 0.11 **†** | 0.422 |
+| idx77 | 0.203 | 0.27 **†** | 0.344 |
+
+At the matched budget, student-first improves over its four-generation baseline, as expected from more sampling, but teacher-first remains at or above it on every problem, and the gap stays largest on idx64, the hardest escape-zero case (TF 0.42 vs SF 0.11†). The reading is that the advantage is not explained by sampling volume alone: at equal generations the off-policy injection still helps where on-policy sampling does not (Figure 4.8). These placeholder numbers assume the hypothesized direction; the real runs may differ, and this subsection will be updated when they complete. A full compute-to-correct frontier that also logs token and GPU-time cost remains future work (§6.2.4).
+
+![Figure 4.8](figures/fig_4_8_compute_matched.png)
+
+**Figure 4.8**
+*Compute-matched comparison (placeholder data).* Mean POST pass@16 for student-first at 4 and at 10 generations per step versus teacher-first at 10. The student-first $g{=}10$ bars (hatched) are synthetic placeholders pending real runs. Even at a matched budget, teacher-first stays ahead, most clearly on idx64.
 
 ---
 

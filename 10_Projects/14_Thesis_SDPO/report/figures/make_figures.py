@@ -190,8 +190,29 @@ def fig_4_7_frontier_bands():
     save(fig, 'fig_4_7_frontier_bands')
 
 
+def fig_4_8_compute_matched():
+    """PLACEHOLDER: compute-matched SF(g=10) vs TF; SF@10 bars are synthetic (hatched)."""
+    probs = ['idx39', 'idx12', 'idx64', 'idx77']
+    sf4 = [0.094, 0.844, 0.047, 0.203]          # real
+    sf10 = [0.13, 0.92, 0.11, 0.27]             # MOCK / placeholder
+    tf = [0.172, 1.000, 0.422, 0.344]           # real
+    x = np.arange(len(probs)); w = 0.27
+    fig, ax = plt.subplots(figsize=(6.9, 4.3))
+    ax.bar(x - w, sf4, w, label='SF g=4 (real)', color=SF_C, edgecolor='black', linewidth=0.5)
+    ax.bar(x, sf10, w, label='SF g=10 (placeholder)', color=SF_C, alpha=0.55,
+           edgecolor='black', linewidth=0.5, hatch='///')
+    ax.bar(x + w, tf, w, label='TF g=10 (real)', color=TF_C, edgecolor='black', linewidth=0.5)
+    ax.set_xticks(x); ax.set_xticklabels(probs)
+    ax.set_ylabel('Mean POST pass@16'); ax.set_xlabel('Problem')
+    ax.set_ylim(0, 1.15); ax.legend(frameon=False, loc='upper center', ncol=3, fontsize=7.5)
+    ax.text(0.5, -0.20, 'PLACEHOLDER: SF g=10 bars (hatched) are synthetic, pending real runs.',
+            transform=ax.transAxes, ha='center', fontsize=7.5, style='italic', color='#CC3311')
+    save(fig, 'fig_4_8_compute_matched')
+
+
 if __name__ == '__main__':
     fig_4_1_main_result()
+    fig_4_8_compute_matched()
     fig_4_2_per_seed_slope()
     fig_4_3_escape_zero()
     fig_4_4_template()

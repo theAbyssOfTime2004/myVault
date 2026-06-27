@@ -30,7 +30,7 @@ The keep-best-correct fallback, which prevents an empty good pool on a cold star
 
 ### 6.1.5 No compute matching
 
-Teacher-first draws roughly 2.5× more generations per step than student-first (`teacher_n=10` versus four). The thesis therefore demonstrates an outcome advantage, not a compute advantage. A fair comparison requires a compute-to-correct view that holds total generation budget fixed, which was not run. The escape-zero events argue that volume alone does not explain the gap (§5.1), but they do not settle the compute question.
+Teacher-first draws roughly 2.5× more generations per step than student-first (`teacher_n=10` versus four). A compute-matched comparison at ten generations per step is reported in §4.2.5 **as placeholder data pending the real runs** (compute quota permitting, August 2026); the full compute-to-correct frontier that also accounts for token and GPU-time cost is not yet run. Until the real matched-compute numbers are in, the outcome advantage is established but the compute advantage is only provisionally supported.
 
 ### 6.1.6 RQ2 is thin, and forgetting is unmeasured
 
