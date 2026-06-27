@@ -1,0 +1,56 @@
+\chapter{Chapter 1 --- Introduction}\label{chapter-1-introduction}
+
+This thesis studies how to \textbf{accelerate test-time discovery in complex code generation via execution-guided self-distillation}. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
+
+\begin{quote}
+\textbf{‡ This is the best-case / projected draft.} Results marked ‡ are projections extrapolated from the current real draft under the stated hypotheses, included to show how the work develops with more compute and time. The factual baseline is the current real draft.
+\end{quote}
+
+\section{1.1 Background}\label{background}
+
+Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a common instantiation, suffers from sparse credit assignment: a scalar outcome reward says only whether an attempt passed, and when every rollout fails the advantage collapses and learning stalls --- exactly on the hard problems that matter. Self-Distillation Policy Optimization (SDPO) {[}1{]} extracts a denser signal from the rich feedback verifiable environments already produce, using the feedback-conditioned model as a self-teacher distilled back into the student. At test time it can iterate on one hard problem and improve before the first success {[}1, §5{]}. Two issues motivate this work: the parent paper distills the student's own failed rollout (little that is correct to learn from on hard problems), and Kim et al.~{[}2{]} show that distilling from rich context can degrade a model by suppressing its epistemic verbalization.
+
+\section{1.2 Problem}\label{problem}
+
+The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: \emph{how the execution feedback is organized into a learning signal} (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and \emph{how the execution feedback is formulated} into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
+
+\section{1.3 Research questions}\label{research-questions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RQ-method.} Does a teacher-first organization beat the student-first baseline at discovering solutions to hard code problems, and does the advantage survive at matched compute?
+\item
+  \textbf{RQ1.} Does the reprompt-template formulation of the execution feedback affect discovery, and in which regime?
+\item
+  \textbf{RQ2.} Does self-distillation from rich context suppress epistemic verbalization at test time on code?
+\item
+  \textbf{RQ3.} How does discovery trade off against compute (compute-to-correct)?
+\end{itemize}
+
+All four are answered in this best-case draft; in the current real draft RQ2 and RQ3 are secondary.
+
+\section{1.4 Contributions}\label{contributions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{A teacher-first variant of execution-guided self-distillation} that distills the student toward verifier- and judge-filtered teacher generations, between on-policy SDPO and off-policy SFT, with a clean filter that never distils a copy (Chapter 3).
+\item
+  \textbf{Teacher-first significantly accelerates discovery, and the advantage is compute-fair.} Across a medium matched evaluation, teacher-first beats student-first (Wilcoxon signed-rank)‡ and escapes the flat-reward trap on the hardest problems; a compute-matched comparison and a compute-to-correct frontier show the gain is not a sampling-volume artifact‡ (Chapter 4).
+\item
+  \textbf{A reprompt-template effect}, strongest on hard problems, where a reasoning-inducing template orders above the anchor, which orders above a minimal one (§4.3).
+\item
+  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from answer-bearing context suppresses uncertainty markers, accumulating across steps‡ (§4.5).
+\item
+  \textbf{A validated value-versus-procedure boundary.} Supplying a method-bearing reference (MATH-500 worked solutions) lets the model escape on math where an answer-only reference does not‡, confirming that escape requires an in-reach method, not merely a value (§4.6, Chapter 5).
+\end{enumerate}
+
+\section{1.5 Scope}\label{scope}
+
+Test-time training with LoRA adapters; code generation on LiveCodeBench v6 {[}6{]} as the core, with AIME 2026 and MATH-500 as the math probes. Results are on one 4B-scale model. Even in this best case the study remains an empirical characterization in one model family at a personal compute scale, not a universal claim.
+
+\section{1.6 Thesis structure}\label{thesis-structure}
+
+Chapter 2 reviews background and related work; Chapter 3 specifies the method (including the fallback-free filter and the thinking-on and method-reference extensions); Chapter 4 reports the medium-scale experiments, the compute-matched comparison, the epistemic-suppression result, and the validated boundary; Chapter 5 discusses the mechanism; Chapter 6 states the remaining limitations and the publication roadmap; Chapter 7 concludes.

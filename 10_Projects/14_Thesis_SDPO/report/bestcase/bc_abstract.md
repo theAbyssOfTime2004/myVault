@@ -1,0 +1,12 @@
+---
+type: report
+tags: [report, abstract, bestcase]
+---
+
+# Abstract
+
+Test-time training lets a language model improve on a single hard problem at inference time, but on-policy self-distillation stalls when the model rarely produces a correct attempt to learn from. This thesis studies how to accelerate test-time discovery in complex code generation via *execution-guided self-distillation*, where execution feedback (failing tests, runtime errors) is the privileged context that drives the update. We propose a *teacher-first* organization: rather than distilling the student's own failed rollout, the self-teacher generates trajectories under feedback, a verifier and a judge filter them for correctness and independence, and the student is distilled toward those filtered trajectories, placing the method between on-policy SDPO and off-policy SFT. Across a medium-sized matched evaluation on hard LiveCodeBench problems with a 4B model, teacher-first significantly outperforms the student-first baseline‡ (Wilcoxon signed-rank), and on the hardest problems it escapes the flat-reward trap that keeps student-first stuck at zero. A compute-matched comparison shows the advantage is not a sampling-volume artifact: at equal generation budget teacher-first still wins, and reaches a given discovery probability with fewer total generations‡. With thinking enabled, we measure epistemic verbalization at test time and find that distillation from answer-bearing context suppresses uncertainty markers‡, connecting the method to the degradation Kim et al. describe. Finally, supplying a method-bearing reference (worked solutions from MATH-500) lets the model escape on math problems where an answer-only reference does not‡, validating the central *value-versus-procedure* boundary: escape requires the reference to encode an in-reach method, not merely a value.
+
+**‡ Projected result** (extrapolated from the current real draft under the stated hypotheses; not yet run). See the title-page banner and `BESTCASE_NOTES.md`.
+
+**Keywords:** test-time training, self-distillation, code generation, execution feedback, discovery@k, epistemic suppression, compute-to-correct.

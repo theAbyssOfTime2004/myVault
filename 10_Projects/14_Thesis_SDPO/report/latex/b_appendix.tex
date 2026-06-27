@@ -1,0 +1,450 @@
+\chapter{Appendices}\label{appendices}
+
+Appendices A--F are complete. B and C are reproduced verbatim from the codebase (\passthrough{\lstinline!07\_discovery\_curve.py!}, \passthrough{\lstinline!09\_teacher\_first.py!}); D from the W\&B \passthrough{\lstinline!output.log!} files (math pilot and a code exemplar); E/F from the W\&B export and reconciliation. The one remaining optional addition is the full idx0--90 code frontier-scan table (F.2), for which only the four problems actually used are listed.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix A --- Hyperparameters}\label{appendix-a-hyperparameters}
+
+\subsection{A.1 Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Setting & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Model & Qwen3-4B, LoRA r=32, bf16, thinking OFF \\
+Optimizer & AdamW, lr = 1e-5 \\
+TTT steps \(K\) & 15 \\
+Teacher samples \passthrough{\lstinline!teacher\_n!} (TF) & 10 \\
+\passthrough{\lstinline!num\_generations!} (SF baseline) & 4 \\
+Teacher temperature & \textasciitilde1.0 \\
+Eval samples \(N_{\text{eval}}\) & 16 (student-only, PRE and POST) \\
+Seeds & 0, 1, 2, 3 (matched PRE per seed) \\
+Template & T2 (anchor) for the main comparison; T1/T2/T5 for RQ1 \\
+KL top-K & 20 \\
+KL direction \(\alpha\) & 1.0 (reverse KL) \\
+Importance-sampling clip & 2.0 \\
+Similarity threshold (difflib judge) & \textasciitilde0.9 \\
+Few-shot exemplars \passthrough{\lstinline!max\_fewshot!} & 3 \\
+Few-shot option & good\_only (main); good\_bad (leak ablation) \\
+Judge & difflib (string-sim) or groq \passthrough{\lstinline!llama-3.3-70b!} (semantic) \\
+\passthrough{\lstinline!reference\_mode!} & best\_in\_batch \\
+Hardware & Colab L4 (22 GB) / A100 \\
+\end{longtable}
+
+\subsection{A.2 Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Setting
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Value
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Model & google/gemma-4-E4B-it, LoRA all-linear, thinking ON \\
+TTT steps \(K\) & 3 \\
+Teacher samples \passthrough{\lstinline!teacher\_n!} & 4 \\
+Eval samples & 4 \\
+\passthrough{\lstinline!max\_new\_tokens!} & 16384 (8192 truncated \passthrough{\lstinline!\\boxed!}, producing spurious zeros) \\
+Sampling & top\_p 0.95, top\_k 64 \\
+\passthrough{\lstinline!reference\_mode!} & ground\_truth (leak regime) \\
+Judge & \passthrough{\lstinline!zai:glm-4.5-flash!}, derive-vs-copy (\passthrough{\lstinline!is\_copy!} + \passthrough{\lstinline!reasoning\_quality!} 1--5) \\
+Data & MathArena/aime\_2026 (30 problems, integer answers) \\
+Hardware & Modal A100-80GB \\
+\end{longtable}
+
+Shared distillation core (both domains): per-token top-K reverse KL with teacher detached (self-distillation, shared weights), token-aligned over the target trajectory (§3.3.5).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix B --- Reprompt templates (verbatim)}\label{appendix-b-reprompt-templates-verbatim}
+
+Each preset overrides the SDPO template \emph{slots} only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. The TRL 1.6.0 slots are \passthrough{\lstinline!reprompt\_template → \{prompt\}\{solution\}\{feedback\}!}, \passthrough{\lstinline!feedback\_template → \{feedback\_raw\}!} (this \passthrough{\lstinline!\{feedback\_raw\}!} is the privileged context), and \passthrough{\lstinline!solution\_template → \{successful\_previous\_attempt\}!}. T2 is the TRL/paper default verbatim.
+
+\textbf{Honest scope note.} The codebase (\passthrough{\lstinline!07\_discovery\_curve.py!}, \passthrough{\lstinline!REPROMPT\_TEMPLATES!}) implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.3); T6 is implemented but unprobed.
+
+\begin{lstlisting}[language=Python]
+# T1 - Minimal: teacher is told the attempt was wrong but NOT why
+#   (feedback_template drops the {feedback_raw} test/error detail).
+"T1_minimal": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nProvide a corrected solution.\n",
+    "feedback_template": "\nYour previous attempt was incorrect.\n\n",
+},
+# T2 - Standard / anchor: exact TRL + paper defaults (rich feedback included).
+"T2_standard": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nCorrectly solve the original question.\n",
+    "feedback_template": "\nThe following is feedback from your unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+# T5 - Reasoning-inducing: SAME rich feedback as T2, trailing instruction asks
+#   for root-cause analysis first.
+"T5_reasoning": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nFirst, identify the root cause of the failure, then provide a corrected solution.\n",
+    "feedback_template": "\nThe following is feedback from your unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+# T6 - First-person: SAME rich feedback, reframed as the model's own reflection.
+"T6_first_person": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nI attempted this problem and my solution was incorrect. Let me reconsider and write a correct solution.\n",
+    "feedback_template": "\nHere is the feedback from my unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+\end{lstlisting}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix C --- Teacher and judge prompts (verbatim)}\label{appendix-c-teacher-and-judge-prompts-verbatim}
+
+\subsection{C.1 Teacher prompt and few-shot block}\label{c.1-teacher-prompt-and-few-shot-block}
+
+The teacher prompt is \passthrough{\lstinline!question + few-shot block + feedback + trailing instruction!}, where the feedback and trailing instruction come from the selected reprompt preset (Appendix B). A worked instance of the assembled prompt (with the leaked math reference) is shown in Appendix D.1. The few-shot block (\passthrough{\lstinline!09\_teacher\_first.py!}, \passthrough{\lstinline!\_build\_fewshot\_block!}) is assembled as follows; exemplars are stripped of their thinking traces and capped at 1500 characters:
+
+\begin{lstlisting}
+Here are correct, independent example solutions:
+
+Correct example 1:
+    [good trajectory, post-think solution only, fenced as a python block]
+
+[good_bad option only — appended after the good examples:]
+Here are INCORRECT or copied attempts to avoid:
+
+Bad example 1 (do not imitate):
+    [bad / copied trajectory, fenced as a python block]
+\end{lstlisting}
+
+Under \passthrough{\lstinline!good\_only!} (Option 2) only the ``Correct example'' exemplars appear; under \passthrough{\lstinline!good\_bad!} (Option 1) the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
+
+\subsection{\texorpdfstring{C.2 LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{C.2 LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
+
+\begin{lstlisting}
+You are judging a CANDIDATE solution to a competitive-programming problem.
+
+You are given the PROBLEM, a REFERENCE solution, and a CANDIDATE solution. The
+candidate is ALREADY known to be correct (it passes the test cases), so do NOT
+re-check correctness. Decide only two things:
+
+  1. is_copy: Is the candidate essentially a copy of the reference solution --
+     i.e. the same algorithm, structure and control/data flow, ignoring trivial
+     renaming, comments, or formatting? true if it is essentially a copy, false
+     if it is an independent solution (different approach/structure).
+  2. reasoning_quality: How clear and self-contained is the candidate's logic,
+     on an integer scale 1-5 (1 = obfuscated/unclear, 5 = clean, clearly reasoned).
+
+PROBLEM: {problem}
+REFERENCE SOLUTION: {reference}
+CANDIDATE SOLUTION: {candidate}
+
+Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
+\end{lstlisting}
+
+\subsection{\texorpdfstring{C.3 LLM judge prompt --- math (\texttt{glm-4.5-flash})}{C.3 LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
+
+\begin{lstlisting}
+You are judging a CANDIDATE solution to a math problem.
+
+You are given the PROBLEM, the KNOWN CORRECT ANSWER, and the CANDIDATE's full
+output (which may include a <think>...</think> reasoning block followed by a final
+\boxed{answer}). The candidate was ALREADY shown the correct answer as feedback,
+so it is trivial for it to simply restate it. Decide only two things:
+
+  1. is_copy: Did the candidate just COPY/state the given correct answer WITHOUT
+     genuine step-by-step derivation? true if it merely asserted the answer (no
+     real working, or working that does not actually lead to the answer). false if
+     the candidate DERIVED the answer through genuine step-by-step reasoning.
+  2. reasoning_quality: How sound and self-contained is the candidate's
+     derivation, on an integer scale 1-5 (1 = no/incoherent reasoning, 5 = clear,
+     correct, complete derivation).
+
+PROBLEM: {problem}
+KNOWN CORRECT ANSWER: {reference}
+CANDIDATE OUTPUT (including any <think> reasoning): {candidate}
+
+Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
+\end{lstlisting}
+
+The judge returns structured JSON (\passthrough{\lstinline!is\_copy!}: boolean, \passthrough{\lstinline!reasoning\_quality!}: integer). Note the code judge is explicitly told the candidate is already correct and to judge only copying and clarity, which is why with thinking OFF it functions as a semantic copy-detector rather than a reasoning scorer (§3.3.3).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix D --- Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
+
+Excerpts are verbatim from the W\&B \passthrough{\lstinline!output.log!} of each run; long completions are trimmed with \passthrough{\lstinline![...]!}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
+
+\subsection{\texorpdfstring{D.1 Teacher prompt with the leaked reference (idx9, run \texttt{fi5m0as1})}{D.1 Teacher prompt with the leaked reference (idx9, run fi5m0as1)}}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
+
+\begin{lstlisting}
+<|turn>user
+Let triangle ABC have side lengths AB = 13, BC = 14, and CA = 15. Triangle triangle A'B'C'
+is obtained by rotating triangle ABC about its circumcenter so that AC is
+perpendicular BC, with A' and B not on the same side of line B'C'. Find the
+integer closest to the area of hexagon AA'CC'BB'.
+
+The following is feedback from your unsuccessful earlier attempt:
+
+Reference: the correct final answer is 156.
+
+Correctly solve the original question.
+[...]
+\end{lstlisting}
+
+The reference is the bare answer 156; there is no worked solution to distill, only the number to copy (§3.5).
+
+\subsection{D.2 Judge verdict sequences}\label{d.2-judge-verdict-sequences}
+
+idx9 (run \passthrough{\lstinline!fi5m0as1!}), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & (T,1) (T,2) (F,2) (F,4) & 1 / 3 \\
+2 & (T,2) (T,2) (T,2) (T,3) & 1 / 3 \\
+3 & (T,2) (T,2) (T,1) (T,3) & 1 / 3 \\
+\end{longtable}
+
+The only genuine derivation (F,4) is at step 1; steps 2--3 are all copies, so the kept ``good'' comes from the fallback. idx8 (run \passthrough{\lstinline!463y4fjr!}), correct answer 29:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+step & verdicts & n\_good / n\_bad & batch reward \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & (T,1) (T,3) & 1 / 1 & 0.50 \\
+2 & (T,3) (T,2) (T,1) & 1 / 2 & 0.75 \\
+3 & (T,4) (T,3) (T,2) (F,2) & 1 / 3 & 1.00 \\
+\end{longtable}
+
+Every idx8 verdict is \passthrough{\lstinline!is\_copy=true!} (the lone \passthrough{\lstinline!F!} has reasoning\_quality 2 \textless{} 3), so every kept ``good'' is a fallback-retained copy.
+
+\subsection{D.3 Form changes, substance does not (idx9 student eval, PRE vs POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
+
+\textbf{PRE} (23,920 chars, boxed \textbf{148}). The model recognizes the configuration is contradictory, then satisfices toward a clean angle:
+
+\begin{quote}
+``But \(AC \perp BC\) is impossible in \(\triangle ABC\) {[}\ldots{]} \textbf{Crucial Insight Check:} {[}\ldots{]} This seems overly complex for a calculation intended to yield a clean integer answer nearby. Let's pivot and assume \(\theta\) is a `nice' angle, like \(90^\circ\) or \(180^\circ\) {[}\ldots{]}''
+\end{quote}
+
+It computes 315.5 under one reading, reinterprets the hexagon as a union (147.5), and boxes 148.
+
+\textbf{POST} (11,951 chars, about half the length, boxed \textbf{168}). After TTT the setup is better --- it now derives \(\cos C = 3/5\) and \(\theta = 90^\circ \pm C\) --- but it gives up earlier and shortcuts to twice the triangle area:
+
+\begin{quote}
+``{[}\ldots{]} unless the overlap is significant {[}\ldots{]} the area is often closely approximated by the sum of the individual areas {[}\ldots{]} the most straightforward interpretation leading to a clean integer answer is that the intended area calculation ignores the slight overlap {[}\ldots{]} \(\text{Area}(H) \approx 84 + 84 = 168\).''
+\end{quote}
+
+Both are wrong (correct 156); the model never reaches or memorizes the leaked answer. TTT changed the reasoning style (more confident, more willing to shortcut), not the capability.
+
+\subsection{D.4 The opposite stylistic drift (idx8 student eval, PRE vs POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
+
+idx8 drifts the other way. \textbf{PRE} (boxed \textbf{40201}) treats the rolls as independent and computes \(p = 2^{13}\cdot 3 / 5^6\), giving \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (boxed \textbf{17}) is \emph{more} rigorous --- it does casework on \(R_2 = R_4\) versus \(R_2 \neq R_4\), counts \(N_B = 11700\) and \(N_{A\cap B} = 3600\), and simplifies \(p = 4/13\) to \(m+n = 17\). POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
+
+\subsection{\texorpdfstring{D.5 Genuine discovery on code (idx12, run \texttt{teacherfirst-...-idx12})}{D.5 Genuine discovery on code (idx12, run teacherfirst-...-idx12)}}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
+
+The contrast with the math pilot is the point of the thesis. Here the output is a \emph{program}, and teacher-first installs a working one. Problem \passthrough{\lstinline!abc389\_b!}: given \(X\), find \(N\) with \(N! = X\).
+
+\textbf{PRE} (greedy score 0.075, pass@16 = 0.000). The student inverts the task, computing a factorial instead of finding \(N\), which also overflows the integer-string limit on large inputs:
+
+\begin{lstlisting}[language=Python]
+import math
+X = int(input())
+print(math.factorial(X))
+\end{lstlisting}
+
+\textbf{Execution feedback} (the privileged context --- this is what ``execution-guided'' means):
+
+\begin{lstlisting}
+Your solution must satisfy these test cases:
+- Input: 6  ->  Expected: 3
+- Input: 2432902008176640000  ->  Expected: 20
+Result of running your earlier attempt:
+Runtime Error
+ValueError: Exceeds the limit (4300 digits) for integer string conversion ...
+Last Executed Input: 5040
+\end{lstlisting}
+
+\textbf{POST} (greedy score 1.000, pass@16 = 1.000). The student now iterates to find \(N\), a correct algorithm that generalizes to any input:
+
+\begin{lstlisting}[language=Python]
+import sys
+def find_n_factorial(X):
+    n = 1
+    current = 1
+    while current < X:
+        n += 1
+        current *= n
+    return n
+def main():
+    X = int(sys.stdin.readline())
+    print(find_n_factorial(X))
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+PRE pass 0.000 → POST pass 1.000 (discovery curve 0.85 → 1.0 → \ldots{} → 1.0; greedy 0.075 → 1.0). Unlike the math pilot, the distilled output is a method: a program that solves the problem for every input, not a value to copy. This is the value-versus-procedure boundary (Chapter 5) made concrete.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix E --- Per-seed results}\label{appendix-e-per-seed-results}
+
+\subsection{E.1 idx39 (abc393\_d, hard, base pass ≈ 0.1), eval-16, difflib judge}\label{e.1-idx39-abc393_d-hard-base-pass-0.1-eval-16-difflib-judge}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+seed & PRE & TF POST & SF POST \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0.000 & 0.438 & 0.188 \\
+1 & 0.000 & 0.062 & 0.000 \\
+2 & 0.062 & 0.125 & 0.125 \\
+3 & 0.188 & 0.062 & 0.062 \\
+mean & & 0.172 & 0.094 \\
+\end{longtable}
+
+\subsection{E.2 idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+seed & PRE & TF POST & SF POST \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0.000 & 1.000 & 0.938 \\
+1 & 0.062 & 1.000 & 0.500 \\
+2 & 0.062 & 1.000 & 1.000 \\
+3 & 0.125 & 1.000 & 0.938 \\
+mean & & 1.000 & 0.844 \\
+\end{longtable}
+
+\subsection{E.3 Hard-frontier means and escape-zero instances}\label{e.3-hard-frontier-means-and-escape-zero-instances}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+problem
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+id
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+judge
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SF mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TF mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+win/tie/loss
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+escape-zero seeds
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+idx39 & abc393\_d & difflib & 0.094 & 0.172 & 2/2/0 & s1 (SF 0→0, TF 0.062) \\
+idx64 & abc397\_e & LLM-groq & 0.047 & 0.422 & 4/0/0 & s1 (SF 0.062→0, TF 0.375), s2 (SF 0→0, TF 0.062) \\
+idx77 & abc399\_f & difflib & 0.203 & 0.344 & 3/1/0 & --- \\
+\end{longtable}
+
+Per-seed POST pass@16 for idx64 and idx77, recovered from the W\&B export and reconciled to the published means (canonical runs: idx64 = LLM judge, idx77 = difflib, both good\_only / T2; dedup to the latest run per seed; \passthrough{\lstinline!data/reconcile.py!}):
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0.5625 & 0.000 & 0.250 & 0.0625 \\
+1 & 0.375 & 0.0625 & 0.3125 & 0.250 \\
+2 & 0.0625 & 0.000 & 0.6875 & 0.375 \\
+3 & 0.625 & 0.125 & 0.125 & 0.125 \\
+mean & 0.406 & 0.047 & 0.344 & 0.203 \\
+\end{longtable}
+
+\begin{quote}
+The idx64 TF mean from these canonical runs is 0.406 versus the 0.422 reported in §4.2.3; the difference is which re-run is selected. Note also that the canonical idx64 seed-1 SF run here is 0.0625, whereas the escape-zero instance in §4.2.3 (SF → 0) is a different run of the same seed: the stuck-at-zero behavior is \textbf{run-dependent} (§6.1.1).
+\end{quote}
+
+\subsection{E.4 RQ1 template (SF arm, 2 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-2-seeds-post-pass16}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Template & idx12 (easy) & idx39 (hard) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T1\_minimal & 0.66 & 0.03 \\
+T2\_standard & 0.97 & 0.06 \\
+T5\_reasoning & 0.97 & 0.13 \\
+\end{longtable}
+
+T5 on idx39 is stable across its two seeds (.125 / .125).
+
+\subsection{E.5 Judge × few-shot ablation, mean POST pass (4 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-4-seeds}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+arm & idx39 & idx12 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SF baseline & 0.094 & 0.844 \\
+TF · good\_only · difflib & 0.172 & 1.000 \\
+TF · good\_only · LLM & 0.266 & 0.984 \\
+TF · good\_bad · LLM & 0.250 & 1.000 \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Appendix F --- Frontier scans}\label{appendix-f-frontier-scans}
+
+\subsection{F.1 Math (AIME 2026, Gemma-4-E4B thinking ON, n\_samples = 2)}\label{f.1-math-aime-2026-gemma-4-e4b-thinking-on-n_samples-2}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Band
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Problem indices
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Frontier (0 \textless{} pass \textless{} 1) & 8, 11, 21, 25 \\
+Too-hard (pass = 0) & 2, 3, 9, 10, 12, 13, 14, 16, 17, 22, 24, 26, 27, 28, 29 \\
+Ceiling (pass = 1) & 0, 1, 4, 5, 6, 7, 15, 18, 19, 20, 23 \\
+\end{longtable}
+
+The two pilot problems (idx9, idx8) are drawn from the too-hard band; idx8 was labeled frontier by the noisy 2-sample scan but is actually pass = 0 at 4 samples.
+
+\subsection{F.2 Code (LiveCodeBench v6, Qwen3-4B)}\label{f.2-code-livecodebench-v6-qwen3-4b}
+
+Problems for the matched comparisons were selected by \emph{model} pass-rate \(\in (0,1)\) over a scan of idx0--90. The problems used are idx12 (abc389\_b), idx39 (abc393\_d), idx64 (abc397\_e), and idx77 (abc399\_f).
+
+\begin{quote}
+\textbf{To be completed:} the full idx0--90 model-pass-rate scan table is in the logs and should be reproduced here for completeness.
+\end{quote}

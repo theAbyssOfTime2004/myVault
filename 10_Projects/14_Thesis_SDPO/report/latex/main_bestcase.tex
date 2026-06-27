@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,longtable,array,calc}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\textperiodcentered}
+\newunicodechar{…}{\ldots}
+\newunicodechar{–}{--}
+\newunicodechar{—}{---}
+\newunicodechar{°}{\textdegree}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{←}{\ensuremath{\leftarrow}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∅}{\ensuremath{\emptyset}}
+\newunicodechar{△}{\ensuremath{\triangle}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{†}{\textdagger}
+\newunicodechar{‡}{\textdaggerdbl}
+\newunicodechar{⚠}{\textbf{!}}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,breakatwhitespace=false,
+  columns=fullflexible,keepspaces=true,showstringspaces=false,frame=none,
+  breakindent=0pt,postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{verbatim}{\footnotesize}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\real}[1]{#1}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\large [VNUHCM] University of Science\par}
+{\large Faculty of [Information Technology]\par}
+\vspace{1cm}
+{\large Bachelor's Thesis\par}
+\vspace{0.6cm}
+\fbox{\parbox{0.9\textwidth}{\centering\color{red}\bfseries BEST-CASE / PROJECTED DRAFT.\\
+\normalfont\color{red}\small Speculative variant for discussing the improvement and publication trajectory. Results marked \ddag\ are \emph{projections} extrapolated from the current real draft, not yet run. The factual baseline is the current real draft (\texttt{main.pdf}). See \texttt{bestcase/BESTCASE\_NOTES.md}.}}
+\vspace{1.2cm}
+{\Large\bfseries Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation\par}
+\vspace{1cm}
+\begin{flushright}\large
+\textbf{Student:} Mai Dang \quad (MSSV: \underline{\hspace{2.5cm}})\\[0.5em]
+\textbf{Supervisor:} \underline{\hspace{5cm}}\\[0.5em]
+\end{flushright}
+\vfill
+{\large Ho Chi Minh City, 2026\par}
+\end{titlepage}
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{b_abstract.tex}
+
+\tableofcontents
+
+\input{b_ch1.tex}
+\input{b_ch2.tex}
+\input{b_ch3.tex}
+\input{b_ch4.tex}
+\input{b_ch5.tex}
+\input{b_ch6.tex}
+\input{b_ch7.tex}
+
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+\input{b_refs.tex}
+
+\appendix
+\input{b_appendix.tex}
+
+\end{document}
