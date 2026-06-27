@@ -1825,6 +1825,48 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch5",
+      "title": "bc_ch5",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch6",
+      "title": "bc_ch6",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_abstract",
+      "title": "bc_abstract",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch7",
+      "title": "bc_ch7",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch1",
+      "title": "bc_ch1",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch4",
+      "title": "bc_ch4",
+      "group": "projects",
+      "degree": 0
+    },
+    {
+      "id": "10_Projects/14_Thesis_SDPO/report/bestcase/BESTCASE_NOTES",
+      "title": "BESTCASE_NOTES",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/14_Thesis_SDPO/report/planning/ch1_argument_blueprint",
       "title": "ch1_argument_blueprint",
       "group": "projects",
@@ -6646,7 +6688,7 @@
     }
   ],
   "stats": {
-    "node_count": 469,
+    "node_count": 476,
     "link_count": 957
   }
 }
