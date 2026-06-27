@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/14_Thesis_SDPO/report/ch4_experiments.md",
+                "file": "10_Projects/14_Thesis_SDPO/wiki/log.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "ch4_experiments"
+              "title": "log"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "frontier",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -207,6 +208,12 @@
   },
   "active": "e592feb1a0800245",
   "lastOpenFiles": [
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k.md",
+    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge.md",
+    "10_Projects/14_Thesis_SDPO/report/ch6_limitations_future.md",
+    "10_Projects/14_Thesis_SDPO/report/ch5_discussion.md",
+    "10_Projects/14_Thesis_SDPO/report/ch3_method.md",
+    "10_Projects/14_Thesis_SDPO/report/ch4_experiments.md",
     "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase.pdf",
     "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase - Copy.tex",
     "10_Projects/14_Thesis_SDPO/report/latex/_bc_p1.png",
@@ -218,7 +225,6 @@
     "10_Projects/14_Thesis_SDPO/report/latex/b_ch5.tex",
     "10_Projects/14_Thesis_SDPO/report/latex/b_ch4.tex",
     "10_Projects/14_Thesis_SDPO/report/latex/b_ch3.tex",
-    "10_Projects/14_Thesis_SDPO/report/latex/b_ch2.tex",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch7.md",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch6.md",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch5.md",
@@ -236,23 +242,18 @@
     "10_Projects/14_Thesis_SDPO/report/latex/_preview/p48.png",
     "10_Projects/14_Thesis_SDPO/report/latex/_preview/p47.png",
     "10_Projects/14_Thesis_SDPO/report/PLACEHOLDERS.md",
-    "10_Projects/14_Thesis_SDPO/report/ch3_method.md",
     "10_Projects/14_Thesis_SDPO/report/ch2_related_work.md",
     "10_Projects/14_Thesis_SDPO/report/ch1_introduction.md",
     "10_Projects/14_Thesis_SDPO/report/08_appendices.md",
     "10_Projects/14_Thesis_SDPO/report/00_references.md",
     "10_Projects/14_Thesis_SDPO/report/00_abstract.md",
     "10_Projects/14_Thesis_SDPO/report/ch7_conclusion.md",
-    "10_Projects/14_Thesis_SDPO/report/ch6_limitations_future.md",
-    "10_Projects/14_Thesis_SDPO/report/ch5_discussion.md",
-    "10_Projects/14_Thesis_SDPO/report/ch4_experiments.md",
     "10_Projects/14_Thesis_SDPO/report/planning/ch1_argument_blueprint.md",
     "10_Projects/14_Thesis_SDPO/report/ch3_phuong_phap.md",
     "30_Knowledge_Base/AI_DeepLearning/quantization_lora_qlora.md",
     "30_Knowledge_Base/AI_DeepLearning/Vanishing and Exploding Gradient.md",
     "3 - Tags/Deep Learning.md",
     "30_Knowledge_Base/AI_DeepLearning/Adamw and Adam (optimizer).md",
-    "30_Knowledge_Base/AI_DeepLearning/PyTorch LLM Techniques.md",
     "99_System/Assets/Files/Untitled 1.canvas",
     "99_System/Assets/Files/Untitled.canvas",
     "99_System/Assets/Files/Data Mining review.canvas",

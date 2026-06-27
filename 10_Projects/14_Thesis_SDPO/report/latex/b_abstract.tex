@@ -19,13 +19,14 @@ teacher-first still wins, and reaches a given discovery probability with
 fewer total generations. With thinking enabled, we measure epistemic
 verbalization at test time and find that distillation from
 answer-bearing context suppresses uncertainty markers, connecting the
-method to the degradation Kim et al.~describe. Finally, supplying a
-method-bearing reference (worked solutions from MATH-500) lets the model
-escape on math problems where an answer-only reference does not,
-validating the central \emph{value-versus-procedure} boundary: escape
-requires the reference to encode an in-reach method, not merely a value.
+method to the degradation Kim et al.~describe. Finally, evaluating the
+pipeline on mathematical reasoning (AIME 2026) exposes a rigid domain
+boundary: when feedback is limited strictly to a static numeric value
+rather than an algorithmic procedure, the teacher policy degrades into
+shallow answer-copying without capability lift, establishing a strict
+procedural-versus-value constraint on test-time self-distillation.
 
 \vspace{0.5cm}
 \textbf{Keywords:} test-time training, self-distillation, code
 generation, execution feedback, discovery@k, epistemic suppression,
-compute-to-correct.
+domain boundary.
