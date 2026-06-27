@@ -1,0 +1,153 @@
+README.md: 100% 3.39k/3.39k [00:00<00:00, 4.22MB/s]
+code_generation_lite.py: 100% 5.01k/5.01k [00:00<00:00, 6.48MB/s]
+test6.jsonl: 100% 134M/134M [00:01<00:00, 71.1MB/s] 
+Generating train split: 175 examples [00:00, 266.09 examples/s]
+
+=== PROBLEM idx 12: abc389_b (easy) ===
+[row] keys = ['question_title', 'question_content', 'platform', 'question_id', 'contest_id', 'contest_date', 'starter_code', 'difficulty', 'public_test_cases', 'private_test_cases', 'metadata']
+config.json: 100% 726/726 [00:00<00:00, 2.57MB/s]
+tokenizer_config.json: 100% 9.73k/9.73k [00:00<00:00, 11.2MB/s]
+vocab.json: 100% 2.78M/2.78M [00:00<00:00, 122MB/s]
+merges.txt: 100% 1.67M/1.67M [00:00<00:00, 128MB/s]
+tokenizer.json: 100% 11.4M/11.4M [00:01<00:00, 10.5MB/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model.safetensors.index.json: 100% 32.8k/32.8k [00:00<00:00, 43.3MB/s]
+Fetching 3 files: 100% 3/3 [00:22<00:00,  7.48s/it] [00:22<00:00, 322MB/s]    
+Download complete: 100% 8.04G/8.04G [00:22<00:00, 358MB/s]                
+Loading weights: 100% 398/398 [00:02<00:00, 192.37it/s]
+generation_config.json: 100% 239/239 [00:00<00:00, 806kB/s]
+trainable params: 66,060,288 || all params: 4,088,528,384 || trainable%: 1.6157
+
+[PRE-eval] sampling 16 student solutions ...
+[eval-debug] sample[0] len=68 chars score=0.075
+[eval-debug] FULL COMPLETION BELOW >>>>>>>>>>
+```python
+import math
+
+X = int(input())
+print(math.factorial(X))
+```
+[eval-debug] <<<<<<<<<< END FULL COMPLETION
+[PRE-eval] pass_rate=0.000 mean=0.122 max=0.350 greedy=0.075
+
+[TTT] teacher-first on abc389_b for 15 steps ...
+[teacher] prompt tokens=382 vs max_prompt_length=4096
+[teacher] FULL PROMPT BELOW >>>>>>>>>>
+<|im_start|>user
+You are given an integer X not less than 2.
+Find the positive integer N such that N! = X.
+Here, N! denotes the factorial of N, and it is guaranteed that there is exactly one such N.
+
+Input
+
+The input is given from Standard Input in the following format:
+X
+
+Output
+
+Print the answer.
+
+Constraints
+
+
+- 2 \leq X \leq 3 \times 10^{18}
+- There is exactly one positive integer N such that N!=X.
+- All input values are integers.
+
+Sample Input 1
+
+6
+
+Sample Output 1
+
+3
+
+From 3!=3\times2\times1=6, print 3.
+
+Sample Input 2
+
+2432902008176640000
+
+Sample Output 2
+
+20
+
+From 20!=2432902008176640000, print 20.
+
+The following is feedback from your unsuccessful earlier attempt:
+
+Your solution must satisfy these test cases:
+- Input: 6  ->  Expected: 3
+- Input: 2432902008176640000  ->  Expected: 20
+
+Result of running your earlier attempt:
+Runtime Error
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+Line 6 in <module> (Solution.py)
+
+Last Executed Input
+5040
+
+Correctly solve the original question.
+
+Respond with ONLY the complete Python solution inside a single ```python ... ``` block. Do not explain. Read input from stdin, print to stdout.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+[teacher] <<<<<<<<<< END PROMPT
+[kl] student_prefix_len=248 teacher_prefix_len=644
+[kl-sanity] L=77 s_slice=(1, 77, 151936) t_slice=(1, 77, 151936) topk=20 KL(token-mean)=1.195312
+[step 1] n_good=4 n_bad=4 n_total=10 mean_sim=0.729 loss=1.3965 good_pool=4 batch_mean_r=0.848
+[step 2] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=1.1484 good_pool=4 batch_mean_r=1.000
+[step 3] n_good=5 n_bad=5 n_total=10 mean_sim=0.853 loss=1.0023 good_pool=5 batch_mean_r=1.000
+[step 4] n_good=2 n_bad=8 n_total=10 mean_sim=0.887 loss=0.9004 good_pool=5 batch_mean_r=1.000
+[step 5] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.6562 good_pool=5 batch_mean_r=1.000
+[step 6] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.5703 good_pool=5 batch_mean_r=1.000
+[step 7] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.5156 good_pool=5 batch_mean_r=1.000
+[step 8] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.4023 good_pool=5 batch_mean_r=1.000
+[step 9] n_good=2 n_bad=8 n_total=10 mean_sim=0.887 loss=0.3115 good_pool=5 batch_mean_r=1.000
+[step 10] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.1187 good_pool=5 batch_mean_r=1.000
+[step 11] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.0693 good_pool=5 batch_mean_r=1.000
+[step 12] n_good=3 n_bad=7 n_total=10 mean_sim=0.876 loss=0.0219 good_pool=5 batch_mean_r=1.000
+[step 13] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.0498 good_pool=5 batch_mean_r=1.000
+[step 14] n_good=2 n_bad=8 n_total=10 mean_sim=0.880 loss=0.0294 good_pool=5 batch_mean_r=1.000
+[step 15] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.0757 good_pool=5 batch_mean_r=1.000
+
+[POST-eval] sampling 16 student solutions ...
+[eval-debug] sample[0] len=265 chars score=1.000
+[eval-debug] FULL COMPLETION BELOW >>>>>>>>>>
+```python
+import sys
+
+def find_n_factorial(X):
+    n = 1
+    current = 1
+    while current < X:
+        n += 1
+        current *= n
+    return n
+
+def main():
+    X = int(sys.stdin.readline())
+    print(find_n_factorial(X))
+
+if __name__ == "__main__":
+    main()
+```
+[eval-debug] <<<<<<<<<< END FULL COMPLETION
+[POST-eval] pass_rate=1.000 mean=1.000 max=1.000 greedy=1.000
+
+=== DISCOVERY CURVE (batch mean reward per step) ===
+0.85 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00
+
+=== EFFECTIVENESS (pre vs post TTT, student-only) ===
+pass_rate : 0.000 -> 1.000 (delta +1.000)
+mean_score: 0.122 -> 1.000 (delta +0.878)
+greedy    : 0.075 -> 1.000
+Peak VRAM allocated: 10.03 GB
+TTT runtime: 622.92 s | Total runtime: 862.48 s
+
+EFFECTIVENESS VERDICT: IMPROVED

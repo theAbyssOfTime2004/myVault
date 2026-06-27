@@ -75,7 +75,7 @@ The aggregate means are shown in Figure 4.1 and the per-seed trajectories in Fig
 ![Figure 4.1](figures/fig_4_1_main_result.png)
 
 **Figure 4.1**
-*Mean POST pass@16, teacher-first versus student-first.* Dots are per-seed values for idx39 and idx12 ($n=4$); idx64 and idx77 show means only, as per-seed values were not exported. Error bars are $\pm 1$ SD where available.
+*POST pass@16, teacher-first versus student-first.* Bars are the published means; dots are per-seed values ($n=4$, all four problems, recovered and verified from the W&B export); error bars are $\pm 1$ SD. Teacher-first is at or above student-first on every problem.
 
 ![Figure 4.2](figures/fig_4_2_per_seed_slope.png)
 
@@ -106,7 +106,7 @@ Two honest caveats. idx39 appears in both §4.2.2 and this table, so the two gro
 
 ### 4.2.4 Discovery curves and qualitative behavior
 
-Beyond aggregate pass-rate, the runs show genuine discovery rather than confidence inflation. On idx12, greedy decoding moves 0.075 → 1.0; on idx39, 0.175 → 0.225. The model learns to solve problems it deterministically failed before. One concrete trace: idx12 base uses `math.factorial(X)` in the wrong direction, the feedback reports a runtime error, and the model learns to iterate to find N. In an exploratory run (idx29), the base calls `exit()` (unavailable in the sandbox), the feedback reports a `NameError`, and the model corrects it.
+Beyond aggregate pass-rate, the runs show genuine discovery rather than confidence inflation. On idx12, greedy decoding moves 0.075 → 1.0; on idx39, 0.175 → 0.225. The model learns to solve problems it deterministically failed before. One concrete trace (full excerpt in Appendix D.5): idx12 base uses `math.factorial(X)` in the wrong direction, the feedback reports a runtime error, and the model learns to iterate to find N. In an exploratory run (idx29), the base calls `exit()` (unavailable in the sandbox), the feedback reports a `NameError`, and the model corrects it.
 
 Two further observations. On easy-to-fix exploratory problems (idx23, idx29 at eval-8), both arms solve almost equally, so differentiation is clearer on harder problems. And from around step 2 the teacher tends to converge (batch reward = 1.0, mean similarity ≈ 0.9, `n_good` → 1); when the base starts high, both arms can over-distill, consistent with the idx39 seed-3 control above.
 

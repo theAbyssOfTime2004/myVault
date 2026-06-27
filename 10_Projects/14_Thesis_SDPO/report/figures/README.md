@@ -32,11 +32,15 @@ Outputs `fig_4_1 .. fig_4_7` as both `.pdf` (for LaTeX) and `.png` (for the Obsi
 | 4.7 | data plot | `fig_4_7_frontier_bands` | §4.5.1 | run script |
 | D.1 | exemplar (text exhibit) | App. D | App. D | math done; code pending |
 
-## Pending data (to finish the figure set)
+## Data provenance and remaining gap
 
-1. **Per-step discovery logs** (pass per step, SF and TF) for the escape-zero seeds (idx39 s1, idx64 s1/s2) → upgrades Figure 4.3 from the endpoint view to a true 15-step curve.
-2. **idx64 / idx77 per-seed POST values** → real error bars / seed dots in Figure 4.1 (currently means only).
-3. ~~Trajectory completions from `fi5m0as1` and `463y4fjr`~~ — **done for math** (Appendix D: teacher prompt, judge-verdict tables, student PRE/POST excerpts). Note the teacher-*generated* trajectories were not logged as text (only verdicts). **Code exemplars** (e.g., idx12) still to be exported.
+The W&B export (`data/wb_export.py`, `data/reconcile.py`) pulled all 192 runs and reconciled the canonical per-seed numbers against the published means.
+
+1. ~~Per-step discovery curve for Figure 4.3~~ — **not applicable.** The only per-step metric is the *training* reward (SF on-policy rollout reward fluctuates 0.1–0.4, not 0), which is a different signal from the student PRE/POST eval that defines escape-zero. Plotting it would contradict the endpoint result, so Figure 4.3 keeps the (correct) endpoint view.
+2. ~~idx64 / idx77 per-seed~~ — **done.** Recovered + verified (means reconcile to published), now per-seed dots + SD in Figure 4.1 and Appendix E.3.
+3. ~~Code trajectory exemplars~~ — **done.** Finished runs *do* sync `output.log` (crashed runs do not); pulled `teacherfirst-...-idx12` via `data/fetch_logs.py` and added the PRE→feedback→POST exemplar to Appendix D.5.
+
+All figure and appendix data are now complete. The only remaining item for the final PDF is the title-page administrative information (advisor, faculty, year).
 
 ## LaTeX inclusion
 

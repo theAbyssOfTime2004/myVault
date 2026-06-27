@@ -45,21 +45,26 @@ SEED = {
               'TF':  [1.000, 1.000, 1.000, 1.000],
               'SF':  [0.938, 0.500, 1.000, 0.938]},
 }
-# Means only (no per-seed exported)
-MEAN_ONLY = {'idx64': {'TF': 0.422, 'SF': 0.047},
-             'idx77': {'TF': 0.344, 'SF': 0.203}}
+# Per-seed POST for idx64/idx77 recovered + verified from W&B (means reconcile
+# to the published wiki numbers within re-run variation; see data/reconcile.py).
+POST_SEED = {
+    'idx39': SEED['idx39'], 'idx12': SEED['idx12'],
+    'idx64': {'TF': [0.5625, 0.375, 0.0625, 0.625], 'SF': [0.0, 0.0625, 0.0, 0.125]},
+    'idx77': {'TF': [0.25, 0.3125, 0.6875, 0.125], 'SF': [0.0625, 0.25, 0.375, 0.125]},
+}
+# Bar heights = published means (Ch4 §4.2); idx64/idx77 reconciled means 0.41/0.34.
+PUB_MEAN = {'idx39': (0.094, 0.172), 'idx12': (0.844, 1.000),
+            'idx64': (0.047, 0.422), 'idx77': (0.203, 0.344)}
 
 
 # ----------------------------------------------------------------------
 def fig_4_1_main_result():
-    """Grouped bar: TF vs SF mean POST across 4 problems; seed points where available."""
+    """Grouped bar: TF vs SF POST across 4 problems; per-seed dots + SD for all four."""
     probs = ['idx39', 'idx12', 'idx64', 'idx77']
-    tf_mean = [np.mean(SEED['idx39']['TF']), np.mean(SEED['idx12']['TF']),
-               MEAN_ONLY['idx64']['TF'], MEAN_ONLY['idx77']['TF']]
-    sf_mean = [np.mean(SEED['idx39']['SF']), np.mean(SEED['idx12']['SF']),
-               MEAN_ONLY['idx64']['SF'], MEAN_ONLY['idx77']['SF']]
-    tf_sd = [np.std(SEED['idx39']['TF']), np.std(SEED['idx12']['TF']), 0, 0]
-    sf_sd = [np.std(SEED['idx39']['SF']), np.std(SEED['idx12']['SF']), 0, 0]
+    tf_mean = [PUB_MEAN[p][1] for p in probs]
+    sf_mean = [PUB_MEAN[p][0] for p in probs]
+    tf_sd = [np.std(POST_SEED[p]['TF']) for p in probs]
+    sf_sd = [np.std(POST_SEED[p]['SF']) for p in probs]
 
     x = np.arange(len(probs)); w = 0.38
     fig, ax = plt.subplots(figsize=(6.9, 4.3))
@@ -67,15 +72,15 @@ def fig_4_1_main_result():
            color=TF_C, edgecolor='black', linewidth=0.5)
     ax.bar(x + w/2, sf_mean, w, yerr=sf_sd, capsize=3, label='Student-first',
            color=SF_C, edgecolor='black', linewidth=0.5)
-    # overlay seed points for idx39, idx12
-    for i, p in enumerate(['idx39', 'idx12']):
+    # overlay per-seed points for all four problems
+    for i, p in enumerate(probs):
         jit = (np.random.RandomState(0).rand(4) - 0.5) * 0.12
-        ax.scatter(np.full(4, x[i]-w/2)+jit, SEED[p]['TF'], s=14, color='black', zorder=3)
-        ax.scatter(np.full(4, x[i]+w/2)+jit, SEED[p]['SF'], s=14, color='black', zorder=3)
+        ax.scatter(np.full(4, x[i]-w/2)+jit, POST_SEED[p]['TF'], s=14, color='black', zorder=3)
+        ax.scatter(np.full(4, x[i]+w/2)+jit, POST_SEED[p]['SF'], s=14, color='black', zorder=3)
     ax.set_xticks(x); ax.set_xticklabels(probs)
     ax.set_ylabel('POST pass@16'); ax.set_xlabel('Problem')
     ax.set_ylim(0, 1.15); ax.legend(frameon=False, loc='upper center', ncol=2)
-    ax.text(0.5, -0.22, 'Dots = per-seed (idx39, idx12, n=4). idx64/idx77: means only, no error bars.',
+    ax.text(0.5, -0.20, 'Bars = published means; dots = per-seed (n=4); error bars = +/-1 SD.',
             transform=ax.transAxes, ha='center', fontsize=7.5, style='italic')
     save(fig, 'fig_4_1_main_result')
 

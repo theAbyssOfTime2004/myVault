@@ -1,0 +1,217 @@
+README.md: 100% 3.39k/3.39k [00:00<00:00, 4.01MB/s]
+code_generation_lite.py: 100% 5.01k/5.01k [00:00<00:00, 6.57MB/s]
+test6.jsonl: 100% 134M/134M [00:02<00:00, 61.8MB/s] 
+Generating train split: 175 examples [00:00, 260.37 examples/s]
+
+=== PROBLEM idx 29: abc391_b (easy) ===
+[row] keys = ['question_title', 'question_content', 'platform', 'question_id', 'contest_id', 'contest_date', 'starter_code', 'difficulty', 'public_test_cases', 'private_test_cases', 'metadata']
+config.json: 100% 726/726 [00:00<00:00, 2.53MB/s]
+tokenizer_config.json: 100% 9.73k/9.73k [00:00<00:00, 12.6MB/s]
+vocab.json: 100% 2.78M/2.78M [00:00<00:00, 112MB/s]
+merges.txt: 100% 1.67M/1.67M [00:00<00:00, 121MB/s]
+tokenizer.json: 100% 11.4M/11.4M [00:01<00:00, 10.8MB/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+model.safetensors.index.json: 100% 32.8k/32.8k [00:00<00:00, 43.2MB/s]
+Fetching 3 files: 100% 3/3 [00:16<00:00,  5.35s/it] [00:16<00:00, 407MB/s]    
+Download complete: 100% 8.04G/8.04G [00:16<00:00, 501MB/s]                
+Loading weights: 100% 398/398 [00:02<00:00, 186.88it/s]
+generation_config.json: 100% 239/239 [00:00<00:00, 857kB/s]
+trainable params: 66,060,288 || all params: 4,088,528,384 || trainable%: 1.6157
+
+[PRE-eval] sampling 8 student solutions ...
+[eval-debug] sample[0] len=650 chars score=0.000
+[eval-debug] FULL COMPLETION BELOW >>>>>>>>>>
+```python
+# Read input
+N, M = map(int, input().split())
+
+# Read grid S
+S = [input().strip() for _ in range(N)]
+
+# Read grid T
+T = [input().strip() for _ in range(M)]
+
+# Iterate over all possible top-left positions (a, b) in S
+for a in range(N - M + 1):
+    for b in range(N - M + 1):
+        match = True
+        # Check if the subgrid starting at (a, b) matches T
+        for i in range(M):
+            for j in range(M):
+                if S[a + i][b + j] != T[i][j]:
+                    match = False
+                    break
+            if not match:
+                break
+        if match:
+            print(a + 1, b + 1)
+            exit()
+```
+[eval-debug] <<<<<<<<<< END FULL COMPLETION
+[PRE-eval] pass_rate=0.500 mean=0.500 max=1.000 greedy=0.000
+
+[TTT] teacher-first on abc391_b for 15 steps ...
+[teacher] prompt tokens=699 vs max_prompt_length=4096
+[teacher] FULL PROMPT BELOW >>>>>>>>>>
+<|im_start|>user
+You are given an N \times N grid S and an M \times M grid T. The cell at the i-th row from the top and the j-th column from the left is denoted by (i,j).
+The colors of the cells in S and T are represented by N^2 characters S_{i,j} (1\leq i,j\leq N) and M^2 characters T_{i,j} (1\leq i,j\leq M), respectively. In grid S, cell (i,j) is white if S_{i,j} is ., and black if S_{i,j} is #. The same applies for grid T.
+Find T within S. More precisely, output integers a and b (1 \leq a,b \leq N-M+1) that satisfy the following condition:
+
+- S_{a+i-1,b+j-1} = T_{i,j} for every i,j (1\leq i,j \leq M).
+
+Input
+
+The input is given from Standard Input in the following format:
+N M
+S_{1,1}S_{1,2}\dots S_{1,N}
+S_{2,1}S_{2,2}\dots S_{2,N}
+\vdots
+S_{N,1}S_{N,2}\dots S_{N,N}
+T_{1,1}T_{1,2}\dots T_{1,M}
+T_{2,1}T_{2,2}\dots T_{2,M}
+\vdots
+T_{M,1}T_{M,2}\dots T_{M,M}
+
+Output
+
+Print a and b in this order, separated by a space on one line.
+
+Constraints
+
+
+- 1 \leq M \leq N \leq 50
+- N and M are integers.
+- Each of S_{i,j} and T_{i,j} is . or #.
+- There is exactly one pair (a,b) satisfying the condition.
+
+Sample Input 1
+
+3 2
+#.#
+..#
+##.
+.#
+#.
+
+Sample Output 1
+
+2 2
+
+The 2 \times 2 subgrid of S from the 2nd to the 3rd row and from the 2nd to the 3rd column matches T.
+
+Sample Input 2
+
+2 1
+#.
+##
+.
+
+Sample Output 2
+
+1 2
+
+The following is feedback from your unsuccessful earlier attempt:
+
+Your solution must satisfy these test cases:
+- Input: 3 2
+#.#
+..#
+##.
+.#
+#.  ->  Expected: 2 2
+- Input: 2 1
+#.
+##
+.  ->  Expected: 1 2
+
+Result of running your earlier attempt:
+Runtime Error
+NameError: name 'exit' is not defined
+Line 25 in <module> (Solution.py)
+
+Last Executed Input
+9 2
+#....####
+#..#..###
+#.#####..
+##...####
+##..##.##
+#..##.#..
+#..##...#
+... (4 more lines)
+
+Correctly solve the original question.
+
+Respond with ONLY the complete Python solution inside a single ```python ... ``` block. Do not explain. Read input from stdin, print to stdout.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+[teacher] <<<<<<<<<< END PROMPT
+[kl] student_prefix_len=548 teacher_prefix_len=1128
+[kl-sanity] L=216 s_slice=(1, 216, 151936) t_slice=(1, 216, 151936) topk=20 KL(token-mean)=0.193359
+[step 1] n_good=2 n_bad=3 n_total=10 mean_sim=0.537 loss=0.1743 good_pool=2 batch_mean_r=0.500
+[step 2] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.1514 good_pool=2 batch_mean_r=1.000
+[step 3] n_good=1 n_bad=9 n_total=10 mean_sim=0.861 loss=0.0981 good_pool=2 batch_mean_r=1.000
+[step 4] n_good=1 n_bad=9 n_total=10 mean_sim=0.841 loss=0.3691 good_pool=3 batch_mean_r=1.000
+[step 5] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3477 good_pool=3 batch_mean_r=1.000
+[step 6] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3340 good_pool=3 batch_mean_r=1.000
+[step 7] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3301 good_pool=3 batch_mean_r=1.000
+[step 8] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3301 good_pool=3 batch_mean_r=1.000
+[step 9] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3340 good_pool=3 batch_mean_r=1.000
+[step 10] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.3125 good_pool=3 batch_mean_r=1.000
+[step 11] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.2715 good_pool=3 batch_mean_r=1.000
+[step 12] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.2021 good_pool=3 batch_mean_r=1.000
+[step 13] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.1895 good_pool=3 batch_mean_r=1.000
+[step 14] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.1924 good_pool=3 batch_mean_r=1.000
+[step 15] n_good=1 n_bad=9 n_total=10 mean_sim=0.900 loss=0.1895 good_pool=3 batch_mean_r=1.000
+
+[POST-eval] sampling 8 student solutions ...
+[eval-debug] sample[0] len=647 chars score=1.000
+[eval-debug] FULL COMPLETION BELOW >>>>>>>>>>
+```python
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+
+    N = int(data[0])
+    M = int(data[1])
+
+    S = data[2:2+N]
+    T = data[2+N:2+N+M]
+
+    for a in range(N - M + 1):
+        for b in range(N - M + 1):
+            match = True
+            for i in range(M):
+                for j in range(M):
+                    if S[a + i][b + j] != T[i][j]:
+                        match = False
+                        break
+                if not match:
+                    break
+            if match:
+                print(a + 1, b + 1)
+                return
+
+if __name__ == "__main__":
+    main()
+```
+[eval-debug] <<<<<<<<<< END FULL COMPLETION
+[POST-eval] pass_rate=1.000 mean=1.000 max=1.000 greedy=1.000
+
+=== DISCOVERY CURVE (batch mean reward per step) ===
+0.50 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00 -> 1.00
+
+=== EFFECTIVENESS (pre vs post TTT, student-only) ===
+pass_rate : 0.500 -> 1.000 (delta +0.500)
+mean_score: 0.500 -> 1.000 (delta +0.500)
+greedy    : 0.000 -> 1.000
+Peak VRAM allocated: 11.65 GB
+TTT runtime: 826.66 s | Total runtime: 954.45 s
+
+EFFECTIVENESS VERDICT: IMPROVED

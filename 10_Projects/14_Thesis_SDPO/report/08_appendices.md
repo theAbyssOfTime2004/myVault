@@ -8,7 +8,7 @@ sources: [syn_core_result, syn_math_pilot, con_teacher_first_judge, syn_teacher_
 
 # Appendices
 
-Appendices A, B, C, E, and F are complete, with B and C reproduced verbatim from the codebase (`07_discovery_curve.py`, `09_teacher_first.py`) and the rest from the experiment records. Appendix D is complete for the math pilot (verbatim from the W&B logs); its code exemplars and the full idx0–90 / per-seed tables (Appendix E/F notes) await further log export.
+Appendices A–F are complete. B and C are reproduced verbatim from the codebase (`07_discovery_curve.py`, `09_teacher_first.py`); D from the W&B `output.log` files (math pilot and a code exemplar); E/F from the W&B export and reconciliation. The one remaining optional addition is the full idx0–90 code frontier-scan table (F.2), for which only the four problems actually used are listed.
 
 ---
 
@@ -168,7 +168,7 @@ The judge returns structured JSON (`is_copy`: boolean, `reasoning_quality`: inte
 
 ## Appendix D — Example trajectories (math pilot)
 
-Excerpts are verbatim from the W&B logs; long completions are trimmed with `[...]`. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are *not* stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. Code exemplars (e.g., idx12 learning to iterate after a `math.factorial` runtime error) are not yet exported and remain to be added.
+Excerpts are verbatim from the W&B `output.log` of each run; long completions are trimmed with `[...]`. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are *not* stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1–D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
 
 ### D.1 Teacher prompt with the leaked reference (idx9, run `fi5m0as1`)
 
@@ -227,6 +227,50 @@ Both are wrong (correct 156); the model never reaches or memorizes the leaked an
 
 idx8 drifts the other way. **PRE** (boxed **40201**) treats the rolls as independent and computes $p = 2^{13}\cdot 3 / 5^6$, giving $m+n = 24576 + 15625 = 40201$. **POST** (boxed **17**) is *more* rigorous — it does casework on $R_2 = R_4$ versus $R_2 \neq R_4$, counts $N_B = 11700$ and $N_{A\cap B} = 3600$, and simplifies $p = 4/13$ to $m+n = 17$. POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
 
+### D.5 Genuine discovery on code (idx12, run `teacherfirst-...-idx12`)
+
+The contrast with the math pilot is the point of the thesis. Here the output is a *program*, and teacher-first installs a working one. Problem `abc389_b`: given $X$, find $N$ with $N! = X$.
+
+**PRE** (greedy score 0.075, pass@16 = 0.000). The student inverts the task, computing a factorial instead of finding $N$, which also overflows the integer-string limit on large inputs:
+
+```python
+import math
+X = int(input())
+print(math.factorial(X))
+```
+
+**Execution feedback** (the privileged context — this is what "execution-guided" means):
+
+```
+Your solution must satisfy these test cases:
+- Input: 6  ->  Expected: 3
+- Input: 2432902008176640000  ->  Expected: 20
+Result of running your earlier attempt:
+Runtime Error
+ValueError: Exceeds the limit (4300 digits) for integer string conversion ...
+Last Executed Input: 5040
+```
+
+**POST** (greedy score 1.000, pass@16 = 1.000). The student now iterates to find $N$, a correct algorithm that generalizes to any input:
+
+```python
+import sys
+def find_n_factorial(X):
+    n = 1
+    current = 1
+    while current < X:
+        n += 1
+        current *= n
+    return n
+def main():
+    X = int(sys.stdin.readline())
+    print(find_n_factorial(X))
+if __name__ == "__main__":
+    main()
+```
+
+PRE pass 0.000 → POST pass 1.000 (discovery curve 0.85 → 1.0 → … → 1.0; greedy 0.075 → 1.0). Unlike the math pilot, the distilled output is a method: a program that solves the problem for every input, not a value to copy. This is the value-versus-procedure boundary (Chapter 5) made concrete.
+
 ---
 
 ## Appendix E — Per-seed results
@@ -259,7 +303,17 @@ idx8 drifts the other way. **PRE** (boxed **40201**) treats the rolls as indepen
 | idx64 | abc397_e | LLM-groq | 0.047 | 0.422 | 4/0/0 | s1 (SF 0.062→0, TF 0.375), s2 (SF 0→0, TF 0.062) |
 | idx77 | abc399_f | difflib | 0.203 | 0.344 | 3/1/0 | — |
 
-> Full per-seed tables for idx64 and idx77 are in the W&B logs; only means and the escape-zero seeds are reproduced here.
+Per-seed POST pass@16 for idx64 and idx77, recovered from the W&B export and reconciled to the published means (canonical runs: idx64 = LLM judge, idx77 = difflib, both good_only / T2; dedup to the latest run per seed; `data/reconcile.py`):
+
+| seed | idx64 TF | idx64 SF | idx77 TF | idx77 SF |
+|---|---|---|---|---|
+| 0 | 0.5625 | 0.000 | 0.250 | 0.0625 |
+| 1 | 0.375 | 0.0625 | 0.3125 | 0.250 |
+| 2 | 0.0625 | 0.000 | 0.6875 | 0.375 |
+| 3 | 0.625 | 0.125 | 0.125 | 0.125 |
+| mean | 0.406 | 0.047 | 0.344 | 0.203 |
+
+> The idx64 TF mean from these canonical runs is 0.406 versus the 0.422 reported in §4.2.3; the difference is which re-run is selected. Note also that the canonical idx64 seed-1 SF run here is 0.0625, whereas the escape-zero instance in §4.2.3 (SF → 0) is a different run of the same seed: the stuck-at-zero behavior is **run-dependent** (§6.1.1).
 
 ### E.4 RQ1 template (SF arm, 2 seeds), POST pass@16
 
