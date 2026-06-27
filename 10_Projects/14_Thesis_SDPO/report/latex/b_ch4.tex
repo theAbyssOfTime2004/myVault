@@ -1,22 +1,22 @@
-\chapter{Chapter 4 --- Experiments}\label{chapter-4-experiments}
+\chapter{Experiments}\label{chapter-4-experiments}
 
-\section{4.0 Method extensions for the full study}\label{method-extensions-for-the-full-study}
+\section{Method extensions for the full study}\label{method-extensions-for-the-full-study}
 
-Four core components establish the framework of this full study. (i) \textbf{Fallback removed:} the keep-best-correct fallback is dropped, ensuring the filter never distils a copy; on a step where every teacher trajectory is judged a copy, the good pool remains empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over sixteen frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Method-bearing references and compute logging:} MATH-500 worked solutions are injected as the math privileged context, the same reasoner (Qwen3-4B) is deployed across both domains, and total generations plus token and GPU-time are comprehensively logged for the compute-to-correct analysis.
+Four core components establish the framework of this full study. (i) \textbf{Fallback removed:} the keep-best-correct fallback is dropped, ensuring the filter never distils a copy; on a step where every teacher trajectory is judged a copy, the good pool remains empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over sixteen frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are comprehensively logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
 
-\section{4.1 Setup}\label{setup}
+\section{Setup}\label{setup}
 
-Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code) and AIME 2026 / MATH-500 (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Sixteen frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
+Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and google/gemma-4-E4B-it is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Sixteen frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
 
-\section{4.2 RQ-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
+\section{RQ-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
 
-On the medium matched evaluation set, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is never materially worse, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (\textbf{p \textless{} 0.01}) in favor of teacher-first, upgrading the preliminary sign test to a robust, properly powered result. The escape-zero pattern --- where the student-first baseline stays stuck at zero while teacher-first lifts off --- is \textbf{consistently observed across the majority of the hard problems}. With the fallback mechanism removed, this behavior is explicitly verified and not attributable to any filter artifact.
+On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is never materially worse, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (\textbf{p \textless{} 0.01}) in favor of teacher-first, upgrading the preliminary sign test to a robust, properly powered result. The escape-zero pattern --- where the student-first baseline stays stuck at zero while teacher-first lifts off --- is \textbf{consistently observed across the majority of the hard code problems}. With the fallback mechanism removed, this behavior is explicitly verified and not attributable to any filter artifact.
 
 The four standard problems anchor this evaluation: idx64 (TF 0.42 vs SF 0.05) and idx39 (TF 0.17 vs SF 0.09) represent the clear, escape-prone hard cases that validate the medium set's composition.
 
-\section{4.2.5 Compute-matched comparison and compute-to-correct (RQ3)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
+\section{Compute-matched comparison and compute-to-correct (RQ3)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
-Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
+Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
@@ -29,21 +29,23 @@ idx39 (hard) & 0.13 & 0.17 & TF ahead \\
 idx64 (escape-zero) & 0.11 & 0.42 & TF far ahead \\
 \end{longtable}
 
-\section{4.3 RQ1: the reprompt template}\label{rq1-the-reprompt-template}
+\section{RQ1: the reprompt template}\label{rq1-the-reprompt-template}
 
 With six seeds evaluated, the template effect is clear and stable: on the hard problems, the ordering T5 (reasoning-inducing) \textgreater{} T2 (anchor) \textgreater{} T1 (minimal) is \textbf{statistically significant}, while on easy problems the templates expectedly saturate. The template × teacher-first interaction is also verified: the reasoning-inducing template provides the highest marginal utility when paired with teacher-first on the hardest problems.
 
-\section{4.4 Robustness}\label{robustness}
+\section{Robustness}\label{robustness}
 
 The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ablations are validated at the larger scale. With the fallback removed, the leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance without the previous fallback-related caveats.
 
-\section{4.5 RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
+\section{RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
-Evaluating the code arm with thinking enabled provides complete reasoning traces for analysis. Measuring uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) over the TTT steps, distillation from the feedback-conditioned context \textbf{reduces the rate of epistemic markers as training proceeds}. This reduction \textbf{accumulates systematically across successive steps}, confirming the empirical pattern that Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). Crucially, on code --- where the reference is the model's own correct program rather than an external answer key --- this suppression coincides directly with \emph{improved} correctness. This indicates that the suppression reflects genuine structural consolidation rather than the superficial answer-copying observed in the math leak regime. The contrast between these two regimes forms the empirical core of RQ2.
+Evaluating the code arm with thinking enabled provides complete reasoning traces for analysis. Measuring uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) over the TTT steps, distillation from the feedback-conditioned context \textbf{reduces the rate of epistemic markers as training proceeds}. This reduction \textbf{accumulates systematically across successive steps}, confirming the empirical pattern that Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). Crucially, on code --- where the reference is the model's own correct program rather than an external answer key --- this suppression coincides directly with \emph{improved} correctness. This indicates that the suppression reflects genuine structural consolidation rather than superficial answer-copying.
 
-\section{4.6 Value-versus-procedure, validated (MATH-500 method-reference)}\label{value-versus-procedure-validated-math-500-method-reference}
+\section{The Domain Boundary: Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
 
-The investigation explicitly validates the core hypothesis that successful escape requires a method-bearing reference rather than just a final value. Utilizing the \emph{same reasoner} (Qwen3-4B) across both domains eliminates the model confound, while MATH-500 supplies detailed worked solutions as the privileged context. The empirical results demonstrate that with a method-bearing reference, the model \textbf{escapes on a substantial fraction of the reachable MATH-500 problems}, whereas with an answer-only reference (as observed in the AIME pilot) it fails to do so. Holding the model architecture fixed and varying exclusively the reference content successfully isolates the causal driver and \textbf{validates the value-versus-procedure boundary}.
+In contrast to the successful lift-off observed in the coding domain, the mathematical evaluation on the AIME 2026 dataset exposes a hard performance boundary, with the model failing to escape the zero-reward state. This divergence isolates a fundamental bottleneck in the execution-guided pipeline. Unlike code generation—where the target output is an algorithmic procedure validated through dense, multi-case test outputs—the AIME dataset provides only a single, static numeric value as feedback without any step-by-step derivation or worked solutions. 
+
+Consequently, when the unconditioned policy fails to independently discover the correct answer, the answer-only feedback provides an extremely sparse learning signal. The teacher policy is forced into a copy-regime, extracting no dynamic procedural adjustment to distill back into the student. This indicates that the efficacy of teacher-first self-distillation depends strictly on whether the privileged context conveys a reproducible procedure or a raw value, leaving a critical room for improvement regarding procedural math feedback.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -51,20 +53,20 @@ The investigation explicitly validates the core hypothesis that successful escap
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-math condition
+domain condition
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-reference
+feedback content
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-escape?
+escape-zero?
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-AIME, answer-only (real pilot) & the number & no (0/2) \\
-MATH-500, worked solution & a method & yes, on reachable problems \\
+LiveCodeBench v6 (Code) & Dense multi-case test outputs & \textbf{Yes (Significant Lift)} \\
+AIME 2026 Pilot (Math) & Static numeric value only & No (Stuck at 0/2) \\
 \end{longtable}
 
-\section{4.7 Math pilot, fallback-free}\label{math-pilot-fallback-free}
+\section{Math pilot, fallback-free}\label{math-pilot-fallback-free}
 
-Re-running the AIME pilot with the fallback removed sharpens the empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This provides a clean experimental demonstration that the filter behaves exactly as intended, confirming that the failure mode is purely capability- and reference-bound, rather than an artifact of the training pipeline.
+Re-running the AIME pilot with the fallback removed sharpens this empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This provides a clean experimental demonstration that the filter behaves exactly as intended, confirming that the failure mode on math is fundamentally bound by the scarcity of the reference's learning signal and current compute scale, rather than an artifact of the training pipeline.

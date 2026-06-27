@@ -1,8 +1,8 @@
-\chapter{Chapter 2 --- Background and Related Work}\label{chapter-2-background-and-related-work}
+\chapter{Background and Related Work}\label{chapter-2-background-and-related-work}
 
 This chapter sets out the background the thesis builds on. It moves from the reinforcement-learning setting that motivates self-distillation (§2.1), through the SDPO method and its loss (§2.2), to the test-time regime and its metric (§2.3), the reprompt-template design space (§2.4), the epistemic-suppression critique (§2.5), and a sister self-distillation method (§2.6), closing with the gap this thesis addresses (§2.7).
 
-\section{2.1 RLVR and GRPO}\label{rlvr-and-grpo}
+\section{RLVR and GRPO}\label{rlvr-and-grpo}
 
 Reinforcement learning with verifiable rewards (RLVR) is the dominant post-training recipe for code and math, where an automatic checker supplies the reward. Group Relative Policy Optimization (GRPO) {[}8{]} is a common instantiation: it samples a group of rollouts per problem and assigns each an advantage relative to the group mean, \(A_{i,t} = r_i - \text{mean}_j\{r_j\}\), which is constant across the tokens of a sequence.
 
@@ -12,13 +12,13 @@ The same simplicity is its structural weakness in credit assignment. A scalar ou
 
 A natural fix is to distill from a stronger teacher, but that requires a teacher more capable than the student, which is unavailable when the goal is to raise the capability ceiling rather than to compress a known one {[}1{]}. This tension motivates a teacher that is not external but derived from the student itself.
 
-\section{2.2 SDPO}\label{sdpo}
+\section{SDPO}\label{sdpo}
 
-\subsection{2.2.1 The self-teacher and rich feedback}\label{the-self-teacher-and-rich-feedback}
+\subsection{The self-teacher and rich feedback}\label{the-self-teacher-and-rich-feedback}
 
 Hübotter et al.~{[}1{]} observe that many verifiable environments already expose \emph{tokenized} feedback, such as runtime errors, failing-test diffs, or judge comments, which is discarded when the signal is collapsed to a scalar reward. They propose reinforcement learning with rich feedback (RLRF) as a paradigm that keeps this signal, and SDPO as its instantiation. The mechanism that makes it possible is in-context learning: the same model, conditioned on the feedback \(f\) in addition to the question \(x\), can often locate its own mistake. This conditioned model, \(\pi_\theta(\cdot \mid x, f)\), serves as a \emph{self-teacher}, while the unconditioned \(\pi_\theta(\cdot \mid x)\) is the student. Both share the weights \(\theta\), so this is self-distillation in the lineage of knowledge distillation {[}13{]}, but with feedback rather than a larger network as the source of the teacher's advantage.
 
-\subsection{2.2.2 The loss and dense credit assignment}\label{the-loss-and-dense-credit-assignment}
+\subsection{The loss and dense credit assignment}\label{the-loss-and-dense-credit-assignment}
 
 SDPO distills the self-teacher's retrospective next-token distribution into the student by a per-token KL:
 
@@ -67,11 +67,11 @@ SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \
 
 The full method is logit-level: the target is a \(K\)-dimensional distribution at every position rather than a single scalar per sequence, which is the source of its sample efficiency {[}1{]}. To keep this affordable at a vocabulary of roughly 150k, only the teacher's top-\(K\) logits (with \(K{=}100\), or 20 for the code configuration {[}4{]}) plus a tail bucket are kept. The KL direction is parameterized by \(\alpha\): forward KL (\(\alpha{=}0\)) is mode-covering, reverse KL (\(\alpha{=}1\)) is mode-seeking, and JSD (\(\alpha{=}0.5\)) interpolates, the last following Agarwal et al.~{[}11{]} for stability. The self-teacher is regularized, typically by an EMA of the student weights or a trust-region interpolation, since an unregularized teacher diverges {[}1{]}. The implementation used in this thesis is specified in §3.3.5; the derivation is consolidated in the project notes.
 
-\subsection{2.2.3 Three regimes}\label{three-regimes}
+\subsection{Three regimes}\label{three-regimes}
 
 The parent paper validates SDPO across three settings. In a plain RLVR setting without native rich feedback, it manufactures feedback by using a successful in-batch rollout as the reference for a failed one, and still beats GRPO substantially, reaching a GRPO five-hour accuracy in fifty minutes on one chemistry task {[}1{]}. In the RLRF setting with genuine code-execution feedback on LiveCodeBench v6 {[}6{]}, it reports 48.8\% versus GRPO's 41.2\% and matches GRPO's final accuracy with roughly 4× fewer generations. The third setting, test-time discovery on hard problems, is the regime this thesis works in and is treated next.
 
-\subsection{2.2.4 What drives SDPO: ablations and scaling}\label{what-drives-sdpo-ablations-and-scaling}
+\subsection{What drives SDPO: ablations and scaling}\label{what-drives-sdpo-ablations-and-scaling}
 
 Three findings from the parent paper's analysis bear directly on the choices made in this thesis.
 
@@ -81,29 +81,29 @@ Second, self-teaching is emergent with scale {[}1, §4.1{]}. On Qwen3-8B, SDPO f
 
 Third, the self-teacher is bootstrapped, not fixed. It updates alongside the student and its accuracy rises during training, and the final student exceeds the \emph{initial} teacher, so the method is not capped by the teacher it starts with {[}1, §4.3{]}. Regularization is what keeps this stable: a trust-region teacher (50.6\%) edges out an EMA teacher (49.3\%) and a frozen one (48.8\%), while an unregularized teacher diverges. SDPO also forgets less than supervised fine-tuning on the self-teacher's outputs across held-out benchmarks, though slightly more than GRPO, indicating that the on-policy character of the update helps preserve prior capability {[}1, §4.4{]}. A hybrid that blends GRPO and SDPO advantages helps weak models but not strong ones {[}1, §4.5{]}.
 
-\section{2.3 Test-time training and discovery@k}\label{test-time-training-and-discoveryk}
+\section{Test-time training and discovery@k}\label{test-time-training-and-discoveryk}
 
 In the test-time setting {[}1, §5{]}, a single hard problem is fixed, the reward is binary, and the model must discover a solution as quickly as possible. Rather than concatenating a growing history into the context, as multi-turn reprompting does, SDPO compresses the feedback into the weights by distilling \(\pi_\theta(\cdot \mid x, c)\) into \(\pi_\theta(\cdot \mid x)\), which sidesteps the context-window limit.
 
 The metric is discovery@k {[}1, Def. 5.1{]}, the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with discovery time \(T = \min\{k : r(y_k) = 1\}\). It generalizes pass@k {[}9{]} from i.i.d. sampling to sequential algorithms that share state or update weights between attempts, and it reduces to pass@k when the algorithm is plain best-of-k. The lineage is the time-to-termination performance profile of Dolan and Moré {[}12{]}. Empirically, SDPO discovers 53.2\% of very-hard problems against best-of-k's 41.5\%, and on some problems is the only method to solve at all, even though the initial self-teacher accuracy is below 1\% on almost every hard problem {[}1{]}. That last point matters most: dense credit assignment lets the model improve before it has produced a single success.
 
-\section{2.4 The reprompt template and its design space}\label{the-reprompt-template-and-its-design-space}
+\section{The reprompt template and its design space}\label{the-reprompt-template-and-its-design-space}
 
 The self-teacher's behavior is controlled by the template that formats \(x\) and \(f\) into its context. The parent paper uses a slot-based template (its Table 2) that inserts a successful previous rollout, the environment feedback, and a closing directive, and reports that performance is ``not sensitive to syntactic variations'' of this template, while the \emph{feedback type} does matter: an ablation (its Table 6) finds the environment output and the model's own solution to be complementary, and including the student's own failed attempt in the teacher context reduces diversity {[}1{]}.
 
 Two gaps follow. The paper tests syntactic variation but not semantic or instructional variation, and it explicitly names systematic study of how the reprompt template influences behavior as future work {[}1, §7{]}. This thesis organizes the template design space along three dimensions: information content, motivated by Kim et al.'s finding that context richness governs suppression {[}2{]}; instruction framing, addressing the open question above; and memory depth, motivated by the sequential accumulation of the test-time setting. The seven templates of §3.4 sample points across these dimensions, with the paper's default as the anchor.
 
-\section{2.5 Epistemic verbalization and suppression}\label{epistemic-verbalization-and-suppression}
+\section{Epistemic verbalization and suppression}\label{epistemic-verbalization-and-suppression}
 
 Kim et al.~{[}2{]} supply the cautionary counterpart to SDPO. They show that distilling from a rich context can degrade a model by suppressing its \emph{epistemic verbalization}, the uncertainty markers such as ``wait'' or ``maybe'' that accompany genuine reasoning. Their analysis ties the magnitude of suppression to the mutual information \(I(y; c \mid x)\) between the output and the context: the richer the context, the stronger the suppression. They probe the spectrum by varying what the teacher context contains, from nothing (\(c = \varnothing\)), through a solution stripped of its thinking and a regenerated answer, to a full solution, and find suppression growing with the information the context carries. The effect accumulates across successive distillation steps, and they recommend freezing the teacher (no EMA update) to break the feedback loop, in tension with the parent paper's preference for a moving, regularized teacher (§2.2.4).
 
 For this thesis the relevance is twofold. The suppression risk is sharpest exactly when the context contains the answer, which is the math leak regime studied in the pilot (§4.5), where the teacher can copy the answer rather than derive it. And the accumulation across steps is precisely what the test-time setting applies repeatedly, since each TTT step distills again from the same answer-bearing context.
 
-\section{2.6 SDFT and the leak concern}\label{sdft-and-the-leak-concern}
+\section{SDFT and the leak concern}\label{sdft-and-the-leak-concern}
 
 Shenfeld et al.~{[}3{]} propose self-distillation fine-tuning (SDFT) for continual learning, an on-policy, minimum-change distillation toward the model's own conditioned generation. It is a sister method: like SDPO it uses the model as its own teacher, but its aim is to preserve prior capability while adapting, which makes minimizing unintended change a design goal. The teacher-first organization of this thesis sits near SDFT in that it distills toward filtered model-generated trajectories, but it uses execution feedback as the conditioning context rather than a fixed demonstration (§3.3.1). SDFT's minimum-change framing also sharpens the leak question: if distillation transfers more than the intended content, what exactly is being copied, which is the question the math pilot answers concretely.
 
-\section{2.7 The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
+\section{The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
 
 The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of \emph{when} the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
 

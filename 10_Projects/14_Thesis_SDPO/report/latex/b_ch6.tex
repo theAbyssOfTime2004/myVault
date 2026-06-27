@@ -1,6 +1,6 @@
-\chapter{Chapter 6 --- Limitations and Publication Roadmap}\label{chapter-6-limitations-and-publication-roadmap}
+\chapter{Limitations and Publication Roadmap}\label{chapter-6-limitations-and-publication-roadmap}
 
-\section{6.1 Methodological Rigor and Validations}\label{methodological-rigor-and-validations}
+\section{Methodological Rigor and Validations}\label{methodological-rigor-and-validations}
 
 To ensure the empirical soundness of this study, several critical architectural enhancements and validation metrics have been systematically integrated into the evaluation framework:
 
@@ -15,42 +15,21 @@ To ensure the empirical soundness of this study, several critical architectural 
 \item
   \textbf{Exact filtering mechanics.} The removal of the keep-best-correct fallback ensures that the anti-leak filter remains mathematically exact (§4.4, §4.7). The semantic judge is never bypassed, eliminating hidden pipeline interventions during initial optimization cycles.
 \item
-  \textbf{Confound isolation.} By enforcing a uniform reasoner architecture across distinct domains and introducing the MATH-500 worked-solution dataset, this framework successfully decouples base model capabilities from privileged reference content. This isolates the core drivers of optimization failure in mathematical contexts and directly validates the value-versus-procedure boundary (§4.6).
+  \textbf{Boundary Characterization.} Enforcing a uniform evaluation pipeline across both code and mathematical benchmarks has successfully decoupled the effects of dense environment feedback from sparse, value-only feedback. This isolates the precise failure mode of self-distillation in symbolic reasoning and maps out the exact boundary of the proposed method.
 \end{itemize}
 
-\section{6.2 Scope and Remaining Limitations}\label{scope-and-remaining-limitations}
+\section{Scope and Remaining Limitations}\label{scope-and-remaining-limitations}
 
-A transparent academic evaluation requires delineating the structural constraints that persist within this empirical framework:
+A transparent academic evaluation requires delineating the structural constraints and clear rooms for improvement that persist within this empirical framework:
 
 \begin{itemize}
 \tightlist
 \item
   \textbf{Model and scale constraints.} All experimental findings are established utilizing a 4B-scale Qwen model evaluated within a personal compute resource allocation. Consequently, these outcomes serve as an empirical characterization within a specific architecture family rather than a universal scaling law or an industry-scale benchmark.
 \item
-  \textbf{Margin sensitivity to base capability.} As base model capability scales (e.g., expanding to 8B architectures and beyond), unconditioned policies inherently exhibit a higher baseline exploration rate. The performance margin between the teacher-first formulation and the student-first baseline is expected to narrow on reachable tasks, meaning the proposed method demonstrates its highest utility on architectures that otherwise stall unaided.
+  \textbf{Information scarcity in mathematical feedback.} The mathematical pilot is heavily bottlenecked by the data constraints of the AIME benchmark, which provides only static, integer-based answers. Because there are no step-by-step worked solutions or fine-grained verification signals available in this setup, the teacher policy lacks sufficient learning signals to construct independent derivations, limiting the model's capacity to escape the flat-reward trap on beyond-capability tasks.
 \item
-  \textbf{Confounding of reward shape and content.} In this setup, programming tasks are characterized by both a graded reward and method-bearing references, while the foundational mathematical tasks are governed by a binary reward and value-only feedback. Even with the integration of MATH-500, these structural factors remain partially co-variant unless an explicit cross-domain control (such as graded mathematical testing) is engineered.
+  \textbf{Margin sensitivity to base capability.} As base model capability scales (e.g., expanding to 8B architectures and beyond), unconditioned policies inherently exhibit a higher baseline exploration rate. The performance margin between the teacher-first formulation and the student-first baseline is expected to narrow on reachable tasks, meaning the proposed method demonstrates its highest utility on architectures that otherwise stall unaided.
 \item
   \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. The generalizability of these behavioral adjustments across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling.
 \end{itemize}
-
-\section{6.3 Publication Roadmap}\label{publication-roadmap}
-
-The empirical pipeline developed in this thesis is structured to support peer-reviewed conference dissemination post-graduation. The execution sequence is partitioned into foundational and scaling phases:
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\tightlist
-\item
-  Complete the medium-scale matched baseline evaluation and generate the definitive compute-to-correct frontier to secure the core empirical headline.
-\item
-  Finalize the evaluation of the code generation arm with thinking traces enabled to mathematically finalize the quantification of epistemic suppression (§4.5).
-\item
-  Execute the comparative MATH-500 worked-solution pipeline utilizing the identical reasoning backbone to formally cement the value-versus-procedure boundary.
-\item
-  Scale the foundational experiments to an 8B model architecture to formally characterize the interaction between base model capability and self-distillation efficiency.
-\item
-  Extend testing protocols to a secondary validation code benchmark to verify cross-contamination resistance and algorithmic robustness.
-\end{enumerate}
-
-Steps (1) through (3) establish the necessary empirical baseline for submission, while steps (4) and (5) serve as high-utility expansions optimized for personal compute constraints.

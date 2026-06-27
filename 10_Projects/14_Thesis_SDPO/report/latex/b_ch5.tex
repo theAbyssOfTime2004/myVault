@@ -1,27 +1,25 @@
-\chapter{Chapter 5 --- Discussion}\label{chapter-5-discussion}
+\chapter{Discussion}\label{chapter-5-discussion}
 
-\section{5.1 Why teacher-first wins, now compute-fair}\label{why-teacher-first-wins-now-compute-fair}
+\section{Why teacher-first wins, now compute-fair}\label{why-teacher-first-wins-now-compute-fair}
 
 The underlying mechanism remains consistent: on hard problems, the unconditioned student policy rarely generates a correct attempt on-policy, causing the student-first baseline to suffer from a lack of high-quality trajectories to distill from. Conversely, the teacher-first organization successfully injects correct trajectories generated under the guidance of execution feedback. 
 
 The critical extension established by this full study is that this advantage \textbf{survives under a compute-matched evaluation framework} (§4.2.5). Even when the student-first baseline is granted an equal generation budget (ten generations per step), its performance improves but still underperforms compared to the proposed method. Furthermore, the compute-to-correct frontier demonstrates that teacher-first achieves target discovery probabilities with substantially fewer total generations. This transitions the thesis's core narrative from an outcome-only advantage to a rigorous, compute-fair claim, fundamentally strengthening the credibility and empirical soundness of the approach.
 
-\section{5.2 The value-versus-procedure boundary, validated}\label{the-value-versus-procedure-boundary-validated}
+\section{The value-versus-procedure boundary, validated}\label{the-value-versus-procedure-boundary-validated}
 
-By holding the model architecture fixed and systematically varying only the reference content (MATH-500 worked solutions versus AIME answer-only feedback, §4.6), experimental results demonstrate that escape from the flat-reward trap occurs precisely when the reference encodes an in-reach \emph{method} rather than merely a final \emph{value}. This empirical validation elevates the central value-versus-procedure hypothesis from a qualitative characterization to a rigorously tested architectural boundary. 
+By evaluating the pipeline across two fundamentally different domains—LiveCodeBench v6 for code and AIME 2026 for math—the experimental results validate a sharp architectural boundary: escape from the flat-reward trap occurs precisely when the privileged context encodes an in-reach \emph{method} and not when it encodes only a static \emph{value}. This empirical contrast elevates the value-versus-procedure hypothesis to a core structural boundary governing execution-guided self-distillation.
 
-In the programming domain, the model's output is intrinsically a method—a functional program capable of generalizing across unseen test instances. Consequently, the self-distillation process directly optimizes a procedure. In contrast, answer-only mathematical feedback provides a static value that lacks algorithmic generalization, encouraging the teacher policy to satisfy the constraint via superficial copying. Injected worked solutions supply the missing procedural context, thereby shifting the capability boundary exactly as predicted by our theoretical framework.
+In the programming domain, the model's output is intrinsically a procedure—a functional program capable of generalizing across unseen test instances. The execution feedback (compilation errors, runtime outputs, and multi-case evaluation metrics) provides a rich, multi-dimensional learning signal that allows the teacher policy to locate and rectify algorithmic flaws. In contrast, the mathematical feedback provided by the AIME pilot is limited strictly to a static numeric value without any step-by-step derivation. 
 
-\section{5.3 Epistemic suppression, and what it means here}\label{epistemic-suppression-and-what-it-means-here}
+When the unconditioned base model cannot independently discover the correct solution, this value-only feedback forces the teacher into a shallow copy-regime. Because the reference contains no underlying procedure or worked rationale, the self-distillation process stalls, leaving the student stuck at zero. This explicitly demonstrates that rich context degrades into answer-copying unless it carries a structural method that the student can internalize.
+
+\section{Epistemic suppression, and what it means here}\label{epistemic-suppression-and-what-it-means-here}
 
 Integrating reasoning traces into the code domain (§4.5) allows this study to directly connect with the foundational framework of Kim et al.~{[}2{]}. The results confirm that distillation from a rich, feedback-conditioned context suppresses epistemic markers (e.g., uncertainty tokens, self-correction signals), and this effect progressively accumulates across successive test-time optimization steps. 
 
 Crucially, this study introduces a critical, regime-dependent nuance to the epistemic suppression critique. In the code domain, where the privileged reference is a structurally valid program, this token-level suppression directly coincides with a measurable improvement in functional correctness, representing a beneficial consolidation of reasoning paths. In the math leak regime, however, the identical surface suppression signifies literal answer-copying without an underlying change in latent capability. Therefore, the suppression of uncertainty markers is not inherently detrimental; its semantic interpretation depends strictly on whether the privileged context conveys a reproducible method or a raw value.
 
-\section{5.4 A cleaner filter}\label{a-cleaner-filter}
-
-The removal of the keep-best-correct fallback mechanism ensures that the anti-leak filter operates with exact mathematical precision, restricting the distillation pool exclusively to genuine, independent solutions. This eliminates the implicit vulnerability present in preliminary implementations where the semantic judge could be silently bypassed during cold starts. Consequently, the empirical arguments surrounding the mathematical capability boundary are rendered airtight: failure modes on beyond-capability tasks are now definitively proven to be bound by capability and reference constraints rather than artifacts of the optimization pipeline.
-
-\section{5.5 Position relative to the parent paper}\label{position-relative-to-the-parent-paper}
+\section{Position relative to the parent paper}\label{position-relative-to-the-parent-paper}
 
 The academic contribution of this work is explicitly sharpened against the baseline paradigm established by Hübotter et al.~{[}1{]}. We present a comprehensive, teacher-first formulation of execution-guided self-distillation that significantly accelerates test-time discovery under a strictly compute-fair evaluation protocol. Combined with the systematic quantification of epistemic behavior in code optimization and the empirical validation of the value-versus-procedure boundary, this framework directly addresses the core operational questions left open by the parent paper. This integrated empirical picture firmly positions the manuscript for peer-reviewed conference submission.

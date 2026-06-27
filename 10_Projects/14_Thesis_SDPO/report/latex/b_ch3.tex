@@ -1,4 +1,4 @@
-\chapter{Chapter 3 --- Method}\label{chapter-3-method}
+\chapter{Method}\label{chapter-3-method}
 
 This chapter specifies the method in enough detail to reproduce it. The object of study is \textbf{test-time SDPO} {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it \emph{discovers} a solution. Because the privileged context that drives the update is \textbf{execution feedback} (failing tests, runtime errors), we call this regime \textbf{execution-guided self-distillation}, and the goal is to \emph{accelerate} that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, \textbf{student-first} (the baseline of the originating paper {[}1{]}) and \textbf{teacher-first} (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RQ1).
 
@@ -8,9 +8,9 @@ Notation mirrors the parent paper, Hübotter et al.~{[}1{]}, so the two can be r
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.1 Test-time SDPO pipeline}\label{test-time-sdpo-pipeline}
+\section{Test-time SDPO pipeline}\label{test-time-sdpo-pipeline}
 
-\subsection{3.1.1 Notation and setting}\label{notation-and-setting}
+\subsection{Notation and setting}\label{notation-and-setting}
 
 Fix a problem \(x\) (the problem statement). Two policies share the same weights \(\theta\):
 
@@ -26,7 +26,7 @@ In SDPO, \(c\) plays the role of the ``feedback'' \(f\) in the parent paper: ret
 
 The test-time setting follows Hübotter et al.~{[}1, §5{]}. For each problem \(x\), the model is reset to a base checkpoint and then runs \(K\) TTT steps \emph{on that problem alone}. The reward is verifiable, graded for code and binary for math. The goal is not to generalize to other problems but to \textbf{discover} a solution to \(x\) as early as possible; the metric is discovery@k {[}1, Def. 5.1{]} (§3.6).
 
-\subsection{3.1.2 The shared loop}\label{the-shared-loop}
+\subsection{The shared loop}\label{the-shared-loop}
 
 Both arms share one skeleton. The single thing that differs between them is \emph{which trajectories are distilled}:
 
@@ -63,7 +63,7 @@ The whole contrast reduces to one sentence: \textbf{student-first distills the s
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.2 Student-first SDPO (baseline, on-policy)}\label{student-first-sdpo-baseline-on-policy}
+\section{Student-first SDPO (baseline, on-policy)}\label{student-first-sdpo-baseline-on-policy}
 
 This is the original algorithm of Hübotter et al.~{[}1{]}, realized through the \passthrough{\lstinline!SDPOTrainer!} of TRL {[}5{]} (script \passthrough{\lstinline!07\_discovery\_curve.py!}).
 
@@ -79,9 +79,9 @@ There is a failure mode on hard problems that motivates the whole next section. 
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.3 Teacher-first SDPO (proposed)}\label{teacher-first-sdpo-proposed}
+\section{Teacher-first SDPO (proposed)}\label{teacher-first-sdpo-proposed}
 
-\subsection{3.3.1 Motivation}\label{motivation}
+\subsection{Motivation}\label{motivation}
 
 Two problems with student-first motivate the variant.
 
@@ -113,7 +113,7 @@ Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollo
 \textbf{Figure 3.2}
 \emph{The teacher-first step.} The self-teacher generates under the privileged context, a verifier and a judge filter trajectories into a good pool, the good (and optionally bad) exemplars steer the next teacher rollout in-context, and the student is distilled only toward the filtered good trajectories. The few-shot loop trains no teacher weights.
 
-\subsection{3.3.2 Teacher rollout and privileged context}\label{teacher-rollout-and-privileged-context}
+\subsection{Teacher rollout and privileged context}\label{teacher-rollout-and-privileged-context}
 
 At each step the teacher samples \(N\) trajectories (\passthrough{\lstinline!teacher\_n!}) at high temperature for diversity:
 
@@ -123,7 +123,7 @@ At each step the teacher samples \(N\) trajectories (\passthrough{\lstinline!tea
 
 The \passthrough{\lstinline!privileged\_context!} \(c\) is the concrete realization of ``feedback'' from {[}1{]}; the name belongs to the thesis codebase, the concept to the paper. The content of \(c\) is domain-dependent (§3.5). The few-shot block is inserted \emph{before} the final directive (``Respond with ONLY\ldots{}''), with at most \passthrough{\lstinline!max\_fewshot = 3!} exemplars so the context does not overflow, and the token count is logged each step.
 
-\subsection{3.3.3 Verifier and judge produce the good pool}\label{verifier-and-judge-produce-the-good-pool}
+\subsection{Verifier and judge produce the good pool}\label{verifier-and-judge-produce-the-good-pool}
 
 Each trajectory \(y_{t_i}\) is labeled in two stages.
 
@@ -163,7 +163,7 @@ LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) or \passthrough{\lstin
 
 There is one further mechanism worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), \passthrough{\lstinline!filter\_trajectories!} falls back to keeping the single best \emph{correct} trajectory as good, so the loop does not stall on a cold start. The fallback is necessary to avoid an empty good pool, but it can \textbf{defeat the judge} when the teacher only ever produces copies: a copy the judge rejected is still forced into the pool. This is confirmed in the math log for idx8 (§4.5.4, Chapter 6); it is flagged here so the mechanism is transparent.
 
-\subsection{3.3.4 Few-shot teacher steering (good\_only vs good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
+\subsection{Few-shot teacher steering (good\_only vs good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
 
 The labeled exemplars are fed \emph{back into the teacher's prompt} (in-context, with \textbf{no} gradient on the teacher) to steer the teacher toward better generations:
 
@@ -189,7 +189,7 @@ Leak & \textbf{clean} (good is filtered, hence independent of the reference) & \
 
 Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of \textbf{leak versus no-leak}, a direct test of the advisor's concern. The result is a leak-null on this data (§4.4).
 
-\subsection{3.3.5 The distillation step: token-aligned top-K reverse KL}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
+\subsection{The distillation step: token-aligned top-K reverse KL}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
 
 This is the computational core, shared by both arms; only the target trajectory differs (\(y_{\text{student}}\) versus \(y_{\text{good}}\)).
 
@@ -215,7 +215,7 @@ Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinl
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.4 Reprompt templates (T1--T7)}\label{reprompt-templates-t1t7}
+\section{Reprompt templates (T1--T7)}\label{reprompt-templates-t1t7}
 
 The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RQ1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along \textbf{three dimensions} grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
 
@@ -279,7 +279,7 @@ The three dimensions and their grounding:
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.5 Domains: code (core) and math (pilot)}\label{domains-code-core-and-math-pilot}
+\section{Domains: code (core) and math (pilot)}\label{domains-code-core-and-math-pilot}
 
 The domains differ in their \textbf{reference mode} (what the teacher sees as the ``answer'') and in the \textbf{content of the privileged context}. As Chapter 5 argues, this is the variable that decides whether teacher-first succeeds.
 
@@ -325,7 +325,7 @@ Problem selection uses \textbf{model pass-rate} \(\in (0,1)\) (a frontier define
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{3.6 Metrics and comparison design}\label{metrics-and-comparison-design}
+\section{Metrics and comparison design}\label{metrics-and-comparison-design}
 
 \textbf{pass@k / pass\_rate.} We report an empirical estimate of pass@k {[}9{]}: for each condition we draw \passthrough{\lstinline!N\_eval!} samples (16 for code, 4 for math) and report \passthrough{\lstinline!pass\_rate!}, the fraction correct. PRE (before TTT) and POST (after TTT) are reported, evaluating the \textbf{student only}, \(\pi_\theta(\cdot\mid x)\), with no context at evaluation time (otherwise the context would leak into the metric). A single deterministic \passthrough{\lstinline!greedy!} sample is reported alongside as a noisy secondary signal.
 
