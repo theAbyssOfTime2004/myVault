@@ -68,9 +68,66 @@ Shared distillation core (both domains): per-token top-K reverse KL with teacher
 
 ---
 
-## Appendix D — Example trajectories (STUB)
+## Appendix D — Example trajectories (math pilot)
 
-> **To be filled from W&B logs.** Required: one good, one bad/copy, and one borderline trajectory per domain, copied verbatim. Candidate runs noted in the records: code idx12 (base uses `math.factorial` in the wrong direction, then learns to iterate); math idx9 (W&B run `fi5m0as1`, boxed 148→168 against correct 156, "in problems of this nature, the intended answer is usually clean"); math idx8 (run `463y4fjr`, all verdicts `is_copy=true`). Full completions pending.
+Excerpts are verbatim from the W&B logs; long completions are trimmed with `[...]`. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are *not* stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. Code exemplars (e.g., idx12 learning to iterate after a `math.factorial` runtime error) are not yet exported and remain to be added.
+
+### D.1 Teacher prompt with the leaked reference (idx9, run `fi5m0as1`)
+
+```
+<|turn>user
+Let △ABC have side lengths AB = 13, BC = 14, and CA = 15. Triangle △A'B'C'
+is obtained by rotating △ABC about its circumcenter so that AC is
+perpendicular BC, with A' and B not on the same side of line B'C'. Find the
+integer closest to the area of hexagon AA'CC'BB'.
+
+The following is feedback from your unsuccessful earlier attempt:
+
+Reference: the correct final answer is 156.
+
+Correctly solve the original question.
+[...]
+```
+
+The reference is the bare answer 156; there is no worked solution to distill, only the number to copy (§3.5).
+
+### D.2 Judge verdict sequences
+
+idx9 (run `fi5m0as1`), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
+
+| step | verdicts (is_copy / reasoning_quality) | n_good / n_bad |
+|---|---|---|
+| 1 | (T,1) (T,2) (F,2) (F,4) | 1 / 3 |
+| 2 | (T,2) (T,2) (T,2) (T,3) | 1 / 3 |
+| 3 | (T,2) (T,2) (T,1) (T,3) | 1 / 3 |
+
+The only genuine derivation (F,4) is at step 1; steps 2–3 are all copies, so the kept "good" comes from the fallback. idx8 (run `463y4fjr`), correct answer 29:
+
+| step | verdicts | n_good / n_bad | batch reward |
+|---|---|---|---|
+| 1 | (T,1) (T,3) | 1 / 1 | 0.50 |
+| 2 | (T,3) (T,2) (T,1) | 1 / 2 | 0.75 |
+| 3 | (T,4) (T,3) (T,2) (F,2) | 1 / 3 | 1.00 |
+
+Every idx8 verdict is `is_copy=true` (the lone `F` has reasoning_quality 2 < 3), so every kept "good" is a fallback-retained copy.
+
+### D.3 Form changes, substance does not (idx9 student eval, PRE vs POST)
+
+**PRE** (23,920 chars, boxed **148**). The model recognizes the configuration is contradictory, then satisfices toward a clean angle:
+
+> "But $AC \perp BC$ is impossible in $\triangle ABC$ [...] **Crucial Insight Check:** [...] This seems overly complex for a calculation intended to yield a clean integer answer nearby. Let's pivot and assume $\theta$ is a 'nice' angle, like $90^\circ$ or $180^\circ$ [...]"
+
+It computes 315.5 under one reading, reinterprets the hexagon as a union (147.5), and boxes 148.
+
+**POST** (11,951 chars, about half the length, boxed **168**). After TTT the setup is better — it now derives $\cos C = 3/5$ and $\theta = 90^\circ \pm C$ — but it gives up earlier and shortcuts to twice the triangle area:
+
+> "[...] unless the overlap is significant [...] the area is often closely approximated by the sum of the individual areas [...] the most straightforward interpretation leading to a clean integer answer is that the intended area calculation ignores the slight overlap [...] $\text{Area}(H) \approx 84 + 84 = 168$."
+
+Both are wrong (correct 156); the model never reaches or memorizes the leaked answer. TTT changed the reasoning style (more confident, more willing to shortcut), not the capability.
+
+### D.4 The opposite stylistic drift (idx8 student eval, PRE vs POST)
+
+idx8 drifts the other way. **PRE** (boxed **40201**) treats the rolls as independent and computes $p = 2^{13}\cdot 3 / 5^6$, giving $m+n = 24576 + 15625 = 40201$. **POST** (boxed **17**) is *more* rigorous — it does casework on $R_2 = R_4$ versus $R_2 \neq R_4$, counts $N_B = 11700$ and $N_{A\cap B} = 3600$, and simplifies $p = 4/13$ to $m+n = 17$. POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
 
 ---
 

@@ -205,15 +205,15 @@ The reason is regime, not compute. With thinking ON and 16384 tokens (no truncat
 
 ### 4.5.3 Measured leak, and a fallback that defeats the judge
 
-Although the pilot does not escape, the judge measures the leak cleanly, which is an on-thesis positive. With the leaked answer 156, all four trajectories are nominally "correct" (batch mean reward 1.0), yet the judge separates them across all three steps:
+Although the pilot does not escape, the judge measures the leak cleanly, which is an on-thesis positive. With the leaked answer 156, all four teacher trajectories are nominally "correct" every step (batch mean reward 1.0 across all three steps of idx9), yet the judge flags most of them as copies. Across the 12 judged trajectories (full verdict log in Appendix D):
 
-| | is_copy = true (just asserts 156) | genuine derivation |
+| | is_copy = true (asserts 156) | genuine derivation (independent, rq ≥ 3) |
 |---|---|---|
-| share | **~3/4 (75%)** | ~1/4 |
+| count (of 12) | **10 (≈83%)** | **1** |
 
-The privileged teacher mostly **copies** the answer rather than deriving it, and the judge detects this (`n_good=1 / n_bad=3` stably). This is measurable information leak, exactly the concern of [2], and it is the contrast with code, where leak is null (§4.4).
+The single genuine derivation appears only at step 1 (is_copy=false, reasoning_quality 4); at steps 2 and 3 every trajectory is a copy. The filter keeps one trajectory as good each step (`n_good=1, n_bad=3`), a 75% per-step reject rate, but at steps 2–3 that one "good" is itself a copy retained by the keep-best-correct fallback (§3.3.3). So the privileged teacher mostly copies the answer rather than deriving it, the judge detects this, and this is measurable information leak, exactly the concern of [2] and the contrast with code, where leak is null (§4.4).
 
-Reading the idx8 log (run 463y4fjr) exposes a second-order problem. *Every* judge verdict is `is_copy=true` (the one `is_copy=false` has reasoning_quality 2 < 3, so it is also bad). The `n_good=1` per step therefore comes entirely from the keep-best-correct **fallback** (§3.3.3): the good pool consists of copies the judge already rejected. The fallback defeats the judge when the teacher only produces copies. There is also a judge-degradation effect: against idx9 (run fi5m0as1) one step does yield a genuine-labeled trajectory (is_copy=false, rq=4), so the judge catches blatant copying but cannot reliably separate genuine derivation from answer-directed confabulation on beyond-capability problems, where both reach the right number.
+The idx8 log (run 463y4fjr) sharpens the second-order problem. There, *every* judge verdict across all three steps is `is_copy=true` (the single `is_copy=false` has reasoning_quality 2 < 3, so it is also bad). The `n_good=1` per step therefore comes *entirely* from the fallback: the good pool consists only of copies the judge already rejected. The fallback defeats the judge when the teacher produces nothing but copies. This is also a judge-degradation effect: the judge catches blatant copying but cannot reliably separate a genuine derivation from an answer-directed confabulation on beyond-capability problems, where both reach the right number.
 
 ### 4.5.4 Epistemic pathology: form changes, substance does not
 

@@ -30,13 +30,13 @@ Outputs `fig_4_1 .. fig_4_7` as both `.pdf` (for LaTeX) and `.png` (for the Obsi
 | 4.5 | data plot | `fig_4_5_ablation` | §4.4.2 | run script |
 | 4.6 | data plot | `fig_4_6_math_discovery` | §4.5.2 | run script |
 | 4.7 | data plot | `fig_4_7_frontier_bands` | §4.5.1 | run script |
-| D.1 | exemplar | — | App. D | **needs trajectory text** |
+| D.1 | exemplar (text exhibit) | App. D | App. D | math done; code pending |
 
 ## Pending data (to finish the figure set)
 
 1. **Per-step discovery logs** (pass per step, SF and TF) for the escape-zero seeds (idx39 s1, idx64 s1/s2) → upgrades Figure 4.3 from the endpoint view to a true 15-step curve.
 2. **idx64 / idx77 per-seed POST values** → real error bars / seed dots in Figure 4.1 (currently means only).
-3. **Trajectory completions** (good / bad / copy) from W&B runs `fi5m0as1` and `463y4fjr` → Figure D.1 and Appendix D.
+3. ~~Trajectory completions from `fi5m0as1` and `463y4fjr`~~ — **done for math** (Appendix D: teacher prompt, judge-verdict tables, student PRE/POST excerpts). Note the teacher-*generated* trajectories were not logged as text (only verdicts). **Code exemplars** (e.g., idx12) still to be exported.
 
 ## LaTeX inclusion
 
