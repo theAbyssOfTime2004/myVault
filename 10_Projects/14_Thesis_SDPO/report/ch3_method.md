@@ -228,7 +228,7 @@ The three dimensions and their grounding:
 2. **Instruction framing** (T4, T5, T6). Hübotter et al. [1, §4.6] conclude that small *syntactic* variation does not matter, but *semantic/instructional* variation was never tested; [1, §7] names this as future work almost verbatim ("how … the reprompt template … influences behavior").
 3. **Memory depth** (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al. [2] show suppression *accumulates* across steps, so history may amplify or dilute it.
 
-**T2 is the anchor**: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Under the available compute, RQ1 probes only **T1/T2/T5** (§4.3); T3/T4/T6/T7 are defined as design space and left open (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+**T2 is the anchor**: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, **four are implemented** (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes **T1/T2/T5** (§4.3); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 ---
 

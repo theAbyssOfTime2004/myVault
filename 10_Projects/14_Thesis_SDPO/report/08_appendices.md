@@ -8,7 +8,7 @@ sources: [syn_core_result, syn_math_pilot, con_teacher_first_judge, syn_teacher_
 
 # Appendices
 
-Appendices A, E, and F are filled from the experiment records. Appendices B, C, and D require verbatim source text (template strings, prompt text, full trajectories) and are marked as stubs to be filled from the codebase and logs, so that nothing here is reconstructed from memory.
+Appendices A, B, C, E, and F are complete, with B and C reproduced verbatim from the codebase (`07_discovery_curve.py`, `09_teacher_first.py`) and the rest from the experiment records. Appendix D is complete for the math pilot (verbatim from the W&B logs); its code exemplars and the full idx0–90 / per-seed tables (Appendix E/F notes) await further log export.
 
 ---
 
@@ -56,15 +56,113 @@ Shared distillation core (both domains): per-token top-K reverse KL with teacher
 
 ---
 
-## Appendix B — Reprompt templates T1–T7 (STUB)
+## Appendix B — Reprompt templates (verbatim)
 
-> **To be filled from the codebase** (reprompt-template presets in script `07`). The taxonomy and the role of each template are given in §3.4; this appendix should reproduce the **verbatim template strings** for T1–T7. Required text: the exact slot layout for each of T1 (minimal), T2 (standard anchor), T3 (verbose), T4 (JSON), T5 (reasoning-inducing), T6 (first-person), T7 (cumulative history). Not reconstructed here to avoid paraphrase drift.
+Each preset overrides the SDPO template *slots* only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. The TRL 1.6.0 slots are `reprompt_template → {prompt}{solution}{feedback}`, `feedback_template → {feedback_raw}` (this `{feedback_raw}` is the privileged context), and `solution_template → {successful_previous_attempt}`. T2 is the TRL/paper default verbatim.
+
+**Honest scope note.** The codebase (`07_discovery_curve.py`, `REPROMPT_TEMPLATES`) implements **four** presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were **not** implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.3); T6 is implemented but unprobed.
+
+```python
+# T1 - Minimal: teacher is told the attempt was wrong but NOT why
+#   (feedback_template drops the {feedback_raw} test/error detail).
+"T1_minimal": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nProvide a corrected solution.\n",
+    "feedback_template": "\nYour previous attempt was incorrect.\n\n",
+},
+# T2 - Standard / anchor: exact TRL + paper defaults (rich feedback included).
+"T2_standard": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nCorrectly solve the original question.\n",
+    "feedback_template": "\nThe following is feedback from your unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+# T5 - Reasoning-inducing: SAME rich feedback as T2, trailing instruction asks
+#   for root-cause analysis first.
+"T5_reasoning": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nFirst, identify the root cause of the failure, then provide a corrected solution.\n",
+    "feedback_template": "\nThe following is feedback from your unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+# T6 - First-person: SAME rich feedback, reframed as the model's own reflection.
+"T6_first_person": {
+    "reprompt_template": "{prompt}{solution}{feedback}\n\nI attempted this problem and my solution was incorrect. Let me reconsider and write a correct solution.\n",
+    "feedback_template": "\nHere is the feedback from my unsuccessful earlier attempt:\n\n{feedback_raw}\n\n",
+},
+```
 
 ---
 
-## Appendix C — Teacher and judge prompts (STUB)
+## Appendix C — Teacher and judge prompts (verbatim)
 
-> **To be filled from the codebase.** Required verbatim text: (1) the teacher rollout prompt including the few-shot exemplar block layout (good_only and good_bad variants); (2) the LLM-judge prompt that returns `is_copy` and `reasoning_quality` (the code/groq variant and the math/glm-4.5-flash variant). Described in §3.3.2–§3.3.4; exact strings pending.
+### C.1 Teacher prompt and few-shot block
+
+The teacher prompt is `question + few-shot block + feedback + trailing instruction`, where the feedback and trailing instruction come from the selected reprompt preset (Appendix B). A worked instance of the assembled prompt (with the leaked math reference) is shown in Appendix D.1. The few-shot block (`09_teacher_first.py`, `_build_fewshot_block`) is assembled as follows; exemplars are stripped of their thinking traces and capped at 1500 characters:
+
+```
+Here are correct, independent example solutions:
+
+Correct example 1:
+```python
+<good trajectory, post-think solution only>
+```
+
+[good_bad option only:]
+Here are INCORRECT or copied attempts to avoid:
+
+Bad example 1 (do not imitate):
+```python
+<bad / copied trajectory>
+```
+```
+
+Under `good_only` (Option 2) only the "Correct example" exemplars appear; under `good_bad` (Option 1) the "Bad example" block is appended, which is what re-introduces reference-like content (§3.3.4).
+
+### C.2 LLM judge prompt — code (groq `llama-3.3-70b`)
+
+```
+You are judging a CANDIDATE solution to a competitive-programming problem.
+
+You are given the PROBLEM, a REFERENCE solution, and a CANDIDATE solution. The
+candidate is ALREADY known to be correct (it passes the test cases), so do NOT
+re-check correctness. Decide only two things:
+
+  1. is_copy: Is the candidate essentially a copy of the reference solution --
+     i.e. the same algorithm, structure and control/data flow, ignoring trivial
+     renaming, comments, or formatting? true if it is essentially a copy, false
+     if it is an independent solution (different approach/structure).
+  2. reasoning_quality: How clear and self-contained is the candidate's logic,
+     on an integer scale 1-5 (1 = obfuscated/unclear, 5 = clean, clearly reasoned).
+
+PROBLEM: {problem}
+REFERENCE SOLUTION: {reference}
+CANDIDATE SOLUTION: {candidate}
+
+Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
+```
+
+### C.3 LLM judge prompt — math (`glm-4.5-flash`)
+
+```
+You are judging a CANDIDATE solution to a math problem.
+
+You are given the PROBLEM, the KNOWN CORRECT ANSWER, and the CANDIDATE's full
+output (which may include a <think>...</think> reasoning block followed by a final
+\boxed{answer}). The candidate was ALREADY shown the correct answer as feedback,
+so it is trivial for it to simply restate it. Decide only two things:
+
+  1. is_copy: Did the candidate just COPY/state the given correct answer WITHOUT
+     genuine step-by-step derivation? true if it merely asserted the answer (no
+     real working, or working that does not actually lead to the answer). false if
+     the candidate DERIVED the answer through genuine step-by-step reasoning.
+  2. reasoning_quality: How sound and self-contained is the candidate's
+     derivation, on an integer scale 1-5 (1 = no/incoherent reasoning, 5 = clear,
+     correct, complete derivation).
+
+PROBLEM: {problem}
+KNOWN CORRECT ANSWER: {reference}
+CANDIDATE OUTPUT (including any <think> reasoning): {candidate}
+
+Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
+```
+
+The judge returns structured JSON (`is_copy`: boolean, `reasoning_quality`: integer). Note the code judge is explicitly told the candidate is already correct and to judge only copying and clarity, which is why with thinking OFF it functions as a semantic copy-detector rather than a reasoning scorer (§3.3.3).
 
 ---
 
