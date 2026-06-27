@@ -168,7 +168,7 @@ The judge returns structured JSON (is copy: boolean, reasoning quality: integer)
 
 \section{Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
 
-Excerpts are verbatim từ W\&B output log của mỗi lượt chạy; các chuỗi dài được rút gọn bằng dấu {[\ldots]}. Những gì log ghi nhận: teacher prompt, kết quả chấm phân tách của judge theo từng bước, và đoạn completion kiểm tra của student tại thời điểm PRE/POST. Bản thân các trajectory do teacher sinh ra không lưu dạng text gốc mà gián tiếp thể hiện qua kết quả chấm. Các đoạn trích toán học (D.1--D.4) làm rõ sự thất bại về mặt bản chất; đoạn trích mã nguồn (D.5) đối chiếu một khám phá thành công thực tế.
+Excerpts are verbatim from the W\&B \passthrough{\lstinline!output.log!} of each run; long completions are trimmed with \passthrough{\lstinline![...]!}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
 
 \subsection{D.1 Teacher prompt with the leaked reference (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
