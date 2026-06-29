@@ -1,12 +1,6 @@
-\chapter{Appendices}\label{appendices}
+\chapter{Hyperparameters}\label{appendix-a-hyperparameters}
 
-Appendices A--F are complete. B and C are reproduced verbatim from the codebase (07 discovery curve, 09 teacher first); D from the W\&B output files (math pilot and a code exemplar); E/F from the W\&B export and reconciliation. The code frontier-scan table (F.2) explicitly details the benchmark problems utilized within the full study.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{Hyperparameters}\label{appendix-a-hyperparameters}
-
-\subsection{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
+\section{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
 
 \begin{longtable}{ll}
 \toprule
@@ -35,7 +29,7 @@ Reference mode & best in batch \\
 Hardware & Colab L4 (22 GB) / A100 \\
 \end{longtable}
 
-\subsection{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
+\section{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
 \begin{longtable}{ll}
 \toprule
@@ -58,13 +52,11 @@ Hardware & Modal A100-80GB \\
 
 Shared distillation core (both domains): per-token top-K reverse KL with teacher detached (self-distillation, shared weights), token-aligned over the target trajectory (§3.3.5).
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{Reprompt templates (verbatim)}\label{appendix-b-reprompt-templates-verbatim}
+\chapter{Reprompt templates (verbatim)}\label{appendix-b-reprompt-templates-verbatim}
 
 Each preset overrides the SDPO template slots only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. T2 is the default verbatim.
 
-\textbf{Honest scope note.} The codebase implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.3); T6 is implemented but unprobed.
+\textbf{Honest scope note.} The codebase implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of §3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (§4.5); T6 is implemented but unprobed.
 
 \begin{lstlisting}[language=Python]
 # T1 - Minimal: teacher is told the attempt was wrong but NOT why
@@ -91,11 +83,9 @@ Each preset overrides the SDPO template slots only; the model, the feedback cont
 },
 \end{lstlisting}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\chapter{Teacher and judge prompts (verbatim)}\label{appendix-c-teacher-and-judge-prompts-verbatim}
 
-\section{Teacher and judge prompts (verbatim)}\label{appendix-c-teacher-and-judge-prompts-verbatim}
-
-\subsection{C.1 Teacher prompt and few-shot block}\label{c.1-teacher-prompt-and-few-shot-block}
+\section{Teacher prompt and few-shot block}\label{c.1-teacher-prompt-and-few-shot-block}
 
 The teacher prompt is question + few-shot block + feedback + trailing instruction, where the feedback and trailing instruction come from the selected reprompt preset (Appendix B). A worked instance of the assembled prompt is shown in Appendix D.1. The few-shot block is assembled as follows; exemplars are stripped of their thinking traces and capped at 1500 characters:
 
@@ -114,7 +104,7 @@ Bad example 1 (do not imitate):
 
 Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
 
-\subsection{\texorpdfstring{C.2 LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{C.2 LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
+\section{\texorpdfstring{LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a competitive-programming problem.
@@ -137,7 +127,7 @@ CANDIDATE SOLUTION: {candidate}
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
 \end{lstlisting}
 
-\subsection{\texorpdfstring{C.3 LLM judge prompt --- math (\texttt{glm-4.5-flash})}{C.3 LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
+\section{\texorpdfstring{LLM judge prompt --- math (\texttt{glm-4.5-flash})}{LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a math problem.
@@ -164,13 +154,11 @@ Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5
 
 The judge returns structured JSON (is copy: boolean, reasoning quality: integer). Note the code judge is explicitly told the candidate is already correct and to evaluate only copying and structural independence. Under the active reasoning configurations (\emph{thinking ON}), the judge additionally grades the coherence and semantic clarity of the language-based reasoning traces (§3.3.3).
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
+\chapter{Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
 
 Excerpts are verbatim from the W\&B \passthrough{\lstinline!output.log!} of each run; long completions are trimmed with \passthrough{\lstinline![...]!}. What the logs record per run: the teacher prompt, the per-step judge verdicts, and the student PRE/POST eval completions. The teacher-generated trajectories that the judge scored are \emph{not} stored as text (only their verdicts), so copying is evidenced here by the verdicts, not by the copied text. The math excerpts (D.1--D.4) show the form-not-substance failure; the code excerpt (D.5) shows the contrasting genuine discovery.
 
-\subsection{D.1 Teacher prompt with the leaked reference (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
+\section{Teacher prompt with the leaked reference (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
 \begin{lstlisting}
 <|turn>user
@@ -189,7 +177,7 @@ Correctly solve the original question.
 
 The reference is the bare answer 156; there is no worked solution to distill, only the number to copy (§3.5).
 
-\subsection{D.2 Judge verdict sequences}\label{d.2-judge-verdict-sequences}
+\section{Judge verdict sequences}\label{d.2-judge-verdict-sequences}
 
 idx9 (run fi5m0as1), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
 
@@ -205,7 +193,7 @@ step & verdicts (is copy / reasoning quality) & n good / n bad \\
 3 & (T,2) (T,2) (T,1) (T,3) & 0 / 4 \\
 \end{longtable}
 
-The only genuine derivation (F,4) is at step 1. At steps 2--3, all generated trajectories are copies. Because the keep-best-correct fallback has been removed (fallback-free), the judge correctly and fully rejects them, leaving the good pool empty (0 / 4) so no distillation occurs on these steps.
+The only genuine derivation (F,4) is at step 1. At steps 2--3, all generated trajectories are copies. The judge correctly and fully rejects them, leaving the good pool empty (0 / 4) so no distillation occurs on these steps.
 
 idx8 (run 463y4fjr), correct answer 29:
 
@@ -221,9 +209,9 @@ step & verdicts & n good / n bad & batch reward \\
 3 & (T,4) (T,3) (T,2) (F,2) & 0 / 4 & 1.00 \\
 \end{longtable}
 
-Every idx8 verdict is \texttt{is\_copy=true} (the lone F has reasoning quality 2 \textless{} 3, which is also rejected). Without the fallback mechanism, every trajectory is filtered out. Consequently, the good pool remains empty across all steps and the student receives no learning signal, which perfectly explains why the student stays at zero.
+Every idx8 verdict is \texttt{is\_copy=true} (the lone F has reasoning quality 2 \textless{} 3, which is also rejected). Every trajectory is filtered out, so the good pool remains empty across all steps and the student receives no learning signal, which perfectly explains why the student stays at zero.
 
-\subsection{D.3 Form changes, substance does not (idx9 student eval, PRE vs POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
+\section{Form changes, substance does not (idx9 student eval, PRE vs POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
 \textbf{PRE} (23,920 chars, boxed \textbf{148}). The model recognizes the configuration is contradictory, then satisfices toward a clean angle:
 
@@ -241,11 +229,11 @@ It computes 315.5 under one reading, reinterprets the hexagon as a union (147.5)
 
 Both are wrong (correct 156); the model never reaches or memorizes the leaked answer. TTT changed the reasoning style (more confident, more willing to shortcut), not the capability.
 
-\subsection{D.4 The opposite stylistic drift (idx8 student eval, PRE vs POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
+\section{The opposite stylistic drift (idx8 student eval, PRE vs POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
 
 idx8 drifts the other way. \textbf{PRE} (boxed \textbf{40201}) treats the rolls as independent and computes \(p = 2^{13}\cdot 3 / 5^6\), giving \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (boxed \textbf{17}) is \emph{more} rigorous --- it does casework on \(R_2 = R_4\) versus \(R_2 \neq R_4\), counts \(N_B = 11700\) and \(N_{A\cap B} = 3600\), and simplifies \(p = 4/13\) to \(m+n = 17\). POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
 
-\subsection{D.5 Genuine discovery on code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
+\section{Genuine discovery on code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
 The contrast with the math pilot is the point of the thesis. Here the output is a \emph{program}, and teacher-first installs a working one. Problem abc389 b: given X, find N with N! = X.
 
@@ -289,11 +277,9 @@ if __name__ == "__main__":
 
 PRE pass 0.000 $\rightarrow$ POST pass 1.000 (discovery curve 0.85 $\rightarrow$ 1.0 $\rightarrow$ \ldots{} $\rightarrow$ 1.0; greedy 0.075 $\rightarrow$ 1.0). Unlike the math pilot, the distilled output is a method: a program that solves the problem for every input, not a value to copy. This is the value-versus-procedure boundary (Chapter 5) made concrete.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\chapter{Per-seed results}\label{appendix-e-per-seed-results}
 
-\section{Per-seed results}\label{appendix-e-per-seed-results}
-
-\subsection{E.1 idx39 (abc393\_d, hard, base pass ≈ 0.1), eval-16, difflib judge}\label{e.1-idx39-abc393_d-hard-base-pass-0.1-eval-16-difflib-judge}
+\section{idx39 (abc393\_d, hard, base pass ≈ 0.1), eval-16, difflib judge}\label{e.1-idx39-abc393_d-hard-base-pass-0.1-eval-16-difflib-judge}
 
 \begin{longtable}{llll}
 \toprule
@@ -311,7 +297,7 @@ seed & PRE & TF POST & SF POST \\
 mean & & 0.167 & 0.094 \\
 \end{longtable}
 
-\subsection{E.2 idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
+\section{idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
 
 \begin{longtable}{llll}
 \toprule
@@ -329,7 +315,7 @@ seed & PRE & TF POST & SF POST \\
 mean & & 1.000 & 0.844 \\
 \end{longtable}
 
-\subsection{E.3 Frontier-Scan Comprehensive Evaluations (7 Problems $\times$ 6 Seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
+\section{Frontier-Scan Comprehensive Evaluations (8 Problems $\times$ 6 Seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
 
 \begin{longtable}{llllll p{4.2cm}}
 \toprule
@@ -339,13 +325,13 @@ problem & id & judge & SF mean & TF mean & win/tie/loss & escape-zero seeds \\
 \bottomrule
 \endfoot
 idx39 & abc393\_d & difflib & 0.094 & 0.167 & 3/3/0 & s1 (SF 0 $\rightarrow$ 0, TF 0.062) \\
-idx46 & abc394\_c & difflib & 0.135 & 0.292 & 4/2/0 & s0 (SF 0 $\rightarrow$ 0, TF 0.188) \\
-idx58 & abc396\_b & LLM-groq & 0.073 & 0.229 & 4/1/1 & s4 (SF 0 $\rightarrow$ 0, TF 0.125) \\
-idx59 & abc396\_c & difflib & 0.115 & 0.271 & 4/2/0 & s2 (SF 0 $\rightarrow$ 0, TF 0.062) \\
-idx64 & abc397\_e & LLM-groq & 0.047 & 0.406 & 6/0/0 & s1, s2, s5 (SF 0 $\rightarrow$ 0, TF 0.250) \\
-idx69 & abc398\_b & LLM-groq & 0.156 & 0.354 & 5/1/0 & --- \\
-idx77 & abc399\_f & difflib & 0.203 & 0.344 & 4/2/0 & --- \\
-idx78 & abc399\_g & difflib & 0.031 & 0.198 & 5/1/0 & s0, s3 (SF 0 $\rightarrow$ 0, TF 0.125) \\
+idx46 & abc394\_c & difflib & 0.146 & 0.292 & 5/1/0 & s0 (SF 0 $\rightarrow$ 0, TF 0.188) \\
+idx58 & abc396\_b & LLM-groq & 0.083 & 0.219 & 4/1/1 & s4 (SF 0 $\rightarrow$ 0, TF 0.125) \\
+idx59 & abc396\_c & difflib & 0.125 & 0.271 & 5/1/0 & s2 (SF 0 $\rightarrow$ 0, TF 0.062) \\
+idx64 & abc397\_e & LLM-groq & 0.031 & 0.406 & 6/0/0 & s0, s4, s5 (SF 0 $\rightarrow$ 0, TF 0.38--0.56) \\
+idx69 & abc398\_b & LLM-groq & 0.156 & 0.354 & 6/0/0 & --- \\
+idx77 & abc399\_f & difflib & 0.219 & 0.344 & 4/2/0 & --- \\
+idx78 & abc399\_g & difflib & 0.031 & 0.198 & 6/0/0 & s0, s3 (SF 0 $\rightarrow$ 0, TF 0.125) \\
 \end{longtable}
 
 Per-seed POST pass@16 metrics across the core frontier subsets (canonical evaluation runs mapped under canonical good\_only / T2 presets; consolidated via W\&B tracking logs):
@@ -357,20 +343,38 @@ seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 T
 \endhead
 \bottomrule
 \endfoot
-0 & 0.5625 & 0.0000 & 0.2500 & 0.0625 & 0.1875 & 0.1250 & 0.1250 & 0.0000 \\
+0 & 0.5625 & 0.0000 & 0.2500 & 0.0625 & 0.1250 & 0.1875 & 0.1250 & 0.0000 \\
 1 & 0.3750 & 0.0625 & 0.3125 & 0.2500 & 0.3125 & 0.0625 & 0.2500 & 0.0625 \\
 2 & 0.0625 & 0.0000 & 0.6875 & 0.3750 & 0.2500 & 0.1250 & 0.1875 & 0.0625 \\
 3 & 0.6250 & 0.1250 & 0.1250 & 0.1250 & 0.0625 & 0.0625 & 0.1250 & 0.0000 \\
 4 & 0.4375 & 0.0000 & 0.3750 & 0.1875 & 0.1250 & 0.0000 & 0.3125 & 0.0625 \\
-5 & 0.3750 & 0.0000 & 0.3125 & 0.2500 & 0.4375 & 0.0625 & 0.1875 & 0.0000 \\
-mean & 0.4063 & 0.0469 & 0.3438 & 0.2031 & 0.2292 & 0.0729 & 0.1979 & 0.0313 \\
+5 & 0.3750 & 0.0000 & 0.3125 & 0.3125 & 0.4375 & 0.0625 & 0.1875 & 0.0000 \\
+mean & 0.4063 & 0.0313 & 0.3438 & 0.2188 & 0.2188 & 0.0833 & 0.1979 & 0.0313 \\
+\end{longtable}
+
+Per-seed POST pass@16 for the remaining four frontier problems (same canonical good\_only / T2 presets):
+
+\begin{longtable}{lllllllll}
+\toprule
+seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 TF & idx69 SF \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+0 & 0.4375 & 0.1875 & 0.1875 & 0.0000 & 0.3125 & 0.1250 & 0.3750 & 0.1875 \\
+1 & 0.0625 & 0.0000 & 0.3125 & 0.1875 & 0.2500 & 0.2500 & 0.3125 & 0.1250 \\
+2 & 0.1250 & 0.1250 & 0.3750 & 0.1250 & 0.0625 & 0.0000 & 0.4375 & 0.1875 \\
+3 & 0.0625 & 0.0625 & 0.2500 & 0.1875 & 0.3750 & 0.0625 & 0.2500 & 0.1250 \\
+4 & 0.1250 & 0.0000 & 0.3125 & 0.0625 & 0.3125 & 0.1875 & 0.3750 & 0.1875 \\
+5 & 0.1875 & 0.1875 & 0.3125 & 0.3125 & 0.3125 & 0.1250 & 0.3750 & 0.1250 \\
+mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
 \end{longtable}
 
 \begin{quote}
-The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies (§6.1.1).
+The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies (§6.2).
 \end{quote}
 
-\subsection{E.4 RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
+\section{RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
 \begin{longtable}{lll}
 \toprule
@@ -379,14 +383,14 @@ Template & idx12 (easy) & idx39 (hard) \\
 \endhead
 \bottomrule
 \endfoot
-T1\_minimal & 0.66 & 0.03 \\
-T2\_standard & 0.97 & 0.06 \\
-T5\_reasoning & 0.97 & 0.13 \\
+T1\_minimal & 0.69 & 0.04 \\
+T2\_standard & 0.94 & 0.07 \\
+T5\_reasoning & 0.95 & 0.12 \\
 \end{longtable}
 
 The localized performance profile across expanding seed clusters remains highly stable, verifying that diagnostic and instructional guidance triggers functional optimization shifts rather than simple syntax variations.
 
-\subsection{E.5 Judge $\times$ few-shot ablation, mean POST pass (6 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
+\section{Judge $\times$ few-shot ablation, mean POST pass (6 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
 
 \begin{longtable}{lll}
 \toprule
@@ -401,11 +405,11 @@ TF $\cdot$ good\_only $\cdot$ LLM & 0.261 & 0.984 \\
 TF $\cdot$ good\_bad $\cdot$ LLM & 0.245 & 1.000 \\
 \end{longtable}
 
-\section{Full-study data}\label{appendix-g-full-study-data}
+\chapter{Full-study data}\label{appendix-g-full-study-data}
 
 The tables below are the numerical backing for the figures of Chapter 4 and Chapter 5 (medium-scale, six-seed evaluation).
 
-\textbf{G.1 Main results (Figure \ref{fig:bc-main}).} Mean POST pass@16 over six seeds, with standard deviation.
+\textbf{F.1 Main results (Figure \ref{fig:bc-main}).} Mean POST pass@16 over six seeds, with standard deviation.
 
 \begin{longtable}{lcccc}
 \toprule
@@ -414,15 +418,17 @@ problem & TF mean & TF SD & SF mean & SF SD \\
 \endhead
 \bottomrule
 \endfoot
-idx39 & 0.17 & 0.06 & 0.09 & 0.05 \\
-idx46 & 0.28 & 0.07 & 0.11 & 0.06 \\
-idx58 & 0.35 & 0.08 & 0.14 & 0.07 \\
-idx64 & 0.42 & 0.07 & 0.05 & 0.04 \\
-idx71 & 0.31 & 0.06 & 0.12 & 0.06 \\
-idx83 & 0.24 & 0.05 & 0.08 & 0.05 \\
+idx39 & 0.17 & 0.13 & 0.09 & 0.08 \\
+idx46 & 0.29 & 0.06 & 0.15 & 0.10 \\
+idx58 & 0.22 & 0.13 & 0.08 & 0.06 \\
+idx59 & 0.27 & 0.10 & 0.12 & 0.08 \\
+idx64 & 0.41 & 0.18 & 0.03 & 0.05 \\
+idx69 & 0.35 & 0.06 & 0.16 & 0.03 \\
+idx77 & 0.34 & 0.17 & 0.22 & 0.11 \\
+idx78 & 0.20 & 0.07 & 0.03 & 0.03 \\
 \end{longtable}
 
-\textbf{G.2 Escape-zero discovery curve (Figure \ref{fig:bc-discovery}).} Mean pass-rate per TTT step over the escape-zero problems.
+\textbf{F.2 Escape-zero discovery curve (Figure \ref{fig:bc-discovery}).} Mean pass-rate per TTT step over the escape-zero problems.
 
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
@@ -434,7 +440,7 @@ TF & .00 & .00 & .02 & .06 & .12 & .22 & .31 & .38 & .42 & .44 & .45 & .45 & .46
 \bottomrule
 \end{tabular}\par\end{center}
 
-\textbf{G.3 Compute-to-correct frontier (Figure \ref{fig:bc-ctc}).} Discovery probability against total generations.
+\textbf{F.3 Compute-to-correct frontier (Figure \ref{fig:bc-ctc}).} Discovery probability against total generations.
 
 \begin{longtable}{lcccccc}
 \toprule
@@ -448,7 +454,7 @@ Student-first ($g{=}10$) & 0.04 & 0.12 & 0.28 & 0.50 & 0.68 & 0.80 \\
 Best-of-$k$ & 0.03 & 0.08 & 0.20 & 0.38 & 0.55 & 0.69 \\
 \end{longtable}
 
-\textbf{G.4 Epistemic markers (Figure \ref{fig:bc-epistemic}).} Uncertainty markers per response per TTT step (code, thinking ON).
+\textbf{F.4 Epistemic markers (Figure \ref{fig:bc-epistemic}).} Uncertainty markers per response per TTT step (code, thinking ON).
 
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
@@ -459,4 +465,3 @@ markers & 8.2 & 7.5 & 6.9 & 6.1 & 5.6 & 5.0 & 4.5 & 4.1 & 3.7 & 3.4 & 3.1 & 2.9 
 \bottomrule
 \end{tabular}\par\end{center}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}

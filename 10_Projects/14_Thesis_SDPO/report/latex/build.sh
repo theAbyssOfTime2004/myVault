@@ -23,8 +23,7 @@ $PY preprocess.py "$R/08_appendices.md" | $PANDOC $PFLAGS -f markdown -t latex -
 echo "[3] abstract ..."
 grep -v '^# Abstract' "$R/00_abstract.md" | $PANDOC --no-highlight -f markdown -t latex -o _abstract.tex
 
-echo "[4] references ..."
-grep -E '^\[[0-9]+\]' "$R/00_references.md" | $PANDOC --no-highlight -f markdown -t latex -o _refs.tex
+echo "[4] references: static refs_manual.tex (thebibliography) -- no regeneration needed"
 
 echo "[5] compile ..."
 $TECT -X compile main.tex 2>&1 | tail -20

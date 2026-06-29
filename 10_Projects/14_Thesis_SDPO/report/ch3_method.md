@@ -77,7 +77,7 @@ This is the original algorithm of Hübotter et al. [1], realized through the `SD
 At each step the student samples a rollout $y \sim \pi_\theta(\cdot \mid x)$ on-policy. The verifier grades $y$ and produces feedback $f$. The self-teacher $\pi_\theta(\cdot \mid x, f)$ then rescores *every token* of that same $y$: given $f$, what should the correct next-token distribution have been at each position? The student is pulled toward this retrospective distribution by a per-token KL:
 
 $$
-\mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
+\mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
 $$
 
 The `stopgrad` blocks gradient flow through the teacher, which prevents the teacher from collapsing onto the student and ignoring $f$ [1, §2]. The gradient and the top-K approximation are shared with teacher-first and are deferred to §3.3.5.
@@ -99,7 +99,7 @@ Second is **information leak** [2]. If $c$ contains a reference solution, the te
 The core change is to **reverse the order**. The teacher generates first; correct, independent trajectories are filtered out; and the student is distilled toward *those*. The KL is computed on $y_{\text{good}}$ (teacher-generated, filtered), not on $y_{\text{student}}$ (a failed attempt):
 
 $$
-\mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
+\mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
 $$
 
 where $\mathcal{G}$ is the good pool (§3.3.3). Conceptually, teacher-first sits **between SDPO (on-policy) and SFT (off-policy)**. It resembles SDFT [3] in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style *feedback* [1] rather than a fixed demonstration.

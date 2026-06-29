@@ -31,7 +31,7 @@ Hübotter et al. [1] observe that many verifiable environments already expose *t
 SDPO distills the self-teacher's retrospective next-token distribution into the student by a per-token KL:
 
 $$
-\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
+\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
 $$
 
 where `stopgrad` prevents the teacher from collapsing onto the student to ignore $f$ [1]. With the teacher detached, the gradient at a student logit is $\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)$, so the optimizer raises every logit the teacher trusts more than the student does. The contrast with GRPO is the density of the target:

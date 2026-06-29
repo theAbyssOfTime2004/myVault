@@ -9,7 +9,7 @@ import sys
 import pathlib
 
 TIKZ = {
-    "fig_2_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
+    "fig_2_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
 \node(gr) at (0,3){scalar reward $r$};
 \node(ga) at (0,2){one advantage / sequence};
 \node(gt) at (0,1){same signal every token ($O(1)$)};
@@ -20,7 +20,7 @@ TIKZ = {
 \node[draw=none,font=\bfseries] at (0,3.8){GRPO (sparse)};
 \node[draw=none,font=\bfseries] at (4.4,3.8){SDPO (dense)};
 \end{tikzpicture}\end{center}""",
-    "fig_3_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+    "fig_3_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
 \node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
@@ -32,17 +32,17 @@ TIKZ = {
 \node(u) at (3,-0.6){update $\theta$};
 \draw[->](x)--(s);\draw[->](x)--(t);\draw[->](s)--(ys);\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](ys)--(kls);\draw[->](g)--(klt);\draw[->](kls)--(u);\draw[->](klt)--(u);
 \end{tikzpicture}\end{center}""",
-    "fig_3_2": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
+    "fig_3_2": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
 \node(c) at (0,4){privileged context $c$: feedback + few-shot};
 \node(t) at (0,3){self-teacher samples $N$};
 \node(v) at (0,2){verifier: correctness};
 \node(j) at (0,1){judge: is\_copy / independence};
-\node(gp) at (4.6,1){good pool (correct \& independent)};
-\node(fs) at (4.6,2.6){few-shot good\_only / good\_bad};
-\node(kl) at (4.6,-0.2){KL distil student $\to y_{\text{good}}$};
-\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs.north)|-(t.east);\draw[->](gp)--(kl);
+\node(gp) at (4.8,1){good pool (correct \& independent)};
+\node(fs) at (4.8,3){few-shot good\_only / good\_bad};
+\node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
+\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
 \end{tikzpicture}\end{center}""",
-    "fig_3_3": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
+    "fig_3_3": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
 \node(a) at (0,3){T2 standard (anchor)};
 \node(d1) at (-4,1.8){Dim 1: information};
 \node(d2) at (0,1.8){Dim 2: framing};
@@ -53,7 +53,7 @@ TIKZ = {
 \draw[->](a)--(d1);\draw[->](a)--(d2);\draw[->](a)--(d3);
 \draw[->](d1)--(t1);\draw[->](d1)--(t3);\draw[->](d2)--(t4);\draw[->](d2)--(t5);\draw[->](d2)--(t6);\draw[->](d3)--(t7);
 \end{tikzpicture}\end{center}""",
-    "fig_5_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=4.3cm,inner sep=3pt}]
+    "fig_5_1": r"""\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=4.3cm,inner sep=3pt}]
 \node(r) at (0,3){Reference in privileged context};
 \node(code) at (-3.4,1.7){Code: output = program = \textbf{method}};
 \node(math) at (3.4,1.7){Math (answer-only): output = \textbf{value}};

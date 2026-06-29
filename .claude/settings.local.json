@@ -79,7 +79,8 @@
       "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\aicb-ecom-backend\\\\.git\" -ErrorAction SilentlyContinue)",
       "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\aicb-ecom-backend-ai\\\\.git\" -ErrorAction SilentlyContinue)",
       "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\chatbot-ecom-web\\\\.git\" -ErrorAction SilentlyContinue)",
-      "Bash(Write-Output \"Done removing nested .git folders\")"
+      "Bash(Write-Output \"Done removing nested .git folders\")",
+      "Bash(wsl -e *)"
     ]
   }
 }

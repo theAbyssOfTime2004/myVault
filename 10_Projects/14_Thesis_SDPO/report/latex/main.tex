@@ -6,7 +6,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs,longtable,array,calc}
 \usepackage{microtype}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usepackage{xcolor}
@@ -55,6 +55,11 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
 
+% compact chapter headings (less blank space at the top of chapter/appendix pages)
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\bfseries\Huge}{\chaptertitlename\ \thechapter}{6pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{4pt}{16pt}
+
 \begin{document}
 
 % ============================ TITLE PAGE ============================
@@ -91,9 +96,7 @@
 \input{_ch6.tex}
 \input{_ch7.tex}
 
-\chapter*{References}
-\addcontentsline{toc}{chapter}{References}
-\input{_refs.tex}
+\input{refs_manual.tex}
 
 \appendix
 \input{_appendix.tex}

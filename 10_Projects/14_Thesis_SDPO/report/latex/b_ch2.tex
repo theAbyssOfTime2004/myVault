@@ -23,7 +23,7 @@ Hübotter et al.~{[}1{]} observe that many verifiable environments already expos
 SDPO distills the self-teacher's retrospective next-token distribution into the student by a per-token KL:
 
 \[
-\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
+\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
 \]
 
 where \passthrough{\lstinline!stopgrad!} prevents the teacher from collapsing onto the student to ignore \(f\) {[}1{]}. With the teacher detached, the gradient at a student logit is \(\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)\), so the optimizer raises every logit the teacher trusts more than the student does. The contrast with GRPO is the density of the target:
@@ -50,7 +50,7 @@ SDPO (token-level) & soft distribution, top token & \(O(T)\) \\
 SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
+\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
 \node(gr) at (0,3){scalar reward $r$};
 \node(ga) at (0,2){one advantage / sequence};
 \node(gt) at (0,1){same signal every token ($O(1)$)};
@@ -97,7 +97,7 @@ Two gaps follow. The paper tests syntactic variation but not semantic or instruc
 
 Kim et al.~{[}2{]} supply the cautionary counterpart to SDPO. They show that distilling from a rich context can degrade a model by suppressing its \emph{epistemic verbalization}, the uncertainty markers such as ``wait'' or ``maybe'' that accompany genuine reasoning. Their analysis ties the magnitude of suppression to the mutual information \(I(y; c \mid x)\) between the output and the context: the richer the context, the stronger the suppression. They probe the spectrum by varying what the teacher context contains, from nothing (\(c = \varnothing\)), through a solution stripped of its thinking and a regenerated answer, to a full solution, and find suppression growing with the information the context carries. The effect accumulates across successive distillation steps, and they recommend freezing the teacher (no EMA update) to break the feedback loop, in tension with the parent paper's preference for a moving, regularized teacher (§2.2.4).
 
-For this thesis the relevance is twofold. The suppression risk is sharpest exactly when the context contains the answer, which is the math leak regime studied in the pilot (§4.5), where the teacher can copy the answer rather than derive it. And the accumulation across steps is precisely what the test-time setting applies repeatedly, since each TTT step distills again from the same answer-bearing context.
+For this thesis the relevance is twofold. The suppression risk is sharpest exactly when the context contains the answer, which is the math leak regime studied in the pilot (§4.9), where the teacher can copy the answer rather than derive it. And the accumulation across steps is precisely what the test-time setting applies repeatedly, since each TTT step distills again from the same answer-bearing context.
 
 \section{SDFT and the leak concern}\label{sdft-and-the-leak-concern}
 

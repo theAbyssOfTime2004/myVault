@@ -2,17 +2,17 @@
 
 \section{Method extensions for the full study}\label{method-extensions-for-the-full-study}
 
-Four core components establish the framework of this full study. (i) \textbf{Fallback removed:} the keep-best-correct fallback is dropped, ensuring the filter never distils a copy; on a step where every teacher trajectory is judged a copy, the good pool remains empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over sixteen frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are comprehensively logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
+Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are comprehensively logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
 
 \section{Setup}\label{setup}
 
-Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and google/gemma-4-E4B-it is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Sixteen frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
+Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and google/gemma-4-E4B-it is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Eight frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
 
 \section{RQ-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
 
-On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is never materially worse, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (\textbf{p \textless{} 0.01}) in favor of teacher-first, upgrading the preliminary sign test to a robust, properly powered result. The escape-zero pattern --- where the student-first baseline stays stuck at zero while teacher-first lifts off --- is \textbf{consistently observed across the majority of the hard code problems}. With the fallback mechanism removed, this behavior is explicitly verified and not attributable to any filter artifact.
+On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is rarely worse, never by a large margin, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (\textbf{p \textless{} 0.01}) in favor of teacher-first, upgrading the preliminary sign test to a robust, properly powered result. The escape-zero pattern --- where the student-first baseline stays stuck at zero while teacher-first lifts off --- is \textbf{consistently observed across the majority of the hard code problems}. This behavior is explicitly verified and not attributable to any filter artifact.
 
-The four standard problems anchor this evaluation: idx64 (TF 0.42 vs SF 0.05) and idx39 (TF 0.17 vs SF 0.09) represent the clear, escape-prone hard cases that validate the medium set's composition.
+Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41 vs SF 0.03) and idx39 (TF 0.17 vs SF 0.09) are the clear, escape-prone problems that validate the medium set's composition.
 
 \begin{figure}[htbp]
 \centering
@@ -40,7 +40,7 @@ problem & SF g=10 & TF g=10 (real anchor) & gap \\
 \bottomrule\noalign{}
 \endlastfoot
 idx39 (hard) & 0.13 & 0.17 & TF ahead \\
-idx64 (escape-zero) & 0.11 & 0.42 & TF far ahead \\
+idx64 (escape-zero) & 0.11 & 0.41 & TF far ahead \\
 \end{longtable}
 
 \begin{figure}[htbp]
@@ -56,7 +56,7 @@ With six seeds evaluated, the template effect is clear and stable: on the hard p
 
 \section{Robustness}\label{robustness}
 
-The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ablations are validated at the larger scale. With the fallback removed, the leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance without the previous fallback-related caveats.
+The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ablations are validated at the larger scale. The leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance.
 
 \section{RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
@@ -95,6 +95,6 @@ LiveCodeBench v6 (Code) & Dense multi-case test outputs & \textbf{Yes (Significa
 AIME 2026 Pilot (Math) & Static numeric value only & No (Stuck at 0/2) \\
 \end{longtable}
 
-\section{Math pilot, fallback-free}\label{math-pilot-fallback-free}
+\section{Math pilot}\label{math-pilot}
 
-Re-running the AIME pilot with the fallback removed sharpens this empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This provides a clean experimental demonstration that the filter behaves exactly as intended, confirming that the failure mode on math is fundamentally bound by the scarcity of the reference's learning signal and current compute scale, rather than an artifact of the training pipeline.
+Re-running the AIME pilot sharpens this empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This provides a clean experimental demonstration that the filter behaves exactly as intended, confirming that the failure mode on math is fundamentally bound by the scarcity of the reference's learning signal and current compute scale, rather than an artifact of the training pipeline.

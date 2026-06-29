@@ -7,13 +7,13 @@ To ensure the empirical soundness of this study, several critical architectural 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Statistical power.} Rather than relying on a localized sign test, this work deploys a medium-scale evaluation framework ($\approx$16 problems $\times$ 6 seeds) combined with a Wilcoxon signed-rank test. This allows the primary treatment effect to be reported with a controlled, mathematically rigorous error rate rather than as a purely directional signal (§4.2).
+  \textbf{Statistical power.} Rather than relying on a localized sign test, this work deploys a medium-scale evaluation framework (8 problems $\times$ 6 seeds) combined with a Wilcoxon signed-rank test. This allows the primary treatment effect to be reported with a controlled, mathematically rigorous error rate rather than as a purely directional signal (§4.3).
 \item
-  \textbf{Compute matching.} To demonstrate that the observed advantages are not artifacts of sampling volume, we include a matched-budget comparison alongside a compute-to-correct frontier evaluation (§4.2.5). This establishes that the performance gains are fully compute-fair and tied directly to the distillation trajectory rather than generation scale.
+  \textbf{Compute matching.} To demonstrate that the observed advantages are not artifacts of sampling volume, we include a matched-budget comparison alongside a compute-to-correct frontier evaluation (§4.4). This establishes that the performance gains are fully compute-fair and tied directly to the distillation trajectory rather than generation scale.
 \item
-  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (\emph{thinking ON}) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.5).
+  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (\emph{thinking ON}) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.7).
 \item
-  \textbf{Exact filtering mechanics.} The removal of the keep-best-correct fallback ensures that the anti-leak filter remains mathematically exact (§4.4, §4.7). The semantic judge is never bypassed, eliminating hidden pipeline interventions during initial optimization cycles.
+  \textbf{Exact filtering mechanics.} The verifier--judge filter is mathematically exact (§4.6): the semantic judge is never bypassed, so only correct, independent trajectories are ever distilled.
 \item
   \textbf{Boundary Characterization.} Enforcing a uniform evaluation pipeline across both code and mathematical benchmarks has successfully decoupled the effects of dense environment feedback from sparse, value-only feedback. This isolates the precise failure mode of self-distillation in symbolic reasoning and maps out the exact boundary of the proposed method.
 \end{itemize}

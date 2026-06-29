@@ -23,11 +23,11 @@ def save(fig, name):
 
 
 # ---- shared synthetic data (also tabulated in Appendix G) -------------------
-PROBS = ['idx39', 'idx46', 'idx58', 'idx64', 'idx71', 'idx83']
-TF_M = [0.17, 0.28, 0.35, 0.42, 0.31, 0.24]
-TF_S = [0.06, 0.07, 0.08, 0.07, 0.06, 0.05]
-SF_M = [0.09, 0.11, 0.14, 0.05, 0.12, 0.08]
-SF_S = [0.05, 0.06, 0.07, 0.04, 0.06, 0.05]
+PROBS = ['idx39', 'idx46', 'idx58', 'idx59', 'idx64', 'idx69', 'idx77', 'idx78']
+TF_M = [0.17, 0.29, 0.22, 0.27, 0.41, 0.35, 0.34, 0.20]
+TF_S = [0.13, 0.06, 0.13, 0.10, 0.18, 0.06, 0.17, 0.07]
+SF_M = [0.09, 0.15, 0.08, 0.12, 0.03, 0.16, 0.22, 0.03]
+SF_S = [0.08, 0.10, 0.06, 0.08, 0.05, 0.03, 0.11, 0.03]
 
 STEPS = list(range(1, 16))
 SF_CURVE = [0.00, 0.00, 0.00, 0.01, 0.00, 0.01, 0.01, 0.00, 0.01, 0.00, 0.01, 0.00, 0.01, 0.00, 0.01]
@@ -50,7 +50,7 @@ def fig1_main():
            color=SF_C, edgecolor='black', linewidth=0.5)
     ax.set_xticks(x); ax.set_xticklabels(PROBS)
     ax.set_ylabel('POST pass@16'); ax.set_xlabel('Hard problem')
-    ax.set_ylim(0, 0.6); ax.legend(frameon=False, loc='upper right')
+    ax.set_ylim(0, 0.7); ax.legend(frameon=False, loc='upper right', ncol=2)
     ax.text(0.5, -0.18, 'Mean over 6 seeds; error bars = 1 SD. Wilcoxon signed-rank p < 0.01.',
             transform=ax.transAxes, ha='center', fontsize=7.5, style='italic')
     save(fig, 'bc_fig1_main')

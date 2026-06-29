@@ -10,7 +10,6 @@ sources: [syn_core_result, syn_math_pilot, con_teacher_first_judge, syn_teacher_
 
 Appendices A–F are complete. B and C are reproduced verbatim from the codebase (`07_discovery_curve.py`, `09_teacher_first.py`); D from the W&B `output.log` files (math pilot and a code exemplar); E/F from the W&B export and reconciliation. The one remaining optional addition is the full idx0–90 code frontier-scan table (F.2), for which only the four problems actually used are listed.
 
----
 
 ## Appendix A — Hyperparameters
 
@@ -54,7 +53,6 @@ Appendices A–F are complete. B and C are reproduced verbatim from the codebase
 
 Shared distillation core (both domains): per-token top-K reverse KL with teacher detached (self-distillation, shared weights), token-aligned over the target trajectory (§3.3.5).
 
----
 
 ## Appendix B — Reprompt templates (verbatim)
 
@@ -87,7 +85,6 @@ Each preset overrides the SDPO template *slots* only; the model, the feedback co
 },
 ```
 
----
 
 ## Appendix C — Teacher and judge prompts (verbatim)
 
@@ -160,7 +157,6 @@ Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5
 
 The judge returns structured JSON (`is_copy`: boolean, `reasoning_quality`: integer). Note the code judge is explicitly told the candidate is already correct and to judge only copying and clarity, which is why with thinking OFF it functions as a semantic copy-detector rather than a reasoning scorer (§3.3.3).
 
----
 
 ## Appendix D — Example trajectories (math pilot)
 
@@ -267,7 +263,6 @@ if __name__ == "__main__":
 
 PRE pass 0.000 → POST pass 1.000 (discovery curve 0.85 → 1.0 → … → 1.0; greedy 0.075 → 1.0). Unlike the math pilot, the distilled output is a method: a program that solves the problem for every input, not a value to copy. This is the value-versus-procedure boundary (Chapter 5) made concrete.
 
----
 
 ## Appendix E — Per-seed results
 
@@ -330,7 +325,6 @@ T5 on idx39 is stable across its two seeds (.125 / .125).
 | TF · good_only · LLM | 0.266 | 0.984 |
 | TF · good_bad · LLM | 0.250 | 1.000 |
 
----
 
 ## Appendix F — Frontier scans
 

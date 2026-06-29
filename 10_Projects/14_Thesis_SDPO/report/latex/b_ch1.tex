@@ -1,16 +1,16 @@
-\chapter{Chapter 1 --- Introduction}\label{chapter-1-introduction}
+\chapter{Introduction}\label{chapter-1-introduction}
 
 This thesis studies how to \textbf{accelerate test-time discovery in complex code generation via execution-guided self-distillation}. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
 
-\section{1.1 Background}\label{background}
+\section{Background}\label{background}
 
 Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a common instantiation, suffers from sparse credit assignment: a scalar outcome reward says only whether an attempt passed, and when every rollout fails the advantage collapses and learning stalls --- exactly on the hard problems that matter. Self-Distillation Policy Optimization (SDPO) {[}1{]} extracts a denser signal from the rich feedback verifiable environments already produce, using the feedback-conditioned model as a self-teacher distilled back into the student. At test time it can iterate on one hard problem and improve before the first success {[}1, §5{]}. Two issues motivate this work: the parent paper distills the student's own failed rollout (little that is correct to learn from on hard problems), and Kim et al.~{[}2{]} show that distilling from rich context can degrade a model by suppressing its epistemic verbalization.
 
-\section{1.2 Problem}\label{problem}
+\section{Problem}\label{problem}
 
 The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: \emph{how the execution feedback is organized into a learning signal} (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and \emph{how the execution feedback is formulated} into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
 
-\section{1.3 Research questions}\label{research-questions}
+\section{Research questions}\label{research-questions}
 
 \begin{itemize}
 \tightlist
@@ -26,7 +26,7 @@ The setting is test-time training: one hard problem, a verifiable reward, a shor
 
 All four research questions are systematically evaluated and addressed throughout the empirical framework of this thesis.
 
-\section{1.4 Contributions}\label{contributions}
+\section{Contributions}\label{contributions}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -34,19 +34,19 @@ All four research questions are systematically evaluated and addressed throughou
 \item
   \textbf{A teacher-first variant of execution-guided self-distillation} that distills the student toward verifier- and judge-filtered teacher generations, between on-policy SDPO and off-policy SFT, with a clean filter that never distils a copy (Chapter 3).
 \item
-  \textbf{Teacher-first significantly accelerates discovery in code, and the advantage is compute-fair.} Across a comprehensive matched evaluation ($7\text{ problems} \times 6\text{ seeds}$), teacher-first beats student-first (Wilcoxon signed-rank) and escapes the flat-reward trap on the hardest problems; a compute-matched comparison and a compute-to-correct frontier show the gain is not a sampling-volume artifact (Chapter 4).
+  \textbf{Teacher-first significantly accelerates discovery in code, and the advantage is compute-fair.} Across a comprehensive matched evaluation ($8\text{ problems} \times 6\text{ seeds}$), teacher-first beats student-first (Wilcoxon signed-rank) and escapes the flat-reward trap on the hardest problems; a compute-matched comparison and a compute-to-correct frontier show the gain is not a sampling-volume artifact (Chapter 4).
 \item
-  \textbf{A reprompt-template effect}, strongest on hard problems, where a reasoning-inducing template orders above the anchor, which orders above a minimal one (§4.3).
+  \textbf{A reprompt-template effect}, strongest on hard problems, where a reasoning-inducing template orders above the anchor, which orders above a minimal one (§4.5).
 \item
-  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from answer-bearing context suppresses uncertainty markers, accumulating across steps (§4.5).
+  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from answer-bearing context suppresses uncertainty markers, accumulating across steps (§4.7).
 \item
-  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the paradigm: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.6, Chapter 5).
+  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the paradigm: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.8, Chapter 5).
 \end{enumerate}
 
-\section{1.5 Scope}\label{scope}
+\section{Scope}\label{scope}
 
 Test-time training with LoRA adapters; complex code generation on LiveCodeBench v6 {[}6{]} serves as the core empirical domain, with AIME 2026 deployed as the contrasting mathematical baseline environment. Results are centered on a 4B-scale reasoning model family. The study remains an empirical characterization within a personal compute scale, establishing clear domain boundaries and foundational insights rather than claiming universal scaling laws.
 
-\section{1.6 Thesis structure}\label{thesis-structure}
+\section{Thesis structure}\label{thesis-structure}
 
-Chapter 2 reviews background and related work; Chapter 3 specifies the method (including the fallback-free filter and the thinking-on extensions); Chapter 4 reports the multi-seed code experiments, the compute-matched comparison, the epistemic-suppression result, and the mathematical domain boundary; Chapter 5 discusses the underlying mechanisms; Chapter 6 states the remaining structural limitations and the publication roadmap; Chapter 7 concludes.
+Chapter 2 reviews background and related work; Chapter 3 specifies the method (including the thinking-on extensions); Chapter 4 reports the multi-seed code experiments, the compute-matched comparison, the epistemic-suppression result, and the mathematical domain boundary; Chapter 5 discusses the underlying mechanisms; Chapter 6 states the remaining structural limitations and the publication roadmap; Chapter 7 concludes.

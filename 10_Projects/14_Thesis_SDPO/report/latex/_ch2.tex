@@ -23,7 +23,7 @@ Hübotter et al.~{[}1{]} observe that many verifiable environments already expos
 SDPO distills the self-teacher's retrospective next-token distribution into the student by a per-token KL:
 
 \[
-\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
+\mathcal{L}_{\text{SDPO}}(\theta) = \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big),
 \]
 
 where \passthrough{\lstinline!stopgrad!} prevents the teacher from collapsing onto the student to ignore \(f\) {[}1{]}. With the teacher detached, the gradient at a student logit is \(\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)\), so the optimizer raises every logit the teacher trusts more than the student does. The contrast with GRPO is the density of the target:
@@ -50,7 +50,7 @@ SDPO (token-level) & soft distribution, top token & \(O(T)\) \\
 SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
+\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
 \node(gr) at (0,3){scalar reward $r$};
 \node(ga) at (0,2){one advantage / sequence};
 \node(gt) at (0,1){same signal every token ($O(1)$)};

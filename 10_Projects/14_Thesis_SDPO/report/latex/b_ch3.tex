@@ -46,7 +46,7 @@ report PRE->POST and the discovery curve
 
 \textbf{Figure 3.1} sketches the two arms; they diverge only at the shaded block.
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
 \node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
@@ -70,7 +70,7 @@ This is the original algorithm of Hübotter et al.~{[}1{]}, realized through the
 At each step the student samples a rollout \(y \sim \pi_\theta(\cdot \mid x)\) on-policy. The verifier grades \(y\) and produces feedback \(f\). The self-teacher \(\pi_\theta(\cdot \mid x, f)\) then rescores \emph{every token} of that same \(y\): given \(f\), what should the correct next-token distribution have been at each position? The student is pulled toward this retrospective distribution by a per-token KL:
 
 \[
-\mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
+\mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
 \]
 
 The \passthrough{\lstinline!stopgrad!} blocks gradient flow through the teacher, which prevents the teacher from collapsing onto the student and ignoring \(f\) {[}1, §2{]}. The gradient and the top-K approximation are shared with teacher-first and are deferred to §3.3.5.
@@ -92,22 +92,22 @@ Second is \textbf{information leak} {[}2{]}. If \(c\) contains a reference solut
 The core change is to \textbf{reverse the order}. The teacher generates first; correct, independent trajectories are filtered out; and the student is distilled toward \emph{those}. The KL is computed on \(y_{\text{good}}\) (teacher-generated, filtered), not on \(y_{\text{student}}\) (a failed attempt):
 
 \[
-\mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\!\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
+\mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
 \]
 
 where \(\mathcal{G}\) is the good pool (§3.3.3). Conceptually, teacher-first sits \textbf{between SDPO (on-policy) and SFT (off-policy)}. It resembles SDFT {[}3{]} in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style \emph{feedback} {[}1{]} rather than a fixed demonstration.
 
 Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollout internally, teacher-first is implemented as a \textbf{custom training loop} (script \passthrough{\lstinline!09\_teacher\_first.py!}) that reuses the helpers of \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, evaluation).
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
+\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
 \node(c) at (0,4){privileged context $c$: feedback + few-shot};
 \node(t) at (0,3){self-teacher samples $N$};
 \node(v) at (0,2){verifier: correctness};
 \node(j) at (0,1){judge: is\_copy / independence};
-\node(gp) at (4.6,1){good pool (correct \& independent)};
-\node(fs) at (4.6,2.6){few-shot good\_only / good\_bad};
-\node(kl) at (4.6,-0.2){KL distil student $\to y_{\text{good}}$};
-\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs.north)|-(t.east);\draw[->](gp)--(kl);
+\node(gp) at (4.8,1){good pool (correct \& independent)};
+\node(fs) at (4.8,3){few-shot good\_only / good\_bad};
+\node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
+\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
 \end{tikzpicture}\end{center}
 
 \textbf{Figure 3.2}
@@ -135,7 +135,7 @@ Each trajectory \(y_{t_i}\) is labeled in two stages.
 \text{good} := (\text{score} \ge 1.0) \,\wedge\, (\text{independent}), \qquad \text{bad} := (\text{copies the reference}).
 \]
 
-Two judge implementations are used and later ablated (§4.4):
+Two judge implementations are used and later ablated (§4.6):
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -158,10 +158,10 @@ LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) or \passthrough{\lstin
 \end{longtable}
 
 \begin{quote}
-\textbf{An honest note on the judge.} With thinking OFF (code) there is no reasoning trace to grade, and \passthrough{\lstinline!reasoning\_quality!} saturates at 4--5. The LLM judge therefore acts purely as a \textbf{semantic copy-detector}, not as a reasoning-quality scorer. The thesis does not claim it measures reasoning quality.
+\textbf{A note on the judge.} With thinking ON (code) the model emits an explicit reasoning trace, so \passthrough{\lstinline!reasoning\_quality!} grades that trace rather than saturating at 4--5. The LLM judge therefore serves two roles: \passthrough{\lstinline!is\_copy!} is the \textbf{independence gate} for the good pool, while \passthrough{\lstinline!reasoning\_quality!} provides the signal that feeds the epistemic-suppression measurement (§4.7). Copy-detection remains its primary correctness guarantee.
 \end{quote}
 
-There is one further mechanism worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), \passthrough{\lstinline!filter\_trajectories!} falls back to keeping the single best \emph{correct} trajectory as good, so the loop does not stall on a cold start. The fallback is necessary to avoid an empty good pool, but it can \textbf{defeat the judge} when the teacher only ever produces copies: a copy the judge rejected is still forced into the pool. This is confirmed in the math log for idx8 (§4.5.4, Chapter 6); it is flagged here so the mechanism is transparent.
+There is one behavior worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), the good pool is left \textbf{empty} and that step distils nothing --- a rejected copy is never forced into the pool. On a problem where the teacher only ever produces copies, the student therefore receives no learning signal at all; this is confirmed in the math log for idx8 (Appendix D.2), and is flagged here so the mechanism is transparent.
 
 \subsection{Few-shot teacher steering (good\_only vs good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
 
@@ -187,7 +187,7 @@ Steering strength & moderate & stronger \\
 Leak & \textbf{clean} (good is filtered, hence independent of the reference) & \textbf{residual} (bad ≈ reference, so reference-like content re-enters the context) \\
 \end{longtable}
 
-Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of \textbf{leak versus no-leak}, a direct test of the advisor's concern. The result is a leak-null on this data (§4.4).
+Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of \textbf{leak versus no-leak}, a direct test of the advisor's concern. The result is a leak-null on this data (§4.6).
 
 \subsection{The distillation step: token-aligned top-K reverse KL}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
 
@@ -247,7 +247,7 @@ T6 & First-person & Instruction framing (reframe) & ``I attempted this and got X
 T7 & Cumulative history & Memory depth & all N prior attempts, not just the latest \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Latex,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
+\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
 \node(a) at (0,3){T2 standard (anchor)};
 \node(d1) at (-4,1.8){Dim 1: information};
 \node(d2) at (0,1.8){Dim 2: framing};
@@ -260,7 +260,7 @@ T7 & Cumulative history & Memory depth & all N prior attempts, not just the late
 \end{tikzpicture}\end{center}
 
 \textbf{Figure 3.3}
-\emph{The reprompt-template design space.} Each template varies one dimension away from the T2 anchor: information content (T1, T3), instruction framing (T4, T5, T6), or memory depth (T7). The experiments probe T1/T2/T5 (§4.3).
+\emph{The reprompt-template design space.} Each template varies one dimension away from the T2 anchor: information content (T1, T3), instruction framing (T4, T5, T6), or memory depth (T7). The experiments probe T1/T2/T5 (§4.5).
 
 The three dimensions and their grounding:
 
@@ -275,7 +275,7 @@ The three dimensions and their grounding:
   \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression \emph{accumulates} across steps, so history may amplify or dilute it.
 \end{enumerate}
 
-\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, \textbf{four are implemented} (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes \textbf{T1/T2/T5} (§4.3); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, \textbf{four are implemented} (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes \textbf{T1/T2/T5} (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -298,7 +298,7 @@ The domains differ in their \textbf{reference mode} (what the teacher sees as th
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Model & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{OFF} & Gemma-4-E4B, LoRA all-linear, thinking \textbf{ON} \\
+Model & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Gemma-4-E4B, LoRA all-linear, thinking \textbf{ON} \\
 Verifier & public/private tests → \textbf{graded} \([0,1]\) & answer match → \textbf{binary} \(\{0,1\}\) \\
 \passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (best-scoring trajectory as proxy) & \passthrough{\lstinline!ground\_truth!} (teacher always sees the correct answer) \\
 Leak regime & \textbf{null} (reference is best-in-batch + public tests, not a reference solution) & \textbf{extreme} (feedback is ``the correct answer is \{gt\}'') \\
@@ -306,7 +306,7 @@ Leak regime & \textbf{null} (reference is best-in-batch + public tests, not a re
 Reference contains a method? & \textbf{Yes} (best-in-batch is a \emph{program} = an algorithm, generalizing to new inputs) & \textbf{No} (only a \emph{value}, not a derivation) \\
 \end{longtable}
 
-A note on the \passthrough{\lstinline!reference\_text!} choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses \textbf{best\_in\_batch} (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, \textbf{code has no leak}, which explains why the good\_bad ablation is leak-null for code (§4.4) while leak is measurable for math (§4.5).
+A note on the \passthrough{\lstinline!reference\_text!} choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses \textbf{best\_in\_batch} (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, \textbf{code has no leak}, which explains why the good\_bad ablation is leak-null for code (§4.6) while leak is measurable for math (§4.9).
 
 The TTT budget also differs between domains (full values in Appendix A): code runs \textbf{15 steps, eval 16 samples, teacher\_n = 10}; math runs \textbf{3 steps, eval 4 samples, teacher\_n = 4, max\_new\_tokens = 16384} (8192 truncated the \passthrough{\lstinline!\\boxed!} answer and produced spurious zero scores). This budget gap is a variable to keep in mind when comparing the two domains, alongside model and reference.
 
@@ -331,12 +331,12 @@ Problem selection uses \textbf{model pass-rate} \(\in (0,1)\) (a frontier define
 
 \textbf{Discovery curve.} Following discovery@k {[}1, Def. 5.1{]} from §3.1: the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with \(T = \min\{k : r(y_k) = 1\}\). Because test-time generation is \emph{sequential} (shared state, weight updates), i.i.d. pass@k does not apply, and discovery@k is the correct metric. We log the per-step batch pass-rate as a coarse discovery curve.
 
-\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where \textbf{student-first stays stuck at pass = 0} (or drops back to 0) while \textbf{teacher-first escapes 0}. This is the direct signature of the flat-reward trap (§3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (§4.2).
+\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where \textbf{student-first stays stuck at pass = 0} (or drops back to 0) while \textbf{teacher-first escapes 0}. This is the direct signature of the flat-reward trap (§3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (§4.3).
 
 \textbf{Matched comparison.} The two arms run on the \emph{same} base and the \emph{same} seed, so PRE matches per seed, giving a \textbf{paired (matched)} comparison that removes base- and seed-level variance. On each matched pair we count wins, ties, and losses (TF versus SF).
 
 \begin{quote}
-\textbf{An honest note on small n.} Because the number of problems and seeds is small (n = 2--3 problems for code, n = 2 seeds for RQ1, n = 2 problems for math), the thesis reports only a \textbf{crude sign test} (for example \(0.5^k\) over the non-tied pairs) as \emph{descriptive, directional} evidence, never as an inferential proof. The language stays at ``preliminary / directional / weak dominance''; we do not write ``we prove.'' Every p-value is paired with a caveat about n (Chapter 4, Chapter 6).
+\textbf{A note on statistical power.} The code arm is evaluated at \textbf{medium scale} (8 problems × 6 seeds), which supports a \textbf{Wilcoxon signed-rank test} over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (§4.3, Chapter 6). The \textbf{mathematical domain remains a small-n pilot} (n = 2 problems), where claims stay \emph{descriptive and directional} --- ``preliminary / weak dominance'', never ``we prove'' --- with every statement paired with a caveat about n.
 \end{quote}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
