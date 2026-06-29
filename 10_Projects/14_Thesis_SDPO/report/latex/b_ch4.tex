@@ -28,7 +28,7 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 \label{fig:bc-discovery}
 \end{figure}
 
-\section{Compute-matched comparison and compute-to-correct (RQ3)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
+\section{Compute-matched comparison and compute-to-correct (RQ-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
 
@@ -46,7 +46,7 @@ idx64 (escape-zero) & 0.11 & 0.41 & TF far ahead \\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{../figures/bc_fig3_ctc.pdf}
-\caption{Compute-to-correct frontier (RQ3). Discovery probability against total generations (log scale) for teacher-first, compute-matched student-first ($g{=}10$), and best-of-$k$. Teacher-first reaches a given discovery level with roughly half the generations, showing the advantage is not a sampling-volume artifact.}
+\caption{Compute-to-correct frontier (RQ-method). Discovery probability against total generations (log scale) for teacher-first, compute-matched student-first ($g{=}10$), and best-of-$k$. Teacher-first reaches a given discovery level with roughly half the generations, showing the advantage is not a sampling-volume artifact.}
 \label{fig:bc-ctc}
 \end{figure}
 
@@ -69,7 +69,7 @@ Evaluating the code arm with thinking enabled provides complete reasoning traces
 \label{fig:bc-epistemic}
 \end{figure}
 
-\section{The Domain Boundary: Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
+\section{The Domain Boundary (RQ3): Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
 
 In contrast to the successful lift-off observed in the coding domain, the mathematical evaluation on the AIME 2026 dataset exposes a hard performance boundary, with the model failing to escape the zero-reward state. This divergence isolates a fundamental bottleneck in the execution-guided pipeline. Unlike code generation—where the target output is an algorithmic procedure validated through dense, multi-case test outputs—the AIME dataset provides only a single, static numeric value as feedback without any step-by-step derivation or worked solutions. 
 
