@@ -51,23 +51,26 @@ $$\boxed{W=\langle w_1=(-2,1,0,0),\ w_2=(-2,0,1,1)\rangle,\quad \dim W=2.}$$
 
 ### b) Cơ sở $U+W$, $\dim(U\cap W)$ và $U\cap W$
 
-**Số chiều $U$:** ma trận $(u_1;u_2;u_3)$ rõ ràng hạng $3$ (ba dòng ĐLTT) ⇒ $\dim U=3$.
+**Bước 0 — $\dim U$:** xếp $u_1,u_2,u_3$ thành **dòng**, khử Gauss:
+$$\begin{pmatrix}1&-1&0&0\\1&0&-1&0\\1&0&0&-1\end{pmatrix}\xrightarrow{R_2-R_1,\,R_3-R_1}\begin{pmatrix}1&-1&0&0\\0&1&-1&0\\0&1&0&-1\end{pmatrix}\xrightarrow{R_3-R_2}\begin{pmatrix}1&-1&0&0\\0&1&-1&0\\0&0&1&-1\end{pmatrix}$$
+Hạng $=3$ ⇒ $\dim U=3$, cơ sở $\{u_1,u_2,u_3\}$.
 
-**Cơ sở $U+W=\langle u_1,u_2,u_3,w_1,w_2\rangle$:** trước hết mô tả $U$ bằng phương trình. Cho $(a,b,c,d)\in U$:
-$$\alpha u_1+\beta u_2+\gamma u_3=(\alpha+\beta+\gamma,\,-\alpha,\,-\beta,\,-\gamma)=(a,b,c,d)$$
-⇒ $\alpha=-b,\beta=-c,\gamma=-d$ và $\alpha+\beta+\gamma=a$, tức $-(b+c+d)=a$. Vậy
-$$U=\{x\in\mathbb{R}^4 \mid x_1+x_2+x_3+x_4=0\}\quad(\text{siêu phẳng, }\dim U=3).$$
-Vì $w_1=(-2,1,0,0)$ có tổng tọa độ $=-1\neq 0$ nên $w_1\notin U$. Thêm một vectơ ngoài siêu phẳng vào $U$ phủ kín $\mathbb{R}^4$:
-$$U+W \supseteq U+\langle w_1\rangle = \mathbb{R}^4 \Rightarrow \boxed{U+W=\mathbb{R}^4,\ \dim(U+W)=4,}$$
-một cơ sở là cơ sở chính tắc $\{e_1,e_2,e_3,e_4\}$.
+**Bước 1 — cơ sở & $\dim(U+W)$:** dùng $U+W=\langle u_1,u_2,u_3,w_1,w_2\rangle$, xếp **cả 5 vectơ thành dòng** rồi khử Gauss:
+$$\begin{pmatrix}1&-1&0&0\\1&0&-1&0\\1&0&0&-1\\-2&1&0&0\\-2&0&1&1\end{pmatrix}\xrightarrow{\substack{R_2-R_1,\ R_3-R_1\\ R_4+2R_1,\ R_5+2R_1}}\begin{pmatrix}1&-1&0&0\\0&1&-1&0\\0&1&0&-1\\0&-1&0&0\\0&-2&1&1\end{pmatrix}\xrightarrow{\substack{R_3-R_2,\ R_4+R_2\\ R_5+2R_2}}\begin{pmatrix}1&-1&0&0\\0&1&-1&0\\0&0&1&-1\\0&0&-1&0\\0&0&-1&1\end{pmatrix}\xrightarrow{R_4+R_3,\ R_5+R_3}\begin{pmatrix}1&-1&0&0\\0&1&-1&0\\0&0&1&-1\\0&0&0&-1\\0&0&0&0\end{pmatrix}$$
+Có **4 dòng khác 0** ⇒ $\boxed{\dim(U+W)=4}$, một cơ sở (các dòng khác 0 của dạng bậc thang):
+$$\{(1,-1,0,0),\,(0,1,-1,0),\,(0,0,1,-1),\,(0,0,0,-1)\}\quad(\text{tức }U+W=\mathbb{R}^4).$$
 
-**Số chiều giao (Grassmann):**
+**Bước 2 — số chiều giao (Grassmann):**
 $$\dim(U\cap W)=\dim U+\dim W-\dim(U+W)=3+2-4=\boxed{1}.$$
 
-**Xác định $U\cap W$:** mỗi $v\in W$ có dạng $v=s w_1+t w_2=(-2s-2t,\ s,\ t,\ t)$. Khi đó $v\in U$
-$$\iff x_1+x_2+x_3+x_4=0 \iff (-2s-2t)+s+t+t=0 \iff -s=0 \iff s=0.$$
-Vậy $v=t\,w_2$, suy ra
-$$\boxed{U\cap W=\langle (-2,0,1,1)\rangle.}$$
+**Bước 3 — xác định $U\cap W$:** $v\in U\cap W$ ⟺ $v$ viết được đồng thời theo cả hai họ, tức giải (xếp **cột**)
+$$\alpha u_1+\beta u_2+\gamma u_3=s w_1+t w_2.$$
+Theo từng tọa độ:
+$$\begin{cases}\alpha+\beta+\gamma=-2s-2t\\ -\alpha=s\\ -\beta=t\\ -\gamma=t\end{cases}\Rightarrow\ s=-\alpha,\ t=-\beta,\ \gamma=\beta;\ \text{thế vào (1): } \alpha+2\beta=2\alpha+2\beta\Rightarrow\alpha=0.$$
+Tự do $\beta=r$: $(\alpha,\beta,\gamma,s,t)=r(0,1,1,0,-1)$. Vectơ giao (vế $U$):
+$$v=\beta u_2+\gamma u_3=r(u_2+u_3)=r(2,0,-1,-1).$$
+*(Kiểm vế $W$: $s w_1+t w_2=-r\,w_2=r(2,0,-1,-1)$ — trùng ✓; và đúng 1 tham số tự do ⇒ $\dim=1$ khớp Grassmann.)*
+$$\boxed{U\cap W=\langle (2,0,-1,-1)\rangle=\langle(-2,0,1,1)\rangle.}$$
 
 ---
 
