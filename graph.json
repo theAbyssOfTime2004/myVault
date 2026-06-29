@@ -130,13 +130,19 @@
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa",
       "title": "ĐSTT_Chương5_Chéo_hóa",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
       "title": "ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
+    },
+    {
+      "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio",
+      "title": "ĐSTT_Mẹo_Casio",
+      "group": "knowledge",
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải",
@@ -154,7 +160,7 @@
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ",
       "title": "ĐSTT_Chương3_Không_gian_vectơ",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/Toán tổ hợp",
@@ -3069,6 +3075,18 @@
     {
       "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ",
       "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ"
+    },
+    {
+      "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio",
+      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa"
     },
     {
       "source": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải",
@@ -6688,7 +6706,7 @@
     }
   ],
   "stats": {
-    "node_count": 476,
-    "link_count": 957
+    "node_count": 477,
+    "link_count": 960
   }
 }
