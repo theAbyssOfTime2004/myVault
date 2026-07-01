@@ -274,3 +274,5 @@ Tip: `grep "^## \[" log.md | tail -5` shows the five most recent entries.
 - Cài skill `academic-paper` (Imbad0202/academic-research-skills) thủ công vào `.claude/skills/` (Desktop không có /plugin) — 12-agent pipeline viết paper. Discovery work.
 - **Trạng thái: thí nghiệm + synthesis ĐÓNG. Sẵn sàng viết report.** Mọi context của thảo luận 2026-06-26 đã vào wiki → phiên mới đọc wiki là đủ.
 
+
+- [2026-07-01] QUERY query="check current status of thesis - latest progress, POC status, TTT-SDPO implementation" result_pages=3 mode=normal escalated=true
