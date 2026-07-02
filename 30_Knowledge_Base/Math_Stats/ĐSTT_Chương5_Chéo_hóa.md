@@ -64,6 +64,15 @@ Khi đó $\lambda$ là **trị riêng**, $v$ là vectơ riêng **ứng với** $
 **f) Ma trận tam giác.** Nếu $A$ tam giác (trên/dưới) thì trị riêng $=$ các phần tử đường chéo chính.
 *Cm:* $A-\lambda I$ cùng dạng tam giác $\Rightarrow \det(A-\lambda I)=\prod_i(a_{ii}-\lambda)$ (định thức tam giác = tích đường chéo) $\Rightarrow P_A(\lambda)=0\iff\lambda=a_{ii}$. $\blacksquare$ *(đây là mẹo đọc trị riêng trực tiếp đã dùng nhiều ở Câu 4 các đề mẫu.)*
 
+**g) Trị riêng của $A-sI$ (dịch chuyển).** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$), $s\in\mathbb{R}$, thì $\lambda-s$ là trị riêng của $A-sI$, cùng vectơ riêng $v$.
+*Cm:* $(A-sI)v=Av-sv=\lambda v-sv=(\lambda-s)v$, $v\neq0$. $\blacksquare$
+
+**h) Trị riêng của $sA$ (nhân vô hướng ma trận).** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$), $s\in\mathbb{R}$, thì $s\lambda$ là trị riêng của $sA$, cùng vectơ riêng $v$.
+*Cm:* $(sA)v=s(Av)=s(\lambda v)=(s\lambda)v$. $\blacksquare$
+
+**i) Giao hai không gian riêng phân biệt $=\{0\}$.** Nếu $\lambda_1\neq\lambda_2$ thì $E(\lambda_1)\cap E(\lambda_2)=\{0\}$.
+*Cm:* Giả sử $v\in E(\lambda_1)\cap E(\lambda_2),\ v\neq0$. Khi đó $Av=\lambda_1v$ và $Av=\lambda_2v\Rightarrow(\lambda_1-\lambda_2)v=0$. Vì $\lambda_1\neq\lambda_2\Rightarrow v=0$, mâu thuẫn. Vậy $E(\lambda_1)\cap E(\lambda_2)=\{0\}$. $\blacksquare$ *(mở rộng tự nhiên của mệnh đề (c) — vectơ riêng của trị riêng khác nhau ĐLTT.)*
+
 ---
 
 ## 2. Không gian riêng $E(\lambda)$
