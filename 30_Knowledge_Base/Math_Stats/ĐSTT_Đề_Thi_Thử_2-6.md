@@ -271,3 +271,4 @@ $$\boxed{A^n=\begin{pmatrix}2^{n+1}-3^n & 2^n-3^n\\ -2^{n+1}+2\cdot3^n & -2^n+2\
 
 > [!tip] Lưu ý khi tự luyện
 > Mọi câu 2a trong 5 đề đều đã kiểm bằng cách thay $u_1$ (hoặc $u_i$) vào công thức $f$ vừa tìm, đối chiếu với cột tương ứng của $[f]_B$ — cách này (Mẹo 2 mở rộng) luôn nên làm sau khi tính xong công thức $f$ để tự bắt lỗi. Nếu tự làm ra công thức khác, dùng đúng phép kiểm này để dò xem sai ở bước nào.
+
