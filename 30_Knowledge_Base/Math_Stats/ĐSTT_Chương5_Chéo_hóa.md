@@ -41,6 +41,31 @@ Khi đó $\lambda$ là **trị riêng**, $v$ là vectơ riêng **ứng với** $
 
 ---
 
+## 1.3. Chứng minh thường gặp (Câu 4, 1đ — dạng mệnh đề ngắn)
+
+> [!tip] Ý chính duy nhất cần nhớ
+> Mọi chứng minh dưới đây chỉ là **nhân $A$ (hoặc $A^{-1}$) vào hai vế của $Av=\lambda v$** rồi biến đổi. Nắm vững thao tác gốc này là làm được hầu hết dạng bài.
+
+**a) Nhân vô hướng vectơ riêng.** Nếu $v$ là vectơ riêng ứng $\lambda$ thì $\mu v\ (\mu\neq0)$ cũng là vectơ riêng ứng $\lambda$.
+*Cm:* $A(\mu v)=\mu(Av)=\mu(\lambda v)=\lambda(\mu v)$, và $\mu v\neq0$. $\blacksquare$
+
+**b) Trị riêng của $A^{-1}$.** Nếu $A$ khả nghịch và $\lambda$ là trị riêng của $A$ (vectơ riêng $v$) thì $\lambda\neq0$ và $\dfrac1\lambda$ là trị riêng của $A^{-1}$ (cùng vectơ riêng $v$).
+*Cm:* Nếu $\lambda=0$ thì $Av=0,\ v\neq0\Rightarrow A$ không đơn ánh, mâu thuẫn khả nghịch $\Rightarrow\lambda\neq0$. Từ $Av=\lambda v$, nhân $A^{-1}$: $v=\lambda A^{-1}v\Rightarrow A^{-1}v=\dfrac1\lambda v$. $\blacksquare$
+
+**c) Vectơ riêng của 2 trị riêng khác nhau thì độc lập.** Nếu $v_1,v_2$ ứng $\lambda_1\neq\lambda_2$ thì $\{v_1,v_2\}$ ĐLTT.
+*Cm:* Giả sử $av_1+bv_2=0$ (*). Nhân $A$: $a\lambda_1v_1+b\lambda_2v_2=0$ (**). Lấy (**) $-\lambda_2\times$(*): $a(\lambda_1-\lambda_2)v_1=0\Rightarrow a=0$ (vì $\lambda_1\neq\lambda_2,v_1\neq0$). Thay vào (*): $b=0$. $\blacksquare$
+
+**d) Trị riêng $0$ $\iff$ không khả nghịch.** $A$ có trị riêng $0$ $\iff \det A=0$.
+*Cm:* $0$ là trị riêng $\iff\exists v\neq0: Av=0\iff$ hệ $AX=0$ có nghiệm không tầm thường $\iff\det A=0$. $\blacksquare$
+
+**e) Trị riêng của $A^k$.** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$) thì $\lambda^k$ là trị riêng của $A^k$ ($k\in\mathbb{N}^*$), cùng vectơ riêng $v$.
+*Cm (quy nạp):* $k=1$ đúng theo giả thiết. Giả sử $A^kv=\lambda^kv$, khi đó $A^{k+1}v=A(\lambda^kv)=\lambda^k(Av)=\lambda^{k+1}v$. $\blacksquare$
+
+**f) Ma trận tam giác.** Nếu $A$ tam giác (trên/dưới) thì trị riêng $=$ các phần tử đường chéo chính.
+*Cm:* $A-\lambda I$ cùng dạng tam giác $\Rightarrow \det(A-\lambda I)=\prod_i(a_{ii}-\lambda)$ (định thức tam giác = tích đường chéo) $\Rightarrow P_A(\lambda)=0\iff\lambda=a_{ii}$. $\blacksquare$ *(đây là mẹo đọc trị riêng trực tiếp đã dùng nhiều ở Câu 4 các đề mẫu.)*
+
+---
+
 ## 2. Không gian riêng $E(\lambda)$
 
 > [!important] Định nghĩa

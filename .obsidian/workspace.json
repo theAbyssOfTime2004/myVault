@@ -1,103 +1,57 @@
 {
   "main": {
-    "id": "5838449b4dd96077",
+    "id": "a4f05b145dcf87bb",
     "type": "split",
     "children": [
       {
-        "id": "88410b7f86f4dc4d",
+        "id": "25f6b4b2728fd843",
         "type": "tabs",
         "children": [
           {
-            "id": "e592feb1a0800245",
+            "id": "1910e9c4fb0d18d6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "ĐSTT_Chương3_Không_gian_vectơ"
+              "title": "ĐSTT_Chương5_Chéo_hóa"
             }
           },
           {
-            "id": "ec578434a84838d1",
+            "id": "4c4baae060cd60a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ.md",
+                "file": "00_Dashboard/Untitled 2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "ĐSTT_Đề_Thi_Thử_Cuối_Kỳ"
-            }
-          },
-          {
-            "id": "6e9ef3d274649f8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "ĐSTT_Đề_Thi_Thử_2-6"
-            }
-          },
-          {
-            "id": "ad383fa854f043e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "ĐSTT_Mẹo_Casio"
-            }
-          },
-          {
-            "id": "8ac0d1de4c5d47f2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00_Dashboard/Untitled 1.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "Untitled 2"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "abb8369731255947",
+    "id": "c947f24326520aae",
     "type": "split",
     "children": [
       {
-        "id": "cf8e9fb153aad24e",
+        "id": "b335d1a62d1965f5",
         "type": "tabs",
         "children": [
           {
-            "id": "276200ddcf2b0fe5",
+            "id": "8004d7a93b32e37a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -110,13 +64,13 @@
             }
           },
           {
-            "id": "795cc0a4e8cdf0a2",
+            "id": "3894092bbb9785e8",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "frontier",
-                "matchingCase": true,
+                "query": "",
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -127,7 +81,7 @@
             }
           },
           {
-            "id": "452fa9f97461d2fe",
+            "id": "6467949017f91ae6",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -140,37 +94,51 @@
       }
     ],
     "direction": "horizontal",
-    "width": 241.5
+    "width": 300
   },
   "right": {
-    "id": "100d9b88155bef54",
+    "id": "5dbdae3a089b4cb5",
     "type": "split",
     "children": [
       {
-        "id": "af3058bee65b4cd9",
+        "id": "20b8fc20f119e797",
         "type": "tabs",
         "children": [
           {
-            "id": "4b39b69994295a3c",
+            "id": "b65cd9a7c13f40b6",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
-                "collapseAll": true,
-                "extraContext": true,
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
+                "collapseAll": false,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 00_Overview"
+              "title": "Backlinks for ĐSTT_Đề_Thi_Thử_2-6"
             }
           },
           {
-            "id": "ffc454ac306e575d",
+            "id": "f0d67670cc885a82",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from ĐSTT_Đề_Thi_Thử_2-6"
+            }
+          },
+          {
+            "id": "1d9cf6085ba3a5b1",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -185,56 +153,36 @@
             }
           },
           {
-            "id": "408e6856d3015f16",
+            "id": "57cb34ca0333ab9f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "2218bedf1b785df8",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "10_Projects/15_Zalo_Fresher_Prep/00_Overview.md",
+                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
                 "followCursor": false,
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 00_Overview"
+              "title": "Outline of ĐSTT_Đề_Thi_Thử_2-6"
             }
           },
           {
-            "id": "78d23cccdc2c9e24",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "6 - Main Notes/SynGraph và SemGraph trong DASCO.md",
-                "linksCollapsed": true,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from SynGraph và SemGraph trong DASCO"
-            }
-          },
-          {
-            "id": "ae90062568fe6f56",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
-          },
-          {
-            "id": "fa18f94b19c7c994",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
-          },
-          {
-            "id": "ff4ebdd271b43a7c",
+            "id": "0ca78ef446dbf3ca",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -242,23 +190,33 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "1314eb12041b8208",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 418.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
+      "bases:Create new base": false,
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
@@ -266,62 +224,22 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "8ac0d1de4c5d47f2",
+  "active": "1910e9c4fb0d18d6",
   "lastOpenFiles": [
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
-    "00_Dashboard/Untitled 1.md",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ.md",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md.tmp.19512.3c2776100793",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
-    "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md",
+    "30_Knowledge_Base/Math_Stats/Đường Đi, Chu Trình, Liên Thông.md",
+    "00_Dashboard/Untitled 2.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa.md.tmp.4836.86deba51bd65",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio.md",
+    "40_Archives/directory_structure.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md.tmp.22080.d7b3bb0f3d41",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md.tmp.22080.3431fa472c72",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ.md",
+    "30_Knowledge_Base/Math_Stats/Linear Algebra Review.md",
+    "30_Knowledge_Base/Math_Stats/multivariable chain rule.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Bài_Tập.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md",
-    "10_Projects/13_Uni_Retake/giải đề ck datamining 2023-2024.md",
-    "10_Projects/13_Uni_Retake/Linear_Programming_Plan.md",
-    "10_Projects/13_Uni_Retake/Linear_Algebra_Mastery.md",
-    "10_Projects/13_Uni_Retake/TTH cuối kỳ review.md",
-    "10_Projects/14_Thesis_SDPO/wiki/log.md",
-    "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase.tex.tmp.5548.00b94df6fc11",
-    "10_Projects/14_Thesis_SDPO/report/latex/_t_thesis.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_t_slide.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/b_ch4.tex.tmp.5548.9599c82a4eac",
-    "10_Projects/14_Thesis_SDPO/report/latex/b_ch4.tex.tmp.5548.529b37eaba9b",
-    "10_Projects/14_Thesis_SDPO/report/latex/_sl.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_sl.pdf",
-    "10_Projects/14_Thesis_SDPO/report/latex/slides.tex.tmp.4820.133640ad6b97",
-    "10_Projects/14_Thesis_SDPO/report/latex/slides.tex.tmp.4820.3bebb25acfd8",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_discovery_at_k.md",
-    "10_Projects/14_Thesis_SDPO/wiki/concepts/con_teacher_first_judge.md",
-    "10_Projects/14_Thesis_SDPO/report/ch6_limitations_future.md",
-    "10_Projects/14_Thesis_SDPO/report/ch5_discussion.md",
-    "10_Projects/14_Thesis_SDPO/report/ch3_method.md",
-    "10_Projects/14_Thesis_SDPO/report/ch4_experiments.md",
-    "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase.pdf",
-    "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase - Copy.tex",
-    "10_Projects/14_Thesis_SDPO/report/latex/_bc_p1.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/b_refs.tex",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch7.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch6.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch5.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch4.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch1.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/bc_abstract.md",
-    "10_Projects/14_Thesis_SDPO/report/bestcase/BESTCASE_NOTES.md",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p55.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p54.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p53.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p52.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p51.png",
-    "10_Projects/14_Thesis_SDPO/report/latex/_preview/p50.png",
-    "99_System/Assets/Files/Untitled 1.canvas",
-    "99_System/Assets/Files/Untitled.canvas",
-    "99_System/Assets/Files/Data Mining review.canvas",
-    "Untitled.canvas",
-    "Data Mining review.canvas",
-    "Untitled 1.canvas",
-    "Untitled 2.canvas",
-    "2 - Source Material/Others/Untitled 1.canvas",
-    "2 - Source Material/Others/Untitled.canvas"
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md"
   ]
 }
