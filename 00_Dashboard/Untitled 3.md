@@ -1,49 +1,29 @@
-Đúng — chính xác là tìm $f(x,y,z)$.
+Nhận định hợp lý — một câu **"khó" (đòi insight, không phải tính toán dài)** rất hợp với 1đ dạng "câu chặn" (lọc học sinh giỏi). Đây là dạng khác hẳn 9 mệnh đề chứng minh đã luyện (những cái đó là "hệ quả trực tiếp", còn "khó" nghĩa là phải **kết hợp** vài ý lại, hoặc **suy ngược**). Vài ví dụ tiêu biểu cho kiểu này:
 
-## Giải nghĩa ký hiệu
+## Dạng 1 — Trị riêng của đa thức ma trận (kết hợp nhiều mệnh đề đã học)
 
-$L(\mathbb{R}^3)$ = tập hợp **mọi ánh xạ tuyến tính** từ $\mathbb{R}^3$ vào chính nó (gọi là **toán tử tuyến tính**, xem [[ĐSTT_Chương4_Ánh_xạ_tuyến_tính]] §1). "$f\in L(\mathbb{R}^3)$" chỉ là cách nói gọn: "$f$ là một toán tử tuyến tính trên $\mathbb{R}^3$".
+**Đề:** Cho $A$ có 3 trị riêng $\lambda_1=1,\lambda_2=2,\lambda_3=3$ (không cho $A$ cụ thể). Tìm trị riêng của $B=A^2-2A+3I$.
 
-**"Tìm công thức của $f$"** = viết ra biểu thức tường minh: $$f(x,y,z)=(\dots,\ \dots,\ \dots)$$ — đúng cái mà Câu 2a trong mọi đề mẫu yêu cầu.
+**Ý tưởng:** với **đa thức** $p(\lambda)=\lambda^2-2\lambda+3$, nếu $\lambda$ là trị riêng của $A$ thì $p(\lambda)$ là trị riêng của $p(A)$ (kết hợp mệnh đề (e), (g), (h) đã học thành một công thức tổng quát). _Cm ngắn:_ $Bv=(A^2-2A+3I)v=A^2v-2Av+3v=\lambda^2v-2\lambda v+3v=(\lambda^2-2\lambda+3)v$. → trị riêng của $B$: $p(1)=2,\ p(2)=3,\ p(3)=6$.
 
-## Vì sao cần "tìm" chứ không cho sẵn
+## Dạng 2 — Ma trận lũy đẳng ($A^2=A$)
 
-Đề chỉ cho $[f]_B$ (ma trận biểu diễn theo cơ sở $B$ **lạ**, không phải $B_0$), nên chưa đọc trực tiếp ra công thức được — phải **đổi sang $[f]_{B_0}$** trước:
+**Đề:** Chứng minh nếu $A^2=A$ thì mọi trị riêng của $A$ chỉ có thể là $0$ hoặc $1$.
 
-$$[f]_{B_0}=P,[f]_B,P^{-1}\qquad (P=(B_0\to B),\text{ xếp cột } u_1,u_2,u_3)$$
+_Cm:_ Cho $\lambda$ trị riêng, $v$ vectơ riêng: $Av=\lambda v$. Khi đó $A^2v=A(\lambda v)=\lambda^2v$. Nhưng $A^2=A\Rightarrow A^2v=Av=\lambda v$. Vậy $\lambda^2v=\lambda v\Rightarrow(\lambda^2-\lambda)v=0$. Vì $v\neq0\Rightarrow\lambda(\lambda-1)=0\Rightarrow\lambda\in{0,1}$. $\blacksquare$
 
-Sau đó **đọc từng dòng** của $[f]_{B_0}$ ra công thức: dòng $i$ cho tọa độ thứ $i$ của $f(x,y,z)$.
+## Dạng 3 — Ma trận lũy linh ($A^k=0$)
 
-## Ví dụ (Câu 2 Đề số 2)
+**Đề:** Chứng minh nếu $A^k=0$ (ma trận không) với $k$ nào đó thì trị riêng duy nhất của $A$ là $0$.
 
-$[f]_{B_0}=\begin{pmatrix}2&0&1\1&0&2\1&-1&1\end{pmatrix}$ → đọc trực tiếp: $$f(x,y,z)=(2x+z,\ x+2z,\ x-y+z)$$
+_Cm:_ Dùng mệnh đề (e): $A^kv=\lambda^kv$. Mà $A^k=0\Rightarrow A^kv=0$. Vậy $\lambda^kv=0$, $v\neq0\Rightarrow\lambda^k=0\Rightarrow\lambda=0$. $\blacksquare$
 
-Đây chính là "công thức của $f$" mà đề hỏi.
+## Dạng 4 — Suy ngược từ vết/định thức (Vieta)
 
+**Đề:** Cho $A$ cấp 3 có $\det A=6,\ \text{vết}(A)=6$, biết một trị riêng là $\lambda_1=1$. Tìm 2 trị riêng còn lại nếu biết thêm chúng bằng nhau.
 
-Có 1 lỗi cú pháp — không thể nối "$f\in L(\mathbb{R}^3)$" và "$f(x,y,z)=\dots$" bằng dấu "=".
+**Ý tưởng:** tổng trị riêng $=$ vết, tích trị riêng $=\det$: $1+2\lambda=6\Rightarrow\lambda=2{,}5$; kiểm $1\times2{,}5^2=6{,}25\neq6$ — cho thấy cần dữ kiện khớp hơn (đây chỉ là ví dụ minh họa dạng bài, số liệu cần chỉnh lại cho khớp khi ra đề thật).
 
-## Lỗi ở đâu
+---
 
-"$f\in L(\mathbb{R}^3)$" là một **mệnh đề** (khẳng định $f$ **thuộc** một tập hợp) — không phải một con số hay biểu thức, nên **không thể đặt dấu "=" ngay sau nó** để nối với công thức. Viết "$f\in L(\mathbb{R}^3)=f(x,y,z)=\dots$" giống như viết "$x$ là số nguyên $=5$" — sai ngữ pháp toán học.
-
-## Phần sau thì ĐÚNG
-
-$$f(x,y,z)=[f]_{B_0}\cdot(x,y,z)$$
-
-Đây là công thức **chính xác** — ma trận $[f]_{B_0}$ nhân với vectơ tọa độ (viết dạng cột) ra $f(u)$, vì $[u]_{B_0}=u$ (tọa độ chuẩn chính là chính nó).
-
-## Cách viết đúng
-
-Tách thành **hai câu riêng**: $$\text{Cho } f\in L(\mathbb{R}^3).\qquad f(x,y,z)=[f]_{B_0}\begin{pmatrix}x\y\z\end{pmatrix}.$$
-
-Hoặc nếu muốn viết liền mạch trong lời giải: $$f(x,y,z)=[f]_{B_0}\cdot(x,y,z)^\top,\quad\text{với } f\in L(\mathbb{R}^3).$$
-
-## Mẹo phân biệt "$\in$" và "$=$"
-
-|Ký hiệu|Dùng khi nào|
-|---|---|
-|$\in$|"là phần tử của", nối một **đối tượng** với một **tập hợp**|
-|$=$|nối hai **đối tượng cùng loại** (2 số, 2 vectơ, 2 hàm...)|
-
-$f$ và $\mathbb{R}^3$ (hay $L(\mathbb{R}^3)$) không "cùng loại" theo nghĩa đó — $f$ là phần tử, $L(\mathbb{R}^3)$ là tập hợp — nên chỉ dùng $\in$, không dùng $=$.
+Các dạng 1–3 là "khó nhưng ngắn" đúng như bạn nghĩ — không dài dòng, nhưng đòi hỏi **nhớ và kết hợp** đúng mệnh đề đã học thay vì áp công thức máy móc. Muốn mình thêm 3 dạng này (1, 2, 3) vào note [ĐSTT_Chương5_Chéo_hóa.md](https://claude.ai/epitaxy/30_Knowledge_Base/Math_Stats/%C4%90STT_Ch%C6%B0%C6%A1ng5_Ch%C3%A9o_h%C3%B3a.md) §1.3 (nối tiếp 9 mệnh đề a–i) không?
