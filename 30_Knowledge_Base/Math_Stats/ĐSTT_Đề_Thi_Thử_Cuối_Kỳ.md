@@ -65,6 +65,28 @@ $$\dim(U\cap W)=\dim U+\dim W-\dim(U+W)=3+2-4=\boxed{1}.$$
 
 **Bước 3 — xác định $U\cap W$:** $v\in U\cap W$ ⟺ $v$ viết được đồng thời theo cả hai họ, tức giải (xếp **cột**)
 $$\alpha u_1+\beta u_2+\gamma u_3=s w_1+t w_2.$$
+
+ **Vế trái**: $\alpha u_1+\beta u_2+\gamma u_3$
+
+α(1,−1,0,0)+β(1,0,−1,0)+γ(1,0,0,−1)
+Cộng theo từng tọa độ (tọa độ 1,2,3,4):
+
+- Tọa độ 1: $\alpha\cdot1+\beta\cdot1+\gamma\cdot1=\alpha+\beta+\gamma$
+- Tọa độ 2: $\alpha\cdot(-1)+\beta\cdot0+\gamma\cdot0=-\alpha$ ← chỉ $u_1$ đóng góp (vì $u_2,u_3$ có tọa độ 2 $=0$)
+- Tọa độ 3: $\alpha\cdot0+\beta\cdot(-1)+\gamma\cdot0=-\beta$ ← chỉ $u_2$ đóng góp
+- Tọa độ 4: $\alpha\cdot0+\beta\cdot0+\gamma\cdot(-1)=-\gamma$ ← chỉ $u_3$ đóng góp
+
+ Vế phải: $sw_1+tw_2$
+
+s(−2,1,0,0)+t(−2,0,1,1)
+
+- Tọa độ 1: $-2s-2t$
+- Tọa độ 2: $s\cdot1+t\cdot0=s$ ← chỉ $w_1$ đóng góp
+- Tọa độ 3: $s\cdot0+t\cdot1=t$ ← chỉ $w_2$ đóng góp
+- Tọa độ 4: $s\cdot0+t\cdot1=t$ ← chỉ $w_2$ đóng góp
+
+⇒sw1+tw2=(−2s−2t, s, t, t)⇒sw1​+tw2​=(−2s−2t, s, t, t)
+
 Theo từng tọa độ:
 $$\begin{cases}\alpha+\beta+\gamma=-2s-2t\\ -\alpha=s\\ -\beta=t\\ -\gamma=t\end{cases}\Rightarrow\ s=-\alpha,\ t=-\beta,\ \gamma=\beta;\ \text{thế vào (1): } \alpha+2\beta=2\alpha+2\beta\Rightarrow\alpha=0.$$
 Tự do $\beta=r$: $(\alpha,\beta,\gamma,s,t)=r(0,1,1,0,-1)$. Vectơ giao (vế $U$):
