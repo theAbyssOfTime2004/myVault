@@ -178,7 +178,7 @@
       "id": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "title": "ĐSTT_Chương4_Ánh_xạ_tuyến_tính",
       "group": "knowledge",
-      "degree": 7
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Math_Stats/hàm phi tuyến",
@@ -2692,7 +2692,7 @@
       "id": "00_Dashboard/Untitled 3",
       "title": "Untitled 3",
       "group": "dashboard",
-      "degree": 1
+      "degree": 0
     },
     {
       "id": "50_Weekly_Notes/2026-W15",
@@ -6607,10 +6607,6 @@
       "target": "30_Knowledge_Base/AI_DeepLearning/Common Activation Function In Neural Networks"
     },
     {
-      "source": "00_Dashboard/Untitled 3",
-      "target": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính"
-    },
-    {
       "source": "50_Weekly_Notes/2026-W15",
       "target": "60_Monthly_Notes/2026-04"
     },
@@ -6749,6 +6745,6 @@
   ],
   "stats": {
     "node_count": 482,
-    "link_count": 963
+    "link_count": 962
   }
 }
