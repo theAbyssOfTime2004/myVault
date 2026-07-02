@@ -213,13 +213,48 @@ Nếu $W_1=\langle S_1\rangle,\ W_2=\langle S_2\rangle$ thì $\;W_1+W_2=\langle 
 
 **Ví dụ.** Hệ 4 phương trình với nghiệm $(-17t+29s,\,10t-17s,\,t,\,s)$ → cơ sở $\{(-17,10,1,0),(29,-17,0,1)\}$, $\dim W = 2$.
 
-### 5.1. Không gian giao $W_1\cap W_2$
+### 5.1. Không gian giao $U\cap W$ — 3 trường hợp
 
-$u\in W_1\cap W_2 \iff u$ là THTT của $S_1$ **và** là THTT của $S_2$. → Lập đồng thời **hai bộ điều kiện** (mỗi không gian cho vài ràng buộc tuyến tính), **gộp lại thành một hệ**, rồi giải tìm nghiệm cơ bản.
+$x\in U\cap W \iff x\in U$ **và** $x\in W$. Cách làm tùy **$U,W$ được cho dưới dạng gì**.
 
-> [!important] Công thức số chiều (Grassmann)
-> $$\boxed{\dim(W_1+W_2) = \dim W_1 + \dim W_2 - \dim(W_1\cap W_2)}$$
-> Rất tiện để suy $\dim(W_1\cap W_2)$ khi đã biết ba chiều kia (thường tính $W_1+W_2$ qua mục 4.4 rồi suy ngược).
+> [!important] Công thức số chiều (Grassmann) — dùng chung cho cả 3 trường hợp
+> $$\boxed{\dim(U+W) = \dim U + \dim W - \dim(U\cap W)}$$
+> Cho **số chiều** giao ngay (không cần giải thêm). Nhưng muốn **xác định** (viết cơ sở) $U\cap W$ thì vẫn phải làm tiếp theo 1 trong 3 cách dưới, và số tham số tự do tìm được phải khớp con số Grassmann này.
+
+**TH1 — Cả hai cho bằng HỆ SINH** ($U=\langle u_1,\dots,u_p\rangle$, $W=\langle v_1,\dots,v_q\rangle$):
+1. Rút gọn về cơ sở của $U$, $W$ (bỏ vectơ thừa).
+2. Đặt $\alpha_1u_1+\cdots+\alpha_pu_p = \beta_1v_1+\cdots+\beta_qv_q$ (xếp **cột**).
+3. Cân bằng từng tọa độ → hệ thuần nhất ẩn $\alpha_i,\beta_j$, giải ra quan hệ.
+4. Thế nghiệm vào **một vế** (vế gọn hơn) → cơ sở $U\cap W$.
+
+*VD:* $U=\langle(1,1,0),(0,1,1)\rangle$, $W=\langle(1,0,1),(1,2,1)\rangle$. Đặt $a(1,1,0)+b(0,1,1)=c(1,0,1)+d(1,2,1)$ → giải ra $a=b=d,\ c=0$, tự do $a$ → $U\cap W=\langle(1,2,1)\rangle$.
+
+**TH2 — MỘT bên hệ sinh, MỘT bên phương trình** ($U=\langle u_1,\dots,u_p\rangle$, $W=\{$ hệ thuần nhất $=0\}$):
+1. Viết phần tử tổng quát của $U$: $x=\alpha_1u_1+\cdots+\alpha_pu_p$.
+2. Thay tọa độ của $x$ vào **phương trình của $W$** → ràng buộc tuyến tính trên $\alpha_i$.
+3. Giải ràng buộc, tìm ẩn tự do.
+4. Thế ngược vào $x=\sum\alpha_iu_i$ → cơ sở $U\cap W$.
+
+*VD (bài 3.25):* $U=\langle u,v,w\rangle$, $W=\{x_1+x_2-x_3+2x_4=0\}$. $\alpha u+\beta v+\gamma w=(\alpha{+}\beta{+}\gamma,\alpha,-\gamma,-\alpha{-}\beta)$, thay vào pt $W$ ra $\beta=2\gamma$ → $U\cap W=\langle u,\ 2v+w\rangle$.
+
+**TH3 — Cả hai cho bằng PHƯƠNG TRÌNH** ($U=\{$hệ 1$=0\}$, $W=\{$hệ 2$=0\}$):
+1. **Gộp** mọi phương trình của cả 2 hệ thành **một hệ lớn**.
+2. Khử Gauss, tìm hạng $r$ → $\dim(U\cap W)=n-r$.
+3. Giải nghiệm tổng quát → nghiệm cơ bản = cơ sở $U\cap W$ (đúng thuật toán mục 5 ở trên).
+
+*VD:* $U=\{x_1+x_2-x_3=0\}$, $W=\{x_2-x_4=0\}$ (trong $\mathbb{R}^4$) → gộp 2 pt, hạng 2, $\dim=2$, $U\cap W=\langle(1,0,1,0),(-1,1,0,1)\rangle$.
+
+> [!tip] Bảng chọn nhanh
+>
+> | $U$ dạng | $W$ dạng | Dùng | Thao tác |
+> |---|---|---|---|
+> | Hệ sinh | Hệ sinh | TH1 | $\sum\alpha_iu_i=\sum\beta_jv_j$, giải, thế 1 vế |
+> | Hệ sinh | Phương trình | TH2 | Phần tử tổng quát $U$ → thay vào pt $W$ |
+> | Phương trình | Phương trình | TH3 | Gộp phương trình, giải 1 hệ |
+
+> [!warning] Chốt kiểm luôn áp dụng
+> 1. Số tham số tự do tìm được phải **khớp Grassmann**.
+> 2. Vectơ cơ sở tìm được phải **kiểm được cả hai điều kiện** (thay vào phương trình ra 0, và/hoặc là tổ hợp đúng của cơ sở kia) — dùng phép nhân ma trận / thay số để tự bắt lỗi trước khi chốt đáp án.
 
 ---
 

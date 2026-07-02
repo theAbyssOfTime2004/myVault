@@ -67,8 +67,7 @@
               "title": "ĐSTT_Mẹo_Casio"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -251,10 +250,11 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "ec578434a84838d1",
+  "active": "e592feb1a0800245",
   "lastOpenFiles": [
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ.md",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md.tmp.19512.3c2776100793",
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Chương3_Không_gian_vectơ.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md",
@@ -284,7 +284,6 @@
     "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase - Copy.tex",
     "10_Projects/14_Thesis_SDPO/report/latex/_bc_p1.png",
     "10_Projects/14_Thesis_SDPO/report/latex/b_refs.tex",
-    "10_Projects/14_Thesis_SDPO/report/latex/b_abstract.tex",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch7.md",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch6.md",
     "10_Projects/14_Thesis_SDPO/report/bestcase/bc_ch5.md",
@@ -298,7 +297,6 @@
     "10_Projects/14_Thesis_SDPO/report/latex/_preview/p52.png",
     "10_Projects/14_Thesis_SDPO/report/latex/_preview/p51.png",
     "10_Projects/14_Thesis_SDPO/report/latex/_preview/p50.png",
-    "10_Projects/14_Thesis_SDPO/report/PLACEHOLDERS.md",
     "99_System/Assets/Files/Untitled 1.canvas",
     "99_System/Assets/Files/Untitled.canvas",
     "99_System/Assets/Files/Data Mining review.canvas",
