@@ -1,6 +1,6 @@
+% !TEX program = xelatex
 \documentclass[12pt,a4paper]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}   % XeLaTeX: native Unicode (Vietnamese) rendering
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
@@ -64,19 +64,33 @@
 % ============================ TITLE PAGE ============================
 \begin{titlepage}
 \centering
-{\large University of Science, VNU-HCM\par}
-{\large Faculty of Information Technology\par}
-\vspace{2.5cm}
-{\large Bachelor's Thesis\par}
-\vspace{1.5cm}
+{\large\bfseries ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH\par}
+{\large\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN\par}
+\vspace{0.9cm}
+\includegraphics[width=3.3cm]{../figures/khtn_logo.png}\par
+\vspace{1.3cm}
+{\large Khóa Luận Tốt Nghiệp Đại Học\par}
+\vspace{1.1cm}
 {\Large\bfseries Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation\par}
-\vspace{2.5cm}
+\vspace{2.2cm}
+\begin{flushleft}\large
+KHOA TOÁN-TIN HỌC\\[0.25em]
+NGÀNH KHOA HỌC DỮ LIỆU\\[0.25em]
+KHÓA 2022\\
+\end{flushleft}
+\vspace{0.7cm}
+\begin{flushleft}\large
+\begin{tabular}{l|l}
+Sinh viên thực hiện & MSSV\\ \hline
+Mai Phong Đăng & 22280008\\
+\end{tabular}
+\end{flushleft}
+\vspace{0.5cm}
 \begin{flushright}\large
-\textbf{Student:} Mai Phong \DJ\u{a}ng \quad (MSSV: 22280008)\\[0.5em]
-\textbf{Supervisor:} Ng\^{o} Minh M\~{\^{a}}n\\[0.5em]
+Giảng viên hướng dẫn: TS. Ngô Minh Mẫn
 \end{flushright}
 \vfill
-{\large Ho Chi Minh City, 2026\par}
+{\large Tp. Hồ Chí Minh, 2026\par}
 \end{titlepage}
 
 \chapter*{Abstract}
