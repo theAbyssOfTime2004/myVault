@@ -47,31 +47,50 @@ Khi đó $\lambda$ là **trị riêng**, $v$ là vectơ riêng **ứng với** $
 > Mọi chứng minh dưới đây chỉ là **nhân $A$ (hoặc $A^{-1}$) vào hai vế của $Av=\lambda v$** rồi biến đổi. Nắm vững thao tác gốc này là làm được hầu hết dạng bài.
 
 **a) Nhân vô hướng vectơ riêng.** Nếu $v$ là vectơ riêng ứng $\lambda$ thì $\mu v\ (\mu\neq0)$ cũng là vectơ riêng ứng $\lambda$.
+> [!note]- Vì sao đúng
+> Vectơ riêng chỉ mang tính "hướng" — $A$ tác động lên $v$ bằng cách **kéo giãn theo cùng phương** hệ số $\lambda$. Nếu phóng to/thu nhỏ $v$ thành $\mu v$ (vẫn cùng phương), thì $A$ tác động lên nó cũng phải kéo giãn theo **đúng hệ số $\lambda$ đó** — vì phép nhân ma trận là tuyến tính, "nhân trước hay nhân sau" cho kết quả như nhau. Đây là lý do vectơ riêng **không bao giờ duy nhất** — luôn có cả một đường thẳng (hay không gian) các vectơ riêng cùng $\lambda$.
 *Cm:* $A(\mu v)=\mu(Av)=\mu(\lambda v)=\lambda(\mu v)$, và $\mu v\neq0$. $\blacksquare$
 
 **b) Trị riêng của $A^{-1}$.** Nếu $A$ khả nghịch và $\lambda$ là trị riêng của $A$ (vectơ riêng $v$) thì $\lambda\neq0$ và $\dfrac1\lambda$ là trị riêng của $A^{-1}$ (cùng vectơ riêng $v$).
+> [!note]- Vì sao đúng
+> **Ý 1 ($\lambda\neq0$):** nếu $\lambda=0$ thì $A$ "nuốt" hẳn một vectơ khác $0$ về $0$ ($Av=0$) — nghĩa là $A$ không thể "hoàn tác" được (không đơn ánh), nên không thể khả nghịch. Mà đề cho $A$ khả nghịch $\Rightarrow$ mâu thuẫn $\Rightarrow \lambda\neq0$.
+> **Ý 2 ($1/\lambda$):** nếu $A$ kéo giãn $v$ theo hệ số $\lambda$, thì phép ngược $A^{-1}$ phải "kéo giãn ngược lại" theo hệ số $1/\lambda$ để trả $v$ về chỗ cũ — đúng trực giác "nghịch đảo của phóng to là thu nhỏ".
 *Cm:* Nếu $\lambda=0$ thì $Av=0,\ v\neq0\Rightarrow A$ không đơn ánh, mâu thuẫn khả nghịch $\Rightarrow\lambda\neq0$. Từ $Av=\lambda v$, nhân $A^{-1}$: $v=\lambda A^{-1}v\Rightarrow A^{-1}v=\dfrac1\lambda v$. $\blacksquare$
 
 **c) Vectơ riêng của 2 trị riêng khác nhau thì độc lập.** Nếu $v_1,v_2$ ứng $\lambda_1\neq\lambda_2$ thì $\{v_1,v_2\}$ ĐLTT.
+> [!note]- Vì sao đúng
+> $v_1,v_2$ bị $A$ "kéo giãn theo hai tốc độ khác nhau" ($\lambda_1\neq\lambda_2$). Nếu chúng phụ thuộc (cùng phương hoặc một cái là tổ hợp của cái kia), thì áp $A$ vào tổ hợp đó phải cho **cùng một kiểu kéo giãn** cho cả hai — nhưng $\lambda_1\neq\lambda_2$ khiến điều đó không thể xảy ra trừ khi hệ số bằng $0$. Mẹo chứng minh: "nhân $A$ vào một tổ hợp $=0$" tạo ra **hai phương trình khác nhau** (vì mỗi $v_i$ bị nhân với $\lambda_i$ riêng), trừ đi để cô lập từng hệ số.
 *Cm:* Giả sử $av_1+bv_2=0$ (*). Nhân $A$: $a\lambda_1v_1+b\lambda_2v_2=0$ (**). Lấy (**) $-\lambda_2\times$(*): $a(\lambda_1-\lambda_2)v_1=0\Rightarrow a=0$ (vì $\lambda_1\neq\lambda_2,v_1\neq0$). Thay vào (*): $b=0$. $\blacksquare$
 
 **d) Trị riêng $0$ $\iff$ không khả nghịch.** $A$ có trị riêng $0$ $\iff \det A=0$.
+> [!note]- Vì sao đúng
+> Đây thực chất chỉ là **nối 2 định nghĩa đã học lại với nhau**, không có gì mới: "$0$ là trị riêng" nghĩa là có $v\neq0$ với $Av=0v=0$ — tức hệ thuần nhất $AX=0$ có **nghiệm khác 0**. Mà từ Chương 1–2, hệ thuần nhất có nghiệm khác 0 $\iff \det A=0$ (ma trận không khả nghịch). Vậy hai mệnh đề tương đương chỉ vì chúng **cùng diễn tả một điều** theo hai ngôn ngữ khác nhau (trị riêng vs định thức).
 *Cm:* $0$ là trị riêng $\iff\exists v\neq0: Av=0\iff$ hệ $AX=0$ có nghiệm không tầm thường $\iff\det A=0$. $\blacksquare$
 
 **e) Trị riêng của $A^k$.** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$) thì $\lambda^k$ là trị riêng của $A^k$ ($k\in\mathbb{N}^*$), cùng vectơ riêng $v$.
+> [!note]- Vì sao đúng
+> Mỗi lần áp $A$ vào $v$, nó bị kéo giãn thêm một lần hệ số $\lambda$ — áp $A$ liên tiếp $k$ lần thì kéo giãn dồn lại thành $\lambda\times\lambda\times\cdots\times\lambda=\lambda^k$ ($k$ lần), còn **hướng** ($v$) không đổi vì mỗi bước chỉ scale, không xoay. Quy nạp chỉ là cách viết hình thức cho "làm lại đúng một thao tác $k$ lần".
 *Cm (quy nạp):* $k=1$ đúng theo giả thiết. Giả sử $A^kv=\lambda^kv$, khi đó $A^{k+1}v=A(\lambda^kv)=\lambda^k(Av)=\lambda^{k+1}v$. $\blacksquare$
 
 **f) Ma trận tam giác.** Nếu $A$ tam giác (trên/dưới) thì trị riêng $=$ các phần tử đường chéo chính.
+> [!note]- Vì sao đúng
+> Định thức của ma trận tam giác **luôn** bằng tích các phần tử đường chéo (đã học ở Chương 2) — không cần khai triển phức tạp. Vì $A-\lambda I$ cũng là ma trận tam giác (chỉ trừ $\lambda$ vào đường chéo, không đổi dạng tam giác), nên $\det(A-\lambda I)$ vẫn là tích các phần tử đường chéo của $A-\lambda I$, tức $\prod_i(a_{ii}-\lambda)$. Đa thức này bằng $0$ chính xác khi **một trong các nhân tử** $=0$, tức $\lambda=a_{ii}$ với $i$ nào đó.
 *Cm:* $A-\lambda I$ cùng dạng tam giác $\Rightarrow \det(A-\lambda I)=\prod_i(a_{ii}-\lambda)$ (định thức tam giác = tích đường chéo) $\Rightarrow P_A(\lambda)=0\iff\lambda=a_{ii}$. $\blacksquare$ *(đây là mẹo đọc trị riêng trực tiếp đã dùng nhiều ở Câu 4 các đề mẫu.)*
 
 **g) Trị riêng của $A-sI$ (dịch chuyển).** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$), $s\in\mathbb{R}$, thì $\lambda-s$ là trị riêng của $A-sI$, cùng vectơ riêng $v$.
+> [!note]- Vì sao đúng
+> $sI$ chỉ đơn giản là "kéo giãn đều mọi hướng theo hệ số $s$" (ma trận vô hướng), nên nó **không làm đổi hướng** $v$ — chỉ trừ bớt $s$ khỏi mức độ kéo giãn ban đầu ($\lambda$) của $A$. Đây chính là "mẹo dịch chuyển" đứng sau công thức $E(\lambda)=\ker(A-\lambda I)$: bản chất $(A-\lambda I)v=0$ nghĩa là $\lambda$ (dịch $s=\lambda$) làm $A-\lambda I$ "triệt tiêu" $v$ — khớp với mệnh đề này khi $s=\lambda$.
 *Cm:* $(A-sI)v=Av-sv=\lambda v-sv=(\lambda-s)v$, $v\neq0$. $\blacksquare$
 
 **h) Trị riêng của $sA$ (nhân vô hướng ma trận).** Nếu $\lambda$ là trị riêng của $A$ (vectơ riêng $v$), $s\in\mathbb{R}$, thì $s\lambda$ là trị riêng của $sA$, cùng vectơ riêng $v$.
+> [!note]- Vì sao đúng
+> Nhân cả ma trận $A$ với $s$ nghĩa là "kéo giãn thêm $s$ lần" lên **mọi** tác động của $A$ — nên mức độ kéo giãn theo hướng $v$ (vốn là $\lambda$) cũng bị nhân thêm $s$, thành $s\lambda$. Đây là mệnh đề **dễ nhất** trong nhóm này — gần như chỉ là đưa số $s$ ra ngoài phép nhân ma trận.
 *Cm:* $(sA)v=s(Av)=s(\lambda v)=(s\lambda)v$. $\blacksquare$
 
 **i) Giao hai không gian riêng phân biệt $=\{0\}$.** Nếu $\lambda_1\neq\lambda_2$ thì $E(\lambda_1)\cap E(\lambda_2)=\{0\}$.
-*Cm:* Giả sử $v\in E(\lambda_1)\cap E(\lambda_2),\ v\neq0$. Khi đó $Av=\lambda_1v$ và $Av=\lambda_2v\Rightarrow(\lambda_1-\lambda_2)v=0$. Vì $\lambda_1\neq\lambda_2\Rightarrow v=0$, mâu thuẫn. Vậy $E(\lambda_1)\cap E(\lambda_2)=\{0\}$. $\blacksquare$ *(mở rộng tự nhiên của mệnh đề (c) — vectơ riêng của trị riêng khác nhau ĐLTT.)*
+> [!note]- Vì sao đúng
+> Một vectơ $v\neq0$ nằm trong cả $E(\lambda_1)$ lẫn $E(\lambda_2)$ nghĩa là $A$ **vừa** kéo giãn nó theo hệ số $\lambda_1$ **vừa** theo hệ số $\lambda_2$ cùng lúc — vô lý vì $Av$ chỉ có **một** giá trị duy nhất. Buộc phải có $\lambda_1=\lambda_2$ (trái giả thiết) hoặc $v=0$. Đây thực chất là **cùng một ý tưởng** với mệnh đề (c) (vectơ riêng khác trị riêng thì ĐLTT) — chỉ diễn đạt lại dưới ngôn ngữ "giao hai không gian con".
+*Cm:* Giả sử $v\in E(\lambda_1)\cap E(\lambda_2),\ v\neq0$. Khi đó $Av=\lambda_1v$ và $Av=\lambda_2v\Rightarrow(\lambda_1-\lambda_2)v=0$. Vì $\lambda_1\neq\lambda_2\Rightarrow v=0$, mâu thuẫn. Vậy $E(\lambda_1)\cap E(\lambda_2)=\{0\}$. $\blacksquare$
 
 ---
 
