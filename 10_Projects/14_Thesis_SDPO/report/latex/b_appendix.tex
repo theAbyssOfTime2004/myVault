@@ -3,6 +3,11 @@
 \section{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
 
 \begin{longtable}{ll}
+\caption{Hyperparameters --- code (LiveCodeBench v6, core).}\\
+\toprule
+Setting & Value \\
+\midrule
+\endfirsthead
 \toprule
 Setting & Value \\
 \midrule
@@ -32,6 +37,11 @@ Hardware & Colab L4 (22 GB) / A100 \\
 \section{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
 \begin{longtable}{ll}
+\caption{Hyperparameters --- math (AIME 2026, pilot).}\\
+\toprule
+Setting & Value \\
+\midrule
+\endfirsthead
 \toprule
 Setting & Value \\
 \midrule
@@ -182,6 +192,11 @@ The reference is the bare answer 156; there is no worked solution to distill, on
 idx9 (run fi5m0as1), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
 
 \begin{longtable}{lll}
+\caption{Judge verdict sequence for idx9 (all trajectories nominally correct).}\\
+\toprule
+step & verdicts (is copy / reasoning quality) & n good / n bad \\
+\midrule
+\endfirsthead
 \toprule
 step & verdicts (is copy / reasoning quality) & n good / n bad \\
 \midrule
@@ -198,6 +213,11 @@ The only genuine derivation (F,4) is at step 1. At steps 2--3, all generated tra
 idx8 (run 463y4fjr), correct answer 29:
 
 \begin{longtable}{llll}
+\caption{Judge verdict sequence for idx8 (every trajectory judged a copy).}\\
+\toprule
+step & verdicts & n good / n bad & batch reward \\
+\midrule
+\endfirsthead
 \toprule
 step & verdicts & n good / n bad & batch reward \\
 \midrule
@@ -282,6 +302,11 @@ PRE pass 0.000 $\rightarrow$ POST pass 1.000 (discovery curve 0.85 $\rightarrow$
 \section{idx39 (abc393\_d, hard, base pass ≈ 0.1), eval-16, difflib judge}\label{e.1-idx39-abc393_d-hard-base-pass-0.1-eval-16-difflib-judge}
 
 \begin{longtable}{llll}
+\caption{Per-step evaluation for idx39 (eval-16, difflib judge).}\\
+\toprule
+seed & PRE & TF POST & SF POST \\
+\midrule
+\endfirsthead
 \toprule
 seed & PRE & TF POST & SF POST \\
 \midrule
@@ -300,6 +325,11 @@ mean & & 0.167 & 0.094 \\
 \section{idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
 
 \begin{longtable}{llll}
+\caption{Per-step evaluation for idx12 (model-hard, eval-16).}\\
+\toprule
+seed & PRE & TF POST & SF POST \\
+\midrule
+\endfirsthead
 \toprule
 seed & PRE & TF POST & SF POST \\
 \midrule
@@ -318,6 +348,11 @@ mean & & 1.000 & 0.844 \\
 \section{Frontier-Scan Comprehensive Evaluations (8 Problems $\times$ 6 Seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
 
 \begin{longtable}{llllll p{4.2cm}}
+\caption{Frontier-scan summary: 8 problems $\times$ 6 seeds (SF/TF mean, win/tie/loss).}\\
+\toprule
+problem & id & judge & SF mean & TF mean & win/tie/loss & escape-zero seeds \\
+\midrule
+\endfirsthead
 \toprule
 problem & id & judge & SF mean & TF mean & win/tie/loss & escape-zero seeds \\
 \midrule
@@ -337,6 +372,11 @@ idx78 & abc399\_g & difflib & 0.031 & 0.198 & 6/0/0 & s0, s3 (SF 0 $\rightarrow$
 Per-seed POST pass@16 metrics across the core frontier subsets (canonical evaluation runs mapped under canonical good\_only / T2 presets; consolidated via W\&B tracking logs):
 
 \begin{longtable}{lllllllll}
+\caption{Per-seed POST pass@16 for idx64, idx77, idx58, idx78.}\\
+\toprule
+seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 TF & idx78 SF \\
+\midrule
+\endfirsthead
 \toprule
 seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 TF & idx78 SF \\
 \midrule
@@ -355,6 +395,11 @@ mean & 0.4063 & 0.0313 & 0.3438 & 0.2188 & 0.2188 & 0.0833 & 0.1979 & 0.0313 \\
 Per-seed POST pass@16 for the remaining four frontier problems (same canonical good\_only / T2 presets):
 
 \begin{longtable}{lllllllll}
+\caption{Per-seed POST pass@16 for idx39, idx46, idx59, idx69.}\\
+\toprule
+seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 TF & idx69 SF \\
+\midrule
+\endfirsthead
 \toprule
 seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 TF & idx69 SF \\
 \midrule
@@ -377,6 +422,11 @@ The explicit tracking profiles confirm that under structural execution-guided st
 \section{RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
 \begin{longtable}{lll}
+\caption{RQ1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
+\toprule
+Template & idx12 (easy) & idx39 (hard) \\
+\midrule
+\endfirsthead
 \toprule
 Template & idx12 (easy) & idx39 (hard) \\
 \midrule
@@ -393,6 +443,11 @@ The localized performance profile across expanding seed clusters remains highly 
 \section{Judge $\times$ few-shot ablation, mean POST pass (6 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
 
 \begin{longtable}{lll}
+\caption{Judge $\times$ few-shot ablation, mean POST pass (6 seeds).}\\
+\toprule
+arm & idx39 & idx12 \\
+\midrule
+\endfirsthead
 \toprule
 arm & idx39 & idx12 \\
 \midrule
@@ -409,9 +464,14 @@ TF $\cdot$ good\_bad $\cdot$ LLM & 0.245 & 1.000 \\
 
 The tables below are the numerical backing for the figures of Chapter 4 and Chapter 5 (medium-scale, six-seed evaluation).
 
-\textbf{F.1 Main results (Figure \ref{fig:bc-main}).} Mean POST pass@16 over six seeds, with standard deviation.
+
 
 \begin{longtable}{lcccc}
+\caption{Main results (backing Figure~\ref{fig:bc-main}): per-problem TF/SF mean POST pass@16 over six seeds, with SD.}\\
+\toprule
+problem & TF mean & TF SD & SF mean & SF SD \\
+\midrule
+\endfirsthead
 \toprule
 problem & TF mean & TF SD & SF mean & SF SD \\
 \midrule
@@ -428,8 +488,9 @@ idx77 & 0.34 & 0.17 & 0.22 & 0.11 \\
 idx78 & 0.20 & 0.07 & 0.03 & 0.03 \\
 \end{longtable}
 
-\textbf{F.2 Escape-zero discovery curve (Figure \ref{fig:bc-discovery}).} Mean pass-rate per TTT step over the escape-zero problems.
 
+
+\captionof{table}{Escape-zero discovery curve (backing Figure~\ref{fig:bc-discovery}): mean pass-rate per TTT step.}
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
 \toprule
@@ -440,9 +501,14 @@ TF & .00 & .00 & .02 & .06 & .12 & .22 & .31 & .38 & .42 & .44 & .45 & .45 & .46
 \bottomrule
 \end{tabular}\par\end{center}
 
-\textbf{F.3 Compute-to-correct frontier (Figure \ref{fig:bc-ctc}).} Discovery probability against total generations.
+
 
 \begin{longtable}{lcccccc}
+\caption{Compute-to-correct frontier (backing Figure~\ref{fig:bc-ctc}): discovery probability versus total generations.}\\
+\toprule
+total generations & 100 & 200 & 400 & 800 & 1600 & 3200 \\
+\midrule
+\endfirsthead
 \toprule
 total generations & 100 & 200 & 400 & 800 & 1600 & 3200 \\
 \midrule
@@ -454,8 +520,9 @@ Student-first ($g{=}10$) & 0.04 & 0.12 & 0.28 & 0.50 & 0.68 & 0.80 \\
 Best-of-$k$ & 0.03 & 0.08 & 0.20 & 0.38 & 0.55 & 0.69 \\
 \end{longtable}
 
-\textbf{F.4 Epistemic markers (Figure \ref{fig:bc-epistemic}).} Uncertainty markers per response per TTT step (code, thinking ON).
 
+
+\captionof{table}{Epistemic markers (backing Figure~\ref{fig:bc-epistemic}): uncertainty markers per response per TTT step (code, thinking ON).}
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
 \toprule

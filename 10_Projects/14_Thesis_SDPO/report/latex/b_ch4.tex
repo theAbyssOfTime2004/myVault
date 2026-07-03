@@ -33,6 +33,11 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
 
 \begin{longtable}[]{@{}llll@{}}
+\caption{Compute-matched comparison on the escape-zero anchors (student-first at $g{=}10$ vs.\ teacher-first).}\\
+\toprule\noalign{}
+problem & SF g=10 & TF g=10 (real anchor) & gap \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 problem & SF g=10 & TF g=10 (real anchor) & gap \\
 \midrule\noalign{}
@@ -79,6 +84,17 @@ Consequently, when the unconditioned policy fails to independently discover the 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Value-versus-procedure boundary: escape-zero outcome by domain and feedback type.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+domain condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+feedback content
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+escape-zero?
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 domain condition

@@ -32,6 +32,17 @@ where \passthrough{\lstinline!stopgrad!} prevents the teacher from collapsing on
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Credit-assignment density: per-token target for GRPO versus SDPO.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Method
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Target per token
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Signal per sequence
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Method
@@ -50,7 +61,9 @@ SDPO (token-level) & soft distribution, top token & \(O(T)\) \\
 SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
 \node(gr) at (0,3){scalar reward $r$};
 \node(ga) at (0,2){one advantage / sequence};
 \node(gt) at (0,1){same signal every token ($O(1)$)};
@@ -60,10 +73,10 @@ SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \
 \draw[->](gr)--(ga);\draw[->](ga)--(gt);\draw[->](sf)--(st);\draw[->](st)--(stk);
 \node[draw=none,font=\bfseries] at (0,3.8){GRPO (sparse)};
 \node[draw=none,font=\bfseries] at (4.4,3.8){SDPO (dense)};
-\end{tikzpicture}\end{center}
-
-\textbf{Figure 2.1}
-\emph{Credit-assignment density, GRPO versus SDPO.} GRPO attaches one scalar advantage to a whole sequence, so every token receives the same signal (\(O(1)\)). SDPO conditions the teacher on feedback and supplies a soft, \(K\)-dimensional target at each position (\(O(T\cdot K)\)). Schematic; see the table above for the formal density ordering.
+\end{tikzpicture}
+\caption{Credit-assignment density, GRPO versus SDPO. GRPO attaches one scalar advantage to a whole sequence, so every token receives the same signal (\(O(1)\)); SDPO conditions the teacher on feedback and supplies a soft, \(K\)-dimensional target per position (\(O(T\cdot K)\)).}
+\label{fig:credit-density}
+\end{figure}
 
 The full method is logit-level: the target is a \(K\)-dimensional distribution at every position rather than a single scalar per sequence, which is the source of its sample efficiency {[}1{]}. To keep this affordable at a vocabulary of roughly 150k, only the teacher's top-\(K\) logits (with \(K{=}100\), or 20 for the code configuration {[}4{]}) plus a tail bucket are kept. The KL direction is parameterized by \(\alpha\): forward KL (\(\alpha{=}0\)) is mode-covering, reverse KL (\(\alpha{=}1\)) is mode-seeking, and JSD (\(\alpha{=}0.5\)) interpolates, the last following Agarwal et al.~{[}11{]} for stability. The self-teacher is regularized, typically by an EMA of the student weights or a trust-region interpolation, since an unregularized teacher diverges {[}1{]}. The implementation used in this thesis is specified in §3.3.5; the derivation is consolidated in the project notes.
 
@@ -106,7 +119,3 @@ Shenfeld et al.~{[}3{]} propose self-distillation fine-tuning (SDFT) for continu
 \section{The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
 
 The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of \emph{when} the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
-
-\section{In-chapter citations}\label{in-chapter-citations}
-
-Numbered per the master bibliography (\passthrough{\lstinline!00\_references.md!}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}3{]} Shenfeld et al.~2026 · {[}4{]} lasgroup SDPO repo · {[}6{]} LiveCodeBench · {[}8{]} GRPO / DeepSeekMath · {[}9{]} Chen et al.~2021 · {[}11{]} Agarwal et al.~2023 · {[}12{]} Dolan \& Moré 2002 · {[}13{]} Hinton et al.~2015.

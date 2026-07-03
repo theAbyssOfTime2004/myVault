@@ -5,6 +5,8 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs,longtable,array,calc}
+\usepackage{caption}
+\usepackage{float}
 \usepackage{microtype}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
 \usepackage{tikz}
@@ -98,6 +100,14 @@ Giảng viên hướng dẫn: TS. Ngô Minh Mẫn
 \input{b_abstract.tex}
 
 \tableofcontents
+
+\clearpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\clearpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
 
 \input{b_ch1.tex}
 \input{b_ch2.tex}

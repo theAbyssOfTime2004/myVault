@@ -9,6 +9,8 @@
 \usepackage{graphicx}
 \graphicspath{{figures/}{./}{../figures/}}
 \usepackage{booktabs,longtable,array,calc}
+\usepackage{caption}
+\usepackage{float}
 \usepackage{microtype}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
 \usepackage{tikz}
@@ -136,6 +138,14 @@ domain boundary.
 
 \tableofcontents
 
+\clearpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\clearpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
 % ===== begin b_ch1.tex =====
 \chapter{Introduction}\label{chapter-1-introduction}
 
@@ -225,6 +235,17 @@ where \passthrough{\lstinline!stopgrad!} prevents the teacher from collapsing on
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Credit-assignment density: per-token target for GRPO versus SDPO.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Method
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Target per token
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Signal per sequence
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Method
@@ -243,7 +264,9 @@ SDPO (token-level) & soft distribution, top token & \(O(T)\) \\
 SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
 \node(gr) at (0,3){scalar reward $r$};
 \node(ga) at (0,2){one advantage / sequence};
 \node(gt) at (0,1){same signal every token ($O(1)$)};
@@ -253,10 +276,10 @@ SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \
 \draw[->](gr)--(ga);\draw[->](ga)--(gt);\draw[->](sf)--(st);\draw[->](st)--(stk);
 \node[draw=none,font=\bfseries] at (0,3.8){GRPO (sparse)};
 \node[draw=none,font=\bfseries] at (4.4,3.8){SDPO (dense)};
-\end{tikzpicture}\end{center}
-
-\textbf{Figure 2.1}
-\emph{Credit-assignment density, GRPO versus SDPO.} GRPO attaches one scalar advantage to a whole sequence, so every token receives the same signal (\(O(1)\)). SDPO conditions the teacher on feedback and supplies a soft, \(K\)-dimensional target at each position (\(O(T\cdot K)\)). Schematic; see the table above for the formal density ordering.
+\end{tikzpicture}
+\caption{Credit-assignment density, GRPO versus SDPO. GRPO attaches one scalar advantage to a whole sequence, so every token receives the same signal (\(O(1)\)); SDPO conditions the teacher on feedback and supplies a soft, \(K\)-dimensional target per position (\(O(T\cdot K)\)).}
+\label{fig:credit-density}
+\end{figure}
 
 The full method is logit-level: the target is a \(K\)-dimensional distribution at every position rather than a single scalar per sequence, which is the source of its sample efficiency {[}1{]}. To keep this affordable at a vocabulary of roughly 150k, only the teacher's top-\(K\) logits (with \(K{=}100\), or 20 for the code configuration {[}4{]}) plus a tail bucket are kept. The KL direction is parameterized by \(\alpha\): forward KL (\(\alpha{=}0\)) is mode-covering, reverse KL (\(\alpha{=}1\)) is mode-seeking, and JSD (\(\alpha{=}0.5\)) interpolates, the last following Agarwal et al.~{[}11{]} for stability. The self-teacher is regularized, typically by an EMA of the student weights or a trust-region interpolation, since an unregularized teacher diverges {[}1{]}. The implementation used in this thesis is specified in §3.3.5; the derivation is consolidated in the project notes.
 
@@ -299,10 +322,6 @@ Shenfeld et al.~{[}3{]} propose self-distillation fine-tuning (SDFT) for continu
 \section{The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
 
 The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of \emph{when} the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
-
-\section{In-chapter citations}\label{in-chapter-citations}
-
-Numbered per the master bibliography (\passthrough{\lstinline!00\_references.md!}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}3{]} Shenfeld et al.~2026 · {[}4{]} lasgroup SDPO repo · {[}6{]} LiveCodeBench · {[}8{]} GRPO / DeepSeekMath · {[}9{]} Chen et al.~2021 · {[}11{]} Agarwal et al.~2023 · {[}12{]} Dolan \& Moré 2002 · {[}13{]} Hinton et al.~2015.
 
 % ===== end b_ch2.tex =====
 % ===== begin b_ch3.tex =====
@@ -352,9 +371,11 @@ POST-eval (student pi_theta(*|x) only, N_eval samples)       # after TTT
 report PRE->POST and the discovery curve
 \end{lstlisting}
 
-\textbf{Figure 3.1} sketches the two arms; they diverge only at the shaded block.
+Figure~\ref{fig:two-arms} sketches the two arms; they diverge only at the shaded block.
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
 \node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
@@ -365,7 +386,10 @@ report PRE->POST and the discovery curve
 \node(klt) at (6,0.5){KL distil on $y_{\text{good}}$};
 \node(u) at (3,-0.6){update $\theta$};
 \draw[->](x)--(s);\draw[->](x)--(t);\draw[->](s)--(ys);\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](ys)--(kls);\draw[->](g)--(klt);\draw[->](kls)--(u);\draw[->](klt)--(u);
-\end{tikzpicture}\end{center}
+\end{tikzpicture}
+\caption{The two arms of test-time SDPO. Student-first and teacher-first share the whole loop and diverge only at which trajectory is distilled (the shaded block).}
+\label{fig:two-arms}
+\end{figure}
 
 The whole contrast reduces to one sentence: \textbf{student-first distills the student's own failed attempt; teacher-first distills a correct, filtered trajectory generated by the teacher.} Everything else (loss, model, hyperparameters) is held fixed to isolate that one variable.
 
@@ -407,7 +431,9 @@ where \(\mathcal{G}\) is the good pool (§3.3.3). Conceptually, teacher-first si
 
 Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollout internally, teacher-first is implemented as a \textbf{custom training loop} (script \passthrough{\lstinline!09\_teacher\_first.py!}) that reuses the helpers of \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, evaluation).
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
 \node(c) at (0,4){privileged context $c$: feedback + few-shot};
 \node(t) at (0,3){self-teacher samples $N$};
 \node(v) at (0,2){verifier: correctness};
@@ -416,10 +442,10 @@ Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollo
 \node(fs) at (4.8,3){few-shot good\_only / good\_bad};
 \node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
 \draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
-\end{tikzpicture}\end{center}
-
-\textbf{Figure 3.2}
-\emph{The teacher-first step.} The self-teacher generates under the privileged context, a verifier and a judge filter trajectories into a good pool, the good (and optionally bad) exemplars steer the next teacher rollout in-context, and the student is distilled only toward the filtered good trajectories. The few-shot loop trains no teacher weights.
+\end{tikzpicture}
+\caption{The teacher-first step. The self-teacher generates under the privileged context; a verifier and judge filter trajectories into a good pool; good (and optionally bad) exemplars steer the next teacher rollout in-context; the student is distilled only toward the filtered good trajectories.}
+\label{fig:tf-step}
+\end{figure}
 
 \subsection{Teacher rollout and privileged context}\label{teacher-rollout-and-privileged-context}
 
@@ -449,6 +475,17 @@ Two judge implementations are used and later ablated (§4.6):
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Judge implementations: difflib versus LLM (mechanism and cost).}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Judge
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mechanism
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cost
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Judge
@@ -479,6 +516,16 @@ The labeled exemplars are fed \emph{back into the teacher's prompt} (in-context,
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Few-shot teacher steering: good\_only versus good\_bad exemplars.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Option 2 --- \passthrough{\lstinline!good\_only!}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Option 1 --- \passthrough{\lstinline!good\_bad!}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -532,6 +579,19 @@ The reprompt template determines the content of \(c\) that the teacher sees, whi
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Reprompt-template taxonomy: T1--T7 across three design dimensions.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Template
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dimension
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Varies from T2 by
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Template
@@ -555,7 +615,9 @@ T6 & First-person & Instruction framing (reframe) & ``I attempted this and got X
 T7 & Cumulative history & Memory depth & all N prior attempts, not just the latest \\
 \end{longtable}
 
-\begin{center}\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
 \node(a) at (0,3){T2 standard (anchor)};
 \node(d1) at (-4,1.8){Dim 1: information};
 \node(d2) at (0,1.8){Dim 2: framing};
@@ -565,10 +627,10 @@ T7 & Cumulative history & Memory depth & all N prior attempts, not just the late
 \node(t7) at (4,0.6){T7};
 \draw[->](a)--(d1);\draw[->](a)--(d2);\draw[->](a)--(d3);
 \draw[->](d1)--(t1);\draw[->](d1)--(t3);\draw[->](d2)--(t4);\draw[->](d2)--(t5);\draw[->](d2)--(t6);\draw[->](d3)--(t7);
-\end{tikzpicture}\end{center}
-
-\textbf{Figure 3.3}
-\emph{The reprompt-template design space.} Each template varies one dimension away from the T2 anchor: information content (T1, T3), instruction framing (T4, T5, T6), or memory depth (T7). The experiments probe T1/T2/T5 (§4.5).
+\end{tikzpicture}
+\caption{The reprompt-template design space. Each template varies one dimension from the T2 anchor: information content (T1, T3), instruction framing (T4, T5, T6), or memory depth (T7).}
+\label{fig:template-space}
+\end{figure}
 
 The three dimensions and their grounding:
 
@@ -595,6 +657,16 @@ The domains differ in their \textbf{reference mode} (what the teacher sees as th
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Domain comparison: code (LCBv6) versus math (AIME) reference and context.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Code --- LCBv6 {[}6{]}} (core)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Math --- AIME 2026 {[}10{]}} (pilot)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -647,12 +719,6 @@ Problem selection uses \textbf{model pass-rate} \(\in (0,1)\) (a frontier define
 \textbf{A note on statistical power.} The code arm is evaluated at \textbf{medium scale} (8 problems × 6 seeds), which supports a \textbf{Wilcoxon signed-rank test} over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (§4.3, Chapter 6). The \textbf{mathematical domain remains a small-n pilot} (n = 2 problems), where claims stay \emph{descriptive and directional} --- ``preliminary / weak dominance'', never ``we prove'' --- with every statement paired with a caveat about n.
 \end{quote}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\section{In-chapter citations}\label{in-chapter-citations}
-
-Numbered per the master bibliography (\passthrough{\lstinline!00\_references.md!}): {[}1{]} Hübotter et al.~2026 · {[}2{]} Kim et al.~2026 · {[}3{]} Shenfeld et al.~2026 · {[}4{]} lasgroup SDPO repo · {[}5{]} TRL v1.4.0 docs · {[}6{]} LiveCodeBench · {[}7{]} Qwen3 · {[}8{]} GRPO / DeepSeekMath · {[}9{]} Chen et al.~2021 (pass@k) · {[}10{]} MathArena AIME 2026.
-
 % ===== end b_ch3.tex =====
 % ===== begin b_ch4.tex =====
 \chapter{Experiments}\label{chapter-4-experiments}
@@ -690,6 +756,11 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
 
 \begin{longtable}[]{@{}llll@{}}
+\caption{Compute-matched comparison on the escape-zero anchors (student-first at $g{=}10$ vs.\ teacher-first).}\\
+\toprule\noalign{}
+problem & SF g=10 & TF g=10 (real anchor) & gap \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 problem & SF g=10 & TF g=10 (real anchor) & gap \\
 \midrule\noalign{}
@@ -736,6 +807,17 @@ Consequently, when the unconditioned policy fails to independently discover the 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Value-versus-procedure boundary: escape-zero outcome by domain and feedback type.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+domain condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+feedback content
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+escape-zero?
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 domain condition
@@ -882,6 +964,11 @@ While this work remains an empirical characterization conducted within a single 
 \section{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
 
 \begin{longtable}{ll}
+\caption{Hyperparameters --- code (LiveCodeBench v6, core).}\\
+\toprule
+Setting & Value \\
+\midrule
+\endfirsthead
 \toprule
 Setting & Value \\
 \midrule
@@ -911,6 +998,11 @@ Hardware & Colab L4 (22 GB) / A100 \\
 \section{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
 \begin{longtable}{ll}
+\caption{Hyperparameters --- math (AIME 2026, pilot).}\\
+\toprule
+Setting & Value \\
+\midrule
+\endfirsthead
 \toprule
 Setting & Value \\
 \midrule
@@ -1061,6 +1153,11 @@ The reference is the bare answer 156; there is no worked solution to distill, on
 idx9 (run fi5m0as1), correct answer 156; batch reward 1.0 every step, so all 12 trajectories are nominally correct:
 
 \begin{longtable}{lll}
+\caption{Judge verdict sequence for idx9 (all trajectories nominally correct).}\\
+\toprule
+step & verdicts (is copy / reasoning quality) & n good / n bad \\
+\midrule
+\endfirsthead
 \toprule
 step & verdicts (is copy / reasoning quality) & n good / n bad \\
 \midrule
@@ -1077,6 +1174,11 @@ The only genuine derivation (F,4) is at step 1. At steps 2--3, all generated tra
 idx8 (run 463y4fjr), correct answer 29:
 
 \begin{longtable}{llll}
+\caption{Judge verdict sequence for idx8 (every trajectory judged a copy).}\\
+\toprule
+step & verdicts & n good / n bad & batch reward \\
+\midrule
+\endfirsthead
 \toprule
 step & verdicts & n good / n bad & batch reward \\
 \midrule
@@ -1161,6 +1263,11 @@ PRE pass 0.000 $\rightarrow$ POST pass 1.000 (discovery curve 0.85 $\rightarrow$
 \section{idx39 (abc393\_d, hard, base pass ≈ 0.1), eval-16, difflib judge}\label{e.1-idx39-abc393_d-hard-base-pass-0.1-eval-16-difflib-judge}
 
 \begin{longtable}{llll}
+\caption{Per-step evaluation for idx39 (eval-16, difflib judge).}\\
+\toprule
+seed & PRE & TF POST & SF POST \\
+\midrule
+\endfirsthead
 \toprule
 seed & PRE & TF POST & SF POST \\
 \midrule
@@ -1179,6 +1286,11 @@ mean & & 0.167 & 0.094 \\
 \section{idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
 
 \begin{longtable}{llll}
+\caption{Per-step evaluation for idx12 (model-hard, eval-16).}\\
+\toprule
+seed & PRE & TF POST & SF POST \\
+\midrule
+\endfirsthead
 \toprule
 seed & PRE & TF POST & SF POST \\
 \midrule
@@ -1197,6 +1309,11 @@ mean & & 1.000 & 0.844 \\
 \section{Frontier-Scan Comprehensive Evaluations (8 Problems $\times$ 6 Seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
 
 \begin{longtable}{llllll p{4.2cm}}
+\caption{Frontier-scan summary: 8 problems $\times$ 6 seeds (SF/TF mean, win/tie/loss).}\\
+\toprule
+problem & id & judge & SF mean & TF mean & win/tie/loss & escape-zero seeds \\
+\midrule
+\endfirsthead
 \toprule
 problem & id & judge & SF mean & TF mean & win/tie/loss & escape-zero seeds \\
 \midrule
@@ -1216,6 +1333,11 @@ idx78 & abc399\_g & difflib & 0.031 & 0.198 & 6/0/0 & s0, s3 (SF 0 $\rightarrow$
 Per-seed POST pass@16 metrics across the core frontier subsets (canonical evaluation runs mapped under canonical good\_only / T2 presets; consolidated via W\&B tracking logs):
 
 \begin{longtable}{lllllllll}
+\caption{Per-seed POST pass@16 for idx64, idx77, idx58, idx78.}\\
+\toprule
+seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 TF & idx78 SF \\
+\midrule
+\endfirsthead
 \toprule
 seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 TF & idx78 SF \\
 \midrule
@@ -1234,6 +1356,11 @@ mean & 0.4063 & 0.0313 & 0.3438 & 0.2188 & 0.2188 & 0.0833 & 0.1979 & 0.0313 \\
 Per-seed POST pass@16 for the remaining four frontier problems (same canonical good\_only / T2 presets):
 
 \begin{longtable}{lllllllll}
+\caption{Per-seed POST pass@16 for idx39, idx46, idx59, idx69.}\\
+\toprule
+seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 TF & idx69 SF \\
+\midrule
+\endfirsthead
 \toprule
 seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 TF & idx69 SF \\
 \midrule
@@ -1256,6 +1383,11 @@ The explicit tracking profiles confirm that under structural execution-guided st
 \section{RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
 \begin{longtable}{lll}
+\caption{RQ1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
+\toprule
+Template & idx12 (easy) & idx39 (hard) \\
+\midrule
+\endfirsthead
 \toprule
 Template & idx12 (easy) & idx39 (hard) \\
 \midrule
@@ -1272,6 +1404,11 @@ The localized performance profile across expanding seed clusters remains highly 
 \section{Judge $\times$ few-shot ablation, mean POST pass (6 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
 
 \begin{longtable}{lll}
+\caption{Judge $\times$ few-shot ablation, mean POST pass (6 seeds).}\\
+\toprule
+arm & idx39 & idx12 \\
+\midrule
+\endfirsthead
 \toprule
 arm & idx39 & idx12 \\
 \midrule
@@ -1288,9 +1425,14 @@ TF $\cdot$ good\_bad $\cdot$ LLM & 0.245 & 1.000 \\
 
 The tables below are the numerical backing for the figures of Chapter 4 and Chapter 5 (medium-scale, six-seed evaluation).
 
-\textbf{F.1 Main results (Figure \ref{fig:bc-main}).} Mean POST pass@16 over six seeds, with standard deviation.
+
 
 \begin{longtable}{lcccc}
+\caption{Main results (backing Figure~\ref{fig:bc-main}): per-problem TF/SF mean POST pass@16 over six seeds, with SD.}\\
+\toprule
+problem & TF mean & TF SD & SF mean & SF SD \\
+\midrule
+\endfirsthead
 \toprule
 problem & TF mean & TF SD & SF mean & SF SD \\
 \midrule
@@ -1307,8 +1449,9 @@ idx77 & 0.34 & 0.17 & 0.22 & 0.11 \\
 idx78 & 0.20 & 0.07 & 0.03 & 0.03 \\
 \end{longtable}
 
-\textbf{F.2 Escape-zero discovery curve (Figure \ref{fig:bc-discovery}).} Mean pass-rate per TTT step over the escape-zero problems.
 
+
+\captionof{table}{Escape-zero discovery curve (backing Figure~\ref{fig:bc-discovery}): mean pass-rate per TTT step.}
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
 \toprule
@@ -1319,9 +1462,14 @@ TF & .00 & .00 & .02 & .06 & .12 & .22 & .31 & .38 & .42 & .44 & .45 & .45 & .46
 \bottomrule
 \end{tabular}\par\end{center}
 
-\textbf{F.3 Compute-to-correct frontier (Figure \ref{fig:bc-ctc}).} Discovery probability against total generations.
+
 
 \begin{longtable}{lcccccc}
+\caption{Compute-to-correct frontier (backing Figure~\ref{fig:bc-ctc}): discovery probability versus total generations.}\\
+\toprule
+total generations & 100 & 200 & 400 & 800 & 1600 & 3200 \\
+\midrule
+\endfirsthead
 \toprule
 total generations & 100 & 200 & 400 & 800 & 1600 & 3200 \\
 \midrule
@@ -1333,8 +1481,9 @@ Student-first ($g{=}10$) & 0.04 & 0.12 & 0.28 & 0.50 & 0.68 & 0.80 \\
 Best-of-$k$ & 0.03 & 0.08 & 0.20 & 0.38 & 0.55 & 0.69 \\
 \end{longtable}
 
-\textbf{F.4 Epistemic markers (Figure \ref{fig:bc-epistemic}).} Uncertainty markers per response per TTT step (code, thinking ON).
 
+
+\captionof{table}{Epistemic markers (backing Figure~\ref{fig:bc-epistemic}): uncertainty markers per response per TTT step (code, thinking ON).}
 \begin{center}\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccccccccccc}
 \toprule
