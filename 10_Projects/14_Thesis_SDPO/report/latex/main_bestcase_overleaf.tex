@@ -198,11 +198,11 @@ This chapter sets out the background the thesis builds on. It moves from the rei
 
 \section{RLVR and GRPO}\label{rlvr-and-grpo}
 
-Reinforcement learning with verifiable rewards (RLVR) is the dominant post-training recipe for code and math, where an automatic checker supplies the reward. Group Relative Policy Optimization (GRPO) {[}8{]} is a common instantiation: it samples a group of rollouts per problem and assigns each an advantage relative to the group mean, \(A_{i,t} = r_i - \text{mean}_j\{r_j\}\), which is constant across the tokens of a sequence.
+Reinforcement learning with verifiable rewards (RLVR) is the dominant post-training recipe for code and math, where an automatic checker supplies the reward in place of the human preferences used by reinforcement learning from human feedback {[}15{]} and its preference-optimization simplifications {[}16{]}. Group Relative Policy Optimization (GRPO) {[}8{]} is a common instantiation: it samples a group of rollouts per problem and assigns each an advantage relative to the group mean, \(A_{i,t} = r_i - \text{mean}_j\{r_j\}\), which is constant across the tokens of a sequence.
 
-GRPO is attractive because it removes the separate value network of PPO-style methods: the group mean serves as the baseline, and the advantage is estimated from the spread of rewards within the sampled group {[}8{]}. This keeps the method simple and is part of why it became the default for verifiable domains.
+GRPO is attractive because it removes the separate value network of PPO-style methods {[}14{]}: the group mean serves as the baseline, and the advantage is estimated from the spread of rewards within the sampled group {[}8{]}. This keeps the method simple and is part of why it became the default for verifiable domains.
 
-The same simplicity is its structural weakness in credit assignment. A scalar outcome reward records only whether a rollout passed, not which tokens were responsible, so the learning signal is sparse {[}1{]}. The weakness becomes a failure when every rollout in a group fails: the group-relative advantage collapses to zero and no gradient flows, so the method cannot learn on a problem until it has already solved it at least once. Hard problems, where successes are rare, are precisely where this stalls.
+The same simplicity is its structural weakness in credit assignment. A scalar outcome reward records only whether a rollout passed, not which tokens were responsible, so the learning signal is sparse {[}1{]}. Process supervision, which scores each intermediate reasoning step rather than only the outcome {[}22{]}, is one response to this sparsity; SDPO instead extracts a dense per-token target from the feedback itself. The weakness becomes a failure when every rollout in a group fails: the group-relative advantage collapses to zero and no gradient flows, so the method cannot learn on a problem until it has already solved it at least once. Hard problems, where successes are rare, are precisely where this stalls.
 
 A natural fix is to distill from a stronger teacher, but that requires a teacher more capable than the student, which is unavailable when the goal is to raise the capability ceiling rather than to compress a known one {[}1{]}. This tension motivates a teacher that is not external but derived from the student itself.
 
@@ -210,7 +210,7 @@ A natural fix is to distill from a stronger teacher, but that requires a teacher
 
 \subsection{The self-teacher and rich feedback}\label{the-self-teacher-and-rich-feedback}
 
-Hübotter et al.~{[}1{]} observe that many verifiable environments already expose tokenized feedback, such as runtime errors, failing-test diffs, or judge comments, which is discarded when the signal is collapsed to a scalar reward. They propose reinforcement learning with rich feedback (RLRF) as a framework that keeps this signal, and SDPO as its instantiation. The mechanism that makes it possible is in-context learning: the same model, conditioned on the feedback \(f\) in addition to the question \(x\), can often locate its own mistake. This conditioned model, \(\pi_\theta(\cdot \mid x, f)\), serves as a \emph{self-teacher}, while the unconditioned \(\pi_\theta(\cdot \mid x)\) is the student. Both share the weights \(\theta\), so this is self-distillation in the lineage of knowledge distillation {[}13{]}, but with feedback rather than a larger network as the source of the teacher's advantage.
+Hübotter et al.~{[}1{]} observe that many verifiable environments already expose tokenized feedback, such as runtime errors, failing-test diffs, or judge comments, which is discarded when the signal is collapsed to a scalar reward. They propose reinforcement learning with rich feedback (RLRF) as a framework that keeps this signal, and SDPO as its instantiation. The mechanism that makes it possible is in-context learning: the same model, conditioned on the feedback \(f\) in addition to the question \(x\), can often locate its own mistake. This conditioned model, \(\pi_\theta(\cdot \mid x, f)\), serves as a \emph{self-teacher}, while the unconditioned \(\pi_\theta(\cdot \mid x)\) is the student. Both share the weights \(\theta\), so this is self-distillation in the lineage of knowledge distillation {[}13{]}, including its sequence-level variants for language {[}24{]}, but with feedback rather than a larger network as the source of the teacher's advantage.
 
 \subsection{The loss and dense credit assignment}\label{the-loss-and-dense-credit-assignment}
 
@@ -294,6 +294,8 @@ In the test-time setting {[}1, §5{]}, a single hard problem is fixed, the rewar
 
 The metric is discovery@k {[}1, Def. 5.1{]}, the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with discovery time \(T = \min\{k : r(y_k) = 1\}\). It generalizes pass@k {[}9{]} from i.i.d. sampling to sequential algorithms that share state or update weights between attempts, and it reduces to pass@k when the algorithm is plain best-of-k. The lineage is the time-to-termination performance profile of Dolan and Moré {[}12{]}. Empirically, SDPO discovers 53.2\% of very-hard problems against best-of-k's 41.5\%, and on some problems is the only method to solve at all, even though the initial self-teacher accuracy is below 1\% on almost every hard problem {[}1{]}. That last point matters most: dense credit assignment lets the model improve before it has produced a single success.
 
+This situates the work within the broader study of inference-time compute. Repeated sampling raises coverage on hard problems, scaling as a power law in the sample budget {[}20{]}; self-consistency aggregates multiple sampled reasoning paths into a more reliable answer {[}18{]}; and budget-controlled test-time scaling improves reasoning by spending more tokens per problem {[}21{]}. Closest in spirit is self-taught reasoning {[}19{]}, which bootstraps a model from its own generated rationales; teacher-first likewise learns from filtered self-generated trajectories, but distils a dense per-token target rather than fine-tuning on the text.
+
 \section{The reprompt template and its design space}\label{the-reprompt-template-and-its-design-space}
 
 The self-teacher's behavior is controlled by the template that formats \(x\) and \(f\) into its context. The parent paper uses a slot-based template (its Table 2) that inserts a successful previous rollout, the environment feedback, and a closing directive, and reports that performance is ``not sensitive to syntactic variations'' of this template, while the feedback type does matter: an ablation (its Table 6) finds the environment output and the model's own solution to be complementary, and including the student's own failed attempt in the teacher context reduces diversity {[}1{]}.
@@ -302,7 +304,7 @@ Two gaps follow. The paper tests syntactic variation but not semantic or instruc
 
 \section{Epistemic verbalization and suppression}\label{epistemic-verbalization-and-suppression}
 
-Kim et al.~{[}2{]} supply the cautionary counterpart to SDPO. They show that distilling from a rich context can degrade a model by suppressing its \emph{epistemic verbalization}, the uncertainty markers such as ``wait'' or ``maybe'' that accompany genuine reasoning. Their analysis ties the magnitude of suppression to the mutual information \(I(y; c \mid x)\) between the output and the context: the richer the context, the stronger the suppression. They probe the spectrum by varying what the teacher context contains, from nothing (\(c = \varnothing\)), through a solution stripped of its thinking and a regenerated answer, to a full solution, and find suppression growing with the information the context carries. The effect accumulates across successive distillation steps, and they recommend freezing the teacher (no EMA update) to break the feedback loop, in tension with the parent paper's preference for a moving, regularized teacher (§2.2.4).
+Kim et al.~{[}2{]} supply the cautionary counterpart to SDPO. They show that distilling from a rich context can degrade a model by suppressing its \emph{epistemic verbalization}, the uncertainty markers such as ``wait'' or ``maybe'' that accompany chain-of-thought reasoning {[}17{]}. Their analysis ties the magnitude of suppression to the mutual information \(I(y; c \mid x)\) between the output and the context: the richer the context, the stronger the suppression. They probe the spectrum by varying what the teacher context contains, from nothing (\(c = \varnothing\)), through a solution stripped of its thinking and a regenerated answer, to a full solution, and find suppression growing with the information the context carries. The effect accumulates across successive distillation steps, and they recommend freezing the teacher (no EMA update) to break the feedback loop, in tension with the parent paper's preference for a moving, regularized teacher (§2.2.4). More broadly, language models are partially calibrated about what they know {[}23{]}, so suppressing the markers that express this uncertainty is a plausible route to degradation.
 
 For this thesis the relevance is twofold. The suppression risk is sharpest exactly when the context contains the answer, which is the math leak regime studied in the pilot (§4.9), where the teacher can copy the answer rather than derive it. And the accumulation across steps is precisely what the test-time setting applies repeatedly, since each TTT step distills again from the same answer-bearing context.
 
@@ -931,6 +933,28 @@ This work remains an empirical characterization within a single 4B model at a pe
 \bibitem{r12} E. D. Dolan and J. J. Moré, ``Benchmarking optimization software with performance profiles,'' \emph{Math.\ Program.}, vol.~91, no.~2, pp.~201--213, 2002. (Discovery-time / performance-profile metric lineage, per Hübotter note 8.)
 
 \bibitem{r13} G. Hinton, O. Vinyals, and J. Dean, ``Distilling the Knowledge in a Neural Network,'' arXiv:1503.02531, 2015. (Knowledge-distillation lineage anchor.)
+
+\bibitem{r14} J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, ``Proximal Policy Optimization Algorithms,'' arXiv:1707.06347, 2017.
+
+\bibitem{r15} L. Ouyang, J. Wu, X. Jiang, D. Almeida, C. L. Wainwright, P. Mishkin, C. Zhang, S. Agarwal, K. Slama, A. Ray, J. Schulman, J. Hilton, F. Kelton, L. Miller, M. Simens, A. Askell, P. Welinder, P. Christiano, J. Leike, and R. Lowe, ``Training Language Models to Follow Instructions with Human Feedback,'' arXiv:2203.02155, 2022. (InstructGPT / RLHF.)
+
+\bibitem{r16} R. Rafailov, A. Sharma, E. Mitchell, S. Ermon, C. D. Manning, and C. Finn, ``Direct Preference Optimization: Your Language Model is Secretly a Reward Model,'' arXiv:2305.18290, 2023.
+
+\bibitem{r17} J. Wei, X. Wang, D. Schuurmans, M. Bosma, B. Ichter, F. Xia, E. Chi, Q. Le, and D. Zhou, ``Chain-of-Thought Prompting Elicits Reasoning in Large Language Models,'' arXiv:2201.11903, 2022.
+
+\bibitem{r18} X. Wang, J. Wei, D. Schuurmans, Q. Le, E. Chi, S. Narang, A. Chowdhery, and D. Zhou, ``Self-Consistency Improves Chain of Thought Reasoning in Language Models,'' arXiv:2203.11171, 2022.
+
+\bibitem{r19} E. Zelikman, Y. Wu, J. Mu, and N. D. Goodman, ``STaR: Bootstrapping Reasoning With Reasoning,'' arXiv:2203.14465, 2022.
+
+\bibitem{r20} B. Brown, J. Juravsky, R. Ehrlich, R. Clark, Q. V. Le, C. Ré, and A. Mirhoseini, ``Large Language Monkeys: Scaling Inference Compute with Repeated Sampling,'' arXiv:2407.21787, 2024.
+
+\bibitem{r21} N. Muennighoff, Z. Yang, W. Shi, X. L. Li, L. Fei-Fei, H. Hajishirzi, L. Zettlemoyer, P. Liang, E. Cand\`es, and T. Hashimoto, ``s1: Simple Test-Time Scaling,'' arXiv:2501.19393, 2025.
+
+\bibitem{r22} H. Lightman, V. Kosaraju, Y. Burda, H. Edwards, B. Baker, T. Lee, J. Leike, J. Schulman, I. Sutskever, and K. Cobbe, ``Let's Verify Step by Step,'' arXiv:2305.20050, 2023. (Process supervision.)
+
+\bibitem{r23} S. Kadavath, T. Conerly, A. Askell, et al., ``Language Models (Mostly) Know What They Know,'' arXiv:2207.05221, 2022.
+
+\bibitem{r24} Y. Kim and A. M. Rush, ``Sequence-Level Knowledge Distillation,'' in \emph{Proc. EMNLP}, arXiv:1606.07947, 2016.
 
 \end{thebibliography}
 
