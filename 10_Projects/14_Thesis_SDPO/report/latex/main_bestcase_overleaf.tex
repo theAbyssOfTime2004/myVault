@@ -147,6 +147,31 @@ domain boundary.
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 
+\clearpage
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\begin{longtable}{@{}p{2.6cm}l@{}}
+AIME & American Invitational Mathematics Examination \\
+EMA  & Exponential Moving Average \\
+GRPO & Group Relative Policy Optimization \\
+JSD  & Jensen--Shannon Divergence \\
+KL   & Kullback--Leibler (divergence) \\
+LCB  & LiveCodeBench \\
+LLM  & Large Language Model \\
+LoRA & Low-Rank Adaptation \\
+PPO  & Proximal Policy Optimization \\
+RLRF & Reinforcement Learning with Rich Feedback \\
+RLVR & Reinforcement Learning with Verifiable Rewards \\
+RO   & Research Objective \\
+SDFT & Self-Distillation Fine-Tuning \\
+SDPO & Self-Distillation Policy Optimization \\
+SF   & Student-First \\
+SFT  & Supervised Fine-Tuning \\
+TF   & Teacher-First \\
+TRL  & Transformer Reinforcement Learning (library) \\
+TTT  & Test-Time Training \\
+\end{longtable}
+
 \chapter{Introduction}\label{chapter-1-introduction}
 
 This thesis studies how to accelerate test-time discovery in complex code generation via execution-guided self-distillation. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
