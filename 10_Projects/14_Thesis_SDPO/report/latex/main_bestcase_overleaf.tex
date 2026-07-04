@@ -116,9 +116,9 @@ student-first stuck at zero. A compute-matched comparison shows the
 advantage is not a sampling-volume artifact: at equal generation budget
 teacher-first still wins, and reaches a given discovery probability with
 fewer total generations. With thinking enabled, we measure epistemic
-verbalization at test time and find that distillation from
-answer-bearing context suppresses uncertainty markers, connecting the
-method to the degradation Kim et al.~describe. Finally, evaluating the
+verbalization at test time and find that distillation from a
+feedback-conditioned context suppresses uncertainty markers, connecting
+the method to the degradation Kim et al.~describe. Finally, evaluating the
 pipeline on mathematical reasoning (AIME 2026) exposes a rigid domain
 boundary: when feedback is limited strictly to a static numeric value
 rather than an algorithmic procedure, the teacher policy degrades into
@@ -142,7 +142,7 @@ domain boundary.
 
 \chapter{Introduction}\label{chapter-1-introduction}
 
-This thesis studies how to \textbf{accelerate test-time discovery in complex code generation via execution-guided self-distillation}. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
+This thesis studies how to accelerate test-time discovery in complex code generation via execution-guided self-distillation. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
 
 \section{Background}\label{background}
 
@@ -150,7 +150,7 @@ Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a co
 
 \section{Problem}\label{problem}
 
-The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: \emph{how the execution feedback is organized into a learning signal} (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and \emph{how the execution feedback is formulated} into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
+The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: how the execution feedback is organized into a learning signal (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and how the execution feedback is formulated into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
 
 \section{Research questions}\label{research-questions}
 
@@ -180,9 +180,9 @@ All four research questions are systematically evaluated and addressed throughou
 \item
   \textbf{A reprompt-template effect}, strongest on hard problems, where a reasoning-inducing template orders above the anchor, which orders above a minimal one (§4.5).
 \item
-  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from answer-bearing context suppresses uncertainty markers, accumulating across steps (§4.7).
+  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from a feedback-conditioned context suppresses uncertainty markers, accumulating across steps (§4.7).
 \item
-  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the paradigm: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.8, Chapter 5).
+  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the approach: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.8, Chapter 5).
 \end{enumerate}
 
 \section{Scope}\label{scope}
@@ -210,7 +210,7 @@ A natural fix is to distill from a stronger teacher, but that requires a teacher
 
 \subsection{The self-teacher and rich feedback}\label{the-self-teacher-and-rich-feedback}
 
-Hübotter et al.~{[}1{]} observe that many verifiable environments already expose \emph{tokenized} feedback, such as runtime errors, failing-test diffs, or judge comments, which is discarded when the signal is collapsed to a scalar reward. They propose reinforcement learning with rich feedback (RLRF) as a paradigm that keeps this signal, and SDPO as its instantiation. The mechanism that makes it possible is in-context learning: the same model, conditioned on the feedback \(f\) in addition to the question \(x\), can often locate its own mistake. This conditioned model, \(\pi_\theta(\cdot \mid x, f)\), serves as a \emph{self-teacher}, while the unconditioned \(\pi_\theta(\cdot \mid x)\) is the student. Both share the weights \(\theta\), so this is self-distillation in the lineage of knowledge distillation {[}13{]}, but with feedback rather than a larger network as the source of the teacher's advantage.
+Hübotter et al.~{[}1{]} observe that many verifiable environments already expose tokenized feedback, such as runtime errors, failing-test diffs, or judge comments, which is discarded when the signal is collapsed to a scalar reward. They propose reinforcement learning with rich feedback (RLRF) as a framework that keeps this signal, and SDPO as its instantiation. The mechanism that makes it possible is in-context learning: the same model, conditioned on the feedback \(f\) in addition to the question \(x\), can often locate its own mistake. This conditioned model, \(\pi_\theta(\cdot \mid x, f)\), serves as a \emph{self-teacher}, while the unconditioned \(\pi_\theta(\cdot \mid x)\) is the student. Both share the weights \(\theta\), so this is self-distillation in the lineage of knowledge distillation {[}13{]}, but with feedback rather than a larger network as the source of the teacher's advantage.
 
 \subsection{The loss and dense credit assignment}\label{the-loss-and-dense-credit-assignment}
 
@@ -282,11 +282,11 @@ The parent paper validates SDPO across three settings. In a plain RLVR setting w
 
 Three findings from the parent paper's analysis bear directly on the choices made in this thesis.
 
-First, both ingredients of SDPO matter. Decomposing the method into logit-level, token-level, and sequence-level variants gives an ordering logit \textgreater{} token \textgreater{} sequence \textgreater{} GRPO {[}1, §4.2{]}, which shows that rich feedback and dense credit assignment each contribute rather than one carrying the result. A feedback-type ablation (its Table 6) is equally pointed: the environment output alone reaches 39.9\% training accuracy and the model's own prior solution alone 42.6\%, while combining them reaches 48.3\%, so the two are complementary. Adding the student's own \emph{failed} attempt to the teacher context, by contrast, drops accuracy to 44.5\% and lowers entropy by 0.23, because the teacher is biased toward the student and loses diversity. This last result is part of the motivation for the teacher-first organization of §3.3, which distills filtered teacher generations rather than the student's failed attempt.
+First, both ingredients of SDPO matter. Decomposing the method into logit-level, token-level, and sequence-level variants gives an ordering logit \textgreater{} token \textgreater{} sequence \textgreater{} GRPO {[}1, §4.2{]}, which shows that rich feedback and dense credit assignment each contribute rather than one carrying the result. A feedback-type ablation (its Table 6) is equally pointed: the environment output alone reaches 39.9\% training accuracy and the model's own prior solution alone 42.6\%, while combining them reaches 48.3\%, so the two are complementary. Adding the student's own failed attempt to the teacher context, by contrast, drops accuracy to 44.5\% and lowers entropy by 0.23, because the teacher is biased toward the student and loses diversity. This last result is part of the motivation for the teacher-first organization of §3.3, which distills filtered teacher generations rather than the student's failed attempt.
 
-Second, self-teaching is emergent with scale {[}1, §4.1{]}. On Qwen3-8B, SDPO far exceeds GRPO; on Qwen3-0.6B the two are comparable; and on Qwen2.5-1.5B, SDPO \emph{underperforms} GRPO. The method needs in-context learning strong enough for the conditioned model to act as a useful teacher. This places the 4B model used here in a band where SDPO is expected to work, and it also predicts that on a stronger model the student-first baseline should improve on its own, narrowing the teacher-first margin, a prediction revisited in Chapter 6.
+Second, self-teaching is emergent with scale {[}1, §4.1{]}. On Qwen3-8B, SDPO far exceeds GRPO; on Qwen3-0.6B the two are comparable; and on Qwen2.5-1.5B, SDPO underperforms GRPO. The method needs in-context learning strong enough for the conditioned model to act as a useful teacher. This places the 4B model used here in a band where SDPO is expected to work, and it also predicts that on a stronger model the student-first baseline should improve on its own, narrowing the teacher-first margin, a prediction revisited in Chapter 6.
 
-Third, the self-teacher is bootstrapped, not fixed. It updates alongside the student and its accuracy rises during training, and the final student exceeds the \emph{initial} teacher, so the method is not capped by the teacher it starts with {[}1, §4.3{]}. Regularization is what keeps this stable: a trust-region teacher (50.6\%) edges out an EMA teacher (49.3\%) and a frozen one (48.8\%), while an unregularized teacher diverges. SDPO also forgets less than supervised fine-tuning on the self-teacher's outputs across held-out benchmarks, though slightly more than GRPO, indicating that the on-policy character of the update helps preserve prior capability {[}1, §4.4{]}. A hybrid that blends GRPO and SDPO advantages helps weak models but not strong ones {[}1, §4.5{]}.
+Third, the self-teacher is bootstrapped, not fixed. It updates alongside the student and its accuracy rises during training, and the final student exceeds the initial teacher, so the method is not capped by the teacher it starts with {[}1, §4.3{]}. Regularization is what keeps this stable: a trust-region teacher (50.6\%) edges out an EMA teacher (49.3\%) and a frozen one (48.8\%), while an unregularized teacher diverges. SDPO also forgets less than supervised fine-tuning on the self-teacher's outputs across held-out benchmarks, though slightly more than GRPO, indicating that the on-policy character of the update helps preserve prior capability {[}1, §4.4{]}. A hybrid that blends GRPO and SDPO advantages helps weak models but not strong ones {[}1, §4.5{]}.
 
 \section{Test-time training and discovery@k}\label{test-time-training-and-discoveryk}
 
@@ -296,7 +296,7 @@ The metric is discovery@k {[}1, Def. 5.1{]}, the probability of solving within t
 
 \section{The reprompt template and its design space}\label{the-reprompt-template-and-its-design-space}
 
-The self-teacher's behavior is controlled by the template that formats \(x\) and \(f\) into its context. The parent paper uses a slot-based template (its Table 2) that inserts a successful previous rollout, the environment feedback, and a closing directive, and reports that performance is ``not sensitive to syntactic variations'' of this template, while the \emph{feedback type} does matter: an ablation (its Table 6) finds the environment output and the model's own solution to be complementary, and including the student's own failed attempt in the teacher context reduces diversity {[}1{]}.
+The self-teacher's behavior is controlled by the template that formats \(x\) and \(f\) into its context. The parent paper uses a slot-based template (its Table 2) that inserts a successful previous rollout, the environment feedback, and a closing directive, and reports that performance is ``not sensitive to syntactic variations'' of this template, while the feedback type does matter: an ablation (its Table 6) finds the environment output and the model's own solution to be complementary, and including the student's own failed attempt in the teacher context reduces diversity {[}1{]}.
 
 Two gaps follow. The paper tests syntactic variation but not semantic or instructional variation, and it explicitly names systematic study of how the reprompt template influences behavior as future work {[}1, §7{]}. This thesis organizes the template design space along three dimensions: information content, motivated by Kim et al.'s finding that context richness governs suppression {[}2{]}; instruction framing, addressing the open question above; and memory depth, motivated by the sequential accumulation of the test-time setting. The seven templates of §3.4 sample points across these dimensions, with the paper's default as the anchor.
 
@@ -312,13 +312,13 @@ Shenfeld et al.~{[}3{]} propose self-distillation fine-tuning (SDFT) for continu
 
 \section{The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
 
-The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of \emph{when} the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
+The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of when the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
 
 \chapter{Method}\label{chapter-3-method}
 
-This chapter specifies the method in enough detail to reproduce it. The object of study is \textbf{test-time SDPO} {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it \emph{discovers} a solution. Because the privileged context that drives the update is \textbf{execution feedback} (failing tests, runtime errors), we call this regime \textbf{execution-guided self-distillation}, and the goal is to \emph{accelerate} that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, \textbf{student-first} (the baseline of the originating paper {[}1{]}) and \textbf{teacher-first} (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RQ1).
+This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RQ1).
 
-Domain scope is asymmetric by design. \textbf{Code generation is the core} (LiveCodeBench v6 {[}6{]}); \textbf{math is a pilot and a contrast} (AIME 2026 {[}10{]}), used to characterize the \emph{boundary} of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (§3.5, Chapter 6).
+Domain scope is asymmetric by design. Code generation is the core (LiveCodeBench v6 {[}6{]}); math is a pilot and a contrast (AIME 2026 {[}10{]}), used to characterize the boundary of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (§3.5, Chapter 6).
 
 Notation mirrors the parent paper, Hübotter et al.~{[}1{]}, so the two can be read side by side.
 
@@ -333,14 +333,14 @@ Fix a problem \(x\) (the problem statement). Two policies share the same weights
 \begin{itemize}
 \tightlist
 \item
-  the \textbf{student} \(\pi_\theta(\cdot \mid x)\), which sees only the problem, and
+  the student \(\pi_\theta(\cdot \mid x)\), which sees only the problem, and
 \item
-  the \textbf{self-teacher} \(\pi_\theta(\cdot \mid x, c)\), the same model conditioned on an additional \textbf{privileged context} \(c\).
+  the self-teacher \(\pi_\theta(\cdot \mid x, c)\), the same model conditioned on an additional privileged context \(c\).
 \end{itemize}
 
 In SDPO, \(c\) plays the role of the ``feedback'' \(f\) in the parent paper: retrospective information (a runtime error, a failing test, or a reference solution) that lets the model look back and locate its mistake {[}1, §2{]}. Because teacher and student differ only in their input context, this is genuine \emph{self}-distillation: the model learns by pulling its next-token distribution (without context) toward its own distribution conditioned on \(c\).
 
-The test-time setting follows Hübotter et al.~{[}1, §5{]}. For each problem \(x\), the model is reset to a base checkpoint and then runs \(K\) TTT steps \emph{on that problem alone}. The reward is verifiable, graded for code and binary for math. The goal is not to generalize to other problems but to \textbf{discover} a solution to \(x\) as early as possible; the metric is discovery@k {[}1, Def. 5.1{]} (§3.6).
+The test-time setting follows Hübotter et al.~{[}1, §5{]}. For each problem \(x\), the model is reset to a base checkpoint and then runs \(K\) TTT steps on that problem alone. The reward is verifiable, graded for code and binary for math. The goal is not to generalize to other problems but to discover a solution to \(x\) as early as possible; the metric is discovery@k {[}1, Def. 5.1{]} (§3.6).
 
 \subsection{The shared loop}\label{the-shared-loop}
 
@@ -380,7 +380,7 @@ Figure~\ref{fig:two-arms} sketches the two arms; they diverge only at the shaded
 \label{fig:two-arms}
 \end{figure}
 
-The whole contrast reduces to one sentence: \textbf{student-first distills the student's own failed attempt; teacher-first distills a correct, filtered trajectory generated by the teacher.} Everything else (loss, model, hyperparameters) is held fixed to isolate that one variable.
+The whole contrast reduces to one sentence: student-first distills the student's own failed attempt; teacher-first distills a correct, filtered trajectory generated by the teacher. Everything else (loss, model, hyperparameters) is held fixed to isolate that one variable.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -396,7 +396,7 @@ At each step the student samples a rollout \(y \sim \pi_\theta(\cdot \mid x)\) o
 
 The \passthrough{\lstinline!stopgrad!} blocks gradient flow through the teacher, which prevents the teacher from collapsing onto the student and ignoring \(f\) {[}1, §2{]}. The gradient and the top-K approximation are shared with teacher-first and are deferred to §3.3.5.
 
-There is a failure mode on hard problems that motivates the whole next section. Because rollouts are on-policy, on a problem the \emph{bare} student rarely solves, almost every rollout is wrong, so the feedback is poor and the distillation signal is weak and unstable. This is the \textbf{flat-reward trap}: there is no correct rollout to learn from. Hübotter et al.~{[}1, §5{]} show SDPO can still iterate from rich feedback even when initial teacher accuracy is below 1\%, but they use Qwen3-8B; on the weaker 4B model used here (§3.5), the stuck-at-zero behavior does appear, and it is exactly what teacher-first targets.
+There is a failure mode on hard problems that motivates the whole next section. Because rollouts are on-policy, on a problem the bare student rarely solves, almost every rollout is wrong, so the feedback is poor and the distillation signal is weak and unstable. This is the flat-reward trap: there is no correct rollout to learn from. Hübotter et al.~{[}1, §5{]} show SDPO can still iterate from rich feedback even when initial teacher accuracy is below 1\%, but they use Qwen3-8B; on the weaker 4B model used here (§3.5), the stuck-at-zero behavior does appear, and it is exactly what teacher-first targets.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -408,17 +408,17 @@ Two problems with student-first motivate the variant.
 
 First is the flat-reward trap of §3.2: when the student never rolls a correct attempt, there is nothing correct to distill.
 
-Second is \textbf{information leak} {[}2{]}. If \(c\) contains a reference solution, the teacher rescores toward ``close to the reference,'' so across many test-time steps the student converges onto \emph{copying} the reference rather than learning to reason. Kim et al.~{[}2{]} formalize this: when \(I(y; c \mid x)\), the information richness of the context, is high, the model \textbf{suppresses epistemic verbalization} and degrades.
+Second is information leak {[}2{]}. If \(c\) contains a reference solution, the teacher rescores toward ``close to the reference,'' so across many test-time steps the student converges onto \emph{copying} the reference rather than learning to reason. Kim et al.~{[}2{]} formalize this: when \(I(y; c \mid x)\), the information richness of the context, is high, the model suppresses epistemic verbalization and degrades.
 
-The core change is to \textbf{reverse the order}. The teacher generates first; correct, independent trajectories are filtered out; and the student is distilled toward \emph{those}. The KL is computed on \(y_{\text{good}}\) (teacher-generated, filtered), not on \(y_{\text{student}}\) (a failed attempt):
+The core change is to reverse the order. The teacher generates first; correct, independent trajectories are filtered out; and the student is distilled toward those. The KL is computed on \(y_{\text{good}}\) (teacher-generated, filtered), not on \(y_{\text{student}}\) (a failed attempt):
 
 \[
 \mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
 \]
 
-where \(\mathcal{G}\) is the good pool (§3.3.3). Conceptually, teacher-first sits \textbf{between SDPO (on-policy) and SFT (off-policy)}. It resembles SDFT {[}3{]} in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style \emph{feedback} {[}1{]} rather than a fixed demonstration.
+where \(\mathcal{G}\) is the good pool (§3.3.3). Conceptually, teacher-first sits between SDPO (on-policy) and SFT (off-policy). It resembles SDFT {[}3{]} in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style feedback {[}1{]} rather than a fixed demonstration.
 
-Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollout internally, teacher-first is implemented as a \textbf{custom training loop} (script \passthrough{\lstinline!09\_teacher\_first.py!}) that reuses the helpers of \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, evaluation).
+Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollout internally, teacher-first is implemented as a custom training loop (script \passthrough{\lstinline!09\_teacher\_first.py!}) that reuses the helpers of \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, evaluation).
 
 \begin{figure}[H]
 \centering
@@ -444,15 +444,15 @@ At each step the teacher samples \(N\) trajectories (\passthrough{\lstinline!tea
 \{y_{t_1}, \dots, y_{t_N}\} \sim \pi_\theta(\cdot \mid x, c), \qquad c = \underbrace{f}_{\text{feedback}} \;+\; \underbrace{\text{few-shot exemplars}}_{\text{§3.3.4}}.
 \]
 
-The \passthrough{\lstinline!privileged\_context!} \(c\) is the concrete realization of ``feedback'' from {[}1{]}; the name belongs to the thesis codebase, the concept to the paper. The content of \(c\) is domain-dependent (§3.5). The few-shot block is inserted \emph{before} the final directive (``Respond with ONLY\ldots{}''), with at most \passthrough{\lstinline!max\_fewshot = 3!} exemplars so the context does not overflow, and the token count is logged each step.
+The \passthrough{\lstinline!privileged\_context!} \(c\) is the concrete realization of ``feedback'' from {[}1{]}; the name belongs to the thesis codebase, the concept to the paper. The content of \(c\) is domain-dependent (§3.5). The few-shot block is inserted before the final directive (``Respond with ONLY\ldots{}''), with at most \passthrough{\lstinline!max\_fewshot = 3!} exemplars so the context does not overflow, and the token count is logged each step.
 
 \subsection{Verifier and judge produce the good pool}\label{verifier-and-judge-produce-the-good-pool}
 
 Each trajectory \(y_{t_i}\) is labeled in two stages.
 
-\textbf{Stage 1, the verifier (correctness).} For code (LCBv6), \passthrough{\lstinline!evaluate\_solution!} runs the public and private tests and returns the fraction of tests passed, a \textbf{graded} reward in \([0,1]\) that gives a usable gradient to climb (for example 0.21 then 1.0). For math (AIME), an answer match gives a \textbf{binary} reward in \(\{0,1\}\).
+\textbf{Stage 1, the verifier (correctness).} For code (LCBv6), \passthrough{\lstinline!evaluate\_solution!} runs the public and private tests and returns the fraction of tests passed, a graded reward in \([0,1]\) that gives a usable gradient to climb (for example 0.21 then 1.0). For math (AIME), an answer match gives a binary reward in \(\{0,1\}\).
 
-\textbf{Stage 2, the judge (independence).} This measures whether \(y_{t_i}\) merely \emph{copies} the reference:
+\textbf{Stage 2, the judge (independence).} This measures whether \(y_{t_i}\) merely copies the reference:
 
 \[
 \text{good} := (\text{score} \ge 1.0) \,\wedge\, (\text{independent}), \qquad \text{bad} := (\text{copies the reference}).
@@ -492,14 +492,14 @@ LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) or \passthrough{\lstin
 \end{longtable}
 
 \begin{quote}
-\textbf{A note on the judge.} With thinking ON (code) the model emits an explicit reasoning trace, so \passthrough{\lstinline!reasoning\_quality!} grades that trace rather than saturating at 4--5. The LLM judge therefore serves two roles: \passthrough{\lstinline!is\_copy!} is the \textbf{independence gate} for the good pool, while \passthrough{\lstinline!reasoning\_quality!} provides the signal that feeds the epistemic-suppression measurement (§4.7). Copy-detection remains its primary correctness guarantee.
+\textbf{A note on the judge.} With thinking ON (code) the model emits an explicit reasoning trace, so \passthrough{\lstinline!reasoning\_quality!} grades that trace rather than saturating at 4--5. The LLM judge therefore serves two roles: \passthrough{\lstinline!is\_copy!} is the independence gate for the good pool, while \passthrough{\lstinline!reasoning\_quality!} provides the signal that feeds the epistemic-suppression measurement (§4.7). Copy-detection remains its primary correctness guarantee.
 \end{quote}
 
-There is one behavior worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), the good pool is left \textbf{empty} and that step distils nothing --- a rejected copy is never forced into the pool. On a problem where the teacher only ever produces copies, the student therefore receives no learning signal at all; this is confirmed in the math log for idx8 (Appendix D.2), and is flagged here so the mechanism is transparent.
+There is one behavior worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), the good pool is left empty and that step distils nothing; a rejected copy is never forced into the pool. On a problem where the teacher only ever produces copies, the student therefore receives no learning signal at all; this is confirmed in the math log for idx8 (Appendix D.2), and is flagged here so the mechanism is transparent.
 
 \subsection{Few-shot teacher steering (good\_only vs good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
 
-The labeled exemplars are fed \emph{back into the teacher's prompt} (in-context, with \textbf{no} gradient on the teacher) to steer the teacher toward better generations:
+The labeled exemplars are fed back into the teacher's prompt (in-context, with no gradient on the teacher) to steer the teacher toward better generations:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -531,7 +531,7 @@ Steering strength & moderate & stronger \\
 Leak & \textbf{clean} (good is filtered, hence independent of the reference) & \textbf{residual} (bad ≈ reference, so reference-like content re-enters the context) \\
 \end{longtable}
 
-Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of \textbf{leak versus no-leak}, a direct test of the advisor's concern. The result is a leak-null on this data (§4.6).
+Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of leak versus no-leak, a direct test of the advisor's concern. The result is a leak-null on this data (§4.6).
 
 \subsection{The distillation step: token-aligned top-K reverse KL}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
 
@@ -545,7 +545,7 @@ This is the computational core, shared by both arms; only the target trajectory 
 \frac{\partial \mathcal{L}}{\partial z_v^{S}} \;=\; \pi_S(v) - \pi_T(v).
 \]
 
-Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), the optimizer raises that logit. The target is a full \(V\)-dimensional distribution \emph{per token}, not one scalar per sequence as in GRPO {[}8{]}. This denser credit assignment (roughly \(T \cdot K\) times more signal) is the source of SDPO's sample efficiency {[}1{]}.
+Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), the optimizer raises that logit. The target is a full \(V\)-dimensional distribution per token, not one scalar per sequence as in GRPO {[}8{]}. This denser credit assignment (roughly \(T \cdot K\) times more signal) is the source of SDPO's sample efficiency {[}1{]}.
 
 \textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RQ2 question (Chapter 6).
 
@@ -553,7 +553,7 @@ Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), t
 
 \textbf{Importance sampling.} Samples are drawn under \(\theta_{\text{old}}\) but the loss is taken under the current \(\theta\), so each per-token loss is scaled by a clipped ratio \(r_t = \min(\pi_\theta/\pi_{\theta_\text{old}},\, c_{\text{clip}})\) with \(c_{\text{clip}} = 2.0\).
 
-\textbf{Token alignment, the easiest place to get it wrong.} The student prompt (\passthrough{\lstinline!x + y\_good!}) and the teacher prompt (\passthrough{\lstinline!x + c + y\_good!}) have \emph{different} prefix lengths, so the logits at the positions of \(y_{\text{good}}\) must be extracted on \emph{each} side before the KL is taken. An off-by-one here corrupts the KL silently, so the code asserts that the two lengths match and logs \passthrough{\lstinline!(student\_prefix\_len, teacher\_prefix\_len)!}. The sanity check passed: alignment is correct (\(L\) matches on both sides despite different prefixes) and the token-mean KL is finite and reasonable.
+\textbf{Token alignment, the easiest place to get it wrong.} The student prompt (\passthrough{\lstinline!x + y\_good!}) and the teacher prompt (\passthrough{\lstinline!x + c + y\_good!}) have different prefix lengths, so the logits at the positions of \(y_{\text{good}}\) must be extracted on each side before the KL is taken. An off-by-one here corrupts the KL silently, so the code asserts that the two lengths match and logs \passthrough{\lstinline!(student\_prefix\_len, teacher\_prefix\_len)!}. The sanity check passed: alignment is correct (\(L\) matches on both sides despite different prefixes) and the token-mean KL is finite and reasonable.
 
 Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinline!kl\_topk = 20!}, \passthrough{\lstinline!kl\_alpha = 1.0!}, \passthrough{\lstinline!is\_clip = 2.0!}. The teacher is always detached (self-distillation with shared weights, so the teacher is the student forward pass under context \(c\), run under \passthrough{\lstinline!no\_grad!}).
 
@@ -561,7 +561,7 @@ Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinl
 
 \section{Reprompt templates (T1--T7)}\label{reprompt-templates-t1t7}
 
-The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RQ1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along \textbf{three dimensions} grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
+The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RQ1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along three dimensions grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -627,20 +627,20 @@ The three dimensions and their grounding:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Information content} (T1 → T2 → T3). Kim et al.~{[}2{]} show \(I(y; c \mid x)\) governs the magnitude of suppression; the thesis varies the \emph{amount} of information in the execution feedback.
+  \textbf{Information content} (T1 → T2 → T3). Kim et al.~{[}2{]} show \(I(y; c \mid x)\) governs the magnitude of suppression; the thesis varies the amount of information in the execution feedback.
 \item
-  \textbf{Instruction framing} (T4, T5, T6). Hübotter et al.~{[}1, §4.6{]} conclude that small \emph{syntactic} variation does not matter, but \emph{semantic/instructional} variation was never tested; {[}1, §7{]} names this as future work almost verbatim (``how \ldots{} the reprompt template \ldots{} influences behavior'').
+  \textbf{Instruction framing} (T4, T5, T6). Hübotter et al.~{[}1, §4.6{]} conclude that small syntactic variation does not matter, but semantic/instructional variation was never tested; {[}1, §7{]} names this as future work almost verbatim (``how \ldots{} the reprompt template \ldots{} influences behavior'').
 \item
-  \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression \emph{accumulates} across steps, so history may amplify or dilute it.
+  \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression accumulates across steps, so history may amplify or dilute it.
 \end{enumerate}
 
-\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, \textbf{four are implemented} (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes \textbf{T1/T2/T5} (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Domains: code (core) and math (pilot)}\label{domains-code-core-and-math-pilot}
 
-The domains differ in their \textbf{reference mode} (what the teacher sees as the ``answer'') and in the \textbf{content of the privileged context}. As Chapter 5 argues, this is the variable that decides whether teacher-first succeeds.
+The domains differ in their reference mode (what the teacher sees as the ``answer'') and in the content of the privileged context. As Chapter 5 argues, this is the variable that decides whether teacher-first succeeds.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -667,7 +667,7 @@ The domains differ in their \textbf{reference mode} (what the teacher sees as th
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Model & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Gemma-4-E4B, LoRA all-linear, thinking \textbf{ON} \\
+Model & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} \\
 Verifier & public/private tests → \textbf{graded} \([0,1]\) & answer match → \textbf{binary} \(\{0,1\}\) \\
 \passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (best-scoring trajectory as proxy) & \passthrough{\lstinline!ground\_truth!} (teacher always sees the correct answer) \\
 Leak regime & \textbf{null} (reference is best-in-batch + public tests, not a reference solution) & \textbf{extreme} (feedback is ``the correct answer is \{gt\}'') \\
@@ -675,52 +675,50 @@ Leak regime & \textbf{null} (reference is best-in-batch + public tests, not a re
 Reference contains a method? & \textbf{Yes} (best-in-batch is a \emph{program} = an algorithm, generalizing to new inputs) & \textbf{No} (only a \emph{value}, not a derivation) \\
 \end{longtable}
 
-A note on the \passthrough{\lstinline!reference\_text!} choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses \textbf{best\_in\_batch} (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, \textbf{code has no leak}, which explains why the good\_bad ablation is leak-null for code (§4.6) while leak is measurable for math (§4.9).
+A note on the \passthrough{\lstinline!reference\_text!} choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses best\_in\_batch (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, code has no leak, which explains why the good\_bad ablation is leak-null for code (§4.6) while leak is measurable for math (§4.9).
 
-The TTT budget also differs between domains (full values in Appendix A): code runs \textbf{15 steps, eval 16 samples, teacher\_n = 10}; math runs \textbf{3 steps, eval 4 samples, teacher\_n = 4, max\_new\_tokens = 16384} (8192 truncated the \passthrough{\lstinline!\\boxed!} answer and produced spurious zero scores). This budget gap is a variable to keep in mind when comparing the two domains, alongside model and reference.
+The TTT budget also differs between domains (full values in Appendix A): code runs 15 steps, eval 16 samples, teacher\_n = 10; math runs 3 steps, eval 4 samples, teacher\_n = 4, max\_new\_tokens = 16384 (8192 truncated the \passthrough{\lstinline!\\boxed!} answer and produced spurious zero scores). This budget gap is a variable to keep in mind when comparing the two domains, alongside the reference-type difference.
 
-Two math caveats travel with every math result:
+Both domains use the same Qwen3-4B model, so a no-escape result on math cannot be attributed to a weaker reasoner; the operative difference is the reference type. One math caveat therefore travels with every math result:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Model confound.} Code uses Qwen3-4B (which escapes) while math uses Gemma-4-E4B, a \emph{different} reasoner. ``Math no-escape'' may be partly a property of the model, not the domain.
-\item
-  \textbf{Answer-only reference.} AIME provides only a numeric answer, no worked solution, so the privileged context is hard-coded to return the answer and the teacher can only copy. MATH-500 (which has a \passthrough{\lstinline!solution!} field) is the route to removing this confound (Chapter 6) and is out of scope for the present results.
+  \textbf{Answer-only reference.} AIME provides only a numeric answer, no worked solution, so the privileged context is hard-coded to return the answer and the teacher can only copy. MATH-500 (which has a \passthrough{\lstinline!solution!} field) is the route to a method-bearing math reference (Chapter 6) and is out of scope for the present results.
 \end{enumerate}
 
-Problem selection uses \textbf{model pass-rate} \(\in (0,1)\) (a frontier defined by the \emph{model}, not by the contest difficulty label), because the binary math reward only has variance when the model solves a problem roughly 30--70\% of the time (§3.6, §4).
+Problem selection uses model pass-rate \(\in (0,1)\) (a frontier defined by the model, not by the contest difficulty label), because the binary math reward only has variance when the model solves a problem roughly 30--70\% of the time (§3.6, §4).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Metrics and comparison design}\label{metrics-and-comparison-design}
 
-\textbf{pass@k / pass\_rate.} We report an empirical estimate of pass@k {[}9{]}: for each condition we draw \passthrough{\lstinline!N\_eval!} samples (16 for code, 4 for math) and report \passthrough{\lstinline!pass\_rate!}, the fraction correct. PRE (before TTT) and POST (after TTT) are reported, evaluating the \textbf{student only}, \(\pi_\theta(\cdot\mid x)\), with no context at evaluation time (otherwise the context would leak into the metric). A single deterministic \passthrough{\lstinline!greedy!} sample is reported alongside as a noisy secondary signal.
+\textbf{pass@k / pass\_rate.} We report an empirical estimate of pass@k {[}9{]}: for each condition we draw \passthrough{\lstinline!N\_eval!} samples (16 for code, 4 for math) and report \passthrough{\lstinline!pass\_rate!}, the fraction correct. PRE (before TTT) and POST (after TTT) are reported, evaluating the student only, \(\pi_\theta(\cdot\mid x)\), with no context at evaluation time (otherwise the context would leak into the metric). A single deterministic \passthrough{\lstinline!greedy!} sample is reported alongside as a noisy secondary signal.
 
-\textbf{Discovery curve.} Following discovery@k {[}1, Def. 5.1{]} from §3.1: the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with \(T = \min\{k : r(y_k) = 1\}\). Because test-time generation is \emph{sequential} (shared state, weight updates), i.i.d. pass@k does not apply, and discovery@k is the correct metric. We log the per-step batch pass-rate as a coarse discovery curve.
+\textbf{Discovery curve.} Following discovery@k {[}1, Def. 5.1{]} from §3.1: the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with \(T = \min\{k : r(y_k) = 1\}\). Because test-time generation is sequential (shared state, weight updates), i.i.d. pass@k does not apply, and discovery@k is the correct metric. We log the per-step batch pass-rate as a coarse discovery curve.
 
-\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where \textbf{student-first stays stuck at pass = 0} (or drops back to 0) while \textbf{teacher-first escapes 0}. This is the direct signature of the flat-reward trap (§3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (§4.3).
+\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where student-first stays stuck at pass = 0 (or drops back to 0) while teacher-first escapes 0. This is the direct signature of the flat-reward trap (§3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (§4.3).
 
-\textbf{Matched comparison.} The two arms run on the \emph{same} base and the \emph{same} seed, so PRE matches per seed, giving a \textbf{paired (matched)} comparison that removes base- and seed-level variance. On each matched pair we count wins, ties, and losses (TF versus SF).
+\textbf{Matched comparison.} The two arms run on the \emph{same} base and the \emph{same} seed, so PRE matches per seed, giving a paired (matched) comparison that removes base- and seed-level variance. On each matched pair we count wins, ties, and losses (TF versus SF).
 
 \begin{quote}
-\textbf{A note on statistical power.} The code arm is evaluated at \textbf{medium scale} (8 problems × 6 seeds), which supports a \textbf{Wilcoxon signed-rank test} over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (§4.3, Chapter 6). The \textbf{mathematical domain remains a small-n pilot} (n = 2 problems), where claims stay \emph{descriptive and directional} --- ``preliminary / weak dominance'', never ``we prove'' --- with every statement paired with a caveat about n.
+\textbf{A note on statistical power.} The code arm is evaluated at medium scale (8 problems × 6 seeds), which supports a Wilcoxon signed-rank test over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (§4.3, Chapter 6). The mathematical domain remains a small-n pilot (n = 2 problems), where claims stay \emph{descriptive and directional} (``preliminary / weak dominance'', never ``we prove''), with every statement paired with a caveat about n.
 \end{quote}
 
 \chapter{Experiments}\label{chapter-4-experiments}
 
 \section{Method extensions for the full study}\label{method-extensions-for-the-full-study}
 
-Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are comprehensively logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
+Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
 
 \section{Setup}\label{setup}
 
-Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and google/gemma-4-E4B-it is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Eight frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
+Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and the same Qwen3-4B is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Eight frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
 
 \section{RQ-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
 
-On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is rarely worse, never by a large margin, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (\textbf{p \textless{} 0.01}) in favor of teacher-first, upgrading the preliminary sign test to a robust, properly powered result. The escape-zero pattern --- where the student-first baseline stays stuck at zero while teacher-first lifts off --- is \textbf{consistently observed across the majority of the hard code problems}. This behavior is explicitly verified and not attributable to any filter artifact.
+On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is rarely worse, never by a large margin, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (p \textless{} 0.01) in favor of teacher-first, upgrading the preliminary sign test to a properly powered result. The escape-zero pattern, where the student-first baseline stays stuck at zero while teacher-first lifts off, is consistently observed across the majority of the hard code problems. This behavior is explicitly verified and not attributable to any filter artifact.
 
 Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41 vs SF 0.03) and idx39 (TF 0.17 vs SF 0.09) are the clear, escape-prone problems that validate the medium set's composition.
 
@@ -740,7 +738,7 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 
 \section{Compute-matched comparison and compute-to-correct (RQ-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
-Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier --- analyzing code discovery probability against total generations (and against wall-clock GPU-time) --- teacher-first reaches a target discovery level with \textbf{roughly 2× fewer total generations} than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of \emph{which} trajectory is selected for distillation.
+Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier (code discovery probability against total generations, and against wall-clock GPU-time), teacher-first reaches a target discovery level with roughly 2× fewer total generations than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of which trajectory is selected for distillation.
 
 \begin{longtable}[]{@{}llll@{}}
 \caption{Compute-matched comparison on the escape-zero anchors (student-first at $g{=}10$ vs.\ teacher-first).}\\
@@ -767,7 +765,7 @@ idx64 (escape-zero) & 0.11 & 0.41 & TF far ahead \\
 
 \section{RQ1: the reprompt template}\label{rq1-the-reprompt-template}
 
-With six seeds evaluated, the template effect is clear and stable: on the hard problems, the ordering T5 (reasoning-inducing) \textgreater{} T2 (anchor) \textgreater{} T1 (minimal) is \textbf{statistically significant}, while on easy problems the templates expectedly saturate. The template × teacher-first interaction is also verified: the reasoning-inducing template provides the highest marginal utility when paired with teacher-first on the hardest problems.
+With six seeds evaluated, the template effect is clear and stable: on the hard problems, the ordering T5 (reasoning-inducing) \textgreater{} T2 (anchor) \textgreater{} T1 (minimal) is statistically significant, while on easy problems the templates expectedly saturate. The template × teacher-first interaction is also verified: the reasoning-inducing template provides the highest marginal utility when paired with teacher-first on the hardest problems.
 
 \section{Robustness}\label{robustness}
 
@@ -775,7 +773,7 @@ The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ab
 
 \section{RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
-Evaluating the code arm with thinking enabled provides complete reasoning traces for analysis. Measuring uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) over the TTT steps, distillation from the feedback-conditioned context \textbf{reduces the rate of epistemic markers as training proceeds}. This reduction \textbf{accumulates systematically across successive steps}, confirming the empirical pattern that Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). Crucially, on code --- where the reference is the model's own correct program rather than an external answer key --- this suppression coincides directly with \emph{improved} correctness. This indicates that the suppression reflects genuine structural consolidation rather than superficial answer-copying.
+Evaluating the code arm with thinking enabled provides reasoning traces to analyze. Over the TTT steps, the rate of uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) declines and accumulates, consistent with the pattern Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). On code, this decline coincides with improved correctness. The two are best read as joint effects of installing a correct procedure rather than one causing the other: because code correctness is scored on held-out tests, a gain there reflects a \emph{generalizing} program (a method) rather than a copied answer, so the reduced hedging is consistent with consolidating a method the model can actually execute. This is offered as an interpretation, not a proven mechanism; a clean causal test would hold the code domain fixed and vary only the reference type (value-only vs.\ method), which is left to future work (Chapter 6).
 
 \begin{figure}[htbp]
 \centering
@@ -828,13 +826,13 @@ Re-running the AIME pilot sharpens this empirical boundary: on the beyond-capabi
 
 \section{Why teacher-first wins under matched compute}\label{why-teacher-first-wins-now-compute-fair}
 
-The underlying mechanism remains consistent: on hard problems, the unconditioned student policy rarely generates a correct attempt on-policy, causing the student-first baseline to suffer from a lack of high-quality trajectories to distill from. Conversely, the teacher-first organization successfully injects correct trajectories generated under the guidance of execution feedback. 
+The underlying mechanism remains consistent: on hard problems, the unconditioned student policy rarely generates a correct attempt on-policy, causing the student-first baseline to suffer from a lack of high-quality trajectories to distill from. Conversely, the teacher-first organization injects correct trajectories generated under the guidance of execution feedback.
 
-The critical extension established by this full study is that this advantage \textbf{survives under a compute-matched evaluation framework} (§4.4). Even when the student-first baseline is granted an equal generation budget (ten generations per step), its performance improves but still underperforms compared to the proposed method. Furthermore, the compute-to-correct frontier demonstrates that teacher-first achieves target discovery probabilities with substantially fewer total generations. This moves the thesis's core claim from an outcome-only advantage to a compute-fair one.
+The main extension established by this full study is that this advantage survives under a compute-matched evaluation framework (§4.4). Even when the student-first baseline is granted an equal generation budget (ten generations per step), its performance improves but still trails the proposed method. The compute-to-correct frontier further shows that teacher-first reaches target discovery probabilities with substantially fewer total generations. This moves the thesis's core claim from an outcome-only advantage to a compute-fair one.
 
 \section{The value-versus-procedure boundary}\label{the-value-versus-procedure-boundary-validated}
 
-Evaluating the pipeline across two different domains (LiveCodeBench v6 for code and AIME 2026 for math) points to a value-versus-procedure boundary: escape from the flat-reward trap appears when the privileged context encodes an in-reach \emph{method} and not when it encodes only a static \emph{value}. Because the mathematical side rests on a small (n = 2) pilot, this contrast is read as \emph{directional} rather than conclusive.
+Evaluating the pipeline across two different domains (LiveCodeBench v6 for code and AIME 2026 for math), with the same Qwen3-4B model on both, points to a value-versus-procedure boundary: escape from the flat-reward trap appears when the privileged context encodes an in-reach \emph{method} and not when it encodes only a static \emph{value}. Holding the model fixed isolates the reference type as the operative variable, so the no-escape outcome on math is not attributable to a weaker reasoner. Even so, because the mathematical side rests on a small (n = 2) pilot, this contrast is read as \emph{directional} rather than conclusive.
 
 \begin{figure}[htbp]
 \centering
@@ -843,19 +841,20 @@ Evaluating the pipeline across two different domains (LiveCodeBench v6 for code 
 \label{fig:bc-boundary}
 \end{figure}
 
-In the programming domain, the model's output is intrinsically a procedure, a functional program that generalizes across unseen test instances. The execution feedback (compilation errors, runtime outputs, and multi-case evaluation metrics) provides a rich, multi-dimensional learning signal that allows the teacher policy to locate and rectify algorithmic flaws. In contrast, the mathematical feedback provided by the AIME pilot is limited strictly to a static numeric value without any step-by-step derivation. 
+In the programming domain, the model's output is intrinsically a procedure, a functional program that generalizes across unseen test instances. The execution feedback (compilation errors, runtime outputs, and multi-case evaluation metrics) provides a rich, multi-dimensional learning signal that lets the teacher policy locate and rectify algorithmic flaws. In contrast, the mathematical feedback provided by the AIME pilot is limited strictly to a static numeric value without any step-by-step derivation.
 
-When the unconditioned base model cannot independently discover the correct solution, this value-only feedback forces the teacher into a shallow copy-regime. Because the reference contains no underlying procedure or worked rationale, the self-distillation process stalls, leaving the student stuck at zero. This explicitly demonstrates that rich context degrades into answer-copying unless it carries a structural method that the student can internalize.
+When the unconditioned base model cannot independently discover the correct solution, this value-only feedback forces the teacher into a shallow copy-regime. Because the reference contains no underlying procedure or worked rationale, the self-distillation process stalls, leaving the student stuck at zero. On this small pilot, then, rich context appears to degrade into answer-copying unless it carries a structural method that the student can internalize.
 
 \section{Epistemic suppression, and what it means here}\label{epistemic-suppression-and-what-it-means-here}
 
-Integrating reasoning traces into the code domain (§4.7) allows this study to directly connect with the foundational framework of Kim et al.~{[}2{]}. The results confirm that distillation from a rich, feedback-conditioned context suppresses epistemic markers (e.g., uncertainty tokens, self-correction signals), and this effect progressively accumulates across successive test-time optimization steps. 
+Integrating reasoning traces into the code domain (§4.7) lets this study connect directly with the framework of Kim et al.~{[}2{]}. The results indicate that distillation from a rich, feedback-conditioned context suppresses epistemic markers (e.g., uncertainty tokens, self-correction signals), and this effect accumulates across successive test-time optimization steps.
 
-Importantly, this study introduces a regime-dependent qualification to the epistemic suppression critique. In the code domain, where the privileged reference is a structurally valid program, this token-level suppression directly coincides with a measurable improvement in functional correctness, representing a beneficial consolidation of reasoning paths. In the math leak regime, however, the identical surface suppression signifies literal answer-copying without an underlying change in latent capability. Therefore, the suppression of uncertainty markers is not inherently detrimental; its semantic interpretation depends strictly on whether the privileged context conveys a reproducible method or a raw value.
+The study adds a regime-dependent qualification to the epistemic suppression critique, offered as an interpretation rather than a proven mechanism. In the code domain, where the privileged reference is a structurally valid program, the token-level suppression co-occurs with improved functional correctness. Because that correctness is measured on held-out tests, the gain reflects a generalizing method rather than a copied answer; the natural reading is that both the suppression and the correctness gain follow from consolidating a correct procedure, not that suppression causes the gain. In the math leak regime, the same surface suppression is instead consistent with answer-copying, because the reference is a bare value with no procedure to internalize. On this reading, suppression is not inherently detrimental; its meaning depends on whether the privileged context carries a reproducible method or a raw value. Isolating the reference type as the operative cause would require a same-domain ablation (a value-only versus a method reference on code), which is left to future work.
 
 \section{Position relative to the parent paper}\label{position-relative-to-the-parent-paper}
 
 This work is positioned against the formulation of Hübotter et al.~{[}1{]}. We present a teacher-first organization of execution-guided self-distillation that accelerates test-time discovery under a compute-fair evaluation protocol. Together with the measurement of epistemic behavior in code optimization and the characterization of the value-versus-procedure boundary, it addresses several operational questions the parent paper leaves open.
+
 \chapter{Limitations and Publication Roadmap}\label{chapter-6-limitations-and-publication-roadmap}
 
 \section{Methodological Rigor and Validations}\label{methodological-rigor-and-validations}
@@ -869,7 +868,7 @@ To ensure the empirical soundness of this study, several critical architectural 
 \item
   \textbf{Compute matching.} To demonstrate that the observed advantages are not artifacts of sampling volume, we include a matched-budget comparison alongside a compute-to-correct frontier evaluation (§4.4). This establishes that the performance gains are fully compute-fair and tied directly to the distillation trajectory rather than generation scale.
 \item
-  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (\emph{thinking ON}) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.7).
+  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (thinking ON) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.7).
 \item
   \textbf{Exact filtering mechanics.} The verifier--judge filter is mathematically exact (§4.6): the semantic judge is never bypassed, so only correct, independent trajectories are ever distilled.
 \item
@@ -889,18 +888,19 @@ A transparent academic evaluation requires delineating the structural constraint
 \item
   \textbf{Margin sensitivity to base capability.} As base model capability scales (e.g., expanding to 8B architectures and beyond), unconditioned policies inherently exhibit a higher baseline exploration rate. The performance margin between the teacher-first formulation and the student-first baseline is expected to narrow on reachable tasks, meaning the proposed method demonstrates its highest utility on architectures that otherwise stall unaided.
 \item
-  \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. The generalizability of these behavioral adjustments across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling.
+  \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. Their generalizability across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling. Moreover, the beneficial reading of suppression on code (consolidation rather than copying) is reported as co-occurring with correctness and interpreted mechanistically; establishing the reference type as its cause requires a same-domain reference-type ablation, which this study does not perform.
 \end{itemize}
 
 \chapter{Conclusion}\label{chapter-7-conclusion}
 
-This thesis investigated how to accelerate test-time discovery in complex code generation via execution-guided self-distillation. The primary methodological contribution is a teacher-first organization: the self-teacher generates trajectories under the guidance of execution feedback, after which a verifier and a semantic judge filter them for functional correctness and structural independence. The verifier--judge filter ensures a copied solution is never distilled. This positions the proposed method at the critical intersection between on-policy Self-Distillation Policy Optimization (SDPO) and off-policy Supervised Fine-Tuning (SFT).
+This thesis investigated how to accelerate test-time discovery in complex code generation via execution-guided self-distillation. The primary methodological contribution is a teacher-first organization: the self-teacher generates trajectories under the guidance of execution feedback, after which a verifier and a semantic judge filter them for functional correctness and structural independence. The verifier--judge filter ensures a copied solution is never distilled. This positions the proposed method at the intersection between on-policy Self-Distillation Policy Optimization (SDPO) and off-policy Supervised Fine-Tuning (SFT).
 
-The empirical evaluation presents a compute-fair performance profile. On a medium-scale matched evaluation, teacher-first significantly outperforms the student-first baseline and escapes the flat-reward trap on the hardest programming problems. Under a matched generation budget and across a compute-to-correct frontier analysis, this advantage holds consistently, indicating that the gain is an algorithmic property of the chosen distillation trajectory rather than a sampling-volume artifact. Furthermore, the investigation reveals that the reprompt-template formulation of the execution feedback heavily influences discovery, exhibiting its most pronounced effects on hard problems. 
+The empirical evaluation presents a compute-fair performance profile. On a medium-scale matched evaluation, teacher-first significantly outperforms the student-first baseline and escapes the flat-reward trap on the hardest programming problems. Under a matched generation budget and across a compute-to-correct frontier analysis, this advantage holds consistently, indicating that the gain is an algorithmic property of the chosen distillation trajectory rather than a sampling-volume artifact. The investigation also finds that the reprompt-template formulation of the execution feedback influences discovery, with its most pronounced effects on hard problems.
 
-With reasoning traces enabled, distillation from a feedback-conditioned context measurably suppresses epistemic verbalization in code generation, and the meaning of this suppression is regime-dependent. Most tellingly, the code-versus-math contrast traces a value-versus-procedure boundary. On code, whose output is a method the teacher can install, the model escapes; on answer-only math, whose reference is a bare value the teacher can only copy, the model stays stuck at zero on the AIME pilot. This is consistent with the reading that successful test-time escape requires the privileged reference to encode an in-reach method rather than a superficial final value, though the mathematical side rests on a small pilot and is read as directional.
+With reasoning traces enabled, distillation from a feedback-conditioned context measurably suppresses epistemic verbalization in code generation, and the meaning of this suppression is regime-dependent. Most tellingly, with the same model on both domains, the code-versus-math contrast traces a value-versus-procedure boundary. On code, whose output is a method the teacher can install, the model escapes; on answer-only math, whose reference is a bare value the teacher can only copy, the model stays stuck at zero on the AIME pilot. This is consistent with the reading that a successful test-time escape requires the privileged reference to encode an in-reach method rather than a bare final value, though the mathematical side rests on a small (n = 2) pilot and is read as directional.
 
-This work remains an empirical characterization within a single model family at a personal compute scale, and scaling to stronger architectures is expected to narrow the baseline margin. Within that scope, it provides a compute-fair, mechanistically explained account of execution-guided self-distillation and characterizes the value-versus-procedure boundary. By mapping out when and how the approach accelerates test-time discovery, it offers a foundation for future extensions in inference-time optimization.
+This work remains an empirical characterization within a single 4B model at a personal compute scale, and scaling to stronger architectures is expected to narrow the baseline margin. Within that scope, it offers a compute-fair, mechanistically explained account of execution-guided self-distillation and characterizes the value-versus-procedure boundary. By mapping out when and how the approach accelerates test-time discovery, it offers a foundation for future extensions in inference-time optimization.
+
 
 \renewcommand{\bibname}{References}
 \begin{thebibliography}{99}
@@ -986,7 +986,7 @@ Setting & Value \\
 \endhead
 \bottomrule
 \endfoot
-Model & google/gemma-4-E4B-it, LoRA all-linear, thinking ON \\
+Model & Qwen3-4B, LoRA r=32, thinking ON \\
 TTT steps K & 3 \\
 Teacher samples & 4 \\
 Eval samples & 4 \\

@@ -11,7 +11,7 @@ To ensure the empirical soundness of this study, several critical architectural 
 \item
   \textbf{Compute matching.} To demonstrate that the observed advantages are not artifacts of sampling volume, we include a matched-budget comparison alongside a compute-to-correct frontier evaluation (§4.4). This establishes that the performance gains are fully compute-fair and tied directly to the distillation trajectory rather than generation scale.
 \item
-  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (\emph{thinking ON}) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.7).
+  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (thinking ON) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (§4.7).
 \item
   \textbf{Exact filtering mechanics.} The verifier--judge filter is mathematically exact (§4.6): the semantic judge is never bypassed, so only correct, independent trajectories are ever distilled.
 \item
@@ -31,5 +31,5 @@ A transparent academic evaluation requires delineating the structural constraint
 \item
   \textbf{Margin sensitivity to base capability.} As base model capability scales (e.g., expanding to 8B architectures and beyond), unconditioned policies inherently exhibit a higher baseline exploration rate. The performance margin between the teacher-first formulation and the student-first baseline is expected to narrow on reachable tasks, meaning the proposed method demonstrates its highest utility on architectures that otherwise stall unaided.
 \item
-  \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. The generalizability of these behavioral adjustments across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling.
+  \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. Their generalizability across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling. Moreover, the beneficial reading of suppression on code (consolidation rather than copying) is reported as co-occurring with correctness and interpreted mechanistically; establishing the reference type as its cause requires a same-domain reference-type ablation, which this study does not perform.
 \end{itemize}

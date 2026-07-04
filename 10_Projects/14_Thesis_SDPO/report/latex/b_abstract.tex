@@ -17,9 +17,9 @@ student-first stuck at zero. A compute-matched comparison shows the
 advantage is not a sampling-volume artifact: at equal generation budget
 teacher-first still wins, and reaches a given discovery probability with
 fewer total generations. With thinking enabled, we measure epistemic
-verbalization at test time and find that distillation from
-answer-bearing context suppresses uncertainty markers, connecting the
-method to the degradation Kim et al.~describe. Finally, evaluating the
+verbalization at test time and find that distillation from a
+feedback-conditioned context suppresses uncertainty markers, connecting
+the method to the degradation Kim et al.~describe. Finally, evaluating the
 pipeline on mathematical reasoning (AIME 2026) exposes a rigid domain
 boundary: when feedback is limited strictly to a static numeric value
 rather than an algorithmic procedure, the teacher policy degrades into

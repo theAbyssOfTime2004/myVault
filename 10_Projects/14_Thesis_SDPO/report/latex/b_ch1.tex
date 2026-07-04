@@ -1,6 +1,6 @@
 \chapter{Introduction}\label{chapter-1-introduction}
 
-This thesis studies how to \textbf{accelerate test-time discovery in complex code generation via execution-guided self-distillation}. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
+This thesis studies how to accelerate test-time discovery in complex code generation via execution-guided self-distillation. The core question is practical: when a language model is given a single hard programming problem and a budget to improve itself at inference time, what is the most effective way to turn execution feedback into a better solution, and when does that strategy work?
 
 \section{Background}\label{background}
 
@@ -8,7 +8,7 @@ Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a co
 
 \section{Problem}\label{problem}
 
-The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: \emph{how the execution feedback is organized into a learning signal} (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and \emph{how the execution feedback is formulated} into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
+The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: how the execution feedback is organized into a learning signal (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and how the execution feedback is formulated into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
 
 \section{Research questions}\label{research-questions}
 
@@ -38,9 +38,9 @@ All four research questions are systematically evaluated and addressed throughou
 \item
   \textbf{A reprompt-template effect}, strongest on hard problems, where a reasoning-inducing template orders above the anchor, which orders above a minimal one (§4.5).
 \item
-  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from answer-bearing context suppresses uncertainty markers, accumulating across steps (§4.7).
+  \textbf{A measured epistemic-suppression result on code} (thinking enabled): distillation from a feedback-conditioned context suppresses uncertainty markers, accumulating across steps (§4.7).
 \item
-  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the paradigm: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.8, Chapter 5).
+  \textbf{A characterized value-versus-procedure domain boundary.} By demonstrating that the pipeline falls into an inescapable zero-reward trap on AIME 2026, we empirically isolate a fundamental limit of the approach: self-distillation requires a procedure-bearing learning signal (like dense code test cases) to internalize methods, and stalls when restricted to static, value-only references (§4.8, Chapter 5).
 \end{enumerate}
 
 \section{Scope}\label{scope}
