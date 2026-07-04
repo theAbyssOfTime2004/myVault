@@ -1,6 +1,6 @@
 \chapter{Method}\label{chapter-3-method}
 
-This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RQ1).
+This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RO1).
 
 Domain scope is asymmetric by design. Code generation is the core (LiveCodeBench v6 {[}6{]}); math is a pilot and a contrast (AIME 2026 {[}10{]}), used to characterize the boundary of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (§3.5, Chapter 6).
 
@@ -231,7 +231,7 @@ This is the computational core, shared by both arms; only the target trajectory 
 
 Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), the optimizer raises that logit. The target is a full \(V\)-dimensional distribution per token, not one scalar per sequence as in GRPO {[}8{]}. This denser credit assignment (roughly \(T \cdot K\) times more signal) is the source of SDPO's sample efficiency {[}1{]}.
 
-\textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RQ2 question (Chapter 6).
+\textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RO2 question (Chapter 6).
 
 \textbf{Top-K approximation.} Full-vocabulary KL is too memory-heavy at \(V \approx 150\text{k}\), so we use the teacher's top-20 logits plus one tail bucket; the student is projected onto the same K indices, and KL is taken over the resulting \((K{+}1)\)-dimensional distribution {[}1, §2.2{]}.
 
@@ -245,7 +245,7 @@ Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinl
 
 \section{Reprompt templates (T1--T7)}\label{reprompt-templates-t1t7}
 
-The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RQ1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along three dimensions grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
+The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RO1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along three dimensions grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -318,7 +318,7 @@ The three dimensions and their grounding:
   \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression accumulates across steps, so history may amplify or dilute it.
 \end{enumerate}
 
-\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RO1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

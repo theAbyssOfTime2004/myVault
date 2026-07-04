@@ -152,21 +152,21 @@ Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a co
 
 The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: how the execution feedback is organized into a learning signal (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and how the execution feedback is formulated into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
 
-\section{Research questions}\label{research-questions}
+\section{Research objectives}\label{research-questions}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{RQ-method.} Does a teacher-first organization beat the student-first baseline at discovering solutions to hard code problems, and does the advantage survive at matched compute?
+  \textbf{RO-method.} To establish whether a teacher-first organization beats the student-first baseline at discovering solutions to hard code problems, and whether the advantage survives at matched compute.
 \item
-  \textbf{RQ1.} Does the reprompt-template formulation of the execution feedback affect discovery, and in which regime?
+  \textbf{RO1.} To determine whether the reprompt-template formulation of the execution feedback affects discovery, and in which regime.
 \item
-  \textbf{RQ2.} Does self-distillation from rich context suppress epistemic verbalization at test time on code?
+  \textbf{RO2.} To measure whether self-distillation from rich context suppresses epistemic verbalization at test time on code.
 \item
-  \textbf{RQ3.} What are the structural and domain limitations of execution-guided self-distillation when transitioning from procedural code to value-only mathematical contexts?
+  \textbf{RO3.} To characterize the structural and domain limitations of execution-guided self-distillation when transitioning from procedural code to value-only mathematical contexts.
 \end{itemize}
 
-All four research questions are systematically evaluated and addressed throughout the empirical framework of this thesis.
+All four research objectives are systematically evaluated and addressed throughout the empirical framework of this thesis.
 
 \section{Contributions}\label{contributions}
 
@@ -312,11 +312,11 @@ Shenfeld et al.~{[}3{]} propose self-distillation fine-tuning (SDFT) for continu
 
 \section{The gap this thesis addresses}\label{the-gap-this-thesis-addresses}
 
-The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RQ-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RQ1). Third, a characterization of when the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
+The parent paper studies a student-first, on-policy SDPO, focuses its analysis on the train-time regimes, and reaches the test-time setting without studying the reprompt template there or measuring epistemic behavior. Kim et al.~characterize epistemic suppression but not in the test-time code-discovery setting. Shenfeld et al.~minimize change for continual learning rather than maximize discovery on a single hard problem. The gap, then, is threefold. First, a teacher-first organization of execution-guided self-distillation that distills filtered teacher generations, positioned between SDPO and SFT, and the question of whether it accelerates test-time discovery (RO-method). Second, the effect of the reprompt-template formulation on that discovery, the open question the parent paper names (RO1). Third, a characterization of when the approach helps, framed as the value-versus-procedure boundary that the code-versus-math contrast exposes. The remainder of the thesis addresses these in turn.
 
 \chapter{Method}\label{chapter-3-method}
 
-This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RQ1).
+This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RO1).
 
 Domain scope is asymmetric by design. Code generation is the core (LiveCodeBench v6 {[}6{]}); math is a pilot and a contrast (AIME 2026 {[}10{]}), used to characterize the boundary of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (§3.5, Chapter 6).
 
@@ -547,7 +547,7 @@ This is the computational core, shared by both arms; only the target trajectory 
 
 Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), the optimizer raises that logit. The target is a full \(V\)-dimensional distribution per token, not one scalar per sequence as in GRPO {[}8{]}. This denser credit assignment (roughly \(T \cdot K\) times more signal) is the source of SDPO's sample efficiency {[}1{]}.
 
-\textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RQ2 question (Chapter 6).
+\textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RO2 question (Chapter 6).
 
 \textbf{Top-K approximation.} Full-vocabulary KL is too memory-heavy at \(V \approx 150\text{k}\), so we use the teacher's top-20 logits plus one tail bucket; the student is projected onto the same K indices, and KL is taken over the resulting \((K{+}1)\)-dimensional distribution {[}1, §2.2{]}.
 
@@ -561,7 +561,7 @@ Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinl
 
 \section{Reprompt templates (T1--T7)}\label{reprompt-templates-t1t7}
 
-The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RQ1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along three dimensions grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
+The reprompt template determines the content of \(c\) that the teacher sees, which directly changes \(\pi_T\) and so the direction of the distillation gradient. It is the central variable of RO1. To make the choice defensible (the obvious reviewer question is ``why these seven?''), we do not justify each template in isolation. Instead we organize the design space along three dimensions grounded in prior work {[}1, 2{]}, and sample T1--T7 across them.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -634,7 +634,7 @@ The three dimensions and their grounding:
   \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression accumulates across steps, so history may amplify or dilute it.
 \end{enumerate}
 
-\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RQ1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RO1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -710,13 +710,13 @@ Problem selection uses model pass-rate \(\in (0,1)\) (a frontier defined by the 
 
 \section{Method extensions for the full study}\label{method-extensions-for-the-full-study}
 
-Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RQ2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
+Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RO2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
 
 \section{Setup}\label{setup}
 
 Qwen3-4B with LoRA is evaluated on LiveCodeBench v6 (code), and the same Qwen3-4B is evaluated on the AIME 2026 pilot (math). Code arm thinking ON. Per problem: reset to base, K = 15 TTT steps, evaluate the student PRE and POST. Eight frontier code problems (selected by model pass-rate) are tested across six seeds. Full hyperparameters are detailed in Appendix A.
 
-\section{RQ-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
+\section{RO-method: teacher-first vs student-first}\label{rq-method-teacher-first-vs-student-first}
 
 On the medium matched evaluation set for code, teacher-first performs at least as well as student-first on the large majority of seed-problem pairs and is rarely worse, never by a large margin, demonstrating the strongest margins on the hardest problems. A Wilcoxon signed-rank test over the paired POST pass-rates yields a statistically significant improvement (p \textless{} 0.01) in favor of teacher-first, upgrading the preliminary sign test to a properly powered result. The escape-zero pattern, where the student-first baseline stays stuck at zero while teacher-first lifts off, is consistently observed across the majority of the hard code problems. This behavior is explicitly verified and not attributable to any filter artifact.
 
@@ -725,7 +725,7 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\linewidth]{bc_fig1_main.pdf}
-\caption{Main results (RQ-method). Mean POST pass@16 of teacher-first versus student-first on the hard problems, over six seeds; error bars are one standard deviation. Teacher-first is higher and more stable on every problem; the Wilcoxon signed-rank test over the paired POST pass-rates gives $p<0.01$.}
+\caption{Main results (RO-method). Mean POST pass@16 of teacher-first versus student-first on the hard problems, over six seeds; error bars are one standard deviation. Teacher-first is higher and more stable on every problem; the Wilcoxon signed-rank test over the paired POST pass-rates gives $p<0.01$.}
 \label{fig:bc-main}
 \end{figure}
 
@@ -736,7 +736,7 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 \label{fig:bc-discovery}
 \end{figure}
 
-\section{Compute-matched comparison and compute-to-correct (RQ-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
+\section{Compute-matched comparison and compute-to-correct (RO-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier (code discovery probability against total generations, and against wall-clock GPU-time), teacher-first reaches a target discovery level with roughly 2× fewer total generations than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of which trajectory is selected for distillation.
 
@@ -759,11 +759,11 @@ idx64 (escape-zero) & 0.11 & 0.41 & TF far ahead \\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{bc_fig3_ctc.pdf}
-\caption{Compute-to-correct frontier (RQ-method). Discovery probability against total generations (log scale) for teacher-first, compute-matched student-first ($g{=}10$), and best-of-$k$. Teacher-first reaches a given discovery level with roughly half the generations, showing the advantage is not a sampling-volume artifact.}
+\caption{Compute-to-correct frontier (RO-method). Discovery probability against total generations (log scale) for teacher-first, compute-matched student-first ($g{=}10$), and best-of-$k$. Teacher-first reaches a given discovery level with roughly half the generations, showing the advantage is not a sampling-volume artifact.}
 \label{fig:bc-ctc}
 \end{figure}
 
-\section{RQ1: the reprompt template}\label{rq1-the-reprompt-template}
+\section{RO1: the reprompt template}\label{rq1-the-reprompt-template}
 
 With six seeds evaluated, the template effect is clear and stable: on the hard problems, the ordering T5 (reasoning-inducing) \textgreater{} T2 (anchor) \textgreater{} T1 (minimal) is statistically significant, while on easy problems the templates expectedly saturate. The template × teacher-first interaction is also verified: the reasoning-inducing template provides the highest marginal utility when paired with teacher-first on the hardest problems.
 
@@ -771,18 +771,18 @@ With six seeds evaluated, the template effect is clear and stable: on the hard p
 
 The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ablations are validated at the larger scale. The leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance.
 
-\section{RQ2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
+\section{RO2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
 Evaluating the code arm with thinking enabled provides reasoning traces to analyze. Over the TTT steps, the rate of uncertainty markers (e.g.~``wait'', ``let me reconsider'', hedging) declines and accumulates, consistent with the pattern Kim et al.~{[}2{]} tie to high \(I(y;c\mid x)\). On code, this decline coincides with improved correctness. The two are best read as joint effects of installing a correct procedure rather than one causing the other: because code correctness is scored on held-out tests, a gain there reflects a \emph{generalizing} program (a method) rather than a copied answer, so the reduced hedging is consistent with consolidating a method the model can actually execute. This is offered as an interpretation, not a proven mechanism; a clean causal test would hold the code domain fixed and vary only the reference type (value-only vs.\ method), which is left to future work (Chapter 6).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{bc_fig4_epistemic.pdf}
-\caption{Epistemic suppression (RQ2). Frequency of uncertainty markers per response across the test-time steps on code (thinking ON). The downward trend accumulates systematically across successive steps, the quantitative form of the suppression Kim et al.\ [2] describe.}
+\caption{Epistemic suppression (RO2). Frequency of uncertainty markers per response across the test-time steps on code (thinking ON). The downward trend accumulates systematically across successive steps, the quantitative form of the suppression Kim et al.\ [2] describe.}
 \label{fig:bc-epistemic}
 \end{figure}
 
-\section{The Domain Boundary (RQ3): Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
+\section{The Domain Boundary (RO3): Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
 
 In contrast to the successful lift-off observed in the coding domain, the mathematical evaluation on the AIME 2026 dataset exposes a hard performance boundary, with the model failing to escape the zero-reward state. This divergence isolates a fundamental bottleneck in the execution-guided pipeline. Unlike code generation, where the target output is an algorithmic procedure validated through dense multi-case test outputs, the AIME dataset provides only a single static numeric value as feedback, without any step-by-step derivation or worked solutions. 
 
@@ -960,7 +960,7 @@ Baseline generations (SF) & 4 \\
 Teacher temperature & \textasciitilde1.0 \\
 Eval samples & 16 (student-only, PRE and POST) \\
 Seeds & 0, 1, 2, 3, 4, 5 (matched PRE per seed) \\
-Template & T2 (anchor) for the main comparison; T1/T2/T5 for RQ1 \\
+Template & T2 (anchor) for the main comparison; T1/T2/T5 for RO1 \\
 KL top-K & 20 \\
 KL direction & 1.0 (reverse KL) \\
 Importance-sampling clip & 2.0 \\
@@ -1357,10 +1357,10 @@ mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
 The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies (§6.2).
 \end{quote}
 
-\section{RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
+\section{RO1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
 \begin{longtable}{lll}
-\caption{RQ1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
+\caption{RO1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
 \toprule
 Template & idx12 (easy) & idx39 (hard) \\
 \midrule

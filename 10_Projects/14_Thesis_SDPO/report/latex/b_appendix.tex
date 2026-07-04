@@ -22,7 +22,7 @@ Baseline generations (SF) & 4 \\
 Teacher temperature & \textasciitilde1.0 \\
 Eval samples & 16 (student-only, PRE and POST) \\
 Seeds & 0, 1, 2, 3, 4, 5 (matched PRE per seed) \\
-Template & T2 (anchor) for the main comparison; T1/T2/T5 for RQ1 \\
+Template & T2 (anchor) for the main comparison; T1/T2/T5 for RO1 \\
 KL top-K & 20 \\
 KL direction & 1.0 (reverse KL) \\
 Importance-sampling clip & 2.0 \\
@@ -419,10 +419,10 @@ mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
 The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies (§6.2).
 \end{quote}
 
-\section{RQ1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
+\section{RO1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
 \begin{longtable}{lll}
-\caption{RQ1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
+\caption{RO1 reprompt-template comparison (SF arm, 6 seeds), POST pass@16.}\\
 \toprule
 Template & idx12 (easy) & idx39 (hard) \\
 \midrule

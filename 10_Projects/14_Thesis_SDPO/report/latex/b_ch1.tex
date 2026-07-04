@@ -10,21 +10,21 @@ Reinforcement learning with verifiable rewards (RLVR), with GRPO {[}8{]} as a co
 
 The setting is test-time training: one hard problem, a verifiable reward, a short budget of self-improvement steps, then reset. Two design choices govern discovery: how the execution feedback is organized into a learning signal (learn from the student's failed attempt, or from a correct attempt produced under feedback and filtered for independence), and how the execution feedback is formulated into the reprompt the self-teacher sees {[}1, §7{]}. We take execution feedback as the privileged context, hence \emph{execution-guided}, and study both choices with the goal of accelerating discovery.
 
-\section{Research questions}\label{research-questions}
+\section{Research objectives}\label{research-questions}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{RQ-method.} Does a teacher-first organization beat the student-first baseline at discovering solutions to hard code problems, and does the advantage survive at matched compute?
+  \textbf{RO-method.} To establish whether a teacher-first organization beats the student-first baseline at discovering solutions to hard code problems, and whether the advantage survives at matched compute.
 \item
-  \textbf{RQ1.} Does the reprompt-template formulation of the execution feedback affect discovery, and in which regime?
+  \textbf{RO1.} To determine whether the reprompt-template formulation of the execution feedback affects discovery, and in which regime.
 \item
-  \textbf{RQ2.} Does self-distillation from rich context suppress epistemic verbalization at test time on code?
+  \textbf{RO2.} To measure whether self-distillation from rich context suppresses epistemic verbalization at test time on code.
 \item
-  \textbf{RQ3.} What are the structural and domain limitations of execution-guided self-distillation when transitioning from procedural code to value-only mathematical contexts?
+  \textbf{RO3.} To characterize the structural and domain limitations of execution-guided self-distillation when transitioning from procedural code to value-only mathematical contexts.
 \end{itemize}
 
-All four research questions are systematically evaluated and addressed throughout the empirical framework of this thesis.
+All four research objectives are systematically evaluated and addressed throughout the empirical framework of this thesis.
 
 \section{Contributions}\label{contributions}
 
