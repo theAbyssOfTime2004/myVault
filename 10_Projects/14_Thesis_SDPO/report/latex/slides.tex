@@ -13,8 +13,8 @@
 
 \title[Execution-Guided Self-Distillation]{Accelerating Test-Time Discovery in Complex Code Generation\\via Execution-Guided Self-Distillation}
 \author[Mai Phong \DJ\u{a}ng]{Mai Phong \DJ\u{a}ng}
-\institute[VNUHCM-US]{VNUHCM University of Science \\ \small Supervisor: Ng\^{o} Minh M\~{\^{a}}n}
-\date{2026}
+\institute[VNUHCM-US]{VNUHCM University of Science \\ \small Supervisor: Dr.\ Ng\^{o} Minh M\~{\^{a}}n}
+\date{July 2026}
 
 \begin{document}
 
@@ -82,19 +82,19 @@
 \end{frame}
 
 % 6
-\begin{frame}{Research questions}
+\begin{frame}{Research objectives}
 \begin{itemize}
-  \item[\textbf{RQ-method}] Does teacher-first beat student-first at discovering hard code solutions --- and does it survive at \emph{matched compute}?
-  \item[\textbf{RQ1}] Does the \emph{reprompt-template} formulation of the feedback affect discovery?
-  \item[\textbf{RQ2}] Does distillation from rich context \emph{suppress epistemic verbalization} on code?
-  \item[\textbf{RQ3}] What are the \emph{structural \& domain limitations} going from procedural code to value-only math?
+  \item[\textbf{RO-method}] Establish whether teacher-first beats student-first at discovering hard code solutions --- and whether it holds at \emph{matched compute}.
+  \item[\textbf{RO1}] Determine whether the \emph{reprompt-template} formulation of the feedback affects discovery.
+  \item[\textbf{RO2}] Measure whether distillation from rich context \emph{suppresses epistemic verbalization} on code.
+  \item[\textbf{RO3}] Characterize the \emph{structural \& domain limitations} going from procedural code to value-only math.
 \end{itemize}
 \end{frame}
 
 % 7
 \begin{frame}{Setup}
 \begin{itemize}
-  \item Model: \textbf{Qwen3-4B} (LoRA), thinking ON; LiveCodeBench v6 (code), AIME 2026 (math pilot).
+  \item Model: \textbf{Qwen3-4B} (LoRA), thinking ON --- the \emph{same} model on both code (LiveCodeBench v6) and math (AIME 2026 pilot).
   \item Per problem: reset to base, \textbf{15 TTT steps}, evaluate student PRE vs POST.
   \item \textbf{8 frontier code problems $\times$ 6 seeds} (medium scale) $\Rightarrow$ Wilcoxon signed-rank test.
   \item Metrics: pass@16, discovery@k, total generations + GPU-time.
@@ -102,7 +102,7 @@
 \end{frame}
 
 % 8
-\begin{frame}{RQ-method: teacher-first wins}
+\begin{frame}{RO-method: teacher-first wins}
 \begin{columns}
 \column{0.6\textwidth}
 \centering\includegraphics[width=\linewidth]{../figures/bc_fig1_main.pdf}
@@ -110,7 +110,7 @@
 \begin{itemize}
   \item TF $>$ SF on every problem (mean), largest margins on the hardest --- \textbf{39 / 8 / 1} over 48 seed-pairs.
   \item \alert{Wilcoxon $p<0.01$} (8 problems $\times$ 6 seeds) --- not a crude sign test.
-  \item \textbf{RQ1:} on hard problems, template order \textbf{T5 $>$ T2 $>$ T1} (reasoning-inducing best).
+  \item \textbf{RO1:} on hard problems, template order \textbf{T5 $>$ T2 $>$ T1} (reasoning-inducing best).
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -130,7 +130,7 @@
 \end{frame}
 
 % 10
-\begin{frame}{Compute-fair: not just more sampling (RQ-method)}
+\begin{frame}{Compute-fair: not just more sampling (RO-method)}
 \begin{columns}
 \column{0.58\textwidth}
 \centering\includegraphics[width=\linewidth]{../figures/bc_fig3_ctc.pdf}
@@ -144,29 +144,29 @@
 \end{frame}
 
 % 11
-\begin{frame}{RQ2: epistemic suppression on code}
+\begin{frame}{RO2: epistemic verbalization on code}
 \begin{columns}
 \column{0.58\textwidth}
 \centering\includegraphics[width=\linewidth]{../figures/bc_fig4_epistemic.pdf}
 \column{0.42\textwidth}
 \begin{itemize}
   \item Uncertainty markers (``wait'', ``let me reconsider'') \textbf{decline} across steps, accumulating.
-  \item Connects to Kim et al.: high $I(y;c\mid x)\Rightarrow$ suppression.
-  \item \emph{On code} this coincides with \alert{improved} correctness --- consolidation, not answer-copying.
+  \item Consistent with Kim et al.: high $I(y;c\mid x)\Rightarrow$ suppression.
+  \item \emph{On code} it \alert{co-occurs} with improved correctness --- read as consolidation (a \emph{hypothesis}; ref-type ablation is future work).
 \end{itemize}
 \end{columns}
 \end{frame}
 
 % 12
-\begin{frame}{RQ3: value vs.\ procedure --- when it works}
+\begin{frame}{RO3: value vs.\ procedure --- when it works}
 \begin{columns}
 \column{0.58\textwidth}
 \centering\includegraphics[width=\linewidth]{../figures/bc_fig5_boundary.pdf}
 \column{0.42\textwidth}
 \begin{itemize}
   \item Code output \emph{is} a method (a program that generalizes) $\Rightarrow$ distillation installs a procedure $\Rightarrow$ \textbf{escape}.
-  \item Answer-only math output is a value $\Rightarrow$ the teacher can only copy $\Rightarrow$ \textbf{no escape}.
-  \item Escape needs an \alert{in-reach method}, not merely a correct value.
+  \item Answer-only math is a value $\Rightarrow$ teacher can only copy $\Rightarrow$ \textbf{no escape}.
+  \item \emph{Same} Qwen3-4B on both $\Rightarrow$ not a weaker model; reference type is the \emph{primary} difference (budget also differs) --- $n{=}2$ pilot, read as \alert{directional}.
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -175,31 +175,31 @@
 \begin{frame}{Contributions}
 \begin{enumerate}
   \item A \textbf{teacher-first} organization of execution-guided self-distillation (clean filter, never distils a copy).
-  \item Teacher-first \textbf{significantly accelerates discovery} and \textbf{escapes the flat-reward trap} --- compute-fair (RQ-method).
-  \item A \textbf{reprompt-template effect}, strongest on hard problems (RQ1).
-  \item A measured \textbf{epistemic-suppression} result on code (RQ2).
+  \item Teacher-first \textbf{significantly accelerates discovery} and \textbf{escapes the flat-reward trap} --- compute-fair (RO-method).
+  \item A \textbf{reprompt-template effect}, strongest on hard problems (RO1).
+  \item A measured \textbf{epistemic-suppression} result on code (RO2).
   \item A \textbf{value-versus-procedure boundary} characterizing \emph{when} the method helps.
 \end{enumerate}
 \end{frame}
 
 % 14
-\begin{frame}{Limitations \& publication roadmap}
+\begin{frame}{Limitations \& future directions}
 \textbf{Honest bounds (\S6.2):}
 \begin{itemize}
-  \item One \textbf{4B} Qwen family at a personal compute scale --- a characterization, not a scaling law.
-  \item Math pilot bottlenecked by \textbf{AIME}'s answer-only feedback (no worked solutions to derive from).
+  \item One \textbf{4B} Qwen model at a personal compute scale --- a characterization, not a scaling law.
+  \item Math pilot bottlenecked by \textbf{AIME}'s answer-only feedback (no worked solutions to derive from); $n{=}2$.
   \item A stronger base (\textbf{8B+}) is expected to \emph{narrow} the TF-vs-SF margin on reachable tasks.
-  \item Epistemic result tied to one model family / lexical marker set.
+  \item Epistemic result tied to one model / lexical marker set.
 \end{itemize}
 \vfill
-\textbf{Roadmap (post-graduation):} method-bearing math references (\textbf{MATH-500}) to lift the math bottleneck; scale to \textbf{8B+} and a second code benchmark; broaden the epistemic measurement across tokenizers and scales.
+\textbf{Future directions:} method-bearing math references (\textbf{MATH-500}); a same-domain \emph{reference-type ablation} to test the boundary causally; scale to \textbf{8B+} and a second code benchmark.
 \end{frame}
 
 % 15
 \begin{frame}{Conclusion}
 \begin{itemize}
   \item \textbf{Teacher-first execution-guided self-distillation} accelerates test-time discovery in complex code generation.
-  \item It escapes the flat-reward trap, the advantage is \textbf{compute-fair}, and it carries a measured epistemic effect.
+  \item It escapes the flat-reward trap, the advantage is \textbf{compute-fair}, and it shows a regime-dependent epistemic effect.
   \item The \textbf{value-versus-procedure boundary} explains \emph{when} it works: an in-reach method, not just an answer.
 \end{itemize}
 \vfill
