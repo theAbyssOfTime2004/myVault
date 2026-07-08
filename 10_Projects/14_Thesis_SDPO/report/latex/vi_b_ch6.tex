@@ -2,34 +2,34 @@
 
 \section{Tính chặt chẽ phương pháp luận và các kiểm chứng}\label{methodological-rigor-and-validations}
 
-Để đảm bảo tính vững thực nghiệm của nghiên cứu, một số cải tiến kiến trúc và metric kiểm chứng quan trọng đã được tích hợp có hệ thống vào khung đánh giá:
+Để đảm bảo tính vững thực nghiệm, một số cải tiến kiến trúc và metric kiểm chứng quan trọng đã được đưa vào khung đánh giá một cách có hệ thống:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Lực thống kê.} Thay vì dựa vào một sign test cục bộ, công trình này triển khai một khung đánh giá quy mô trung bình (8 bài $\times$ 6 seed) kết hợp một Wilcoxon signed-rank test. Điều này cho phép báo cáo hiệu ứng chính với một tỉ lệ sai số được kiểm soát, chặt chẽ về mặt toán học, thay vì chỉ là một tín hiệu định hướng (§4.3).
+  \textbf{Lực thống kê.} Thay vì chỉ dựa vào một sign test cục bộ, công trình này triển khai một khung đánh giá quy mô trung bình (8 bài $\times$ 6 seed) kết hợp một Wilcoxon signed-rank test. Nhờ đó, hiệu ứng chính được báo cáo với một tỉ lệ sai số được kiểm soát, chặt chẽ về mặt toán học, chứ không chỉ là một tín hiệu định hướng nữa (§4.3).
 \item
-  \textbf{Cân bằng compute.} Để chứng minh các lợi thế quan sát được không phải artifact của khối lượng sampling, chúng tôi bổ sung một so sánh cân-bằng-ngân-sách cùng một đánh giá compute-to-correct frontier (§4.4). Điều này thiết lập rằng các mức tăng hiệu năng hoàn toàn compute-fair và gắn trực tiếp với quỹ đạo distillation chứ không phải quy mô generation.
+  \textbf{Cân bằng compute.} Để chứng minh các lợi thế quan sát được không phải artifact của khối lượng sampling, một so sánh cân-bằng-ngân-sách cùng một đánh giá compute-to-correct frontier được bổ sung (§4.4). Điều này cho thấy các mức tăng hiệu năng hoàn toàn compute-fair, gắn trực tiếp với quỹ đạo distillation chứ không phải với quy mô generation.
 \item
-  \textbf{Đánh giá lập luận chi tiết.} Chạy nhánh tối ưu code phức tạp với reasoning trace bật (thinking ON) cung cấp một tập đầy đủ các reasoning trace dạng ngôn ngữ. Điều này đưa việc khảo sát epistemic verbalization từ một pilot toán biệt lập thành một kết quả thực nghiệm đo được, đặc thù theo miền (§4.7).
+  \textbf{Đánh giá lập luận chi tiết.} Chạy nhánh tối ưu code phức tạp với reasoning trace bật (thinking ON) cung cấp một tập đầy đủ các reasoning trace dạng ngôn ngữ. Nhờ vậy, việc khảo sát epistemic verbalization không còn dừng ở một pilot toán biệt lập nữa, mà trở thành một kết quả thực nghiệm đo được, đặc thù theo miền (§4.7).
 \item
-  \textbf{Cơ chế lọc chính xác.} Bộ lọc verifier--judge là chính xác về mặt toán học (§4.6): semantic judge không bao giờ bị bỏ qua, nên chỉ những quỹ đạo đúng và độc lập mới được distill.
+  \textbf{Cơ chế lọc chính xác.} Bộ lọc verifier--judge chính xác về mặt toán học (§4.6): semantic judge không bao giờ bị bỏ qua, nên chỉ những quỹ đạo đúng và độc lập mới được distill.
 \item
-  \textbf{Đặc trưng hóa ranh giới.} Việc áp một pipeline đánh giá thống nhất trên cả hai benchmark code và toán đã tách được ảnh hưởng của feedback môi trường dày khỏi feedback thưa, chỉ-có-giá-trị. Điều này cô lập chính xác chế độ thất bại của self-distillation trong suy luận ký hiệu và vạch ra ranh giới của phương pháp đề xuất.
+  \textbf{Đặc trưng hóa ranh giới.} Áp cùng một pipeline đánh giá thống nhất lên cả hai benchmark code và toán giúp tách được ảnh hưởng của feedback môi trường dày khỏi feedback thưa, chỉ-có-giá-trị. Điều này cô lập khá chính xác chế độ thất bại của self-distillation trong suy luận ký hiệu, và vạch rõ ranh giới của phương pháp đề xuất.
 \end{itemize}
 
 \section{Phạm vi và các giới hạn còn lại}\label{scope-and-remaining-limitations}
 
-Một đánh giá học thuật minh bạch đòi hỏi vạch rõ các ràng buộc cấu trúc và các điểm còn cải thiện được vẫn tồn tại trong khung thực nghiệm này:
+Một đánh giá học thuật minh bạch cần vạch rõ các ràng buộc cấu trúc và những điểm còn có thể cải thiện trong khung thực nghiệm này:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Ràng buộc về mô hình và quy mô.} Mọi phát hiện thực nghiệm đều được thiết lập trên một mô hình Qwen quy mô 4B đánh giá trong một phân bổ tài nguyên compute cá nhân. Do đó, các kết quả này là một đặc trưng hóa thực nghiệm trong một họ kiến trúc cụ thể chứ không phải một định luật scaling phổ quát hay một benchmark quy mô công nghiệp.
+  \textbf{Ràng buộc về mô hình và quy mô.} Mọi phát hiện thực nghiệm đều được thiết lập trên một mô hình Qwen quy mô 4B, đánh giá trong phạm vi compute cá nhân. Vì vậy, đây là một đặc trưng hóa thực nghiệm cho một họ kiến trúc cụ thể, chứ chưa phải một định luật scaling phổ quát hay một benchmark ở quy mô công nghiệp.
 \item
-  \textbf{Sự khan hiếm thông tin trong feedback toán học.} Pilot toán bị nghẽn nặng bởi ràng buộc dữ liệu của benchmark AIME, vốn chỉ cung cấp các đáp án số nguyên tĩnh. Vì không có lời giải từng bước hay tín hiệu kiểm chứng chi tiết trong thiết lập này, teacher policy thiếu tín hiệu học đủ để xây các suy dẫn độc lập, giới hạn khả năng thoát flat-reward trap của mô hình trên các bài vượt-năng-lực.
+  \textbf{Sự khan hiếm thông tin trong feedback toán học.} Pilot toán bị nghẽn khá nặng bởi ràng buộc dữ liệu của benchmark AIME, vốn chỉ cung cấp các đáp án số nguyên tĩnh. Vì thiết lập này không có lời giải từng bước hay tín hiệu kiểm chứng chi tiết, teacher policy thiếu tín hiệu học đủ để tự xây các suy dẫn độc lập, khiến mô hình khó thoát khỏi flat-reward trap trên các bài vượt-năng-lực.
 \item
-  \textbf{Độ nhạy của biên theo năng lực nền.} Khi năng lực của mô hình nền tăng (ví dụ mở rộng lên kiến trúc 8B trở lên), các policy không điều kiện vốn có tỉ lệ khám phá nền cao hơn. Biên hiệu năng giữa formulation teacher-first và baseline student-first dự kiến thu hẹp trên các bài trong tầm với, nghĩa là phương pháp đề xuất hữu ích nhất trên các kiến trúc mà nếu không hỗ trợ sẽ đứng yên.
+  \textbf{Độ nhạy của biên theo năng lực nền.} Khi năng lực của mô hình nền tăng lên — chẳng hạn mở rộng lên các kiến trúc 8B trở lên — các policy không điều kiện vốn đã có tỉ lệ khám phá nền cao hơn. Vì vậy, biên hiệu năng giữa teacher-first và baseline student-first nhiều khả năng sẽ thu hẹp trên các bài trong tầm với, nghĩa là phương pháp đề xuất hữu ích nhất chính trên những kiến trúc mà nếu không có nó thì sẽ đứng yên.
 \item
-  \textbf{Tính tổng quát của hành vi epistemic.} Các phép đo về sự đè nén uncertainty marker gắn với một họ mô hình và một tập marker từ vựng định trước. Tính tổng quát của các điều chỉnh hành vi này qua các tokenizer, quy mô mô hình và phong cách lập luận ngầm khác nhau cần được kiểm chứng thêm ở quy mô lớn hơn. Hơn nữa, cách đọc có-lợi của sự đè nén trên code (củng cố chứ không phải sao chép) được báo cáo như một hiện tượng đồng xảy ra với correctness và được diễn giải theo cơ chế; để thiết lập loại reference là nguyên nhân của nó cần một ablation loại-reference cùng-miền, điều mà nghiên cứu này không thực hiện.
+  \textbf{Tính tổng quát của hành vi epistemic.} Các phép đo về sự đè nén uncertainty marker gắn với một họ mô hình cụ thể và một tập marker từ vựng định trước, nên tính tổng quát của những điều chỉnh hành vi này qua các tokenizer, quy mô mô hình, và phong cách lập luận ngầm khác nhau vẫn cần được kiểm chứng thêm ở quy mô lớn hơn. Hơn nữa, cách đọc có-lợi của sự đè nén trên code (củng cố chứ không phải sao chép) mới chỉ được báo cáo như một hiện tượng đồng xảy ra với correctness, và được diễn giải theo hướng cơ chế; để khẳng định loại reference thực sự là nguyên nhân, cần một ablation loại-reference cùng-miền — điều mà nghiên cứu này chưa thực hiện được.
 \end{itemize}
