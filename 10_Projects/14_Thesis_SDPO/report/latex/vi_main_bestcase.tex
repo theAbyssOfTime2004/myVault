@@ -1,0 +1,164 @@
+% !TEX program = xelatex
+\documentclass[12pt,a4paper]{report}
+\usepackage{fontspec}   % XeLaTeX: native Unicode (Vietnamese) rendering
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\graphicspath{{figures/}{./}{../figures/}}
+\usepackage{booktabs,longtable,array,calc}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\textperiodcentered}
+\newunicodechar{…}{\ldots}
+\newunicodechar{–}{--}
+\newunicodechar{—}{---}
+\newunicodechar{°}{\textdegree}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{←}{\ensuremath{\leftarrow}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∅}{\ensuremath{\emptyset}}
+\newunicodechar{△}{\ensuremath{\triangle}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{†}{\textdagger}
+\newunicodechar{⚠}{\textbf{!}}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,breakatwhitespace=false,
+  columns=fullflexible,keepspaces=true,showstringspaces=false,frame=none,
+  breakindent=0pt,postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{verbatim}{\footnotesize}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\real}[1]{#1}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% ---- Vietnamese caption / label names ----
+\renewcommand{\chaptername}{Chương}
+\renewcommand{\contentsname}{Mục lục}
+\renewcommand{\listfigurename}{Danh sách hình vẽ}
+\renewcommand{\listtablename}{Danh sách bảng}
+\renewcommand{\bibname}{Tài liệu tham khảo}
+\renewcommand{\figurename}{Hình}
+\renewcommand{\tablename}{Bảng}
+\renewcommand{\appendixname}{Phụ lục}
+
+% compact chapter headings
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\bfseries\Huge}{\chaptertitlename\ \thechapter}{6pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{4pt}{16pt}
+
+\begin{document}
+
+% ============================ OUTER COVER ============================
+\begin{titlepage}
+\centering
+{\normalsize\bfseries ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH\par}
+{\normalsize\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN\par}
+\vspace{1.2cm}
+\includegraphics[width=3.4cm]{../figures/khtn_logo.png}\par
+\vspace{1.8cm}
+{\large\bfseries Mai Phong Đăng\par}
+\vspace{1.6cm}
+{\Large\bfseries TĂNG TỐC KHÁM PHÁ TẠI THỜI ĐIỂM SUY LUẬN CHO SINH MÃ PHỨC TẠP BẰNG TỰ CHƯNG CẤT DẪN DẮT BỞI THỰC THI\par}
+\vspace{1.3cm}
+{\large\bfseries KHÓA LUẬN TỐT NGHIỆP ĐẠI HỌC\par}
+\vfill
+{\normalsize Thành phố Hồ Chí Minh, tháng 7 năm 2026\par}
+\end{titlepage}
+
+% ============================ INNER COVER ============================
+\begin{titlepage}
+\centering
+{\normalsize\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN, ĐHQG-HCM\par}
+{\normalsize\bfseries Khoa Toán -- Tin học\par}
+{\normalsize\bfseries Ngành Khoa học Dữ liệu\par}
+\vspace{2.2cm}
+{\large\bfseries Mai Phong Đăng \hspace{2em} 22280008\par}
+\vspace{1.8cm}
+{\Large\bfseries TĂNG TỐC KHÁM PHÁ TẠI THỜI ĐIỂM SUY LUẬN CHO SINH MÃ PHỨC TẠP BẰNG TỰ CHƯNG CẤT DẪN DẮT BỞI THỰC THI\par}
+\vspace{1.3cm}
+{\large\bfseries KHÓA LUẬN TỐT NGHIỆP ĐẠI HỌC\par}
+\vspace{2.0cm}
+{\large\bfseries Giảng viên hướng dẫn: TS. Ngô Minh Mẫn\par}
+\vfill
+{\normalsize Thành phố Hồ Chí Minh, tháng 7 năm 2026\par}
+\end{titlepage}
+
+\chapter*{Tóm tắt}
+\addcontentsline{toc}{chapter}{Tóm tắt}
+\input{vi_b_abstract.tex}
+
+\tableofcontents
+
+\clearpage
+\addcontentsline{toc}{chapter}{Danh sách hình vẽ}
+\listoffigures
+
+\clearpage
+\addcontentsline{toc}{chapter}{Danh sách bảng}
+\listoftables
+
+\clearpage
+\chapter*{Danh sách từ viết tắt}
+\addcontentsline{toc}{chapter}{Danh sách từ viết tắt}
+\begin{longtable}{@{}p{2.6cm}l@{}}
+AIME & American Invitational Mathematics Examination \\
+EMA  & Exponential Moving Average \\
+GRPO & Group Relative Policy Optimization \\
+JSD  & Jensen--Shannon Divergence \\
+KL   & Kullback--Leibler (divergence) \\
+LCB  & LiveCodeBench \\
+LLM  & Large Language Model (mô hình ngôn ngữ lớn) \\
+LoRA & Low-Rank Adaptation \\
+PPO  & Proximal Policy Optimization \\
+RLRF & Reinforcement Learning with Rich Feedback \\
+RLVR & Reinforcement Learning with Verifiable Rewards \\
+RO   & Research Objective (mục tiêu nghiên cứu) \\
+SDFT & Self-Distillation Fine-Tuning \\
+SDPO & Self-Distillation Policy Optimization \\
+SF   & Student-First \\
+SFT  & Supervised Fine-Tuning \\
+TF   & Teacher-First \\
+TRL  & Transformer Reinforcement Learning (thư viện) \\
+TTT  & Test-Time Training \\
+\end{longtable}
+
+\input{vi_b_ch1.tex}
+\input{vi_b_ch2.tex}
+\input{vi_b_ch3.tex}
+\input{vi_b_ch4.tex}
+\input{vi_b_ch5.tex}
+\input{vi_b_ch6.tex}
+\input{vi_b_ch7.tex}
+
+\input{refs_manual.tex}
+
+\appendix
+\input{vi_b_appendix.tex}
+
+\end{document}

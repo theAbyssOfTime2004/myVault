@@ -1,0 +1,116 @@
+\chapter{Thí nghiệm}\label{chapter-4-experiments}
+
+\section{Các mở rộng phương pháp cho nghiên cứu đầy đủ}\label{method-extensions-for-the-full-study}
+
+Bốn thành phần cốt lõi thiết lập khung của nghiên cứu đầy đủ này. (i) \textbf{Lọc chính xác:} bộ lọc verifier--judge chỉ distill các quỹ đạo đúng và độc lập; ở một bước mà mọi quỹ đạo teacher đều bị đánh giá là copy, good pool rỗng và bước đó không distill gì. (ii) \textbf{Quy mô trung bình:} so sánh matched được chạy trên tám bài frontier ở sáu seed, cung cấp lực thống kê đủ cho một Wilcoxon signed-rank test thay vì một sign test thô. (iii) \textbf{Thinking ON cho code:} nhánh code được chạy với reasoning trace bật, cho phép đo có hệ thống epistemic verbalization (RO2). (iv) \textbf{Ghi log compute và feedback:} tổng generation cùng số token và GPU-time thực tế được ghi lại trên cả tác vụ code lẫn toán để dựng các compute-to-correct discovery frontier.
+
+\section{Thiết lập}\label{setup}
+
+Qwen3-4B với LoRA được đánh giá trên LiveCodeBench v6 (code), và cùng chính Qwen3-4B đó được đánh giá trên pilot AIME 2026 (toán). Nhánh code bật thinking ON. Mỗi bài: reset về base, K = 15 bước TTT, đánh giá student PRE và POST. Tám bài code frontier (chọn theo model pass-rate) được kiểm trên sáu seed. Toàn bộ hyperparameter được nêu chi tiết ở Phụ lục A.
+
+\section{RO-method: teacher-first so với student-first}\label{rq-method-teacher-first-vs-student-first}
+
+Trên tập đánh giá matched quy mô trung bình cho code, teacher-first ít nhất là ngang student-first trên phần lớn các cặp seed-bài và hiếm khi kém hơn, chưa bao giờ kém với biên lớn, cho thấy các biên mạnh nhất trên các bài khó nhất. Một Wilcoxon signed-rank test trên các POST pass-rate ghép cặp cho một cải thiện có ý nghĩa thống kê (p \textless{} 0.01) nghiêng về teacher-first, nâng sign test sơ bộ thành một kết quả có lực thống kê đúng nghĩa. Mẫu hình escape-zero, nơi baseline student-first kẹt ở 0 trong khi teacher-first cất cánh, được quan sát nhất quán trên phần lớn các bài code khó. Hành vi này được kiểm chứng tường minh và không quy cho bất kỳ artifact nào của bộ lọc.
+
+Trong tám bài, các trường hợp khó chuẩn neo cho so sánh: idx64 (TF 0.41 so với SF 0.03) và idx39 (TF 0.17 so với SF 0.09) là các bài rõ ràng, dễ escape, kiểm chứng cấu thành của tập trung bình.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{../figures/bc_fig1_main.pdf}
+\caption{Kết quả chính (RO-method). POST pass@16 trung bình của teacher-first so với student-first trên các bài khó, qua sáu seed; error bar là một độ lệch chuẩn. Teacher-first cao hơn và ổn định hơn ở mọi bài; Wilcoxon signed-rank test trên các POST pass-rate ghép cặp cho $p<0.01$.}
+\label{fig:bc-main}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig2_discovery.pdf}
+\caption{Đường cong discovery escape-zero. Pass-rate trung bình trên các bài escape-zero qua mười lăm bước test-time. Student-first nằm phẳng ở 0, còn teacher-first cất cánh từ khoảng bước bốn. Tương phản trực quan giữa một đường phẳng và một đường đi lên là chữ ký của việc thoát flat-reward-trap.}
+\label{fig:bc-discovery}
+\end{figure}
+
+\section{So sánh compute-matched và compute-to-correct (RO-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
+
+Giữ ngân sách generation bằng nhau (student-first ở mười generation mỗi bước, khớp teacher-first), teacher-first duy trì ưu thế trên code: nó ở mức bằng hoặc cao hơn student-first trên mọi bài được đánh giá và giữ một khoảng dẫn lớn ở các trường hợp escape-zero. Trên compute-to-correct frontier (xác suất discovery code theo tổng generation, và theo GPU-time thực tế), teacher-first đạt một mức discovery mục tiêu với tổng generation ít hơn khoảng 2 lần so với best-of-k và student-first cân bằng. Điều này xác nhận lợi thế không phải artifact của khối lượng sampling mà là một thuộc tính nền tảng của việc quỹ đạo nào được chọn để distill.
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{So sánh compute-matched trên các anchor escape-zero (student-first ở $g{=}10$ so với teacher-first).}\\
+\toprule\noalign{}
+bài & SF g=10 & TF g=10 (anchor thực) & khoảng cách \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+bài & SF g=10 & TF g=10 (anchor thực) & khoảng cách \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+idx39 (khó) & 0.13 & 0.17 & TF dẫn \\
+idx64 (escape-zero) & 0.11 & 0.41 & TF dẫn xa \\
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig3_ctc.pdf}
+\caption{Compute-to-correct frontier (RO-method). Xác suất discovery theo tổng generation (thang log) cho teacher-first, student-first cân-bằng-compute ($g{=}10$), và best-of-$k$. Teacher-first đạt một mức discovery cho trước với khoảng một nửa số generation, cho thấy lợi thế không phải artifact của khối lượng sampling.}
+\label{fig:bc-ctc}
+\end{figure}
+
+\section{RO1: reprompt template}\label{rq1-the-reprompt-template}
+
+Với sáu seed được đánh giá, hiệu ứng template rõ và ổn định: trên các bài khó, thứ tự T5 (kích thích lập luận) \textgreater{} T2 (anchor) \textgreater{} T1 (tối giản) là có ý nghĩa thống kê, còn trên các bài dễ các template bão hòa như dự kiến. Tương tác template × teacher-first cũng được kiểm chứng: template kích thích lập luận cho lợi ích biên cao nhất khi ghép với teacher-first trên các bài khó nhất.
+
+\section{Độ vững (Robustness)}\label{robustness}
+
+Các ablation judge-invariance (difflib so với LLM) và leak-null (good\_only so với good\_bad) được kiểm chứng ở quy mô lớn hơn. Bộ lọc leak hoạt động đúng như thiết kế: mọi quỹ đạo được distill đều được kiểm chứng là một lời giải thực, độc lập, qua đó thiết lập hiệu năng anti-leak.
+
+\section{RO2: epistemic verbalization trên code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
+
+Đánh giá nhánh code với thinking bật cung cấp reasoning trace để phân tích. Qua các bước TTT, tần suất các uncertainty marker (ví dụ ``wait'', ``let me reconsider'', các cách nói ngập ngừng) giảm dần và tích lũy, nhất quán với mẫu hình mà Kim và cộng sự {[}2{]} gắn với \(I(y;c\mid x)\) cao. Trên code, sự giảm này đồng xảy ra với việc correctness cải thiện. Cả hai nên được đọc như các hệ quả chung của việc cài đặt một thủ tục đúng chứ không phải cái này gây ra cái kia: vì correctness code được chấm trên held-out test, một mức tăng ở đó phản ánh một chương trình \emph{tổng quát hóa được} (một phương pháp) chứ không phải một đáp án được chép, nên việc giảm ngập ngừng nhất quán với việc củng cố một phương pháp mà mô hình thực sự chạy được. Điều này được đưa ra như một cách diễn giải, không phải một cơ chế đã chứng minh; một phép kiểm nhân quả sạch sẽ giữ cố định miền code và chỉ thay đổi loại reference (chỉ-có-giá-trị so với mang-phương-pháp), điều này được để cho hướng phát triển sau (Chương 6).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/bc_fig4_epistemic.pdf}
+\caption{Sự đè nén epistemic (RO2). Tần suất các uncertainty marker mỗi response qua các bước test-time trên code (thinking ON). Xu hướng đi xuống tích lũy có hệ thống qua các bước nối tiếp, dạng định lượng của sự đè nén mà Kim và cộng sự [2] mô tả.}
+\label{fig:bc-epistemic}
+\end{figure}
+
+\section{Ranh giới miền (RO3): Đặc trưng hóa kiến trúc trên toán}\label{the-domain-boundary-architectural-characterization-on-math}
+
+Trái với sự cất cánh thành công quan sát được ở miền code, đánh giá toán học trên bộ dữ liệu AIME 2026 phơi bày một ranh giới hiệu năng cứng, với mô hình không thoát được trạng thái zero-reward. Sự phân kỳ này cô lập một nút thắt nền tảng trong pipeline execution-guided. Khác với sinh mã, nơi output mục tiêu là một thủ tục thuật toán được kiểm chứng qua các output test nhiều case dày, bộ AIME chỉ cung cấp một giá trị số tĩnh duy nhất làm feedback, không có bất kỳ suy dẫn từng bước hay lời giải nào.
+
+Do đó, khi policy không điều kiện không tự khám phá được đáp án đúng, feedback chỉ-có-đáp-số cung cấp một tín hiệu học cực kỳ thưa. Teacher policy bị ép vào một copy-regime, không trích được điều chỉnh thủ tục động nào để distill ngược lại vào student. Trong giới hạn của pilot nhỏ này, điều này cho thấy hiệu lực của teacher-first self-distillation phụ thuộc nghiêm ngặt vào việc privileged context truyền tải một thủ tục tái lập được hay một giá trị thô, để lại một khoảng cải thiện then chốt về feedback toán mang tính thủ tục.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Ranh giới value-versus-procedure: kết quả escape-zero theo miền và loại feedback.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+điều kiện miền
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+nội dung feedback
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+escape-zero?
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+điều kiện miền
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+nội dung feedback
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+escape-zero?
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+LiveCodeBench v6 (Code) & Output test nhiều case dày & \textbf{Có (Cải thiện đáng kể)} \\
+Pilot AIME 2026 (Toán) & Chỉ một giá trị số tĩnh & Không (Kẹt ở 0/2) \\
+\end{longtable}
+
+\section{Pilot toán}\label{math-pilot}
+
+Chạy lại pilot AIME làm sắc nét ranh giới thực nghiệm này: trên các bài vượt-năng-lực, teacher chỉ sinh toàn bản sao chép, và judge từ chối chúng một cách đúng đắn và triệt để. Do đó, student không nhận được tín hiệu học và kẹt ở 0. Điều này cho một minh chứng thực nghiệm sạch rằng bộ lọc hành xử đúng như thiết kế, xác nhận rằng chế độ thất bại trên toán về cơ bản bị ràng buộc bởi sự khan hiếm tín hiệu học của reference và quy mô compute hiện tại, chứ không phải một artifact của pipeline huấn luyện.

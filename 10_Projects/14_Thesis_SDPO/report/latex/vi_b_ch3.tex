@@ -1,0 +1,391 @@
+\chapter{Phương pháp}\label{chapter-3-method}
+
+Chương này đặc tả phương pháp đủ chi tiết để tái lập. Đối tượng nghiên cứu là test-time SDPO {[}1, §5{]}: một bài toán khó duy nhất được cố định, mô hình tự cải thiện qua một số nhỏ bước huấn luyện tại thời điểm suy luận (test-time training, TTT), và ta đo mô hình khám phá lời giải tốt đến đâu. Vì privileged context điều khiển bước cập nhật là execution feedback (test thất bại, lỗi thời gian chạy), ta gọi chế độ này là execution-guided self-distillation, và mục tiêu là tăng tốc quá trình test-time discovery đó trong sinh mã phức tạp. Trong chế độ này, khóa luận đối chiếu hai cách tổ chức bước cập nhật, student-first (baseline của bài báo gốc {[}1{]}) và teacher-first (một biến thể do người hướng dẫn đề xuất), rồi nghiên cứu cách reprompt template formulate execution feedback (RO1).
+
+Phạm vi miền bất đối xứng theo chủ đích. Sinh mã là cốt lõi (LiveCodeBench v6 {[}6{]}); toán là một pilot và một tương phản (AIME 2026 {[}10{]}), dùng để đặc trưng hóa ranh giới của cơ chế chứ không phải để chứng minh nó hoạt động ở mọi nơi. Sự phân chia đó được giữ nhất quán xuyên suốt: mọi thiết lập toán đều mang theo các caveat tương ứng về mô hình và reference (§3.5, Chương 6).
+
+Ký hiệu phản chiếu bài báo gốc, Hübotter và cộng sự~{[}1{]}, để hai bên có thể đọc song song.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Pipeline test-time SDPO}\label{test-time-sdpo-pipeline}
+
+\subsection{Ký hiệu và thiết lập}\label{notation-and-setting}
+
+Cố định một bài toán \(x\) (đề bài). Hai policy chia sẻ cùng trọng số \(\theta\):
+
+\begin{itemize}
+\tightlist
+\item
+  student \(\pi_\theta(\cdot \mid x)\), chỉ thấy đề bài, và
+\item
+  self-teacher \(\pi_\theta(\cdot \mid x, c)\), cùng mô hình đó được điều kiện hóa trên một privileged context \(c\) bổ sung.
+\end{itemize}
+
+Trong SDPO, \(c\) đóng vai ``feedback'' \(f\) của bài báo gốc: thông tin hồi tưởng (một lỗi thời gian chạy, một test thất bại, hay một lời giải reference) cho phép mô hình nhìn lại và định vị lỗi của mình {[}1, §2{]}. Vì teacher và student chỉ khác nhau ở input context, đây là \emph{self}-distillation đúng nghĩa: mô hình học bằng cách kéo phân bố next-token của nó (không context) về phía phân bố của chính nó khi được điều kiện hóa trên \(c\).
+
+Thiết lập test-time theo Hübotter và cộng sự~{[}1, §5{]}. Với mỗi bài \(x\), mô hình được reset về một base checkpoint rồi chạy \(K\) bước TTT chỉ trên bài đó. Reward là verifiable, chấm theo mức (graded) cho code và nhị phân cho toán. Mục tiêu không phải tổng quát hóa sang bài khác mà là khám phá lời giải cho \(x\) càng sớm càng tốt; metric là discovery@k {[}1, Def. 5.1{]} (§3.6).
+
+\subsection{Vòng lặp chung}\label{the-shared-loop}
+
+Cả hai nhánh chia sẻ một khung xương. Thứ duy nhất khác nhau giữa chúng là \emph{quỹ đạo nào được distill}:
+
+\begin{lstlisting}
+load base model + LoRA + optimizer (AdamW, lr = 1e-5)
+PRE-eval (student pi_theta(*|x) only, N_eval samples)        # baseline
+for step in 1..K:
+    feedback        <- build_feedback(student attempt, verifier)   # rich feedback
+    {trajectories}  <- generate(...)                               # arm-specific
+    {distill_targets} <- select(...)                               # arm-specific (the core difference)
+    if distill_targets != {}:
+        theta <- theta - lr * grad_theta L_KL(distill_targets)                    # one optimizer step
+    log step stats -> W&B
+POST-eval (student pi_theta(*|x) only, N_eval samples)       # after TTT
+report PRE->POST and the discovery curve
+\end{lstlisting}
+
+Hình~\ref{fig:two-arms} phác họa hai nhánh; chúng chỉ tách nhau tại khối được tô đậm.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+\node(x) at (3,5){Problem $x$};
+\node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
+\node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
+\node(ys) at (0,2.8){$y_{\text{student}}$ (usually wrong)};
+\node(yt) at (6,2.8){$\{y_{t_i}\}\to$ verifier + judge};
+\node(g) at (6,1.7){good pool $y_{\text{good}}$};
+\node(kls) at (0,1.5){KL distil on $y_{\text{student}}$};
+\node(klt) at (6,0.5){KL distil on $y_{\text{good}}$};
+\node(u) at (3,-0.6){update $\theta$};
+\draw[->](x)--(s);\draw[->](x)--(t);\draw[->](s)--(ys);\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](ys)--(kls);\draw[->](g)--(klt);\draw[->](kls)--(u);\draw[->](klt)--(u);
+\end{tikzpicture}
+\caption{Hai nhánh của test-time SDPO. Student-first và teacher-first chia sẻ toàn bộ vòng lặp và chỉ tách nhau ở việc quỹ đạo nào được distill (khối tô đậm).}
+\label{fig:two-arms}
+\end{figure}
+
+Toàn bộ tương phản gói gọn trong một câu: student-first distill chính attempt thất bại của student; teacher-first distill một quỹ đạo đúng, đã lọc, do teacher sinh. Mọi thứ còn lại (hàm mất mát, mô hình, hyperparameter) được giữ cố định để cô lập đúng một biến đó.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Student-first SDPO (baseline, on-policy)}\label{student-first-sdpo-baseline-on-policy}
+
+Đây là thuật toán gốc của Hübotter và cộng sự~{[}1{]}, hiện thực qua \passthrough{\lstinline!SDPOTrainer!} của TRL {[}5{]} (script \passthrough{\lstinline!07\_discovery\_curve.py!}).
+
+Ở mỗi bước, student sample một rollout \(y \sim \pi_\theta(\cdot \mid x)\) theo on-policy. Verifier chấm \(y\) và sinh feedback \(f\). Self-teacher \(\pi_\theta(\cdot \mid x, f)\) sau đó chấm lại \emph{từng token} của chính \(y\) đó: cho \(f\), phân bố next-token đúng lẽ ra phải là gì tại mỗi vị trí? Student được kéo về phía phân bố hồi tưởng này bằng một KL theo từng token:
+
+\[
+\mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
+\]
+
+\passthrough{\lstinline!stopgrad!} chặn gradient chảy qua teacher, qua đó ngăn teacher sụp vào student và bỏ qua \(f\) {[}1, §2{]}. Gradient và xấp xỉ top-K được chia sẻ với teacher-first và được hoãn tới §3.3.5.
+
+Có một chế độ thất bại trên bài khó thúc đẩy cả phần kế tiếp. Vì rollout là on-policy, trên một bài mà student trơ hiếm khi giải được, gần như mọi rollout đều sai, nên feedback nghèo và tín hiệu distillation yếu và bất ổn. Đây là flat-reward trap: không có rollout đúng nào để học từ đó. Hübotter và cộng sự~{[}1, §5{]} chỉ ra SDPO vẫn có thể lặp từ rich feedback ngay cả khi độ chính xác teacher ban đầu dưới 1\%, nhưng họ dùng Qwen3-8B; trên mô hình 4B yếu hơn dùng ở đây (§3.5), hành vi kẹt-ở-0 có xuất hiện, và nó chính là thứ teacher-first nhắm tới.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Teacher-first SDPO (đề xuất)}\label{teacher-first-sdpo-proposed}
+
+\subsection{Động lực}\label{motivation}
+
+Hai vấn đề của student-first thúc đẩy biến thể này.
+
+Thứ nhất là flat-reward trap của §3.2: khi student không bao giờ tung ra một attempt đúng, không có gì đúng để distill.
+
+Thứ hai là information leak {[}2{]}. Nếu \(c\) chứa một lời giải reference, teacher chấm lại về phía ``gần với reference,'' nên qua nhiều bước test-time student hội tụ về việc \emph{sao chép} reference thay vì học lập luận. Kim và cộng sự~{[}2{]} hình thức hóa điều này: khi \(I(y; c \mid x)\), độ giàu thông tin của context, cao, mô hình đè nén epistemic verbalization và suy giảm.
+
+Thay đổi cốt lõi là đảo thứ tự. Teacher sinh trước; các quỹ đạo đúng, độc lập được lọc ra; và student được distill về phía chúng. KL được tính trên \(y_{\text{good}}\) (do teacher sinh, đã lọc), không phải trên \(y_{\text{student}}\) (một attempt thất bại):
+
+\[
+\mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
+\]
+
+trong đó \(\mathcal{G}\) là good pool (§3.3.3). Về khái niệm, teacher-first nằm giữa SDPO (on-policy) và SFT (off-policy). Nó giống SDFT {[}3{]} ở chỗ distill về phía các generation do chính mô hình (được điều kiện hóa trên context) sinh ra, nhưng context là feedback kiểu SDPO {[}1{]} chứ không phải một demonstration cố định.
+
+Vì \passthrough{\lstinline!SDPOTrainer!} hard-code rollout student-first bên trong, teacher-first được hiện thực như một training loop tùy chỉnh (script \passthrough{\lstinline!09\_teacher\_first.py!}) tái sử dụng các helper của \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, đánh giá).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
+\node(c) at (0,4){privileged context $c$: feedback + few-shot};
+\node(t) at (0,3){self-teacher samples $N$};
+\node(v) at (0,2){verifier: correctness};
+\node(j) at (0,1){judge: is\_copy / independence};
+\node(gp) at (4.8,1){good pool (correct \& independent)};
+\node(fs) at (4.8,3){few-shot good\_only / good\_bad};
+\node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
+\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
+\end{tikzpicture}
+\caption{Bước teacher-first. Self-teacher sinh dưới privileged context; một verifier và judge lọc các quỹ đạo vào một good pool; các exemplar good (và tùy chọn bad) lái rollout teacher kế tiếp theo kiểu in-context; student chỉ được distill về phía các quỹ đạo good đã lọc.}
+\label{fig:tf-step}
+\end{figure}
+
+\subsection{Rollout teacher và privileged context}\label{teacher-rollout-and-privileged-context}
+
+Ở mỗi bước teacher sample \(N\) quỹ đạo (\passthrough{\lstinline!teacher\_n!}) ở nhiệt độ cao để đa dạng:
+
+\[
+\{y_{t_1}, \dots, y_{t_N}\} \sim \pi_\theta(\cdot \mid x, c), \qquad c = \underbrace{f}_{\text{feedback}} \;+\; \underbrace{\text{few-shot exemplars}}_{\text{§3.3.4}}.
+\]
+
+\passthrough{\lstinline!privileged\_context!} \(c\) là hiện thân cụ thể của ``feedback'' từ {[}1{]}; cái tên thuộc về codebase khóa luận, khái niệm thuộc về bài báo. Nội dung của \(c\) phụ thuộc miền (§3.5). Khối few-shot được chèn trước directive cuối (``Respond with ONLY\ldots{}''), với tối đa \passthrough{\lstinline!max\_fewshot = 3!} exemplar để context không tràn, và số token được ghi log mỗi bước.
+
+\subsection{Verifier và judge tạo good pool}\label{verifier-and-judge-produce-the-good-pool}
+
+Mỗi quỹ đạo \(y_{t_i}\) được gán nhãn qua hai giai đoạn.
+
+\textbf{Giai đoạn 1, verifier (correctness).} Với code (LCBv6), \passthrough{\lstinline!evaluate\_solution!} chạy public và private test và trả về tỉ lệ test đạt, một graded reward trong \([0,1]\) cho một gradient dùng được để leo (ví dụ 0.21 rồi 1.0). Với toán (AIME), một answer match cho một binary reward trong \(\{0,1\}\).
+
+\textbf{Giai đoạn 2, judge (independence).} Đo xem \(y_{t_i}\) có chỉ đơn thuần sao chép reference hay không:
+
+\[
+\text{good} := (\text{score} \ge 1.0) \,\wedge\, (\text{independent}), \qquad \text{bad} := (\text{copies the reference}).
+\]
+
+Hai hiện thực judge được dùng và sau đó được ablate (§4.6):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Các hiện thực judge: difflib so với LLM (cơ chế và chi phí).}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Judge
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cơ chế
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Chi phí
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Judge
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cơ chế
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Chi phí
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\passthrough{\lstinline!difflib!} & độ tương đồng chuỗi \passthrough{\lstinline!SequenceMatcher!} trên code đã chuẩn hóa (bỏ comment và whitespace); là copy nếu tương đồng ≥ ngưỡng (≈0.9) & rẻ, tất định \\
+LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) hoặc \passthrough{\lstinline!glm-4.5-flash!} (toán), một prompt derive-vs-copy trả về \passthrough{\lstinline!is\_copy!} và \passthrough{\lstinline!reasoning\_quality!} 1--5 & chi phí API, ngữ nghĩa \\
+\end{longtable}
+
+\begin{quote}
+\textbf{Một ghi chú về judge.} Với thinking ON (code) mô hình phát ra một reasoning trace tường minh, nên \passthrough{\lstinline!reasoning\_quality!} chấm chính trace đó thay vì bão hòa ở 4--5. Do đó LLM judge phục vụ hai vai: \passthrough{\lstinline!is\_copy!} là cổng độc lập cho good pool, còn \passthrough{\lstinline!reasoning\_quality!} cung cấp tín hiệu nuôi phép đo epistemic-suppression (§4.7). Phát hiện sao chép vẫn là bảo đảm correctness chính của nó.
+\end{quote}
+
+Có một hành vi đáng nêu ngay từ đầu vì nó trở thành một giới hạn được đo. Khi không quỹ đạo nào vượt Giai đoạn 2 (mọi ứng viên đều bị gắn cờ là copy), good pool bị để rỗng và bước đó không distill gì; một copy bị từ chối không bao giờ bị ép vào pool. Trên một bài mà teacher chỉ luôn sinh ra bản sao, student do đó không nhận tín hiệu học nào cả; điều này được xác nhận trong log toán cho idx8 (Phụ lục D.2), và được nêu ở đây để cơ chế minh bạch.
+
+\subsection{Lái teacher bằng few-shot (good\_only so với good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
+
+Các exemplar đã gán nhãn được đưa ngược vào prompt của teacher (in-context, không gradient trên teacher) để lái teacher về phía các generation tốt hơn:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Lái teacher bằng few-shot: exemplar good\_only so với good\_bad.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Phương án 2 --- \passthrough{\lstinline!good\_only!}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Phương án 1 --- \passthrough{\lstinline!good\_bad!}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Phương án 2 --- \passthrough{\lstinline!good\_only!}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Phương án 1 --- \passthrough{\lstinline!good\_bad!}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Cơ chế & few-shot dương (chỉ exemplar good) & few-shot tương phản (good + bad, có nhãn) \\
+Độ mạnh lái & vừa phải & mạnh hơn \\
+Leak & \textbf{sạch} (good đã lọc, nên độc lập với reference) & \textbf{dư} (bad ≈ reference, nên nội dung giống-reference tái nhập context) \\
+\end{longtable}
+
+Vì \passthrough{\lstinline!bad ≈ reference!}, việc đưa exemplar bad vào prompt (ngay cả khi gắn nhãn ``bad'') lại cho teacher thấy thứ gần với reference một lần nữa. Do đó ablation Phương án 1 so với Phương án 2 đồng thời là một ablation leak so với no-leak, một phép kiểm trực tiếp mối lo của người hướng dẫn. Kết quả là một leak-null trên dữ liệu này (§4.6).
+
+\subsection{Bước distillation: reverse KL top-K căn theo token}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
+
+Đây là lõi tính toán, chia sẻ bởi cả hai nhánh; chỉ quỹ đạo target khác nhau (\(y_{\text{student}}\) so với \(y_{\text{good}}\)).
+
+\textbf{Phân bố theo từng token.} Với logit \(z \in \mathbb{R}^V\) (\(V \approx 150\text{k}\)), \(\pi(v) = \mathrm{softmax}(z)_v\). Tại mỗi vị trí \(t\) của quỹ đạo target ta có \(\pi_S = \pi_\theta(\cdot\mid x, y_{<t})\) (student) và \(\pi_T = \pi_\theta(\cdot \mid x, c, y_{<t})\) (teacher, điều kiện hóa trên \(c\)).
+
+\textbf{Gradient cốt lõi.} Với teacher được tách, gradient của loss theo một student logit là {[}1; dẫn xuất trong \passthrough{\lstinline!con\_sdpo\_loss\_mechanics!}{]}:
+
+\[
+\frac{\partial \mathcal{L}}{\partial z_v^{S}} \;=\; \pi_S(v) - \pi_T(v).
+\]
+
+Ở đâu teacher tin một token hơn student (\(\pi_T > \pi_S\)), optimizer nâng logit đó. Target là một phân bố đầy đủ \(V\)-chiều mỗi token, chứ không phải một scalar cho cả chuỗi như GRPO {[}8{]}. Credit assignment dày hơn này (nhiều tín hiệu hơn khoảng \(T \cdot K\) lần) là nguồn của sample efficiency của SDPO {[}1{]}.
+
+\textbf{Hướng KL (\(\alpha\)).} Codebase {[}4{]} tham số hóa divergence qua \(\alpha \in [0,1]\) với mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) là forward KL (mode-covering, giữ các epistemic token), \(\alpha = 1\) là reverse KL (mode-seeking, dễ đè nén), và \(\alpha = 0.5\) là JSD. Khóa luận dùng \(\alpha = 1.0\) (reverse KL, top-K = 20) để khớp cấu hình LCBv6 của {[}4{]}. Liệu \(\alpha\) có điều biến sự đè nén hay không là một câu hỏi RO2 mở (Chương 6).
+
+\textbf{Xấp xỉ top-K.} KL trên toàn vocabulary quá nặng bộ nhớ ở \(V \approx 150\text{k}\), nên ta dùng top-20 logit của teacher cộng một tail bucket; student được chiếu lên cùng K chỉ số, và KL được lấy trên phân bố \((K{+}1)\)-chiều thu được {[}1, §2.2{]}.
+
+\textbf{Importance sampling.} Các sample được rút dưới \(\theta_{\text{old}}\) nhưng loss được lấy dưới \(\theta\) hiện tại, nên mỗi per-token loss được scale bởi một ratio đã clip \(r_t = \min(\pi_\theta/\pi_{\theta_\text{old}},\, c_{\text{clip}})\) với \(c_{\text{clip}} = 2.0\).
+
+\textbf{Căn token, chỗ dễ sai nhất.} Prompt student (\passthrough{\lstinline!x + y\_good!}) và prompt teacher (\passthrough{\lstinline!x + c + y\_good!}) có độ dài prefix khác nhau, nên các logit tại các vị trí của \(y_{\text{good}}\) phải được trích ở mỗi bên trước khi lấy KL. Một lỗi off-by-one ở đây làm hỏng KL một cách âm thầm, nên code assert rằng hai độ dài khớp nhau và log \passthrough{\lstinline!(student\_prefix\_len, teacher\_prefix\_len)!}. Sanity check đã đạt: căn token đúng (\(L\) khớp ở cả hai bên dù prefix khác nhau) và token-mean KL hữu hạn và hợp lý.
+
+Hyperparameter: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinline!kl\_topk = 20!}, \passthrough{\lstinline!kl\_alpha = 1.0!}, \passthrough{\lstinline!is\_clip = 2.0!}. Teacher luôn được tách (self-distillation với trọng số chia sẻ, nên teacher là forward pass của student dưới context \(c\), chạy dưới \passthrough{\lstinline!no\_grad!}).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Reprompt template (T1--T7)}\label{reprompt-templates-t1t7}
+
+Reprompt template quyết định nội dung của \(c\) mà teacher thấy, thứ trực tiếp thay đổi \(\pi_T\) và do đó hướng của gradient distillation. Nó là biến trung tâm của RO1. Để lựa chọn có cơ sở bảo vệ (câu hỏi hiển nhiên của reviewer là ``vì sao đúng bảy cái này?''), ta không biện minh từng template một cách biệt lập. Thay vào đó ta tổ chức không gian thiết kế theo ba chiều dựa trên công trình trước {[}1, 2{]}, và lấy mẫu T1--T7 trải trên chúng.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Phân loại reprompt-template: T1--T7 trên ba chiều thiết kế.}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Template
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tên
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Chiều
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Khác T2 ở
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Template
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tên
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Chiều
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Khác T2 ở
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T1 & Tối giản & Lượng thông tin (thấp) & bỏ cấu trúc, chỉ ``incorrect, try again'' \\
+\textbf{T2} & \textbf{Chuẩn (anchor)} & \textbf{baseline} & \textbf{failing test + expected + actual + error\_type} \\
+T3 & Dài dòng & Lượng thông tin (cao) & T2 + full stack trace + code trước \\
+T4 & JSON có cấu trúc & Instruction framing (định dạng) & cùng nội dung T2, mã hóa JSON \\
+T5 & Kích thích lập luận & Instruction framing (chẩn đoán) & T2 + ``First, identify root cause, then fix.'' \\
+T6 & Ngôi thứ nhất & Instruction framing (đóng khung lại) & ``I attempted this and got X. Let me reconsider.'' \\
+T7 & Lịch sử tích lũy & Độ sâu bộ nhớ & tất cả N attempt trước, không chỉ cái mới nhất \\
+\end{longtable}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,inner sep=3pt}]
+\node(a) at (0,3){T2 standard (anchor)};
+\node(d1) at (-4,1.8){Dim 1: information};
+\node(d2) at (0,1.8){Dim 2: framing};
+\node(d3) at (4,1.8){Dim 3: memory};
+\node(t1) at (-5,0.6){T1};\node(t3) at (-3,0.6){T3};
+\node(t4) at (-1.4,0.6){T4};\node(t5) at (0,0.6){T5};\node(t6) at (1.4,0.6){T6};
+\node(t7) at (4,0.6){T7};
+\draw[->](a)--(d1);\draw[->](a)--(d2);\draw[->](a)--(d3);
+\draw[->](d1)--(t1);\draw[->](d1)--(t3);\draw[->](d2)--(t4);\draw[->](d2)--(t5);\draw[->](d2)--(t6);\draw[->](d3)--(t7);
+\end{tikzpicture}
+\caption{Không gian thiết kế reprompt-template. Mỗi template thay đổi một chiều so với anchor T2: lượng thông tin (T1, T3), instruction framing (T4, T5, T6), hoặc độ sâu bộ nhớ (T7).}
+\label{fig:template-space}
+\end{figure}
+
+Ba chiều và cơ sở của chúng:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Lượng thông tin} (T1 → T2 → T3). Kim và cộng sự~{[}2{]} chỉ ra \(I(y; c \mid x)\) chi phối độ lớn của sự đè nén; khóa luận thay đổi lượng thông tin trong execution feedback.
+\item
+  \textbf{Instruction framing} (T4, T5, T6). Hübotter và cộng sự~{[}1, §4.6{]} kết luận rằng biến thể cú pháp nhỏ không quan trọng, nhưng biến thể ngữ nghĩa/chỉ dẫn chưa bao giờ được kiểm; {[}1, §7{]} nêu điều này là future work gần như nguyên văn (``how \ldots{} the reprompt template \ldots{} influences behavior'').
+\item
+  \textbf{Độ sâu bộ nhớ} (T7). Thiết lập §5 dùng một cửa sổ trượt cố định một attempt và không ablate độ sâu; Kim và cộng sự~{[}2{]} chỉ ra sự đè nén tích lũy qua các bước, nên lịch sử có thể khuếch đại hoặc làm loãng nó.
+\end{enumerate}
+
+\textbf{T2 là anchor}: mọi template khác thay đổi đúng một chiều và giữ phần còn lại cố định, cho một ablation sạch. Trong bảy cái, bốn được hiện thực (T1, T2, T5, T6; chuỗi nguyên văn ở Phụ lục B) và ba (T3, T4, T7) vẫn là các điểm khái niệm trong phân loại. Dưới compute có sẵn, RO1 dò T1/T2/T5 (§4.5); T6 được hiện thực nhưng chưa dò, và T3/T4/T7 để cho hướng phát triển sau (Chương 6). Hai caveat được thừa nhận: T4 (JSON) cũng thay đổi mật độ thông tin (một chồng lấn giữa chiều 1 và 2), và T7 tăng độ dài context nên confound với chi phí compute, cần được báo cáo riêng.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Các miền: code (cốt lõi) và toán (pilot)}\label{domains-code-core-and-math-pilot}
+
+Các miền khác nhau ở reference mode (thứ teacher thấy là ``đáp án'') và ở nội dung của privileged context. Như Chương 5 lập luận, đây là biến quyết định teacher-first thành công hay không.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{So sánh miền: reference và context của code (LCBv6) so với toán (AIME).}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Code --- LCBv6 {[}6{]}} (cốt lõi)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Toán --- AIME 2026 {[}10{]}} (pilot)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Code --- LCBv6 {[}6{]}} (cốt lõi)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Toán --- AIME 2026 {[}10{]}} (pilot)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mô hình & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} \\
+Verifier & public/private test → \textbf{graded} \([0,1]\) & answer match → \textbf{binary} \(\{0,1\}\) \\
+\passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (quỹ đạo điểm cao nhất làm proxy) & \passthrough{\lstinline!ground\_truth!} (teacher luôn thấy đáp án đúng) \\
+Leak regime & \textbf{null} (reference là best-in-batch + public test, không phải một lời giải reference) & \textbf{cực đoan} (feedback là ``the correct answer is \{gt\}'') \\
+\passthrough{\lstinline!privileged\_context!} & execution feedback (test thất bại, expected/actual, loại lỗi) + quỹ đạo best-in-batch đúng & đáp án đúng (một con số); teacher chỉ cần chép \passthrough{\lstinline!\\boxed\{\}!} \\
+Reference chứa một phương pháp? & \textbf{Có} (best-in-batch là một \emph{chương trình} = một thuật toán, tổng quát hóa sang input mới) & \textbf{Không} (chỉ một \emph{giá trị}, không phải một suy dẫn) \\
+\end{longtable}
+
+Một ghi chú về lựa chọn \passthrough{\lstinline!reference\_text!} cho code: LCBv6 không có trường lời-giải-reference đáng tin, nên khóa luận dùng best\_in\_batch (quỹ đạo điểm cao nhất trong batch của teacher mỗi bước) làm reference để judge đo tính độc lập. Điều này có một tác dụng phụ quan trọng. Vì reference không phải một lời giải của tác giả mà là output đúng của chính mô hình được kiểm chứng bởi public test, code không có leak, giải thích vì sao ablation good\_bad là leak-null cho code (§4.6) trong khi leak đo được với toán (§4.9).
+
+Ngân sách TTT cũng khác giữa các miền (giá trị đầy đủ ở Phụ lục A): code chạy 15 bước, eval 16 sample, teacher\_n = 10; toán chạy 3 bước, eval 4 sample, teacher\_n = 4, max\_new\_tokens = 16384 (8192 cắt cụt đáp án \passthrough{\lstinline!\\boxed!} và tạo ra các điểm 0 sai). Khoảng cách ngân sách này là một biến cần lưu ý khi so sánh hai miền, bên cạnh khác biệt loại-reference.
+
+Cả hai miền dùng cùng một mô hình Qwen3-4B, nên một kết quả no-escape trên toán không thể quy cho một reasoner yếu hơn; loại reference vẫn là một khác biệt vận hành chính, bên cạnh khoảng cách ngân sách. Do đó một caveat toán đi theo mọi kết quả toán:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Reference chỉ-có-đáp-số.} AIME chỉ cung cấp một đáp án số, không có lời giải, nên privileged context được hard-code để trả về đáp án và teacher chỉ có thể chép. MATH-500 (có một trường \passthrough{\lstinline!solution!}) là con đường tới một reference toán mang-phương-pháp (Chương 6) và nằm ngoài phạm vi các kết quả hiện tại.
+\end{enumerate}
+
+Việc chọn bài dùng model pass-rate \(\in (0,1)\) (một frontier định nghĩa bởi mô hình, không phải bởi nhãn độ khó của kỳ thi), vì binary math reward chỉ có phương sai khi mô hình giải một bài khoảng 30--70\% số lần (§3.6, §4).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Metric và thiết kế so sánh}\label{metrics-and-comparison-design}
+
+\textbf{pass@k / pass\_rate.} Ta báo cáo một ước lượng thực nghiệm của pass@k {[}9{]}: với mỗi điều kiện ta rút \passthrough{\lstinline!N\_eval!} sample (16 cho code, 4 cho toán) và báo cáo \passthrough{\lstinline!pass\_rate!}, tỉ lệ đúng. PRE (trước TTT) và POST (sau TTT) được báo cáo, chỉ đánh giá student, \(\pi_\theta(\cdot\mid x)\), không context tại thời điểm đánh giá (nếu không context sẽ leak vào metric). Một sample \passthrough{\lstinline!greedy!} tất định duy nhất được báo cáo kèm như một tín hiệu phụ nhiễu.
+
+\textbf{Đường cong discovery.} Theo discovery@k {[}1, Def. 5.1{]} từ §3.1: xác suất giải được trong \(k\) attempt đầu, \(P(T \le k)\) với \(T = \min\{k : r(y_k) = 1\}\). Vì generation test-time là tuần tự (chia sẻ trạng thái, cập nhật trọng số), pass@k i.i.d. không áp dụng, và discovery@k là metric đúng. Ta log per-step batch pass-rate như một đường cong discovery thô.
+
+\textbf{Escape-zero (bằng chứng cơ chế).} Định nghĩa vận hành: một seed nơi student-first kẹt ở pass = 0 (hoặc rớt về 0) trong khi teacher-first thoát 0. Đây là chữ ký trực tiếp của flat-reward trap (§3.2): on-policy không có rollout đúng để học, còn teacher nghiêng-off-policy có thể tiêm một lời giải đúng. Escape-zero được tái lập là đóng góp cơ chế chính (§4.3).
+
+\textbf{So sánh matched.} Hai nhánh chạy trên \emph{cùng} base và \emph{cùng} seed, nên PRE khớp theo từng seed, cho một so sánh ghép cặp (matched) loại bỏ phương sai mức base và mức seed. Trên mỗi cặp matched ta đếm win, tie và loss (TF so với SF).
+
+\begin{quote}
+\textbf{Một ghi chú về lực thống kê.} Nhánh code được đánh giá ở quy mô trung bình (8 bài × 6 seed), đủ sức cho một Wilcoxon signed-rank test trên các POST pass-rate ghép cặp thay vì một sign test thô; kết quả chính được báo cáo với thống kê có lực đúng nghĩa này (§4.3, Chương 6). Miền toán vẫn là một pilot n-nhỏ (n = 2 bài), nơi các tuyên bố giữ ở mức \emph{mô tả và định hướng} (``sơ bộ / ưu thế yếu'', không bao giờ ``ta chứng minh''), với mỗi phát biểu đi kèm một caveat về n.
+\end{quote}

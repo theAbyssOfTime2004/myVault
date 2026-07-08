@@ -1,0 +1,52 @@
+\chapter{Giới thiệu}\label{chapter-1-introduction}
+
+Khóa luận này nghiên cứu cách tăng tốc test-time discovery trong sinh mã phức tạp bằng execution-guided self-distillation. Câu hỏi cốt lõi mang tính thực tiễn: khi một mô hình ngôn ngữ được giao một bài toán lập trình khó duy nhất cùng một ngân sách để tự cải thiện tại thời điểm suy luận, đâu là cách hiệu quả nhất để biến execution feedback thành một lời giải tốt hơn, và chiến lược đó hiệu quả khi nào?
+
+\section{Bối cảnh}\label{background}
+
+Reinforcement learning with verifiable rewards (RLVR), với GRPO {[}8{]} là một hiện thân phổ biến, gặp vấn đề credit assignment thưa: một scalar outcome reward chỉ cho biết một attempt có vượt qua hay không, và khi mọi rollout đều thất bại thì advantage sụp về 0 và việc học đứng yên --- đúng ở những bài khó mà ta quan tâm. Self-Distillation Policy Optimization (SDPO) {[}1{]} trích một tín hiệu dày hơn từ rich feedback mà các môi trường verifiable vốn đã tạo ra, dùng mô hình feedback-conditioned làm một self-teacher rồi distill ngược lại vào student. Tại thời điểm suy luận, nó có thể lặp lại trên một bài khó và cải thiện trước cả lần thành công đầu tiên {[}1, §5{]}. Hai vấn đề thúc đẩy công trình này: bài báo gốc distill chính rollout thất bại của student (rất ít thứ đúng để học trên bài khó), và Kim và cộng sự {[}2{]} chỉ ra rằng distill từ context giàu thông tin có thể làm suy giảm mô hình do đè nén epistemic verbalization của nó.
+
+\section{Bài toán}\label{problem}
+
+Thiết lập là test-time training: một bài toán khó, một verifiable reward, một ngân sách ngắn các bước tự cải thiện, rồi reset. Hai lựa chọn thiết kế chi phối discovery: cách tổ chức execution feedback thành tín hiệu học (học từ attempt thất bại của student, hay từ một attempt đúng được sinh ra dưới feedback và đã lọc theo tính độc lập), và cách formulate execution feedback vào reprompt mà self-teacher nhìn thấy {[}1, §7{]}. Chúng tôi xem execution feedback là privileged context, do đó gọi là \emph{execution-guided}, và nghiên cứu cả hai lựa chọn với mục tiêu tăng tốc discovery.
+
+\section{Mục tiêu nghiên cứu}\label{research-questions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RO-method.} Xác định liệu tổ chức teacher-first có vượt baseline student-first trong việc khám phá lời giải cho các bài code khó không, và liệu lợi thế có giữ được khi cân bằng compute.
+\item
+  \textbf{RO1.} Xác định liệu cách formulate execution feedback qua reprompt-template có ảnh hưởng đến discovery không, và trong regime nào.
+\item
+  \textbf{RO2.} Đo lường liệu self-distillation từ context giàu thông tin có đè nén epistemic verbalization tại thời điểm suy luận trên code không.
+\item
+  \textbf{RO3.} Đặc trưng hóa các giới hạn cấu trúc và giới hạn miền của execution-guided self-distillation khi chuyển từ code thủ tục sang các ngữ cảnh toán chỉ-có-giá-trị.
+\end{itemize}
+
+Cả bốn mục tiêu nghiên cứu đều được đánh giá và giải quyết một cách hệ thống xuyên suốt khung thực nghiệm của khóa luận.
+
+\section{Đóng góp}\label{contributions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Một biến thể teacher-first của execution-guided self-distillation} distill student về phía các generation của teacher đã được verifier và judge lọc, nằm giữa SDPO on-policy và SFT off-policy, với một bộ lọc sạch không bao giờ distill một bản sao chép (Chương 3).
+\item
+  \textbf{Teacher-first tăng tốc discovery trên code một cách đáng kể, và lợi thế là compute-fair.} Trên một đánh giá matched ($8\text{ bài} \times 6\text{ seed}$), teacher-first thắng student-first (Wilcoxon signed-rank) và thoát flat-reward trap trên các bài khó nhất; một so sánh compute-matched cùng một compute-to-correct frontier cho thấy lợi ích không phải artifact của khối lượng sampling (Chương 4).
+\item
+  \textbf{Một hiệu ứng reprompt-template}, mạnh nhất trên các bài khó, ở đó một template kích thích lập luận xếp trên anchor, còn anchor xếp trên một template tối giản (§4.5).
+\item
+  \textbf{Một kết quả epistemic-suppression đo được trên code} (bật thinking): distill từ một feedback-conditioned context làm giảm các uncertainty marker, tích lũy qua các bước (§4.7).
+\item
+  \textbf{Một ranh giới miền value-versus-procedure được đặc trưng hóa.} Bằng việc cho thấy pipeline rơi vào một zero-reward trap không thoát được trên AIME 2026, chúng tôi cô lập một giới hạn nền tảng của cách tiếp cận: self-distillation cần một tín hiệu học mang-thủ-tục (như các test case dày của code) để nội hóa phương pháp, và đứng yên khi bị giới hạn ở các reference tĩnh, chỉ-có-giá-trị (§4.8, Chương 5).
+\end{enumerate}
+
+\section{Phạm vi}\label{scope}
+
+Test-time training với LoRA adapter; sinh mã phức tạp trên LiveCodeBench v6 {[}6{]} là miền thực nghiệm cốt lõi, còn AIME 2026 được dùng làm môi trường toán học đối chứng. Kết quả tập trung vào một họ mô hình lập luận quy mô 4B. Nghiên cứu vẫn là một đặc trưng hóa thực nghiệm trong phạm vi compute cá nhân, thiết lập các ranh giới miền rõ ràng và các hiểu biết nền tảng chứ không tuyên bố các định luật scaling phổ quát.
+
+\section{Cấu trúc khóa luận}\label{thesis-structure}
+
+Chương 2 điểm lại bối cảnh và các công trình liên quan; Chương 3 đặc tả phương pháp (bao gồm các mở rộng thinking-on); Chương 4 báo cáo các thí nghiệm code nhiều seed, so sánh compute-matched, kết quả epistemic-suppression và ranh giới miền toán học; Chương 5 thảo luận các cơ chế nền; Chương 6 nêu các giới hạn cấu trúc còn lại và hướng phát triển; Chương 7 kết luận.
