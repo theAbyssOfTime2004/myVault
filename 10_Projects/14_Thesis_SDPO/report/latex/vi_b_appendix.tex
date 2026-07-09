@@ -345,7 +345,7 @@ seed & PRE & TF POST & SF POST \\
 mean & & 1.000 & 0.844 \\
 \end{longtable}
 
-\section{Đánh giá toàn diện quét frontier (8 bài $\times$ 6 seed)}\label{e.3-frontier-scan-comprehensive-evaluations}
+\section{Khảo sát dải ranh giới (frontier-scan) (8 bài $\times$ 6 seed)}\label{e.3-frontier-scan-comprehensive-evaluations}
 
 \begin{longtable}{llllll p{4.2cm}}
 \caption{Tóm tắt quét frontier: 8 bài $\times$ 6 seed (SF/TF mean, win/tie/loss).}\\
@@ -369,7 +369,7 @@ idx77 & abc399\_f & difflib & 0.219 & 0.344 & 4/2/0 & --- \\
 idx78 & abc399\_g & difflib & 0.031 & 0.198 & 6/0/0 & s0, s3 (SF 0 $\rightarrow$ 0, TF 0.125) \\
 \end{longtable}
 
-Các metric POST pass@16 theo từng seed trên các tập con frontier cốt lõi (các run đánh giá chuẩn ánh xạ dưới preset good\_only / T2 chuẩn; hợp nhất qua log theo dõi W\&B):
+Các metric POST pass@16 theo từng seed trên các tập con frontier cốt lõi (các lượt đánh giá tiêu chuẩn (canonical evaluation runs) được thực thi dưới các preset good\_only / T2 chuẩn, và được tổng hợp (consolidated) thông qua hệ thống log theo dõi W\&B):
 
 \begin{longtable}{lllllllll}
 \caption{POST pass@16 theo từng seed cho idx64, idx77, idx58, idx78.}\\
@@ -416,7 +416,7 @@ mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
 \end{longtable}
 
 \begin{quote}
-Nhìn qua toàn bộ log, phương sai giữa các seed (rõ nhất ở seed 4 và 5) phản ánh đúng tín hiệu thuật toán đã thấy trong các batch kiểm nhỏ hơn, chứ không phải nhiễu ngẫu nhiên. Hành vi kẹt-ở-0 vẫn gắn chặt với giới hạn của policy không điều kiện, nên mức tăng do can thiệp không bị lẫn với các bất thường sampling (§6.2).
+Hồ sơ theo dõi minh bạch xác nhận rằng phương sai giữa các seed (rõ nhất ở seed 4 và 5) phản ánh trung thực các tín hiệu thuật toán cốt lõi đã thấy trong các batch kiểm nhỏ hơn, chứ không phải nhiễu ngẫu nhiên. Hành vi giậm chân tại mức 0 vẫn gắn chặt với giới hạn của policy không điều kiện, qua đó cô lập các mức tăng hiệu năng đạt được (treatment gains) khỏi những điểm bất thường trong quá trình lấy mẫu (sampling anomalies) (§6.2).
 \end{quote}
 
 \section{RO1 template (nhánh SF, 6 seed), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
@@ -438,7 +438,7 @@ T2\_standard & 0.94 & 0.07 \\
 T5\_reasoning & 0.95 & 0.12 \\
 \end{longtable}
 
-Kết quả này ổn định qua các seed, xác nhận rằng chính việc dẫn dắt chẩn đoán và chỉ dẫn mới tạo ra dịch chuyển hiệu năng thực sự, chứ không phải chỉ là biến thể cú pháp đơn thuần.
+Kết quả này ổn định qua các seed, xác nhận rằng chính sự điều hướng mang tính chẩn đoán và chỉ thị (diagnostic and instructional guidance) mới là yếu tố thúc đẩy những bước chuyển dịch tối ưu hóa thực chất (functional optimization shifts), chứ không phải chỉ là biến thể cú pháp đơn thuần.
 
 \section{Ablation judge $\times$ few-shot, mean POST pass (6 seed)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
 
