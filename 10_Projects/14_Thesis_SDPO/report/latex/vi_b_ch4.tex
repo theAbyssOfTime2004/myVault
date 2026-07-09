@@ -12,7 +12,7 @@ Qwen3-4B với LoRA được đánh giá trên LiveCodeBench v6 (code), và cùn
 
 Trên tập đánh giá matched quy mô trung bình cho code, teacher-first ít nhất cũng ngang student-first trên phần lớn các cặp seed-bài, và hiếm khi kém hơn — mà nếu có kém thì cũng chưa bao giờ kém nhiều, trong khi các biên mạnh nhất lại rơi đúng vào những bài khó nhất. Một Wilcoxon signed-rank test trên các POST pass-rate ghép cặp cho một cải thiện có ý nghĩa thống kê (p \textless{} 0.01) nghiêng hẳn về teacher-first, nâng kết quả từ một sign test sơ bộ lên thành một kết quả có lực thống kê đúng nghĩa. Mẫu hình escape-zero — nơi baseline student-first kẹt cứng ở 0 trong khi teacher-first cất cánh — được quan sát nhất quán trên phần lớn các bài code khó. Hành vi này đã được kiểm chứng tường minh và không thể quy cho bất kỳ artifact nào của bộ lọc.
 
-Trong tám bài, hai trường hợp khó chuẩn là điểm neo cho toàn bộ so sánh: idx64 (TF 0.41 so với SF 0.03) và idx39 (TF 0.17 so với SF 0.09) là hai bài rõ ràng, dễ escape, và cũng chính là thứ xác nhận cấu thành của tập trung bình này là hợp lý.
+Trong tám bài, hai trường hợp khó điển hình là điểm neo cho toàn bộ so sánh: idx64 (TF 0.41 so với SF 0.03) và idx39 (TF 0.17 so với SF 0.09) là hai bài rõ ràng, dễ escape, và cũng chính là thứ xác nhận cấu thành của tập trung bình này là hợp lý.
 
 \begin{figure}[htbp]
 \centering
@@ -24,7 +24,7 @@ Trong tám bài, hai trường hợp khó chuẩn là điểm neo cho toàn bộ
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{../figures/bc_fig2_discovery.pdf}
-\caption{Đường cong discovery escape-zero. Pass-rate trung bình trên các bài escape-zero qua mười lăm bước test-time. Student-first nằm phẳng ở 0, còn teacher-first cất cánh từ khoảng bước bốn. Tương phản trực quan giữa một đường phẳng và một đường đi lên là chữ ký của việc thoát flat-reward-trap.}
+\caption{Đường cong discovery escape-zero. Pass-rate trung bình trên các bài escape-zero qua mười lăm bước test-time. Student-first nằm phẳng ở 0, còn teacher-first cất cánh từ khoảng bước bốn. Tương phản trực quan giữa một đường phẳng và một đường đi lên là dấu hiệu đặc trưng của việc thoát flat-reward-trap.}
 \label{fig:bc-discovery}
 \end{figure}
 
@@ -65,7 +65,7 @@ Các ablation judge-invariance (difflib so với LLM) và leak-null (good\_only 
 
 \section{RO2: epistemic verbalization trên code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
-Việc đánh giá nhánh code với thinking bật cung cấp sẵn các reasoning trace để phân tích. Qua các bước TTT, tần suất các uncertainty marker (ví dụ "wait", "let me reconsider", các cách nói ngập ngừng) giảm dần và tích lũy — nhất quán với mẫu hình mà Kim và cộng sự~{[}2{]} gắn với \(I(y;c\mid x)\) cao. Trên code, sự giảm này đồng xảy ra với việc correctness được cải thiện. Cách đọc hợp lý nhất là cả hai đều là hệ quả chung của việc cài đặt được một thủ tục đúng, chứ không phải cái này gây ra cái kia: vì correctness của code được chấm trên held-out test, một mức tăng ở đó phản ánh một chương trình \emph{tổng quát hóa được} (một phương pháp), chứ không phải một đáp án được chép sẵn — nên việc giảm ngập ngừng cũng khá nhất quán với việc mô hình đang củng cố một phương pháp mà nó thực sự chạy được. Đây chỉ nên được xem là một cách diễn giải, chứ chưa phải một cơ chế đã chứng minh; một phép kiểm nhân quả sạch sẽ cần giữ cố định miền code và chỉ thay đổi loại reference (chỉ-có-giá-trị so với mang-phương-pháp) — điều này được để lại cho hướng phát triển sau (Chương 6).
+Việc đánh giá nhánh code với thinking bật cung cấp sẵn các reasoning trace để phân tích. Qua các bước TTT, tần suất các uncertainty marker (ví dụ "wait", "let me reconsider", các cách nói ngập ngừng) giảm dần và tích lũy — nhất quán với mẫu hình mà Kim và cộng sự~{[}2{]} gắn với \(I(y;c\mid x)\) cao. Trên code, sự giảm này đồng xảy ra với việc correctness được cải thiện. Cách diễn giải hợp lý nhất là cả hai đều là hệ quả chung của việc cài đặt được một thủ tục đúng, chứ không phải cái này gây ra cái kia: vì correctness của code được chấm trên held-out test, một mức tăng ở đó phản ánh một chương trình \emph{tổng quát hóa được} (một phương pháp), chứ không phải một đáp án được chép sẵn — nên việc giảm ngập ngừng cũng khá nhất quán với việc mô hình đang củng cố một phương pháp mà nó thực sự chạy được. Đây chỉ nên được xem là một cách diễn giải, chứ chưa phải một cơ chế đã chứng minh; một phép kiểm nhân quả sạch sẽ cần giữ cố định miền code và chỉ thay đổi loại reference (chỉ-có-giá-trị so với mang-phương-pháp) — điều này được để lại cho hướng phát triển sau (Chương 6).
 
 \begin{figure}[htbp]
 \centering
