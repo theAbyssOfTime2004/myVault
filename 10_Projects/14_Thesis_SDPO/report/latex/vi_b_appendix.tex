@@ -3,7 +3,7 @@
 \section{Code (LiveCodeBench v6, cốt lõi)}\label{a.1-code-livecodebench-v6-core}
 
 \begin{longtable}{ll}
-\caption{Siêu tham số --- code (LiveCodeBench v6, cốt lõi).}\\
+\caption{Siêu tham số: code (LiveCodeBench v6, cốt lõi).}\\
 \toprule
 Thiết lập & Giá trị \\
 \midrule
@@ -37,7 +37,7 @@ Hardware & Colab L4 (22 GB) / A100 \\
 \section{Toán (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
 \begin{longtable}{ll}
-\caption{Siêu tham số --- toán (AIME 2026, pilot).}\\
+\caption{Siêu tham số: toán (AIME 2026, pilot).}\\
 \toprule
 Thiết lập & Giá trị \\
 \midrule
@@ -112,9 +112,9 @@ Bad example 1 (do not imitate):
     [bad / copied trajectory, fenced as a python block]
 \end{lstlisting}
 
-Ở option good only, chỉ các exemplar "Correct example" xuất hiện; ở option good bad, khối "Bad example" được nối thêm vào — và chính khối này tái đưa nội dung giống-reference trở lại (§3.3.4).
+Ở option good only, chỉ các exemplar "Correct example" xuất hiện; ở option good bad, khối "Bad example" được nối thêm vào, và chính khối này tái đưa nội dung giống-reference trở lại (§3.3.4).
 
-\section{\texorpdfstring{Prompt LLM judge --- code (groq \texttt{llama-3.3-70b})}{LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
+\section{\texorpdfstring{Prompt LLM judge: code (groq \texttt{llama-3.3-70b})}{LLM judge prompt: code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a competitive-programming problem.
@@ -137,7 +137,7 @@ CANDIDATE SOLUTION: {candidate}
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
 \end{lstlisting}
 
-\section{\texorpdfstring{Prompt LLM judge --- toán (\texttt{glm-4.5-flash})}{LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
+\section{\texorpdfstring{Prompt LLM judge: toán (\texttt{glm-4.5-flash})}{LLM judge prompt: math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a math problem.
@@ -166,7 +166,7 @@ Judge trả về JSON có cấu trúc (is copy: boolean, reasoning quality: inte
 
 \chapter{Quỹ đạo ví dụ (pilot toán)}\label{appendix-d-example-trajectories-math-pilot}
 
-Các trích đoạn dưới đây được lấy nguyên văn từ \passthrough{\lstinline!output.log!} của hệ thống W\&B đối với mỗi lần chạy (run); các completion quá dài được cắt bớt và ký hiệu bằng \passthrough{\lstinline![...]!}. Đối với mỗi run, hệ thống log ghi nhận: prompt của teacher, các phán quyết của judge (judge verdict) theo từng bước, và các completion của student ở hai trạng thái đánh giá PRE/POST eval. Các quỹ đạo do teacher sinh ra mà judge đã chấm điểm \emph{không} được lưu lại dưới dạng văn bản (text), chỉ có phán quyết (verdict) của chúng được ghi nhận — do đó, hành vi sao chép ở đây được minh chứng thông qua các verdict, thay vì thông qua văn bản bị sao chép trực tiếp. Các trích đoạn của tác vụ toán (D.1--D.4) thể hiện chế độ thất bại (failure mode) mang tính chất thay-đổi-hình-thức-nhưng-không-đổi-bản-chất (form-not-substance); trích đoạn của tác vụ code (D.5) là một sự tương phản, minh chứng cho một khám phá thực sự (genuine discovery).
+Các trích đoạn dưới đây được lấy nguyên văn từ \passthrough{\lstinline!output.log!} của hệ thống W\&B đối với mỗi lần chạy (run); các completion quá dài được cắt bớt và ký hiệu bằng \passthrough{\lstinline![...]!}. Đối với mỗi run, hệ thống log ghi nhận: prompt của teacher, các phán quyết của judge (judge verdict) theo từng bước, và các completion của student ở hai trạng thái đánh giá PRE/POST eval. Các quỹ đạo do teacher sinh ra mà judge đã chấm điểm \emph{không} được lưu lại dưới dạng văn bản (text), chỉ có phán quyết (verdict) của chúng được ghi nhận, do đó, hành vi sao chép ở đây được minh chứng thông qua các verdict, thay vì thông qua văn bản bị sao chép trực tiếp. Các trích đoạn của tác vụ toán (D.1--D.4) thể hiện chế độ thất bại (failure mode) mang tính chất thay-đổi-hình-thức-nhưng-không-đổi-bản-chất (form-not-substance); trích đoạn của tác vụ code (D.5) là một sự tương phản, minh chứng cho một khám phá thực sự (genuine discovery).
 
 \section{Prompt teacher với reference bị leak (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
@@ -208,7 +208,7 @@ step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
 3 & (T,2) (T,2) (T,1) (T,3) & 0 / 4 \\
 \end{longtable}
 
-Suy dẫn thực sự (genuine derivation) duy nhất --- (F,4) --- xuất hiện ở bước 1. Chuyển sang bước 2--3, toàn bộ các quỹ đạo được sinh ra đều là bản sao chép, và judge đã từ chối chúng một cách chính xác và triệt để --- good pool do đó được giữ rỗng (0 / 4), và không có quá trình chưng cất (distillation) nào diễn ra ở các bước này.
+Suy dẫn thực sự (genuine derivation) duy nhất, tương ứng verdict (F,4), xuất hiện ở bước 1. Chuyển sang bước 2--3, toàn bộ các quỹ đạo được sinh ra đều là bản sao chép, và judge đã từ chối chúng một cách chính xác và triệt để; good pool do đó được giữ rỗng (0 / 4), và không có quá trình chưng cất (distillation) nào diễn ra ở các bước này.
 
 idx8 (run 463y4fjr), đáp án chính xác là 29:
 
@@ -229,7 +229,7 @@ step & verdicts & n\_good / n\_bad & batch reward \\
 3 & (T,4) (T,3) (T,2) (F,2) & 0 / 4 & 1.00 \\
 \end{longtable}
 
-Toàn bộ verdict của idx8 đều trả về \texttt{is\_copy=true} (trường hợp F duy nhất có reasoning\_quality 2 \textless{} 3 nên cũng bị loại bỏ hoàn toàn). Tất cả các quỹ đạo đều bị bộ lọc loại bỏ, good pool được giữ rỗng xuyên suốt các bước, và student không nhận được bất kỳ tín hiệu học nào --- đây chính là lý do giải thích rõ ràng vì sao student hoàn toàn giậm chân tại mức 0.
+Toàn bộ verdict của idx8 đều trả về \texttt{is\_copy=true} (trường hợp F duy nhất có reasoning\_quality 2 \textless{} 3 nên cũng bị loại bỏ hoàn toàn). Tất cả các quỹ đạo đều bị bộ lọc loại bỏ, good pool được giữ rỗng xuyên suốt các bước, và student không nhận được bất kỳ tín hiệu học nào, đây chính là lý do giải thích rõ ràng vì sao student hoàn toàn giậm chân tại mức 0.
 
 \section{Thay đổi về mặt hình thức, bất biến về mặt bản chất (idx9 student eval, PRE so với POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
@@ -241,13 +241,13 @@ Toàn bộ verdict của idx8 đều trả về \texttt{is\_copy=true} (trườn
 
 Nó tính ra kết quả 315.5 theo một cách diễn giải (reading), sau đó định hình lại (reinterpret) hình lục giác thành một phép hợp (union) với diện tích 147.5, và chốt đáp án 148.
 
-\textbf{POST} (11.951 ký tự, độ dài giảm đi khoảng một nửa, chốt đáp án \(\boxed{168}\)). Sau TTT, phần thiết lập ban đầu (setup) trở nên hợp lý hơn --- mô hình đã suy dẫn được \(\cos C = 3/5\) và \(\theta = 90^\circ \pm C\) --- nhưng sau đó nó từ bỏ việc lập luận sớm hơn và lạm dụng lối tắt (shortcut) để tính gấp đôi diện tích tam giác:
+\textbf{POST} (11.951 ký tự, độ dài giảm đi khoảng một nửa, chốt đáp án \(\boxed{168}\)). Sau TTT, phần thiết lập ban đầu (setup) trở nên hợp lý hơn (mô hình đã suy dẫn được \(\cos C = 3/5\) và \(\theta = 90^\circ \pm C\)), nhưng sau đó nó từ bỏ việc lập luận sớm hơn và lạm dụng lối tắt (shortcut) để tính gấp đôi diện tích tam giác:
 
 \begin{quote}
 ``{[\ldots]} unless the overlap is significant {[\ldots]} the area is often closely approximated by the sum of the individual areas {[\ldots]} the most straightforward interpretation leading to a clean integer answer is that the intended area calculation ignores the slight overlap {[\ldots]} \(\text{Area}(H) \approx 84 + 84 = 168\).''
 \end{quote}
 
-Cả hai đáp án đều sai (đáp án chính xác là 156); mô hình chưa từng tiếp cận được hay ghi nhớ đáp án bị rò rỉ (leaked answer). Tại đây, TTT chỉ làm thay đổi phong cách lập luận --- trở nên tự tin hơn, lạm dụng lối tắt nhiều hơn --- chứ hoàn toàn không cải thiện năng lực cốt lõi.
+Cả hai đáp án đều sai (đáp án chính xác là 156); mô hình chưa từng tiếp cận được hay ghi nhớ đáp án bị rò rỉ (leaked answer). Tại đây, TTT chỉ làm thay đổi phong cách lập luận (trở nên tự tin hơn, lạm dụng lối tắt nhiều hơn) chứ hoàn toàn không cải thiện năng lực cốt lõi.
 
 \section{Sự dịch chuyển phong cách lập luận theo chiều ngược lại (idx8 student eval, PRE so với POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
 
@@ -255,9 +255,9 @@ Bài toán idx8 lại thể hiện sự dịch chuyển (drift) theo chiều hư
 
 \textbf{PRE} (chốt đáp án \(\boxed{40201}\)) xử lý các lần tung xúc xắc như các biến độc lập và tính ra \(p = 2^{13}\cdot 3 / 5^6\), dẫn đến \(m+n = 24576 + 15625 = 40201\).
 
-\textbf{POST} (chốt đáp án \(\boxed{17}\)) lại mang tính chặt chẽ (rigorous) hơn đáng kể --- mô hình chia trường hợp phân tích \(R_2 = R_4\) so với \(R_2 \neq R_4\), tính toán \(N_B = 11700\) và \(N_{A\cap B} = 3600\), sau đó rút gọn \(p = 4/13\) để đưa ra \(m+n = 17\).
+\textbf{POST} (chốt đáp án \(\boxed{17}\)) lại mang tính chặt chẽ (rigorous) hơn đáng kể: mô hình chia trường hợp phân tích \(R_2 = R_4\) so với \(R_2 \neq R_4\), tính toán \(N_B = 11700\) và \(N_{A\cap B} = 3600\), sau đó rút gọn \(p = 4/13\) để đưa ra \(m+n = 17\).
 
-Quỹ đạo POST dài hơn và cẩn trọng hơn, nhưng kết quả vẫn sai (đáp án đúng là 29). Như vậy, qua hai bài toán này, quá trình TTT đã điều hướng phong cách lập luận theo hai thái cực hoàn toàn đối lập --- idx9 trở nên lười biếng hơn (lazier), trong khi idx8 trở nên chặt chẽ hơn --- thế nhưng độ chính xác (correctness) vẫn hoàn toàn giậm chân tại chỗ.
+Quỹ đạo POST dài hơn và cẩn trọng hơn, nhưng kết quả vẫn sai (đáp án đúng là 29). Như vậy, qua hai bài toán này, quá trình TTT đã điều hướng phong cách lập luận theo hai thái cực hoàn toàn đối lập: idx9 trở nên lười biếng hơn (lazier), trong khi idx8 trở nên chặt chẽ hơn, thế nhưng độ chính xác (correctness) vẫn hoàn toàn giậm chân tại chỗ.
 
 \section{Khám phá thành công lời giải thực thụ trên miền code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
@@ -271,7 +271,7 @@ X = int(input())
 print(math.factorial(X))
 \end{lstlisting}
 
-\textbf{Execution feedback} (privileged context --- đây là ý nghĩa của ``execution-guided''):
+\textbf{Execution feedback} (privileged context, đây là ý nghĩa của ``execution-guided''):
 
 \begin{lstlisting}
 Your solution must satisfy these test cases:
