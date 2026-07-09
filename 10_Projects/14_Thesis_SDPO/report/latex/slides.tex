@@ -51,10 +51,8 @@ $\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usa
 
 % 4
 \begin{frame}{Our idea: teacher-first}
-{\small Both arms use one \emph{self-teacher} (same weights $+$ context) as the KL target --- they differ only in \textbf{which trajectory is distilled}.}
-\vspace{2pt}
 \centering
-\scalebox{0.6}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,text width=3.5cm,inner sep=2pt}]
+\scalebox{0.66}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,text width=3.5cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
 % left: student-first
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
