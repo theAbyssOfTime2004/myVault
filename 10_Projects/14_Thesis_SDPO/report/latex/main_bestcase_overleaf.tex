@@ -543,18 +543,18 @@ The labeled exemplars are fed back into the teacher's prompt (in-context, with n
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 2 --- \passthrough{\lstinline!good\_only!}
+Option 2: \passthrough{\lstinline!good\_only!}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 1 --- \passthrough{\lstinline!good\_bad!}
+Option 1: \passthrough{\lstinline!good\_bad!}
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 2 --- \passthrough{\lstinline!good\_only!}
+Option 2: \passthrough{\lstinline!good\_only!}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 1 --- \passthrough{\lstinline!good\_bad!}
+Option 1: \passthrough{\lstinline!good\_bad!}
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -684,18 +684,18 @@ The domains differ in their reference mode (what the teacher sees as the ``answe
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Code --- LCBv6 {[}6{]}} (core)
+\textbf{Code (LCBv6 {[}6{]})} (core)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Math --- AIME 2026 {[}10{]}} (pilot)
+\textbf{Math (AIME 2026 {[}10{]})} (pilot)
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Code --- LCBv6 {[}6{]}} (core)
+\textbf{Code (LCBv6 {[}6{]})} (core)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Math --- AIME 2026 {[}10{]}} (pilot)
+\textbf{Math (AIME 2026 {[}10{]})} (pilot)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -997,7 +997,7 @@ This work remains an empirical characterization within a single 4B model at a pe
 \section{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
 
 \begin{longtable}{ll}
-\caption{Hyperparameters --- code (LiveCodeBench v6, core).}\\
+\caption{Hyperparameters: code (LiveCodeBench v6, core).}\\
 \toprule
 Setting & Value \\
 \midrule
@@ -1031,7 +1031,7 @@ Hardware & Colab L4 (22 GB) / A100 \\
 \section{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
 \begin{longtable}{ll}
-\caption{Hyperparameters --- math (AIME 2026, pilot).}\\
+\caption{Hyperparameters: math (AIME 2026, pilot).}\\
 \toprule
 Setting & Value \\
 \midrule
@@ -1108,7 +1108,7 @@ Bad example 1 (do not imitate):
 
 Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content (§3.3.4).
 
-\section{\texorpdfstring{LLM judge prompt --- code (groq \texttt{llama-3.3-70b})}{LLM judge prompt --- code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
+\section{\texorpdfstring{LLM judge prompt: code (groq \texttt{llama-3.3-70b})}{LLM judge prompt: code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a competitive-programming problem.
@@ -1131,7 +1131,7 @@ CANDIDATE SOLUTION: {candidate}
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
 \end{lstlisting}
 
-\section{\texorpdfstring{LLM judge prompt --- math (\texttt{glm-4.5-flash})}{LLM judge prompt --- math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
+\section{\texorpdfstring{LLM judge prompt: math (\texttt{glm-4.5-flash})}{LLM judge prompt: math (glm-4.5-flash)}}\label{c.3-llm-judge-prompt-math-glm-4.5-flash}
 
 \begin{lstlisting}
 You are judging a CANDIDATE solution to a math problem.
@@ -1245,7 +1245,13 @@ Both are wrong (correct 156); the model never reaches or memorizes the leaked an
 
 \section{The opposite stylistic drift (idx8 student eval, PRE vs POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
 
-idx8 drifts the other way. \textbf{PRE} (boxed \textbf{40201}) treats the rolls as independent and computes \(p = 2^{13}\cdot 3 / 5^6\), giving \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (boxed \textbf{17}) is \emph{more} rigorous --- it does casework on \(R_2 = R_4\) versus \(R_2 \neq R_4\), counts \(N_B = 11700\) and \(N_{A\cap B} = 3600\), and simplifies \(p = 4/13\) to \(m+n = 17\). POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
+idx8 drifts the other way.
+
+\textbf{PRE} (boxed \textbf{40201}) treats the rolls as independent and computes \(p = 2^{13}\cdot 3 / 5^6\), giving \(m+n = 24576 + 15625 = 40201\).
+
+\textbf{POST} (boxed \textbf{17}) is \emph{more} rigorous --- it does casework on \(R_2 = R_4\) versus \(R_2 \neq R_4\), counts \(N_B = 11700\) and \(N_{A\cap B} = 3600\), and simplifies \(p = 4/13\) to \(m+n = 17\).
+
+POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
 
 \section{Genuine discovery on code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
