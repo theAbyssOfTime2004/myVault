@@ -53,7 +53,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,8 +240,9 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "25ed80e90c9328b5",
+  "active": "4c4baae060cd60a7",
   "lastOpenFiles": [
+    "10_Projects/14_Thesis_SDPO/report/latex/~$slides.pptx",
     "00_Dashboard/Untitled 4.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md.tmp.15748.7f2accd8349f",
