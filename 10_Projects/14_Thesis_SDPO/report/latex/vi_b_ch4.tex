@@ -72,47 +72,47 @@ Cách lý giải (interpretation) phù hợp nhất là cả hai hiện tượng
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{../figures/bc_fig4_epistemic.pdf}
-\caption{Sự đè nén epistemic (RO2). Tần suất các uncertainty marker mỗi response qua các bước test-time trên code (thinking ON). Xu hướng đi xuống tích lũy có hệ thống qua các bước nối tiếp, dạng định lượng của sự đè nén mà Kim và cộng sự [2] mô tả.}
+\caption{Sự suy giảm biểu đạt nhận thức (epistemic suppression) (RO2). Tần suất xuất hiện của các uncertainty marker trên mỗi response qua các bước test-time trên code (thinking ON). Xu hướng đi xuống tích lũy có hệ thống qua các bước nối tiếp chính là dạng định lượng của hiện tượng suy giảm mà Kim và cộng sự {[}2{]} đã mô tả.}
 \label{fig:bc-epistemic}
 \end{figure}
 
 \section{Ranh giới miền (RO3): Đặc trưng hóa kiến trúc trên toán}\label{the-domain-boundary-architectural-characterization-on-math}
 
-Khác hẳn với sự cất cánh thành công quan sát được ở miền code, đánh giá toán học trên bộ dữ liệu AIME 2026 lại phơi bày một ranh giới hiệu năng khá cứng: mô hình không thoát nổi khỏi trạng thái zero-reward. Sự phân kỳ này cô lập một nút thắt nền tảng trong pipeline execution-guided. Khác với sinh mã — nơi output mục tiêu là một thủ tục thuật toán, được kiểm chứng qua các output test nhiều case dày — bộ AIME chỉ cho một giá trị số tĩnh duy nhất làm feedback, không hề có suy dẫn từng bước hay lời giải kèm theo.
+Trái ngược hoàn toàn với sự bứt phá (lift-off) thành công được quan sát trên miền code, kết quả đánh giá toán học trên bộ dữ liệu AIME 2026 lại bộc lộ một ranh giới hiệu năng không thể vượt qua (hard performance boundary): mô hình hoàn toàn không thể thoát khỏi trạng thái zero-reward. Sự phân kỳ này làm bộc lộ rõ một điểm nghẽn (bottleneck) nền tảng trong pipeline execution-guided. Khác với tác vụ sinh mã — nơi output mục tiêu là một thủ tục thuật toán, được kiểm chứng thông qua các bộ test case dày đặc — tập dữ liệu AIME chỉ cung cấp một giá trị số tĩnh duy nhất làm feedback, hoàn toàn không đi kèm bất kỳ quá trình suy dẫn từng bước hay lời giải chi tiết nào.
 
-Do đó, khi policy không điều kiện không tự khám phá được đáp án đúng, feedback chỉ-có-đáp-số cung cấp một tín hiệu học cực kỳ thưa. Teacher policy bị ép vào một copy-regime, không trích ra được điều chỉnh thủ tục động nào để distill ngược lại vào student. Trong giới hạn của pilot nhỏ này, điều đó cho thấy hiệu lực của teacher-first self-distillation phụ thuộc nghiêm ngặt vào việc privileged context có truyền tải một thủ tục tái lập được hay chỉ là một giá trị thô — và để lại một khoảng cải thiện then chốt cho feedback toán mang tính thủ tục.
+Do đó, khi policy không điều kiện không thể tự khám phá ra đáp án đúng, loại feedback chỉ-thuần-đáp-án (answer-only) này cung cấp một lượng tín hiệu học cực kỳ thưa thớt. Teacher policy bị ép vào một chế độ sao chép (copy-regime), không thể trích xuất được bất kỳ sự điều chỉnh mang tính thủ tục động (dynamic procedural adjustment) nào để chưng cất ngược lại (distill back) vào student. Trong giới hạn của pilot quy mô nhỏ này, kết quả chỉ ra rằng hiệu lực của phương pháp teacher-first self-distillation phụ thuộc nghiêm ngặt vào việc liệu privileged context có truyền tải một thủ tục tái lập được (reproducible procedure) hay chỉ đơn thuần là một giá trị thô — đồng thời vạch ra một dư địa cải tiến (room for improvement) then chốt đối với loại feedback toán học mang tính thủ tục.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{Ranh giới value-versus-procedure: kết quả escape-zero theo miền và loại feedback.}\\
+\caption{Ranh giới quy trình-và-giá trị (value-versus-procedure): kết quả escape-zero phân loại theo miền và loại feedback.}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-điều kiện miền
+Điều kiện miền
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-nội dung feedback
+Nội dung feedback
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-escape-zero?
+Escape-zero?
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-điều kiện miền
+Điều kiện miền
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-nội dung feedback
+Nội dung feedback
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-escape-zero?
+Escape-zero?
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-LiveCodeBench v6 (Code) & Output test nhiều case dày & \textbf{Có (Cải thiện đáng kể)} \\
-Pilot AIME 2026 (Toán) & Chỉ một giá trị số tĩnh & Không (Kẹt ở 0/2) \\
+LiveCodeBench v6 (Code) & Các bộ test case dày đặc & \textbf{Có (Bứt phá đáng kể)} \\
+Pilot AIME 2026 (Toán) & Chỉ một giá trị số tĩnh & Không (Giậm chân ở 0/2) \\
 \end{longtable}
 
 \section{Pilot toán}\label{math-pilot}
 
-Chạy lại pilot AIME càng làm sắc nét thêm ranh giới thực nghiệm này: trên các bài vượt-năng-lực, teacher chỉ sinh ra toàn bản sao chép, và judge từ chối chúng một cách đúng đắn và triệt để. Vì vậy student không nhận được tín hiệu học nào và kẹt nguyên ở 0. Đây là một minh chứng thực nghiệm khá sạch cho thấy bộ lọc hành xử đúng như thiết kế, đồng thời xác nhận rằng chế độ thất bại trên toán về cơ bản bị ràng buộc bởi sự khan hiếm tín hiệu học của reference và quy mô compute hiện tại, chứ không phải một artifact của pipeline huấn luyện.
+Việc thực thi lại pilot AIME càng làm rõ nét hơn ranh giới thực nghiệm này: trên các bài toán vượt quá giới hạn năng lực (beyond-capability problems), teacher sinh ra thuần túy các bản sao chép, và judge đã từ chối chúng một cách chính xác và triệt để. Do đó, student không nhận được bất kỳ tín hiệu học nào và giậm chân tại mức 0. Đây là một minh chứng thực nghiệm tường minh (clean experimental demonstration) cho thấy bộ lọc hành xử chuẩn xác theo đúng thiết kế, đồng thời khẳng định rằng chế độ thất bại (failure mode) trên toán học về bản chất bị ràng buộc bởi sự khan hiếm tín hiệu học của reference và quy mô tài nguyên tính toán hiện tại, chứ không phải là một hệ quả ảo (artifact) sinh ra từ quy trình huấn luyện.
