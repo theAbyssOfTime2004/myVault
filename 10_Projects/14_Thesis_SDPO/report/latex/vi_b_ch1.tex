@@ -17,13 +17,13 @@ Nghiên cứu này được đặt trong bối cảnh test-time training: tập 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{RO-method.} Xác định liệu tổ chức teacher-first có vượt baseline student-first trong việc khám phá lời giải cho các bài code khó hay không, và lợi thế đó có còn giữ được khi cân bằng compute hay không.
+  \textbf{RO-method.} Xác định liệu cách tổ chức teacher-first có vượt trội hơn baseline student-first trong việc khám phá lời giải cho các bài toán code khó hay không, và liệu lợi thế đó có được duy trì khi cân bằng tài nguyên tính toán (compute-matched) hay không.
 \item
-  \textbf{RO1.} Xác định cách formulate execution feedback qua reprompt-template có ảnh hưởng đến discovery hay không, và nếu có thì trong regime nào.
+  \textbf{RO1.} Xác định xem cách định dạng (formulate) execution feedback thông qua reprompt-template có ảnh hưởng đến tốc độ khám phá (discovery) hay không, và nếu có thì dưới điều kiện (regime) nào.
 \item
-  \textbf{RO2.} Đo xem self-distillation từ một context giàu thông tin có đè nén epistemic verbalization tại thời điểm suy luận trên code hay không.
+  \textbf{RO2.} Đo lường xem liệu quá trình tự chưng cất (self-distillation) từ một ngữ cảnh giàu thông tin có làm suy giảm các biểu đạt nhận thức (epistemic verbalization) tại thời điểm suy luận trên mã nguồn hay không.
 \item
-  \textbf{RO3.} Đặc trưng hóa các giới hạn cấu trúc và giới hạn miền của execution-guided self-distillation khi chuyển từ code mang tính thủ tục sang các ngữ cảnh toán chỉ-có-giá-trị.
+  \textbf{RO3.} Mô tả đặc trưng các giới hạn về cấu trúc và miền ứng dụng của phương pháp tự chưng cất được dẫn dắt bởi thực thi (execution-guided self-distillation), đặc biệt khi chuyển từ miền code mang tính quy trình (procedural) sang các ngữ cảnh toán học chỉ mang giá trị tĩnh (value-only).
 \end{itemize}
 
 Cả bốn mục tiêu này đều được đánh giá và giải quyết xuyên suốt khung thực nghiệm của khóa luận.
