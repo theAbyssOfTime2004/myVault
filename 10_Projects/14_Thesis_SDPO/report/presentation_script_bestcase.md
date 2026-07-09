@@ -2,7 +2,7 @@
 
 **Đề tài:** *Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation*
 **SV:** Mai Phong Đăng (22280008) · **GVHD:** TS. Ngô Minh Mẫn
-**Khớp với:** `slides.pdf` (15 frame) + `main_bestcase.pdf`
+**Khớp với:** `slides.pdf` (16 frame) + `main_bestcase.pdf`
 
 > Ghi chú: số liệu theo **bản best-case** (`main_bestcase`). Tổng ~15 phút; cột ⏱ là gợi ý nhịp. Thuật ngữ kỹ thuật giữ tiếng Anh, đọc tự nhiên, đừng đọc nguyên văn. Giữ đúng giọng **calibrated**: code có Wilcoxon; math là pilot n=2 chỉ nói *directional*; epistemic là *co-occurrence + giả thuyết*, không phải nhân quả đã chứng minh.
 
@@ -146,9 +146,13 @@ Về giới hạn, trình bày thẳng thắn:
 
 ---
 
-## Slide 15 — Kết luận (⏱ 0:45)
+## Slide 15 — Kết luận (⏱ 0:30)
 
 Tóm lại: **teacher-first execution-guided self-distillation** tăng tốc test-time discovery trên sinh mã phức tạp. Nó **thoát flat-reward trap**, lợi thế là **compute-fair**, và đi kèm một **hiệu ứng epistemic phụ thuộc regime**. Quan trọng nhất, **ranh giới value-versus-procedure** giải thích *khi nào* nó hoạt động: cần một phương pháp trong tầm với, không chỉ một đáp án đúng.
+
+---
+
+## Slide 16 — Thank you (⏱ 0:15)
 
 Xin cảm ơn quý thầy cô đã lắng nghe. Rất mong nhận được câu hỏi và góp ý từ hội đồng.
 
@@ -167,7 +171,7 @@ Xin cảm ơn quý thầy cô đã lắng nghe. Rất mong nhận được câu 
 ---
 
 ### Mẹo trình bày
-- 15 slide / 15 phút ≈ **1 phút/slide**; dồn thời gian cho slide 8–9–12 (kết quả chính + insight), lướt nhanh 6–7 (RO + setup).
+- 16 slide / 15 phút ≈ **~1 phút/slide** (slide 16 chỉ vài giây); dồn thời gian cho slide 8–9–12 (kết quả chính + insight), lướt nhanh 6–7 (RO + setup).
 - Slide 9 (escape-zero) và slide 12 (boundary) là **hai điểm nhớ** — nói chậm, chỉ vào hình.
 - Luôn neo vào hình: "đường phẳng vs đường đi lên", "cột xanh cao hơn cột cam".
 - **Kỷ luật calibrated:** với code dùng "significant / Wilcoxon"; với toán và epistemic dùng "co-occurs / directional / giả thuyết". Đừng bao giờ nói "suppression giúp tăng correctness" hay "đã cô lập reference type".
