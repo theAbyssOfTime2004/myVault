@@ -231,33 +231,33 @@ step & verdicts & n\_good / n\_bad & batch reward \\
 
 Toàn bộ verdict của idx8 đều trả về \texttt{is\_copy=true} (trường hợp F duy nhất có reasoning\_quality 2 \textless{} 3 nên cũng bị loại bỏ hoàn toàn). Tất cả các quỹ đạo đều bị bộ lọc loại bỏ, good pool được giữ rỗng xuyên suốt các bước, và student không nhận được bất kỳ tín hiệu học nào --- đây chính là lý do giải thích rõ ràng vì sao student hoàn toàn giậm chân tại mức 0.
 
-\section{Hình thức đổi, bản chất thì không (idx9 student eval, PRE so với POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
+\section{Thay đổi về mặt hình thức, bất biến về mặt bản chất (idx9 student eval, PRE so với POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
-\textbf{PRE} (23.920 ký tự, boxed \textbf{148}). Mô hình nhận ra cấu hình mâu thuẫn, rồi thỏa hiệp chọn một góc chẵn (góc đẹp):
+\textbf{PRE} (23.920 ký tự, chốt đáp án \(\boxed{148}\)). Mô hình nhận diện được cấu hình của bài toán chứa yếu tố mâu thuẫn, sau đó đưa ra một thỏa hiệp (satisfice) để chọn một góc đặc biệt (góc đẹp):
 
 \begin{quote}
 ``But \(AC \perp BC\) is impossible in \(\triangle ABC\) {[\ldots]} \textbf{Crucial Insight Check:} {[\ldots]} This seems overly complex for a calculation intended to yield a clean integer answer nearby. Let's pivot and assume \(\theta\) is a `nice' angle, like \(90^\circ\) or \(180^\circ\) {[\ldots]}''
 \end{quote}
 
-Nó tính 315.5 theo một cách đọc, diễn giải lại lục giác như một hợp (147.5), và boxed 148.
+Nó tính ra kết quả 315.5 theo một cách diễn giải (reading), sau đó định hình lại (reinterpret) hình lục giác thành một phép hợp (union) với diện tích 147.5, và chốt đáp án 148.
 
-\textbf{POST} (11.951 ký tự, khoảng một nửa độ dài, boxed \textbf{168}). Sau TTT phần thiết lập tốt hơn --- giờ nó suy ra \(\cos C = 3/5\) và \(\theta = 90^\circ \pm C\) --- nhưng nó bỏ cuộc sớm hơn và đi tắt tới hai lần diện tích tam giác:
+\textbf{POST} (11.951 ký tự, độ dài giảm đi khoảng một nửa, chốt đáp án \(\boxed{168}\)). Sau TTT, phần thiết lập ban đầu (setup) trở nên hợp lý hơn --- mô hình đã suy dẫn được \(\cos C = 3/5\) và \(\theta = 90^\circ \pm C\) --- nhưng sau đó nó từ bỏ việc lập luận sớm hơn và lạm dụng lối tắt (shortcut) để tính gấp đôi diện tích tam giác:
 
 \begin{quote}
 ``{[\ldots]} unless the overlap is significant {[\ldots]} the area is often closely approximated by the sum of the individual areas {[\ldots]} the most straightforward interpretation leading to a clean integer answer is that the intended area calculation ignores the slight overlap {[\ldots]} \(\text{Area}(H) \approx 84 + 84 = 168\).''
 \end{quote}
 
-Cả hai đều sai (đáp án đúng là 156); mô hình chưa bao giờ chạm tới hay ghi nhớ được đáp án bị leak. TTT ở đây chỉ đổi phong cách lập luận — tự tin hơn, sẵn sàng đi tắt hơn — chứ không đổi năng lực.
+Cả hai đáp án đều sai (đáp án chính xác là 156); mô hình chưa từng tiếp cận được hay ghi nhớ đáp án bị rò rỉ (leaked answer). Tại đây, TTT chỉ làm thay đổi phong cách lập luận --- trở nên tự tin hơn, lạm dụng lối tắt nhiều hơn --- chứ hoàn toàn không cải thiện năng lực cốt lõi.
 
-\section{Sự dịch chuyển phong cách ngược lại (idx8 student eval, PRE so với POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
+\section{Sự dịch chuyển phong cách lập luận theo chiều ngược lại (idx8 student eval, PRE so với POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
 
-idx8 lại trôi theo hướng ngược lại. \textbf{PRE} (boxed \textbf{40201}) coi các lần tung là độc lập, tính \(p = 2^{13}\cdot 3 / 5^6\), cho \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (boxed \textbf{17}) thì \emph{chặt chẽ hơn} hẳn — chia trường hợp \(R_2 = R_4\) so với \(R_2 \neq R_4\), đếm \(N_B = 11700\) và \(N_{A\cap B} = 3600\), rồi rút gọn \(p = 4/13\) thành \(m+n = 17\). POST dài hơn, cẩn thận hơn, nhưng vẫn sai (đáp án đúng là 29). Vậy nên qua hai bài này, TTT kéo phong cách lập luận theo hai hướng ngược hẳn nhau — idx9 lười đi, idx8 chặt lại — trong khi correctness không hề nhích.
+Bài toán idx8 lại thể hiện sự dịch chuyển (drift) theo chiều hướng ngược lại. \textbf{PRE} (chốt đáp án \(\boxed{40201}\)) xử lý các lần tung xúc xắc như các biến độc lập và tính ra \(p = 2^{13}\cdot 3 / 5^6\), dẫn đến \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (chốt đáp án \(\boxed{17}\)) lại mang tính chặt chẽ (rigorous) hơn đáng kể --- mô hình chia trường hợp phân tích \(R_2 = R_4\) so với \(R_2 \neq R_4\), tính toán \(N_B = 11700\) và \(N_{A\cap B} = 3600\), sau đó rút gọn \(p = 4/13\) để đưa ra \(m+n = 17\). Quỹ đạo POST dài hơn và cẩn trọng hơn, nhưng kết quả vẫn sai (đáp án đúng là 29). Như vậy, qua hai bài toán này, quá trình TTT đã điều hướng phong cách lập luận theo hai thái cực hoàn toàn đối lập --- idx9 trở nên lười biếng hơn (lazier), trong khi idx8 trở nên chặt chẽ hơn --- thế nhưng độ chính xác (correctness) vẫn hoàn toàn giậm chân tại chỗ.
 
-\section{Khám phá thực trên code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
+\section{Khám phá thành công lời giải thực thụ trên miền code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
-Đây chính là điểm tương phản mấu chốt với pilot toán: ở đây output là một \emph{chương trình}, và teacher-first cài đặt được một chương trình thực sự chạy đúng. Bài abc389 b: cho X, tìm N sao cho N! = X.
+Đây chính là điểm tương phản cốt lõi so với pilot toán: trên miền code, target output là một \emph{chương trình}, và teacher-first đã thiết lập thành công một chương trình có khả năng thực thi chính xác. Xét bài toán \passthrough{\lstinline!abc389\_b!}: cho số \(X\), tìm \(N\) sao cho \(N! = X\).
 
-\textbf{PRE} (greedy score 0.075, pass@16 = 0.000). Student đảo ngược tác vụ, tính giai thừa thay vì tìm N, đồng thời tràn giới hạn integer-string trên input lớn:
+\textbf{PRE} (greedy score 0.075, pass@16 = 0.000). Student hiểu ngược yêu cầu của tác vụ, tiến hành tính giai thừa thay vì tìm \(N\), đồng thời gây ra lỗi vượt quá giới hạn chuyển đổi integer-string đối với các input lớn:
 
 \begin{lstlisting}[language=Python]
 import math
