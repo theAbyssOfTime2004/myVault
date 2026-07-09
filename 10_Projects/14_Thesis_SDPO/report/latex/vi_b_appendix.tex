@@ -64,9 +64,9 @@ Lõi distillation dùng chung cho cả hai miền: reverse KL top-K theo từng 
 
 \chapter{Reprompt template (nguyên văn)}\label{appendix-b-reprompt-templates-verbatim}
 
-Mỗi preset chỉ ghi đè các slot của template SDPO; mô hình, nội dung feedback (privileged context), và các siêu tham số đều được giữ nguyên để có một ablation sạch. T2 là mặc định, giữ nguyên văn.
+Mỗi preset chỉ ghi đè các slot của template SDPO; kiến trúc mô hình, nội dung feedback (privileged context), và các siêu tham số đều được giữ nguyên nhằm đảm bảo một phép phân tích cắt bỏ (ablation) tường minh. T2 là template mặc định, được giữ nguyên văn.
 
-\textbf{Ghi chú phạm vi trung thực.} Codebase chỉ hiện thực \textbf{bốn} preset, tái hiện bên dưới: T1, T2, T5, T6. Phân loại ở §3.4 còn đặt tên thêm T3 (verbose), T4 (structured JSON), và T7 (cumulative history), nhưng ba cái này chỉ là các điểm khái niệm trong không gian thiết kế và \textbf{chưa} được hiện thực. Trong bốn cái đã hiện thực, các thí nghiệm mới dò được T1/T2/T5 (§4.5); T6 tuy có nhưng chưa dò tới.
+\textbf{Ghi chú minh bạch về phạm vi (Honest scope note).} Codebase chỉ hiện thực hóa \textbf{bốn} preset, được trình bày chi tiết dưới đây: T1, T2, T5, T6. Hệ thống phân loại ở §3.4 có đề cập thêm T3 (verbose), T4 (structured JSON), và T7 (cumulative history), nhưng ba template này chỉ đóng vai trò là các điểm khái niệm (conceptual points) trong không gian thiết kế và \textbf{chưa} được hiện thực hóa. Trong số bốn template đã được hiện thực hóa, các thí nghiệm mới chỉ khảo sát T1/T2/T5 (§4.5); T6 tuy đã được hiện thực hóa nhưng chưa đưa vào khảo sát.
 
 \begin{lstlisting}[language=Python]
 # T1 - Minimal: teacher is told the attempt was wrong but NOT why
@@ -97,7 +97,7 @@ Mỗi preset chỉ ghi đè các slot của template SDPO; mô hình, nội dung
 
 \section{Prompt teacher và khối few-shot}\label{c.1-teacher-prompt-and-few-shot-block}
 
-Prompt teacher gồm câu hỏi + khối few-shot + feedback + chỉ dẫn kết, trong đó phần feedback và chỉ dẫn kết lấy từ reprompt preset được chọn (Phụ lục B). Một instance đã ghép hoàn chỉnh của prompt này được cho ở Phụ lục D.1. Khối few-shot được lắp như sau; các exemplar được lược bỏ thinking trace và giới hạn ở 1500 ký tự:
+Prompt của teacher bao gồm câu hỏi + khối few-shot + feedback + chỉ dẫn kết thúc (closing directive), trong đó phần feedback và chỉ dẫn kết thúc được lấy từ reprompt preset được chọn (Phụ lục B). Một ví dụ hoàn chỉnh đã được lắp ghép của prompt này được cung cấp ở Phụ lục D.1. Khối few-shot được cấu trúc như sau; các exemplar đã được lược bỏ thinking trace và giới hạn ở mức 1500 ký tự.
 
 \begin{lstlisting}
 Here are correct, independent example solutions:
@@ -166,7 +166,7 @@ Judge trả về JSON có cấu trúc (is copy: boolean, reasoning quality: inte
 
 \chapter{Quỹ đạo ví dụ (pilot toán)}\label{appendix-d-example-trajectories-math-pilot}
 
-Các trích đoạn dưới đây là nguyên văn từ \passthrough{\lstinline!output.log!} của W\&B cho mỗi run; các completion dài được cắt bằng \passthrough{\lstinline![...]!}. Mỗi run, log ghi lại: prompt teacher, các judge verdict theo từng bước, và các completion student ở PRE/POST eval. Các quỹ đạo do teacher sinh mà judge chấm \emph{không} được lưu dưới dạng text, chỉ có verdict của chúng — nên việc sao chép ở đây được minh chứng qua verdict, chứ không phải qua chính đoạn text bị chép. Các trích đoạn toán (D.1--D.4) cho thấy chế độ thất bại kiểu hình-thức-đổi-bản-chất-không-đổi; trích đoạn code (D.5) là tương phản, cho thấy một khám phá thực sự.
+Các trích đoạn dưới đây được lấy nguyên văn từ \passthrough{\lstinline!output.log!} của hệ thống W\&B đối với mỗi lần chạy (run); các completion quá dài được cắt bớt và ký hiệu bằng \passthrough{\lstinline![...]!}. Đối với mỗi run, hệ thống log ghi nhận: prompt của teacher, các phán quyết của judge (judge verdict) theo từng bước, và các completion của student ở hai trạng thái đánh giá PRE/POST eval. Các quỹ đạo do teacher sinh ra mà judge đã chấm điểm \emph{không} được lưu lại dưới dạng văn bản (text), chỉ có phán quyết (verdict) của chúng được ghi nhận — do đó, hành vi sao chép ở đây được minh chứng thông qua các verdict, thay vì thông qua văn bản bị sao chép trực tiếp. Các trích đoạn của tác vụ toán (D.1--D.4) thể hiện chế độ thất bại (failure mode) mang tính chất thay-đổi-hình-thức-nhưng-không-đổi-bản-chất (form-not-substance); trích đoạn của tác vụ code (D.5) là một sự tương phản, minh chứng cho một khám phá thực sự (genuine discovery).
 
 \section{Prompt teacher với reference bị leak (idx9, run fi5m0as1)}\label{d.1-teacher-prompt-with-the-leaked-reference-idx9-run-fi5m0as1}
 
@@ -187,18 +187,18 @@ Correctly solve the original question.
 
 Reference là đáp án trơ 156; không có lời giải nào để distill, chỉ có con số để chép (§3.5).
 
-\section{Chuỗi judge verdict}\label{d.2-judge-verdict-sequences}
+\section{Chuỗi phán quyết của judge (judge verdict)}\label{d.2-judge-verdict-sequences}
 
-idx9 (run fi5m0as1), đáp án đúng 156; batch reward 1.0 mỗi bước, nên cả 12 quỹ đạo về danh nghĩa đều đúng:
+idx9 (run fi5m0as1), đáp án chính xác là 156; batch reward đạt 1.0 ở mỗi bước, do đó toàn bộ 12 quỹ đạo đều đúng về mặt danh nghĩa (nominally correct):
 
 \begin{longtable}{lll}
-\caption{Chuỗi judge verdict cho idx9 (mọi quỹ đạo về danh nghĩa đều đúng).}\\
+\caption{Chuỗi phán quyết của judge cho idx9 (mọi quỹ đạo đều đúng về mặt danh nghĩa).}\\
 \toprule
-step & verdicts (is copy / reasoning quality) & n good / n bad \\
+step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
 \midrule
 \endfirsthead
 \toprule
-step & verdicts (is copy / reasoning quality) & n good / n bad \\
+step & verdicts (is\_copy / reasoning\_quality) & n\_good / n\_bad \\
 \midrule
 \endhead
 \bottomrule
@@ -208,18 +208,18 @@ step & verdicts (is copy / reasoning quality) & n good / n bad \\
 3 & (T,2) (T,2) (T,1) (T,3) & 0 / 4 \\
 \end{longtable}
 
-Suy dẫn thực duy nhất (F,4) rơi vào bước 1. Sang bước 2--3, mọi quỹ đạo sinh ra đều là bản sao, và judge từ chối chúng một cách đúng đắn, triệt để — good pool vì thế rỗng (0 / 4), và không có distillation nào xảy ra ở các bước này.
+Suy dẫn thực sự (genuine derivation) duy nhất --- (F,4) --- xuất hiện ở bước 1. Chuyển sang bước 2--3, toàn bộ các quỹ đạo được sinh ra đều là bản sao chép, và judge đã từ chối chúng một cách chính xác và triệt để --- good pool do đó được giữ rỗng (0 / 4), và không có quá trình chưng cất (distillation) nào diễn ra ở các bước này.
 
-idx8 (run 463y4fjr), đáp án đúng 29:
+idx8 (run 463y4fjr), đáp án chính xác là 29:
 
 \begin{longtable}{llll}
-\caption{Chuỗi judge verdict cho idx8 (mọi quỹ đạo đều bị chấm là copy).}\\
+\caption{Chuỗi phán quyết của judge cho idx8 (toàn bộ quỹ đạo đều bị đánh giá là copy).}\\
 \toprule
-step & verdicts & n good / n bad & batch reward \\
+step & verdicts & n\_good / n\_bad & batch reward \\
 \midrule
 \endfirsthead
 \toprule
-step & verdicts & n good / n bad & batch reward \\
+step & verdicts & n\_good / n\_bad & batch reward \\
 \midrule
 \endhead
 \bottomrule
@@ -229,7 +229,7 @@ step & verdicts & n good / n bad & batch reward \\
 3 & (T,4) (T,3) (T,2) (F,2) & 0 / 4 & 1.00 \\
 \end{longtable}
 
-Mọi verdict của idx8 đều \texttt{is\_copy=true} (chữ F đơn lẻ có reasoning quality 2 \textless{} 3 nên cũng bị từ chối luôn). Mọi quỹ đạo đều bị lọc bỏ, good pool rỗng suốt các bước, và student không nhận được tín hiệu học nào — đây chính là lý do rất rõ ràng cho việc student kẹt ở 0.
+Toàn bộ verdict của idx8 đều trả về \texttt{is\_copy=true} (trường hợp F duy nhất có reasoning\_quality 2 \textless{} 3 nên cũng bị loại bỏ hoàn toàn). Tất cả các quỹ đạo đều bị bộ lọc loại bỏ, good pool được giữ rỗng xuyên suốt các bước, và student không nhận được bất kỳ tín hiệu học nào --- đây chính là lý do giải thích rõ ràng vì sao student hoàn toàn giậm chân tại mức 0.
 
 \section{Hình thức đổi, bản chất thì không (idx9 student eval, PRE so với POST)}\label{d.3-form-changes-substance-does-not-idx9-student-eval-pre-vs-post}
 
