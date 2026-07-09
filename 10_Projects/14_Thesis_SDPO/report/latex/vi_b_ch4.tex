@@ -30,42 +30,44 @@ Trong số tám bài toán, hai trường hợp khó điển hình đóng vai tr
 
 \section{So sánh compute-matched và compute-to-correct (RO-method)}\label{compute-matched-comparison-and-compute-to-correct-rq3}
 
-Khi giữ ngân sách generation bằng nhau (student-first ở mười generation mỗi bước, khớp với teacher-first), teacher-first vẫn duy trì được ưu thế trên code: nó ở mức bằng hoặc cao hơn student-first trên mọi bài được đánh giá, và giữ một khoảng dẫn lớn ở các trường hợp escape-zero. Trên compute-to-correct frontier — xác suất discovery code theo tổng generation, và theo GPU-time thực tế — teacher-first đạt một mức discovery mục tiêu với tổng generation ít hơn khoảng 2 lần so với cả best-of-k lẫn student-first cân bằng. Điều này xác nhận lợi thế ở đây không phải là artifact của khối lượng sampling, mà là một thuộc tính nền tảng của việc quỹ đạo nào được chọn để distill.
+Khi cố định ngân sách generation ở mức ngang bằng (student-first sử dụng 10 generation mỗi bước, tương đương với teacher-first), teacher-first vẫn duy trì được ưu thế tuyệt đối trên tác vụ code: phương pháp này đạt mức hiệu năng tương đương hoặc cao hơn student-first trên mọi bài toán được đánh giá, và duy trì khoảng cách biệt lớn ở các trường hợp escape-zero. Trên đường biên khám phá cân bằng tính toán (compute-to-correct frontier --- xác suất discovery code theo tổng số generation, và theo thời gian GPU thực tế), teacher-first đạt được xác suất discovery mục tiêu với tổng số generation ít hơn xấp xỉ 2 lần so với cả best-of-k lẫn student-first khi cân bằng ngân sách. Điều này xác nhận rằng lợi thế đạt được không phải là một hệ quả ảo (artifact) sinh ra từ khối lượng lấy mẫu, mà là một thuộc tính nền tảng xuất phát từ việc lựa chọn quỹ đạo nào để chưng cất (distill).
 
 \begin{longtable}[]{@{}llll@{}}
-\caption{So sánh compute-matched trên các anchor escape-zero (student-first ở $g{=}10$ so với teacher-first).}\\
+\caption{So sánh compute-matched trên các điểm neo (anchor) escape-zero (student-first ở $g{=}10$ so với teacher-first).}\\
 \toprule\noalign{}
-bài & SF g=10 & TF g=10 (anchor thực) & khoảng cách \\
+Bài toán & SF g=10 & TF g=10 (anchor thực) & Khoảng cách \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-bài & SF g=10 & TF g=10 (anchor thực) & khoảng cách \\
+Bài toán & SF g=10 & TF g=10 (anchor thực) & Khoảng cách \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-idx39 (khó) & 0.13 & 0.17 & TF dẫn \\
-idx64 (escape-zero) & 0.11 & 0.41 & TF dẫn xa \\
+idx39 (khó) & 0.13 & 0.17 & TF vượt trội \\
+idx64 (escape-zero) & 0.11 & 0.41 & TF vượt trội hoàn toàn \\
 \end{longtable}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{../figures/bc_fig3_ctc.pdf}
-\caption{Compute-to-correct frontier (RO-method). Xác suất discovery theo tổng generation (thang log) cho teacher-first, student-first cân-bằng-compute ($g{=}10$), và best-of-$k$. Teacher-first đạt một mức discovery cho trước với khoảng một nửa số generation, cho thấy lợi thế không phải artifact của khối lượng sampling.}
+\caption{Compute-to-correct frontier (RO-method). Xác suất discovery theo tổng số generation (thang log) cho teacher-first, student-first cân-bằng-compute ($g{=}10$), và best-of-$k$. Teacher-first đạt một mức discovery cho trước với chỉ khoảng một nửa số generation, minh chứng rằng lợi thế này không phải là hệ quả ảo của khối lượng lấy mẫu.}
 \label{fig:bc-ctc}
 \end{figure}
 
-\section{RO1: reprompt template}\label{rq1-the-reprompt-template}
+\section{RO1: Reprompt template}\label{rq1-the-reprompt-template}
 
-Với sáu seed được đánh giá, hiệu ứng template hiện ra rõ ràng và ổn định: trên các bài khó, thứ tự T5 (kích thích lập luận) \textgreater{} T2 (anchor) \textgreater{} T1 (tối giản) có ý nghĩa thống kê, còn trên các bài dễ thì các template bão hòa đúng như dự đoán. Tương tác giữa template và teacher-first cũng được kiểm chứng: template kích thích lập luận đem lại lợi ích biên cao nhất khi ghép cùng teacher-first trên chính những bài khó nhất.
+Với sáu seed được đưa vào đánh giá, hiệu ứng của template được thể hiện một cách rõ ràng và ổn định: trên các bài toán khó, trật tự ưu tiên (ordering) T5 (kích thích lập luận) \textgreater{} T2 (anchor) \textgreater{} T1 (tối giản) mang ý nghĩa thống kê; trong khi trên các bài toán dễ, hiệu năng của các template bão hòa đúng như dự báo. Sự tương tác giữa template và phương pháp teacher-first cũng được kiểm chứng: template kích thích lập luận mang lại giá trị biên (marginal utility) cao nhất khi được kết hợp cùng teacher-first trên chính những bài toán khó nhất.
 
-\section{Độ vững (Robustness)}\label{robustness}
+\section{Tính bền vững (Robustness)}\label{robustness}
 
-Các ablation judge-invariance (difflib so với LLM) và leak-null (good\_only so với good\_bad) đều được kiểm chứng lại ở quy mô lớn hơn. Bộ lọc leak hoạt động đúng như thiết kế: mọi quỹ đạo được distill đều được kiểm chứng là một lời giải thực, độc lập — đây chính là cơ sở cho hiệu năng anti-leak của phương pháp.
+Các phép phân tích cắt bỏ (ablation) về tính bất biến của judge (judge-invariance: difflib so với LLM) và trạng thái không rò rỉ (leak-null: good\_only so với good\_bad) đều được xác thực lại ở quy mô lớn hơn. Bộ lọc rò rỉ (leak filter) vận hành chính xác theo thiết kế: mọi quỹ đạo được distill đều được kiểm chứng là một lời giải thực sự và hoàn toàn độc lập — đây chính là cơ sở cốt lõi cho năng lực chống rò rỉ (anti-leak) của phương pháp đề xuất.
 
-\section{RO2: epistemic verbalization trên code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
+\section{RO2: Epistemic verbalization trên code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
-Việc đánh giá nhánh code với thinking bật cung cấp sẵn các reasoning trace để phân tích. Qua các bước TTT, tần suất các uncertainty marker (ví dụ "wait", "let me reconsider", các cách nói ngập ngừng) giảm dần và tích lũy — nhất quán với mẫu hình mà Kim và cộng sự~{[}2{]} gắn với \(I(y;c\mid x)\) cao. Trên code, sự giảm này đồng xảy ra với việc correctness được cải thiện. Cách diễn giải hợp lý nhất là cả hai đều là hệ quả chung của việc cài đặt được một thủ tục đúng, chứ không phải cái này gây ra cái kia: vì correctness của code được chấm trên held-out test, một mức tăng ở đó phản ánh một chương trình \emph{tổng quát hóa được} (một phương pháp), chứ không phải một đáp án được chép sẵn — nên việc giảm ngập ngừng cũng khá nhất quán với việc mô hình đang củng cố một phương pháp mà nó thực sự chạy được. Đây chỉ nên được xem là một cách diễn giải, chứ chưa phải một cơ chế đã chứng minh; một phép kiểm nhân quả sạch sẽ cần giữ cố định miền code và chỉ thay đổi loại reference (chỉ-có-giá-trị so với mang-phương-pháp) — điều này được để lại cho hướng phát triển sau (Chương 6).
+Việc đánh giá nhánh thuật toán code với cơ chế thinking được kích hoạt cung cấp nguồn dữ liệu reasoning trace phong phú cho quá trình phân tích. Qua các bước TTT, tần suất xuất hiện của các uncertainty marker (ví dụ: "wait", "let me reconsider", hay các biểu đạt dè dặt -- hedging) có xu hướng giảm dần và mang tính tích lũy — hoàn toàn nhất quán với mẫu hình mà Kim và cộng sự~{[}2{]} đã liên kết với chỉ số \(I(y;c\mid x)\) cao. Trên miền code, sự suy giảm này diễn ra đồng thời (co-occur) với sự cải thiện về độ chính xác (correctness).
+
+Cách lý giải (interpretation) phù hợp nhất là cả hai hiện tượng này đều là hệ quả chung của việc thiết lập được một thủ tục chính xác, chứ không phải mang mối quan hệ nhân quả trực tiếp (causation): do correctness của tác vụ code được chấm điểm trên các tập test held-out, sự gia tăng độ chính xác phản ánh việc mô hình đã tìm ra một chương trình có khả năng tổng quát hóa (một phương pháp), chứ không phải việc sao chép thuần túy một đáp án — do đó, việc giảm thiểu các biểu đạt dè dặt là hoàn toàn nhất quán với việc mô hình đang củng cố (consolidating) một phương pháp mà nó có khả năng thực thi. Đây chỉ nên được xem là một cách diễn giải, chứ chưa phải một cơ chế đã được chứng minh; một phép kiểm định nhân quả tường minh (clean causal test) sẽ đòi hỏi việc giữ nguyên miền thực nghiệm code và chỉ thay đổi loại reference (chỉ-có-giá-trị so với mang-tính-phương-pháp) — hướng đi này được để lại cho các nghiên cứu tương lai (Chương 6).
 
 \begin{figure}[htbp]
 \centering
