@@ -1,30 +1,30 @@
 \chapter{Thí nghiệm}\label{chapter-4-experiments}
 
-\section{Các mở rộng phương pháp cho nghiên cứu đầy đủ}\label{method-extensions-for-the-full-study}
+\section{Các mở rộng phương pháp cho nghiên cứu toàn diện (full study)}\label{method-extensions-for-the-full-study}
 
-Bốn thành phần cốt lõi tạo nên khung của nghiên cứu đầy đủ này. (i) \textbf{Lọc chính xác:} bộ lọc verifier--judge chỉ distill các quỹ đạo đúng và độc lập; ở một bước mà mọi quỹ đạo teacher đều bị đánh giá là copy, good pool rỗng và bước đó không distill gì cả. (ii) \textbf{Quy mô trung bình:} so sánh matched được chạy trên tám bài frontier ở sáu seed, đủ lực thống kê cho một Wilcoxon signed-rank test thay vì chỉ một sign test thô. (iii) \textbf{Thinking ON cho code:} nhánh code chạy với reasoning trace được bật, cho phép đo có hệ thống epistemic verbalization (RO2). (iv) \textbf{Ghi log compute và feedback:} tổng generation, số token, và GPU-time thực tế đều được ghi lại trên cả tác vụ code lẫn toán, để dựng nên các compute-to-correct discovery frontier.
+Bốn thành phần cốt lõi sau đây định hình khuôn khổ cho nghiên cứu toàn diện này: (i) \textbf{Lọc chính xác (Exact filtering):} bộ lọc verifier--judge chỉ chưng cất (distill) các quỹ đạo đúng và độc lập; ở một bước mà mọi quỹ đạo do teacher sinh ra đều bị đánh giá là bản sao chép (copy), good pool sẽ được giữ rỗng và quá trình chưng cất không diễn ra tại bước đó. (ii) \textbf{Quy mô trung bình (Medium scale):} phép so sánh đối chiếu (matched comparison) được thực thi trên tám bài toán ranh giới (frontier problems) với sáu seed, cung cấp đủ sức mạnh thống kê (statistical power) cho một kiểm định Wilcoxon signed-rank thay vì chỉ dùng một kiểm định dấu (sign test) cơ bản. (iii) \textbf{Kích hoạt Thinking (Thinking ON) trên tác vụ code:} nhánh thuật toán code được thực thi với reasoning trace bật, cho phép đo lường một cách có hệ thống các biểu đạt nhận thức (epistemic verbalization) (RO2). (iv) \textbf{Ghi nhận tài nguyên tính toán (compute) và feedback:} tổng số generation, số lượng token, và thời gian chạy GPU (wall-clock GPU-time) thực tế đều được ghi nhận lại trên cả hai tác vụ code và toán, nhằm xây dựng các đường biên khám phá cân bằng tính toán (compute-to-correct discovery frontiers).
 
 \section{Thiết lập}\label{setup}
 
-Qwen3-4B với LoRA được đánh giá trên LiveCodeBench v6 (code), và cùng chính mô hình Qwen3-4B đó được đánh giá tiếp trên pilot AIME 2026 (toán). Nhánh code luôn bật thinking ON. Với mỗi bài: reset về base, chạy K = 15 bước TTT, đánh giá student cả PRE lẫn POST. Tám bài code frontier (chọn theo model pass-rate) được kiểm trên sáu seed. Toàn bộ hyperparameter được nêu chi tiết ở Phụ lục A.
+Mô hình Qwen3-4B kết hợp LoRA được đánh giá trên LiveCodeBench v6 (tác vụ code), và chính mô hình đó tiếp tục được đánh giá trên pilot AIME 2026 (tác vụ toán). Nhánh thuật toán code luôn được kích hoạt cơ chế suy nghĩ (thinking ON). Đối với mỗi bài toán: reset về base checkpoint, chạy K = 15 bước TTT, tiến hành đánh giá student ở cả hai trạng thái PRE và POST. Tám bài toán code thuộc nhóm ranh giới (được chọn lọc theo model pass-rate) được kiểm chứng trên sáu seed. Toàn bộ các siêu tham số (hyperparameters) được trình bày chi tiết ở Phụ lục A.
 
 \section{RO-method: teacher-first so với student-first}\label{rq-method-teacher-first-vs-student-first}
 
-Trên tập đánh giá matched quy mô trung bình cho code, teacher-first ít nhất cũng ngang student-first trên phần lớn các cặp seed-bài, và hiếm khi kém hơn — mà nếu có kém thì cũng chưa bao giờ kém nhiều, trong khi các biên mạnh nhất lại rơi đúng vào những bài khó nhất. Một Wilcoxon signed-rank test trên các POST pass-rate ghép cặp cho một cải thiện có ý nghĩa thống kê (p \textless{} 0.01) nghiêng hẳn về teacher-first, nâng kết quả từ một sign test sơ bộ lên thành một kết quả có lực thống kê đúng nghĩa. Mẫu hình escape-zero — nơi baseline student-first kẹt cứng ở 0 trong khi teacher-first cất cánh — được quan sát nhất quán trên phần lớn các bài code khó. Hành vi này đã được kiểm chứng tường minh và không thể quy cho bất kỳ artifact nào của bộ lọc.
+Trong tập đánh giá đối chiếu (matched evaluation) quy mô trung bình cho tác vụ code, teacher-first đạt hiệu năng tương đương hoặc vượt trội so với student-first trên phần lớn các cặp seed-bài toán, rất hiếm khi cho kết quả thấp hơn — và nếu có, mức độ chênh lệch cũng không đáng kể; đặc biệt, các biên độ chênh lệch (margins) lớn nhất lại xuất hiện chính xác ở những bài toán khó nhất. Một kiểm định Wilcoxon signed-rank trên các POST pass-rate ghép cặp chỉ ra sự cải thiện có ý nghĩa thống kê (p \textless{} 0.01) nghiêng hẳn về phía teacher-first, qua đó nâng cấp kết quả từ một kiểm định dấu sơ bộ lên thành một kết quả có sức mạnh thống kê (properly powered result) chuẩn mực. Mẫu hình escape-zero — nơi baseline student-first giậm chân tại mức 0 trong khi teacher-first bứt phá (lift-off) — được quan sát thấy một cách nhất quán trên phần lớn các bài toán code khó. Hành vi này đã được kiểm chứng tường minh và không thể quy kết cho bất kỳ hệ quả ảo (artifact) nào của bộ lọc.
 
-Trong tám bài, hai trường hợp khó điển hình là điểm neo cho toàn bộ so sánh: idx64 (TF 0.41 so với SF 0.03) và idx39 (TF 0.17 so với SF 0.09) là hai bài rõ ràng, dễ escape, và cũng chính là thứ xác nhận cấu thành của tập trung bình này là hợp lý.
+Trong số tám bài toán, hai trường hợp khó điển hình đóng vai trò là điểm neo (anchor) cho toàn bộ phép so sánh: idx64 (TF 0.41 so với SF 0.03) và idx39 (TF 0.17 so với SF 0.09) là hai bài toán thể hiện sự bứt phá (escape) rất rõ ràng, và cũng chính là minh chứng xác nhận cấu trúc của tập đánh giá quy mô trung bình này là hợp lý.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\linewidth]{../figures/bc_fig1_main.pdf}
-\caption{Kết quả chính (RO-method). POST pass@16 trung bình của teacher-first so với student-first trên các bài khó, qua sáu seed; error bar là một độ lệch chuẩn. Teacher-first cao hơn và ổn định hơn ở mọi bài; Wilcoxon signed-rank test trên các POST pass-rate ghép cặp cho $p<0.01$.}
+\caption{Kết quả chính (RO-method). POST pass@16 trung bình của teacher-first so với student-first trên các bài toán khó, qua sáu seed; thanh sai số (error bar) thể hiện một độ lệch chuẩn. Teacher-first đạt kết quả cao hơn và ổn định hơn trên mọi bài toán; kiểm định Wilcoxon signed-rank trên các POST pass-rate ghép cặp cho $p<0.01$.}
 \label{fig:bc-main}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{../figures/bc_fig2_discovery.pdf}
-\caption{Đường cong discovery escape-zero. Pass-rate trung bình trên các bài escape-zero qua mười lăm bước test-time. Student-first nằm phẳng ở 0, còn teacher-first cất cánh từ khoảng bước bốn. Tương phản trực quan giữa một đường phẳng và một đường đi lên là dấu hiệu đặc trưng của việc thoát flat-reward-trap.}
+\caption{Đường cong khám phá (discovery curve) escape-zero. Pass-rate trung bình trên các bài toán escape-zero qua 15 bước test-time. Student-first nằm ngang ở mức 0, trong khi teacher-first bắt đầu bứt phá (lift-off) từ khoảng bước thứ 4. Sự tương phản trực quan giữa một đường nằm ngang và một đường tăng trưởng chính là dấu hiệu nhận biết (signature) của việc thoát khỏi cạm bẫy flat-reward-trap.}
 \label{fig:bc-discovery}
 \end{figure}
 
