@@ -28,7 +28,8 @@ Mục tiêu của khóa luận là **tăng tốc test-time discovery** trên sin
 
 ## Slide 3 — Background: SDPO và khoảng trống (⏱ 1:00)
 
-Điểm khởi đầu là **SDPO** của Hübotter và cộng sự. Ý tưởng: thay vì chỉ dùng reward vô hướng, khai thác **rich feedback** mà môi trường verifiable vốn đã tạo ra — test fail, runtime error. Cùng một mô hình, khi được cho thêm feedback, đóng vai **self-teacher**; phân bố per-token của nó được distill ngược lại vào student. Nhờ vậy **phân bổ tín hiệu học (credit assignment) dày hơn** GRPO: mỗi token có một target K-chiều, thay vì một con số cho cả chuỗi.
+Điểm khởi đầu là **SDPO** của Hübotter và cộng sự. Ý tưởng: thay vì chỉ dùng reward vô hướng, khai thác **rich feedback** mà môi trường verifiable vốn đã tạo ra — test fail, runtime error. Cùng một mô hình, khi được cho thêm feedback, đóng vai **self-teacher**; phân bố per-token của nó được distill ngược lại vào student. Nhờ vậy **phân bổ tín hiệu học (credit assignment) dày hơn** GRPO
+GRPO: một điểm cho cả câu, chia đều. SDPO: mỗi token một phân bố top-K từ teacher  dày hơn T·K lần và có tín hiệu ngay cả khi chưa giải đúng, nên thoát được flat-reward trap.
 
 **Khoảng trống** mà khóa luận nhắm tới: phương pháp gốc là **student-first** — distill chính rollout đã thất bại của student. Trên bài khó, gần như không có gì đúng để học. Đây là điểm phương pháp đề xuất sẽ xử lý.
 
