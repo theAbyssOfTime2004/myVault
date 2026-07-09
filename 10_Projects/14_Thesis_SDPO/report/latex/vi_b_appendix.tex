@@ -187,7 +187,7 @@ Correctly solve the original question.
 
 Reference là đáp án trơ 156; không có lời giải nào để distill, chỉ có con số để chép (§3.5).
 
-\section{Chuỗi phán quyết của judge (judge verdict)}\label{d.2-judge-verdict-sequences}
+\section{Judge Verdict}\label{d.2-judge-verdict-sequences}
 
 idx9 (run fi5m0as1), đáp án chính xác là 156; batch reward đạt 1.0 ở mỗi bước, do đó toàn bộ 12 quỹ đạo đều đúng về mặt danh nghĩa (nominally correct):
 
@@ -251,7 +251,11 @@ Cả hai đáp án đều sai (đáp án chính xác là 156); mô hình chưa t
 
 \section{Sự dịch chuyển phong cách lập luận theo chiều ngược lại (idx8 student eval, PRE so với POST)}\label{d.4-the-opposite-stylistic-drift-idx8-student-eval-pre-vs-post}
 
-Bài toán idx8 lại thể hiện sự dịch chuyển (drift) theo chiều hướng ngược lại. \textbf{PRE} (chốt đáp án \(\boxed{40201}\)) xử lý các lần tung xúc xắc như các biến độc lập và tính ra \(p = 2^{13}\cdot 3 / 5^6\), dẫn đến \(m+n = 24576 + 15625 = 40201\). \textbf{POST} (chốt đáp án \(\boxed{17}\)) lại mang tính chặt chẽ (rigorous) hơn đáng kể --- mô hình chia trường hợp phân tích \(R_2 = R_4\) so với \(R_2 \neq R_4\), tính toán \(N_B = 11700\) và \(N_{A\cap B} = 3600\), sau đó rút gọn \(p = 4/13\) để đưa ra \(m+n = 17\). Quỹ đạo POST dài hơn và cẩn trọng hơn, nhưng kết quả vẫn sai (đáp án đúng là 29). Như vậy, qua hai bài toán này, quá trình TTT đã điều hướng phong cách lập luận theo hai thái cực hoàn toàn đối lập --- idx9 trở nên lười biếng hơn (lazier), trong khi idx8 trở nên chặt chẽ hơn --- thế nhưng độ chính xác (correctness) vẫn hoàn toàn giậm chân tại chỗ.
+Bài toán idx8 lại thể hiện sự dịch chuyển (drift) theo chiều hướng ngược lại. \textbf{PRE} (chốt đáp án \(\boxed{40201}\)) xử lý các lần tung xúc xắc như các biến độc lập và tính ra \(p = 2^{13}\cdot 3 / 5^6\), dẫn đến \(m+n = 24576 + 15625 = 40201\).
+
+\textbf{POST} (chốt đáp án \(\boxed{17}\)) lại mang tính chặt chẽ (rigorous) hơn đáng kể --- mô hình chia trường hợp phân tích \(R_2 = R_4\) so với \(R_2 \neq R_4\), tính toán \(N_B = 11700\) và \(N_{A\cap B} = 3600\), sau đó rút gọn \(p = 4/13\) để đưa ra \(m+n = 17\).
+
+Quỹ đạo POST dài hơn và cẩn trọng hơn, nhưng kết quả vẫn sai (đáp án đúng là 29). Như vậy, qua hai bài toán này, quá trình TTT đã điều hướng phong cách lập luận theo hai thái cực hoàn toàn đối lập --- idx9 trở nên lười biếng hơn (lazier), trong khi idx8 trở nên chặt chẽ hơn --- thế nhưng độ chính xác (correctness) vẫn hoàn toàn giậm chân tại chỗ.
 
 \section{Khám phá thành công lời giải thực thụ trên miền code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
