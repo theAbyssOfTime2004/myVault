@@ -130,19 +130,19 @@ Vì \passthrough{\lstinline!SDPOTrainer!} đã mã hóa cứng (hard-code) quá 
 
 \passthrough{\lstinline!privileged\_context!} \(c\) chính là hiện thân cụ thể của "feedback" trong {[}1{]}; cái tên thuộc về codebase của khóa luận, còn khái niệm thuộc về bài báo gốc. Nội dung của \(c\) phụ thuộc vào miền (§3.5). Khối few-shot được chèn ngay trước chỉ dẫn kết ("Respond with ONLY\ldots{}"), với tối đa \passthrough{\lstinline!max\_fewshot = 3!} exemplar để context không bị tràn, và số token được ghi log ở mỗi bước.
 
-\subsection{Verifier và judge tạo good pool}\label{verifier-and-judge-produce-the-good-pool}
+\subsection{Verifier và judge kiến tạo good pool}\label{verifier-and-judge-produce-the-good-pool}
 
-Mỗi quỹ đạo \(y_{t_i}\) được gán nhãn qua hai giai đoạn.
+Mỗi quỹ đạo \(y_{t_i}\) được đánh giá và gắn nhãn qua hai giai đoạn.
 
-\textbf{Giai đoạn 1, verifier (correctness).} Với code (LCBv6), \passthrough{\lstinline!evaluate\_solution!} chạy cả public lẫn private test và trả về tỉ lệ test đạt — một graded reward trong \([0,1]\), cho một gradient dùng được để leo dần (ví dụ 0.21 rồi 1.0). Với toán (AIME), việc khớp đáp án cho một binary reward trong \(\{0,1\}\).
+\textbf{Giai đoạn 1, verifier (correctness).} Với tác vụ code (LCBv6), hàm \passthrough{\lstinline!evaluate\_solution!} chạy cả public lẫn private test và trả về tỉ lệ test case vượt qua — một reward phân bậc (graded) trong đoạn \([0,1]\), cung cấp một gradient hữu dụng để mô hình tối ưu hóa dần dần (ví dụ: từ 0.21 lên 1.0). Với tác vụ toán (AIME), việc khớp đáp án sẽ trực tiếp trả về một binary reward trong tập \(\{0,1\}\).
 
-\textbf{Giai đoạn 2, judge (independence).} Giai đoạn này đo xem \(y_{t_i}\) có đơn thuần sao chép reference hay không:
+\textbf{Giai đoạn 2, judge (independence).} Giai đoạn này đánh giá xem \(y_{t_i}\) có phải là một bản sao chép đơn thuần từ reference hay không:
 
 \[
 \text{good} := (\text{score} \ge 1.0) \,\wedge\, (\text{independent}), \qquad \text{bad} := (\text{copies the reference}).
 \]
 
-Hai cách hiện thực judge được dùng, và sau này được ablate riêng (§4.6):
+Hai phương pháp hiện thực hóa judge được sử dụng, và sẽ được phân tích cắt bỏ (ablate) riêng biệt ở §4.6:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -171,25 +171,25 @@ Chi phí
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\passthrough{\lstinline!difflib!} & độ tương đồng chuỗi \passthrough{\lstinline!SequenceMatcher!} trên code đã chuẩn hóa (bỏ comment và whitespace); coi là copy nếu tương đồng ≥ ngưỡng (≈0.9) & rẻ, tất định \\
-LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) hoặc \passthrough{\lstinline!glm-4.5-flash!} (toán), một prompt derive-vs-copy trả về \passthrough{\lstinline!is\_copy!} và \passthrough{\lstinline!reasoning\_quality!} 1--5 & chi phí API, mang tính ngữ nghĩa \\
+\passthrough{\lstinline!difflib!} & độ tương đồng chuỗi: \passthrough{\lstinline!SequenceMatcher!} trên code đã được chuẩn hóa (lược bỏ comment và khoảng trắng); bị đánh dấu là copy nếu độ tương đồng ≥ ngưỡng (≈0.9) & chi phí thấp, mang tính tất định \\
+LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) hoặc \passthrough{\lstinline!glm-4.5-flash!} (toán), sử dụng một prompt derive-vs-copy trả về \passthrough{\lstinline!is\_copy!} và \passthrough{\lstinline!reasoning\_quality!} (1--5) & phụ thuộc chi phí API, đánh giá theo ngữ nghĩa \\
 \end{longtable}
 
 \begin{quote}
-\textbf{Một ghi chú về judge.} Khi bật thinking (code), mô hình phát ra một reasoning trace tường minh, nên \passthrough{\lstinline!reasoning\_quality!} chấm chính trace đó thay vì bão hòa ở mức 4--5. Vì vậy LLM judge đóng hai vai cùng lúc: \passthrough{\lstinline!is\_copy!} là cổng độc lập quyết định vào good pool hay không, còn \passthrough{\lstinline!reasoning\_quality!} cung cấp tín hiệu nuôi phép đo epistemic-suppression (§4.7). Việc phát hiện sao chép vẫn là bảo đảm correctness chính của nó.
+\textbf{Điểm đáng lưu ý về judge.} Khi kích hoạt thinking trên code, mô hình sinh ra một reasoning trace (chuỗi lập luận) tường minh, do đó \passthrough{\lstinline!reasoning\_quality!} sẽ đánh giá trực tiếp trên trace đó thay vì bị bão hòa ở mức 4--5. Vì vậy LLM judge đóng hai vai trò song song: \passthrough{\lstinline!is\_copy!} là cổng kiểm duyệt tính độc lập để quyết định quỹ đạo có được đưa vào good pool hay không, trong khi \passthrough{\lstinline!reasoning\_quality!} cung cấp tín hiệu đầu vào cho phép đo về sự suy giảm biểu đạt nhận thức (epistemic-suppression) (§4.7). Dù vậy, tính năng phát hiện sao chép (copy-detection) vẫn là bảo chứng cốt lõi cho tính đúng đắn của toàn bộ quy trình.
 \end{quote}
 
-Có một hành vi đáng nêu ra ngay từ đầu, vì sau này nó trở thành một giới hạn được đo đạc hẳn hoi. Khi không quỹ đạo nào vượt qua được Giai đoạn 2 — tức mọi ứng viên đều bị gắn cờ là copy — good pool bị để rỗng và bước đó không distill gì cả; một copy bị từ chối không bao giờ bị đưa vào pool một cách khiên cưỡng. Trên một bài mà teacher chỉ luôn sinh ra bản sao, student vì vậy không nhận được tín hiệu học nào hết; điều này được xác nhận trong log toán cho idx8 (Phụ lục D.2), và được nêu ra ở đây để cơ chế được minh bạch.
+Có một hành vi hệ thống cần được nêu rõ ngay từ đầu, bởi sau này nó sẽ trở thành một giới hạn được đo lường cụ thể. Khi không có quỹ đạo nào vượt qua được Giai đoạn 2 — tức mọi ứng viên đều bị gắn cờ là copy — good pool sẽ được giữ rỗng và quá trình chưng cất (distillation) không diễn ra tại bước đó; một bản sao chép bị từ chối sẽ không bao giờ bị đưa vào pool một cách khiên cưỡng. Do đó, trên một bài toán mà teacher chỉ liên tục sinh ra các bản sao, student sẽ hoàn toàn không nhận được bất kỳ tín hiệu học nào; điều này đã được xác nhận trong log của tác vụ toán cho idx8 (Phụ lục D.2), và được nêu ra ở đây nhằm đảm bảo tính minh bạch của cơ chế.
 
-\subsection{Lái teacher bằng few-shot (good\_only so với good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
+\subsection{Điều hướng (steer) teacher bằng few-shot (good\_only so với good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
 
-Các exemplar đã gán nhãn được đưa ngược vào prompt của teacher (in-context, không có gradient trên teacher) nhằm lái teacher hướng tới các generation tốt hơn:
+Các exemplar đã được gắn nhãn sẽ được nạp ngược trở lại vào prompt của teacher (dưới dạng in-context, không tính gradient trên teacher) nhằm điều hướng (steer) teacher sinh ra các quỹ đạo chất lượng hơn:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{Lái teacher bằng few-shot: exemplar good\_only so với good\_bad.}\\
+\caption{Điều hướng teacher bằng few-shot: exemplar good\_only so với good\_bad.}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -210,12 +210,12 @@ Phương án 1 --- \passthrough{\lstinline!good\_bad!}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Cơ chế & few-shot dương (chỉ exemplar good) & few-shot tương phản (good + bad, có gắn nhãn) \\
-Độ mạnh lái & vừa phải & mạnh hơn \\
-Leak & \textbf{sạch} (good đã qua lọc, nên độc lập với reference) & \textbf{dư} (bad ≈ reference, nên nội dung giống-reference lại tái nhập context) \\
+Cơ chế & few-shot khẳng định (chỉ dùng exemplar good) & few-shot tương phản (good + bad, có gắn nhãn) \\
+Cường độ điều hướng & trung bình (moderate) & mạnh hơn \\
+Rò rỉ (Leak) & \textbf{sạch} (tập good đã qua thanh lọc, đảm bảo tính độc lập với reference) & \textbf{còn sót} (bad ≈ reference, do đó các nội dung mang tính sao-chép-reference lại tái xâm nhập vào context) \\
 \end{longtable}
 
-Vì \passthrough{\lstinline!bad ≈ reference!}, việc đưa các exemplar bad vào prompt — dù đã gắn nhãn "bad" — vẫn cho teacher thấy lại thứ gần với reference một lần nữa. Ablation giữa Phương án 1 và Phương án 2, vì thế, đồng thời cũng là một ablation leak so với no-leak, một phép kiểm trực tiếp cho chính mối lo của người hướng dẫn. Kết quả trên dữ liệu này là một leak-null (§4.6).
+Vì \passthrough{\lstinline!bad ≈ reference!}, việc đưa các exemplar bad vào prompt — cho dù đã được gắn nhãn là "bad" — vẫn khiến teacher tiếp xúc lại với những nội dung gần giống reference một lần nữa. Do đó, phép phân tích cắt bỏ (ablation) giữa Phương án 1 và Phương án 2 cũng đồng thời là một phép thử giữa trạng thái có rò rỉ (leak) và không rò rỉ (no-leak) — một phép kiểm chứng trực tiếp cho chính mối lo ngại của người hướng dẫn. Kết quả thu được trên tập dữ liệu này cho thấy hiện tượng rò rỉ bị triệt tiêu hoàn toàn (leak-null) (§4.6).
 
 \subsection{Bước distillation: reverse KL top-K căn theo token}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
 
