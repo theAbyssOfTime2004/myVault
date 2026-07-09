@@ -1,31 +1,36 @@
 Test-time training cho một mô hình ngôn ngữ khả năng tự cải thiện ngay tại
 thời điểm suy luận, trên một bài toán khó duy nhất. Nhưng self-distillation
-theo kiểu on-policy rất dễ giậm chân tại chỗ: nếu mô hình hiếm khi tự sinh
+theo kiểu on-policy rất dễ giậm chân tại chỗ: nếu mô hình không thể tự sinh
 ra một lời giải đúng, thì cũng chẳng có gì đúng để nó học theo. Khóa luận
 này tìm cách tăng tốc test-time discovery trong sinh mã phức tạp bằng
 \emph{execution-guided self-distillation} --- dùng execution feedback
-(test thất bại, lỗi thời gian chạy) làm privileged context dẫn dắt từng
-bước cập nhật. Chúng tôi đề xuất một cách tổ chức \emph{teacher-first}:
+(test case thất bại, lỗi runtime) làm privileged context dẫn dắt từng
+bước cập nhật. Tôi đề xuất một cách tổ chức \emph{teacher-first}:
 thay vì distill chính rollout thất bại của student, self-teacher sinh
 trước các quỹ đạo dưới feedback; một verifier và một judge lọc chúng theo
 tính đúng và tính độc lập; rồi student mới được distill về phía những quỹ
-đạo đã qua lọc đó. Cách tổ chức này đặt phương pháp ở giữa SDPO on-policy
-và SFT off-policy. Trên một đánh giá matched quy mô trung bình với các bài
-LiveCodeBench khó, dùng một mô hình 4B, teacher-first vượt trội rõ rệt so
-với baseline student-first (Wilcoxon signed-rank), và trên các bài khó
-nhất, nó thoát được flat-reward trap --- thứ vẫn giữ student-first kẹt ở
-mức 0. Một so sánh compute-matched cho thấy lợi thế này không phải artifact
-của khối lượng sampling: ở cùng một ngân sách generation, teacher-first vẫn
-thắng, và đạt một xác suất discovery cho trước với ít generation hơn hẳn.
-Khi bật thinking, chúng tôi đo epistemic verbalization tại thời điểm suy
-luận và thấy rằng distill từ một feedback-conditioned context làm giảm các
-uncertainty marker --- một kết nối trực tiếp với sự suy giảm mà Kim và
-cộng sự từng mô tả. Cuối cùng, đánh giá pipeline trên suy luận toán học
-(AIME 2026) phơi bày một ranh giới miền khá cứng: khi feedback chỉ gói gọn
-trong một giá trị số tĩnh thay vì một thủ tục thuật toán, teacher policy
-trượt về sao chép đáp án một cách nông cạn mà không nâng được năng lực gì
-cả, qua đó vạch ra một ràng buộc procedure-versus-value cho self-distillation
-tại thời điểm suy luận.
+đạo đã qua lọc đó. Cách tổ chức này đặt phương pháp đề xuất ở vị trí giao
+thoa giữa SDPO on-policy và SFT off-policy. Trong một đánh giá đối chiếu
+(matched evaluation) quy mô trung bình trên các bài toán LiveCodeBench khó
+bằng mô hình 4B, teacher-first vượt trội đáng kể so với baseline
+student-first (kiểm định Wilcoxon signed-rank). Đặc biệt trên những bài khó
+nhất, phương pháp này thoát được flat-reward trap --- cạm bẫy vốn luôn
+khiến student-first giậm chân tại mức 0. Một so sánh cân bằng tính toán
+(compute-matched) cho thấy lợi thế này không phải là hệ quả ảo sinh ra từ
+khối lượng lấy mẫu: ở cùng một ngân sách generation, teacher-first vẫn
+chiến thắng và đạt được xác suất khám phá (discovery) mục tiêu với số
+lượng generation ít hơn đáng kể. Khi kích hoạt cơ chế suy nghĩ (thinking),
+tôi tiến hành đo lường epistemic verbalization tại thời điểm suy luận và
+phát hiện ra rằng: quá trình chưng cất (distill) từ một feedback-conditioned
+context làm suy giảm các uncertainty marker --- một minh chứng trực tiếp
+cho hiện tượng suy giảm mà Kim và cộng sự đã mô tả. Cuối cùng, việc đánh
+giá pipeline trên tác vụ suy luận toán học (AIME 2026) đã vạch rõ một ranh
+giới áp dụng rất nghiêm ngặt (rigid domain boundary): khi feedback chỉ gói
+gọn trong một giá trị số tĩnh thay vì một quy trình thuật toán, teacher
+policy sẽ suy biến thành hành vi sao chép đáp án nông cạn mà không mang
+lại bất kỳ sự cải thiện năng lực nào, qua đó thiết lập nên một ràng buộc
+khắt khe giữa quy trình và giá trị (procedure-versus-value) đối với
+self-distillation tại thời điểm suy luận.
 
 \vspace{0.5cm}
 \textbf{Từ khóa:} test-time training, self-distillation, sinh mã,
