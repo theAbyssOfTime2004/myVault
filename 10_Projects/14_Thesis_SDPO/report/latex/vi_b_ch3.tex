@@ -322,9 +322,9 @@ Ba chiều thiết kế trên được xây dựng dựa trên các cơ sở kho
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{Các miền: code (cốt lõi) và toán (pilot)}\label{domains-code-core-and-math-pilot}
+\section{Các miền: code (miền cốt lõi) và toán (miền pilot)}\label{domains-code-core-and-math-pilot}
 
-Hai miền khác nhau ở reference mode — tức thứ mà teacher coi là "đáp án" — và ở nội dung của privileged context. Như Chương 5 sẽ lập luận, đây chính là biến quyết định teacher-first thành công hay không.
+Hai miền thực nghiệm khác nhau ở reference mode — tức định dạng mà teacher tiếp nhận làm "đáp án" — và ở nội dung của privileged context. Như Chương 5 sẽ thảo luận, đây chính là biến số quyết định tính hiệu quả của phương pháp teacher-first.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -334,45 +334,45 @@ Hai miền khác nhau ở reference mode — tức thứ mà teacher coi là "đ
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Code --- LCBv6 {[}6{]}} (cốt lõi)
+\textbf{Code --- LCBv6 {[}6{]}} (miền cốt lõi)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Toán --- AIME 2026 {[}10{]}} (pilot)
+\textbf{Toán --- AIME 2026 {[}10{]}} (miền pilot)
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Code --- LCBv6 {[}6{]}} (cốt lõi)
+\textbf{Code --- LCBv6 {[}6{]}} (miền cốt lõi)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Toán --- AIME 2026 {[}10{]}} (pilot)
+\textbf{Toán --- AIME 2026 {[}10{]}} (miền pilot)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Mô hình & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} \\
-Verifier & public/private test → \textbf{graded} \([0,1]\) & answer match → \textbf{binary} \(\{0,1\}\) \\
-\passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (quỹ đạo điểm cao nhất làm proxy) & \passthrough{\lstinline!ground\_truth!} (teacher luôn thấy đáp án đúng) \\
-Leak regime & \textbf{null} (reference là best-in-batch + public test, không phải một lời giải reference) & \textbf{cực đoan} (feedback là ``the correct answer is \{gt\}'') \\
-\passthrough{\lstinline!privileged\_context!} & execution feedback (test thất bại, expected/actual, loại lỗi) + quỹ đạo best-in-batch đúng & đáp án đúng (một con số); teacher chỉ cần chép \passthrough{\lstinline!\\boxed\{\}!} \\
-Reference chứa một phương pháp? & \textbf{Có} (best-in-batch là một \emph{chương trình} = một thuật toán, tổng quát hóa sang input mới) & \textbf{Không} (chỉ một \emph{giá trị}, không phải một suy dẫn) \\
+Verifier & tỉ lệ qua public/private test → \textbf{phân bậc} (graded) \([0,1]\) & khớp đáp án → \textbf{nhị phân} (binary) \(\{0,1\}\) \\
+\passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (quỹ đạo đạt điểm cao nhất đóng vai trò proxy) & \passthrough{\lstinline!ground\_truth!} (teacher luôn tiếp nhận đáp án đúng) \\
+Leak regime & \textbf{triệt tiêu} (null) (reference là best-in-batch + public test, không phải lời giải tham chiếu) & \textbf{cực đoan} (extreme) (feedback là ``the correct answer is \{gt\}'') \\
+\passthrough{\lstinline!privileged\_context!} & execution feedback (test case thất bại, expected/actual, loại lỗi) + quỹ đạo best-in-batch đúng & đáp án đúng (một giá trị số); teacher chỉ có thể sao chép \passthrough{\lstinline!\\boxed\{\}!} \\
+Reference chứa một phương pháp? & \textbf{Có} (best-in-batch là một \emph{chương trình} = một thuật toán, có khả năng tổng quát hóa sang input mới) & \textbf{Không} (chỉ thuần là một \emph{giá trị}, không chứa quá trình suy dẫn) \\
 \end{longtable}
 
-Một ghi chú về lựa chọn \passthrough{\lstinline!reference\_text!} cho code: LCBv6 không có trường lời-giải-reference đáng tin cậy, nên khóa luận dùng best\_in\_batch (quỹ đạo điểm cao nhất trong batch của teacher ở mỗi bước) làm reference để judge đo tính độc lập. Điều này kéo theo một tác dụng phụ đáng chú ý: vì reference không phải một lời giải của tác giả mà là output đúng của chính mô hình, đã được kiểm chứng bởi public test, nên code không hề có leak — điều này giải thích vì sao ablation good\_bad cho kết quả leak-null trên code (§4.6), trong khi leak lại đo được rõ ràng trên toán (§4.9).
+Lưu ý về việc lựa chọn \passthrough{\lstinline!reference\_text!} cho tác vụ code: Bộ dữ liệu LCBv6 không cung cấp trường lời giải tham chiếu (reference solution) đáng tin cậy, do đó khóa luận sử dụng \passthrough{\lstinline!best\_in\_batch!} (quỹ đạo đạt điểm cao nhất trong batch của teacher ở mỗi bước) làm reference để judge đo lường tính độc lập. Điều này dẫn đến một hệ quả quan trọng: vì reference không phải là lời giải của tác giả mà là output đúng do chính mô hình sinh ra và đã được kiểm chứng bởi public test, hiện tượng rò rỉ (leak) trên tác vụ code bị triệt tiêu hoàn toàn — điều này lý giải vì sao phép phân tích cắt bỏ (ablation) \passthrough{\lstinline!good\_bad!} lại cho kết quả không bị rò rỉ (leak-null) trên code (§4.6), trong khi hiện tượng này lại đo lường được rất rõ ràng trên miền toán (§4.9).
 
-Ngân sách TTT cũng khác nhau giữa hai miền (giá trị đầy đủ ở Phụ lục A): code chạy 15 bước, eval 16 sample, teacher\_n = 10; toán chạy 3 bước, eval 4 sample, teacher\_n = 4, max\_new\_tokens = 16384 (8192 từng cắt cụt đáp án \passthrough{\lstinline!\\boxed!} và gây ra các điểm 0 sai lệch). Khoảng cách ngân sách này là một biến cần lưu ý khi so sánh hai miền, bên cạnh khác biệt về loại reference.
+Ngân sách tính toán cho TTT cũng có sự khác biệt giữa hai miền (giá trị đầy đủ được cung cấp ở Phụ lục A): nhánh code chạy 15 bước, đánh giá 16 sample, teacher\_n = 10; nhánh toán chạy 3 bước, đánh giá 4 sample, teacher\_n = 4, max\_new\_tokens = 16384 (giới hạn 8192 trước đó từng gây cắt cụt đáp án \passthrough{\lstinline!\\boxed!} và sinh ra các điểm 0 giả -- spurious zero scores). Sự chênh lệch về ngân sách này là một biến số (variable) cần được kiểm soát khi đối chiếu hai miền, bên cạnh sự khác biệt về loại reference.
 
-Vì cả hai miền đều dùng cùng một mô hình Qwen3-4B, một kết quả no-escape trên toán không thể quy cho việc mô hình là một reasoner yếu hơn; loại reference vẫn là khác biệt vận hành chính, dù khoảng cách ngân sách cũng góp phần. Do đó, một caveat toán luôn đi kèm mọi kết quả toán:
+Vì cả hai miền đều sử dụng chung mô hình Qwen3-4B, kết quả không thể thoát bẫy (no-escape) trên toán không thể quy kết cho việc sử dụng một bộ suy luận (reasoner) yếu hơn; loại reference vẫn là sự khác biệt mang tính chi phối (operative difference) cao nhất, mặc dù khoảng cách về ngân sách cũng đóng góp một phần. Do đó, một điểm hạn chế (caveat) trên miền toán học luôn được đính kèm với mọi kết quả toán:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Reference chỉ-có-đáp-số.} AIME chỉ cung cấp một đáp án số, không có lời giải kèm theo, nên privileged context được hard-code để trả về thẳng đáp án, và teacher lúc này chỉ có thể chép lại. MATH-500 (có sẵn một trường \passthrough{\lstinline!solution!}) là con đường để có được một reference toán mang-phương-pháp (Chương 6), nhưng nằm ngoài phạm vi các kết quả hiện tại.
+  \textbf{Reference chỉ thuần đáp án (Answer-only reference).} AIME chỉ cung cấp một đáp án bằng số, không có lời giải kèm theo, nên privileged context được lập trình cứng (hard-coded) để trả về trực tiếp đáp án, và teacher trong trường hợp này chỉ có thể sao chép lại. MATH-500 (tập dữ liệu có sẵn trường \passthrough{\lstinline!solution!}) là hướng tiếp cận để có được một reference toán mang tính phương pháp (method-bearing) (Chương 6), nhưng nằm ngoài phạm vi của các kết quả hiện tại.
 \end{enumerate}
 
-Việc chọn bài dựa trên model pass-rate \(\in (0,1)\) — một frontier do chính mô hình định nghĩa, chứ không phải nhãn độ khó của kỳ thi — vì binary math reward chỉ có phương sai khi mô hình giải được một bài trong khoảng 30--70\% số lần thử (§3.6, §4).
+Việc chọn bài dựa trên model pass-rate \(\in (0,1)\) — một ranh giới năng lực (frontier) do chính mô hình định hình, thay vì dựa trên nhãn độ khó của kỳ thi — bởi vì phần thưởng nhị phân (binary reward) của toán học chỉ có phương sai (variance) mang ý nghĩa khi mô hình giải được một bài toán trong khoảng 30--70\% số lần thử (§3.6, §4).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
