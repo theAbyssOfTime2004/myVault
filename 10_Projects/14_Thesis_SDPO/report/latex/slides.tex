@@ -28,7 +28,7 @@ A model must \textbf{solve a hard problem it currently fails} --- improving only
 Two obstacles:
 \begin{itemize}
   \item \alert{Sparse signal:} the reward says only \emph{whether} an attempt passed, not \emph{what} was wrong --- hard to know which part to fix (credit assignment).
-  \item \alert{Nothing to imitate:} on a truly hard problem the model \textbf{rarely produces any correct attempt} --- so there is no correct example to learn from.
+  \item \alert{No correct attempt to learn from:} on a truly hard problem the model \textbf{rarely produces any correct rollout} --- nothing to reinforce or imitate.
 \end{itemize}
 \vfill
 $\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usable gradient $\Rightarrow$ learning \alert{stalls on exactly the hardest problems} --- the ones we care about.
