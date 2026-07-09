@@ -38,23 +38,33 @@ Nhưng còn **khoảng trống**: SDPO gốc là **student-first** — nó disti
 
 ---
 
-## Slide 4 — Ý tưởng: teacher-first (⏱ 1:00)
+## Slide 4 — Ý tưởng: teacher-first (⏱ 1:15)
 
 Đề xuất trung tâm là **đảo thứ tự**: thay vì học từ rollout sai của student, để **teacher sinh trước**.
 
-Như sơ đồ: cùng một bài toán $x$, student và self-teacher chia sẻ trọng số. Self-teacher (có privileged context) sinh nhiều lời giải; chúng đi qua **verifier + judge** để lọc; những lời giải **đúng và độc lập** tạo thành good pool; rồi student được distill về phía good pool đó — chứ không phải về phía attempt sai của chính nó.
+Theo sơ đồ: cùng một bài $x$, student và self-teacher **chia sẻ trọng số** (self-teacher chỉ là chính mô hình đó, nhưng được cho thêm **privileged context $c$**). Context $c$ gồm hai phần: **feedback** (test fail, runtime error) và **khối few-shot** (các ví dụ tốt đã lọc, nạp ngược vào để lái teacher qua các bước). Self-teacher sinh $N$ lời giải; chúng đi qua **verifier** (đúng chức năng chưa) và **judge** (`is_copy` — độc lập hay chỉ chép reference); chỉ những lời giải **vừa đúng vừa độc lập** vào good pool $y_{\text{good}}$. Rồi student được distill về phía $y_{\text{good}}$ đó — **chứ không** về phía attempt sai của chính nó.
 
-Nói gọn: **teacher-first distill một quỹ đạo đúng đã được lọc** do teacher tạo ra. Về mặt định vị, phương pháp nằm **giữa** on-policy SDPO và off-policy SFT — lấy cái đúng để học, nhưng vẫn trong khung self-distillation.
+Một điểm quan trọng về **tính sạch của bộ lọc**: nó **không bao giờ distill một bản sao chép**. Khi mọi candidate đều bị đánh dấu là copy, good pool **rỗng** và bước đó **không distill gì cả** — chứ không ép một bản copy vào. Đây là nền cho phần anti-leak và ranh giới với toán ở cuối.
+
+Nói gọn: **teacher-first distill một quỹ đạo đúng đã được lọc** do teacher tạo ra — nằm **giữa** on-policy SDPO và off-policy SFT: lấy cái đúng để học, nhưng vẫn trong khung self-distillation.
+
+*(Nếu bị hỏi sâu về few-shot: hai biến thể **good_only** — chỉ ví dụ tốt, sạch — và **good_bad** — thêm ví dụ xấu có nhãn, lái mạnh hơn nhưng tái đưa chút nội dung giống-reference; so hai cái chính là **ablation leak-vs-no-leak**, kết quả leak-null trên code.)*
 
 ---
 
-## Slide 5 — Bước teacher-first (⏱ 1:00)
+## Slide 5 — Teacher-first: hàm loss (⏱ 1:15)
 
-Chi tiết một bước. Privileged context $c$ mà self-teacher nhìn thấy gồm hai phần: **feedback** (test fail, runtime error) và **khối few-shot**. Teacher sample $N$ lời giải dưới context này; **verifier** kiểm tra tính đúng; **judge** kiểm tra `is_copy` — tức lời giải có độc lập hay chỉ sao chép reference. Chỉ những lời giải **vừa đúng vừa độc lập** mới vào good pool, rồi distill student về đó.
+Đây là công thức cốt lõi. Hàm loss là một **KL theo từng token**: kéo phân bố next-token của **student** về phía phân bố của **self-teacher** (bản có context $c$), cộng dồn trên toàn bộ good pool $\mathcal{G}$.
 
-**Khối few-shot** là vòng lặp giúp teacher thực hiện in-context learning: các lời giải đã lọc từ good pool được **nạp ngược** vào prompt của teacher ở bước sau làm ví dụ mẫu, để nó dần sinh lời giải tốt và độc lập hơn qua các bước TTT. Có hai biến thể — **good_only** (chỉ đưa ví dụ tốt; sạch, vì good đã lọc nên độc lập với reference) và **good_bad** (thêm cả ví dụ xấu có gắn nhãn; lái mạnh hơn nhưng vì bad ≈ reference nên tái đưa chút nội dung giống-reference vào). So sánh hai biến thể này chính là **ablation leak-vs-no-leak** (kết quả: leak-null trên code).
+$$\mathcal{L}_{\text{TF}}(\theta) = \sum_{y \in \mathcal{G}} \sum_{t=1}^{|y|} \mathrm{KL}\Big(\pi_\theta(\cdot|x, y_{<t}) \,\big\|\, \mathrm{stopgrad}\,\pi_\theta(\cdot|x, c, y_{<t})\Big)$$
 
-Một điểm quan trọng về tính sạch của bộ lọc: **không bao giờ distill một bản sao chép**. Khi mọi candidate đều bị đánh dấu là copy, good pool đơn giản là **rỗng**, và bước đó **không distill gì cả** — chứ không ép một bản copy vào. Chính cơ chế này khiến bộ lọc anti-leak chặt chẽ, và nó cũng là nền cho phần ranh giới với toán ở cuối.
+Giải thích ba ý:
+
+- **`stopgrad` trên teacher:** gradient **không** chảy qua teacher — chỉ student được cập nhật. Nếu không chặn, teacher sẽ sụp vào student và bỏ qua context $c$, làm mất tác dụng của feedback.
+- **Gradient tại mỗi logit** là $\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)$: ở token nào teacher tin hơn student, optimizer **nâng logit đó lên**. Target là cả một phân bố $K$-chiều mỗi token (top-K reverse KL, $K=20$), nên credit assignment **dày**.
+- **Khác biệt duy nhất so với student-first SDPO:** *cùng dạng công thức*, nhưng cộng dồn trên **$y_{\text{good}}$ đúng** (do teacher sinh, đã lọc) thay vì trên **$y_{\text{student}}$ sai** của chính student. Đây chính là chỗ né được flat-reward trap.
+
+Lưu ý cả hai đều là **self-distillation**: teacher và student **dùng chung trọng số**, teacher chỉ là forward pass của mô hình dưới context $c$, chạy trong `no_grad`.
 
 ---
 

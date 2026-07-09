@@ -52,7 +52,7 @@ $\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usa
 % 4
 \begin{frame}{Our idea: teacher-first}
 \centering
-\scalebox{0.78}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+\scalebox{0.68}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
 \node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
@@ -65,24 +65,26 @@ $\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usa
 \draw[->](x)--(s);\draw[->](x)--(t);\draw[->](s)--(ys);\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](ys)--(kls);\draw[->](g)--(klt);\draw[->](kls)--(u);\draw[->](klt)--(u);
 \end{tikzpicture}}
 \vfill
-{\small \textbf{Teacher-first:} distil a \emph{correct, filtered} trajectory the teacher generates --- between on-policy SDPO and off-policy SFT.}
+{\small \textbf{Teacher-first:} the self-teacher generates under \emph{privileged context $c$} (feedback $+$ few-shot); a \textbf{verifier $+$ judge} keep only \emph{correct AND independent} solutions ($y_{\text{good}}$), and the student is distilled toward those. Sits \textbf{between} on-policy SDPO and off-policy SFT; the clean filter \textbf{never distils a copy} (all copies $\Rightarrow$ empty pool $\Rightarrow$ that step distils nothing).}
 \end{frame}
 
 % 5
-\begin{frame}{The teacher-first step}
-\centering
-\scalebox{0.82}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.4cm,inner sep=2pt}]
-\node(c) at (0,4){privileged context $c$: feedback + few-shot};
-\node(t) at (0,3){self-teacher samples $N$};
-\node(v) at (0,2){verifier: correctness};
-\node(j) at (0,1){judge: is\_copy / independence};
-\node(gp) at (4.8,1){good pool (correct \& independent)};
-\node(fs) at (4.8,3){few-shot good\_only / good\_bad};
-\node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
-\draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
-\end{tikzpicture}}
+\begin{frame}{Teacher-first: the loss}
+Per-token KL --- pull the \emph{student} toward the \emph{self-teacher}'s (context-conditioned) next-token distribution, summed over the filtered good pool $\mathcal{G}$:
 \vfill
-{\small Verifier $+$ judge filter for \emph{correct AND independent}; the filter never distils a copy --- when every candidate is a copy, the good pool is empty and that step distils nothing.}
+\[
+\mathcal{L}_{\text{TF}}(\theta) = \sum_{y \in \mathcal{G}}\;\sum_{t=1}^{|y|}
+\mathrm{KL}\!\Big(\underbrace{\pi_\theta(\cdot\,|\,x, y_{<t})}_{\text{student}} \;\big\|\;
+\mathrm{stopgrad}\,\underbrace{\pi_\theta(\cdot\,|\,x, c, y_{<t})}_{\text{self-teacher}}\Big)
+\]
+\vfill
+\begin{itemize}
+  \item \textbf{stopgrad} on the teacher: only the student updates --- stops the teacher collapsing onto it and ignoring $c$.
+  \item Gradient per logit: $\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)$ --- raise every token the teacher trusts more than the student.
+  \item vs.\ student-first SDPO: \emph{same form}, but sum over the \alert{correct $y_{\text{good}}$} instead of the student's \emph{failed} $y_{\text{student}}$.
+\end{itemize}
+\vfill
+{\footnotesize Implemented as top-$K$ reverse KL ($K{=}20$); teacher $=$ same weights run under \texttt{no\_grad} (self-distillation).}
 \end{frame}
 
 % 6
