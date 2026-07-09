@@ -2,34 +2,34 @@
 
 \section{Tính chặt chẽ phương pháp luận và các kiểm chứng}\label{methodological-rigor-and-validations}
 
-Để đảm bảo tính vững thực nghiệm, một số cải tiến kiến trúc và metric kiểm chứng quan trọng đã được đưa vào khung đánh giá một cách có hệ thống:
+Để đảm bảo độ tin cậy thực nghiệm (empirical soundness) của nghiên cứu, một số cải tiến kiến trúc và metric kiểm chứng quan trọng đã được tích hợp vào khuôn khổ đánh giá một cách có hệ thống:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Lực thống kê.} Thay vì chỉ dựa vào một sign test cục bộ, công trình này triển khai một khung đánh giá quy mô trung bình (8 bài $\times$ 6 seed) kết hợp một Wilcoxon signed-rank test. Nhờ đó, hiệu ứng chính được báo cáo với một tỉ lệ sai số được kiểm soát, chặt chẽ về mặt toán học, chứ không chỉ là một tín hiệu định hướng nữa (§4.3).
+  \textbf{Sức mạnh thống kê (Statistical power).} Thay vì chỉ dựa vào một kiểm định dấu (sign test) cục bộ, công trình này triển khai một khuôn khổ đánh giá quy mô trung bình (8 bài toán $\times$ 6 seed) kết hợp cùng kiểm định Wilcoxon signed-rank. Nhờ đó, hiệu ứng tác động chính được báo cáo với một tỷ lệ sai số được kiểm soát, chặt chẽ về mặt toán học, thay vì chỉ dừng lại ở một tín hiệu mang tính định hướng (§4.3).
 \item
-  \textbf{Cân bằng compute.} Để chứng minh các lợi thế quan sát được không phải artifact của khối lượng sampling, một so sánh cân-bằng-ngân-sách cùng một đánh giá compute-to-correct frontier được bổ sung (§4.4). Điều này cho thấy các mức tăng hiệu năng hoàn toàn compute-fair, gắn trực tiếp với quỹ đạo distillation chứ không phải với quy mô generation.
+  \textbf{Cân bằng tài nguyên tính toán (Compute matching).} Nhằm chứng minh các lợi thế quan sát được không phải là hệ quả ảo (artifact) sinh ra từ khối lượng lấy mẫu, một phép so sánh cân-bằng-ngân-sách cùng một phân tích trên đường biên compute-to-correct frontier đã được bổ sung (§4.4). Điều này khẳng định rằng các mức tăng hiệu năng là hoàn toàn công bằng về mặt tính toán (compute-fair), gắn liền trực tiếp với quỹ đạo distillation được chọn chứ không phải do quy mô generation.
 \item
-  \textbf{Đánh giá lập luận chi tiết.} Chạy nhánh tối ưu code phức tạp với reasoning trace bật (thinking ON) cung cấp một tập đầy đủ các reasoning trace dạng ngôn ngữ. Nhờ vậy, việc khảo sát epistemic verbalization không còn dừng ở một pilot toán biệt lập nữa, mà trở thành một kết quả thực nghiệm đo được, đặc thù theo miền (§4.7).
+  \textbf{Đánh giá chi tiết quá trình lập luận (Granular reasoning evaluation).} Việc thực thi nhánh tối ưu tác vụ code phức tạp với cơ chế reasoning trace được kích hoạt (thinking ON) cung cấp một bộ dữ liệu đầy đủ về các chuỗi lập luận bằng ngôn ngữ tự nhiên. Nhờ vậy, việc khảo sát biểu đạt nhận thức (epistemic verbalization) không còn dừng lại ở một pilot toán học biệt lập, mà đã trở thành một kết quả thực nghiệm đo lường được, mang tính đặc thù theo từng miền (§4.7).
 \item
-  \textbf{Cơ chế lọc chính xác.} Bộ lọc verifier--judge chính xác về mặt toán học (§4.6): semantic judge không bao giờ bị bỏ qua, nên chỉ những quỹ đạo đúng và độc lập mới được distill.
+  \textbf{Cơ chế lọc chuẩn xác (Exact filtering mechanics).} Bộ lọc verifier--judge đảm bảo độ chuẩn xác về mặt toán học (§4.6): semantic judge không bao giờ bị lược bỏ (bypassed), do đó chỉ những quỹ đạo thực sự đúng chức năng và độc lập về cấu trúc mới được đưa vào quá trình distillation.
 \item
-  \textbf{Đặc trưng hóa ranh giới.} Áp cùng một pipeline đánh giá thống nhất lên cả hai benchmark code và toán giúp tách được ảnh hưởng của feedback môi trường dày khỏi feedback thưa, chỉ-có-giá-trị. Điều này cô lập khá chính xác chế độ thất bại của self-distillation trong suy luận ký hiệu, và vạch rõ ranh giới của phương pháp đề xuất.
+  \textbf{Đặc trưng hóa ranh giới (Boundary Characterization).} Việc áp dụng đồng nhất một pipeline đánh giá lên cả hai benchmark code và toán đã giúp tách bạch được ảnh hưởng của feedback môi trường dày đặc khỏi các feedback thưa thớt, chỉ-thuần-đáp-án. Điều này cô lập một cách chuẩn xác chế độ thất bại (failure mode) của self-distillation trong suy luận ký hiệu, và vạch rõ ranh giới áp dụng của phương pháp đề xuất.
 \end{itemize}
 
-\section{Phạm vi và các giới hạn còn lại}\label{scope-and-remaining-limitations}
+\section{Phạm vi và các giới hạn còn tồn đọng}\label{scope-and-remaining-limitations}
 
-Một đánh giá học thuật minh bạch cần vạch rõ các ràng buộc cấu trúc và những điểm còn có thể cải thiện trong khung thực nghiệm này:
+Một đánh giá học thuật minh bạch đòi hỏi phải vạch rõ các ràng buộc cấu trúc và những dư địa có thể cải tiến (room for improvement) tồn tại trong khuôn khổ thực nghiệm này:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Ràng buộc về mô hình và quy mô.} Mọi phát hiện thực nghiệm đều được thiết lập trên một mô hình Qwen quy mô 4B, đánh giá trong phạm vi compute cá nhân. Vì vậy, đây là một đặc trưng hóa thực nghiệm cho một họ kiến trúc cụ thể, chứ chưa phải một định luật scaling phổ quát hay một benchmark ở quy mô công nghiệp.
+  \textbf{Ràng buộc về mô hình và quy mô.} Mọi phát hiện thực nghiệm đều được thiết lập dựa trên một họ kiến trúc Qwen ở quy mô 4B, được đánh giá trong giới hạn tài nguyên tính toán cá nhân. Vì vậy, kết quả thu được đóng vai trò là một khảo sát thực nghiệm đặc trưng cho một họ kiến trúc cụ thể, thay vì thiết lập một quy luật mở rộng (scaling law) phổ quát hay một benchmark ở quy mô công nghiệp.
 \item
-  \textbf{Sự khan hiếm thông tin trong feedback toán học.} Pilot toán bị nghẽn khá nặng bởi ràng buộc dữ liệu của benchmark AIME, vốn chỉ cung cấp các đáp án số nguyên tĩnh. Vì thiết lập này không có lời giải từng bước hay tín hiệu kiểm chứng chi tiết, teacher policy thiếu tín hiệu học đủ để tự xây các suy dẫn độc lập, khiến mô hình khó thoát khỏi flat-reward trap trên các bài vượt-năng-lực.
+  \textbf{Sự khan hiếm thông tin trong feedback toán học.} Pilot toán học bị giới hạn nghiêm trọng bởi điểm nghẽn (bottleneck) dữ liệu của benchmark AIME, vốn chỉ cung cấp các đáp án số nguyên tĩnh. Do thiết lập này hoàn toàn không có lời giải từng bước hay tín hiệu kiểm chứng chi tiết, teacher policy thiếu hụt các tín hiệu học đủ mạnh để tự kiến thiết các chuỗi suy dẫn độc lập, khiến mô hình không thể thoát khỏi cạm bẫy flat-reward trap trên các bài toán vượt quá giới hạn năng lực (beyond-capability tasks).
 \item
-  \textbf{Độ nhạy của biên theo năng lực nền.} Khi năng lực của mô hình nền tăng lên — chẳng hạn mở rộng lên các kiến trúc 8B trở lên — các policy không điều kiện vốn đã có tỉ lệ khám phá nền cao hơn. Vì vậy, biên hiệu năng giữa teacher-first và baseline student-first nhiều khả năng sẽ thu hẹp trên các bài trong tầm với, nghĩa là phương pháp đề xuất hữu ích nhất chính trên những kiến trúc mà nếu không có nó thì sẽ đứng yên.
+  \textbf{Độ nhạy của biên độ hiệu năng đối với năng lực nền (Margin sensitivity to base capability).} Khi năng lực của mô hình nền (base model) tăng lên — chẳng hạn mở rộng lên các kiến trúc 8B trở lên — bản thân các policy không điều kiện vốn dĩ đã có tỷ lệ khám phá (exploration rate) tự nhiên cao hơn. Vì vậy, biên độ hiệu năng giữa teacher-first và baseline student-first nhiều khả năng sẽ bị thu hẹp trên các bài toán nằm trong giới hạn năng lực (reachable tasks); điều này đồng nghĩa với việc phương pháp đề xuất sẽ phát huy giá trị cao nhất trên những kiến trúc mà nếu thiếu sự hỗ trợ của nó, mô hình sẽ hoàn toàn giậm chân tại chỗ.
 \item
-  \textbf{Tính tổng quát của hành vi epistemic.} Các phép đo về sự đè nén uncertainty marker gắn với một họ mô hình cụ thể và một tập marker từ vựng định trước, nên tính tổng quát của những điều chỉnh hành vi này qua các tokenizer, quy mô mô hình, và phong cách lập luận ngầm khác nhau vẫn cần được kiểm chứng thêm ở quy mô lớn hơn. Hơn nữa, cách đọc có-lợi của sự đè nén trên code (củng cố chứ không phải sao chép) mới chỉ được báo cáo như một hiện tượng đồng xảy ra với correctness, và được diễn giải theo hướng cơ chế; để khẳng định loại reference thực sự là nguyên nhân, cần một ablation loại-reference cùng-miền — điều mà nghiên cứu này chưa thực hiện được.
+  \textbf{Tính tổng quát của hành vi nhận thức (Generality of epistemic behavior).} Các phép đo lường về sự suy giảm (suppression) các uncertainty marker hiện đang gắn liền với một họ mô hình cụ thể và một tập hợp các marker từ vựng được định nghĩa trước; do đó, tính tổng quát của những điều chỉnh hành vi này qua các tokenizer, quy mô mô hình, và phong cách lập luận ngầm khác nhau vẫn cần được kiểm chứng thêm ở những quy mô lớn hơn. Hơn nữa, cách lý giải mang tính tích cực (beneficial reading) của sự suy giảm trên miền code (phản ánh quá trình củng cố phương pháp thay vì sao chép thuần túy) mới chỉ được ghi nhận như một hiện tượng diễn ra đồng thời (co-occurring) với sự cải thiện về độ chính xác (correctness), và được lý giải về mặt cơ chế (mechanistically); để khẳng định loại reference thực sự là nguyên nhân gốc rễ, cần thực hiện một phép phân tích cắt bỏ loại reference trong cùng một miền (same-domain reference-type ablation) — một hướng nghiên cứu mà khóa luận này chưa thực hiện được.
 \end{itemize}
