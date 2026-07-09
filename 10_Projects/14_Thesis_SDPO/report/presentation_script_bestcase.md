@@ -160,13 +160,75 @@ Xin cảm ơn quý thầy cô đã lắng nghe. Rất mong nhận được câu 
 
 ## Phụ lục — Câu hỏi có thể gặp (chuẩn bị riêng)
 
-- **"Vì sao không so với train-time RLVR?"** → bài toán là test-time discovery trên *một* bài khó, khác mục tiêu generalize của train-time; metric là discovery@k, không phải accuracy trên tập test.
-- **"Judge có đáng tin không?"** → judge chỉ là cổng `is_copy`/độc lập cho good pool; với thinking ON, `reasoning_quality` chấm trên trace. Có ablation judge-invariance (difflib vs LLM) cho thấy kết quả ổn định.
-- **"Escape-zero có phải do tiêm reference (leak) không?"** → code dùng `best_in_batch` (output đúng của chính mô hình, đã qua public tests) → **code không có leak**; ablation good_only vs good_bad cho leak-null trên code.
-- **"n nhỏ thì kết luận có chắc không?"** → code ở quy mô trung bình 8×6 với Wilcoxon (p<0.01); riêng miền toán là pilot **n=2**, chỉ nêu **directional**, mọi tuyên bố math đều kèm caveat n.
-- **"Tại sao toán thất bại?"** → không phải lỗi pipeline mà do bản chất reference: AIME chỉ có giá trị đáp số, teacher chỉ chép được — đúng ranh giới value-vs-procedure.
-- **"Suppression có LÀM tăng correctness không?"** (câu dễ bị soi nhất) → **Không khẳng định vậy.** Ta chỉ quan sát **co-occurrence** (chữ "coincides"). Đồng biến ≠ nhân quả; chiều hợp lý còn có thể ngược lại — consolidation → bớt hedge. "Consolidation có lợi" là **giả thuyết**, cần **ablation ref-type cùng-domain** để xác nhận.
-- **"Đã cô lập được 'reference type' chưa?"** → **Chưa.** Cùng model đã loại được biến *model*, nhưng **budget vẫn khác** (15 vs 3 bước) nên còn confounder. Ta nói reference type là biến **chính**, và đọc theo hướng **directional**; test sạch là ablation ref-type cùng-domain trên code.
+> Nguyên tắc trả lời: (1) trả lời thẳng, ngắn gọn phần cốt lõi trước, rồi mới bổ sung; (2) nếu là câu về *giới hạn/độ tin cậy*, **chủ động thừa nhận** đúng mức rồi nêu cách khắc phục — đừng phòng thủ; (3) tuyệt đối giữ ranh giới calibrated: **code = "significant/Wilcoxon"**, **math = "directional/pilot n=2"**, **epistemic = "co-occurrence/giả thuyết"**.
+
+### A. Phương pháp & lựa chọn thiết kế
+
+- **"Vì sao không so với train-time RLVR / GRPO thông thường?"**
+  → Đối tượng nghiên cứu là **test-time discovery trên một bài khó duy nhất** — khác *mục tiêu* với train-time RLVR (vốn nhằm generalize trên cả một phân bố bài). Metric ở đây là **discovery@k** (thời-gian-tới-thành-công đầu tiên), không phải accuracy trên held-out set. So với train-time GRPO sẽ là *so sai loại*: hai bên tối ưu hai hàm mục tiêu khác nhau. Baseline đúng nghĩa là **student-first SDPO** (cùng regime, cùng mục tiêu) — và tôi so trực tiếp với nó, cộng thêm **best-of-k** làm mốc compute.
+
+- **"Vì sao dùng LoRA thay vì full fine-tuning?"**
+  → Ba lý do. (a) Test-time training phải **rẻ và có thể reset**: sau mỗi bài tôi reset về base checkpoint, nên một adapter nhẹ (LoRA r=32) vừa khả thi trên compute cá nhân, vừa sạch khi hoàn tác. (b) Full fine-tune một mô hình 4B *cho từng bài* là bất khả thi ở quy mô này. (c) LoRA **khu trú** cập nhật, đúng tinh thần "minimal-change" mà phương pháp chia sẻ với SDFT.
+
+- **"Vì sao chọn Qwen3-4B, không lớn/nhỏ hơn?"**
+  → (a) **Compute**: quy mô cá nhân (Colab L4 / A100) — 4B + LoRA là trần để chạy nổi 8×6 quy mô trung bình cộng pilot toán. (b) **SDPO có self-teaching xuất hiện theo scale**: bài báo gốc cho thấy mạnh ở 8B, ngang ở 0.6B, kém ở 1.5B. 4B nằm trong dải mà self-teaching *được kỳ vọng hoạt động*, nhưng bare student vẫn **đủ yếu để bị kẹt** — đúng chỗ teacher-first phát huy nhất. Tôi cũng nói thẳng: trên base mạnh hơn (8B+), biên teacher-first dự kiến **thu hẹp** (đã ghi ở phần giới hạn).
+
+- **"Chọn 8 bài frontier thế nào? Có selection bias không?"**
+  → Chọn theo **model pass-rate ∈ (0,1)** — một *frontier do chính mô hình định nghĩa*, không phải nhãn độ khó của kỳ thi. Lý do: reward chỉ có **phương sai** khi mô hình giải được một bài khoảng 30–70% số lần; ngoài dải đó thì mọi phương pháp bão hòa như nhau, không phân biệt được. Quan trọng: **chọn theo độ khó PRE, mù với kết quả TF-vs-SF** — nên đây là lựa chọn vận hành có nguyên tắc, không phải cherry-pick outcome.
+
+- **"Vì sao pass@16, không phải pass@1 hay pass@100?"**
+  → pass@k là ước lượng thực nghiệm của xác suất giải được từ `N_eval` sample. 16 (cho code) cân bằng giữa **phương sai ước lượng** và **chi phí per-step** (vocab ~150k). PRE và POST đều đánh giá **student-only, không context** (nếu để context vào lúc eval thì nó leak thẳng vào metric). discovery@k mới là metric chính; pass@16 là số đọc từng bước.
+
+- **"Vì sao dùng reverse KL (α=1)? Có liên quan gì tới suppression không?"**
+  → Câu hỏi rất đúng chỗ. Reverse KL là **mode-seeking** → có xu hướng làm nhọn/thu hẹp phân bố, *về mặt lý thuyết* dễ đè nén các epistemic token hơn forward KL (mode-covering). Tôi dùng α=1.0 để **khớp cấu hình LCBv6** của codebase gốc. Còn **liệu α có điều biến suppression hay không** thì tôi **chưa kiểm** — đây là một câu hỏi RO2 còn mở; một sweep forward-KL / JSD là hướng phát triển tự nhiên.
+
+### B. Thống kê, tính vững & tái lập
+
+- **"Vì sao dùng Wilcoxon signed-rank, không dùng t-test? Có hiệu chỉnh đa so sánh không?"**
+  → Wilcoxon là **phi tham số** — phù hợp với POST pass-rate ghép cặp vốn bị chặn trong [0,1], không phân phối chuẩn, và có ties; đây là bản nâng cấp đúng của sign test thô. Test chạy trên **các cặp POST đã ghép** (matched PRE theo từng seed đã loại phương sai base/seed). Con số **p<0.01 là *một* test tổng hợp**, không phải nhiều test song song — nên lạm phát đa-so-sánh không phải mối lo chính; các phân rã theo từng bài chỉ mang tính mô tả.
+
+- **"Escape-zero xuất hiện ở bao nhiêu bài/seed? Có vững không?"**
+  → Nó **tái lập trên phần lớn các bài khó** trong tập, với hai anchor chuẩn là **idx64** (TF 0.41 vs SF 0.03) và **idx39** (TF 0.17 vs SF 0.09). Định nghĩa vận hành: SF kẹt ở pass=0 suốt các bước trong khi TF cất cánh. Nó được **kiểm chứng tường minh** là *không* phải artifact của bộ lọc (bộ lọc không bao giờ ép một bản copy vào pool). Chính vì **tái lập được** chứ không phải một seed may mắn nên tôi coi đây là đóng góp cơ chế chính.
+
+- **"6 seed đã đủ chưa? Variance thế nào?"**
+  → Thiết kế **matched**: cùng base + cùng seed cho cả hai nhánh → PRE khớp theo từng seed, loại được phương sai mức base và mức seed khỏi phép so sánh. 8×6 = 48 quan sát ghép cặp, đủ lực cho Wilcoxon. Tôi ghi thẳng ở §6.1 rằng mở rộng lên **16×16** sẽ nâng lực thống kê thêm. Riêng toán ở **n=2** là *thiếu lực có chủ đích* — nên mọi kết luận toán chỉ ở mức directional.
+
+- **"Judge là một LLM đi chấm output của LLM — có vòng lặp/thiên lệch không?"**
+  → Điểm mấu chốt: **judge KHÔNG quyết định tính đúng** — đúng/sai do **verifier** (chạy test thật) quyết, đó là ground truth. Judge chỉ là **cổng độc lập** (`is_copy`), nên dù judge có sai thì nó **không thể để lọt một lời giải sai**. Về rủi ro vòng lặp LLM-chấm-LLM: tôi có **ablation judge-invariance** — difflib (so chuỗi thuần cơ học, *không* dùng LLM) so với LLM judge — và escape-zero **giữ nguyên dưới cả hai**. difflib thuần cơ học loại trừ khả năng kết quả do thiên lệch của LLM judge.
+
+### C. Tính trung thực của các tuyên bố (những câu dễ bị soi nhất)
+
+- **"n nhỏ (nhất là toán) thì kết luận có chắc không?"**
+  → Phải **tách bạch hai miền**. **Code là quy mô trung bình**: 48 quan sát ghép cặp, Wilcoxon **p<0.01** — có lực thống kê thật. **Toán là pilot n=2** — tôi **không** tuyên bố ý nghĩa thống kê ở đó; mọi phát biểu toán đều gắn cờ *"directional / sơ bộ"*. Đóng góp chính (RO-method, escape-zero, compute-fair) **hoàn toàn dựa trên kết quả code**.
+
+- **"Suppression có LÀM tăng correctness không?"** *(câu nhạy cảm nhất)*
+  → **Không, tôi không khẳng định vậy.** Tôi chỉ quan sát **co-occurrence** (đồng biến). Đồng biến ≠ nhân quả; và chiều nhân quả hợp lý thậm chí có thể **ngược lại hoặc là nguyên nhân chung**: việc *cài được một thủ tục đúng, chạy được* vừa làm tăng held-out correctness, vừa làm bớt hedging (mô hình tự tin vì nó **thật sự biết cách làm**). "Consolidation có lợi" là một **giả thuyết nhất quán với dữ liệu**. Phép kiểm sạch là một **ablation ref-type cùng-domain** (reference chỉ-có-giá-trị vs mang-phương-pháp, cùng trên code, giữ nguyên mọi thứ khác) — tôi **chưa làm**, đây là future work. Ở math leak regime, cùng một suppression bề mặt lại đi cùng việc *chép đáp án* — cho thấy ý nghĩa của suppression **phụ thuộc regime**, đúng như Kim et al. chỉ ra.
+
+- **"Đã cô lập được 'reference type' như biến nhân quả chưa?"**
+  → **Chưa.** Việc **dùng cùng một Qwen3-4B** đã loại được confounder *năng lực mô hình*. Nhưng **budget vẫn khác** (code 15 bước / teacher_n=10, toán 3 bước / teacher_n=4) — đây là confounder còn lại. Tôi phát biểu reference-type là biến **chính (primary operative)**, và đọc tương phản code-vs-math theo hướng **directional**. Cách cô lập dứt điểm là **ablation ref-type cùng-domain trên code**.
+
+- **"Tại sao toán thất bại — có phải lỗi pipeline không?"**
+  → **Không, đây là kết quả ranh giới, không phải bug.** AIME chỉ cho **một giá trị số tĩnh**, không có lời giải từng bước. Khi base model không tự giải được, privileged context **suy biến**: teacher chỉ chép được con số `\boxed{}`, không trích ra được thủ tục nào để distill. Log verifier-judge (idx8, Phụ lục D.2) xác nhận: **mọi** quỹ đạo teacher đều bị gắn cờ copy → good pool rỗng → **không có tín hiệu học nào**. Bộ lọc hành xử **đúng như thiết kế**; thất bại là **bản chất của feedback chỉ-có-đáp-số**. Con đường gỡ nút là **MATH-500** (có trường `solution`, tức reference mang phương pháp) — future work.
+
+### D. Định vị, tính mới & ý nghĩa
+
+- **"Đóng góp mới thực chất so với SDPO gốc là gì?"**
+  → Bốn điểm. (1) **Tổ chức teacher-first**: distill các generation *của teacher* đã lọc, thay vì rollout thất bại của student — nằm giữa SDPO (on-policy) và SFT (off-policy), với bộ lọc anti-copy sạch. (2) **Giao thức đánh giá compute-fair** (compute-matched + compute-to-correct) — biến một lợi thế chỉ-ở-kết-quả thành lợi thế *có ý thức về compute*. (3) **Đo epistemic verbalization trong regime test-time code** — bài báo gốc *chạm* tới test-time nhưng không đo epistemics. (4) **Đặc trưng hóa ranh giới value-versus-procedure**. Nói thẳng về phạm vi: đây là một **đặc trưng hóa thực nghiệm trong một mô hình 4B**, không phải một thuật toán mới tuyên bố tính phổ quát.
+
+- **"Teacher-first chẳng qua là SFT thêm vài bước — khác gì SFT?"**
+  → Gần nhưng không đồng nhất. SFT fine-tune trên **demonstration cố định** với **nhãn cứng**. Teacher-first distill một **phân bố mềm per-token** (top-K reverse KL) về phía các quỹ đạo **do chính mô hình sinh, điều kiện hóa trên feedback, đã lọc** — context là **execution feedback kiểu SDPO**, không phải demo cố định; target là phân bố mềm chứ không phải one-hot. Nó giống **SDFT** ở chỗ distill về các generation-tự-sinh-có-điều-kiện, nhưng dùng execution feedback làm context.
+
+- **"Mô hình có chỉ đang *memorize* bài đó không?"**
+  → Với code, correctness chấm trên **private test (held-out)**, không phải public test đã đưa trong feedback. Một mức tăng pass@16 ở đó nghĩa là chương trình distill **generalize sang input chưa thấy** — tức một *phương pháp được cài đặt*, không phải output ghi nhớ. Ví dụ idx12 (Phụ lục D.5): PRE tính giai thừa (**hiểu ngược đề**) → POST là thuật toán lặp tìm N, đúng cho **mọi** input. Đây chính là điểm value-versus-procedure được cụ thể hóa.
+
+- **"Sau TTT trên một bài, mô hình có bị hỏng cho bài khác (catastrophic forgetting)?"**
+  → Theo giao thức, tôi **reset về base checkpoint sau mỗi bài** — adapter update là *per-problem và bị bỏ đi* — nên **không có forgetting chéo bài** trong quá trình đánh giá. Trong phạm vi một bài, bài báo gốc cho thấy SDPO quên *ít hơn* SFT trên held-out benchmark (nhờ tính on-policy), tuy hơn GRPO một chút. Vì tôi reset, forgetting không phải mối lo cho metric discovery.
+
+- **"Ứng dụng thực tế ở đâu?"**
+  → Bất kỳ tình huống nào có **một instance khó, verifiable** và một **ngân sách compute chi tại inference**: một bài competitive-programming cụ thể chưa giải được, agentic coding nơi có thể chạy test, các tác vụ gần formal-verification. Giá trị cốt lõi là **hiệu quả compute-to-correct** — đạt lời giải với ít generation hơn best-of-k. Giới hạn trung thực: mới chứng minh trên LCBv6 với mô hình 4B; muốn triển khai thực tế cần validate ở scale lớn hơn (8B+, benchmark code thứ hai).
+
+- **"discovery@k khác pass@k thế nào — vì sao cần metric riêng?"**
+  → pass@k giả định sampling **i.i.d.** (các attempt độc lập). Ở test-time, các attempt **tuần tự, chia sẻ trạng thái và cập nhật trọng số** giữa các bước — nên pass@k i.i.d. không còn áp dụng. discovery@k = $P(T \le k)$ với $T$ là bước đầu tiên giải được, tổng quát hóa pass@k sang thuật toán tuần tự, và **thu về đúng pass@k** khi thuật toán chỉ là best-of-k thuần. Nó cùng dòng dõi với performance profile time-to-termination của Dolan & Moré.
 
 ---
 
