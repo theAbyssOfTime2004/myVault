@@ -70,17 +70,17 @@ Toàn bộ sự khác biệt này có thể được tóm gọn như sau: studen
 
 \section{Student-first SDPO (baseline, on-policy)}\label{student-first-sdpo-baseline-on-policy}
 
-Đây là thuật toán gốc của Hübotter và cộng sự~{[}1{]}, hiện thực qua \passthrough{\lstinline!SDPOTrainer!} của TRL {[}5{]} (script \passthrough{\lstinline!07\_discovery\_curve.py!}).
+Đây là thuật toán gốc của Hübotter và cộng sự~{[}1{]}, được hiện thực hóa qua \passthrough{\lstinline!SDPOTrainer!} của thư viện TRL {[}5{]} (script \passthrough{\lstinline!07\_discovery\_curve.py!}).
 
-Ở mỗi bước, student sample một rollout \(y \sim \pi_\theta(\cdot \mid x)\) theo kiểu on-policy. Verifier chấm \(y\) và sinh ra feedback \(f\). Self-teacher \(\pi_\theta(\cdot \mid x, f)\) sau đó chấm lại \emph{từng token} của chính \(y\): cho \(f\), phân bố next-token đúng lẽ ra phải là gì tại mỗi vị trí? Student được kéo về phía phân bố hồi tưởng này bằng một KL theo từng token:
+Ở mỗi bước, student tiến hành lấy mẫu (sample) một rollout \(y \sim \pi_\theta(\cdot \mid x)\) theo chiến lược on-policy. Verifier chấm điểm \(y\) và sinh ra feedback \(f\). Self-teacher \(\pi_\theta(\cdot \mid x, f)\) sau đó tính toán lại điểm (rescore) cho từng token của chính \(y\): giả định đã biết \(f\), phân bố next-token chính xác tại mỗi vị trí lẽ ra phải như thế nào? Student được điều hướng về phía phân bố mang tính hồi cứu (retrospective) này thông qua một hàm KL phân bổ theo từng token:
 
 \[
 \mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
 \]
 
-\passthrough{\lstinline!stopgrad!} chặn gradient chảy qua teacher, nhờ vậy teacher không sụp vào student và bỏ qua \(f\) {[}1, §2{]}. Gradient và xấp xỉ top-K này được chia sẻ với teacher-first, sẽ được nói kỹ hơn ở §3.3.5.
+Lệnh \passthrough{\lstinline!stopgrad!} ngăn luồng gradient truyền qua teacher, nhờ vậy teacher không bị suy biến (collapse) về student và bỏ qua \(f\) {[}1, §2{]}. Cấu trúc gradient và phép xấp xỉ top-K này được chia sẻ chung với teacher-first, và sẽ được trình bày chi tiết hơn ở §3.3.5.
 
-Có một chế độ thất bại trên bài khó, và chính nó thúc đẩy toàn bộ phần tiếp theo. Vì rollout là on-policy, trên một bài mà bản thân student thuần (chưa được điều kiện hóa) hiếm khi giải được, gần như mọi rollout đều sai — feedback vì thế nghèo nàn, tín hiệu distillation yếu và bất ổn. Đây chính là flat-reward trap: không có rollout đúng nào để học theo cả. Hübotter và cộng sự~{[}1, §5{]} cho thấy SDPO vẫn có thể lặp từ rich feedback ngay cả khi độ chính xác teacher ban đầu dưới 1\%, nhưng họ dùng Qwen3-8B; còn trên mô hình 4B yếu hơn dùng ở đây (§3.5), hành vi kẹt-ở-0 lại thực sự xuất hiện — và đó chính xác là thứ teacher-first nhắm tới giải quyết.
+Tồn tại một chế độ thất bại (failure mode) trên các bài toán khó, và đây chính là động lực cho toàn bộ phần tiếp theo. Vì rollout mang tính on-policy, nên trên một bài toán mà bản thân student thuần (chưa được điều kiện hóa) hiếm khi giải được, gần như mọi rollout đều sai — do đó feedback thu được rất nghèo nàn, dẫn đến tín hiệu distillation yếu và bất ổn. Đây chính là cạm bẫy flat-reward trap: không có rollout đúng nào để mô hình có thể học hỏi. Hübotter và cộng sự~{[}1, §5{]} cho thấy SDPO vẫn có thể lặp từ rich feedback ngay cả khi độ chính xác của teacher ban đầu dưới 1\%, nhưng họ sử dụng mô hình Qwen3-8B; còn trên mô hình 4B yếu hơn được dùng trong khóa luận này (§3.5), hiện tượng giậm chân tại mức 0 (stuck-at-zero) lại thực sự xảy ra — và đó chính xác là vấn đề mà teacher-first nhắm tới để giải quyết.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -88,21 +88,21 @@ Có một chế độ thất bại trên bài khó, và chính nó thúc đẩy 
 
 \subsection{Động lực}\label{motivation}
 
-Hai vấn đề của student-first là động lực cho biến thể này.
+Hai hạn chế của student-first chính là động lực ra đời cho biến thể này.
 
-Vấn đề thứ nhất là flat-reward trap vừa nêu ở §3.2: khi student chưa từng tung ra một attempt đúng, thì không có gì đúng để distill cả.
+Vấn đề thứ nhất là cạm bẫy flat-reward trap vừa nêu ở §3.2: khi student chưa từng sinh ra một attempt đúng nào, thì sẽ không có dữ liệu đúng nào để chưng cất (distill).
 
-Vấn đề thứ hai là information leak {[}2{]}. Nếu \(c\) chứa một lời giải reference, teacher sẽ chấm lại theo hướng "càng gần reference càng tốt" — nên qua nhiều bước test-time, student dần hội tụ về việc \emph{sao chép} reference thay vì thực sự học lập luận. Kim và cộng sự~{[}2{]} hình thức hóa hiện tượng này: khi \(I(y; c \mid x)\), tức độ giàu thông tin của context, càng cao, mô hình càng đè nén epistemic verbalization và càng suy giảm.
+Vấn đề thứ hai là rò rỉ thông tin (information leak) {[}2{]}. Nếu \(c\) chứa một lời giải reference, teacher sẽ điều chỉnh lại phân bố theo hướng "càng bám sát reference càng tốt" — do đó qua nhiều bước test-time, student sẽ dần hội tụ về hành vi sao chép reference thay vì thực sự học cách lập luận. Kim và cộng sự~{[}2{]} đã mô hình hóa hiện tượng này: khi \(I(y; c \mid x)\) (tức độ giàu thông tin của context) càng cao, mô hình càng kìm hãm các biểu đạt nhận thức (epistemic verbalization) và hiệu năng càng suy giảm.
 
-Thay đổi cốt lõi ở đây là đảo ngược thứ tự. Teacher sinh trước; các quỹ đạo đúng và độc lập được lọc ra; và student được distill về phía chúng. KL được tính trên \(y_{\text{good}}\) (do teacher sinh, đã qua lọc), chứ không phải trên \(y_{\text{student}}\) (một attempt thất bại):
+Điểm đột phá cốt lõi ở đây là đảo ngược thứ tự. Teacher tiến hành sinh (generate) trước; các quỹ đạo đúng và độc lập được sàng lọc ra; sau đó student mới được distill hướng về phía chúng. Hàm KL được tính trên \(y_{\text{good}}\) (quỹ đạo do teacher sinh, đã qua thanh lọc), chứ không phải trên \(y_{\text{student}}\) (một attempt thất bại):
 
 \[
 \mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
 \]
 
-trong đó \(\mathcal{G}\) là good pool (§3.3.3). Về mặt khái niệm, teacher-first nằm ở đâu đó giữa SDPO (on-policy) và SFT (off-policy). Nó giống SDFT {[}3{]} ở chỗ distill về phía các generation do chính mô hình (được điều kiện hóa trên context) sinh ra, nhưng context ở đây là feedback kiểu SDPO {[}1{]}, chứ không phải một demonstration cố định.
+trong đó \(\mathcal{G}\) là good pool (§3.3.3). Về mặt khái niệm, teacher-first nằm ở vị trí giao thoa giữa SDPO (on-policy) và SFT (off-policy). Nó có nét tương đồng với SDFT {[}3{]} ở chỗ chưng cất (distill) hướng về các generation do chính mô hình sinh ra (khi được điều kiện hóa trên context), nhưng context ở đây là feedback theo chuẩn SDPO {[}1{]}, chứ không phải một demonstration cố định.
 
-Vì \passthrough{\lstinline!SDPOTrainer!} hard-code sẵn rollout student-first bên trong, teacher-first phải được hiện thực như một training loop tùy chỉnh riêng (script \passthrough{\lstinline!09\_teacher\_first.py!}), tái sử dụng các helper của \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, và phần đánh giá).
+Vì \passthrough{\lstinline!SDPOTrainer!} đã mã hóa cứng (hard-code) quá trình rollout student-first bên trong, biến thể teacher-first phải được hiện thực hóa thông qua một training loop tùy chỉnh riêng (script \passthrough{\lstinline!09\_teacher\_first.py!}), tái sử dụng các hàm hỗ trợ (helpers) từ script \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, và module đánh giá).
 
 \begin{figure}[H]
 \centering
@@ -116,7 +116,7 @@ Vì \passthrough{\lstinline!SDPOTrainer!} hard-code sẵn rollout student-first 
 \node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
 \draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
 \end{tikzpicture}
-\caption{Bước teacher-first. Self-teacher sinh dưới privileged context; một verifier và judge lọc các quỹ đạo vào một good pool; các exemplar good (và tùy chọn bad) lái rollout teacher kế tiếp theo kiểu in-context; student chỉ được distill về phía các quỹ đạo good đã lọc.}
+\caption{Bước teacher-first. Self-teacher tiến hành sinh (generate) dưới privileged context; một verifier và một judge sàng lọc các quỹ đạo để đưa vào một good pool; các exemplar good (và tùy chọn bad) điều hướng (steer) rollout tiếp theo của teacher theo cơ chế in-context; student chỉ được distill hướng về phía các quỹ đạo good đã qua thanh lọc.}
 \label{fig:tf-step}
 \end{figure}
 
