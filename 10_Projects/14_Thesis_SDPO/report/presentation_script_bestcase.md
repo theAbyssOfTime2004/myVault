@@ -78,9 +78,7 @@ Mỗi bài: reset về base, chạy **15 bước TTT**, đánh giá student **PR
 
 Đây là kết quả chính. Trên biểu đồ, **teacher-first cao hơn student-first ở cả 8 bài** (theo trung bình), biên lớn nhất rơi vào các bài khó nhất.
 
-Định lượng theo từng cặp seed-bài: trên 48 cặp, kết quả là **39 thắng / 8 hòa / 1 thua** cho teacher-first — và **Wilcoxon signed-rank cho p < 0.01**, tức một kết quả có lực thống kê thật, không phải tín hiệu định hướng. Ví dụ rõ nhất là idx64: teacher-first đạt **0.41** so với student-first chỉ **0.03**.
-
-Đồng thời cho **RO1**: trên bài khó, thứ tự template là **T5 > T2 > T1** — template kích thích lập luận (reasoning-inducing) cho discovery tốt nhất, trong khi trên bài dễ các template bão hòa như nhau.
+Định lượng theo từng cặp seed-bài: trên 48 cặp, kết quả là **39 thắng / 8 hòa / 1 thua** cho teacher-first — và **Wilcoxon signed-rank cho p < 0.01**, tức một kết quả có lực thống kê thật, không phải tín hiệu định hướng. Ví dụ rõ nhất là idx64 (một bài escape-zero): teacher-first đạt **0.41** so với student-first chỉ **0.03** — chính các bài escape-zero này là điểm neo cho toàn bộ so sánh (RO1 sẽ nói ở slide 10).
 
 ---
 
@@ -94,13 +92,15 @@ Tương phản giữa một đường phẳng và một đường đi lên chín
 
 ---
 
-## Slide 10 — Compute-fair (RO-method) (⏱ 1:00)
+## Slide 10 — RO1: reprompt-template ảnh hưởng discovery (⏱ 1:00)
 
-Một phản biện tự nhiên: phải chăng teacher-first thắng chỉ vì nó **sample nhiều hơn**? Phần này bác bỏ điều đó.
+RO1 hỏi: cách **formulate feedback qua reprompt-template** có ảnh hưởng đến discovery không. Template quyết định teacher **nhìn thấy feedback dưới dạng gì**, nên nó trực tiếp đổi target distillation. Tôi dò ba điểm trên không gian thiết kế: **T1** (tối giản), **T2** (chuẩn/anchor), **T5** (kích thích lập luận — reasoning-inducing).
 
-Khi **cân bằng ngân sách** — cho student-first chạy ở **10 generation mỗi bước**, bằng teacher-first — teacher-first **vẫn thắng**. Hơn nữa, trên frontier **compute-to-correct**, teacher-first đạt cùng một mức discovery với **khoảng 2 lần ít generation hơn** so với best-of-k và student-first cân bằng.
+Kết quả (POST pass@16, 6 seed): trên bài **khó** (idx39), thứ tự rõ và ổn định là **T5 (0.12) > T2 (0.07) > T1 (0.04)** — template kích thích lập luận cho discovery tốt nhất, và khác biệt này **có ý nghĩa thống kê**. Trên bài **dễ** (idx12), các template **bão hòa** — đều gần trần (0.94–0.95), riêng T1 tối giản tụt lại (0.69).
 
-Kết luận: lợi thế đến từ **loại quỹ đạo** được distill — đúng và độc lập — chứ không phải từ khối lượng sampling.
+Điểm đáng nói: template kích thích lập luận cho **lợi ích biên (marginal utility) cao nhất** khi ghép với teacher-first, đúng trên các bài khó nhất — tức *cách formulate feedback quan trọng nhất chính ở chỗ khó*.
+
+> **Lưu ý:** slide Compute-fair cũ (bc_fig3, compute-to-correct: teacher-first đạt cùng discovery với ~2× ít generation hơn) đã **bỏ khỏi mạch chính** để nhường chỗ cho RO1. Đây là bằng chứng mạnh bác lại *"thắng chỉ vì sample nhiều hơn"* — **nên thêm lại làm slide backup** (đặt sau slide Thank You); câu trả lời tương ứng đã có trong phần Q&A phụ lục.
 
 ---
 

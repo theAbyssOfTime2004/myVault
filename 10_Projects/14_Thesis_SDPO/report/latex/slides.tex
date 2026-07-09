@@ -110,7 +110,7 @@
 \begin{itemize}
   \item TF $>$ SF on every problem (mean), largest margins on the hardest --- \textbf{39 / 8 / 1} over 48 seed-pairs.
   \item \alert{Wilcoxon $p<0.01$} (8 problems $\times$ 6 seeds) --- not a crude sign test.
-  \item \textbf{RO1:} on hard problems, template order \textbf{T5 $>$ T2 $>$ T1} (reasoning-inducing best).
+  \item Escape-zero cases (idx64: \textbf{0.41} vs \textbf{0.03}) anchor the comparison.
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -130,15 +130,28 @@
 \end{frame}
 
 % 10
-\begin{frame}{Compute-fair: not just more sampling (RO-method)}
+\begin{frame}{RO1: the reprompt template shapes discovery}
+The template sets \emph{what feedback the teacher sees}, so it directly changes the distillation target. We probe three points: \textbf{T1} (minimal), \textbf{T2} (anchor), \textbf{T5} (reasoning-inducing).
+\vfill
 \begin{columns}
-\column{0.58\textwidth}
-\centering\includegraphics[width=\linewidth]{../figures/bc_fig3_ctc.pdf}
-\column{0.42\textwidth}
+\column{0.44\textwidth}
+\centering
+\begin{tabular}{lcc}
+\toprule
+Template & idx12 & idx39 \\
+         & (easy) & (hard) \\
+\midrule
+T1 minimal   & 0.69 & 0.04 \\
+T2 anchor    & 0.94 & 0.07 \\
+T5 reasoning & 0.95 & \alert{0.12} \\
+\bottomrule
+\end{tabular}\\[0.4em]
+{\scriptsize POST pass@16, 6 seeds}
+\column{0.56\textwidth}
 \begin{itemize}
-  \item Match the budget: student-first at \textbf{10 generations/step}.
-  \item Teacher-first still wins, and reaches a target discovery with \alert{$\sim$2$\times$ fewer total generations}.
-  \item The advantage is the \emph{kind} of distilled trajectory, not sample volume.
+  \item On hard problems: \alert{T5 $>$ T2 $>$ T1} --- reasoning-inducing discovers best (significant).
+  \item On easy problems the templates \textbf{saturate} (all near ceiling).
+  \item Largest \textbf{marginal utility} when the reasoning template is paired with teacher-first on the hardest problems.
 \end{itemize}
 \end{columns}
 \end{frame}
