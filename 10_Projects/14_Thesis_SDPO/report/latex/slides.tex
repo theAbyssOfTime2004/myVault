@@ -51,21 +51,29 @@ $\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usa
 
 % 4
 \begin{frame}{Our idea: teacher-first}
+{\small Both arms use one \emph{self-teacher} (same weights $+$ context) as the KL target --- they differ only in \textbf{which trajectory is distilled}.}
+\vspace{2pt}
 \centering
-\scalebox{0.68}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.6cm,text width=3.6cm,inner sep=2pt}]
+\scalebox{0.6}{\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.55cm,text width=3.5cm,inner sep=2pt}]
 \node(x) at (3,5){Problem $x$};
+% left: student-first
 \node(s) at (0,4){Student $\pi_\theta(\cdot\,|\,x)$};
+\node(ys) at (0,3){$y_{\text{student}}$ (usually wrong)};
+\node(tl) at (0,2){self-teacher $\pi_\theta(\cdot\,|\,x,f)$ rescores};
+\node(kls) at (0,1){KL distil on $y_{\text{student}}$};
+% right: teacher-first
 \node(t) at (6,4){Self-teacher $\pi_\theta(\cdot\,|\,x,c)$};
-\node(ys) at (0,2.8){$y_{\text{student}}$ (usually wrong)};
-\node(yt) at (6,2.8){$\{y_{t_i}\}\to$ verifier + judge};
-\node(g) at (6,1.7){good pool $y_{\text{good}}$};
-\node(kls) at (0,1.5){KL distil on $y_{\text{student}}$};
-\node(klt) at (6,0.5){KL distil on $y_{\text{good}}$};
-\node(u) at (3,-0.5){update $\theta$};
-\draw[->](x)--(s);\draw[->](x)--(t);\draw[->](s)--(ys);\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](ys)--(kls);\draw[->](g)--(klt);\draw[->](kls)--(u);\draw[->](klt)--(u);
+\node(yt) at (6,3){$\{y_{t_i}\}\to$ verifier + judge};
+\node(g) at (6,2){good pool $y_{\text{good}}$};
+\node(klt) at (6,1){KL distil on $y_{\text{good}}$};
+\node(u) at (3,0){update $\theta$};
+\draw[->](x)--(s);\draw[->](x)--(t);
+\draw[->](s)--(ys);\draw[->](ys)--(tl);\draw[->](tl)--(kls);
+\draw[->](t)--(yt);\draw[->](yt)--(g);\draw[->](g)--(klt);
+\draw[->](kls)--(u);\draw[->](klt)--(u);
 \end{tikzpicture}}
 \vfill
-{\small \textbf{Teacher-first:} the self-teacher generates under \emph{privileged context $c$} (feedback $+$ few-shot); a \textbf{verifier $+$ judge} keep only \emph{correct AND independent} solutions ($y_{\text{good}}$), and the student is distilled toward those. Sits \textbf{between} on-policy SDPO and off-policy SFT; the clean filter \textbf{never distils a copy} (all copies $\Rightarrow$ empty pool $\Rightarrow$ that step distils nothing).}
+{\small \textbf{Left = student-first} (baseline): the self-teacher rescores the student's own \emph{failed} attempt. \textbf{Right = teacher-first} (ours): the self-teacher \emph{generates} under $c$ (feedback $+$ few-shot); a \textbf{verifier $+$ judge} keep only \emph{correct AND independent} $y_{\text{good}}$ --- distil toward those. Between SDPO and SFT; the filter \textbf{never distils a copy}.}
 \end{frame}
 
 % 5

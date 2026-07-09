@@ -42,7 +42,11 @@ Nhưng còn **khoảng trống**: SDPO gốc là **student-first** — nó disti
 
 Đề xuất trung tâm là **đảo thứ tự**: thay vì học từ rollout sai của student, để **teacher sinh trước**.
 
-Theo sơ đồ: cùng một bài $x$, student và self-teacher **chia sẻ trọng số** (self-teacher chỉ là chính mô hình đó, nhưng được cho thêm **privileged context $c$**). Context $c$ gồm hai phần: **feedback** (test fail, runtime error) và **khối few-shot** (các ví dụ tốt đã lọc, nạp ngược vào để lái teacher qua các bước). Self-teacher sinh $N$ lời giải; chúng đi qua **verifier** (đúng chức năng chưa) và **judge** (`is_copy` — độc lập hay chỉ chép reference); chỉ những lời giải **vừa đúng vừa độc lập** vào good pool $y_{\text{good}}$. Rồi student được distill về phía $y_{\text{good}}$ đó — **chứ không** về phía attempt sai của chính nó.
+Sơ đồ có hai nhánh, và điểm cần nhấn ngay: **cả hai nhánh đều dùng một self-teacher làm KL target** (chỉ là chính mô hình đó, cùng trọng số, được cho thêm context) — khác biệt duy nhất là **distill trên quỹ đạo nào**.
+
+**Nhánh trái = student-first (baseline SDPO):** student sinh $y_{\text{student}}$ (thường sai), rồi **self-teacher $\pi_\theta(\cdot|x,f)$** (có feedback) **chấm lại (rescore)** chính $y_{\text{student}}$ đó để làm target cho KL. Tức teacher vẫn có mặt, chỉ đóng vai *chấm điểm* chứ không *sinh*.
+
+**Nhánh phải = teacher-first (đề xuất):** self-teacher được cho **privileged context $c$** (feedback + khối few-shot — các ví dụ tốt đã lọc, nạp ngược vào để lái teacher qua các bước) và **sinh** $N$ lời giải; chúng đi qua **verifier** (đúng chức năng chưa) và **judge** (`is_copy` — độc lập hay chỉ chép reference); chỉ lời giải **vừa đúng vừa độc lập** vào good pool $y_{\text{good}}$. Rồi student được distill về phía $y_{\text{good}}$ đó — **chứ không** về phía attempt sai của chính nó.
 
 Một điểm quan trọng về **tính sạch của bộ lọc**: nó **không bao giờ distill một bản sao chép**. Khi mọi candidate đều bị đánh dấu là copy, good pool **rỗng** và bước đó **không distill gì cả** — chứ không ép một bản copy vào. Đây là nền cho phần anti-leak và ranh giới với toán ở cuối.
 
