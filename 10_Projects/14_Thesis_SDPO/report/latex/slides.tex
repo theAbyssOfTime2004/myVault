@@ -23,26 +23,30 @@
 
 % 2
 \begin{frame}{The problem}
-\textbf{Test-time training (TTT):} fix one hard programming problem, let the model improve itself over a few inference-time steps, then reset.
+A model must \textbf{solve a hard problem it currently fails} --- improving only from \emph{its own attempts} and a verifiable \emph{pass/fail} reward.
 \vfill
+Two obstacles:
 \begin{itemize}
-  \item Reward is verifiable but \alert{sparse}: it only says \emph{whether} an attempt passed.
-  \item On-policy self-distillation \alert{stalls} on hard problems --- the bare student rarely produces a correct attempt to learn from.
-  \item This is the \textbf{flat-reward trap}: no correct rollout $\Rightarrow$ no usable gradient.
+  \item \alert{Sparse signal:} the reward says only \emph{whether} an attempt passed, not \emph{what} was wrong --- hard to know which part to fix (credit assignment).
+  \item \alert{Nothing to imitate:} on a truly hard problem the model \textbf{rarely produces any correct attempt} --- so there is no correct example to learn from.
 \end{itemize}
 \vfill
-\centering\emph{Goal: accelerate test-time \textbf{discovery} on complex code generation.}
+$\Rightarrow$ \textbf{Flat-reward trap:} no correct attempt $\Rightarrow$ no usable gradient $\Rightarrow$ learning \alert{stalls on exactly the hardest problems} --- the ones we care about.
+\vfill
+\centering\emph{Goal: accelerate this \textbf{discovery} on complex code generation.}
 \end{frame}
 
 % 3
 \begin{frame}{Background: SDPO and the gap}
-\textbf{SDPO} (H\"ubotter et al.): extract a dense signal from the \emph{rich feedback} that verifiable environments already produce (failing tests, runtime errors).
+\textbf{Setting --- test-time training (TTT):} fix one hard problem, let the model improve over a few inference-time steps, then reset; measure how fast it \textbf{discovers} a solution (discovery@k).
+\vfill
+\textbf{SDPO} (H\"ubotter et al.) attacks the \emph{sparse-signal} obstacle: turn the \emph{rich feedback} verifiable environments already produce (failing tests, runtime errors) into a \textbf{dense} signal.
 \begin{itemize}
-  \item The same model, conditioned on feedback, is a \textbf{self-teacher}; its per-token distribution is distilled into the student.
+  \item The feedback-conditioned model is a \textbf{self-teacher}; its per-token distribution is distilled into the student.
   \item Denser credit assignment than GRPO: a $K$-dim target per token, not one scalar per sequence.
 \end{itemize}
 \vfill
-\textbf{The gap:} the parent method is \alert{student-first} --- it distills the student's \emph{own failed rollout}. On hard problems there is little that is correct to learn from.
+\textbf{The gap:} SDPO is \alert{student-first} --- it distills the student's \emph{own failed rollout}. On hard problems little is correct to learn from $\Rightarrow$ it still hits the flat-reward trap. \textbf{$\leftarrow$ our target.}
 \end{frame}
 
 % 4
