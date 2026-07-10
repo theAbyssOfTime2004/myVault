@@ -1,46 +1,57 @@
-Câu này bạn tinh mắt — đúng là chỗ dễ gây hiểu nhầm, và cũng là câu hội đồng có thể soi. Giải thích rõ:
 
-## Nhánh trái là gì
 
-**Đúng, nhánh trái = student-first = SDPO gốc** (baseline của bài báo Hübotter). Nhánh phải = teacher-first (đề xuất của bạn).
+Giờ đến phần **cách đọc & trình bày hàm loss teacher-first**. Công thức:
 
-## Có teacher không? — CÓ, nhưng vẽ ẩn
+$$\mathcal{L}_{\text{TF}}(\theta) = \sum_{y \in \mathcal{G}} \sum_{t=1}^{|y|} \mathrm{KL}\Big(\pi_\theta(\cdot|x, y_{<t}) ,\big|, \mathrm{stopgrad},\pi_\theta(\cdot|x, c, y_{<t})\Big)$$
 
-Nhánh trái **không hề thiếu teacher**. Trong student-first SDPO, self-teacher vẫn có mặt — chỉ là nó đóng vai **chấm điểm (rescore)**, không phải vai **sinh (generate)**, nên sơ đồ không vẽ box riêng cho nó.
+## Nguyên tắc: nói 1 câu tóm tắt TRƯỚC, rồi mới bóc từng phần
 
-Cụ thể, KL loss của student-first là: $$\mathcal{L} = \sum_t \mathrm{KL}\Big(\underbrace{\pi_\theta(\cdot \mid x, y_{<t})}_{\text{student (không context)}} ;\Big|; \mathrm{stopgrad},\underbrace{\pi_\theta(\cdot \mid x, f, y_{<t})}_{\text{self-teacher (có feedback } f)}\Big)$$
+Đừng đọc công thức từ trái sang phải như đọc chữ. Hãy **cho khán giả cái khung trước**:
 
-- Vế trái = student.
-- Vế phải = **self-teacher** — chính là mô hình đó, nhưng được cho thêm feedback $f$ (test fail / error), **chấm lại từng token** của $y_{\text{student}}$.
+> "Đây là hàm mất mát của teacher-first. Về bản chất nó **đo student lệch teacher bao nhiêu tại mỗi token**, rồi cộng dồn lại; huấn luyện là cực tiểu hoá nó."
 
-Nên ô "KL distil on $y_{\text{student}}$" **đã bao hàm teacher rồi** — teacher là cái target mà student bị kéo về. Chỉ là nhãn viết gọn theo "distill trên các token của quỹ đạo nào".
+Sau câu đó, bóc theo thứ tự **từ trong ra ngoài** (phần lõi có nghĩa nhất trước, các dấu tổng để sau).
 
-## Vì sao không sai
+## Thứ tự đọc — 5 bước
 
-Cả hai nhánh **đều là self-distillation** — teacher và student **dùng chung một bộ trọng số** $\theta$, "teacher" chỉ là _cùng mô hình đó + thêm context_. Khác biệt thật sự giữa hai nhánh **không phải** "có teacher hay không", mà là:
+**Bước 1 — Hai phân bố bên trong KL (trái tim của công thức).** Chỉ tay vào hai vế trong ngoặc KL:
 
-> **Distill trên token của quỹ đạo NÀO?**
-> 
-> - **Student-first (trái):** distill trên $y_{\text{student}}$ — attempt **của student, thường sai**. Teacher chấm lại chính cái attempt sai đó.
-> - **Teacher-first (phải):** distill trên $y_{\text{good}}$ — quỹ đạo **đúng, đã lọc, do teacher sinh ra**.
+- $\pi_\theta(\cdot,|,x, y_{<t})$ = **student**: cho đề $x$ và các token đã sinh $y_{<t}$, đây là phân bố xác suất mà mô hình gán cho **token kế tiếp** — bản **không** có context.
+- $\pi_\theta(\cdot,|,x, c, y_{<t})$ = **self-teacher**: **cùng mô hình đó, cùng $\theta$**, nhưng được cho thêm **context $c$** (feedback + few-shot) — bản **có** context.
+- → Nhấn: _"cùng một mô hình, chỉ khác cái nó được thấy → nên gọi là **self**-distillation."_
 
-## Vì sao sơ đồ vẽ teacher chỉ ở nhánh phải
+**Bước 2 — Dấu KL giữa hai phân bố đó.** $\mathrm{KL}(,\text{student},|,\text{teacher},)$ = "khoảng cách" giữa hai phân bố. Loss muốn nó **nhỏ**, tức **kéo phân bố của student về gần phân bố của teacher**.
 
-Vì sơ đồ nhấn **luồng sinh (generate)**: ai _tạo ra_ cái quỹ đạo được đem distill.
+- → _"Teacher, nhờ có context, biết token đúng nên là gì; ta ép student bắt chước phân bố đó."_
 
-- Trái: **student** sinh $y_{\text{student}}$ → nên vẽ box Student.
-- Phải: **teacher** sinh ${y_{t_i}}$ rồi lọc thành $y_{\text{good}}$ → nên box Self-teacher nổi bật.
+**Bước 3 — `stopgrad` trên teacher.** Đây là chi tiết kỹ thuật quan trọng nhất: khi tính gradient, **teacher bị đóng băng** — chỉ **student** được cập nhật để tiến về teacher, teacher đứng yên làm "mục tiêu cố định".
 
-Teacher-với-vai-chấm-điểm (target của KL) thì ẩn trong chữ "KL distil on ..." ở **cả hai** nhánh.
+- → _"Nếu không chặn, cả hai cùng chạy lại gần nhau, teacher sẽ **sụp vào** student và **bỏ qua context $c$** — mất luôn tác dụng của feedback."_
+
+**Bước 4 — Dấu tổng bên trong $\sum_{t=1}^{|y|}$ (theo token).** Cộng KL trên **từng vị trí token** $t$ của quỹ đạo $y$.
+
+- → _"Không phải một tín hiệu cho cả câu, mà **mỗi token một tín hiệu** — đây là credit assignment **dày** đã nói ở slide trước."_
+
+**Bước 5 — Dấu tổng bên ngoài $\sum_{y \in \mathcal{G}}$ (theo quỹ đạo).** Cộng trên **mọi quỹ đạo tốt $y$ trong good pool $\mathcal{G}$** (các lời giải đúng + độc lập đã lọc).
+
+- → **Đây là chỗ khác duy nhất so với student-first:** student-first cộng trên **một** $y_{\text{student}}$ **sai**; teacher-first cộng trên các $y_{\text{good}}$ **đúng**.
+
+## Câu chốt (nói sau cùng)
+
+> "Cùng một dạng KL như SDPO gốc, nhưng vì ta cộng trên **quỹ đạo đúng của teacher** thay vì attempt sai của student, nên **luôn có tín hiệu đúng để học** — đó chính là cách né flat-reward trap."
 
 ---
 
-**Nếu hội đồng hỏi đúng câu này, trả lời gọn:**
+## Kịch bản đọc thành lời (liền mạch, ~40 giây)
 
-> "Nhánh trái vẫn dùng self-teacher — nó là mô hình cùng trọng số, được cho thêm feedback để chấm lại chính rollout của student, và đó là target của KL. Sơ đồ chỉ vẽ box teacher ở nhánh phải vì ở đó teacher đóng vai _sinh_ quỹ đạo; còn khác biệt cốt lõi giữa hai nhánh là **distill trên attempt sai của student hay trên quỹ đạo đúng đã lọc của teacher**, chứ không phải có teacher hay không."
-
-Và đây chính là lý do student-first kẹt trên bài khó: teacher chấm lại một $y_{\text{student}}$ **sai bét** với feedback nghèo → tín hiệu yếu, bất ổn → flat-reward trap. Teacher-first né được vì distill trên $y_{\text{good}}$ **thật sự đúng**.
+> "Đây là hàm loss teacher-first. Trong ngoặc KL có hai phân bố: bên trái là **student** — mô hình khi chỉ thấy đề bài; bên phải là **self-teacher** — cũng chính mô hình đó nhưng được cho thêm context $c$. KL đo khoảng cách giữa chúng, và ta **kéo student về phía teacher**. Chữ `stopgrad` nghĩa là teacher bị đóng băng, chỉ student học — nếu không, teacher sẽ sụp vào student và bỏ qua feedback. Hai dấu tổng: cái trong cộng trên **từng token**, cái ngoài cộng trên **mọi quỹ đạo tốt trong good pool**. Và điểm khác biệt duy nhất với SDPO gốc chính là ở dấu tổng ngoài này: ta học từ **quỹ đạo đúng đã lọc**, chứ không phải từ attempt sai của student — nhờ vậy thoát được flat-reward trap."
 
 ---
 
-Nếu bạn muốn, tôi có thể **thêm một chú thích nhỏ vào sơ đồ/caption** (kiểu ghi rõ "KL target = self-teacher $\pi_\theta(\cdot\mid x,f)$ ở cả hai nhánh") để chặn trước câu hỏi này. Bạn có muốn không?
+## Vài lưu ý khi trình bày
+
+- **Chỉ tay theo thứ tự** đang nói (hai π → KL → stopgrad → hai Σ). Khán giả nhìn theo tay sẽ hiểu nhanh gấp đôi.
+- **Đừng sa vào chi tiết** top-K/reverse KL/α trên slide chính — để dành trả lời nếu hội đbàn hỏi (đã có trong Q&A).
+- Nếu bị hỏi **"gradient trông thế nào"**: $\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)$ — token nào teacher tin hơn student thì optimizer nâng logit đó lên. (Câu này rất "ăn điểm" nếu nói tự tin.)
+
+Muốn tôi **nhét bản "thứ tự đọc 5 bước" này (rút gọn) vào speaker-note của slide 5** trong script để bạn khỏi phải nhớ không?
