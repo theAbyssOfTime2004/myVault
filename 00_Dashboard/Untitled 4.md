@@ -1,57 +1,31 @@
+Bạn đúng, và mình xin nhận sai — đây là lỗi dấu quan trọng, để mình sửa lại cho chuẩn.
 
+## Quy tắc đúng (đã bị mình nói ngược ở vài tin trước)
 
-Giờ đến phần **cách đọc & trình bày hàm loss teacher-first**. Công thức:
+Trong dạng từ vựng ta đang dùng ($w_i = b_i + d_{ij}x_j$, tức $w_i$ = hằng số + hệ số), **biến vào phải có hệ số DƯƠNG** trên dòng biến ra, không phải âm. Lý do: $w_4 = -4+x_1-4x_2$ đang âm, muốn kéo nó về 0 (tăng lên) thì cần tăng biến nào làm $w_4$ **tăng theo** — tức hệ số dương ($x_1$: $+1$). Hệ số âm ($x_2$: $-4$) sẽ kéo $w_4$ càng âm hơn, không dùng được.
 
-$$\mathcal{L}_{\text{TF}}(\theta) = \sum_{y \in \mathcal{G}} \sum_{t=1}^{|y|} \mathrm{KL}\Big(\pi_\theta(\cdot|x, y_{<t}) ,\big|, \mathrm{stopgrad},\pi_\theta(\cdot|x, c, y_{<t})\Big)$$
+Đối chiếu lại: đây khớp với mọi bước đối ngẫu đã làm đúng trước đó (ví dụ $w_1=-2+4x_1-x_2$ từng chọn $x_1$ hệ số $+4$, không chọn $x_2$ hệ số $-1$) — quy tắc đó vốn đúng, chỉ là 2-3 tin gần đây mình lỡ phát biểu ngược lại. Cảm ơn bạn đã bắt lỗi.
 
-## Nguyên tắc: nói 1 câu tóm tắt TRƯỚC, rồi mới bóc từng phần
+## Sửa lại phép xoay: $x_1$ vào, $w_4$ ra
 
-Đừng đọc công thức từ trái sang phải như đọc chữ. Hãy **cho khán giả cái khung trước**:
+Từ $w_4=-4+x_1-4x_2$, giải $x_1$: $$x_1 = 4+4x_2+w_4$$
 
-> "Đây là hàm mất mát của teacher-first. Về bản chất nó **đo student lệch teacher bao nhiêu tại mỗi token**, rồi cộng dồn lại; huấn luyện là cực tiểu hoá nó."
+_(Lưu ý nhỏ: bạn viết $x_1=4+4x_2-w_4$ — dấu $w_4$ bị lệch, phải là $+w_4$. Kiểm tra ngược: thế vào $w_4=x_1-4-4x_2$ ra đúng $-4+x_1-4x_2$ ✓ chỉ khi hệ số là $+w_4$.)_
 
-Sau câu đó, bóc theo thứ tự **từ trong ra ngoài** (phần lõi có nghĩa nhất trước, các dấu tổng để sau).
+Thế vào các dòng còn lại:
 
-## Thứ tự đọc — 5 bước
+$$\begin{aligned} 
+z' &= 9x_1+x_2 = 36+37x_2+9w_4\ 
+w_1 &= 10-6x_1-5x_2 = -14-29x_2-6w_4\ w_2 &= 8-3x_1+2x_2 = -4-10x_2-3w_4\ w_3 &= 3-2x_1-x_2 = -5-9x_2-2w_4 \end{aligned}$$
 
-**Bước 1 — Hai phân bố bên trong KL (trái tim của công thức).** Chỉ tay vào hai vế trong ngoặc KL:
+## Kiểm tra: có xoay tiếp được không?
 
-- $\pi_\theta(\cdot,|,x, y_{<t})$ = **student**: cho đề $x$ và các token đã sinh $y_{<t}$, đây là phân bố xác suất mà mô hình gán cho **token kế tiếp** — bản **không** có context.
-- $\pi_\theta(\cdot,|,x, c, y_{<t})$ = **self-teacher**: **cùng mô hình đó, cùng $\theta$**, nhưng được cho thêm **context $c$** (feedback + few-shot) — bản **có** context.
-- → Nhấn: _"cùng một mô hình, chỉ khác cái nó được thấy → nên gọi là **self**-distillation."_
+$b$ âm nhất bây giờ là $w_1=-14$. Xét dòng $w_1 = -14-29x_2-6w_4$: hệ số $x_2$ là $-29$, hệ số $w_4$ là $-6$ — **cả hai đều âm**, không còn cột dương nào để chọn biến vào.
 
-**Bước 2 — Dấu KL giữa hai phân bố đó.** $\mathrm{KL}(,\text{student},|,\text{teacher},)$ = "khoảng cách" giữa hai phân bố. Loss muốn nó **nhỏ**, tức **kéo phân bố của student về gần phân bố của teacher**.
+Theo đúng quy tắc (nay đã sửa lại): **không có ứng viên vào → bài toán vô nghiệm.** Kết luận cuối cùng không đổi so với trước (vẫn vô nghiệm, khớp với chứng minh đại số $x_1\ge4$ mâu thuẫn $x_1\le\tfrac53$), nhưng bây giờ lộ ra **ngay sau đúng 1 bước xoay**, gọn hơn hẳn so với lập luận "vòng lặp 2 bước" mình đưa ra trước — lập luận đó dựa trên quy tắc sai nên không cần dùng nữa.
 
-- → _"Teacher, nhờ có context, biết token đúng nên là gì; ta ép student bắt chước phân bố đó."_
+## Quy tắc tổng hợp cần sửa lại trong bảng bạn tóm tắt trước đó
 
-**Bước 3 — `stopgrad` trên teacher.** Đây là chi tiết kỹ thuật quan trọng nhất: khi tính gradient, **teacher bị đóng băng** — chỉ **student** được cập nhật để tiến về teacher, teacher đứng yên làm "mục tiêu cố định".
+> Đơn hình đối ngẫu — biến vào: trên dòng biến ra, chỉ xét cột có hệ số **DƯƠNG** _(không phải âm)_; tỉ số = (hệ số dòng $z$) ÷ (hệ số dòng đang xét), chọn tỉ số dương nhỏ nhất.
 
-- → _"Nếu không chặn, cả hai cùng chạy lại gần nhau, teacher sẽ **sụp vào** student và **bỏ qua context $c$** — mất luôn tác dụng của feedback."_
-
-**Bước 4 — Dấu tổng bên trong $\sum_{t=1}^{|y|}$ (theo token).** Cộng KL trên **từng vị trí token** $t$ của quỹ đạo $y$.
-
-- → _"Không phải một tín hiệu cho cả câu, mà **mỗi token một tín hiệu** — đây là credit assignment **dày** đã nói ở slide trước."_
-
-**Bước 5 — Dấu tổng bên ngoài $\sum_{y \in \mathcal{G}}$ (theo quỹ đạo).** Cộng trên **mọi quỹ đạo tốt $y$ trong good pool $\mathcal{G}$** (các lời giải đúng + độc lập đã lọc).
-
-- → **Đây là chỗ khác duy nhất so với student-first:** student-first cộng trên **một** $y_{\text{student}}$ **sai**; teacher-first cộng trên các $y_{\text{good}}$ **đúng**.
-
-## Câu chốt (nói sau cùng)
-
-> "Cùng một dạng KL như SDPO gốc, nhưng vì ta cộng trên **quỹ đạo đúng của teacher** thay vì attempt sai của student, nên **luôn có tín hiệu đúng để học** — đó chính là cách né flat-reward trap."
-
----
-
-## Kịch bản đọc thành lời (liền mạch, ~40 giây)
-
-> "Đây là hàm loss teacher-first. Trong ngoặc KL có hai phân bố: bên trái là **student** — mô hình khi chỉ thấy đề bài; bên phải là **self-teacher** — cũng chính mô hình đó nhưng được cho thêm context $c$. KL đo khoảng cách giữa chúng, và ta **kéo student về phía teacher**. Chữ `stopgrad` nghĩa là teacher bị đóng băng, chỉ student học — nếu không, teacher sẽ sụp vào student và bỏ qua feedback. Hai dấu tổng: cái trong cộng trên **từng token**, cái ngoài cộng trên **mọi quỹ đạo tốt trong good pool**. Và điểm khác biệt duy nhất với SDPO gốc chính là ở dấu tổng ngoài này: ta học từ **quỹ đạo đúng đã lọc**, chứ không phải từ attempt sai của student — nhờ vậy thoát được flat-reward trap."
-
----
-
-## Vài lưu ý khi trình bày
-
-- **Chỉ tay theo thứ tự** đang nói (hai π → KL → stopgrad → hai Σ). Khán giả nhìn theo tay sẽ hiểu nhanh gấp đôi.
-- **Đừng sa vào chi tiết** top-K/reverse KL/α trên slide chính — để dành trả lời nếu hội đbàn hỏi (đã có trong Q&A).
-- Nếu bị hỏi **"gradient trông thế nào"**: $\partial\mathcal{L}/\partial z_v = \pi_S(v) - \pi_T(v)$ — token nào teacher tin hơn student thì optimizer nâng logit đó lên. (Câu này rất "ăn điểm" nếu nói tự tin.)
-
-Muốn tôi **nhét bản "thứ tự đọc 5 bước" này (rút gọn) vào speaker-note của slide 5** trong script để bạn khỏi phải nhớ không?
+Mọi chỗ khác trong bảng tổng hợp của bạn (biến ra, điều kiện dừng, hai pha...) vẫn đúng nguyên, chỉ riêng dấu của điều kiện chọn cột này cần sửa lại như trên.
