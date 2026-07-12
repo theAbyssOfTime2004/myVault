@@ -8,21 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1910e9c4fb0d18d6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "30_Knowledge_Base/Math_Stats/ĐSTT_Chương5_Chéo_hóa.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "ĐSTT_Chương5_Chéo_hóa"
-            }
-          },
-          {
             "id": "4c4baae060cd60a7",
             "type": "leaf",
             "state": {
@@ -110,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5dbdae3a089b4cb5",
@@ -222,7 +208,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -240,10 +227,10 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "4c4baae060cd60a7",
+  "active": "25ed80e90c9328b5",
   "lastOpenFiles": [
-    "00_Dashboard/Untitled 4.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md",
+    "00_Dashboard/Untitled 4.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md.tmp.3240.58d6654a1722",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md.tmp.3240.60702a533dd0",
     "10_Projects/14_Thesis_SDPO/report/latex/~$slides.pptx",
@@ -270,6 +257,4 @@
     "30_Knowledge_Base/Math_Stats/Linear Algebra Review.md",
     "30_Knowledge_Base/Math_Stats/multivariable chain rule.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Ôn_Chương3-4_Giải.md",
-    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_xạ_tuyến_tính.md"
-  ]
-}
+    "30_Knowledge_Base/Math_Stats/ĐSTT_Chương4_Ánh_x�
