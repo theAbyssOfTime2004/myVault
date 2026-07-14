@@ -126,6 +126,7 @@ với $A_{23}=P_2(V_3-V_2)$ (dãn nở, dương), $A_{31}=0$ (đẳng tích).
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
 
 
+
 ## Đề 5 — Câu 1 (2 điểm)
 
 **Tóm tắt:** $m=20{,}0$ g $=0{,}020$ kg (viên đạn), $M=10{,}0$ kg (bao cát, treo dây dài $L=1{,}0$ m, ban đầu đứng yên), va chạm **mềm**, sau va chạm dây lệch góc $\theta=20°$.
