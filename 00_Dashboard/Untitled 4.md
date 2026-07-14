@@ -161,13 +161,13 @@ với $C_V=\dfrac{i}{2}R$, $C_P=C_V+R$, $\gamma=\dfrac{C_P}{C_V}=\dfrac{i+2}{i}$
 
 ## Bảng công thức riêng từng quá trình
 
-|                         | **Đẳng tích** ($V$=const)           | **Đẳng áp** ($P$=const)             | **Đẳng nhiệt** (T = const)      | **Đoạn nhiệt** (Q=0)                                                     |
-| ----------------------- | ----------------------------------- | ----------------------------------- | ------------------------------- | ------------------------------------------------------------------------ |
-| **Hệ thức trạng thái**  | $\dfrac{P_1}{T_1}=\dfrac{P_2}{T_2}$ | $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ | $P_1V_1=P_2V_2$                 | $P_1V_1^\gamma=P_2V_2^\gamma$  <br>$T_1V_1^{\gamma-1}=T_2V_2^{\gamma-1}$ |
-| **Công $W$** (hệ nhận)  | $W=0$                               | $W=-P\Delta V=-nR\Delta T$          | $W=-nRT\ln\dfrac{V_f}{V_i}$     | $W=nC_V\Delta T=\dfrac{P_2V_2-P_1V_1}{\gamma-1}$                         |
-| **Công $A$** (hệ sinh)  | $A=0$                               | $A=P\Delta V=nR\Delta T$            | $A=nRT\ln\dfrac{V_f}{V_i}$      | $A=-nC_V\Delta T=\dfrac{P_1V_1-P_2V_2}{\gamma-1}$                        |
-| **Nhiệt $Q$** (hệ nhận) | $Q=nC_V\Delta T$                    | $Q=nC_P\Delta T$                    | $Q=-W=A=nRT\ln\dfrac{V_f}{V_i}$ | $Q=0$                                                                    |
-| **$\Delta U$**          | $\Delta U=Q$                        | $\Delta U=nC_V\Delta T$             | $\Delta U=0$                    | $\Delta U=W=-A=nC_V\Delta T$                                             |
+|                         | **Đẳng tích** ($V$=const)           | **Đẳng áp** ($P$=const)             | **Đẳng nhiệt** (T = const)                           | **Đoạn nhiệt** (Q=0)                                                     |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Hệ thức trạng thái**  | $\dfrac{P_1}{T_1}=\dfrac{P_2}{T_2}$ | $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ | $P_1V_1=P_2V_2$                                      | $P_1V_1^\gamma=P_2V_2^\gamma$  <br>$T_1V_1^{\gamma-1}=T_2V_2^{\gamma-1}$ |
+| **Công $W$** (hệ nhận)  | $W=0$                               | $W=-P\Delta V=-nR\Delta T$          | $W=-nRT\ln\dfrac{V_f}{V_i} = -PV\ln\dfrac{V_f}{V_i}$ | $W=nC_V\Delta T=\dfrac{P_2V_2-P_1V_1}{\gamma-1}$                         |
+| **Công $A$** (hệ sinh)  | $A=0$                               | $A=P\Delta V=nR\Delta T$            | $A=nRT\ln\dfrac{V_f}{V_i}$                           | $A=-nC_V\Delta T=\dfrac{P_1V_1-P_2V_2}{\gamma-1}$                        |
+| **Nhiệt $Q$** (hệ nhận) | $Q=nC_V\Delta T$                    | $Q=nC_P\Delta T$                    | $Q=-W=A=nRT\ln\dfrac{V_f}{V_i}$                      | $Q=0$                                                                    |
+| **$\Delta U$**          | $\Delta U=Q$                        | $\Delta U=nC_V\Delta T$             | $\Delta U=0$                                         | $\Delta U=W=-A=nC_V\Delta T$                                             |
 
 ## Mẹo nhớ nhanh — "cái gì bằng 0"
 
