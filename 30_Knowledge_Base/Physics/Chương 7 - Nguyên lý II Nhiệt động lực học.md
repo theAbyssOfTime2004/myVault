@@ -91,6 +91,17 @@ $$T\,dS = dU + P\,dV$$
 2. Chu trình gồm nhiều quá trình (đẳng nhiệt + đoạn nhiệt xen kẽ) trên giản đồ PV: tính P, V, T tại từng điểm bằng $PV=const$ (đẳng nhiệt) và $PV^\gamma=const$, $TV^{\gamma-1}=const$ (đoạn nhiệt), sau đó tính W, Q từng chặng rồi tổng hợp η (VD 7.4, 7.5 — xem lại bảng công thức W, Q theo từng quá trình ở [[Chương 6 - Nguyên lý I Nhiệt động lực học]]).
 3. Hiệu suất Carnot cực đại $\eta_C = 1-T_c/T_h$ — so sánh tăng $T_h$ vs giảm $T_c$.
 4. Tính độ biến thiên entropy khi truyền nhiệt giữa 2 vật nhiệt độ khác nhau.
+5. **So sánh hiệu suất khi thay đổi loại 1 quá trình trong chu trình** (rất hay gặp trong đề thi, VD: "nếu quá trình A→B là đoạn nhiệt thay vì đẳng nhiệt thì η bằng bao nhiêu? So sánh").
+
+### Dạng 5 chi tiết — Đổi loại quá trình, tính lại hiệu suất
+
+Đây **không phải bài tính lại thuần túy** — phải hiểu quan hệ P-V-T thay đổi ra sao:
+1. Nếu 2 trạng thái đầu/cuối của quá trình bị đổi vẫn giữ nguyên (cùng $V_i, V_f$ hoặc cùng $P_i$) thì trạng thái ở đầu kia của quá trình **có thể thay đổi khác với đề gốc**, vì đẳng nhiệt ($PV=const$) và đoạn nhiệt ($PV^\gamma=const$) cho quan hệ P-V khác nhau — phải tính lại toàn bộ điểm nối tiếp theo, không chỉ riêng quá trình đó.
+2. Tính lại W và Q của **đúng quá trình bị đổi loại**:
+   - Đẳng nhiệt: $W=-nRT\ln(V_f/V_i)$, $Q=-W$
+   - Đoạn nhiệt: $Q=0$, $W=\Delta U=nC_V\Delta T$
+3. Cộng dồn lại tổng W, Q của cả chu trình (các quá trình còn lại giữ nguyên nếu trạng thái biên của chúng không đổi) → tính lại $\eta = W_{eng}/|Q_h|$.
+4. So sánh về mặt định tính: chu trình có quá trình đoạn nhiệt thường cho đường cong dốc hơn đẳng nhiệt trên giản đồ PV → diện tích (công) khác đi, nên **η sau khi đổi luôn khác** η ban đầu — đề thường muốn thấy nhận xét này chứ không chỉ đưa ra số.
 
 ## ⚠️ Bẫy thường gặp
 - Nhầm chiều bất đẳng thức entropy: $\Delta S_{vũ trụ} \ge 0$, không phải $\le 0$.

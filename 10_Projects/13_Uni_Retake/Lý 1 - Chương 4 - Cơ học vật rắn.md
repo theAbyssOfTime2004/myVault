@@ -79,11 +79,42 @@ $$\sum\tau = \frac{dL}{dt} \quad\Rightarrow\quad \tau_{ext}=0 \Rightarrow L = \t
 - Tương tự bảo toàn động lượng tuyến tính nhưng cho chuyển động quay: nếu tổng mômen ngoại lực = 0 thì mômen động lượng của hệ không đổi.
 - Ứng dụng kinh điển: vận động viên trượt băng xoay tròn, kéo tay vào (giảm I) → $\omega$ tăng để giữ $L=I\omega$ không đổi.
 
+## Dạng bài tủ: Dây đứt giữa chừng
+
+**Đề mẫu:** hệ vật + ròng rọc chuyển động từ nghỉ trong t giây, sau đó dây đứt → hỏi chuyển động tiếp theo của 1 vật (quãng đường đi được đến khi dừng, vận tốc chạm đất...).
+
+**Các bước:**
+1. Dùng gia tốc $a$ đã tính ở pha 1 (khi còn hệ 2 vật + ròng rọc) để tìm vận tốc tại đúng thời điểm đứt dây: $v = at$ (vì bắt đầu từ nghỉ).
+2. **Vận tốc liên tục qua thời điểm đứt dây** — dùng $v$ này làm vận tốc đầu cho pha 2. Chỉ gia tốc thay đổi đột ngột (không còn lực căng dây/đối trọng).
+3. Viết lại phương trình Newton **chỉ cho vật đang xét** ở pha 2 (không còn T, không còn ràng buộc với ròng rọc) — chú ý vật có thể đổi từ "đi lên chậm dần" hoặc "trượt có ma sát đến khi dừng" tùy hướng chuyển động lúc đứt dây.
+4. Nếu hỏi quãng đường đến khi dừng: dùng $v^2 = v_0^2 + 2a's$ với $a'$ là gia tốc mới (thường ngược dấu vận tốc, do chỉ còn ma sát/trọng lực cản).
+
+## Dạng bài tủ: Lăn không trượt (vật rắn vừa tịnh tiến vừa quay)
+
+**Điều kiện không trượt:** $v = \omega R$ (vận tốc khối tâm liên hệ trực tiếp với vận tốc góc).
+
+**Công cụ 1 — Bảo toàn cơ năng** (khi ma sát là ma sát nghỉ, không sinh công, dùng khi đề hỏi *vận tốc* ở cuối dốc):
+$$mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = \frac{1}{2}mv^2\left(1+\frac{I}{mR^2}\right) \quad\Rightarrow\quad v = \sqrt{\dfrac{2gh}{1+I/(mR^2)}}$$
+
+| Vật | $I/(mR^2)$ | $v$ ở cuối dốc cao h |
+|---|---|---|
+| Trụ đặc | $1/2$ | $\sqrt{4gh/3}$ |
+| Trụ rỗng (vành mỏng) | $1$ | $\sqrt{gh}$ |
+| Cầu đặc | $2/5$ | $\sqrt{10gh/7}$ |
+| Cầu rỗng | $2/3$ | $\sqrt{6gh/5}$ |
+
+> **So sánh tốc độ lăn:** $I/(mR^2)$ càng nhỏ → càng ít năng lượng "trích" sang động năng quay → tới đích **nhanh hơn**. Thứ tự nhanh dần: trụ rỗng < cầu rỗng < trụ đặc < cầu đặc.
+
+**Công cụ 2 — Newton tịnh tiến + quay** (bắt buộc dùng khi đề hỏi **độ lớn lực ma sát**, vì bảo toàn năng lượng không cho ra lực):
+$$mg\sin\alpha - f = ma \qquad fR = I\beta \qquad a = R\beta$$
+Giải hệ 3 phương trình ra $a$ và $f$.
+
 ## Mẹo ôn thi
 
 - Luôn phân biệt: bài **không có** khối lượng ròng rọc (dây lý tưởng, ròng rọc lý tưởng) → $T$ như nhau 2 bên, dùng Newton II thường (xem [[Lý 1 - Chương 2 - Hệ vật & Định lý động năng]]); bài **có I ròng rọc** → 2 bên dây có lực căng khác nhau, phải viết riêng phương trình cho từng đoạn dây + phương trình quay.
 - Khi đề cho "ròng rọc dạng đặc/dạng mỏng" — đó là gợi ý để chọn $I=\tfrac12 mr^2$ hay $I=mr^2$.
 - Bài hỏi "gia tốc, lực căng" → Newton II + τ=Iβ. Bài hỏi "vận tốc sau khi đi được đoạn/độ cao h" → ưu tiên bảo toàn năng lượng (nhanh hơn tích phân gia tốc).
+- Ròng rọc "kép" (2 bán kính R và r trên cùng trục, dây quấn khác bán kính mỗi bên) — mômen lực mỗi bên tính riêng theo bán kính tương ứng: $\tau = R T_1 - r T_2$, rồi mới áp $\tau = I\beta$.
 
 # References
 - [[Lý 1 - Chương 3 - Các định luật bảo toàn]]

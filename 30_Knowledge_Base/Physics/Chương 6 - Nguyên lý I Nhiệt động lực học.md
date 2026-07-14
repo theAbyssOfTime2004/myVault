@@ -33,6 +33,20 @@ U của khí lý tưởng **chỉ phụ thuộc T**.
 - Quy ước: $\Delta T>0 \Rightarrow Q>0$ (hệ nhận); $\Delta T<0 \Rightarrow Q<0$ (hệ tỏa).
 - $1\ \text{cal} = 4{,}186\ \text{J}$.
 
+## 3b. Nhiệt chuyển pha (nhiệt hóa hơi / nhiệt nóng chảy) ⭐
+> Không có trong slide gốc nhưng **xuất hiện trong đề thi thực tế** (VD: đun ấm nước tới khi một phần hóa hơi) — cần nhớ thêm.
+
+Khi vật chuyển pha ở nhiệt độ **không đổi** (VD nước sôi hóa hơi ở 100°C), nhiệt lượng không làm tăng T mà dùng để phá liên kết phân tử:
+$$Q = mL$$
+- $L$: nhiệt hóa hơi riêng hoặc nhiệt nóng chảy riêng (J/kg). VD nước ở 100°C: $L_v = 2{,}3\times10^6$ J/kg.
+- Khác với $Q=mc\Delta T$ (có $\Delta T$); nhiệt chuyển pha thì $\Delta T=0$ trong suốt quá trình.
+
+**Dạng bài mẫu (đun ấm nước bằng bếp điện công suất không đổi):**
+1. Tính nhiệt lượng đun ấm + nước từ $t_1$ lên 100°C: $Q_1 = (m_{nước}c_{nước} + m_{ấm}c_{ấm})\Delta T$
+2. Tính nhiệt lượng hóa hơi một phần nước ở 100°C: $Q_2 = m_{hơi}L_v$
+3. Tổng nhiệt cần: $Q = Q_1 + Q_2$
+4. Nếu chỉ x% nhiệt bếp cấp được dùng để đun (phần còn lại thất thoát), và tổng thời gian là $t$: công suất bếp $P = \dfrac{Q}{x\%\cdot t}$
+
 ## 4. Công & giản đồ PV
 $$W = -\int_{V_i}^{V_f} P\,dV \quad(\text{công môi trường thực hiện lên khí})$$
 
@@ -69,6 +83,7 @@ Cả 3 biến $P, V, T$ đều thay đổi.
 ## Các dạng bài tập
 1. Chuyển hóa công ↔ nhiệt năng (VD 6.1: nâng tạ tiêu hao calo — đổi cal→J, $W=nmgh$).
 2. Calorimetry — tìm $c$ hoặc nhiệt độ cân bằng ($Q_{thu}=-Q_{tỏa}$).
+2b. Nhiệt chuyển pha kết hợp calorimetry — đun nước tới khi một phần hóa hơi, tìm công suất bếp (xem mục 3b).
 3. Đẳng áp (VD 6.4: bóng He nóng ở P không đổi → tính Q).
 4. Đẳng nhiệt (VD 6.5: tính W, Q khi giãn; rồi nén về bằng đẳng áp).
 5. Đoạn nhiệt (VD 6.6: nén khí xilanh diesel, $\gamma=1{,}4$ → tìm P, T cuối qua $PV^\gamma$, $TV^{\gamma-1}$).
