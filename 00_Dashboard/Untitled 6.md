@@ -225,3 +225,36 @@ Thay số: $m_1g\sin\theta = 15\times9{,}8\times0{,}5=73{,}5$N, còn $m_ag=5\tim
 Đây là dạng biến thể mới của việc "xác định chiều chuyển động" — áp dụng **sau khi khối lượng thay đổi giữa chừng**, không phải ngay từ đầu bài.
 
 Bạn thử tự tính số các bước a,b,c nhé — phần d) chỉ cần mô tả định tính (không cần tính số) như trên là đủ ý đề hỏi.
+
+
+## Đề 6 — Câu 2: Lời giải đầy đủ
+
+**Tóm tắt:** $m_1=15$ kg (nghiêng $\theta=30°$, không ma sát), $m_2=20$ kg (treo, $m_a=5$kg+$m_b=15$kg), ròng rọc đĩa đặc $R=0{,}25$m, $a=3$ m/s² (đã cho), $g=9{,}8$ m/s². **Chiều đã chứng minh:** $m_2$ xuống, $m_1$ lên dốc (vì $m_2g=196$N $\gg m_1g\sin\theta=73{,}5$N).
+
+### a) Phương trình chuyển động
+
+$$T_1 - m_1g\sin\theta = m_1a \quad (1)$$ $$m_2g - T_2 = m_2a \quad (2)$$ $$(T_2-T_1)R = I\frac{a}{R} \quad (3)$$
+
+### b) Tính $T_1$, $T_2$
+
+$$T_1 = m_1(a+g\sin\theta) = 15\times(3+4{,}9) = 15\times7{,}9 = \boxed{118{,}5\ \text{N}}$$ $$T_2 = m_2(g-a) = 20\times(9{,}8-3) = 20\times6{,}8 = \boxed{136{,}0\ \text{N}}$$
+
+### c) Tính mô men quán tính ròng rọc
+
+$$I = \frac{(T_2-T_1)R^2}{a} = \frac{(136{,}0-118{,}5)\times(0{,}25)^2}{3} = \frac{17{,}5\times0{,}0625}{3}$$ $$\boxed{I \approx 0{,}365\ \text{kg.m}^2}$$
+
+### d) Khi $m_b$ rơi ra khỏi $m_2$ sau $t=2$s
+
+**Vận tốc hệ tại thời điểm tách (liên tục):** $$v = at = 3\times2 = 6{,}0\ \text{m/s} \quad (\text{theo chiều cũ: } m_1\text{ lên, } m_2\text{ xuống})$$
+
+**Kiểm tra lại cán cân lực chủ động mới** (chỉ còn $m_a=5$kg bên treo): $$m_1g\sin\theta = 73{,}5\ \text{N} \qquad m_ag = 5\times9{,}8=49{,}0\ \text{N}$$
+
+Vì $m_1g\sin\theta > m_ag$ → **cán cân đảo ngược**: giờ $m_1$ có xu hướng thắng, kéo hệ theo chiều **ngược lại** (m_1 xuống dốc, $m_a$ lên).
+
+**Tính gia tốc mới $a'$** (theo chiều mới, dùng lại $I$ vừa tìm ở câu c): $$a' = \frac{m_1g\sin\theta - m_ag}{m_1+m_a+\dfrac{I}{R^2}} = \frac{73{,}5-49{,}0}{15+5+\dfrac{0{,}365}{0{,}0625}} = \frac{24{,}5}{20+5{,}83}$$ $$\boxed{a' \approx 0{,}948\ \text{m/s}^2 \text{ (theo chiều mới: } m_1\text{ xuống, } m_a\text{ lên)}}$$
+
+**Mô tả chuyển động của hệ:** Vì hệ đang có vận tốc $v=6{,}0$m/s theo **chiều cũ**, nhưng lực tổng hợp mới lại đẩy theo **chiều ngược lại** — nên hệ sẽ:
+
+1. Tiếp tục đi theo chiều cũ ($m_1$ lên, $m_a$ xuống) nhưng **giảm tốc dần** với gia tốc $a'\approx0{,}948$m/s²,
+2. Dừng lại tức thời sau khoảng $t' = v/a' \approx 6{,}33$s,
+3. Sau đó **đảo chiều**: $m_1$ trượt xuống dốc, $m_a$ bị kéo lên — tăng tốc theo chiều mới với cùng gia tốc $a'\approx0{,}948$m/s².
