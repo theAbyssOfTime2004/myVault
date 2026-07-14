@@ -40,4 +40,30 @@ $$Q_{nhận} = 13160\ \text{J} \qquad Q_{thải}=10080\ \text{J}$$
 
 _(Kiểm tra: $Q_{nhận}-Q_{thải}=13160-10080=3080$J $=A$ ✓ khớp với câu c)_
 
-$$\eta = \frac{A}{Q_{nhận}} = \frac{3080}{13160} \approx \boxed{23{,}4%}$$
+$$\eta = \frac{A}{Q_{nhận}} = \frac{3080}{13160} \approx \boxed{23{,}4\%}$$
+
+
+
+## Đề 4 — Câu 1 (2 điểm)
+
+**Tóm tắt:** mặt phẳng nghiêng dài $L=1{,}0$ m, $\theta=30°$, $g=10$ m/s², quả cầu **đặc** lăn không trượt, thả từ đỉnh ($v_0=0$), $I=\dfrac25mR^2$.
+
+**Tìm:** vận tốc $v$ của quả cầu ở cuối mặt phẳng nghiêng.
+
+## Đây là dạng gì?
+
+Đúng "Dạng bài tủ: Lăn không trượt" đã có trong note [Lý 1 - Chương 4](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/L%C3%BD%201%20-%20Ch%C6%B0%C6%A1ng%204%20-%20C%C6%A1%20h%E1%BB%8Dc%20v%E1%BA%ADt%20r%E1%BA%AFn.md) — đề **không cho hệ số ma sát**, chỉ nói "lăn không trượt" → dùng **công cụ 1: bảo toàn cơ năng** (ma sát nghỉ trong lăn không trượt không sinh công, nên cơ năng vẫn bảo toàn dù có "ma sát").
+
+## Hướng dẫn
+
+**Bước 1 — Tìm độ cao rơi tương ứng:** $$h = L\sin\theta$$
+
+**Bước 2 — Bảo toàn cơ năng** (từ đỉnh, $v_0=0$, đến chân dốc): $$mgh = \frac12mv^2 + \frac12I\omega^2$$
+
+Vì lăn không trượt: $\omega = v/R$. Thay $I=\dfrac25mR^2$: $$mgh = \frac12mv^2 + \frac12\left(\frac25mR^2\right)\left(\frac{v}{R}\right)^2 = \frac12mv^2\left(1+\frac25\right) = \frac12mv^2\cdot\frac75$$
+
+**Bước 3 — Rút ra $v$:** $$v^2 = \frac{2gh}{1+\frac25} = \frac{10}{7}gh \quad\Rightarrow\quad v = \sqrt{\frac{10gh}{7}}$$
+
+Chú ý: khối lượng $m$ và bán kính $R$ **tự triệt tiêu** hoàn toàn khỏi công thức cuối — kết quả chỉ phụ thuộc $g$, $h$ (và hệ số $2/5$ đặc trưng cho quả cầu đặc). Đây là điểm mấu chốt của dạng "lăn không trượt": vận tốc cuối không phụ thuộc khối lượng hay kích thước vật, chỉ phụ thuộc **hình dạng** (qua tỉ số $I/(mR^2)$).
+
+Bạn thử thay số tính $v$ nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
