@@ -50,43 +50,37 @@ $$\eta = \frac{A}{Q_{nhận}} = \frac{3080}{13160} \approx \boxed{23{,}4\%}$$
 
 **Tìm:** vận tốc $v$ của quả cầu ở cuối mặt phẳng nghiêng.
 
+## Đề 4 — Câu 2 (4 điểm)
+
+**Tóm tắt:** $m_1=3{,}0$ kg (trên mặt nghiêng $\alpha=30°$, $k=0{,}25$), $m_2=6{,}0$ kg (treo, cách đất $h=5{,}0$m), ròng rọc **vành tròn** $M=2{,}0$ kg (chú ý: khác Đề 3 — vành tròn có $I=MR^2$, không phải $\frac12MR^2$ như đĩa đặc), $g=10$ m/s², hệ khởi hành từ nghỉ.
+
 ## Đây là dạng gì?
 
-Đúng "Dạng bài tủ: Lăn không trượt" đã có trong note [Lý 1 - Chương 4](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/L%C3%BD%201%20-%20Ch%C6%B0%C6%A1ng%204%20-%20C%C6%A1%20h%E1%BB%8Dc%20v%E1%BA%ADt%20r%E1%BA%AFn.md) — đề **không cho hệ số ma sát**, chỉ nói "lăn không trượt" → dùng **công cụ 1: bảo toàn cơ năng** (ma sát nghỉ trong lăn không trượt không sinh công, nên cơ năng vẫn bảo toàn dù có "ma sát").
+Vẫn khung τ=Iβ quen thuộc (mặt nghiêng có ma sát + vật treo qua ròng rọc), nhưng có **2 điểm mới**:
+
+1. Ròng rọc là **vành tròn** ($I=MR^2$) — công thức khác đĩa đặc.
+2. Câu d) là biến thể mới của "dạng bài tủ dây đứt": ở đây không phải dây đứt, mà là **$m_2$ chạm đất** khiến dây bị chùng — về bản chất xử lý **giống hệt** dạng dây đứt đã học.
 
 ## Hướng dẫn
 
-**Bước 1 — Tìm độ cao rơi tương ứng:** $$h = L\sin\theta$$
+**a) Gia tốc và lực căng dây:**
 
-**Bước 2 — Bảo toàn cơ năng** (từ đỉnh, $v_0=0$, đến chân dốc): $$mgh = \frac12mv^2 + \frac12I\omega^2$$
+$$T_1 - m_1g\sin\alpha - km_1g\cos\alpha = m_1a \quad (1)$$ $$m_2g - T_2 = m_2a \quad (2)$$ $$(T_2-T_1)R = I\frac{a}{R} \quad (3)$$
 
-Vì lăn không trượt: $\omega = v/R$. Thay $I=\dfrac25mR^2$: $$mgh = \frac12mv^2 + \frac12\left(\frac25mR^2\right)\left(\frac{v}{R}\right)^2 = \frac12mv^2\left(1+\frac25\right) = \frac12mv^2\cdot\frac75$$
+Điểm hay: vì ròng rọc là vành tròn, $I=MR^2$, nên ở (3): $(T_2-T_1)R = MR^2\cdot\dfrac{a}{R} \Rightarrow T_2-T_1 = Ma$ — hệ số $R$ **tự triệt tiêu gọn gàng** (khác đĩa đặc, nơi hệ số còn lại là $\frac12M$).
 
-**Bước 3 — Rút ra $v$:** $$v^2 = \frac{2gh}{1+\frac25} = \frac{10}{7}gh \quad\Rightarrow\quad v = \sqrt{\frac{10gh}{7}}$$
+**b) Thời gian và vận tốc khi $m_2$ chạm đất:**
 
-Chú ý: khối lượng $m$ và bán kính $R$ **tự triệt tiêu** hoàn toàn khỏi công thức cuối — kết quả chỉ phụ thuộc $g$, $h$ (và hệ số $2/5$ đặc trưng cho quả cầu đặc). Đây là điểm mấu chốt của dạng "lăn không trượt": vận tốc cuối không phụ thuộc khối lượng hay kích thước vật, chỉ phụ thuộc **hình dạng** (qua tỉ số $I/(mR^2)$).
+Chuyển động biến đổi đều từ nghỉ, quãng đường $h=5{,}0$m: $$h = \frac12at^2 \Rightarrow t=\sqrt{\frac{2h}{a}} \qquad v=at$$
 
-Bạn thử thay số tính $v$ nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+**c) Động năng hệ ngay trước khi chạm đất:** $$K=\frac12m_1v^2+\frac12m_2v^2+\frac12I\omega^2, \quad \omega=\frac{v}{R}$$
 
+**d) Sau khi $m_2$ chạm đất — dây chùng:**
 
-## Nguyên lý: động năng của vật rắn = 2 phần độc lập
+$m_1$ đang đi lên với vận tốc $v$ (từ câu b, liên tục tại thời điểm chạm đất), nhưng **mất lực kéo $T_1$** (dây không còn căng vì $m_2$ đã dừng trên đất). Bây giờ $m_1$ chỉ chịu 2 lực dọc dốc, và **cả hai đều cản** vì $m_1$ đang đi lên: $$-m_1g\sin\alpha - km_1g\cos\alpha = m_1a' \Rightarrow a' = -g(\sin\alpha+k\cos\alpha)$$
 
-Với **bất kỳ vật rắn** nào đang chuyển động (không riêng gì lăn), động năng tổng luôn tách thành **2 thành phần cộng lại**:
+Dùng $v_f^2=v^2+2a's$ với $v_f=0$ (dừng lại) để tìm $s$.
 
-$$K_{total} = \underbrace{\frac12mv^2}_{\text{động năng tịnh tiến}} + \underbrace{\frac12I\omega^2}_{\text{động năng quay}}$$
+_(Khác với dạng "dây đứt" ở Đề 3 — ở đó chỉ có ma sát cản; ở đây **cả trọng lực lẫn ma sát đều cản** vì vật đang đi lên dốc, không phải trượt ngang.)_
 
-- **$\frac12mv^2$:** động năng do **khối tâm** của vật di chuyển qua không gian với vận tốc $v$ — giống hệt công thức động năng chất điểm bạn đã học ở Chương 3.
-- **$\frac12I\omega^2$:** động năng do vật **tự quay quanh khối tâm của chính nó** với tốc độ góc $\omega$ — đây là dạng năng lượng **hoàn toàn mới**, chỉ xuất hiện khi xét vật rắn (có kích thước, có thể quay), không tồn tại với chất điểm.
-
-Đây là một định lý tổng quát trong cơ học vật rắn: chuyển động bất kỳ của vật rắn luôn phân tích được thành "tịnh tiến của khối tâm" + "quay quanh khối tâm" — **độc lập với nhau**, nên năng lượng của 2 chuyển động này **cộng dồn**, không loại trừ nhau.
-
-## Vì sao quả cầu lăn cần CẢ HAI, còn vật trượt (Chương 3) chỉ cần MỘT?
-
-- Vật **trượt** thuần túy trên mặt phẳng nghiêng (như các bài Chương 3): chỉ di chuyển tịnh tiến, **không tự quay** ($\omega=0$) → chỉ có $\frac12mv^2$, số hạng quay biến mất.
-- Quả cầu **lăn**: nó **vừa di chuyển tới** (khối tâm tịnh tiến với $v$) **vừa tự xoay tròn** quanh trục của nó (với $\omega$) — hai chuyển động này **xảy ra đồng thời và độc lập**. Nếu chỉ tính $\frac12mv^2$ mà bỏ qua $\frac12I\omega^2$, bạn sẽ **bỏ sót** phần năng lượng đã "chạy" vào việc làm quả cầu quay — như thể quả cầu chỉ trượt trơn không quay vậy, sai với thực tế vật lý.
-
-## Vai trò của điều kiện "lăn không trượt" ($v=\omega R$)
-
-Điều kiện này chính là cái **nối 2 biến $v$ và $\omega$ lại với nhau** — nếu không có nó, bạn sẽ có 2 ẩn số độc lập ($v$ và $\omega$) trong 1 phương trình, không giải được. Nhờ $\omega=v/R$, bạn thay vào và gộp cả 2 số hạng động năng thành **1 biểu thức chỉ chứa $v$**: $$\frac12mv^2+\frac12I\omega^2 = \frac12mv^2\left(1+\frac{I}{mR^2}\right)$$
-
-— đây chính là bước bạn thấy trong lời giải, biến 2 thành phần động năng thành 1 hệ số nhân với $\frac12mv^2$.
+Bạn thử tự tính các bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
