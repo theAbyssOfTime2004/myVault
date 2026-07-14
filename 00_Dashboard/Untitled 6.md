@@ -150,3 +150,7 @@ Giống hệt cấu trúc τ=Iβ ở [Lý 1 - Chương 4](https://claude.ai/epit
 - $K_{hệ} = \dfrac{1}{2}m_1v^2 + \dfrac{1}{2}m_2v^2 + \dfrac{1}{2}I\omega^2$ (cộng động năng tịnh tiến của 2 vật + động năng quay của ròng rọc, dùng $I$ vừa tìm được ở câu c).
 
 Bạn thử tự làm các bước tính số nhé — báo lại nếu muốn tôi kiểm tra kết quả hoặc giải chi tiết.
+
+Ngắn gọn: trong công thức tôi đưa ra ở Câu 2 ($A_{12}=P_1V_1\ln(V_2/V_1)$, $Q_{23}=\frac{i+2}{2}P_2(V_3{-}V_2)$…), **không có $R$** — vì đã thay $nRT=PV$ để khỏi cần dùng đến $R$ luôn.
+
+Nếu bạn muốn làm theo cách khác (tính $n$ rồi $T$ rồi dùng $nR\Delta T$ trực tiếp): đề bài **đã ấn định sẵn** $R=8{,}31\times10^3$ J/(kmol.K) ở phần "Cho biết" → bắt buộc dùng giá trị này (nghĩa là $n$ phải tính ra kmol, $V$ đổi ra m³, $P$ đổi ra N/m²). Không được tự đổi sang $R=8{,}31$ vì đề không cho $\mu$ (khối lượng mol) để bạn tính $n$ theo mol.
