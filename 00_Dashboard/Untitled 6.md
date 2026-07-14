@@ -185,3 +185,43 @@ _(Lưu ý dấu: vì $M>m$ ở đây, $v'_m$ sẽ **âm** — nghĩa là quả c
 **Bước 4 (câu c) — Độ cao cực đại của $M$ sau va chạm (bảo toàn cơ năng, không ma sát):** $$\frac12Mv_M'^2 = Mgh_{max} \Rightarrow h_{max} = \frac{v_M'^2}{2g}$$
 
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+
+## Đề 6 — Câu 2 (4 điểm)
+
+**Tóm tắt:** $m_1=15$ kg (trên mặt nghiêng $\theta=30°$, **KHÔNG ma sát**), $m_2=20$ kg treo (gồm 2 khối dính keo: $m_a=5$kg + $m_b=15$kg), ròng rọc đĩa đặc $R=0{,}25$m, $I=?$ (cần tìm), $a=3$ m/s² (**đã cho sẵn**, không cần tìm), $g=9{,}8$ m/s².
+
+_(Từ câu d "khi m2 chuyển động **xuống**" → suy ra ngay: $m_2$ đi xuống, $m_1$ bị kéo lên dốc — đây là biến thể bài toán ngược giống Đề 2 Câu 1: biết $a$, tìm $T_1,T_2,I$.)_
+
+## a) Phân tích lực và phương trình chuyển động
+
+**$m_1$** (không ma sát, bị kéo lên dốc): chỉ có 2 lực dọc dốc — $T_1$ (kéo lên) và $m_1g\sin\theta$ (kéo xuống, cản): $$T_1 - m_1g\sin\theta = m_1a$$
+
+**$m_2$** (treo, đi xuống): $m_2g$ (xuống) và $T_2$ (lên): $$m_2g - T_2 = m_2a$$
+
+**Ròng rọc** (đĩa đặc, $I$ chưa biết): $\tau=I\beta$, với $\beta=a/R$: $$(T_2-T_1)R = I\frac{a}{R}$$
+
+## b) Tính $T_1$, $T_2$
+
+Vì $a$ đã cho sẵn, thay số trực tiếp: $$T_1 = m_1(a+g\sin\theta) \qquad T_2 = m_2(g-a)$$
+
+## c) Tính $I$
+
+$$I = \frac{(T_2-T_1)R^2}{a}$$
+
+## d) Khi $m_b$ rơi ra khỏi $m_2$ sau 2 giây — đây là câu khó nhất, cần lý luận thêm
+
+**Bước 1:** Tại $t=2$s, hệ đang có vận tốc $v=at=3\times2=6$ m/s (theo chiều cũ: $m_1$ lên, $m_2$ xuống) — vận tốc này **liên tục** ngay khi $m_b$ tách ra.
+
+**Bước 2:** Sau khi $m_b$ rơi ra, khối lượng treo chỉ còn $m_a=5$kg — **phải kiểm tra lại xem chiều chuyển động cũ còn đúng không** (đây chính là bước "so sánh lực chủ động" đã học — vì giờ CẢ 2 bên đều có thể thắng: $m_1$ trên dốc không ma sát có $m_1g\sin\theta$ đầy đủ, còn $m_a$ chỉ còn $m_ag$ nhỏ hơn nhiều so với $m_2g$ ban đầu): $$m_1g\sin\theta \overset{?}{\gtrless} m_ag$$
+
+Thay số: $m_1g\sin\theta = 15\times9{,}8\times0{,}5=73{,}5$N, còn $m_ag=5\times9{,}8=49$N → $m_1g\sin\theta > m_ag$ → **cán cân đã đảo ngược!**
+
+**Bước 3 — Kết luận về chiều chuyển động:** Vì lực "chủ động mới" ($m_1g\sin\theta$) giờ thắng ($m_a g$), hệ **không thể tiếp tục đi theo chiều cũ mãi** — nhưng vì hệ đang có vận tốc $6$m/s theo chiều cũ (quán tính), nó sẽ:
+
+1. Tiếp tục đi theo chiều cũ ($m_1$ lên, $m_a$ xuống) nhưng **giảm tốc dần** (vì lực tổng hợp giờ ngược chiều chuyển động),
+2. Dừng lại tức thời,
+3. Rồi **đảo chiều**: $m_1$ trượt xuống dốc, $m_a$ bị kéo lên.
+
+Đây là dạng biến thể mới của việc "xác định chiều chuyển động" — áp dụng **sau khi khối lượng thay đổi giữa chừng**, không phải ngay từ đầu bài.
+
+Bạn thử tự tính số các bước a,b,c nhé — phần d) chỉ cần mô tả định tính (không cần tính số) như trên là đủ ý đề hỏi.
