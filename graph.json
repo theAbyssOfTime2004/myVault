@@ -694,13 +694,19 @@
       "id": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học",
       "title": "Chương 6 - Nguyên lý I Nhiệt động lực học",
       "group": "knowledge",
-      "degree": 2
+      "degree": 4
+    },
+    {
+      "id": "30_Knowledge_Base/Physics/Chương 7 - Nguyên lý II Nhiệt động lực học",
+      "title": "Chương 7 - Nguyên lý II Nhiệt động lực học",
+      "group": "knowledge",
+      "degree": 3
     },
     {
       "id": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng",
       "title": "Chương 5 - Khí lý tưởng",
       "group": "knowledge",
-      "degree": 2
+      "degree": 4
     },
     {
       "id": "30_Knowledge_Base/Dev_Tools/LangChain",
@@ -2344,11 +2350,17 @@
       "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
       "title": "Lý 1 - Chương 2 - Hệ vật & Định lý động năng",
       "group": "projects",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
       "title": "General_Physics_Tracker",
+      "group": "projects",
+      "degree": 10
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn",
+      "title": "Lý 1 - Chương 4 - Cơ học vật rắn",
       "group": "projects",
       "degree": 5
     },
@@ -2357,6 +2369,12 @@
       "title": "TTH cuối kỳ review",
       "group": "projects",
       "degree": 0
+    },
+    {
+      "id": "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn",
+      "title": "Lý 1 - Chương 3 - Các định luật bảo toàn",
+      "group": "projects",
+      "degree": 4
     },
     {
       "id": "10_Projects/13_Uni_Retake/giải đề ck datamining 2023-2024",
@@ -2500,7 +2518,7 @@
       "id": "3 - Tags/review",
       "title": "review",
       "group": "other",
-      "degree": 5
+      "degree": 7
     },
     {
       "id": "3 - Tags/computer networking",
@@ -2680,7 +2698,7 @@
       "id": "00_Dashboard/lý 1",
       "title": "lý 1",
       "group": "dashboard",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "00_Dashboard/Untitled 1",
@@ -4310,6 +4328,14 @@
     },
     {
       "source": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học",
+      "target": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng"
+    },
+    {
+      "source": "30_Knowledge_Base/Physics/Chương 7 - Nguyên lý II Nhiệt động lực học",
+      "target": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học"
+    },
+    {
+      "source": "30_Knowledge_Base/Physics/Chương 7 - Nguyên lý II Nhiệt động lực học",
       "target": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng"
     },
     {
@@ -6265,6 +6291,50 @@
       "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng"
     },
     {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "30_Knowledge_Base/Physics/Chương 5 - Khí lý tưởng"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "30_Knowledge_Base/Physics/Chương 6 - Nguyên lý I Nhiệt động lực học"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/General_Physics_Tracker",
+      "target": "30_Knowledge_Base/Physics/Chương 7 - Nguyên lý II Nhiệt động lực học"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn",
+      "target": "00_Dashboard/lý 1"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn",
+      "target": "3 - Tags/review"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn",
+      "target": "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn",
+      "target": "00_Dashboard/lý 1"
+    },
+    {
+      "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn",
+      "target": "3 - Tags/review"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động ném xiên",
       "target": "00_Dashboard/lý 1"
     },
@@ -6750,7 +6820,7 @@
     }
   ],
   "stats": {
-    "node_count": 483,
-    "link_count": 962
+    "node_count": 486,
+    "link_count": 975
   }
 }
