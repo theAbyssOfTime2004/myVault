@@ -115,3 +115,40 @@ So sánh "lực kéo" của $m_2$ (là $m_2g$) với "lực cản" của $m_1$ d
 Vì dây không trượt trên ròng rọc: $a = R\beta$. Thế vào phương trình (3) để đổi $\beta$ thành $a$, lúc này cả 3 phương trình đều chỉ còn ẩn $a, T_1, T_2$ — cộng/khử qua lại để rút ra $a$ trước, rồi thế ngược lại tìm $T_1$, $T_2$.
 
 **Điểm khác biệt quan trọng so với bài ròng rọc nhẹ ở Chương 2:** ở đây bạn có **3 phương trình cho 3 ẩn** ($a, T_1, T_2$) thay vì 2 phương trình cho 2 ẩn — vì $T_1\neq T_2$.
+
+
+# Câu 4
+
+## Hình dung tình huống
+
+Đây là **máy lạnh** (không phải động cơ nhiệt sinh công) — nghĩa là chu trình đi **ngược chiều kim đồng hồ** trên đồ thị P-V (khác với động cơ nhiệt thường đi thuận chiều kim đồng hồ). Máy lạnh cần **nhận công từ bên ngoài** (W đưa vào) để "bơm" nhiệt từ nơi lạnh sang nơi nóng — ngược tự nhiên. Khí lưỡng nguyên tử → nhớ $i=5$, $\gamma = \frac{i+2}{i} = \frac75$.
+
+## Bước 1 (câu a) — Vẽ chu trình
+
+Xác định 4 điểm trên P-V theo thứ tự $V$ giảm dần: $V_1=18 > V_2=8 > V_3=4$ (nên đoạn 1→2→3 là nén khí). Mỗi đoạn có hình dạng đường cong khác nhau:
+
+- $(1\to2)$ đoạn nhiệt: đường dốc hơn (do $PV^\gamma$)
+- $(2\to3)$ đẳng áp: đường nằm ngang ($P=const$)
+- $(3\to4)$ đẳng nhiệt: đường cong thoải hơn ($PV=const$)
+- $(4\to1)$ đẳng áp: đường nằm ngang khép về điểm 1
+
+## Bước 2 (câu b) — Tìm $T_4, V_4$: đi tuần tự qua từng trạng thái, đừng nhảy cóc
+
+Đây là chỗ hay rối nhất — phải tính **lần lượt từng trạng thái theo đúng thứ tự chu trình**, không nhảy thẳng đến trạng thái 4:
+
+1. $(1\to2)$ đoạn nhiệt: dùng $P_1V_1^\gamma = P_2V_2^\gamma$ tìm $P_2$, rồi từ $P_1V_1/T_1=P_2V_2/T_2$ tìm $T_2$.
+2. $(2\to3)$ đẳng áp nên $P_3=P_2$; đã biết $V_3$ → dùng $V_2/T_2=V_3/T_3$ tìm $T_3$.
+3. $(3\to4)$ đẳng nhiệt → $T_4=T_3$ **ngay lập tức**, không cần tính gì thêm — đây là nửa đáp số câu b.
+4. $(4\to1)$ đẳng áp, khép kín về trạng thái 1 → nghĩa là $P_4=P_1$ (vì cùng 1 đoạn đẳng áp nối thẳng đến điểm 1). Dùng $V_4/T_4 = V_1/T_1$ (đã có $T_4$ ở bước 3) để tìm $V_4$.
+
+**Bẫy:** nhiều bạn quên rằng đẳng áp $(4\to1)$ nghĩa là $P_4$ phải **bằng đúng $P_1$**, không phải một áp suất mới nào khác.
+
+## Bước 3 (câu c) — Tính W từng đoạn
+
+Tra đúng công thức theo loại quá trình (bảng ở note Chương 6) cho từng đoạn — đoạn nhiệt dùng $W=\Delta U = nC_V\Delta T$, đẳng áp dùng $W=-P\Delta V$, đẳng nhiệt dùng $W=-nRT\ln(V_f/V_i)$. Cộng đại số (chú ý dấu!) cả 4 đoạn ra tổng công chu trình.
+
+## Bước 4 (câu d) — Hệ số làm lạnh $\varepsilon$
+
+1. Với mỗi đoạn đã có $W$ ở bước 3, tính $Q = \Delta U - W$ (từ $\Delta U=Q+W$) — chú ý $\Delta U$ mỗi đoạn tính từ $nC_V\Delta T$ của chính đoạn đó (riêng đoạn đoạn nhiệt thì $Q=0$ sẵn, không cần tính).
+2. Xem dấu $Q$ từng đoạn: đoạn nào $Q>0$ là khí **nhận nhiệt** (ứng với $Q_c$ hút từ nguồn lạnh), đoạn nào $Q<0$ là khí **thải nhiệt** (ứng với $Q_h$ ra nguồn nóng).
+3. Áp công thức $\varepsilon = \dfrac{|Q_c|}{W_{tổng}}$ ở note Chương 7 (mục Máy làm lạnh), với $W_{tổng}$ là công **hệ nhận vào** trong cả chu trình (từ bước 3, chú ý dấu cho đúng chiều "nhận công" của máy lạnh).
