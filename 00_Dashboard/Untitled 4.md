@@ -30,3 +30,26 @@ Từ đó suy ngược ra tổng nhiệt bếp tỏa ra, rồi vì bếp có **c
 2. Tính $Q_2$: nhiệt hóa hơi đúng 400g nước tại 100°C.
 3. $Q = Q_1+Q_2$ — đây là đáp số câu a.
 4. Suy ra tổng nhiệt bếp thực tỏa ra từ tỉ lệ 80%, rồi chia cho thời gian (giây) ra công suất — đáp số câu b.
+Đúng, đây là thói quen rất tốt — giúp tránh sót dữ kiện và tránh nhầm đơn vị. Ví dụ áp dụng cho Câu 2:
+
+**Ta có:**
+
+- $m_{ấm} = 0{,}7$ kg (nhôm), $c_{nhôm} = 880$ J/(kg.K)
+- $m_{nước} = 2{,}0$ kg, $c_{nước} = 4200$ J/(kg.K)
+- $t_1 = 27°C$, $t_2 = 100°C$ (nhiệt độ sôi)
+- Hiệu suất sử dụng nhiệt của bếp: $H = 80\%$
+- Thời gian đun: $\Delta t = 30$ phút $= 1800$ s
+- Khối lượng nước đã hóa hơi: $m_{hơi} = 0{,}4$ kg
+- $L = 2{,}3\times10^6$ J/kg
+
+**Tìm:**
+a) $Q$ (tổng nhiệt đun nóng + hóa hơi)
+b) $P$ (công suất bếp)
+
+Vài lưu ý khi tóm tắt kiểu này:
+
+- Liệt kê **cả đơn vị gốc** đề cho, để không quên đổi (30 phút → giây, hay nếu đề cho nhiệt độ °C mà công thức cần K thì phải đổi ngay ở bước này).
+- Tách rõ **dữ kiện nào thuộc vật nào** (nước vs ấm) — nhất là khi có 2 chất khác nhau dùng chung 1 bài, dễ gán nhầm $c$ cho sai vật.
+- Ghi rõ **đại lượng nào là "một phần"** (như $m_{hơi}=0,4$ khác với $m_{nước}=2,0$) ngay từ bước tóm tắt để không lẫn lộn lúc thế vào công thức.
+
+Cách này áp dụng được cho mọi câu, kể cả các bài chu trình khí (Câu 4) — tóm tắt hết $V_1, V_2, V_3, P_1, T_1$... và loại quá trình từng đoạn trước khi tính, sẽ đỡ rối hơn nhiều.
