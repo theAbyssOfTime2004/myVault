@@ -212,3 +212,23 @@ Tính độ lớn $|P\Delta V|$ trước, rồi gán dấu theo hướng vật l
 Sau khi ra đáp số cuối (hiệu suất $\eta$ hoặc hệ số $\varepsilon$), nếu **ra âm hoặc vô lý** (>100% hay <0) → tức là bạn đã lỡ trộn lẫn quy ước $A$/$W$ giữa các quá trình trong cùng bài → quay lại đổi dấu tất cả cho nhất quán.
 
 **Chốt 1 câu:** cứ xác định máy là _động cơ_ (dùng $A$=sinh) hay _máy lạnh_ (dùng $W$=nhận) ngay từ đầu bài, rồi giữ nguyên quy ước đó xuyên suốt — không đổi giữa chừng.
+
+## Cách nhận biết khí nhận hay sinh công khi đọc đề
+
+**Cách chắc chắn nhất — so sánh $V$ đầu và $V$ cuối của quá trình đó (không đoán, cứ nhìn số):**
+
+- $V_f > V_i$ (thể tích **tăng**) → khí **giãn nở** → khí **sinh công** ($A>0$, $W<0$)
+- $V_f < V_i$ (thể tích **giảm**) → khí **bị nén** → khí **nhận công** ($A<0$, $W>0$)
+- $V_f = V_i$ (đẳng tích) → không sinh cũng không nhận ($A=W=0$)
+
+Đây là cách **an toàn tuyệt đối**, không cần "cảm giác" hay đoán mò — chỉ cần lấy đúng $V_1, V_2$ đề cho (hoặc đọc trên đồ thị P–V) rồi so sánh.
+
+## Các tín hiệu khác giúp nhận ra nhanh (không cần tính)
+
+- **Từ khóa trực tiếp trong đề:** "giãn nở" = sinh công; "nén" = nhận công. Đề thường ghi rõ, VD: "quá trình (1-2) là quá trình **giãn nở** đẳng nhiệt" (Đề 2 Câu 2) → biết ngay khí sinh công ở đoạn này mà không cần tính gì.
+- **Trên đồ thị P–V, nhìn chiều mũi tên:** mũi tên đi **sang phải** (trục $V$ tăng) → sinh công; đi **sang trái** → nhận công.
+- **Trong 1 chu trình khép kín, đừng gán 1 dấu chung cho cả chu trình** — mỗi đoạn (mỗi quá trình con) có thể sinh/nhận khác nhau; phải xét **từng đoạn riêng** theo $V$ đầu/cuối của chính đoạn đó (giống bạn đã làm ở Đề 2 Câu 2: đoạn 1→2 giãn nở sinh công, đoạn 2→3 bị nén nên nhận công).
+
+## Mẹo thực dụng nhất khi làm bài
+
+Đừng cố "đoán trước" dấu — cứ **thay số $\Delta V = V_f - V_i$ có dấu đúng (âm nếu nén, dương nếu giãn)** vào thẳng công thức ($W=-P\Delta V$ hoặc $A=P\Delta V$), công thức sẽ tự cho ra dấu đúng. Việc "nhận biết" chỉ thực sự cần thiết khi bạn muốn **giải thích bằng lời** (VD đề hỏi "quá trình nào sinh công, quá trình nào nhận công") — lúc đó nhìn dấu kết quả vừa tính ra là trả lời được ngay, không cần suy luận riêng.
