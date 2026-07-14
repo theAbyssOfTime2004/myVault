@@ -161,12 +161,13 @@ với $C_V=\dfrac{i}{2}R$, $C_P=C_V+R$, $\gamma=\dfrac{C_P}{C_V}=\dfrac{i+2}{i}$
 
 ## Bảng công thức riêng từng quá trình
 
-|                         | **Đẳng tích** ($V$=const)           | **Đẳng áp** ($P$=const)             | **Đẳng nhiệt** (T = const)    | Đoạn nhiệt (Q=0)                                                         |
-| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------- | ------------------------------------------------------------------------ |
-| **Hệ thức trạng thái**  | $\dfrac{P_1}{T_1}=\dfrac{P_2}{T_2}$ | $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ | $P_1V_1=P_2V_2$               | $P_1V_1^\gamma=P_2V_2^\gamma$  <br>$T_1V_1^{\gamma-1}=T_2V_2^{\gamma-1}$ |
-| **Công $W$** (hệ nhận)  | $W=0$                               | $W=-P\Delta V=-nR\Delta T$          | $W=-nRT\ln\dfrac{V_f}{V_i}$   | $W=nC_V\Delta T=\dfrac{P_2V_2-P_1V_1}{\gamma-1}$                         |
-| **Nhiệt $Q$** (hệ nhận) | $Q=nC_V\Delta T$                    | $Q=nC_P\Delta T$                    | $Q=-W=nRT\ln\dfrac{V_f}{V_i}$ | $Q=0$                                                                    |
-| **$\Delta U$**          | $\Delta U=Q$                        | $\Delta U=nC_V\Delta T$             | $\Delta U=0$                  | $\Delta U=W=nC_V\Delta T$                                                |
+|                         | **Đẳng tích** ($V$=const)           | **Đẳng áp** ($P$=const)             | **Đẳng nhiệt** (T = const)      | **Đoạn nhiệt** (Q=0)                                                     |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ------------------------------- | ------------------------------------------------------------------------ |
+| **Hệ thức trạng thái**  | $\dfrac{P_1}{T_1}=\dfrac{P_2}{T_2}$ | $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ | $P_1V_1=P_2V_2$                 | $P_1V_1^\gamma=P_2V_2^\gamma$  <br>$T_1V_1^{\gamma-1}=T_2V_2^{\gamma-1}$ |
+| **Công $W$** (hệ nhận)  | $W=0$                               | $W=-P\Delta V=-nR\Delta T$          | $W=-nRT\ln\dfrac{V_f}{V_i}$     | $W=nC_V\Delta T=\dfrac{P_2V_2-P_1V_1}{\gamma-1}$                         |
+| **Công $A$** (hệ sinh)  | $A=0$                               | $A=P\Delta V=nR\Delta T$            | $A=nRT\ln\dfrac{V_f}{V_i}$      | $A=-nC_V\Delta T=\dfrac{P_1V_1-P_2V_2}{\gamma-1}$                        |
+| **Nhiệt $Q$** (hệ nhận) | $Q=nC_V\Delta T$                    | $Q=nC_P\Delta T$                    | $Q=-W=A=nRT\ln\dfrac{V_f}{V_i}$ | $Q=0$                                                                    |
+| **$\Delta U$**          | $\Delta U=Q$                        | $\Delta U=nC_V\Delta T$             | $\Delta U=0$                    | $\Delta U=W=-A=nC_V\Delta T$                                             |
 
 ## Mẹo nhớ nhanh — "cái gì bằng 0"
 
@@ -180,17 +181,34 @@ Bảng này đã có sẵn trong [Chương 6](https://claude.ai/epitaxy/10_Proje
 
 Đúng là công thức trong slide **$W=nRT\ln(V_i/V_f)$** — nhưng đây là **công mà khí NHẬN**, còn công thức tôi dùng ở Câu 2 (**$A=nRT\ln(V_f/V_i)$**) là **công mà khí THỰC HIỆN/SINH RA**. Hai đại lượng này **ngược dấu nhau**: $A = -W$.
 
-## Vì sao khác nhau
+Tóm gọn thành quy trình quyết định thực dụng, không cần nhớ máy móc:
 
-- **W (khí nhận):** nếu khí bị nén ($V_f<V_i$) thì $W>0$ (khí nhận công dương từ ngoại lực để bị nén lại). Nếu khí giãn nở ($V_f>V_i$) thì $W<0$ (khí "nhận" công âm, tức thực ra là mất năng lượng cho bên ngoài).
-- **A (khí sinh/thực hiện):** nếu khí **giãn nở** thì nó đẩy pittông ra ngoài, sinh công dương ($A>0$). Nếu khí bị nén thì nó nhận công từ bên ngoài, nghĩa là $A<0$.
+## Bước 1 — Nhìn loại chu trình đang xét
 
-Đây chính là điều đã chốt trước đó trong cuộc trò chuyện: $-nRT\ln(V_f/V_i) \equiv nRT\ln(V_i/V_f)$ — chỉ là 2 cách viết cùng một công thức Toán, áp cho 2 định nghĩa vật lý ngược dấu nhau.
+|Loại máy|Quy ước tự nhiên|Vì sao|
+|---|---|---|
+|**Động cơ nhiệt** (sinh công để chạy máy khác)|Dùng **A** (công khí **sinh ra**)|Vì công thức hiệu suất $\eta = A/Q_{nhận}$ cần $A$ dương|
+|**Máy lạnh / bơm nhiệt** (cần điện để chạy)|Dùng **W** (công khí **nhận**)|Vì công thức $\varepsilon =|
 
-## Áp vào Câu 2
+Đây là dấu hiệu **đáng tin nhất** — cứ xác định trước "đây là loại máy gì" rồi chọn quy ước theo đúng công thức hiệu suất/hệ số sẽ dùng ở câu sau.
 
-Đề hỏi **"Tính công thực hiện của chất khí"** — tức là hỏi $A$ (công khí sinh ra), **không phải** $W$ (công khí nhận). Vì quá trình (1→2) là **giãn nở** ($V_1=10L\to V_2=50L$), khí sinh công dương, nên: $$A_{12} = P_1V_1\ln\frac{V_2}{V_1} = P_1V_1\ln(5) > 0 \quad\checkmark$$
+## Bước 2 — Nếu đề dùng chữ rõ ràng, ưu tiên chữ đó
 
-Nếu bạn thay thẳng công thức slide ($V_i=V_1, V_f=V_2$) thì ra: $$W_{12} = P_1V_1\ln\frac{V_1}{V_2} = P_1V_1\ln(0{,}2) = -8047\ \text{J}$$
+- "công khí **sinh** ra", "công **do** khí thực hiện" → chắc chắn là $A$
+- "công khí **nhận**", "công **cấp cho** khí" → chắc chắn là $W$
+- "công thực hiện" (chung chung, không rõ) → quay lại Bước 1
 
-— đây là "công khí **nhận**" (âm, hợp lý vì khí đang giãn nở chứ không bị nén) — về **độ lớn giống hệt** $A_{12}=+8047$J tôi tính, chỉ khác dấu vì khác định nghĩa. Không phải tôi tính sai — là hai công thức trả lời hai câu hỏi khác nhau (sinh công vs nhận công), và đề đang hỏi công **sinh ra**.
+## Bước 3 — Mẹo an toàn nhất: đừng nhớ tên, nhớ **hướng vật lý**
+
+Với **từng quá trình riêng lẻ**, không cần nhớ "$A$ hay $W$" — chỉ cần hỏi:
+
+- **Khí giãn nở** ($V$ tăng) → khí **sinh công dương** một cách trực quan (khí đẩy pít-tông ra)
+- **Khí bị nén** ($V$ giảm) → khí **nhận công dương** một cách trực quan (bị đẩy vào)
+
+Tính độ lớn $|P\Delta V|$ trước, rồi gán dấu theo hướng vật lý này — **không phụ thuộc** đề gọi nó là $A$ hay $W$, vì $|A|=|W|$ luôn bằng nhau, chỉ khác dấu.
+
+## Bước 4 — Chốt bằng kiểm tra ngược
+
+Sau khi ra đáp số cuối (hiệu suất $\eta$ hoặc hệ số $\varepsilon$), nếu **ra âm hoặc vô lý** (>100% hay <0) → tức là bạn đã lỡ trộn lẫn quy ước $A$/$W$ giữa các quá trình trong cùng bài → quay lại đổi dấu tất cả cho nhất quán.
+
+**Chốt 1 câu:** cứ xác định máy là _động cơ_ (dùng $A$=sinh) hay _máy lạnh_ (dùng $W$=nhận) ngay từ đầu bài, rồi giữ nguyên quy ước đó xuyên suốt — không đổi giữa chừng.
