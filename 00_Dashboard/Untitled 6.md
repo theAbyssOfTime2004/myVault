@@ -76,12 +76,12 @@ _$(4\to1)$ đẳng áp ($P_4=P_1$):_ $$V_4 = V_1\frac{T_4}{T_1} = 18\times\frac{
 
 **c) Công từng quá trình**
 
-|Đoạn|Công thức|Kết quả (J)|
-|---|---|---|
-|$(1\to2)$ đoạn nhiệt|$W=nC_V\Delta T$|$+15.520$|
-|$(2\to3)$ đẳng áp|$W=-P_2\Delta V$|$+11.203$|
-|$(3\to4)$ đẳng nhiệt|$W=-nRT_3\ln(V_4/V_3)$|$-12.720$|
-|$(4\to1)$ đẳng áp|$W=-P_1\Delta V$|$-4.997$|
+| Đoạn                 | Công thức              | Kết quả (J) |
+| -------------------- | ---------------------- | ----------- |
+| $(1\to2)$ đoạn nhiệt | $W=nC_V\Delta T$       | $+15.520$   |
+| $(2\to3)$ đẳng áp    | $W=-P_2\Delta V$       | $+11.203$   |
+| $(3\to4)$ đẳng nhiệt | $W=-nRT_3\ln(V_4/V_3)$ | $-12.720$   |
+| $(4\to1)$ đẳng áp    | $W=-P_1\Delta V$       | $-4.997$    |
 
 $$W_{tổng} = 15.520+11.203-12.720-4.997 \approx \boxed{+9{,}0\times10^3\ \text{J}}$$
 
