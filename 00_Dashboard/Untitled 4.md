@@ -211,3 +211,5 @@ Tính độ lớn $|P\Delta V|$ trước, rồi gán dấu theo hướng vật l
 Sau khi ra đáp số cuối (hiệu suất $\eta$ hoặc hệ số $\varepsilon$), nếu **ra âm hoặc vô lý** (>100% hay <0) → tức là bạn đã lỡ trộn lẫn quy ước $A$/$W$ giữa các quá trình trong cùng bài → quay lại đổi dấu tất cả cho nhất quán.
 
 **Chốt 1 câu:** cứ xác định máy là _động cơ_ (dùng $A$=sinh) hay _máy lạnh_ (dùng $W$=nhận) ngay từ đầu bài, rồi giữ nguyên quy ước đó xuyên suốt — không đổi giữa chừng.
+
+$I=\dfrac12MR^2$.
