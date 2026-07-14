@@ -84,3 +84,43 @@ Dùng $v_f^2=v^2+2a's$ với $v_f=0$ (dừng lại) để tìm $s$.
 _(Khác với dạng "dây đứt" ở Đề 3 — ở đó chỉ có ma sát cản; ở đây **cả trọng lực lẫn ma sát đều cản** vì vật đang đi lên dốc, không phải trượt ngang.)_
 
 Bạn thử tự tính các bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+
+## Đề 4 — Câu 3 (4 điểm)
+
+**Tóm tắt:** $n=2{,}0$ kmol khí **đơn nguyên tử** ($i=3$), chu trình: (1→2) **nén đẳng nhiệt**, (2→3) **dãn nở đẳng áp**, (3→1) **đẳng tích**. $T_1=600$K, $P_1=10^5$ N/m², $\dfrac{V_{max}}{V_{min}}=4$, $R=8{,}31\times10^3$ J/(kmol.K).
+
+## Bước đầu tiên: xác định $V_{max}$, $V_{min}$ là thể tích nào
+
+- $(1\to2)$ nén → $V$ giảm: $V_2<V_1$
+- $(2\to3)$ dãn nở → $V$ tăng: $V_3>V_2$
+- $(3\to1)$ đẳng tích → $V_3=V_1$ (khép kín về đúng thể tích trạng thái 1)
+
+→ Vậy $V_1=V_3$ (lớn hơn) là $V_{max}$, còn $V_2$ là $V_{min}$: $$\frac{V_1}{V_2}=4$$
+
+## a) Vẽ chu trình (P-V)
+
+Đường (1→2): đường hyperbol đi xuống-sang trái (nén đẳng nhiệt, $V$ giảm, $P$ tăng theo Boyle). Đường (2→3): đường ngang đi sang phải (đẳng áp, $P$ không đổi, $V$ tăng). Đường (3→1): đường thẳng đứng đi xuống (đẳng tích, $V$ không đổi, $P$ giảm về $P_1$).
+
+## b) Tính $V_1, P_2, V_2, T_3$
+
+**$V_1$:** dùng $PV=nRT$ ở trạng thái 1: $V_1 = \dfrac{nRT_1}{P_1}$
+
+**$V_2$:** $V_2 = \dfrac{V_1}{4}$ (từ tỉ lệ đã xác định ở trên)
+
+**$P_2$:** đẳng nhiệt (1→2) nên $P_1V_1=P_2V_2 \Rightarrow P_2 = P_1\dfrac{V_1}{V_2} = 4P_1$
+
+**$T_3$:** đẳng áp (2→3) nên $\dfrac{V_2}{T_2}=\dfrac{V_3}{T_3}$, với $T_2=T_1=600$K (vì 1→2 đẳng nhiệt) và $V_3=V_1=4V_2$: $$T_3 = T_2\times\frac{V_3}{V_2} = 600\times4$$
+
+## c) Nhiệt lượng từng quá trình
+
+- **$(1\to2)$ đẳng nhiệt:** $\Delta U=0 \Rightarrow Q_{12}=A_{12}=nRT_1\ln\dfrac{V_2}{V_1}$ (âm, vì nén nên tỏa nhiệt)
+- **$(2\to3)$ đẳng áp:** $Q_{23}=nC_P\Delta T = n\dfrac{i+2}{2}R(T_3-T_2)$ (dương, vì $T$ tăng → nhận nhiệt)
+- **$(3\to1)$ đẳng tích:** $Q_{31}=nC_V\Delta T = n\dfrac{i}{2}R(T_1-T_3)$ (âm, vì $T$ giảm → tỏa nhiệt)
+
+## d) Hiệu suất chu trình
+
+Gom $Q_{nhận}$ (chỉ lấy $Q_{23}$, số dương duy nhất), rồi: $$\eta = \frac{A}{Q_{nhận}}, \quad A = A_{12}+A_{23}+A_{31}$$
+
+với $A_{23}=P_2(V_3-V_2)$ (dãn nở, dương), $A_{31}=0$ (đẳng tích).
+
+Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
