@@ -124,3 +124,34 @@ Gom $Q_{nhận}$ (chỉ lấy $Q_{23}$, số dương duy nhất), rồi: $$\eta 
 với $A_{23}=P_2(V_3-V_2)$ (dãn nở, dương), $A_{31}=0$ (đẳng tích).
 
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+## Đề 4 — Câu 3: Lời giải đầy đủ
+
+**Số liệu:** $n=2{,}0$ kmol, $i=3$ (đơn nguyên tử), $T_1=600$K, $P_1=10^5$ N/m², $R=8{,}31\times10^3$ J/(kmol.K) → $nR=16620$ J/K.
+
+### b) Tính $V_1, P_2, V_2, T_3$
+
+$$V_1 = \frac{nRT_1}{P_1} = \frac{16620\times600}{10^5} = \boxed{99{,}72\ \text{m}^3}$$
+
+$$V_2 = \frac{V_1}{4} = \boxed{24{,}93\ \text{m}^3}$$
+
+$$P_2 = 4P_1 = \boxed{4\times10^5\ \text{N/m}^2}$$
+
+$T_2=T_1=600$K (đẳng nhiệt), $V_3=V_1$ (đẳng tích khép kín): $$T_3 = T_2\times\frac{V_3}{V_2} = 600\times4 = \boxed{2400\ \text{K}}$$
+
+### c) Nhiệt lượng từng quá trình
+
+**$(1\to2)$ đẳng nhiệt (nén):** $$Q_{12} = nRT_1\ln\frac{V_2}{V_1} = 16620\times600\times\ln\frac14 = 9{,}972\times10^6\times(-1{,}386)$$ $$\boxed{Q_{12} \approx -1{,}382\times10^7\ \text{J}\ (\text{tỏa nhiệt})}$$
+
+**$(2\to3)$ đẳng áp (dãn nở):** $$Q_{23} = n\frac{i+2}{2}R(T_3-T_2) = 2{,}5\times16620\times(2400-600) = 2{,}5\times16620\times1800$$ $$\boxed{Q_{23} = 7{,}479\times10^7\ \text{J}\ (\text{nhận nhiệt})}$$
+
+**$(3\to1)$ đẳng tích:** $$Q_{31} = n\frac{i}{2}R(T_1-T_3) = 1{,}5\times16620\times(600-2400) = 1{,}5\times16620\times(-1800)$$ $$\boxed{Q_{31} = -4{,}487\times10^7\ \text{J}\ (\text{tỏa nhiệt})}$$
+
+### d) Hiệu suất chu trình
+
+$$Q_{nhận} = Q_{23} = 7{,}479\times10^7\ \text{J}$$ $$Q_{thải} = |Q_{12}|+|Q_{31}| = 1{,}382\times10^7+4{,}487\times10^7 = 5{,}870\times10^7\ \text{J}$$
+
+Công cả chu trình: $A = Q_{nhận}-Q_{thải} = 7{,}479\times10^7-5{,}870\times10^7 \approx 1{,}609\times10^7$ J
+
+_(Kiểm tra chéo: $A_{12}=Q_{12}$; $A_{23}=P_2(V_3-V_2)=4\times10^5\times74{,}79\approx2{,}992\times10^7$J; $A_{31}=0$ → tổng $\approx1{,}609\times10^7$J ✓ khớp)_
+
+$$\eta = \frac{A}{Q_{nhận}} = \frac{1{,}609\times10^7}{7{,}479\times10^7}$$ $$\boxed{\eta \approx 21{,}5%}$$
