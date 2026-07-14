@@ -1,31 +1,30 @@
-**Câu 3 lời giải:**
+## $i$ là gì?
 
-**Bước 1 — Xác định chiều chuyển động**
+$i$ = **số bậc tự do** của phân tử khí — số cách độc lập mà phân tử có thể "cất trữ" động năng (tịnh tiến theo 3 trục không gian, và quay quanh các trục nếu phân tử có hình dạng kéo dài). Nó xuất hiện trong công thức nội năng $U=\frac{i}{2}nRT$ — $i$ càng lớn thì cùng một nhiệt độ, khí "chứa" càng nhiều nội năng.
 
-So sánh lực kéo $m_2g = 3{,}0\times9{,}8 = 29{,}4$ N với lực cản $m_1g\sin\theta = 2{,}0\times9{,}8\times\sin45° \approx 13{,}86$ N.
+## 3 trường hợp cần nhớ
 
-Vì $m_2g > m_1g\sin\theta$ → **$m_2$ đi xuống, $m_1$ trượt lên dốc**. Ma sát tác dụng lên $m_1$ hướng xuống dốc (ngược chiều chuyển động).
+|Loại khí|$i$|$\gamma=\frac{i+2}{i}$|Ví dụ khí|
+|---|---|---|---|
+|Đơn nguyên tử (1 nguyên tử/phân tử)|3|$\frac53 \approx 1{,}67$|He, Ne, Ar|
+|Lưỡng nguyên tử (2 nguyên tử/phân tử)|5|$\frac75 = 1{,}4$|$O_2, N_2, H_2$, không khí|
+|Đa nguyên tử (≥3 nguyên tử/phân tử)|6|$\frac{8}{6}=\frac43\approx1{,}33$|$CO_2, H_2O, NH_3$|
 
-**Bước 2 — Tính lực ma sát**
+**Lý do vật lý (không cần nhớ để giải bài, chỉ để hiểu):**
 
-$$N = m_1g\cos\theta = 2{,}0\times9{,}8\times\cos45° \approx 13{,}86\ \text{N}$$ $$f = kN = 0{,}1\times13{,}86 \approx 1{,}39\ \text{N}$$
+- Đơn nguyên tử: coi như 1 chất điểm, chỉ có 3 chiều tịnh tiến (x,y,z) → $i=3$.
+- Lưỡng nguyên tử: thêm 3+2=5, vì hình dạng "quả tạ" nên quay được quanh 2 trục vuông góc với trục nối 2 nguyên tử (quay quanh chính trục nối thì mômen quán tính ≈0 nên không tính) → $i=5$.
+- Đa nguyên tử: hình dạng không thẳng hàng, quay được đủ cả 3 trục → $3+3=6$.
 
-**Bước 3 — Viết 3 phương trình**
+## Trong 41 đề đã xem, dạng nào hay gặp nhất?
 
-Vật $m_2$ (đi xuống): $$m_2g - T_2 = m_2a \quad\Rightarrow\quad T_2 = 29{,}4 - 3{,}0a \qquad (1)$$
+**$i=5$ (lưỡng nguyên tử) là phổ biến nhất** — đa số đề ghi thẳng "khí lưỡng nguyên tử" hoặc cho tên khí cụ thể ($O_2$, $N_2$, không khí, $H_2$). Thứ nhì là **$i=3$ (đơn nguyên tử)** — đề ghi rõ "khí lý tưởng đơn nguyên tử". Trường hợp $i=6$ (đa nguyên tử) hầu như không xuất hiện trong bộ đề đã quét.
 
-Vật $m_1$ (đi lên dốc): $$T_1 - m_1g\sin\theta - f = m_1a \quad\Rightarrow\quad T_1 = 15{,}25 + 2{,}0a \qquad (2)$$
+## Cách nhận diện trong đề
 
-Ròng rọc (trụ đặc $I=\frac12MR^2$, dùng $a=R\beta$): $$(T_2-T_1)R = I\beta = \frac12MR^2\cdot\frac{a}{R} \quad\Rightarrow\quad T_2-T_1 = \frac12Ma = 0{,}5a \qquad (3)$$
+Đề luôn **nói rõ ràng** (không bắt đoán), bằng 1 trong 2 cách:
 
-**Bước 4 — Giải hệ**
+1. Ghi thẳng bậc tự do: "khí có bậc tự do $i=5$" hoặc "khối khí lưỡng nguyên tử"
+2. Cho tên khí cụ thể: "khí $O_2$", "khí Nitơ" → tự suy ra đó là lưỡng nguyên tử → $i=5$
 
-Thế (1), (2) vào (3):
-
-$$(29{,}4-3{,}0a)-(15{,}25+2{,}0a) = 0{,}5a$$ $$14{,}15 - 5{,}0a = 0{,}5a \quad\Rightarrow\quad a = \frac{14{,}15}{5{,}5} \approx 2{,}57\ \text{m/s}^2$$
-
-**Kết quả:**
-
-$$a \approx 2{,}57\ \text{m/s}^2$$ $$T_1 = 15{,}25 + 2{,}0\times2{,}57 \approx 20{,}4\ \text{N}$$ $$T_2 = 29{,}4 - 3{,}0\times2{,}57 \approx 21{,}7\ \text{N}$$
-
-_(Kiểm tra nhanh: $T_2-T_1 = 21{,}7-20{,}4=1{,}3 \approx 0{,}5a=0{,}5\times2{,}57=1{,}3$ ✓ — khớp phương trình (3).)_  
+**Mẹo:** đọc đề xong, việc đầu tiên nên làm là gạch chân/viết ra $i=?$ và $\gamma=?$ ngay trong phần tóm tắt số liệu — vì gần như mọi công thức tính $C_V, C_P, \Delta U$, phương trình đoạn nhiệt $PV^\gamma$ đều phụ thuộc trực tiếp vào giá trị này.
