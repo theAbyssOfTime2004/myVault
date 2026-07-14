@@ -157,3 +157,31 @@ Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn
 (hoặc dùng công thức rút gọn đã có trong note: $\dfrac{\Delta K}{K_{trước}}=\dfrac{M}{m+M}$ — vì $M\gg m$ nên gần như toàn bộ động năng đạn bị mất, hợp lý vật lý)
 
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+
+## Đề 5 — Câu 2: Lời giải đầy đủ
+
+**Tóm tắt:** $m_1=2{,}0$ kg (mặt ngang), $m_2=6{,}0$ kg (mặt nghiêng $\theta=30°$), ròng rọc đĩa tròn $M=8{,}0$ kg, $R=0{,}25$m, $k=0{,}3$, $g=10$ m/s².
+
+### a) Gia tốc và lực căng dây
+
+**$m_1$ (mặt ngang, bị kéo về phía ròng rọc):** $$T_1 - km_1g = m_1a \quad (1)$$
+
+**$m_2$ (mặt nghiêng, trượt xuống kéo $m_1$):** $$m_2g\sin\theta - T_2 - km_2g\cos\theta = m_2a \quad (2)$$
+
+**Ròng rọc (đĩa đặc, $I=\frac12MR^2$):** $$(T_2-T_1)R = I\frac{a}{R} \Rightarrow T_2-T_1 = \frac{M}{2}a \quad (3)$$
+
+Kết hợp cả 3: $$a = \frac{m_2g\sin\theta - kg(m_2\cos\theta+m_1)}{m_1+m_2+\frac{M}{2}}$$
+
+Thay số: $m_2g\sin\theta = 6{,}0\times10\times0{,}5=30$; $kg(m_2\cos\theta+m_1)=0{,}3\times10\times(6{,}0\times0{,}866+2{,}0)=3\times7{,}196=21{,}59$
+
+$$a = \frac{30-21{,}59}{2{,}0+6{,}0+4{,}0} = \frac{8{,}41}{12{,}0}$$ $$\boxed{a \approx 0{,}701\ \text{m/s}^2}$$
+
+Từ (1): $T_1 = m_1a+km_1g = 2{,}0\times0{,}701+6{,}0 = \boxed{7{,}40\ \text{N}}$
+
+Từ (2): $T_2 = m_2g\sin\theta-km_2g\cos\theta-m_2a = 30-15{,}59-4{,}21 = \boxed{10{,}21\ \text{N}}$
+
+_(Kiểm tra: $T_2-T_1=10{,}21-7{,}40=2{,}81$; $\dfrac{M}{2}a=4{,}0\times0{,}701=2{,}80$ ✓ khớp)_
+
+### b) Quãng đường $m_1$ đi được sau $t=5{,}0$s
+
+Chuyển động biến đổi đều từ nghỉ: $$s = \frac12at^2 = \frac12\times0{,}701\times(5{,}0)^2 = \frac12\times0{,}701\times25$$ $$\boxed{s \approx 8{,}76\ \text{m}}$$
