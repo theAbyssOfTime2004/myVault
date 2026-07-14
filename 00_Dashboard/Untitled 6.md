@@ -31,3 +31,26 @@ Nếu công thức chỉ dùng **hiệu số** $\Delta T$ (VD $Q=mc\Delta T$, ha
 |Góc|độ (°)|Với $\sin,\cos$ thì để nguyên độ cũng tính được (máy tính nhận trực tiếp); chỉ đổi sang rad nếu công thức có $\omega, \theta$ dùng trong đạo hàm/tích phân|
 
 **Mẹo chung:** ngay ở bước "Ta có: ..." (tóm tắt đề) — đổi luôn đơn vị về SI tại đó, đừng để đến lúc thế vào công thức mới đổi, dễ quên.
+
+
+## Bước tiếp theo — xác định độ cao (P) của từng điểm
+
+Bạn đã có $V_1, V_2, V_3$ trên trục Ox (nhớ sắp đúng thứ tự tăng dần từ trái sang phải: $V_3=4 < V_2=8 < V_1=18$). Giờ cần xác định **độ cao tương đối** (không cần số chính xác ngay, chỉ cần đúng vị trí cao/thấp) của 4 điểm trạng thái:
+
+- **Điểm 1** ($V_1=18$): độ cao $P_1=9$ atm — vẽ được ngay vì đề cho thẳng.
+- **Điểm 2** ($V_2=8$): **cao hơn** điểm 1, vì $(1\to2)$ là đoạn nhiệt **nén khí** (V giảm) → áp suất tăng lên.
+- **Điểm 3** ($V_3=4$): **cùng độ cao với điểm 2** — vì $(2\to3)$ là đẳng áp, $P_3=P_2$.
+- **Điểm 4** ($V_4=?$, chưa tính): **cùng độ cao với điểm 1** — vì $(4\to1)$ là đẳng áp khép về điểm 1, nên $P_4=P_1$. Vị trí $V_4$ nằm đâu đó giữa $V_3$ và $V_1$ (bạn sẽ tính chính xác ở câu b, tạm vẽ ước lượng).
+
+## Nối các điểm bằng đúng loại đường
+
+|Đoạn|Loại đường|Hình dạng|
+|---|---|---|
+|$1\to2$|đoạn nhiệt|đường cong, đi lên-trái (dốc hơn đẳng nhiệt)|
+|$2\to3$|đẳng áp|đường **thẳng ngang** (cùng độ cao)|
+|$3\to4$|đẳng nhiệt|đường cong, đi xuống-phải (thoải hơn đoạn nhiệt)|
+|$4\to1$|đẳng áp|đường **thẳng ngang** (cùng độ cao, khép về điểm 1)|
+
+## Vẽ mũi tên chỉ chiều — cách tự kiểm tra hình đúng hay sai
+
+Nối 4 điểm theo đúng thứ tự $1\to2\to3\to4\to1$ rồi vẽ mũi tên. Vì đây là **máy lạnh** (không phải động cơ nhiệt sinh công), chu trình phải đi **ngược chiều kim đồng hồ** trên đồ thị P-V — nếu vẽ xong thấy mũi tên đi thuận chiều kim đồng hồ thì bạn đã đặt sai vị trí 1 trong 4 điểm, cần xem lại.
