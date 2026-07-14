@@ -2,7 +2,7 @@
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-tags: [physics, vat-ly-dai-cuong, khi-ly-tuong, nhiet-dong-luc-hoc]
+tags: [physics, vat-ly-dai-cuong, khi-ly-tuong, nhiet-dong-luc-hoc, lý 1]
 aliases: [Khí lý tưởng, Ideal Gas, Chương 5]
 ---
 

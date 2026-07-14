@@ -2,7 +2,7 @@
 type: concept
 created: 2026-05-31
 updated: 2026-05-31
-tags: [physics, vat-ly-dai-cuong, nhiet-dong-luc-hoc, nguyen-ly-1]
+tags: [physics, vat-ly-dai-cuong, nhiet-dong-luc-hoc, nguyen-ly-1, lý 1]
 aliases: [Nguyên lý I, First Law of Thermodynamics, Chương 6]
 ---
 
