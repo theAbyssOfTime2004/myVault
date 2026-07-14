@@ -67,3 +67,26 @@ Vì lăn không trượt: $\omega = v/R$. Thay $I=\dfrac25mR^2$: $$mgh = \frac12
 Chú ý: khối lượng $m$ và bán kính $R$ **tự triệt tiêu** hoàn toàn khỏi công thức cuối — kết quả chỉ phụ thuộc $g$, $h$ (và hệ số $2/5$ đặc trưng cho quả cầu đặc). Đây là điểm mấu chốt của dạng "lăn không trượt": vận tốc cuối không phụ thuộc khối lượng hay kích thước vật, chỉ phụ thuộc **hình dạng** (qua tỉ số $I/(mR^2)$).
 
 Bạn thử thay số tính $v$ nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+
+
+## Nguyên lý: động năng của vật rắn = 2 phần độc lập
+
+Với **bất kỳ vật rắn** nào đang chuyển động (không riêng gì lăn), động năng tổng luôn tách thành **2 thành phần cộng lại**:
+
+$$K_{total} = \underbrace{\frac12mv^2}_{\text{động năng tịnh tiến}} + \underbrace{\frac12I\omega^2}_{\text{động năng quay}}$$
+
+- **$\frac12mv^2$:** động năng do **khối tâm** của vật di chuyển qua không gian với vận tốc $v$ — giống hệt công thức động năng chất điểm bạn đã học ở Chương 3.
+- **$\frac12I\omega^2$:** động năng do vật **tự quay quanh khối tâm của chính nó** với tốc độ góc $\omega$ — đây là dạng năng lượng **hoàn toàn mới**, chỉ xuất hiện khi xét vật rắn (có kích thước, có thể quay), không tồn tại với chất điểm.
+
+Đây là một định lý tổng quát trong cơ học vật rắn: chuyển động bất kỳ của vật rắn luôn phân tích được thành "tịnh tiến của khối tâm" + "quay quanh khối tâm" — **độc lập với nhau**, nên năng lượng của 2 chuyển động này **cộng dồn**, không loại trừ nhau.
+
+## Vì sao quả cầu lăn cần CẢ HAI, còn vật trượt (Chương 3) chỉ cần MỘT?
+
+- Vật **trượt** thuần túy trên mặt phẳng nghiêng (như các bài Chương 3): chỉ di chuyển tịnh tiến, **không tự quay** ($\omega=0$) → chỉ có $\frac12mv^2$, số hạng quay biến mất.
+- Quả cầu **lăn**: nó **vừa di chuyển tới** (khối tâm tịnh tiến với $v$) **vừa tự xoay tròn** quanh trục của nó (với $\omega$) — hai chuyển động này **xảy ra đồng thời và độc lập**. Nếu chỉ tính $\frac12mv^2$ mà bỏ qua $\frac12I\omega^2$, bạn sẽ **bỏ sót** phần năng lượng đã "chạy" vào việc làm quả cầu quay — như thể quả cầu chỉ trượt trơn không quay vậy, sai với thực tế vật lý.
+
+## Vai trò của điều kiện "lăn không trượt" ($v=\omega R$)
+
+Điều kiện này chính là cái **nối 2 biến $v$ và $\omega$ lại với nhau** — nếu không có nó, bạn sẽ có 2 ẩn số độc lập ($v$ và $\omega$) trong 1 phương trình, không giải được. Nhờ $\omega=v/R$, bạn thay vào và gộp cả 2 số hạng động năng thành **1 biểu thức chỉ chứa $v$**: $$\frac12mv^2+\frac12I\omega^2 = \frac12mv^2\left(1+\frac{I}{mR^2}\right)$$
+
+— đây chính là bước bạn thấy trong lời giải, biến 2 thành phần động năng thành 1 hệ số nhân với $\frac12mv^2$.
