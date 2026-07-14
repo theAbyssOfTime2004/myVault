@@ -286,3 +286,42 @@ $Q_{nhận}=Q_{AB}+Q_{CA}$ (cộng 2 số dương), $Q_{tỏa}=|Q_{BC}|$.
 Khi đổi $A\to B$ thành đoạn nhiệt, $Q_{AB}=0$ (không còn thu nhiệt ở đoạn này nữa) → $Q_{nhận}$ chỉ còn lại $Q_{CA}$ (nếu vẫn dương). Cần tính lại toàn bộ 3 trạng thái theo hệ thức đoạn nhiệt (vì $B$ không còn xác định bởi đẳng nhiệt nữa, có thể $V_B$ hoặc $T_B$ sẽ thay đổi tùy đề ràng buộc gì được giữ nguyên — đọc kỹ đề xem giữ nguyên $V_B$ hay $P_B$) rồi tính lại $A$ và $\eta_{mới}$ để so sánh với $\eta$ ở câu c.
 
 Bạn thử tự thay số các bước a,b,c nhé — báo lại nếu muốn giải chi tiết hoặc làm rõ câu d.
+
+
+## Đề 6 — Câu 3: Lời giải đầy đủ
+
+**Đổi đơn vị:** $V_A=V_C=10\times10^{-3}=0{,}01$ m³; $V_B=50\times10^{-3}=0{,}05$ m³; $P_A=5\times10^5$ N/m²; $P_B=P_C=1\times10^5$ N/m²; $i=5$.
+
+**Nhận xét quan trọng:** vì dùng mẹo thay $nRT=PV$, các công thức chỉ phụ thuộc $P,V$ — **không phụ thuộc $n$** — nên kết quả số ở đây **giống hệt** Đề 2 Câu 2 (dù $n$ khác nhau: 2 mol vs 0,6 mol), chỉ đổi tên trạng thái.
+
+### a) Nhiệt lượng từng quá trình
+
+**$A\to B$ (đẳng nhiệt, giãn nở):** $\Delta U=0 \Rightarrow Q_{AB}=A_{AB}=P_AV_A\ln\dfrac{V_B}{V_A}=5000\times\ln5\approx8047$J → **thu nhiệt**
+
+**$B\to C$ (đẳng áp, nén):** $Q_{BC}=\dfrac{i+2}{2}P_B(V_C-V_B)=3{,}5\times(-4000)=-14000$J → **tỏa nhiệt**
+
+**$C\to A$ (đẳng tích):** $Q_{CA}=\dfrac{i}{2}V_A(P_A-P_C)=2{,}5\times4000=10000$J → **thu nhiệt**
+
+$$Q_{nhận}=Q_{AB}+Q_{CA}=8047+10000\approx\boxed{18047\ \text{J}} \qquad Q_{tỏa}=|Q_{BC}|=\boxed{14000\ \text{J}}$$
+
+### b) Công thực hiện của khí trong 1 chu trình
+
+$$A = A_{AB}+A_{BC}+A_{CA} = 8047+(-4000)+0 \approx \boxed{4047\ \text{J}}$$
+
+### c) Hiệu suất
+
+$$\eta = \frac{A}{Q_{nhận}} = \frac{4047}{18047} \approx \boxed{22{,}4\%}$$
+
+### d) Nếu $A\to B$ là đoạn nhiệt (giữ nguyên $V_A, V_B$)
+
+**Tính lại $P_B'$ bằng hệ thức đoạn nhiệt** ($\gamma=\frac{i+2}{i}=1{,}4$): $$P_B' = P_A\left(\frac{V_A}{V_B}\right)^\gamma = 5\times10^5\times(0{,}2)^{1{,}4} \approx 0{,}525\times10^5\ \text{N/m}^2$$
+
+Trạng thái $C'$: $V_{C'}=V_A=0{,}01$ (đẳng tích không đổi), $P_{C'}=P_B'$ (đẳng áp $B'\to C'$).
+
+**Tính lại công và nhiệt:** $$\Delta U_{AB}=\frac{i}{2}(P_B'V_B-P_AV_A)=2{,}5\times(2626{,}5-5000)\approx-5934\ \text{J} \Rightarrow A_{AB}=5934\ \text{J}\ (Q_{AB}=0)$$ $$A_{BC}=P_B'(V_{C'}-V_B)=52530\times(-0{,}04)\approx-2101\ \text{J}$$ $$Q_{BC}=\frac{i+2}{2}\times(-2101)\approx-7354\ \text{J}\ (\text{tỏa})$$ $$Q_{CA}=\frac{i}{2}(P_AV_A-P_{C'}V_{C'})=2{,}5\times(5000-525{,}3)\approx11187\ \text{J}\ (\text{thu})$$
+
+$$A_{mới} = 5934-2101+0\approx3833\ \text{J} \qquad Q_{nhận,mới}=Q_{CA}\approx11187\ \text{J}$$
+
+$$\eta_{mới} = \frac{3833}{11187} \approx \boxed{34{,}3\%}$$
+
+**So sánh:** $\eta_{mới}(34{,}3\%) > \eta_{cũ}(22{,}4\%)$ — thay đoạn đẳng nhiệt bằng đoạn nhiệt giúp hiệu suất chu trình **tăng lên đáng kể**, vì đoạn nhiệt không "lãng phí" nhiệt trong quá trình giãn nở (toàn bộ năng lượng giãn nở lấy từ nội năng, không cần thu nhiệt ngoài để duy trì T như đẳng nhiệt).
