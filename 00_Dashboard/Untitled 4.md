@@ -212,4 +212,12 @@ Sau khi ra đáp số cuối (hiệu suất $\eta$ hoặc hệ số $\varepsilon
 
 **Chốt 1 câu:** cứ xác định máy là _động cơ_ (dùng $A$=sinh) hay _máy lạnh_ (dùng $W$=nhận) ngay từ đầu bài, rồi giữ nguyên quy ước đó xuyên suốt — không đổi giữa chừng.
 
-$I=\dfrac12MR^2$.
+
+
+Đề cho: $R = 8{,}31\times10^3$ J/(kmol.K).
+
+**Lưu ý quan trọng:** đề cho số mol trực tiếp là $n=0{,}6$ **mol**, nhưng $R$ lại cho theo đơn vị **kmol**. Nhớ lại quy tắc đã chốt trước đó — phải **đồng bộ đơn vị** giữa $n$ và $R$: $$n = 0{,}6\ \text{mol} = 0{,}6\times10^{-3}\ \text{kmol} = 6\times10^{-4}\ \text{kmol}$$
+
+rồi dùng cùng với $R=8{,}31\times10^3$ J/(kmol.K) trong các công thức như $PV=nRT$, $\Delta U = n\dfrac{i}{2}R\Delta T$, v.v.
+
+(Bạn cũng có thể chọn cách khác: giữ $n=0{,}6$ mol và tự đổi sang $R=8{,}31$ J/(mol.K) — hai cách cho cùng kết quả, miễn nhất quán.)
