@@ -221,3 +221,23 @@ Sau khi ra đáp số cuối (hiệu suất $\eta$ hoặc hệ số $\varepsilon
 rồi dùng cùng với $R=8{,}31\times10^3$ J/(kmol.K) trong các công thức như $PV=nRT$, $\Delta U = n\dfrac{i}{2}R\Delta T$, v.v.
 
 (Bạn cũng có thể chọn cách khác: giữ $n=0{,}6$ mol và tự đổi sang $R=8{,}31$ J/(mol.K) — hai cách cho cùng kết quả, miễn nhất quán.)
+
+
+## Định nghĩa
+
+**Quá trình thuận nghịch (reversible)** là quá trình xảy ra **vô cùng chậm**, sao cho tại **mọi thời điểm**, hệ luôn ở trạng thái **cân bằng nhiệt động** (áp suất, nhiệt độ đồng đều trong toàn hệ). Vì luôn cân bằng, quá trình có thể **đảo ngược hoàn toàn** mà không để lại thay đổi nào ở hệ hay môi trường xung quanh.
+
+## Ý nghĩa thực dụng khi làm bài (quan trọng nhất)
+
+**"Thuận nghịch" là điều kiện để các công thức bạn đang dùng có hiệu lực:**
+
+- $W = -\int P,dV$, $A=\int P,dV$ — các công thức này dùng $P$ **của chính khí đang xét**. Nếu quá trình **không** thuận nghịch (VD khí giãn nở đột ngột vào chân không), áp suất bên trong hệ không đồng nhất tại từng thời điểm → không thể xác định $P$ để tích phân, công thức này **không áp dụng được trực tiếp**.
+- $PV^\gamma=const$ (phương trình đoạn nhiệt), $\dfrac{P_1V_1}{T_1}=\dfrac{P_2V_2}{T_2}$ — cũng chỉ đúng khi hệ đi qua **một chuỗi liên tục các trạng thái cân bằng**, tức là quá trình thuận nghịch.
+- Vì luôn cân bằng, mỗi quá trình có thể vẽ thành **một đường xác định, liên tục** trên đồ thị P–V (đúng như hình vẽ đề cho) — nếu bất thuận nghịch thì không vẽ được đường rõ ràng như vậy.
+
+→ Nói ngắn gọn: cụm từ "**chu trình thuận nghịch**" chính là lời **xác nhận của đề** rằng bạn được phép dùng thẳng mọi công thức khí lý tưởng chuẩn ($W$, $A$, $Q$, phương trình đoạn nhiệt...) cho từng quá trình con mà không cần lo về mất mát hay hiệu ứng bất thuận nghịch nào khác.
+
+## Ý nghĩa phụ (không cần cho bài tập numeric, chỉ để hiểu sâu hơn)
+
+- Chu trình thuận nghịch có **hiệu suất cao nhất có thể** so với chu trình bất thuận nghịch hoạt động giữa cùng 2 nguồn nhiệt (liên quan định lý Carnot).
+- Sau 1 chu trình thuận nghịch, **độ biến thiên entropy tổng** (hệ + môi trường) $=0$; còn bất thuận nghịch thì $>0$ — đây là nội dung Nguyên lý II bạn đã ôn ở [Chương 7](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/Ch%C6%B0%C6%A1ng%207%20-%20Nguy%C3%AAn%20l%C3%BD%20II%20Nhi%E1%BB%87t%20%C4%91%E1%BB%99ng%20l%E1%BB%B1c%20h%E1%BB%8Dc.md).
