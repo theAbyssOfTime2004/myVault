@@ -124,34 +124,35 @@ Gom $Q_{nhận}$ (chỉ lấy $Q_{23}$, số dương duy nhất), rồi: $$\eta 
 với $A_{23}=P_2(V_3-V_2)$ (dãn nở, dương), $A_{31}=0$ (đẳng tích).
 
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
-## Đề 4 — Câu 3: Lời giải đầy đủ
 
-**Số liệu:** $n=2{,}0$ kmol, $i=3$ (đơn nguyên tử), $T_1=600$K, $P_1=10^5$ N/m², $R=8{,}31\times10^3$ J/(kmol.K) → $nR=16620$ J/K.
 
-### b) Tính $V_1, P_2, V_2, T_3$
+## Đề 5 — Câu 1 (2 điểm)
 
-$$V_1 = \frac{nRT_1}{P_1} = \frac{16620\times600}{10^5} = \boxed{99{,}72\ \text{m}^3}$$
+**Tóm tắt:** $m=20{,}0$ g $=0{,}020$ kg (viên đạn), $M=10{,}0$ kg (bao cát, treo dây dài $L=1{,}0$ m, ban đầu đứng yên), va chạm **mềm**, sau va chạm dây lệch góc $\theta=20°$.
 
-$$V_2 = \frac{V_1}{4} = \boxed{24{,}93\ \text{m}^3}$$
+## Đây là dạng gì?
 
-$$P_2 = 4P_1 = \boxed{4\times10^5\ \text{N/m}^2}$$
+Đúng "**con lắc đạn**" (bài tủ đã có trong note [Chương 3](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/L%C3%BD%201%20-%20Ch%C6%B0%C6%A1ng%203%20-%20C%C3%A1c%20%C4%91%E1%BB%8Bnh%20lu%E1%BA%ADt%20b%E1%BA%A3o%20to%C3%A0n.md), mục "Mẹo ôn thi") — 2 giai đoạn:
 
-$T_2=T_1=600$K (đẳng nhiệt), $V_3=V_1$ (đẳng tích khép kín): $$T_3 = T_2\times\frac{V_3}{V_2} = 600\times4 = \boxed{2400\ \text{K}}$$
+1. Va chạm mềm (tức thời) → bảo toàn **động lượng**
+2. Sau va chạm, hệ (đạn+bao cát dính nhau) đung đưa lên độ cao $h$ → bảo toàn **cơ năng**
 
-### c) Nhiệt lượng từng quá trình
+**Điểm đặc biệt của bài này:** đề cho **góc lệch** (không cho $v$ trực tiếp) → bạn phải làm **ngược lại thứ tự thông thường** — đi từ góc lệch → tìm $h$ → tìm vận tốc ngay sau va chạm → rồi mới suy ra vận tốc đạn ban đầu.
 
-**$(1\to2)$ đẳng nhiệt (nén):** $$Q_{12} = nRT_1\ln\frac{V_2}{V_1} = 16620\times600\times\ln\frac14 = 9{,}972\times10^6\times(-1{,}386)$$ $$\boxed{Q_{12} \approx -1{,}382\times10^7\ \text{J}\ (\text{tỏa nhiệt})}$$
+## Hướng dẫn từng bước
 
-**$(2\to3)$ đẳng áp (dãn nở):** $$Q_{23} = n\frac{i+2}{2}R(T_3-T_2) = 2{,}5\times16620\times(2400-600) = 2{,}5\times16620\times1800$$ $$\boxed{Q_{23} = 7{,}479\times10^7\ \text{J}\ (\text{nhận nhiệt})}$$
+**Bước 1 — Từ góc lệch $\theta$, tìm độ cao $h$ mà hệ lên được:** $$h = L(1-\cos\theta)$$
 
-**$(3\to1)$ đẳng tích:** $$Q_{31} = n\frac{i}{2}R(T_1-T_3) = 1{,}5\times16620\times(600-2400) = 1{,}5\times16620\times(-1800)$$ $$\boxed{Q_{31} = -4{,}487\times10^7\ \text{J}\ (\text{tỏa nhiệt})}$$
+(đây là công thức hình học quen thuộc của con lắc đơn: độ cao dây treo lệch một góc $\theta$ so với vị trí thấp nhất)
 
-### d) Hiệu suất chu trình
+**Bước 2 — Bảo toàn cơ năng (giai đoạn 2), tìm vận tốc $v'$ ngay sau va chạm:** $$\frac12(m+M)v'^2 = (m+M)gh \Rightarrow v' = \sqrt{2gh}$$
 
-$$Q_{nhận} = Q_{23} = 7{,}479\times10^7\ \text{J}$$ $$Q_{thải} = |Q_{12}|+|Q_{31}| = 1{,}382\times10^7+4{,}487\times10^7 = 5{,}870\times10^7\ \text{J}$$
+(lưu ý: khối lượng dao động lúc này là $m+M$ vì đạn đã dính vào bao cát)
 
-Công cả chu trình: $A = Q_{nhận}-Q_{thải} = 7{,}479\times10^7-5{,}870\times10^7 \approx 1{,}609\times10^7$ J
+**Bước 3 — Bảo toàn động lượng (giai đoạn 1), tìm vận tốc đạn $v$ trước va chạm:** $$mv = (m+M)v' \Rightarrow v = \frac{(m+M)v'}{m}$$
 
-_(Kiểm tra chéo: $A_{12}=Q_{12}$; $A_{23}=P_2(V_3-V_2)=4\times10^5\times74{,}79\approx2{,}992\times10^7$J; $A_{31}=0$ → tổng $\approx1{,}609\times10^7$J ✓ khớp)_
+**Câu b) Phần động năng mất do va chạm:** $$\Delta K = K_{trước} - K_{sau} = \frac12mv^2 - \frac12(m+M)v'^2$$
 
-$$\eta = \frac{A}{Q_{nhận}} = \frac{1{,}609\times10^7}{7{,}479\times10^7}$$ $$\boxed{\eta \approx 21{,}5%}$$
+(hoặc dùng công thức rút gọn đã có trong note: $\dfrac{\Delta K}{K_{trước}}=\dfrac{M}{m+M}$ — vì $M\gg m$ nên gần như toàn bộ động năng đạn bị mất, hợp lý vật lý)
+
+Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
