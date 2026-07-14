@@ -106,21 +106,47 @@ $$\varepsilon = \frac{|Q_c|}{W_{tổng}} = \frac{30.210}{9.005} \approx \boxed{3
 
 Câu hỏi rất tốt — đây chính là lý do vì sao chọn trục dọc theo mặt nghiêng lại thông minh (như đã nói ở phần trước).
 
-## Vì sao chỉ cần 1 thành phần để xét chiều chuyển động
+## Đề 2 — Câu 1 (5 điểm)
 
-$m_1$ bị **ràng buộc chỉ có thể trượt dọc theo mặt phẳng nghiêng** — nó không thể bay lên khỏi mặt dốc, cũng không thể lún xuống xuyên qua mặt dốc. Đây là ràng buộc vật lý quan trọng: **theo phương vuông góc với mặt dốc, gia tốc của $m_1$ luôn bằng 0**, bất kể chuyện gì đang xảy ra dọc theo mặt dốc.
+**Tóm tắt đề:**
 
-Vì gia tốc theo phương vuông góc luôn = 0, nên theo phương đó tổng hợp lực luôn = 0 — nghĩa là thành phần trọng lực vuông góc ($m_1g\cos\theta$, cái bạn gọi là $P_{1x}$) **luôn bị phản lực $N$ triệt tiêu hoàn toàn**, không phụ thuộc việc $m_1$ đang trượt lên hay xuống hay đứng yên. Thành phần này **không bao giờ** góp phần làm vật tăng/giảm tốc dọc theo dốc — nó chỉ có tác dụng duy nhất là xác định độ lớn của $N$ (rồi từ đó ra lực ma sát $f=kN$).
+- $m_1 = 15{,}0$ kg (trên mặt nghiêng), $m_2 = 20{,}0$ kg (treo thẳng đứng)
+- Ròng rọc: $R = 25{,}0$ cm $= 0{,}25$ m, mô men quán tính $I$ — **đây là ẩn cần tìm**, không phải cho sẵn
+- $m_1$ chuyển động **đi lên** với gia tốc không đổi $a = 2{,}0$ m/s² (đã cho sẵn — không cần tự xác định)
+- Hệ số ma sát $m_1$–mặt nghiêng: $k = 0{,}1$
+- $\theta = 30°$, $g = 10$ m/s²
 
-Còn thành phần dọc theo dốc ($m_1g\sin\theta$) là thành phần **duy nhất** có khả năng làm vật $m_1$ tăng tốc/giảm tốc theo hướng nó được phép di chuyển — nên đây là thành phần duy nhất cần so sánh với lực kéo của $m_2$ khi xác định chiều chuyển động của cả hệ.
+## Đây là dạng gì?
 
-## Ví dụ dễ hình dung
+Giống hệt cấu trúc τ=Iβ ở [Lý 1 - Chương 4](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/L%C3%BD%201%20-%20Ch%C6%B0%C6%A1ng%204%20-%20C%C6%A1%20h%E1%BB%8Dc%20v%E1%BA%ADt%20r%E1%BA%AFn.md) — vật trên mặt nghiêng có ma sát nối qua ròng rọc có khối lượng với vật treo thẳng đứng (giống Câu 3 Đề 1 bạn đã làm). **Nhưng đây là bài toán ngược**: Câu 3 Đề 1 cho biết $I$ (ròng rọc trụ đặc) rồi tìm $a$; còn bài này **cho sẵn $a$**, và ẩn số cần tìm lại là $I$.
 
-Giống như bạn đẩy 1 cuốn sách nằm trên bàn: nếu bạn ấn sách thẳng xuống (vuông góc mặt bàn), sách **không hề trượt ngang** dù bạn ấn mạnh cỡ nào — lực đó chỉ làm tăng lực ép lên bàn (ảnh hưởng ma sát), chứ không góp phần làm sách trượt. Chỉ có lực đẩy **song song mặt bàn** mới khiến sách trượt.
+## Hướng dẫn từng bước
 
-## Kết luận
+**Bước 1 — Vẽ hình, phân tích lực** (giống Câu 3 Đề 1):
 
-- $m_1g\sin\theta$ (dọc dốc) → so sánh với $m_2g$ để xác định **chiều chuyển động**
-- $m_1g\cos\theta$ (vuông góc dốc) → chỉ dùng để tính $N$, rồi ra $f=kN$ — **không tham gia** vào việc xác định chiều
+- $m_1$ trên mặt nghiêng, đi lên dốc → viết theo trục dọc dốc/vuông dốc:
+    - Dọc dốc: $T_1$ (kéo lên dốc), $-m_1g\sin\theta$ (cản), $-f$ (ma sát — vì $m_1$ đi lên nên ma sát luôn ngược chiều chuyển động, tức hướng xuống dốc)
+    - Vuông dốc: $N = m_1g\cos\theta$ (cân bằng) → $f = kN = km_1g\cos\theta$
+- $m_2$ treo thẳng đứng, đi xuống: $P_2$ (xuống), $T_2$ (lên)
+- Ròng rọc: chịu 2 mô men từ $T_1$ và $T_2$ ở hai bên, quay với gia tốc góc $\beta = a/R$ (dây không trượt)
 
-Đây cũng chính là lý do phương trình cân bằng vuông góc ($N-m_1g\cos\theta=0$) và phương trình chuyển động dọc dốc ($T_1-m_1g\sin\theta-f=m_1a$) tách biệt hoàn toàn nhau — không thể trộn lẫn 2 thành phần này vào cùng 1 phép so sánh.
+**Bước 2 — Viết 3 phương trình:**
+
+1. Vật $m_1$ (dọc dốc): $T_1 - m_1g\sin\theta - km_1g\cos\theta = m_1a$
+2. Vật $m_2$ (phương thẳng đứng): $m_2g - T_2 = m_2a$
+3. Ròng rọc: $(T_2 - T_1)R = I\beta = I\dfrac{a}{R}$
+
+**Điểm khác biệt quan trọng so với Câu 3 Đề 1:** ở đây chiều chuyển động đã được đề cho sẵn ($m_1$ đi lên) nên **không cần** bước so sánh lực để xác định chiều — bạn có thể viết thẳng phương trình theo chiều đã biết.
+
+**Bước 3 — Thứ tự giải:**
+
+- Từ pt (1) → tính được $T_1$ ngay (mọi đại lượng đều đã biết số).
+- Từ pt (2) → tính được $T_2$ ngay.
+- Thay $T_1, T_2$ vào pt (3) → giải ra $I$.
+
+## Câu d) Động năng hệ tại t = 3,0 s
+
+- Giả thiết hệ khởi hành từ nghỉ (không vận tốc đầu, như các bài khác trong đề) → $v = at$ tại $t=3$s, $\omega = v/R$.
+- $K_{hệ} = \dfrac{1}{2}m_1v^2 + \dfrac{1}{2}m_2v^2 + \dfrac{1}{2}I\omega^2$ (cộng động năng tịnh tiến của 2 vật + động năng quay của ròng rọc, dùng $I$ vừa tìm được ở câu c).
+
+Bạn thử tự làm các bước tính số nhé — báo lại nếu muốn tôi kiểm tra kết quả hoặc giải chi tiết.
