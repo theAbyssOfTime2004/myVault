@@ -1,31 +1,32 @@
-Bạn đúng, và mình xin nhận sai — đây là lỗi dấu quan trọng, để mình sửa lại cho chuẩn.
+Ok, lùi lại một bước. Vấn đề không phải là công thức, mà là **hình dung ra hiện tượng vật lý** trước khi tính. Đây là bài kinh điển "vận động viên trượt băng xoay tròn" — chỉ đổi thành "người đứng trên bàn quay".
 
-## Quy tắc đúng (đã bị mình nói ngược ở vài tin trước)
+## Hình dung tình huống
 
-Trong dạng từ vựng ta đang dùng ($w_i = b_i + d_{ij}x_j$, tức $w_i$ = hằng số + hệ số), **biến vào phải có hệ số DƯƠNG** trên dòng biến ra, không phải âm. Lý do: $w_4 = -4+x_1-4x_2$ đang âm, muốn kéo nó về 0 (tăng lên) thì cần tăng biến nào làm $w_4$ **tăng theo** — tức hệ số dương ($x_1$: $+1$). Hệ số âm ($x_2$: $-4$) sẽ kéo $w_4$ càng âm hơn, không dùng được.
+Tưởng tượng bạn ngồi trên ghế văn phòng loại xoay được, ai đó đẩy cho bạn quay. Ban đầu bạn dang hai tay ra (như chữ T). Sau đó bạn thu tay lại ôm sát người. Bạn sẽ **tự thấy mình quay nhanh hẳn lên** — không cần ai đẩy thêm. Đó chính xác là hiện tượng bài này mô tả. "Bàn quay" + "người" chỉ là 1 hệ vật rắn đang quay quanh 1 trục thẳng đứng.
 
-Đối chiếu lại: đây khớp với mọi bước đối ngẫu đã làm đúng trước đó (ví dụ $w_1=-2+4x_1-x_2$ từng chọn $x_1$ hệ số $+4$, không chọn $x_2$ hệ số $-1$) — quy tắc đó vốn đúng, chỉ là 2-3 tin gần đây mình lỡ phát biểu ngược lại. Cảm ơn bạn đã bắt lỗi.
+## Vì sao mômen quán tính $I$ thay đổi?
 
-## Sửa lại phép xoay: $x_1$ vào, $w_4$ ra
+$I$ đo "khối lượng nằm xa trục quay bao nhiêu" — không phải khối lượng người thay đổi, mà là **cách khối lượng đó phân bố quanh trục** thay đổi:
 
-Từ $w_4=-4+x_1-4x_2$, giải $x_1$: $$x_1 = 4+4x_2+w_4$$
+- Tay dang rộng → khối lượng tay/bàn tay ở xa trục → $I$ lớn ($I_i = 6{,}0$)
+- Tay khép lại sát người → khối lượng đó dồn về gần trục → $I$ nhỏ ($I_f = 2{,}0$)
 
-_(Lưu ý nhỏ: bạn viết $x_1=4+4x_2-w_4$ — dấu $w_4$ bị lệch, phải là $+w_4$. Kiểm tra ngược: thế vào $w_4=x_1-4-4x_2$ ra đúng $-4+x_1-4x_2$ ✓ chỉ khi hệ số là $+w_4$.)_
+## Vì sao dùng bảo toàn **mômen động lượng** chứ không phải năng lượng?
 
-Thế vào các dòng còn lại:
+Đây là chỗ hay nhầm nhất. Câu hỏi cần tự đặt ra: _"có lực/mômen nào từ bên ngoài hệ tác động lên hệ 'người + bàn' không?"_
 
-$$\begin{aligned} 
-z' &= 9x_1+x_2 = 36+37x_2+9w_4\ 
-w_1 &= 10-6x_1-5x_2 = -14-29x_2-6w_4\ w_2 &= 8-3x_1+2x_2 = -4-10x_2-3w_4\ w_3 &= 3-2x_1-x_2 = -5-9x_2-2w_4 \end{aligned}$$
+- Bỏ qua ma sát ở trục quay → không có mômen cản từ bên ngoài.
+- Lực người dùng để **kéo tay vào** là lực cơ bắp — lực này là **nội lực** (một phần cơ thể tác dụng lên phần khác của chính cơ thể), giống hệt lý do tại sao 2 người đẩy nhau trên sân băng thì tổng động lượng vẫn bảo toàn dù mỗi người tự tạo lực.
 
-## Kiểm tra: có xoay tiếp được không?
+→ Không có mômen ngoại lực ⇒ $L = I\omega$ giữ nguyên trong suốt quá trình, kể cả khi $I$ và $\omega$ đều đang biến đổi liên tục. Đó là lý do được phép viết $I_i\omega_i = I_f\omega_f$ dù $I$ thay đổi ở giữa.
 
-$b$ âm nhất bây giờ là $w_1=-14$. Xét dòng $w_1 = -14-29x_2-6w_4$: hệ số $x_2$ là $-29$, hệ số $w_4$ là $-6$ — **cả hai đều âm**, không còn cột dương nào để chọn biến vào.
+## Vì sao động năng lại KHÔNG bảo toàn, dù $L$ bảo toàn?
 
-Theo đúng quy tắc (nay đã sửa lại): **không có ứng viên vào → bài toán vô nghiệm.** Kết luận cuối cùng không đổi so với trước (vẫn vô nghiệm, khớp với chứng minh đại số $x_1\ge4$ mâu thuẫn $x_1\le\tfrac53$), nhưng bây giờ lộ ra **ngay sau đúng 1 bước xoay**, gọn hơn hẳn so với lập luận "vòng lặp 2 bước" mình đưa ra trước — lập luận đó dựa trên quy tắc sai nên không cần dùng nữa.
+Vì $K=\frac12 I\omega^2$ không phải là cùng một đại lượng với $L=I\omega$ — chúng biến thiên khác nhau khi $I,\omega$ thay đổi. Việc $K$ tăng lên không vi phạm gì cả, vì **năng lượng KHÔNG bị bắt buộc bảo toàn** ở đây — chỉ có $L$ mới bị bắt buộc (do không có mômen ngoại lực). Năng lượng bổ sung đến từ nơi khác: chính là công cơ bắp người bỏ ra để kéo tay vào (giống việc bạn nhảy lên thì động năng "từ đâu ra" — từ năng lượng hóa học trong cơ, không phải từ hư không).
 
-## Quy tắc tổng hợp cần sửa lại trong bảng bạn tóm tắt trước đó
+## Cách tiếp cận chung cho dạng bài này
 
-> Đơn hình đối ngẫu — biến vào: trên dòng biến ra, chỉ xét cột có hệ số **DƯƠNG** _(không phải âm)_; tỉ số = (hệ số dòng $z$) ÷ (hệ số dòng đang xét), chọn tỉ số dương nhỏ nhất.
-
-Mọi chỗ khác trong bảng tổng hợp của bạn (biến ra, điều kiện dừng, hai pha...) vẫn đúng nguyên, chỉ riêng dấu của điều kiện chọn cột này cần sửa lại như trên.
+1. Đọc đề, tìm dấu hiệu: "mômen quán tính", "tốc độ góc", "bỏ qua ma sát" → đây là bài quay, không phải tịnh tiến.
+2. Tự hỏi: có mômen ngoại lực nào tác động không? Nếu không → $L=I\omega$ = const, viết được phương trình bảo toàn ngay.
+3. Việc gì thay đổi ($I$) và việc gì hỏi ($\omega_f$) → đại số đơn giản từ bước 2.
+4. Nếu đề hỏi thêm về năng lượng → tính riêng $K=\frac12I\omega^2$ ở 2 thời điểm, **không giả định nó bảo toàn**.
