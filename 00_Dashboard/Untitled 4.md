@@ -152,3 +152,27 @@ Tra đúng công thức theo loại quá trình (bảng ở note Chương 6) cho
 1. Với mỗi đoạn đã có $W$ ở bước 3, tính $Q = \Delta U - W$ (từ $\Delta U=Q+W$) — chú ý $\Delta U$ mỗi đoạn tính từ $nC_V\Delta T$ của chính đoạn đó (riêng đoạn đoạn nhiệt thì $Q=0$ sẵn, không cần tính).
 2. Xem dấu $Q$ từng đoạn: đoạn nào $Q>0$ là khí **nhận nhiệt** (ứng với $Q_c$ hút từ nguồn lạnh), đoạn nào $Q<0$ là khí **thải nhiệt** (ứng với $Q_h$ ra nguồn nóng).
 3. Áp công thức $\varepsilon = \dfrac{|Q_c|}{W_{tổng}}$ ở note Chương 7 (mục Máy làm lạnh), với $W_{tổng}$ là công **hệ nhận vào** trong cả chu trình (từ bước 3, chú ý dấu cho đúng chiều "nhận công" của máy lạnh).
+
+## Công thức chung — đúng cho MỌI quá trình (không phụ thuộc loại)
+
+$$PV=nRT \qquad \Delta U = nC_V\Delta T \qquad \Delta U = Q+W$$
+
+với $C_V=\dfrac{i}{2}R$, $C_P=C_V+R$, $\gamma=\dfrac{C_P}{C_V}=\dfrac{i+2}{i}$.
+
+## Bảng công thức riêng từng quá trình
+
+|                         | **Đẳng tích** ($V$=const)           | **Đẳng áp** ($P$=const)             | **Đẳng nhiệt** (T = const)    | Đoạn nhiệt (Q=0)                                                         |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------- | ------------------------------------------------------------------------ |
+| **Hệ thức trạng thái**  | $\dfrac{P_1}{T_1}=\dfrac{P_2}{T_2}$ | $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ | $P_1V_1=P_2V_2$               | $P_1V_1^\gamma=P_2V_2^\gamma$  <br>$T_1V_1^{\gamma-1}=T_2V_2^{\gamma-1}$ |
+| **Công $W$** (hệ nhận)  | $W=0$                               | $W=-P\Delta V=-nR\Delta T$          | $W=-nRT\ln\dfrac{V_f}{V_i}$   | $W=nC_V\Delta T=\dfrac{P_2V_2-P_1V_1}{\gamma-1}$                         |
+| **Nhiệt $Q$** (hệ nhận) | $Q=nC_V\Delta T$                    | $Q=nC_P\Delta T$                    | $Q=-W=nRT\ln\dfrac{V_f}{V_i}$ | $Q=0$                                                                    |
+| **$\Delta U$**          | $\Delta U=Q$                        | $\Delta U=nC_V\Delta T$             | $\Delta U=0$                  | $\Delta U=W=nC_V\Delta T$                                                |
+
+## Mẹo nhớ nhanh — "cái gì bằng 0"
+
+- **Đẳng tích:** $W=0$ (không có $\Delta V$ thì không có công)
+- **Đoạn nhiệt:** $Q=0$ (theo định nghĩa — cách nhiệt với môi trường)
+- **Đẳng nhiệt:** $\Delta U=0$ (nội năng khí lý tưởng chỉ phụ thuộc $T$, mà $T$ không đổi)
+- **Đẳng áp:** không có gì bằng 0 cả — đây là quá trình "đầy đủ nhất", cả $W, Q, \Delta U$ đều khác 0.
+
+Bảng này đã có sẵn trong [Chương 6](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/Ch%C6%B0%C6%A1ng%206%20-%20Nguy%C3%AAn%20l%C3%BD%20I%20Nhi%E1%BB%87t%20%C4%91%E1%BB%99ng%20l%E1%BB%B1c%20h%E1%BB%8Dc.md) mục 6 — nên học thuộc bảng này trước, vì **mọi bài chu trình đều chỉ là ráp 3-4 quá trình này lại với nhau**.
