@@ -158,30 +158,34 @@ Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn
 
 Bạn thử tự thay số tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
 
-## Đề 5 — Câu 2: Lời giải đầy đủ
+## Đề 5 — Câu 3: Lời giải đầy đủ
 
-**Tóm tắt:** $m_1=2{,}0$ kg (mặt ngang), $m_2=6{,}0$ kg (mặt nghiêng $\theta=30°$), ròng rọc đĩa tròn $M=8{,}0$ kg, $R=0{,}25$m, $k=0{,}3$, $g=10$ m/s².
+**Số liệu:** $i=6$ (đa nguyên tử) → $\gamma=\dfrac{i+2}{i}=\dfrac43$; $P_1=1{,}0\times10^5$ N/m², $V_1=2{,}0\times10^{-3}$ m³; đẳng tích (1→2): $V_2=V_1$, $P_2=3P_1=3{,}0\times10^5$ N/m²; đoạn nhiệt (2→3); đẳng áp (3→1): $P_3=P_1$.
 
-### a) Gia tốc và lực căng dây
+_(Lưu ý: không cần biết $n$ hay $R$ cụ thể — dùng trực tiếp tích $PV$ thay cho $nRT$, giống mẹo đã áp dụng ở Đề 2 Câu 2.)_
 
-**$m_1$ (mặt ngang, bị kéo về phía ròng rọc):** $$T_1 - km_1g = m_1a \quad (1)$$
+### a) Tính $V_3$
 
-**$m_2$ (mặt nghiêng, trượt xuống kéo $m_1$):** $$m_2g\sin\theta - T_2 - km_2g\cos\theta = m_2a \quad (2)$$
+Đoạn nhiệt (2→3): $P_2V_2^\gamma = P_3V_3^\gamma \Rightarrow V_3 = V_2\left(\dfrac{P_2}{P_3}\right)^{1/\gamma} = V_2\times3^{3/4}$
 
-**Ròng rọc (đĩa đặc, $I=\frac12MR^2$):** $$(T_2-T_1)R = I\frac{a}{R} \Rightarrow T_2-T_1 = \frac{M}{2}a \quad (3)$$
+$$V_3 = 2{,}0\times10^{-3}\times2{,}2795 \approx \boxed{4{,}56\times10^{-3}\ \text{m}^3 = 4{,}56\ \text{lít}}$$
 
-Kết hợp cả 3: $$a = \frac{m_2g\sin\theta - kg(m_2\cos\theta+m_1)}{m_1+m_2+\frac{M}{2}}$$
+### b) Công và nhiệt lượng khí NHẬN trong từng quá trình
 
-Thay số: $m_2g\sin\theta = 6{,}0\times10\times0{,}5=30$; $kg(m_2\cos\theta+m_1)=0{,}3\times10\times(6{,}0\times0{,}866+2{,}0)=3\times7{,}196=21{,}59$
+Dùng $\Delta U = \dfrac{i}{2}(P_fV_f-P_iV_i)$ cho mọi quá trình (vì $nR\Delta T=\Delta(PV)$).
 
-$$a = \frac{30-21{,}59}{2{,}0+6{,}0+4{,}0} = \frac{8{,}41}{12{,}0}$$ $$\boxed{a \approx 0{,}701\ \text{m/s}^2}$$
+**$(1\to2)$ đẳng tích:** $$W_{12}=0 \qquad \Delta U_{12}=\frac{i}{2}(P_2V_2-P_1V_1)=3\times(600-200)=1200\ \text{J}$$ $$\boxed{Q_{12}=\Delta U_{12}=1200\ \text{J}\ (\text{nhận})}$$
 
-Từ (1): $T_1 = m_1a+km_1g = 2{,}0\times0{,}701+6{,}0 = \boxed{7{,}40\ \text{N}}$
+**$(2\to3)$ đoạn nhiệt:** $$Q_{23}=0 \qquad \Delta U_{23}=\frac{i}{2}(P_3V_3-P_2V_2)=3\times(455{,}9-600)=-432{,}3\ \text{J}$$ $$\boxed{W_{23}=\Delta U_{23}=-432{,}3\ \text{J}}$$
 
-Từ (2): $T_2 = m_2g\sin\theta-km_2g\cos\theta-m_2a = 30-15{,}59-4{,}21 = \boxed{10{,}21\ \text{N}}$
+**$(3\to1)$ đẳng áp:** $$W_{31}=-P_1(V_1-V_3)=-10^5\times(2{,}0-4{,}56)\times10^{-3}=\boxed{255{,}9\ \text{J}}$$ $$\Delta U_{31}=\frac{i}{2}(P_1V_1-P_3V_3)=3\times(200-455{,}9)=-767{,}7\ \text{J}$$ $$\boxed{Q_{31}=\Delta U_{31}-W_{31}=-767{,}7-255{,}9=-1023{,}6\ \text{J}\ (\text{tỏa})}$$
 
-_(Kiểm tra: $T_2-T_1=10{,}21-7{,}40=2{,}81$; $\dfrac{M}{2}a=4{,}0\times0{,}701=2{,}80$ ✓ khớp)_
+_(Kiểm tra: $\Delta U_{12}+\Delta U_{23}+\Delta U_{31}=1200-432{,}3-767{,}7=0$ ✓ đúng vì chu trình kín)_
 
-### b) Quãng đường $m_1$ đi được sau $t=5{,}0$s
+### c) Hiệu suất động cơ nhiệt
 
-Chuyển động biến đổi đều từ nghỉ: $$s = \frac12at^2 = \frac12\times0{,}701\times(5{,}0)^2 = \frac12\times0{,}701\times25$$ $$\boxed{s \approx 8{,}76\ \text{m}}$$
+Đổi sang công **sinh** ($A=-W$) vì đây là động cơ nhiệt: $$A_{12}=0,\quad A_{23}=432{,}3\ \text{J},\quad A_{31}=-255{,}9\ \text{J}$$ $$A = 0+432{,}3-255{,}9 = 176{,}4\ \text{J}$$
+
+$$Q_{nhận}=Q_{12}=1200\ \text{J}\ (\text{chỉ có 1 quá trình dương})$$
+
+$$\eta = \frac{A}{Q_{nhận}} = \frac{176{,}4}{1200}$$ $$\boxed{\eta \approx 14{,}7\%}$$
