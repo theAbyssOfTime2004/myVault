@@ -258,3 +258,31 @@ Vì $m_1g\sin\theta > m_ag$ → **cán cân đảo ngược**: giờ $m_1$ có x
 1. Tiếp tục đi theo chiều cũ ($m_1$ lên, $m_a$ xuống) nhưng **giảm tốc dần** với gia tốc $a'\approx0{,}948$m/s²,
 2. Dừng lại tức thời sau khoảng $t' = v/a' \approx 6{,}33$s,
 3. Sau đó **đảo chiều**: $m_1$ trượt xuống dốc, $m_a$ bị kéo lên — tăng tốc theo chiều mới với cùng gia tốc $a'\approx0{,}948$m/s².
+
+## Đề 6 — Câu 3 (4 điểm)
+
+**Tóm tắt:** $n=2$ mol khí lưỡng nguyên tử ($i=5$), $R=8{,}31$ J/(mol.K). Đọc từ hình: $A(V=10L, P=5atm)$, $B(V=50L, P=1atm)$ — quá trình $A\to B$ **đẳng nhiệt** (giãn nở, đề cho sẵn); $B\to C$: cùng $P=1atm$ → **đẳng áp**; $C\to A$: cùng $V=10L$ → **đẳng tích**.
+
+## Nhận ra ngay: đây là CÙNG một chu trình đã giải ở Đề 2 Câu 2!
+
+Số liệu $P,V$ giống hệt Đề 2 Câu 2 (chỉ đổi tên trạng thái 1→A, 2→B, 3→C) — nên **phương pháp và các bước tính hoàn toàn tương tự**, chỉ khác $n=2$ mol (không cần đổi kmol vì $R$ đã cho theo mol trực tiếp).
+
+## Hướng dẫn
+
+**a) Nhiệt lượng từng quá trình + nhận xét thu/tỏa:**
+
+- $Q_{AB}$ (đẳng nhiệt, giãn nở): $Q_{AB}=nRT_A\ln\dfrac{V_B}{V_A} = P_AV_A\ln\dfrac{V_B}{V_A}$ → dương → **thu nhiệt**
+- $Q_{BC}$ (đẳng áp, nén $V$ giảm): $Q_{BC}=n\dfrac{i+2}{2}R\Delta T = \dfrac{i+2}{2}P_B(V_C-V_B)$ → âm → **tỏa nhiệt**
+- $Q_{CA}$ (đẳng tích, $P$ tăng): $Q_{CA}=n\dfrac{i}{2}R\Delta T = \dfrac{i}{2}V_A(P_A-P_C)$ → dương → **thu nhiệt**
+
+$Q_{nhận}=Q_{AB}+Q_{CA}$ (cộng 2 số dương), $Q_{tỏa}=|Q_{BC}|$.
+
+**b) Công thực hiện của khí trong 1 chu trình:** $$A = A_{AB}+A_{BC}+A_{CA}, \quad A_{AB}=P_AV_A\ln\frac{V_B}{V_A},\ A_{BC}=P_B(V_C-V_B),\ A_{CA}=0$$
+
+**c) Hiệu suất:** $$\eta = \frac{A}{Q_{nhận}}$$
+
+**d) Nếu $A\to B$ đổi thành đoạn nhiệt — đây là "Dạng 5" đã có trong note [Chương 7](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/Ch%C6%B0%C6%A1ng%207%20-%20Nguy%C3%AAn%20l%C3%BD%20II%20Nhi%E1%BB%87t%20%C4%91%E1%BB%99ng%20l%E1%BB%B1c%20h%E1%BB%8Dc.md):**
+
+Khi đổi $A\to B$ thành đoạn nhiệt, $Q_{AB}=0$ (không còn thu nhiệt ở đoạn này nữa) → $Q_{nhận}$ chỉ còn lại $Q_{CA}$ (nếu vẫn dương). Cần tính lại toàn bộ 3 trạng thái theo hệ thức đoạn nhiệt (vì $B$ không còn xác định bởi đẳng nhiệt nữa, có thể $V_B$ hoặc $T_B$ sẽ thay đổi tùy đề ràng buộc gì được giữ nguyên — đọc kỹ đề xem giữ nguyên $V_B$ hay $P_B$) rồi tính lại $A$ và $\eta_{mới}$ để so sánh với $\eta$ ở câu c.
+
+Bạn thử tự thay số các bước a,b,c nhé — báo lại nếu muốn giải chi tiết hoặc làm rõ câu d.
