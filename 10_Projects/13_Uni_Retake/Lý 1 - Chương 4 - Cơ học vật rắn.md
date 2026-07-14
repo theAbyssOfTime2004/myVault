@@ -116,5 +116,48 @@ Giải hệ 3 phương trình ra $a$ và $f$.
 - Bài hỏi "gia tốc, lực căng" → Newton II + τ=Iβ. Bài hỏi "vận tốc sau khi đi được đoạn/độ cao h" → ưu tiên bảo toàn năng lượng (nhanh hơn tích phân gia tốc).
 - Ròng rọc "kép" (2 bán kính R và r trên cùng trục, dây quấn khác bán kính mỗi bên) — mômen lực mỗi bên tính riêng theo bán kính tương ứng: $\tau = R T_1 - r T_2$, rồi mới áp $\tau = I\beta$.
 
+---
+
+## 1. Ròng rọc đơn, 2 lực căng khác nhau (bài vừa làm)
+
+$$(T_2-T_1)R = I\beta, \quad a=R\beta \quad\Rightarrow\quad T_2-T_1=\frac{I}{R^2}a$$
+
+Đặc điểm: chỉ 1 bán kính $R$ cho cả 2 đoạn dây, nên tốc độ 2 vật bằng nhau.
+
+## 2. Ròng rọc "kép" — 2 bán kính khác nhau ($R$ và $r$) trên cùng 1 trục (Đề 2, 14, 19)
+
+$$T_1R - T_2r = I\beta$$
+
+**Điểm khác biệt quan trọng:** ràng buộc vận tốc/gia tốc **không còn giống nhau cho 2 vật** vì chúng nằm ở 2 bán kính khác nhau: $$a_1 = R\beta \qquad a_2 = r\beta \quad\Rightarrow\quad a_1 \neq a_2$$
+
+Đây là bẫy hay gặp nhất — nhiều bạn quen dùng $a_1=a_2$ từ bài đơn giản rồi áp nhầm sang bài này.
+
+## 3. Hai ròng rọc riêng biệt nối tiếp nhau (Đề 6 câu 1, Đề 19 câu 2)
+
+Dây đi qua 2 ròng rọc khác nhau → có **3 đoạn dây với 3 lực căng khác nhau** ($T_1, T_2, T_3$), mỗi ròng rọc viết 1 phương trình $I\beta$ riêng: $$(T_1-T_2)R_1 = I_1\beta_1 \qquad (T_2-T_3)R_2 = I_2\beta_2$$
+
+Nếu 2 ròng rọc có cùng bán kính và dây không trượt thì $\beta_1=\beta_2$, cộng 2 phương trình lại để khử $T_2$ (đây là mẹo hay dùng, xem lại ví dụ "Động cơ Atwood" ở note Chương 4).
+
+## 4. Vật lăn không trượt (Đề 4, 13, 41) — KHÔNG phải bài ròng rọc
+
+Ở đây chỉ có **1 lực duy nhất tạo mômen** là lực ma sát nghỉ $f$ (không phải lực căng dây), vì trọng lực và phản lực đi qua tâm khối nên không có cánh tay đòn:
+
+$$fR = I\beta, \quad a=R\beta$$
+
+Kết hợp với Newton tịnh tiến $mg\sin\alpha - f = ma$ → giải ra $a$ và $f$ (xem "Dạng bài tủ: Lăn không trượt" ở note Chương 4).
+
+## 5. Vật vừa rơi vừa tự quay (kiểu con quay yo-yo, Đề 31 câu 2 — "trụ rỗng cuộn dây")
+
+Vật rơi tự do trong khi dây cuộn quanh nó tự nhả ra, chỉ có **1 lực căng** (không phải 2 vật kéo nhau qua ròng rọc): $$mg - T = ma \quad \text{(tịnh tiến)} \qquad TR = I\beta \quad \text{(quay quanh trục của chính vật đó)}$$
+
+## Cách nhận diện nhanh khi đọc đề
+
+|Dấu hiệu trong đề|Dạng|Số lực căng|
+|---|---|---|
+|"ròng rọc" nối 2 vật, 1 bán kính|Dạng 1|2 ($T_1, T_2$)|
+|"bán kính lớn $r_1$, bán kính nhỏ $r_2$" cùng 1 ròng rọc|Dạng 2|2, nhưng $a_1\neq a_2$|
+|2 ròng rọc riêng, dây vắt qua cả 2|Dạng 3|3 ($T_1,T_2,T_3$)|
+|"lăn không trượt", "quả cầu/trụ lăn xuống dốc"|Dạng 4|0 (chỉ có $f$)|
+|"cuộn dây quanh trụ", 1 đầu dây cố định|Dạng 5|1 ($T$)|
 # References
 - [[Lý 1 - Chương 3 - Các định luật bảo toàn]]
