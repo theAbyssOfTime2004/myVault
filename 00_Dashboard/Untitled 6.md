@@ -101,3 +101,26 @@ $$|Q_c| = Q_{(3\to4)}+Q_{(4\to1)} \approx 30.210\ \text{J} \qquad |Q_h|\approx39
 _(Kiểm tra: $|Q_h|-|Q_c| = 39.220-30.210=9.010 \approx W_{tổng}$ ✓)_
 
 $$\varepsilon = \frac{|Q_c|}{W_{tổng}} = \frac{30.210}{9.005} \approx \boxed{3{,}35}$$
+
+
+
+Câu hỏi rất tốt — đây chính là lý do vì sao chọn trục dọc theo mặt nghiêng lại thông minh (như đã nói ở phần trước).
+
+## Vì sao chỉ cần 1 thành phần để xét chiều chuyển động
+
+$m_1$ bị **ràng buộc chỉ có thể trượt dọc theo mặt phẳng nghiêng** — nó không thể bay lên khỏi mặt dốc, cũng không thể lún xuống xuyên qua mặt dốc. Đây là ràng buộc vật lý quan trọng: **theo phương vuông góc với mặt dốc, gia tốc của $m_1$ luôn bằng 0**, bất kể chuyện gì đang xảy ra dọc theo mặt dốc.
+
+Vì gia tốc theo phương vuông góc luôn = 0, nên theo phương đó tổng hợp lực luôn = 0 — nghĩa là thành phần trọng lực vuông góc ($m_1g\cos\theta$, cái bạn gọi là $P_{1x}$) **luôn bị phản lực $N$ triệt tiêu hoàn toàn**, không phụ thuộc việc $m_1$ đang trượt lên hay xuống hay đứng yên. Thành phần này **không bao giờ** góp phần làm vật tăng/giảm tốc dọc theo dốc — nó chỉ có tác dụng duy nhất là xác định độ lớn của $N$ (rồi từ đó ra lực ma sát $f=kN$).
+
+Còn thành phần dọc theo dốc ($m_1g\sin\theta$) là thành phần **duy nhất** có khả năng làm vật $m_1$ tăng tốc/giảm tốc theo hướng nó được phép di chuyển — nên đây là thành phần duy nhất cần so sánh với lực kéo của $m_2$ khi xác định chiều chuyển động của cả hệ.
+
+## Ví dụ dễ hình dung
+
+Giống như bạn đẩy 1 cuốn sách nằm trên bàn: nếu bạn ấn sách thẳng xuống (vuông góc mặt bàn), sách **không hề trượt ngang** dù bạn ấn mạnh cỡ nào — lực đó chỉ làm tăng lực ép lên bàn (ảnh hưởng ma sát), chứ không góp phần làm sách trượt. Chỉ có lực đẩy **song song mặt bàn** mới khiến sách trượt.
+
+## Kết luận
+
+- $m_1g\sin\theta$ (dọc dốc) → so sánh với $m_2g$ để xác định **chiều chuyển động**
+- $m_1g\cos\theta$ (vuông góc dốc) → chỉ dùng để tính $N$, rồi ra $f=kN$ — **không tham gia** vào việc xác định chiều
+
+Đây cũng chính là lý do phương trình cân bằng vuông góc ($N-m_1g\cos\theta=0$) và phương trình chuyển động dọc dốc ($T_1-m_1g\sin\theta-f=m_1a$) tách biệt hoàn toàn nhau — không thể trộn lẫn 2 thành phần này vào cùng 1 phép so sánh.
