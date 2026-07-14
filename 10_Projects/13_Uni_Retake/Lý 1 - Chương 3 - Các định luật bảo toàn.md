@@ -8,7 +8,9 @@ Tags: [[lý 1]], [[review]], [[công thức]], [[ôn thi cuối kỳ]]
 
 $$dA = \vec{F}\cdot d\vec{s} = F\,ds\cos\theta$$
 
-- A > 0: lực sinh/nhận công dương; A < 0: công cản (tiêu hao); A = 0: lực vuông góc với chuyển động (VD: trọng lực & phản lực trên mặt phẳng ngang)
+- A > 0: lực sinh/nhận công dương; 
+- A < 0: công cản (tiêu hao); 
+- A = 0: lực vuông góc với chuyển động (VD: trọng lực & phản lực trên mặt phẳng ngang)
 - Tổng công: $A = A_1 + A_2 + \dots + A_N$ (cộng đại số công của từng lực)
 
 $$P = \frac{dA}{dt} = \vec{F}\cdot\vec{v} \qquad P_{tb} = \frac{A}{\Delta t}$$
