@@ -391,24 +391,28 @@ $$\eta = 1-\frac{T_4-T_1}{k^{\gamma-1}(T_4-T_1)}$$ $$\boxed{\eta_{Otto} = 1-\fra
 _(Kiểm tra: thay $k=8,\gamma=1{,}4$: $\eta=1-1/8^{0{,}4}=1-1/2{,}297\approx56{,}5\%$ ✓ khớp câu c)_
 
 
-Đây là chỗ nhầm lẫn quan trọng về **hình học của hệ ròng rọc** — không phải "cả hệ cùng đi xuống", mà là quan hệ "1 bên dài ra thì bên kia phải ngắn lại".
+Không sao — bài này **không cần** $n$ hay $R$ luôn, vì có thể giải hoàn toàn bằng mẹo "$PV$ thay cho $nRT$" đã dùng nhiều lần trước đó (Đề 2 Câu 2, Đề 6 Câu 3, Đề 5 Câu 3...).
 
-## Vị trí ròng rọc trong hình
+## Vì sao không cần $n$, $R$
 
-Nhớ lại hình vẽ chuẩn của dạng bài này (giống Đề 1 Câu 3, Đề 4 Câu 2): ròng rọc đặt ở **ĐỈNH** của mặt phẳng nghiêng. Dây đi từ $m_1$ (treo thẳng đứng, phía bên kia đỉnh) vắt qua ròng rọc, rồi chạy **dọc theo mặt nghiêng xuống** đến $m_2$.
+Mọi công thức công/nhiệt cho 4 loại quá trình đều có thể viết **thuần túy bằng $P,V$**, không cần tách riêng $n$ hay $R$:
 
-## Vì sao $m_1$ đi xuống lại làm $m_2$ đi LÊN (không phải xuống)
+- Đẳng nhiệt: $A=P_1V_1\ln\dfrac{V_2}{V_1}$
+- Đẳng áp: $A=P\Delta V$, $Q=\dfrac{i+2}{2}\Delta(PV)$
+- Đẳng tích: $A=0$, $Q=\dfrac{i}{2}\Delta(PV)$
+- Đoạn nhiệt: $\Delta U=\dfrac{i}{2}\Delta(PV)$ (vì $Q=0$)
 
-Dây không giãn → **tổng chiều dài dây luôn cố định**. Dây chia làm 2 đoạn: đoạn từ ròng rọc đến $m_1$, và đoạn từ ròng rọc đến $m_2$.
+→ Tất cả đều chỉ cần biết $P,V$ tại mỗi trạng thái — không cần biết $n$, $R$, hay thậm chí $T$ tuyệt đối.
 
-- Khi $m_1$ đi **xuống** (rời xa ròng rọc) → đoạn dây bên $m_1$ **dài ra**.
-- Vì tổng chiều dài dây không đổi → đoạn dây bên $m_2$ **phải ngắn lại** một lượng đúng bằng như vậy.
-- Đoạn dây bên $m_2$ chạy dọc mặt nghiêng từ ròng rọc (ở đỉnh) xuống $m_2$ — đoạn này "ngắn lại" nghĩa là $m_2$ phải di chuyển **lại gần ròng rọc hơn**, tức là $m_2$ di chuyển **lên phía đỉnh dốc**.
+## Vấn đề thực sự cần giải quyết: xác định đủ $P,V$ ở cả 4 trạng thái
 
-**Đây chính là điểm bạn đang hình dung sai:** bạn nghĩ "$m_1$ xuống thì kéo cả hệ đi xuống theo nghĩa chung chung", nhưng thực ra 2 vật ở **2 phía đối nghịch** của ròng rọc — một bên "xa ra" thì bên kia bắt buộc phải "gần lại", không phải cả hai cùng "xa ra" hay cùng "gần lại" đồng thời.
+Đề cho: $P_1=P_0=10^5$, $V_1=V_0=3\times10^{-3}$; $V_2=3V_0$; $P_3=P_0/5$. Bạn cần tìm nốt $P_2, V_3, P_4, V_4$ bằng cách dùng **đúng loại quá trình nối giữa 2 trạng thái liên tiếp**:
 
-## Ví dụ trực quan để dễ hình dung
+1. **$P_2$:** từ đẳng nhiệt (1→2), $P_1V_1=P_2V_2 \Rightarrow P_2=\dfrac{P_1V_1}{V_2}=\dfrac{P_0}{3}$
+2. **$V_3$:** từ đoạn nhiệt (2→3), $P_2V_2^\gamma=P_3V_3^\gamma \Rightarrow V_3=V_2\left(\dfrac{P_2}{P_3}\right)^{1/\gamma}$ (với $\gamma=\frac{i+2}{i}=\frac75$)
+3. **$P_4$:** từ đẳng áp (3→4), $P_4=P_3=\dfrac{P_0}{5}$
+4. **$V_4$:** từ đẳng tích (4→1), $V_4=V_1=V_0$
 
-Giống như bạn kéo gàu nước lên từ giếng bằng ròng rọc: khi bạn (đứng một bên) kéo dây đi xuống (tay bạn hạ thấp), gàu nước ở đầu kia lại **đi LÊN** — không phải đi xuống theo bạn. Đây là bản chất của ròng rọc: **2 đầu dây luôn chuyển động ngược hướng nhau** (một lên thì một xuống), không bao giờ cùng hướng.
+Sau khi có đủ $(P,V)$ ở cả 4 trạng thái, áp dụng công thức tương ứng cho từng quá trình như bảng ở trên — hoàn toàn không cần đụng đến $n$ hay $R$ ở bất kỳ bước nào.
 
-Vậy: $m_1$ xuống ⟺ $m_2$ lên dốc — đây là lý do $T_2$ (lực kéo $m_2$ lên) phải thắng $P_{2x}$ (trọng lực kéo $m_2$ xuống dốc) để tạo ra chuyển động lên, và $P_{2x}$ đóng vai trò cản trở chứ không phải hỗ trợ.
+Bạn thử tự tính $P_2, V_3$ trước nhé — báo lại nếu muốn kiểm tra hoặc giải chi tiết cả bài.
