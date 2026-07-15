@@ -354,3 +354,38 @@ Chia cả 2 vế cho $R_{bánh}$ (triệt tiêu — đây là lý do bán kính 
 ## Ý nghĩa vật lý (để hiểu tại sao lực ma sát lại "sinh ra" như vậy)
 
 Nếu bánh xe **không có ma sát**, dây kéo $T_1$ tại tâm sẽ chỉ làm nó **trượt tịnh tiến thuần túy**, không hề quay — nhưng đề yêu cầu **lăn không trượt** (phải vừa tịnh tiến vừa quay đúng tỉ lệ $v=\omega R$). Ma sát nghỉ chính là lực "phụ" xuất hiện để **ép buộc** bánh xe quay đúng theo tỉ lệ đó — nó "mượn" một phần lực kéo để chuyển thành mô men quay, nên làm giảm bớt lực còn lại dùng cho tịnh tiến (đây là lý do sau đó $T_1=\frac32m_1a$ thay vì chỉ $m_1a$ — cần lực kéo lớn hơn để bù cho phần "hao" vào việc quay).
+
+
+## Đề 7 — Câu 3: Lời giải đầy đủ (Chu trình Otto)
+
+**Số liệu:** $k=V_1/V_2=8$, khí lưỡng nguyên tử $i=5$ → $\gamma=1{,}4$; $T_1=293$K, $T_3=1023$K, $P_1=10^5$ Pa, $V_1=0{,}5\times10^{-3}$ m³, $R=8{,}31\times10^3$ J/(kmol.K).
+
+**Tính $n$:** $n=\dfrac{P_1V_1}{RT_1}=\dfrac{50}{8{,}31\times10^3\times293}\approx2{,}054\times10^{-5}$ kmol $\Rightarrow nR\approx0{,}1706$ J/K
+
+### a) $P_2, T_2$ và $P_4, T_4$
+
+**Đoạn nhiệt (1→2), nén:** $T_2 = T_1\times k^{\gamma-1} = 293\times8^{0{,}4} \approx 293\times2{,}297$ $$\boxed{T_2\approx673{,}1\ \text{K}} \qquad P_2 = P_1\times k^\gamma = 10^5\times8^{1{,}4} \approx \boxed{1{,}838\times10^6\ \text{Pa}}$$
+
+**Đoạn nhiệt (3→4), giãn:** vì $V_4=V_1, V_3=V_2$ nên $T_4=T_3/k^{\gamma-1}=1023/2{,}297$ $$\boxed{T_4\approx445{,}3\ \text{K}} \qquad P_4 = \frac{nRT_4}{V_1}\approx\boxed{1{,}520\times10^5\ \text{Pa}}$$
+
+### b) Công và nhiệt lượng từng quá trình
+
+**$(1\to2)$ đoạn nhiệt:** $Q_{12}=0$ $$\Delta U_{12}=nR\frac{i}{2}(T_2-T_1)=0{,}1706\times2{,}5\times380{,}1\approx162{,}2\ \text{J} \Rightarrow A_{12}=-162{,}2\ \text{J (nhận công)}$$
+
+**$(2\to3)$ đẳng tích:** $A_{23}=0$ $$Q_{23}=nR\frac{i}{2}(T_3-T_2)=0{,}1706\times2{,}5\times349{,}9\approx\boxed{149{,}3\ \text{J (thu nhiệt)}}$$
+
+**$(3\to4)$ đoạn nhiệt:** $Q_{34}=0$ $$\Delta U_{34}=nR\frac{i}{2}(T_4-T_3)=0{,}1706\times2{,}5\times(-577{,}7)\approx-246{,}5\ \text{J} \Rightarrow A_{34}=+246{,}5\ \text{J (sinh công)}$$
+
+**$(4\to1)$ đẳng tích:** $A_{41}=0$ $$Q_{41}=nR\frac{i}{2}(T_1-T_4)=0{,}1706\times2{,}5\times(-152{,}3)\approx\boxed{-65{,}0\ \text{J (tỏa nhiệt)}}$$
+
+### c) Hiệu suất động cơ
+
+$$A_{total}=A_{12}+A_{34}=-162{,}2+246{,}5\approx84{,}3\ \text{J} \qquad Q_{nhận}=Q_{23}\approx149{,}3\ \text{J}$$ $$\eta=\frac{A}{Q_{nhận}}=\frac{84{,}3}{149{,}3}\approx\boxed{56{,}5%}$$
+
+### d) Công thức hiệu suất Otto tổng quát theo $k,\gamma$
+
+Từ hệ thức đoạn nhiệt: $T_2=T_1k^{\gamma-1}$, $T_3=T_4k^{\gamma-1}$, thay vào $\eta=1-\dfrac{|Q_{41}|}{Q_{23}}=1-\dfrac{T_4-T_1}{T_3-T_2}$:
+
+$$\eta = 1-\frac{T_4-T_1}{k^{\gamma-1}(T_4-T_1)}$$ $$\boxed{\eta_{Otto} = 1-\frac{1}{k^{\gamma-1}}}$$
+
+_(Kiểm tra: thay $k=8,\gamma=1{,}4$: $\eta=1-1/8^{0{,}4}=1-1/2{,}297\approx56{,}5%$ ✓ khớp câu c)_
