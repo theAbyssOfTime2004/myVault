@@ -416,3 +416,45 @@ Mọi công thức công/nhiệt cho 4 loại quá trình đều có thể viế
 Sau khi có đủ $(P,V)$ ở cả 4 trạng thái, áp dụng công thức tương ứng cho từng quá trình như bảng ở trên — hoàn toàn không cần đụng đến $n$ hay $R$ ở bất kỳ bước nào.
 
 Bạn thử tự tính $P_2, V_3$ trước nhé — báo lại nếu muốn kiểm tra hoặc giải chi tiết cả bài.
+
+## Đề 8 — Câu 2: Lời giải đầy đủ
+
+**Số liệu:** $i=5$ → $\gamma=7/5=1{,}4$; $P_1=P_0=10^5$ N/m², $V_1=V_0=3\times10^{-3}$ m³; $V_2=3V_0=9\times10^{-3}$ m³; $P_3=P_0/5=2\times10^4$ N/m².
+
+### Xác định đủ $P,V$ ở 4 trạng thái
+
+**$P_2$** (đẳng nhiệt 1→2): $P_2=\dfrac{P_1V_1}{V_2}=\dfrac{P_0}{3}\approx3{,}333\times10^4$ N/m²
+
+**$V_3$** (đoạn nhiệt 2→3): $V_3=V_2\left(\dfrac{P_2}{P_3}\right)^{1/\gamma}=9\times10^{-3}\times\left(\dfrac53\right)^{5/7}\approx12{,}96\times10^{-3}$ m³
+
+**$P_4=P_3=2\times10^4$** N/m² (đẳng áp 3→4); **$V_4=V_1=3\times10^{-3}$** m³ (đẳng tích 4→1)
+
+### a) Công từng quá trình
+
+$$A_{12}=P_1V_1\ln\frac{V_2}{V_1}=300\times\ln3\approx\boxed{329{,}6\ \text{J (sinh)}}$$
+
+$$\Delta U_{23}=\frac{i}{2}(P_3V_3-P_2V_2)=2{,}5\times(259{,}3-300)\approx-101{,}8\ \text{J} \Rightarrow A_{23}=-\Delta U_{23}\approx\boxed{101{,}8\ \text{J (sinh)}}$$
+
+$$A_{34}=P_3(V_4-V_3)=2\times10^4\times(3-12{,}96)\times10^{-3}\approx\boxed{-199{,}3\ \text{J (nhận)}}$$
+
+$$A_{41}=\boxed{0\ \text{J}}$$
+
+**Tổng công cả chu trình:** $A=329{,}6+101{,}8-199{,}3+0\approx\boxed{232{,}2\ \text{J}}$
+
+### b) Nhiệt lượng từng quá trình
+
+$$Q_{12}=A_{12}\approx\boxed{329{,}6\ \text{J (thu)}} \qquad Q_{23}=\boxed{0}$$
+
+$$Q_{34}=\frac{i+2}{2}(P_4V_4-P_3V_3)=3{,}5\times(60-259{,}3)\approx\boxed{-697{,}4\ \text{J (tỏa)}}$$
+
+$$Q_{41}=\frac{i}{2}(P_1V_1-P_4V_4)=2{,}5\times(300-60)=\boxed{600\ \text{J (thu)}}$$
+
+_(Kiểm tra: $Q_{12}+Q_{23}+Q_{34}+Q_{41}=329{,}6+0-697{,}4+600=232{,}2$J $=A$ ✓ khớp)_
+
+### c) Hiệu suất chu trình
+
+Xác định loại máy: chu trình quay theo chiều kim đồng hồ trên đồ thị P-V (giãn nở ở áp suất cao hơn nén), $A_{total}>0$ → **động cơ nhiệt**.
+
+$$Q_{nhận}=Q_{12}+Q_{41}=329{,}6+600=929{,}6\ \text{J} \qquad Q_{thải}=|Q_{34}|=697{,}4\ \text{J}$$
+
+$$\eta = \frac{A}{Q_{nhận}} = \frac{232{,}2}{929{,}6} \approx \boxed{25{,}0%}$$
