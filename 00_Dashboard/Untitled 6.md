@@ -327,3 +327,30 @@ Rồi kết hợp với ròng rọc (3) và $m_2$ (2) như cũ, chỉ thay $T_1=
 _(Lưu ý: bánh xe lăn không trượt trên mặt ngang **không có ma sát trượt tiêu hao** như $m_1$ cũ — số hạng $km_1g$ đã biến mất khỏi tử số, vì ma sát nghỉ giữ cho lăn không trượt không sinh công, chỉ đóng vai trò tạo mô men quay.)_
 
 Bạn thử tự tính số các phần nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+
+
+Đây là phương trình **quay** của bánh xe quanh trục của chính nó (khác với ròng rọc — đây là 1 vật rắn MỚI, có chuyển động quay riêng, cần viết phương trình $\tau=I\beta$ cho chính nó).
+
+## Vì sao chỉ có lực ma sát $f_{ms}$ mới tạo ra mô men, không phải $T_1$
+
+Bánh xe chịu 2 lực nằm ngang: $T_1$ (dây kéo, tác dụng **tại tâm trục bánh xe**) và $f_{ms}$ (ma sát nghỉ, tác dụng **tại điểm tiếp xúc với mặt đất**, cách tâm 1 đoạn $R_{bánh}$).
+
+**Mô men lực = lực × cánh tay đòn (khoảng cách vuông góc từ trục quay đến đường tác dụng của lực).** Vì $T_1$ tác dụng **đúng tại tâm** (trục quay), cánh tay đòn của nó $=0$ → $T_1$ **không tạo ra mô men nào cả**, chỉ có $f_{ms}$ (tác dụng tại điểm tiếp xúc, cách tâm $R_{bánh}$) mới tạo mô men làm bánh xe quay.
+
+## Thiết lập phương trình quay
+
+$$\tau = I\beta \Rightarrow f_{ms}\times R_{bánh} = I_{bánh}\times\beta$$
+
+Vì lăn không trượt: $v=\omega R_{bánh} \Rightarrow a=\beta R_{bánh} \Rightarrow \beta = \dfrac{a}{R_{bánh}}$ (điều kiện ràng buộc quen thuộc, giống các bài lăn không trượt đã học).
+
+Thay vào: $$f_{ms}\times R_{bánh} = I_{bánh}\times\frac{a}{R_{bánh}}$$
+
+## Thay $I_{bánh}=\frac12m_1R_{bánh}^2$ (bánh xe là trụ đặc đồng chất)
+
+$$f_{ms}\times R_{bánh} = \frac12m_1R_{bánh}^2\times\frac{a}{R_{bánh}} = \frac12m_1R_{bánh}\times a$$
+
+Chia cả 2 vế cho $R_{bánh}$ (triệt tiêu — đây là lý do bán kính bánh xe không cần biết giá trị): $$f_{ms} = \frac12m_1a$$
+
+## Ý nghĩa vật lý (để hiểu tại sao lực ma sát lại "sinh ra" như vậy)
+
+Nếu bánh xe **không có ma sát**, dây kéo $T_1$ tại tâm sẽ chỉ làm nó **trượt tịnh tiến thuần túy**, không hề quay — nhưng đề yêu cầu **lăn không trượt** (phải vừa tịnh tiến vừa quay đúng tỉ lệ $v=\omega R$). Ma sát nghỉ chính là lực "phụ" xuất hiện để **ép buộc** bánh xe quay đúng theo tỉ lệ đó — nó "mượn" một phần lực kéo để chuyển thành mô men quay, nên làm giảm bớt lực còn lại dùng cho tịnh tiến (đây là lý do sau đó $T_1=\frac32m_1a$ thay vì chỉ $m_1a$ — cần lực kéo lớn hơn để bù cho phần "hao" vào việc quay).
