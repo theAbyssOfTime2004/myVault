@@ -380,7 +380,7 @@ Nếu bánh xe **không có ma sát**, dây kéo $T_1$ tại tâm sẽ chỉ là
 
 ### c) Hiệu suất động cơ
 
-$$A_{total}=A_{12}+A_{34}=-162{,}2+246{,}5\approx84{,}3\ \text{J} \qquad Q_{nhận}=Q_{23}\approx149{,}3\ \text{J}$$ $$\eta=\frac{A}{Q_{nhận}}=\frac{84{,}3}{149{,}3}\approx\boxed{56{,}5%}$$
+$$A_{total}=A_{12}+A_{34}=-162{,}2+246{,}5\approx84{,}3\ \text{J} \qquad Q_{nhận}=Q_{23}\approx149{,}3\ \text{J}$$ $$\eta=\frac{A}{Q_{nhận}}=\frac{84{,}3}{149{,}3}\approx\boxed{56{,}5\%}$$
 
 ### d) Công thức hiệu suất Otto tổng quát theo $k,\gamma$
 
@@ -388,4 +388,4 @@ Từ hệ thức đoạn nhiệt: $T_2=T_1k^{\gamma-1}$, $T_3=T_4k^{\gamma-1}$, 
 
 $$\eta = 1-\frac{T_4-T_1}{k^{\gamma-1}(T_4-T_1)}$$ $$\boxed{\eta_{Otto} = 1-\frac{1}{k^{\gamma-1}}}$$
 
-_(Kiểm tra: thay $k=8,\gamma=1{,}4$: $\eta=1-1/8^{0{,}4}=1-1/2{,}297\approx56{,}5%$ ✓ khớp câu c)_
+_(Kiểm tra: thay $k=8,\gamma=1{,}4$: $\eta=1-1/8^{0{,}4}=1-1/2{,}297\approx56{,}5\%$ ✓ khớp câu c)_
