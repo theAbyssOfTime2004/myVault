@@ -389,3 +389,26 @@ Từ hệ thức đoạn nhiệt: $T_2=T_1k^{\gamma-1}$, $T_3=T_4k^{\gamma-1}$, 
 $$\eta = 1-\frac{T_4-T_1}{k^{\gamma-1}(T_4-T_1)}$$ $$\boxed{\eta_{Otto} = 1-\frac{1}{k^{\gamma-1}}}$$
 
 _(Kiểm tra: thay $k=8,\gamma=1{,}4$: $\eta=1-1/8^{0{,}4}=1-1/2{,}297\approx56{,}5\%$ ✓ khớp câu c)_
+
+
+Đây là chỗ nhầm lẫn quan trọng về **hình học của hệ ròng rọc** — không phải "cả hệ cùng đi xuống", mà là quan hệ "1 bên dài ra thì bên kia phải ngắn lại".
+
+## Vị trí ròng rọc trong hình
+
+Nhớ lại hình vẽ chuẩn của dạng bài này (giống Đề 1 Câu 3, Đề 4 Câu 2): ròng rọc đặt ở **ĐỈNH** của mặt phẳng nghiêng. Dây đi từ $m_1$ (treo thẳng đứng, phía bên kia đỉnh) vắt qua ròng rọc, rồi chạy **dọc theo mặt nghiêng xuống** đến $m_2$.
+
+## Vì sao $m_1$ đi xuống lại làm $m_2$ đi LÊN (không phải xuống)
+
+Dây không giãn → **tổng chiều dài dây luôn cố định**. Dây chia làm 2 đoạn: đoạn từ ròng rọc đến $m_1$, và đoạn từ ròng rọc đến $m_2$.
+
+- Khi $m_1$ đi **xuống** (rời xa ròng rọc) → đoạn dây bên $m_1$ **dài ra**.
+- Vì tổng chiều dài dây không đổi → đoạn dây bên $m_2$ **phải ngắn lại** một lượng đúng bằng như vậy.
+- Đoạn dây bên $m_2$ chạy dọc mặt nghiêng từ ròng rọc (ở đỉnh) xuống $m_2$ — đoạn này "ngắn lại" nghĩa là $m_2$ phải di chuyển **lại gần ròng rọc hơn**, tức là $m_2$ di chuyển **lên phía đỉnh dốc**.
+
+**Đây chính là điểm bạn đang hình dung sai:** bạn nghĩ "$m_1$ xuống thì kéo cả hệ đi xuống theo nghĩa chung chung", nhưng thực ra 2 vật ở **2 phía đối nghịch** của ròng rọc — một bên "xa ra" thì bên kia bắt buộc phải "gần lại", không phải cả hai cùng "xa ra" hay cùng "gần lại" đồng thời.
+
+## Ví dụ trực quan để dễ hình dung
+
+Giống như bạn kéo gàu nước lên từ giếng bằng ròng rọc: khi bạn (đứng một bên) kéo dây đi xuống (tay bạn hạ thấp), gàu nước ở đầu kia lại **đi LÊN** — không phải đi xuống theo bạn. Đây là bản chất của ròng rọc: **2 đầu dây luôn chuyển động ngược hướng nhau** (một lên thì một xuống), không bao giờ cùng hướng.
+
+Vậy: $m_1$ xuống ⟺ $m_2$ lên dốc — đây là lý do $T_2$ (lực kéo $m_2$ lên) phải thắng $P_{2x}$ (trọng lực kéo $m_2$ xuống dốc) để tạo ra chuyển động lên, và $P_{2x}$ đóng vai trò cản trở chứ không phải hỗ trợ.
