@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/Untitled 4.md",
+                "file": "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 4"
+              "title": "Lý 1 - Chương 4 - Cơ học vật rắn"
             }
           },
           {
@@ -67,7 +67,8 @@
               "title": "Chương 7 - Nguyên lý II Nhiệt động lực học"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -255,15 +256,15 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "25ed80e90c9328b5",
+  "active": "011fe3d64314a790",
   "lastOpenFiles": [
-    "00_Dashboard/Untitled 6.md",
-    "00_Dashboard/Untitled 4.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
-    "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
-    "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
+    "00_Dashboard/Untitled 4.md",
+    "00_Dashboard/Untitled 6.md",
+    "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
+    "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học.md",
     "00_Dashboard/Untitled 5.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn.md",
     "10_Projects/13_Uni_Retake/TTH cuối kỳ review.md",

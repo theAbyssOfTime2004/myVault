@@ -288,40 +288,42 @@ Khi đổi $A\to B$ thành đoạn nhiệt, $Q_{AB}=0$ (không còn thu nhiệt 
 Bạn thử tự thay số các bước a,b,c nhé — báo lại nếu muốn giải chi tiết hoặc làm rõ câu d.
 
 
-## Đề 6 — Câu 3: Lời giải đầy đủ
+## Đề 7 — Câu 1 (4 điểm)
 
-**Đổi đơn vị:** $V_A=V_C=10\times10^{-3}=0{,}01$ m³; $V_B=50\times10^{-3}=0{,}05$ m³; $P_A=5\times10^5$ N/m²; $P_B=P_C=1\times10^5$ N/m²; $i=5$.
+**Tóm tắt:** $m_1=2$ kg (mặt **ngang**), $m_2=10$ kg (mặt **nghiêng** $\theta=45°$), ròng rọc đĩa đặc $M=2$ kg, $k=0{,}1$ (cả 2 mặt), $g=10$ m/s².
 
-**Nhận xét quan trọng:** vì dùng mẹo thay $nRT=PV$, các công thức chỉ phụ thuộc $P,V$ — **không phụ thuộc $n$** — nên kết quả số ở đây **giống hệt** Đề 2 Câu 2 (dù $n$ khác nhau: 2 mol vs 0,6 mol), chỉ đổi tên trạng thái.
+## Xác định chiều chuyển động
 
-### a) Nhiệt lượng từng quá trình
+Theo quy tắc đã chốt: $m_1$ trên mặt **ngang** → hoàn toàn thụ động (không có lực chủ động), chỉ $m_2$ trên nghiêng mới có $m_2g\sin\theta$ chủ động → **không cần so sánh**, chiều chắc chắn là $m_2$ trượt xuống, kéo $m_1$ về phía ròng rọc.
 
-**$A\to B$ (đẳng nhiệt, giãn nở):** $\Delta U=0 \Rightarrow Q_{AB}=A_{AB}=P_AV_A\ln\dfrac{V_B}{V_A}=5000\times\ln5\approx8047$J → **thu nhiệt**
+## a) Gia tốc và lực căng dây
 
-**$B\to C$ (đẳng áp, nén):** $Q_{BC}=\dfrac{i+2}{2}P_B(V_C-V_B)=3{,}5\times(-4000)=-14000$J → **tỏa nhiệt**
+$$T_1 - km_1g = m_1a \quad (1)$$ $$m_2g\sin\theta - T_2 - km_2g\cos\theta = m_2a \quad (2)$$ $$(T_2-T_1)R = I\frac{a}{R} \Rightarrow T_2-T_1=\frac{M}{2}a \quad (3,\ \text{vì đĩa đặc } I=\tfrac12MR^2,\ R\text{ tự triệt tiêu})$$
 
-**$C\to A$ (đẳng tích):** $Q_{CA}=\dfrac{i}{2}V_A(P_A-P_C)=2{,}5\times4000=10000$J → **thu nhiệt**
+Kết hợp: $\ a = \dfrac{m_2g(\sin\theta-k\cos\theta)-km_1g}{m_1+m_2+\frac{M}{2}}$
 
-$$Q_{nhận}=Q_{AB}+Q_{CA}=8047+10000\approx\boxed{18047\ \text{J}} \qquad Q_{tỏa}=|Q_{BC}|=\boxed{14000\ \text{J}}$$
+## b) Động năng sau $t=3$s (từ nghỉ)
 
-### b) Công thực hiện của khí trong 1 chu trình
+$v=at$, và nhờ $R$ triệt tiêu: $K=\dfrac12v^2\left(m_1+m_2+\dfrac{M}{2}\right)$ (giống mẹo đã dùng ở Đề 5 Câu 2).
 
-$$A = A_{AB}+A_{BC}+A_{CA} = 8047+(-4000)+0 \approx \boxed{4047\ \text{J}}$$
+## c) Giả sử 1 — đổi ròng rọc, $a_{mới}=1$ m/s², tìm $I_{mới}$
 
-### c) Hiệu suất
+Đây là **bài toán ngược** (biết $a$, tìm $I$) — giống hệt Đề 2 Câu 1 và Đề 6 Câu 2:
 
-$$\eta = \frac{A}{Q_{nhận}} = \frac{4047}{18047} \approx \boxed{22{,}4\%}$$
+1. Tính lại $T_1', T_2'$ từ (1),(2) với $a=1$m/s² (thay vào trực tiếp)
+2. $I_{mới} = \dfrac{(T_2'-T_1')R_{mới}^2}{a_{mới}}$, với $R_{mới}=5$cm$=0{,}05$m
 
-### d) Nếu $A\to B$ là đoạn nhiệt (giữ nguyên $V_A, V_B$)
+## d) Giả sử 2 — thay $m_1$ bằng bánh xe lăn không trượt (cùng khối lượng)
 
-**Tính lại $P_B'$ bằng hệ thức đoạn nhiệt** ($\gamma=\frac{i+2}{i}=1{,}4$): $$P_B' = P_A\left(\frac{V_A}{V_B}\right)^\gamma = 5\times10^5\times(0{,}2)^{1{,}4} \approx 0{,}525\times10^5\ \text{N/m}^2$$
+**Điểm mới:** bánh xe không còn "trượt có ma sát" như $m_1$ cũ — nó **lăn không trượt**, nên có thêm phương trình quay cho chính nó (giống dạng "lăn không trượt" đã học), rồi mới nối với ròng rọc và $m_2$ như cũ.
 
-Trạng thái $C'$: $V_{C'}=V_A=0{,}01$ (đẳng tích không đổi), $P_{C'}=P_B'$ (đẳng áp $B'\to C'$).
+- Bánh xe (tịnh tiến): $T_1 - f_{ms,bánh} = m_1a$
+- Bánh xe (quay quanh trục riêng, $I_{bánh}=\frac12m_1R_{bánh}^2$): $f_{ms,bánh}\cdot R_{bánh} = I_{bánh}\dfrac{a}{R_{bánh}} \Rightarrow f_{ms,bánh}=\dfrac12m_1a$
 
-**Tính lại công và nhiệt:** $$\Delta U_{AB}=\frac{i}{2}(P_B'V_B-P_AV_A)=2{,}5\times(2626{,}5-5000)\approx-5934\ \text{J} \Rightarrow A_{AB}=5934\ \text{J}\ (Q_{AB}=0)$$ $$A_{BC}=P_B'(V_{C'}-V_B)=52530\times(-0{,}04)\approx-2101\ \text{J}$$ $$Q_{BC}=\frac{i+2}{2}\times(-2101)\approx-7354\ \text{J}\ (\text{tỏa})$$ $$Q_{CA}=\frac{i}{2}(P_AV_A-P_{C'}V_{C'})=2{,}5\times(5000-525{,}3)\approx11187\ \text{J}\ (\text{thu})$$
+Thay vào phương trình tịnh tiến: $T_1 = m_1a+\dfrac12m_1a = \dfrac32m_1a$ — **bán kính bánh xe cũng tự triệt tiêu**, không cần biết giá trị.
 
-$$A_{mới} = 5934-2101+0\approx3833\ \text{J} \qquad Q_{nhận,mới}=Q_{CA}\approx11187\ \text{J}$$
+Rồi kết hợp với ròng rọc (3) và $m_2$ (2) như cũ, chỉ thay $T_1=\dfrac32m_1a$ vào: $$a_{mới} = \frac{m_2g(\sin\theta-k\cos\theta)}{\dfrac32m_1+\dfrac{M}{2}+m_2}$$
 
-$$\eta_{mới} = \frac{3833}{11187} \approx \boxed{34{,}3\%}$$
+_(Lưu ý: bánh xe lăn không trượt trên mặt ngang **không có ma sát trượt tiêu hao** như $m_1$ cũ — số hạng $km_1g$ đã biến mất khỏi tử số, vì ma sát nghỉ giữ cho lăn không trượt không sinh công, chỉ đóng vai trò tạo mô men quay.)_
 
-**So sánh:** $\eta_{mới}(34{,}3\%) > \eta_{cũ}(22{,}4\%)$ — thay đoạn đẳng nhiệt bằng đoạn nhiệt giúp hiệu suất chu trình **tăng lên đáng kể**, vì đoạn nhiệt không "lãng phí" nhiệt trong quá trình giãn nở (toàn bộ năng lượng giãn nở lấy từ nội năng, không cần thu nhiệt ngoài để duy trì T như đẳng nhiệt).
+Bạn thử tự tính số các phần nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
