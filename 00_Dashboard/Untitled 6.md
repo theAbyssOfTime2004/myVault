@@ -663,3 +663,37 @@ Chỉ có 2 tác dụng:
 2. **Kiểm tra chéo** kết quả — nếu bạn tính $\eta$ theo cách thông thường (Cách 1) mà so với $1-T_c/T_h$ (Cách 2) ra khác nhau đáng kể → biết ngay có sai sót ở đâu đó.
 
 **Kết luận:** không nhớ công thức đặc biệt **không sao cả** — chỉ cần vững công thức đẳng nhiệt + đoạn nhiệt thông thường (đã dùng xuyên suốt từ đầu ôn tập) là đủ giải trọn bài này.
+
+## Đề 10 — Câu 3: Lời giải đầy đủ (Chu trình Carnot)
+
+**Số liệu:** $H_2$ ($i=5$, $\gamma=1{,}4$); $P_1=3\times10^5$N/m², $T_1=400$K, $V_1=10^{-3}$m³; $V_2=3\times10^{-3}$m³; $V_3=4\times10^{-3}$m³.
+
+### a) Tính $P_2, P_3, P_4, V_4, T_3$
+
+$$P_2=\frac{P_1V_1}{V_2}=\frac{3\times1}{3}=\boxed{1\ \text{atm}}$$
+
+$$T_3=T_1\left(\frac{V_2}{V_3}\right)^{\gamma-1}=400\times(0{,}75)^{0{,}4}\approx400\times0{,}8913$$ $$\boxed{T_3\approx356{,}5\ \text{K}}$$
+
+$$P_3=P_2\left(\frac{V_2}{V_3}\right)^\gamma=1\times(0{,}75)^{1{,}4}\approx\boxed{0{,}668\ \text{atm}}$$
+
+$$V_4=\frac{V_1V_3}{V_2}=\frac{1\times4}{3}\approx\boxed{1{,}333\ \text{lít}}$$
+
+$$P_4=\frac{P_3V_3}{V_4}=\frac{0{,}668\times4}{1{,}333}\approx\boxed{2{,}01\ \text{atm}}$$
+
+### b) Nhiệt lượng 2 quá trình đẳng nhiệt
+
+$$Q_{12}=P_1V_1\ln\frac{V_2}{V_1}=300\times\ln3\approx\boxed{329{,}6\ \text{J (thu)}}$$
+
+$$Q_{34}=P_3V_3\ln\frac{V_4}{V_3}=267{,}4\times\ln\frac{1{,}333}{4}=267{,}4\times(-1{,}099)\approx\boxed{-293{,}8\ \text{J (tỏa)}}$$
+
+_(Kiểm tra nhanh bằng hệ thức Carnot: $|Q_{34}|/Q_{12}=T_3/T_1=356{,}5/400=0{,}891$; và $293{,}8/329{,}6=0{,}891$ ✓ khớp)_
+
+### c) Tổng công cả chu trình
+
+Vì 2 đoạn đoạn nhiệt có $\Delta U$ triệt tiêu lẫn nhau trong cả chu trình: $$A = Q_{12}+Q_{34} = 329{,}6-293{,}8 \approx \boxed{35{,}8\ \text{J}}$$
+
+### d) Hiệu suất
+
+**Cách thông thường:** $$\eta = \frac{A}{Q_{12}} = \frac{35{,}8}{329{,}6} \approx \boxed{10{,}9\%}$$
+
+**Kiểm tra chéo bằng công thức Carnot:** $$\eta_{Carnot} = 1-\frac{T_3}{T_1} = 1-\frac{356{,}5}{400} \approx 10{,}9\% \ ✓ \text{khớp}$$
