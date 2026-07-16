@@ -616,3 +616,27 @@ Dùng $v_f^2=v_i^2+2as$ với $v_f=0$: $$0 = v'^2 + 2(-kg)s \Rightarrow 0=v'^2-2
 ## Ý nghĩa để nhớ nhanh
 
 Công thức này giống hệt "quãng đường phanh xe" — vận tốc càng lớn thì quãng đường dừng lại càng xa (tỉ lệ $v'^2$), ma sát càng lớn ($k$ càng lớn) thì dừng càng nhanh (quãng đường càng ngắn) — hoàn toàn hợp lý về mặt vật lý.
+
+Công thức $s=\dfrac{v'^2}{2kg}$ là công thức **chung**, áp dụng được cho **cả 2 vật** — chỉ cần thay đúng vận tốc $v'$ của từng vật vào. Để tôi làm rõ áp dụng riêng cho từng vật.
+
+## Áp dụng cho vật $A$ (vận tốc sau va chạm $v'_A\approx8{,}91$ m/s)
+
+$$s_{max}(A) = \frac{v_A'^2}{2kg} = \frac{(8{,}91)^2}{2\times0{,}7\times9{,}8} \approx 5{,}78\ \text{m}$$
+
+Vì $5{,}78\text{m} < 15\text{m}$ (đoạn CD) → **vật $A$ dừng lại giữa chừng**, chưa tới D.
+
+## Áp dụng cho vật $C$ (vận tốc sau va chạm $v'_C\approx22{,}27$ m/s)
+
+$$s_{max}(C) = \frac{v_C'^2}{2kg} = \frac{(22{,}27)^2}{2\times0{,}7\times9{,}8} \approx 36{,}14\ \text{m}$$
+
+Vì $36{,}14\text{m} > 15\text{m}$ (đoạn CD) → **vật $C$ đủ sức đi hết đoạn CD, đến được D**.
+
+## Trả lời trực tiếp câu hỏi của đề
+
+**Vật nào đến được D?** → Chỉ có **vật $C$** đến được D (vật $A$ dừng lại giữa đường).
+
+**Vận tốc của vật $C$ tại D:** $$v_D^2 = v_C'^2 - 2kg\times15 \Rightarrow v_D\approx17{,}03\ \text{m/s}$$
+
+**Vật $A$ dừng ở đâu?** → Dừng lại cách $C$ một đoạn $s_{max}(A)\approx5{,}78$m (chưa đi hết 15m của đoạn CD).
+
+**Tóm lại:** cùng 1 công thức $s=\dfrac{v'^2}{2kg}$, nhưng phải áp dụng **2 lần riêng biệt** — 1 lần cho $A$ (để biết nó dừng ở đâu), 1 lần cho $C$ (để biết nó có tới D không, và nếu có thì vận tốc bao nhiêu).
