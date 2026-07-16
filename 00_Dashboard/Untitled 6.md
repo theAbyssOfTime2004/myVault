@@ -641,26 +641,25 @@ Vì $36{,}14\text{m} > 15\text{m}$ (đoạn CD) → **vật $C$ đủ sức đi 
 
 **Tóm lại:** cùng 1 công thức $s=\dfrac{v'^2}{2kg}$, nhưng phải áp dụng **2 lần riêng biệt** — 1 lần cho $A$ (để biết nó dừng ở đâu), 1 lần cho $C$ (để biết nó có tới D không, và nếu có thì vận tốc bao nhiêu).
 
-## Đề 10 — Câu 2: Lời giải đầy đủ
+Có, hoàn toàn ra được — các công thức đặc biệt đó **chỉ là lối tắt**, không phải kiến thức bắt buộc. Bạn có thể giải trọn vẹn bài này chỉ bằng công thức thông thường của đẳng nhiệt + đoạn nhiệt đã học, chỉ là sẽ **dài hơn một chút**.
 
-**Số liệu:** $m_1=1{,}2$kg, $m_2=0{,}7$kg, ròng rọc trụ đặc $m_{rr}=0{,}5$kg, $F=20$N, $\alpha=30°$, $k=0{,}1$, $g=9{,}8$m/s². Chiều: $m_2$ đi lên (đã cho).
+## Cách làm "thông thường" (không cần công thức đặc biệt)
 
-### a) Gia tốc
+**Tìm $V_4$ mà không cần $V_1V_3=V_2V_4$:**
 
-**Theo Oy của $m_1$:** $N = m_1g - F\sin\alpha = 1{,}2\times9{,}8-20\times0{,}5=11{,}76-10=1{,}76$ N $$f_{ms}=kN=0{,}1\times1{,}76=0{,}176\ \text{N}$$
+1. Tính $T_3$ như bình thường từ đoạn nhiệt (2→3): $T_3=T_2\left(\dfrac{V_2}{V_3}\right)^{\gamma-1}$
+2. Nhận ra $T_4=T_3$ (vì 3→4 là đẳng nhiệt — đây là điều **hiển nhiên** từ chính định nghĩa đẳng nhiệt, không cần "công thức đặc biệt" nào)
+3. Dùng đoạn nhiệt (4→1) như bình thường: $T_4V_4^{\gamma-1}=T_1V_1^{\gamma-1} \Rightarrow V_4=V_1\left(\dfrac{T_1}{T_4}\right)^{1/(\gamma-1)}$
 
-**Phương trình chuyển động:** $$F\cos\alpha - T_1 - f_{ms} = m_1a \quad (1)$$ $$T_2 - m_2g = m_2a \quad (2)$$ $$T_1-T_2=\frac{m_{rr}}{2}a \quad (3)$$
+→ Ra đúng $V_4$ giống hệt cách dùng công thức tắt, chỉ là qua 1 bước trung gian ($T_3$) thay vì đi thẳng.
 
-$$a = \frac{F\cos\alpha-f_{ms}-m_2g}{m_1+m_2+\frac{m_{rr}}{2}} = \frac{17{,}32-0{,}176-6{,}86}{2{,}15} = \frac{10{,}284}{2{,}15}$$ $$\boxed{a \approx 4{,}78\ \text{m/s}^2}$$
+**Tìm $\eta$ mà không cần $\eta=1-T_c/T_h$:** Cứ tính $Q$ từng quá trình như mọi bài chu trình khác ($Q_{12}, Q_{34}$ bằng công thức đẳng nhiệt; $Q_{23}=Q_{41}=0$ vì đoạn nhiệt), rồi $\eta=\dfrac{A}{Q_{nhận}}$ như bình thường — **không cần biết đây là Carnot** vẫn ra đúng kết quả.
 
-### b) Lực căng dây
+## Vậy công thức đặc biệt để làm gì?
 
-$$T_1 = F\cos\alpha-f_{ms}-m_1a = 17{,}32-0{,}176-5{,}74 \approx \boxed{11{,}40\ \text{N}}$$ $$T_2 = m_2(a+g) = 0{,}7\times(4{,}78+9{,}8) \approx \boxed{10{,}21\ \text{N}}$$
+Chỉ có 2 tác dụng:
 
-### c) Thay $m_1$ bằng trụ đặc lăn không trượt, bỏ $F$, $m_2$ đi xuống
+1. **Tiết kiệm thời gian** (đi tắt, ít bước tính hơn)
+2. **Kiểm tra chéo** kết quả — nếu bạn tính $\eta$ theo cách thông thường (Cách 1) mà so với $1-T_c/T_h$ (Cách 2) ra khác nhau đáng kể → biết ngay có sai sót ở đâu đó.
 
-**Gia tốc mới:** không còn $F$ và ma sát trượt (thay bằng ma sát nghỉ gây lăn), giống dạng "bánh xe lăn" đã học (Đề 7 Câu 1d) — trụ đặc đóng góp hệ số $\frac32m_{trụ}$:
-
-$$a' = \frac{m_2g}{m_2+\frac32m_{trụ}+\frac{m_{rr}}{2}} = \frac{6{,}86}{0{,}7+1{,}8+0{,}25} = \frac{6{,}86}{2{,}75}$$ $$\boxed{a' \approx 2{,}49\ \text{m/s}^2 \quad (\text{giảm so với } a \text{ ở câu a, vì mất lực kéo } F)}$$
-
-**Động năng sau $t=2$s** (từ nghỉ, dùng mẹo triệt tiêu bán kính cho cả trụ và ròng rọc): $$v=a't=2{,}49\times2\approx4{,}99\ \text{m/s}$$ $$K = v^2\left(\frac34m_{trụ}+\frac12m_2+\frac14m_{rr}\right) = (4{,}99)^2\times(0{,}9+0{,}35+0{,}125)$$ $$\boxed{K \approx 34{,}2\ \text{J}}$$
+**Kết luận:** không nhớ công thức đặc biệt **không sao cả** — chỉ cần vững công thức đẳng nhiệt + đoạn nhiệt thông thường (đã dùng xuyên suốt từ đầu ôn tập) là đủ giải trọn bài này.
