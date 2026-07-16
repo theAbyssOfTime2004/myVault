@@ -1,35 +1,35 @@
 \chapter{Limitations and Future Directions}\label{chapter-6-limitations-and-publication-roadmap}
 
-\section{Methodological Rigor and Validations}\label{methodological-rigor-and-validations}
+\section{Methodological choices}\label{methodological-rigor-and-validations}
 
-To ensure the empirical soundness of this study, several critical architectural enhancements and validation metrics have been systematically integrated into the evaluation framework:
+A few choices were made to keep the evaluation sound:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Statistical power.} Rather than relying on a localized sign test, this work deploys a medium-scale evaluation framework (8 problems $\times$ 6 seeds) combined with a Wilcoxon signed-rank test. This allows the primary treatment effect to be reported with a controlled, mathematically rigorous error rate rather than as a purely directional signal (Section~4.3).
+  \textbf{Statistical power.} Instead of a single sign test, the main comparison is run over a medium-scale set (8 problems $\times$ 6 seeds) and evaluated with a Wilcoxon signed-rank test, so the primary effect is reported with a significance test rather than as a directional signal (Section~4.3).
 \item
-  \textbf{Compute matching.} To demonstrate that the observed advantages are not artifacts of sampling volume, we include a matched-budget comparison alongside a compute-to-correct frontier evaluation (Section~4.4). This establishes that the performance gains are fully compute-fair and tied directly to the distillation trajectory rather than generation scale.
+  \textbf{Compute matching.} A matched-budget comparison and a compute-to-correct frontier (Section~4.4) let the gain be attributed to which trajectory is distilled rather than to drawing more samples.
 \item
-  \textbf{Granular reasoning evaluation.} Running the complex code optimization arm with reasoning traces enabled (thinking ON) provides a complete set of language-based reasoning traces. This transitions the investigation of epistemic verbalization from an isolated mathematical pilot into a measurable, domain-specific empirical result (Section~4.7).
+  \textbf{Reasoning traces on code.} Running the code arm with thinking on provides the reasoning traces needed to measure epistemic verbalization on code (Section~4.7), not only in the math pilot.
 \item
-  \textbf{Exact filtering mechanics.} The verifier--judge filter is mathematically exact (Section~4.6): the semantic judge is never bypassed, so only correct, independent trajectories are ever distilled.
+  \textbf{Exact filtering.} The verifier--judge filter is exact (Section~4.6): the judge is never bypassed, so only correct, independent trajectories are distilled.
 \item
-  \textbf{Boundary Characterization.} Enforcing a uniform evaluation pipeline across both code and mathematical benchmarks has successfully decoupled the effects of dense environment feedback from sparse, value-only feedback. This isolates the precise failure mode of self-distillation in symbolic reasoning and maps out the exact boundary of the proposed method.
+  \textbf{Boundary characterization.} Running the same pipeline on code and math separates dense execution feedback from value-only feedback, which is what exposes the boundary of the method.
 \end{itemize}
 
-\section{Scope and Remaining Limitations}\label{scope-and-remaining-limitations}
+\section{Scope and limitations}\label{scope-and-remaining-limitations}
 
-A transparent academic evaluation requires delineating the structural constraints and clear rooms for improvement that persist within this empirical framework:
+Several limitations remain:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Model and scale constraints.} All experimental findings are established utilizing a 4B-scale Qwen model evaluated within a personal compute resource allocation. Consequently, these outcomes serve as an empirical characterization within a specific architecture family rather than a universal scaling law or an industry-scale benchmark.
+  \textbf{Model and scale.} All results come from a single 4B Qwen model at a personal compute scale, so they are an empirical characterization within one model family rather than a scaling law or an industry-scale benchmark.
 \item
-  \textbf{Information scarcity in mathematical feedback.} The mathematical pilot is heavily bottlenecked by the data constraints of the AIME benchmark, which provides only static, integer-based answers. Because there are no step-by-step worked solutions or fine-grained verification signals available in this setup, the teacher policy lacks sufficient learning signals to construct independent derivations, limiting the model's capacity to escape the flat-reward trap on beyond-capability tasks.
+  \textbf{Sparse math feedback.} The math pilot is limited by the AIME benchmark, which provides only integer answers with no worked solutions. Without a step-by-step reference, the teacher has no procedure to distill, which is why the model does not escape the flat-reward trap on beyond-capability problems.
 \item
-  \textbf{Margin sensitivity to base capability.} As base model capability scales (e.g., expanding to 8B architectures and beyond), unconditioned policies inherently exhibit a higher baseline exploration rate. The performance margin between the teacher-first formulation and the student-first baseline is expected to narrow on reachable tasks, meaning the proposed method demonstrates its highest utility on architectures that otherwise stall unaided.
+  \textbf{Margin sensitivity to base capability.} On stronger base models (e.g.\ 8B and beyond), the unconditioned student explores better on its own, so the teacher-first margin is expected to narrow on reachable tasks; the method is most useful where the base model would otherwise stall.
 \item
-  \textbf{Generality of epistemic behavior.} The measurements regarding the suppression of uncertainty markers are tied to a singular model family and a predefined lexical marker set. Their generalizability across disparate tokenizers, model scales, and implicit reasoning styles requires further empirical scaling. Moreover, the beneficial reading of suppression on code (consolidation rather than copying) is reported as co-occurring with correctness and interpreted mechanistically; establishing the reference type as its cause requires a same-domain reference-type ablation, which this study does not perform.
+  \textbf{Generality of the epistemic result.} The suppression measurements use one model family and a fixed marker set, so their generality across tokenizers, scales, and reasoning styles is untested. The beneficial reading of suppression on code (consolidation rather than copying) is a co-occurrence interpreted mechanistically; establishing the reference type as the cause would need a same-domain reference-type ablation, which this study does not run.
 \end{itemize}

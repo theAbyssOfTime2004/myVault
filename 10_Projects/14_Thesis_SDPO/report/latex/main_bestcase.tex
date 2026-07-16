@@ -145,7 +145,12 @@ TTT  & Test-Time Training \\
 \input{b_ch6.tex}
 \input{b_ch7.tex}
 
-\input{refs_manual.tex}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
 
 \appendix
 \input{b_appendix.tex}
