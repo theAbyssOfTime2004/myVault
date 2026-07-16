@@ -474,3 +474,26 @@ $$\boxed{a = \frac{m_2g(\sin\alpha-k\cos\alpha) - m_1g}{m_1+m_2+\frac{M}{2}}}$$
 ## Kết luận
 
 Kết quả **giống hệt** công thức đã tìm ở câu a (dùng $\tau=I\beta$ trực tiếp cho từng vật) — đây chính là ý nghĩa của câu c: **2 con đường khác nhau** (Newton từng vật riêng lẻ, vs. định lý động năng cho cả hệ) dẫn đến **cùng một kết quả**, xác nhận tính đúng đắn của bài toán.
+
+
+Không — $W_1, W_2$ là **công của trọng lực**, không phải chính thế năng. Chúng có liên hệ chặt chẽ nhưng là 2 đại lượng khác nhau.
+
+## Mối liên hệ đúng: công trọng lực = ÂM của biến thiên thế năng
+
+Từ note [Chương 3](https://claude.ai/epitaxy/10_Projects/13_Uni_Retake/L%C3%BD%201%20-%20Ch%C6%B0%C6%A1ng%203%20-%20C%C3%A1c%20%C4%91%E1%BB%8Bnh%20lu%E1%BA%ADt%20b%E1%BA%A3o%20to%C3%A0n.md), công thức đã có: $$A_g = -mg\Delta y = -(U_{sau}-U_{trước}) = -\Delta U$$
+
+Nghĩa là: **công của trọng lực = $-\Delta U$**, chứ không phải $U$.
+
+## Kiểm chứng với $W_1$, $W_2$ trong bài này
+
+**$W_1$** ($m_1$ đi **lên** $s$, độ cao tăng thêm $s$): $$\Delta U_1 = +m_1gs \ (\text{thế năng } m_1 \text{ TĂNG}) \quad\Rightarrow\quad W_1 = -\Delta U_1 = -m_1gs \ ✓$$
+
+**$W_2$** ($m_2$ đi **xuống dốc** $s$, độ cao giảm $s\sin\alpha$): $$\Delta U_2 = -m_2g\sin\alpha\cdot s \ (\text{thế năng } m_2 \text{ GIẢM}) \quad\Rightarrow\quad W_2 = -\Delta U_2 = +m_2g\sin\alpha\cdot s \ ✓$$
+
+Khớp đúng với công thức tôi đã dùng.
+
+## Vì sao phân biệt điều này lại quan trọng
+
+Nếu thay $W_1=-\Delta U_1$, $W_2=-\Delta U_2$ vào định lý động năng $W_{ngoại}=\Delta K$: $$-\Delta U_1 - \Delta U_2 + W_{ms} = \Delta K \quad\Rightarrow\quad \Delta K + \Delta U = W_{ms} \quad\Rightarrow\quad \Delta(K+U) = W_{ms}$$
+
+Đây chính là dạng **"cơ năng không bảo toàn khi có ma sát"** — độ biến thiên cơ năng ($K+U$) bằng đúng công của ma sát (luôn âm, vì ma sát luôn lấy bớt năng lượng ra khỏi hệ). Nếu không có ma sát ($W_{ms}=0$), sẽ trở về đúng **bảo toàn cơ năng thuần túy** ($\Delta(K+U)=0$) — đây là lý do vì sao dùng công của trọng lực (không phải thế năng trực tiếp) mới là cách viết "gốc", còn "bảo toàn cơ năng" chỉ là **trường hợp đặc biệt** khi không có lực ma sát/lực cản nào khác.
