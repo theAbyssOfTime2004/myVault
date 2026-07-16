@@ -483,7 +483,7 @@ Two judge implementations are used and later ablated (Section~4.6):
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{Judge implementations: difflib versus LLM (mechanism and cost).}\\
+\caption{Judge implementations: string-similarity versus LLM (mechanism and cost).}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Judge
@@ -788,7 +788,7 @@ With six seeds evaluated, the template effect is clear and stable: on the hard p
 
 \section{Robustness}\label{robustness}
 
-The judge-invariance (difflib vs LLM) and leak-null (good\_only vs good\_bad) ablations are validated at the larger scale. The leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance.
+The judge-invariance (string-similarity vs LLM) and leak-null (good-only vs good-bad) ablations are validated at the larger scale. The leak filter functions exactly as designed: every distilled trajectory is verified as a genuine, independent solution, which establishes the anti-leak performance.
 
 \section{RO2: epistemic verbalization on code (thinking ON)}\label{rq2-epistemic-verbalization-on-code-thinking-on}
 
