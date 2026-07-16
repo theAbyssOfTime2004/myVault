@@ -67,7 +67,8 @@
               "title": "Chương 7 - Nguyên lý II Nhiệt động lực học"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -255,10 +256,10 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "25ed80e90c9328b5",
+  "active": "011fe3d64314a790",
   "lastOpenFiles": [
-    "00_Dashboard/Untitled 6.md",
     "00_Dashboard/Untitled 4.md",
+    "00_Dashboard/Untitled 6.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
