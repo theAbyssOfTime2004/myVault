@@ -60,7 +60,7 @@ Data & MathArena/aime 2026 (30 problems, integer answers) \\
 Hardware & Modal A100-80GB \\
 \end{longtable}
 
-Shared distillation core (both domains): per-token top-K reverse KL with teacher detached (self-distillation, shared weights), token-aligned over the target trajectory (Section~3.3.5).
+Shared distillation core (both domains): per-token top-K reverse KL with teacher detached (self-distillation, shared weights), token-aligned over the target trajectory.
 
 \section{Shared test-time training loop (pseudocode)}\label{a.3-shared-ttt-loop}
 
@@ -84,7 +84,7 @@ report PRE->POST and the discovery curve
 
 Each preset overrides the SDPO template slots only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. T2 is the default verbatim.
 
-\textbf{Honest scope note.} The codebase implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of Section~3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5 (Section~4.5); T6 is implemented but unprobed.
+\textbf{Honest scope note.} The codebase implements \textbf{four} presets, reproduced below: T1, T2, T5, T6. The taxonomy of Section~3.4 also names T3 (verbose), T4 (structured JSON), and T7 (cumulative history); these three are conceptual points in the design space and were \textbf{not} implemented. Of the four implemented, the experiments probe T1/T2/T5; T6 is implemented but unprobed.
 
 \begin{lstlisting}[language=Python]
 # T1 - Minimal: teacher is told the attempt was wrong but NOT why
@@ -130,7 +130,7 @@ Bad example 1 (do not imitate):
     [bad / copied trajectory, fenced as a python block]
 \end{lstlisting}
 
-Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content (Section~3.3.4).
+Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content.
 
 \section{\texorpdfstring{LLM judge prompt: code (groq \texttt{llama-3.3-70b})}{LLM judge prompt: code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
@@ -180,7 +180,7 @@ CANDIDATE OUTPUT (including any <think> reasoning): {candidate}
 Return ONLY JSON with keys: is_copy (boolean) and reasoning_quality (integer 1-5).
 \end{lstlisting}
 
-The judge returns structured JSON (is copy: boolean, reasoning quality: integer). Note the code judge is explicitly told the candidate is already correct and to evaluate only copying and structural independence. Under the active reasoning configurations (\emph{thinking ON}), the judge additionally grades the coherence and semantic clarity of the language-based reasoning traces (Section~3.3.3).
+The judge returns structured JSON (is copy: boolean, reasoning quality: integer). Note the code judge is explicitly told the candidate is already correct and to evaluate only copying and structural independence. Under the active reasoning configurations (\emph{thinking ON}), the judge additionally grades the coherence and semantic clarity of the language-based reasoning traces.
 
 \chapter{Example trajectories (math pilot)}\label{appendix-d-example-trajectories-math-pilot}
 
@@ -203,7 +203,7 @@ Correctly solve the original question.
 [...]
 \end{lstlisting}
 
-The reference is the bare answer 156; there is no worked solution to distill, only the number to copy (Section~3.5).
+The reference is the bare answer 156; there is no worked solution to distill, only the number to copy.
 
 \section{Judge verdict sequences}\label{d.2-judge-verdict-sequences}
 
@@ -440,7 +440,7 @@ mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
 \end{longtable}
 
 \begin{quote}
-The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies (Section~6.2).
+The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies.
 \end{quote}
 
 \section{RO1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}

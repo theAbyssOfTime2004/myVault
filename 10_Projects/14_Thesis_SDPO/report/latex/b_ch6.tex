@@ -7,13 +7,13 @@ A few choices were made to keep the evaluation sound:
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Statistical power.} Instead of a single sign test, the main comparison is run over a medium-scale set (8 problems $\times$ 6 seeds) and evaluated with a Wilcoxon signed-rank test, so the primary effect is reported with a significance test rather than as a directional signal (Section~4.3).
+  \textbf{Statistical power.} Instead of a single sign test, the main comparison is run over a medium-scale set (8 problems $\times$ 6 seeds) and evaluated with a Wilcoxon signed-rank test, so the primary effect is reported with a significance test rather than as a directional signal.
 \item
-  \textbf{Compute matching.} A matched-budget comparison and a compute-to-correct frontier (Section~4.4) let the gain be attributed to which trajectory is distilled rather than to drawing more samples.
+  \textbf{Compute matching.} A matched-budget comparison and a compute-to-correct frontier let the gain be attributed to which trajectory is distilled rather than to drawing more samples.
 \item
-  \textbf{Reasoning traces on code.} Running the code arm with thinking on provides the reasoning traces needed to measure epistemic verbalization on code (Section~4.7), not only in the math pilot.
+  \textbf{Reasoning traces on code.} Running the code arm with thinking on provides the reasoning traces needed to measure epistemic verbalization on code, not only in the math pilot.
 \item
-  \textbf{Exact filtering.} The verifier--judge filter is exact (Section~4.6): the judge is never bypassed, so only correct, independent trajectories are distilled.
+  \textbf{Exact filtering.} The verifier--judge filter is exact: the judge is never bypassed, so only correct, independent trajectories are distilled.
 \item
   \textbf{Boundary characterization.} Running the same pipeline on code and math separates dense execution feedback from value-only feedback, which is what exposes the boundary of the method.
 \end{itemize}
