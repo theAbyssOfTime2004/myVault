@@ -715,15 +715,15 @@ Hiểu ý bạn — để tôi đổi sang câu hỏi tình huống cụ thể, 
 4. Bài "con lắc đạn": bạn cần **bao nhiêu bước**, mỗi bước dùng định luật gì, theo **thứ tự** nào (không phải thứ tự đề hỏi, mà thứ tự bạn thực sự tính)?
      - bảo cơ năng để tìm v trước, rồi dùng bảo toàn động lượng để tìm v sau
 5. Quả cầu lăn không trượt xuống dốc, đề hỏi vận tốc cuối VÀ lực ma sát. Bạn dùng công cụ nào cho **từng ý** (bảo toàn cơ năng hay Newton+$\tau=I\beta$)? Vì sao không dùng chung 1 công cụ cho cả 2?
-    dùng bảo toàn
+    tính momen lực tìm được biểu thức của f ma sát, rồi dùng bảo toàn cơ năng để tính v cuối
 
 ## Nhóm 3 — Nhiệt động lực học (áp dụng, không phải nhận biết)
 
 6. Đề ghi rõ **"máy lạnh"**, hỏi hệ số làm lạnh $\varepsilon$. Bạn tính công theo quy ước $A$ hay $W$? Công thức $\varepsilon$ là gì?
-    
+    tính theo quy ước W, e là gì quên rồi
 7. Đề cho khí lưỡng nguyên tử, chu trình gồm $P,V$ ở các trạng thái, **không cho số mol**. Bạn có cần tìm $n$ không? Nếu không, bạn thay thế bằng gì trong công thức?
-    
+    không cần tìm n vì nrT <=> PV
 8. Bạn tính 2 đại lượng lẽ ra phải **triệt tiêu chính xác** (như $W_{23}+W_{41}$ trong chu trình Carnot) nhưng lại lệch một chút (VD dư $5$J). Đây là dấu hiệu gì, và bạn nên làm gì tiếp theo?
-    
+    - có thể làm tròn hơi lố, làm tròn
 
 Trả lời theo khả năng nhé — tôi sẽ chỉ ra chỗ nào cần củng cố thêm trước khi thi.
