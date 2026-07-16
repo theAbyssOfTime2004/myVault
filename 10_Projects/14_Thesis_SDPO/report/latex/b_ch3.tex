@@ -1,8 +1,8 @@
 \chapter{Method}\label{chapter-3-method}
 
-This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, §5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RO1).
+This chapter specifies the method in enough detail to reproduce it. The object of study is test-time SDPO {[}1, Section~5{]}: a single hard problem is fixed, the model improves itself over a small number of training steps at inference time (test-time training, TTT), and we measure how well it discovers a solution. Because the privileged context that drives the update is execution feedback (failing tests, runtime errors), we call this regime execution-guided self-distillation, and the goal is to accelerate that test-time discovery in complex code generation. Within the regime, the thesis contrasts two ways of organizing the update, student-first (the baseline of the originating paper {[}1{]}) and teacher-first (a variant proposed by the advisor), and then studies how the reprompt template formulates the execution feedback (RO1).
 
-Domain scope is asymmetric by design. Code generation is the core (LiveCodeBench v6 {[}6{]}); math is a pilot and a contrast (AIME 2026 {[}10{]}), used to characterize the boundary of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (§3.5, Chapter 6).
+Domain scope is asymmetric by design. Code generation is the core (LiveCodeBench v6 {[}6{]}); math is a pilot and a contrast (AIME 2026 {[}10{]}), used to characterize the boundary of the mechanism rather than to prove it works everywhere. That split is kept consistent throughout: every math setting carries the corresponding model and reference caveats (Section~3.5, Chapter 6).
 
 Notation mirrors the parent paper, Hübotter et al.~{[}1{]}, so the two can be read side by side.
 
@@ -22,27 +22,13 @@ Fix a problem \(x\) (the problem statement). Two policies share the same weights
   the self-teacher \(\pi_\theta(\cdot \mid x, c)\), the same model conditioned on an additional privileged context \(c\).
 \end{itemize}
 
-In SDPO, \(c\) plays the role of the ``feedback'' \(f\) in the parent paper: retrospective information (a runtime error, a failing test, or a reference solution) that lets the model look back and locate its mistake {[}1, §2{]}. Because teacher and student differ only in their input context, this is genuine \emph{self}-distillation: the model learns by pulling its next-token distribution (without context) toward its own distribution conditioned on \(c\).
+In SDPO, \(c\) plays the role of the ``feedback'' \(f\) in the parent paper: retrospective information (a runtime error, a failing test, or a reference solution) that lets the model look back and locate its mistake {[}1, Section~2{]}. Because teacher and student differ only in their input context, this is genuine \emph{self}-distillation: the model learns by pulling its next-token distribution (without context) toward its own distribution conditioned on \(c\).
 
-The test-time setting follows Hübotter et al.~{[}1, §5{]}. For each problem \(x\), the model is reset to a base checkpoint and then runs \(K\) TTT steps on that problem alone. The reward is verifiable, graded for code and binary for math. The goal is not to generalize to other problems but to discover a solution to \(x\) as early as possible; the metric is discovery@k {[}1, Def. 5.1{]} (§3.6).
+The test-time setting follows Hübotter et al.~{[}1, Section~5{]}. For each problem \(x\), the model is reset to a base checkpoint and then runs \(K\) TTT steps on that problem alone. The reward is verifiable, graded for code and binary for math. The goal is not to generalize to other problems but to discover a solution to \(x\) as early as possible; the metric is discovery@k {[}1, Def. 5.1{]} (Section~3.6).
 
 \subsection{The shared loop}\label{the-shared-loop}
 
-Both arms share one skeleton. The single thing that differs between them is \emph{which trajectories are distilled}:
-
-\begin{lstlisting}
-load base model + LoRA + optimizer (AdamW, lr = 1e-5)
-PRE-eval (student pi_theta(*|x) only, N_eval samples)        # baseline
-for step in 1..K:
-    feedback        <- build_feedback(student attempt, verifier)   # rich feedback
-    {trajectories}  <- generate(...)                               # arm-specific
-    {distill_targets} <- select(...)                               # arm-specific (the core difference)
-    if distill_targets != {}:
-        theta <- theta - lr * grad_theta L_KL(distill_targets)                    # one optimizer step
-    log step stats -> W&B
-POST-eval (student pi_theta(*|x) only, N_eval samples)       # after TTT
-report PRE->POST and the discovery curve
-\end{lstlisting}
+Both arms share one skeleton, and the single thing that differs between them is \emph{which trajectories are distilled}. Each run loads the base model with its LoRA adapter and optimizer, evaluates the student once before training (PRE), and then repeats \(K\) test-time steps: it builds execution feedback from the student's attempt, generates trajectories (the arm-specific step), selects the distillation targets (the core difference between the two arms), and takes one optimizer step on the per-token KL loss whenever a target exists. After the loop it evaluates the student again (POST) and reports the PRE-to-POST change and the discovery curve. The full pseudocode is listed in Appendix A.
 
 Figure~\ref{fig:two-arms} sketches the two arms; they diverge only at the shaded block.
 
@@ -70,7 +56,7 @@ The whole contrast reduces to one sentence: student-first distills the student's
 
 \section{Student-first SDPO (baseline, on-policy)}\label{student-first-sdpo-baseline-on-policy}
 
-This is the original algorithm of Hübotter et al.~{[}1{]}, realized through the \passthrough{\lstinline!SDPOTrainer!} of TRL {[}5{]} (script \passthrough{\lstinline!07\_discovery\_curve.py!}).
+This is the original algorithm of Hübotter et al.~{[}1{]}, realized through the self-distillation trainer of TRL {[}5{]}.
 
 At each step the student samples a rollout \(y \sim \pi_\theta(\cdot \mid x)\) on-policy. The verifier grades \(y\) and produces feedback \(f\). The self-teacher \(\pi_\theta(\cdot \mid x, f)\) then rescores \emph{every token} of that same \(y\): given \(f\), what should the correct next-token distribution have been at each position? The student is pulled toward this retrospective distribution by a per-token KL:
 
@@ -78,9 +64,9 @@ At each step the student samples a rollout \(y \sim \pi_\theta(\cdot \mid x)\) o
 \mathcal{L}_{\text{SDPO}}(\theta) \;=\; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, f, y_{<t})\Big).
 \]
 
-The \passthrough{\lstinline!stopgrad!} blocks gradient flow through the teacher, which prevents the teacher from collapsing onto the student and ignoring \(f\) {[}1, §2{]}. The gradient and the top-K approximation are shared with teacher-first and are deferred to §3.3.5.
+The stop-gradient operator blocks gradient flow through the teacher, which prevents the teacher from collapsing onto the student and ignoring \(f\) {[}1, Section~2{]}. The gradient and the top-K approximation are shared with teacher-first and are deferred to Section~3.3.5.
 
-There is a failure mode on hard problems that motivates the whole next section. Because rollouts are on-policy, on a problem the bare student rarely solves, almost every rollout is wrong, so the feedback is poor and the distillation signal is weak and unstable. This is the flat-reward trap: there is no correct rollout to learn from. Hübotter et al.~{[}1, §5{]} show SDPO can still iterate from rich feedback even when initial teacher accuracy is below 1\%, but they use Qwen3-8B; on the weaker 4B model used here (§3.5), the stuck-at-zero behavior does appear, and it is exactly what teacher-first targets.
+There is a failure mode on hard problems that motivates the whole next section. Because rollouts are on-policy, on a problem the bare student rarely solves, almost every rollout is wrong, so the feedback is poor and the distillation signal is weak and unstable. This is the flat-reward trap: there is no correct rollout to learn from. Hübotter et al.~{[}1, Section~5{]} show SDPO can still iterate from rich feedback even when initial teacher accuracy is below 1\%, but they use Qwen3-8B; on the weaker 4B model used here (Section~3.5), the stuck-at-zero behavior does appear, and it is exactly what teacher-first targets.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -90,7 +76,7 @@ There is a failure mode on hard problems that motivates the whole next section. 
 
 Two problems with student-first motivate the variant.
 
-First is the flat-reward trap of §3.2: when the student never rolls a correct attempt, there is nothing correct to distill.
+First is the flat-reward trap of Section~3.2: when the student never rolls a correct attempt, there is nothing correct to distill.
 
 Second is information leak {[}2{]}. If \(c\) contains a reference solution, the teacher rescores toward ``close to the reference,'' so across many test-time steps the student converges onto \emph{copying} the reference rather than learning to reason. Kim et al.~{[}2{]} formalize this: when \(I(y; c \mid x)\), the information richness of the context, is high, the model suppresses epistemic verbalization and degrades.
 
@@ -100,9 +86,9 @@ The core change is to reverse the order. The teacher generates first; correct, i
 \mathcal{L}_{\text{TF}}(\theta) \;=\; \sum_{y \in \mathcal{G}} \; \sum_{t=1}^{|y|} \mathrm{KL}\,\Big(\pi_\theta(\cdot \mid x, y_{<t}) \;\big\|\; \mathrm{stopgrad}\,\pi_\theta(\cdot \mid x, c, y_{<t})\Big),
 \]
 
-where \(\mathcal{G}\) is the good pool (§3.3.3). Conceptually, teacher-first sits between SDPO (on-policy) and SFT (off-policy). It resembles SDFT {[}3{]} in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style feedback {[}1{]} rather than a fixed demonstration.
+where \(\mathcal{G}\) is the good pool (Section~3.3.3). Conceptually, teacher-first sits between SDPO (on-policy) and SFT (off-policy). It resembles SDFT {[}3{]} in that it distills toward generations produced by the (context-conditioned) model itself, but the context is SDPO-style feedback {[}1{]} rather than a fixed demonstration.
 
-Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollout internally, teacher-first is implemented as a custom training loop (script \passthrough{\lstinline!09\_teacher\_first.py!}) that reuses the helpers of \passthrough{\lstinline!07!} (\passthrough{\lstinline!build\_privileged\_context!}, \passthrough{\lstinline!build\_dynamic\_feedback!}, \passthrough{\lstinline!evaluate\_solution!}, evaluation).
+Because the baseline trainer hard-codes the student-first rollout internally, teacher-first is implemented as a custom training loop that reuses the baseline's feedback-construction and evaluation helpers (Appendix A).
 
 \begin{figure}[H]
 \centering
@@ -110,9 +96,9 @@ Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollo
 \node(c) at (0,4){privileged context $c$: feedback + few-shot};
 \node(t) at (0,3){self-teacher samples $N$};
 \node(v) at (0,2){verifier: correctness};
-\node(j) at (0,1){judge: is\_copy / independence};
+\node(j) at (0,1){judge: copy / independent};
 \node(gp) at (4.8,1){good pool (correct \& independent)};
-\node(fs) at (4.8,3){few-shot good\_only / good\_bad};
+\node(fs) at (4.8,3){few-shot good-only / good-bad};
 \node(kl) at (4.8,-0.2){KL distil student $\to y_{\text{good}}$};
 \draw[->](c)--(t);\draw[->](t)--(v);\draw[->](v)--(j);\draw[->](j)--(gp);\draw[->](gp)--(fs);\draw[->](fs)--(t);\draw[->](gp)--(kl);
 \end{tikzpicture}
@@ -122,19 +108,19 @@ Because \passthrough{\lstinline!SDPOTrainer!} hard-codes the student-first rollo
 
 \subsection{Teacher rollout and privileged context}\label{teacher-rollout-and-privileged-context}
 
-At each step the teacher samples \(N\) trajectories (\passthrough{\lstinline!teacher\_n!}) at high temperature for diversity:
+At each step the teacher samples \(N\) trajectories at high temperature for diversity:
 
 \[
-\{y_{t_1}, \dots, y_{t_N}\} \sim \pi_\theta(\cdot \mid x, c), \qquad c = \underbrace{f}_{\text{feedback}} \;+\; \underbrace{\text{few-shot exemplars}}_{\text{§3.3.4}}.
+\{y_{t_1}, \dots, y_{t_N}\} \sim \pi_\theta(\cdot \mid x, c), \qquad c = \underbrace{f}_{\text{feedback}} \;+\; \underbrace{\text{few-shot exemplars}}_{\text{Section~3.3.4}}.
 \]
 
-The \passthrough{\lstinline!privileged\_context!} \(c\) is the concrete realization of ``feedback'' from {[}1{]}; the name belongs to the thesis codebase, the concept to the paper. The content of \(c\) is domain-dependent (§3.5). The few-shot block is inserted before the final directive (``Respond with ONLY\ldots{}''), with at most \passthrough{\lstinline!max\_fewshot = 3!} exemplars so the context does not overflow, and the token count is logged each step.
+The privileged context \(c\) is the concrete realization of ``feedback'' from {[}1{]}. The content of \(c\) is domain-dependent (Section~3.5). The few-shot block is inserted before the final directive (``Respond with ONLY\ldots{}''), with at most three exemplars so the context does not overflow, and the token count is logged each step.
 
 \subsection{Verifier and judge produce the good pool}\label{verifier-and-judge-produce-the-good-pool}
 
 Each trajectory \(y_{t_i}\) is labeled in two stages.
 
-\textbf{Stage 1, the verifier (correctness).} For code (LCBv6), \passthrough{\lstinline!evaluate\_solution!} runs the public and private tests and returns the fraction of tests passed, a graded reward in \([0,1]\) that gives a usable gradient to climb (for example 0.21 then 1.0). For math (AIME), an answer match gives a binary reward in \(\{0,1\}\).
+\textbf{Stage 1, the verifier (correctness).} For code (LCBv6), the verifier runs the public and private tests and returns the fraction of tests passed, a graded reward in \([0,1]\) that gives a usable gradient to climb (for example 0.21 then 1.0). For math (AIME), an answer match gives a binary reward in \(\{0,1\}\).
 
 \textbf{Stage 2, the judge (independence).} This measures whether \(y_{t_i}\) merely copies the reference:
 
@@ -142,7 +128,7 @@ Each trajectory \(y_{t_i}\) is labeled in two stages.
 \text{good} := (\text{score} \ge 1.0) \,\wedge\, (\text{independent}), \qquad \text{bad} := (\text{copies the reference}).
 \]
 
-Two judge implementations are used and later ablated (§4.6):
+Two judge implementations are used and later ablated (Section~4.6):
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -171,17 +157,17 @@ Cost
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\passthrough{\lstinline!difflib!} & \passthrough{\lstinline!SequenceMatcher!} string similarity on normalized code (comments and whitespace stripped); copy if similarity ≥ threshold (≈0.9) & cheap, deterministic \\
-LLM & groq \passthrough{\lstinline!llama-3.3-70b!} (code) or \passthrough{\lstinline!glm-4.5-flash!} (math), a derive-vs-copy prompt returning \passthrough{\lstinline!is\_copy!} and \passthrough{\lstinline!reasoning\_quality!} 1--5 & API cost, semantic \\
+String similarity & sequence-matching similarity on normalized code (comments and whitespace stripped); copy if similarity ≥ threshold (≈0.9) & cheap, deterministic \\
+LLM & Llama-3.3-70B (code) or GLM-4.5-Flash (math), a derive-vs-copy prompt returning a copy flag and a reasoning-quality score (1--5) & API cost, semantic \\
 \end{longtable}
 
 \begin{quote}
-\textbf{A note on the judge.} With thinking ON (code) the model emits an explicit reasoning trace, so \passthrough{\lstinline!reasoning\_quality!} grades that trace rather than saturating at 4--5. The LLM judge therefore serves two roles: \passthrough{\lstinline!is\_copy!} is the independence gate for the good pool, while \passthrough{\lstinline!reasoning\_quality!} provides the signal that feeds the epistemic-suppression measurement (§4.7). Copy-detection remains its primary correctness guarantee.
+\textbf{A note on the judge.} With thinking ON (code) the model emits an explicit reasoning trace, so the reasoning-quality score grades that trace rather than saturating at 4--5. The LLM judge therefore serves two roles: the copy flag is the independence gate for the good pool, while the reasoning-quality score provides the signal that feeds the epistemic-suppression measurement (Section~4.7). Copy-detection remains its primary correctness guarantee.
 \end{quote}
 
 There is one behavior worth stating up front because it becomes a measured limitation. When no trajectory clears Stage 2 (every candidate is flagged as a copy), the good pool is left empty and that step distils nothing; a rejected copy is never forced into the pool. On a problem where the teacher only ever produces copies, the student therefore receives no learning signal at all; this is confirmed in the math log for idx8 (Appendix D.2), and is flagged here so the mechanism is transparent.
 
-\subsection{Few-shot teacher steering (good\_only vs good\_bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
+\subsection{Few-shot teacher steering (good-only vs good-bad)}\label{few-shot-teacher-steering-good_only-vs-good_bad}
 
 The labeled exemplars are fed back into the teacher's prompt (in-context, with no gradient on the teacher) to steer the teacher toward better generations:
 
@@ -193,18 +179,18 @@ The labeled exemplars are fed back into the teacher's prompt (in-context, with n
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 2: \passthrough{\lstinline!good\_only!}
+Option 2: good-only
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 1: \passthrough{\lstinline!good\_bad!}
+Option 1: good-bad
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 2: \passthrough{\lstinline!good\_only!}
+Option 2: good-only
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Option 1: \passthrough{\lstinline!good\_bad!}
+Option 1: good-bad
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -215,7 +201,7 @@ Steering strength & moderate & stronger \\
 Leak & \textbf{clean} (good is filtered, hence independent of the reference) & \textbf{residual} (bad ≈ reference, so reference-like content re-enters the context) \\
 \end{longtable}
 
-Since \passthrough{\lstinline!bad ≈ reference!}, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of leak versus no-leak, a direct test of the advisor's concern. The result is a leak-null on this data (§4.6).
+Since a bad exemplar is by construction close to the reference, putting bad exemplars into the prompt (even labeled ``bad'') shows the teacher something close to the reference again. The ablation of Option 1 versus Option 2 is therefore simultaneously an ablation of leak versus no-leak, a direct test of the advisor's concern. The result is a leak-null on this data (Section~4.6).
 
 \subsection{The distillation step: token-aligned top-K reverse KL}\label{the-distillation-step-token-aligned-top-k-reverse-kl}
 
@@ -223,7 +209,7 @@ This is the computational core, shared by both arms; only the target trajectory 
 
 \textbf{Per-token distributions.} With logits \(z \in \mathbb{R}^V\) (\(V \approx 150\text{k}\)), \(\pi(v) = \mathrm{softmax}(z)_v\). At each position \(t\) of the target trajectory we have \(\pi_S = \pi_\theta(\cdot\mid x, y_{<t})\) (student) and \(\pi_T = \pi_\theta(\cdot \mid x, c, y_{<t})\) (teacher, conditioned on \(c\)).
 
-\textbf{The core gradient.} With the teacher detached, the loss gradient with respect to a student logit is {[}1; derivation in \passthrough{\lstinline!con\_sdpo\_loss\_mechanics!}{]}:
+\textbf{The core gradient.} With the teacher detached, the loss gradient with respect to a student logit is {[}1{]}:
 
 \[
 \frac{\partial \mathcal{L}}{\partial z_v^{S}} \;=\; \pi_S(v) - \pi_T(v).
@@ -233,13 +219,13 @@ Wherever the teacher trusts a token more than the student (\(\pi_T > \pi_S\)), t
 
 \textbf{KL direction (\(\alpha\)).} The codebase {[}4{]} parameterizes the divergence through \(\alpha \in [0,1]\) with mixture \(M = (1-\alpha)\pi_S + \alpha\pi_T\): \(\alpha = 0\) is forward KL (mode-covering, preserves epistemic tokens), \(\alpha = 1\) is reverse KL (mode-seeking, prone to suppression), and \(\alpha = 0.5\) is JSD. The thesis uses \(\alpha = 1.0\) (reverse KL, top-K = 20) to match the LCBv6 configuration of {[}4{]}. Whether \(\alpha\) modulates suppression is an open RO2 question (Chapter 6).
 
-\textbf{Top-K approximation.} Full-vocabulary KL is too memory-heavy at \(V \approx 150\text{k}\), so we use the teacher's top-20 logits plus one tail bucket; the student is projected onto the same K indices, and KL is taken over the resulting \((K{+}1)\)-dimensional distribution {[}1, §2.2{]}.
+\textbf{Top-K approximation.} Full-vocabulary KL is too memory-heavy at \(V \approx 150\text{k}\), so we use the teacher's top-20 logits plus one tail bucket; the student is projected onto the same K indices, and KL is taken over the resulting \((K{+}1)\)-dimensional distribution {[}1, Section~2.2{]}.
 
 \textbf{Importance sampling.} Samples are drawn under \(\theta_{\text{old}}\) but the loss is taken under the current \(\theta\), so each per-token loss is scaled by a clipped ratio \(r_t = \min(\pi_\theta/\pi_{\theta_\text{old}},\, c_{\text{clip}})\) with \(c_{\text{clip}} = 2.0\).
 
-\textbf{Token alignment, the easiest place to get it wrong.} The student prompt (\passthrough{\lstinline!x + y\_good!}) and the teacher prompt (\passthrough{\lstinline!x + c + y\_good!}) have different prefix lengths, so the logits at the positions of \(y_{\text{good}}\) must be extracted on each side before the KL is taken. An off-by-one here corrupts the KL silently, so the code asserts that the two lengths match and logs \passthrough{\lstinline!(student\_prefix\_len, teacher\_prefix\_len)!}. The sanity check passed: alignment is correct (\(L\) matches on both sides despite different prefixes) and the token-mean KL is finite and reasonable.
+\textbf{Token alignment, the easiest place to get it wrong.} The student prompt (problem plus good trajectory) and the teacher prompt (problem plus context plus good trajectory) have different prefix lengths, so the logits at the positions of \(y_{\text{good}}\) must be extracted on each side before the KL is taken. An off-by-one here corrupts the KL silently, so the implementation asserts that the two lengths match and logs both prefix lengths. The sanity check passed: alignment is correct (\(L\) matches on both sides despite different prefixes) and the token-mean KL is finite and reasonable.
 
-Hyperparameters: AdamW \passthrough{\lstinline!lr = 1e-5!}, \passthrough{\lstinline!kl\_topk = 20!}, \passthrough{\lstinline!kl\_alpha = 1.0!}, \passthrough{\lstinline!is\_clip = 2.0!}. The teacher is always detached (self-distillation with shared weights, so the teacher is the student forward pass under context \(c\), run under \passthrough{\lstinline!no\_grad!}).
+Hyperparameters (full list in Appendix A): AdamW with learning rate \(10^{-5}\), top-K of 20, reverse KL (\(\alpha = 1.0\)), and importance-sampling clip 2.0. The teacher is always detached (self-distillation with shared weights, so the teacher is the student forward pass under context \(c\), run without gradients).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -313,12 +299,12 @@ The three dimensions and their grounding:
 \item
   \textbf{Information content} (T1 → T2 → T3). Kim et al.~{[}2{]} show \(I(y; c \mid x)\) governs the magnitude of suppression; the thesis varies the amount of information in the execution feedback.
 \item
-  \textbf{Instruction framing} (T4, T5, T6). Hübotter et al.~{[}1, §4.6{]} conclude that small syntactic variation does not matter, but semantic/instructional variation was never tested; {[}1, §7{]} names this as future work almost verbatim (``how \ldots{} the reprompt template \ldots{} influences behavior'').
+  \textbf{Instruction framing} (T4, T5, T6). Hübotter et al.~{[}1, Section~4.6{]} conclude that small syntactic variation does not matter, but semantic/instructional variation was never tested; {[}1, Section~7{]} names this as future work almost verbatim (``how \ldots{} the reprompt template \ldots{} influences behavior'').
 \item
-  \textbf{Memory depth} (T7). The §5 setup uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression accumulates across steps, so history may amplify or dilute it.
+  \textbf{Memory depth} (T7). The test-time setup {[}1, Section~5{]} uses a fixed sliding window of one attempt and does not ablate depth; Kim et al.~{[}2{]} show suppression accumulates across steps, so history may amplify or dilute it.
 \end{enumerate}
 
-\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RO1 probes T1/T2/T5 (§4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
+\textbf{T2 is the anchor}: every other template varies exactly one dimension and holds the rest fixed, giving a clean ablation. Of the seven, four are implemented (T1, T2, T5, T6; verbatim strings in Appendix B) and three (T3, T4, T7) remain conceptual points in the taxonomy. Under the available compute, RO1 probes T1/T2/T5 (Section~4.5); T6 is implemented but unprobed, and T3/T4/T7 are left to future work (Chapter 6). Two caveats are acknowledged: T4 (JSON) also changes information density (an overlap of dimensions 1 and 2), and T7 increases context length and so confounds with compute cost, which must be reported separately.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -353,15 +339,15 @@ The domains differ in their reference mode (what the teacher sees as the ``answe
 \endlastfoot
 Model & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} & Qwen3-4B {[}7{]}, LoRA r=32, thinking \textbf{ON} \\
 Verifier & public/private tests → \textbf{graded} \([0,1]\) & answer match → \textbf{binary} \(\{0,1\}\) \\
-\passthrough{\lstinline!reference\_mode!} & \passthrough{\lstinline!best\_in\_batch!} (best-scoring trajectory as proxy) & \passthrough{\lstinline!ground\_truth!} (teacher always sees the correct answer) \\
+Reference mode & best-in-batch (best-scoring trajectory as proxy) & ground-truth answer (teacher always sees the correct answer) \\
 Leak regime & \textbf{null} (reference is best-in-batch + public tests, not a reference solution) & \textbf{extreme} (feedback is ``the correct answer is \{gt\}'') \\
-\passthrough{\lstinline!privileged\_context!} & execution feedback (failing test, expected/actual, error type) + the correct best-in-batch trajectory & the correct answer (a number); the teacher need only copy \passthrough{\lstinline!\\boxed\{\}!} \\
+Privileged context & execution feedback (failing test, expected/actual, error type) + the correct best-in-batch trajectory & the correct answer (a number); the teacher need only copy the boxed final answer \\
 Reference contains a method? & \textbf{Yes} (best-in-batch is a \emph{program} = an algorithm, generalizing to new inputs) & \textbf{No} (only a \emph{value}, not a derivation) \\
 \end{longtable}
 
-A note on the \passthrough{\lstinline!reference\_text!} choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses best\_in\_batch (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, code has no leak, which explains why the good\_bad ablation is leak-null for code (§4.6) while leak is measurable for math (§4.9).
+A note on the reference choice for code: LCBv6 has no reliable reference-solution field, so the thesis uses the best-in-batch trajectory (the highest-scoring trajectory in the teacher's batch each step) as the reference against which the judge measures independence. This has an important side effect. Because the reference is not an author solution but the model's own correct output validated by public tests, code has no leak, which explains why the good-bad ablation is leak-null for code (Section~4.6) while leak is measurable for math (Section~4.9).
 
-The TTT budget also differs between domains (full values in Appendix A): code runs 15 steps, eval 16 samples, teacher\_n = 10; math runs 3 steps, eval 4 samples, teacher\_n = 4, max\_new\_tokens = 16384 (8192 truncated the \passthrough{\lstinline!\\boxed!} answer and produced spurious zero scores). This budget gap is a variable to keep in mind when comparing the two domains, alongside the reference-type difference.
+The TTT budget also differs between domains (full values in Appendix A): code runs 15 steps, 16 eval samples, and 10 teacher samples; math runs 3 steps, 4 eval samples, 4 teacher samples, and a longer generation limit of 16384 tokens (8192 truncated the boxed answer and produced spurious zero scores). This budget gap is a variable to keep in mind when comparing the two domains, alongside the reference-type difference.
 
 Both domains use the same Qwen3-4B model, so a no-escape result on math cannot be attributed to a weaker reasoner; the reference type remains a primary operative difference, alongside the budget gap. One math caveat therefore travels with every math result:
 
@@ -369,23 +355,23 @@ Both domains use the same Qwen3-4B model, so a no-escape result on math cannot b
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Answer-only reference.} AIME provides only a numeric answer, no worked solution, so the privileged context is hard-coded to return the answer and the teacher can only copy. MATH-500 (which has a \passthrough{\lstinline!solution!} field) is the route to a method-bearing math reference (Chapter 6) and is out of scope for the present results.
+  \textbf{Answer-only reference.} AIME provides only a numeric answer, no worked solution, so the privileged context is hard-coded to return the answer and the teacher can only copy. MATH-500 (which provides a worked-solution field) is the route to a method-bearing math reference (Chapter 6) and is out of scope for the present results.
 \end{enumerate}
 
-Problem selection uses model pass-rate \(\in (0,1)\) (a frontier defined by the model, not by the contest difficulty label), because the binary math reward only has variance when the model solves a problem roughly 30--70\% of the time (§3.6, §4).
+Problem selection uses model pass-rate \(\in (0,1)\) (a frontier defined by the model, not by the contest difficulty label), because the binary math reward only has variance when the model solves a problem roughly 30--70\% of the time (Section~3.6, Section~4).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Metrics and comparison design}\label{metrics-and-comparison-design}
 
-\textbf{pass@k / pass\_rate.} We report an empirical estimate of pass@k {[}9{]}: for each condition we draw \passthrough{\lstinline!N\_eval!} samples (16 for code, 4 for math) and report \passthrough{\lstinline!pass\_rate!}, the fraction correct. PRE (before TTT) and POST (after TTT) are reported, evaluating the student only, \(\pi_\theta(\cdot\mid x)\), with no context at evaluation time (otherwise the context would leak into the metric). A single deterministic \passthrough{\lstinline!greedy!} sample is reported alongside as a noisy secondary signal.
+\textbf{pass@k / pass\_rate.} We report an empirical estimate of pass@k {[}9{]}: for each condition we draw a fixed number of samples (16 for code, 4 for math) and report the fraction correct. PRE (before TTT) and POST (after TTT) are reported, evaluating the student only, \(\pi_\theta(\cdot\mid x)\), with no context at evaluation time (otherwise the context would leak into the metric). A single deterministic greedy sample is reported alongside as a noisy secondary signal.
 
-\textbf{Discovery curve.} Following discovery@k {[}1, Def. 5.1{]} from §3.1: the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with \(T = \min\{k : r(y_k) = 1\}\). Because test-time generation is sequential (shared state, weight updates), i.i.d. pass@k does not apply, and discovery@k is the correct metric. We log the per-step batch pass-rate as a coarse discovery curve.
+\textbf{Discovery curve.} Following discovery@k {[}1, Def. 5.1{]} from Section~3.1: the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with \(T = \min\{k : r(y_k) = 1\}\). Because test-time generation is sequential (shared state, weight updates), i.i.d. pass@k does not apply, and discovery@k is the correct metric. We log the per-step batch pass-rate as a coarse discovery curve.
 
-\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where student-first stays stuck at pass = 0 (or drops back to 0) while teacher-first escapes 0. This is the direct signature of the flat-reward trap (§3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (§4.3).
+\textbf{Escape-zero (the mechanism evidence).} Operational definition: a seed where student-first stays stuck at pass = 0 (or drops back to 0) while teacher-first escapes 0. This is the direct signature of the flat-reward trap (Section~3.2): on-policy has no correct rollout to learn from, while the off-policy-leaning teacher can inject a correct solution. Replicated escape-zero is the main mechanistic contribution (Section~4.3).
 
 \textbf{Matched comparison.} The two arms run on the \emph{same} base and the \emph{same} seed, so PRE matches per seed, giving a paired (matched) comparison that removes base- and seed-level variance. On each matched pair we count wins, ties, and losses (TF versus SF).
 
 \begin{quote}
-\textbf{A note on statistical power.} The code arm is evaluated at medium scale (8 problems × 6 seeds), which supports a Wilcoxon signed-rank test over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (§4.3, Chapter 6). The mathematical domain remains a small-n pilot (n = 2 problems), where claims stay \emph{descriptive and directional} (``preliminary / weak dominance'', never ``we prove''), with every statement paired with a caveat about n.
+\textbf{A note on statistical power.} The code arm is evaluated at medium scale (8 problems × 6 seeds), which supports a Wilcoxon signed-rank test over the paired POST pass-rates rather than a crude sign test; the main result is reported with this properly powered statistic (Section~4.3, Chapter 6). The mathematical domain remains a small-n pilot (n = 2 problems), where claims stay \emph{descriptive and directional} (``preliminary / weak dominance'', never ``we prove''), with every statement paired with a caveat about n.
 \end{quote}
