@@ -497,3 +497,36 @@ Khớp đúng với công thức tôi đã dùng.
 Nếu thay $W_1=-\Delta U_1$, $W_2=-\Delta U_2$ vào định lý động năng $W_{ngoại}=\Delta K$: $$-\Delta U_1 - \Delta U_2 + W_{ms} = \Delta K \quad\Rightarrow\quad \Delta K + \Delta U = W_{ms} \quad\Rightarrow\quad \Delta(K+U) = W_{ms}$$
 
 Đây chính là dạng **"cơ năng không bảo toàn khi có ma sát"** — độ biến thiên cơ năng ($K+U$) bằng đúng công của ma sát (luôn âm, vì ma sát luôn lấy bớt năng lượng ra khỏi hệ). Nếu không có ma sát ($W_{ms}=0$), sẽ trở về đúng **bảo toàn cơ năng thuần túy** ($\Delta(K+U)=0$) — đây là lý do vì sao dùng công của trọng lực (không phải thế năng trực tiếp) mới là cách viết "gốc", còn "bảo toàn cơ năng" chỉ là **trường hợp đặc biệt** khi không có lực ma sát/lực cản nào khác.
+
+
+## Đề 9 — Câu 2 (5 điểm)
+
+**Tóm tắt:** $n=3$ mol khí lưỡng nguyên tử ($i=5$, $\gamma=1{,}4$), $R=8{,}31$ J/(mol.K) (giả định, đề không ghi rõ nhưng chuẩn SI).
+
+**Đọc từ hình:** $A(P=5\times10^5$ Pa$)$, $B(P=1\times10^5$ Pa$)$ — $A\to B$ **đoạn nhiệt** giãn nở; $B\to C$ **đẳng áp** (nén, cùng $P=1\times10^5$), $V_C=30$L; $C\to A$ khép kín về $P_A=5\times10^5$.
+
+**Lưu ý:** từ vị trí $A$ và $C$ trên đồ thị (cùng thẳng hàng theo trục $V$), có vẻ $C\to A$ là **đẳng tích** ($V_A=V_C=30$L) — bạn kiểm tra lại hình xem có đúng vậy không, vì đây là điểm mấu chốt quyết định cách giải. Tôi sẽ hướng dẫn theo giả định này.
+
+## Hướng dẫn
+
+**a) Tìm $V_B$ và nhiệt độ từng trạng thái:**
+
+Với $V_A=V_C=0{,}03$ m³ (giả định đẳng tích C→A):
+
+**$V_B$** (từ đoạn nhiệt A→B): $P_AV_A^\gamma=P_BV_B^\gamma \Rightarrow V_B=V_A\left(\dfrac{P_A}{P_B}\right)^{1/\gamma}=V_A\times5^{1/1{,}4}$
+
+**$T_A$**: $T_A=\dfrac{P_AV_A}{nR}$
+
+**$T_C$**: $T_C=\dfrac{P_CV_C}{nR}=\dfrac{P_CV_A}{nR}$ (vì $V_C=V_A$)
+
+**$T_B$**: từ đẳng áp B→C, $\dfrac{V_B}{T_B}=\dfrac{V_C}{T_C} \Rightarrow T_B=T_C\times\dfrac{V_B}{V_C}$
+
+**b) Công và nhiệt mỗi quá trình:**
+
+- $(A\to B)$ đoạn nhiệt: $Q_{AB}=0$; $A_{AB}=\dfrac{P_AV_A-P_BV_B}{\gamma-1}$ (công thức đoạn nhiệt đã có trong bảng công thức)
+- $(B\to C)$ đẳng áp: $A_{BC}=P_B(V_C-V_B)$; $Q_{BC}=\dfrac{i+2}{2}(P_CV_C-P_BV_B)$
+- $(C\to A)$ đẳng tích: $A_{CA}=0$; $Q_{CA}=\dfrac{i}{2}(P_AV_A-P_CV_C)$
+
+**c) Hiệu suất:** xác định $Q_{nhận}$ (số dương), rồi $\eta=\dfrac{A_{total}}{Q_{nhận}}$ (đây là động cơ nhiệt, vì đề chỉ hỏi hiệu suất chu trình, không nhắc máy lạnh).
+
+Bạn xác nhận lại quá trình $C\to A$ có đúng là đẳng tích không, rồi thử tính từng bước — báo lại nếu muốn kiểm tra hoặc giải chi tiết.

@@ -259,6 +259,7 @@
   "active": "011fe3d64314a790",
   "lastOpenFiles": [
     "00_Dashboard/Untitled 4.md",
+    "10_Projects/14_Thesis_SDPO/report/latex/_fix_thesis.py",
     "00_Dashboard/Untitled 6.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
@@ -280,7 +281,6 @@
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md.tmp.19948.a2a17c419f41",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_2-6.md",
     "10_Projects/14_Thesis_SDPO/report/presentation_script_bestcase.md.tmp.19948.d98a0231f324",
-    "10_Projects/14_Thesis_SDPO/report/latex/vi_b_abstract.tex.tmp.8160.4b5e813b2901",
     "10_Projects/14_Thesis_SDPO/report/latex/_cover_en.png",
     "10_Projects/14_Thesis_SDPO/experiments/plans/ttt_sdpo_w2_implementation_plan.md",
     "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11.md",
@@ -293,7 +293,6 @@
     "30_Knowledge_Base/Math_Stats/ĐSTT_Mẹo_Casio.md",
     "40_Archives/directory_structure.md",
     "30_Knowledge_Base/Math_Stats/ĐSTT_Đề_Thi_Thử_Cuối_Kỳ.md",
-    "30_Knowledge_Base/Math_Stats/Linear Algebra Review.md",
-    "30_Knowledge_Base/Math_Stats/multivariable chain rule.md"
+    "30_Knowledge_Base/Math_Stats/Linear Algebra Review.md"
   ]
 }
