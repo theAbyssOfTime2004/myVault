@@ -80,7 +80,9 @@
       "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\aicb-ecom-backend-ai\\\\.git\" -ErrorAction SilentlyContinue)",
       "Bash(Remove-Item -Recurse -Force \"D:\\\\Repos\\\\solazu\\\\chatbot-ecom-web\\\\.git\" -ErrorAction SilentlyContinue)",
       "Bash(Write-Output \"Done removing nested .git folders\")",
-      "Bash(wsl -e *)"
+      "Bash(wsl -e *)",
+      "Bash(find \"/c/Users/Maidanng/.claude/plugins/marketplaces\" -maxdepth 3 -type d | head -50)",
+      "Bash(find \"/c/Users/Maidanng/.claude\" -type f \\\\\\( -name \"ars-*.md\" -o -iname \"*academic-paper*\" \\\\\\) 2>/dev/null | grep -iv \"worktree\" | head -40)"
     ]
   }
 }
