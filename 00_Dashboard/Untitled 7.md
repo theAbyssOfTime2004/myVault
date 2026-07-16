@@ -1,3 +1,3 @@
 
 
-The examples given above illustrate some of the brain regions that are implicated in processing of reinforcement, though this is not an exhaustive list. In view of the many brain regions involved we presume there are multiple mechanisms which could play a role in altered transfer of dopamine signalling. Dis-orders that affect the structures that provide input to the dopamine cells, related to the representation of conditioned reinforcers, would be expected to produce DTD.
+The examples given above illustrate some of the brain regions that are implicated in processing of reinforcement, though this is not an exhaustive list. In view of the many brain regions involved we presume there are multiple mechanisms which could play a role in altered transfer of dopamine signalling. Disorders that affect the structures that provide input to the dopamine cells, related to the representation of conditioned reinforcers, would be expected to produce DTD.

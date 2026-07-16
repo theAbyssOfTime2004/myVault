@@ -82,7 +82,8 @@
               "title": "Untitled 7"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -270,15 +271,15 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "25ed80e90c9328b5",
+  "active": "951a55cb4f41ac9c",
   "lastOpenFiles": [
+    "00_Dashboard/Untitled 4.md",
     "00_Dashboard/Untitled 6.md",
     "00_Dashboard/Untitled 7.md",
     "10_Projects/14_Thesis_SDPO/report/latex/_sync_refs.py",
     "10_Projects/14_Thesis_SDPO/report/latex/_sync_refs.py.tmp.29820.6ee705735645",
     "10_Projects/14_Thesis_SDPO/report/latex/refs_manual.tex.tmp.29820.0cc84cefbbf7",
     "10_Projects/14_Thesis_SDPO/report/latex/_sync_refs.py.tmp.29820.f3b93ade9292",
-    "00_Dashboard/Untitled 4.md",
     "10_Projects/14_Thesis_SDPO/report/latex/_fix_thesis.py",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
