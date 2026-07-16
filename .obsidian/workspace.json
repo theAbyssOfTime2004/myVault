@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
+                "file": "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Chương 7 - Nguyên lý II Nhiệt động lực học"
+              "title": "Chương 6 - Nguyên lý I Nhiệt động lực học"
             }
           },
           {
@@ -83,7 +83,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -271,10 +271,12 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "951a55cb4f41ac9c",
+  "active": "011fe3d64314a790",
   "lastOpenFiles": [
-    "00_Dashboard/Untitled 4.md",
+    "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học.md",
+    "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
     "00_Dashboard/Untitled 6.md",
+    "00_Dashboard/Untitled 4.md",
     "00_Dashboard/Untitled 7.md",
     "10_Projects/14_Thesis_SDPO/report/latex/_sync_refs.py",
     "10_Projects/14_Thesis_SDPO/report/latex/_sync_refs.py.tmp.29820.6ee705735645",
@@ -284,8 +286,6 @@
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 4 - Cơ học vật rắn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
-    "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
-    "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học.md",
     "00_Dashboard/Untitled 5.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 1 - Chuyển động tròn.md",
     "10_Projects/13_Uni_Retake/TTH cuối kỳ review.md",

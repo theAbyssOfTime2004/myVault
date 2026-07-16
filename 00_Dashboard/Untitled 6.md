@@ -697,3 +697,29 @@ Vì 2 đoạn đoạn nhiệt có $\Delta U$ triệt tiêu lẫn nhau trong cả
 **Cách thông thường:** $$\eta = \frac{A}{Q_{12}} = \frac{35{,}8}{329{,}6} \approx \boxed{10{,}9\%}$$
 
 **Kiểm tra chéo bằng công thức Carnot:** $$\eta_{Carnot} = 1-\frac{T_3}{T_1} = 1-\frac{356{,}5}{400} \approx 10{,}9\% \ ✓ \text{khớp}$$
+
+Được, tôi sẽ hỏi bạn một loạt câu hỏi ôn tập — chỉ cần trả lời bằng lời, không cần tính số. Cứ trả lời theo khả năng, tôi sẽ đánh giá dựa trên đó.
+
+## Nhóm 1 — Cơ học vật rắn (Chương 3-4)
+
+1. Khi nào cần **so sánh lực chủ động** để xác định chiều chuyển động của hệ ròng rọc, và khi nào **không cần**? - trong trường hợp chiều chuyển động có thể obviously được chỉ ra (1 vật có xu hướng di chuyển vật còn lại đứng yên trên mp ngang) thì không cần xác định 
+2. Vì sao $a_1=a_2=a$ luôn đúng trong hệ 1 dây – 1 ròng rọc – 2 vật? Điều này còn đúng không nếu là ròng rọc kép? dây ko dãn 
+3. Kể tên mô men quán tính của 4 vật thường gặp: đĩa đặc, vành tròn (vòng), quả cầu đặc, thanh (quay qua giữa). cái này không nhớ thật, chỉ nhớ 1/2MR^2 và MR^2
+4. Động năng của 1 vật vừa lăn vừa tịnh tiến gồm mấy thành phần? Vì sao? 2 thành phần là khối tâm và chính nó 
+5. Khi 1 vật đang trượt có ma sát rồi đột ngột mất lực kéo (dây đứt, hoặc vật khác chạm đất), điều gì **liên tục** (không đổi tức thời) và điều gì **thay đổi tức thời**? - liên tục là vận tốc, còn không liên tục là gia tốc 
+
+## Nhóm 2 — Va chạm và bảo toàn (Chương 3)
+
+6. Va chạm đàn hồi và va chạm mềm khác nhau ở điểm nào về việc bảo toàn động lượng/động năng? - không nhớ
+7. Trong bài "con lắc đạn", vì sao phải làm theo 2 bước riêng biệt (không thể gộp thành 1 bước duy nhất)? - không nhớ lý thuyết
+
+## Nhóm 3 — Khí lý tưởng & Nhiệt động lực học (Chương 5-7)
+
+8. Bậc tự do $i$ nhận giá trị gì cho khí đơn/lưỡng/đa nguyên tử? Cách nhận biết loại khí nào từ đề bài? 3/5/6 - đề bài thường cho rõ, không thì đọc index chân
+9. Khi nào dùng $R=8{,}31$ và khi nào dùng $R=8{,}31\times10^3$? dùng R = 8,31 khi là mol, 8,31x10^5 khi là kmol
+10. Phân biệt $A$ (công sinh) và $W$ (công nhận) — công thức nào liên hệ 2 đại lượng này? 
+11. Làm sao biết 1 chu trình là **động cơ nhiệt** hay **máy lạnh** khi đề không nói rõ tên máy? 
+12. Công thức hiệu suất động cơ nhiệt và hệ số làm lạnh máy lạnh khác nhau thế nào (dùng đại lượng gì ở mẫu số)?
+13. Chu trình Carnot có gì đặc biệt so với chu trình thường (nêu ít nhất 2 điểm)?
+
+Bạn trả lời lần lượt (hoặc gộp) theo khả năng nhé — tôi sẽ chỉ ra chỗ nào cần ôn thêm.
