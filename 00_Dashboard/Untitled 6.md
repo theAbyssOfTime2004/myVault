@@ -708,14 +708,14 @@ Hiểu ý bạn — để tôi đổi sang câu hỏi tình huống cụ thể, 
 1. Cho bài: "$m_1$ trên mặt nghiêng có ma sát, $m_2$ treo, nối qua ròng rọc có khối lượng — đề không nói $m_1$ lên hay xuống." Bước **đầu tiên** bạn làm trước khi viết 3 phương trình là gì?
    -  tính các lực tác động có thể làm cho vật chuyển động rồi so sánh rồi rút ra chiều dương 
 1. Cho: hệ đang chuyển động với vận tốc $v$, thì **dây đột ngột đứt** (hoặc 1 vật rơi ra / chạm đất). Đại lượng nào của giai đoạn TRƯỚC được **giữ nguyên** làm dữ kiện đầu vào cho giai đoạn SAU? Đại lượng nào phải **tính lại từ đầu**?
-    - 
+    - vận tốc đc giữ, gia tốc tính lại
 
 ## Nhóm 2 — Va chạm & năng lượng
 
 4. Bài "con lắc đạn": bạn cần **bao nhiêu bước**, mỗi bước dùng định luật gì, theo **thứ tự** nào (không phải thứ tự đề hỏi, mà thứ tự bạn thực sự tính)?
-    
+     - bảo cơ năng để tìm v trước, rồi dùng bảo toàn động lượng để tìm v sau
 5. Quả cầu lăn không trượt xuống dốc, đề hỏi vận tốc cuối VÀ lực ma sát. Bạn dùng công cụ nào cho **từng ý** (bảo toàn cơ năng hay Newton+$\tau=I\beta$)? Vì sao không dùng chung 1 công cụ cho cả 2?
-    
+    dùng bảo toàn
 
 ## Nhóm 3 — Nhiệt động lực học (áp dụng, không phải nhận biết)
 
