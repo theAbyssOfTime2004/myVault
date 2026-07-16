@@ -706,9 +706,9 @@ Hiểu ý bạn — để tôi đổi sang câu hỏi tình huống cụ thể, 
    - Xét theo Oy: N = mgcos alpha 
    - Xét theo Ox: mgsin alpha = kmg sinalpha + ma
 1. Cho bài: "$m_1$ trên mặt nghiêng có ma sát, $m_2$ treo, nối qua ròng rọc có khối lượng — đề không nói $m_1$ lên hay xuống." Bước **đầu tiên** bạn làm trước khi viết 3 phương trình là gì?
-   -  
+   -  tính các lực tác động có thể làm cho vật chuyển động rồi so sánh rồi rút ra chiều dương 
 1. Cho: hệ đang chuyển động với vận tốc $v$, thì **dây đột ngột đứt** (hoặc 1 vật rơi ra / chạm đất). Đại lượng nào của giai đoạn TRƯỚC được **giữ nguyên** làm dữ kiện đầu vào cho giai đoạn SAU? Đại lượng nào phải **tính lại từ đầu**?
-    
+    - 
 
 ## Nhóm 2 — Va chạm & năng lượng
 
