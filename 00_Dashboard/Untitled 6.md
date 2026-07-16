@@ -698,28 +698,32 @@ Vì 2 đoạn đoạn nhiệt có $\Delta U$ triệt tiêu lẫn nhau trong cả
 
 **Kiểm tra chéo bằng công thức Carnot:** $$\eta_{Carnot} = 1-\frac{T_3}{T_1} = 1-\frac{356{,}5}{400} \approx 10{,}9\% \ ✓ \text{khớp}$$
 
-Được, tôi sẽ hỏi bạn một loạt câu hỏi ôn tập — chỉ cần trả lời bằng lời, không cần tính số. Cứ trả lời theo khả năng, tôi sẽ đánh giá dựa trên đó.
+Hiểu ý bạn — để tôi đổi sang câu hỏi tình huống cụ thể, mô phỏng đúng lúc làm bài, thay vì hỏi định nghĩa.
 
-## Nhóm 1 — Cơ học vật rắn (Chương 3-4)
+## Nhóm 1 — Thiết lập phương trình (kỹ năng cốt lõi)
 
-1. Khi nào cần **so sánh lực chủ động** để xác định chiều chuyển động của hệ ròng rọc, và khi nào **không cần**? - trong trường hợp chiều chuyển động có thể obviously được chỉ ra (1 vật có xu hướng di chuyển vật còn lại đứng yên trên mp ngang) thì không cần xác định 
-2. Vì sao $a_1=a_2=a$ luôn đúng trong hệ 1 dây – 1 ròng rọc – 2 vật? Điều này còn đúng không nếu là ròng rọc kép? dây ko dãn 
-3. Kể tên mô men quán tính của 4 vật thường gặp: đĩa đặc, vành tròn (vòng), quả cầu đặc, thanh (quay qua giữa). cái này không nhớ thật, chỉ nhớ 1/2MR^2 và MR^2
-4. Động năng của 1 vật vừa lăn vừa tịnh tiến gồm mấy thành phần? Vì sao? 2 thành phần là khối tâm và chính nó 
-5. Khi 1 vật đang trượt có ma sát rồi đột ngột mất lực kéo (dây đứt, hoặc vật khác chạm đất), điều gì **liên tục** (không đổi tức thời) và điều gì **thay đổi tức thời**? - liên tục là vận tốc, còn không liên tục là gia tốc 
+1. Cho: vật $m$ trên mặt nghiêng góc $\alpha$, hệ số ma sát $k$, đang **trượt xuống dốc**. Viết phương trình Newton dọc theo dốc (chỉ viết phương trình, không cần giải số).
+   - Xét theo Oy: N = mgcos alpha 
+   - Xét theo Ox: 
+1. Cho bài: "$m_1$ trên mặt nghiêng có ma sát, $m_2$ treo, nối qua ròng rọc có khối lượng — đề không nói $m_1$ lên hay xuống." Bước **đầu tiên** bạn làm trước khi viết 3 phương trình là gì?
+    
+2. Cho: hệ đang chuyển động với vận tốc $v$, thì **dây đột ngột đứt** (hoặc 1 vật rơi ra / chạm đất). Đại lượng nào của giai đoạn TRƯỚC được **giữ nguyên** làm dữ kiện đầu vào cho giai đoạn SAU? Đại lượng nào phải **tính lại từ đầu**?
+    
 
-## Nhóm 2 — Va chạm và bảo toàn (Chương 3)
+## Nhóm 2 — Va chạm & năng lượng
 
-6. Va chạm đàn hồi và va chạm mềm khác nhau ở điểm nào về việc bảo toàn động lượng/động năng? - không nhớ
-7. Trong bài "con lắc đạn", vì sao phải làm theo 2 bước riêng biệt (không thể gộp thành 1 bước duy nhất)? - không nhớ lý thuyết
+4. Bài "con lắc đạn": bạn cần **bao nhiêu bước**, mỗi bước dùng định luật gì, theo **thứ tự** nào (không phải thứ tự đề hỏi, mà thứ tự bạn thực sự tính)?
+    
+5. Quả cầu lăn không trượt xuống dốc, đề hỏi vận tốc cuối VÀ lực ma sát. Bạn dùng công cụ nào cho **từng ý** (bảo toàn cơ năng hay Newton+$\tau=I\beta$)? Vì sao không dùng chung 1 công cụ cho cả 2?
+    
 
-## Nhóm 3 — Khí lý tưởng & Nhiệt động lực học (Chương 5-7)
+## Nhóm 3 — Nhiệt động lực học (áp dụng, không phải nhận biết)
 
-8. Bậc tự do $i$ nhận giá trị gì cho khí đơn/lưỡng/đa nguyên tử? Cách nhận biết loại khí nào từ đề bài? 3/5/6 - đề bài thường cho rõ, không thì đọc index chân
-9. Khi nào dùng $R=8{,}31$ và khi nào dùng $R=8{,}31\times10^3$? dùng R = 8,31 khi là mol, 8,31x10^5 khi là kmol
-10. Phân biệt $A$ (công sinh) và $W$ (công nhận) — công thức nào liên hệ 2 đại lượng này? 
-11. Làm sao biết 1 chu trình là **động cơ nhiệt** hay **máy lạnh** khi đề không nói rõ tên máy? 
-12. Công thức hiệu suất động cơ nhiệt và hệ số làm lạnh máy lạnh khác nhau thế nào (dùng đại lượng gì ở mẫu số)?
-13. Chu trình Carnot có gì đặc biệt so với chu trình thường (nêu ít nhất 2 điểm)?
+6. Đề ghi rõ **"máy lạnh"**, hỏi hệ số làm lạnh $\varepsilon$. Bạn tính công theo quy ước $A$ hay $W$? Công thức $\varepsilon$ là gì?
+    
+7. Đề cho khí lưỡng nguyên tử, chu trình gồm $P,V$ ở các trạng thái, **không cho số mol**. Bạn có cần tìm $n$ không? Nếu không, bạn thay thế bằng gì trong công thức?
+    
+8. Bạn tính 2 đại lượng lẽ ra phải **triệt tiêu chính xác** (như $W_{23}+W_{41}$ trong chu trình Carnot) nhưng lại lệch một chút (VD dư $5$J). Đây là dấu hiệu gì, và bạn nên làm gì tiếp theo?
+    
 
-Bạn trả lời lần lượt (hoặc gộp) theo khả năng nhé — tôi sẽ chỉ ra chỗ nào cần ôn thêm.
+Trả lời theo khả năng nhé — tôi sẽ chỉ ra chỗ nào cần củng cố thêm trước khi thi.
