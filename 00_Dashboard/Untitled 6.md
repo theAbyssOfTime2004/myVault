@@ -437,16 +437,40 @@ $$a = \frac{m_2g(\sin\alpha-k\cos\alpha)-m_1g}{m_1+m_2+\frac{M}{2}}$$
 
 Thay $a$ vào (1), (2) để ra $T_1, T_2$.
 
-## c) Dùng bảo toàn năng lượng để kiểm chứng lại $a$ (phương pháp khác câu a)
+## Đề 9 — Câu 1c: Trình bày chi tiết (dùng $W$)
 
-Đây là cách làm **thay thế**, không dùng $\tau=I\beta$ trực tiếp mà dùng **định lý động năng** (công của ngoại lực = biến thiên động năng) cho hệ di chuyển quãng đường $s$ bất kỳ từ nghỉ:
+**Định lý động năng (Chương 3):** tổng công của các ngoại lực tác dụng lên hệ bằng độ biến thiên động năng của hệ: $$W_{ngoại} = \Delta K = K_{sau} - K_{trước}$$
 
-**Công các lực** (lực căng dây là nội lực, triệt tiêu khi xét cả hệ): $$A_{ngoại} = m_2g\sin\alpha\cdot s - m_1g\cdot s - F_{ms}\cdot s = s\left[m_2g\sin\alpha - m_1g - km_2g\cos\alpha\right]$$
+_(Ở đây $W$ = công mà hệ **nhận** được từ các lực bên ngoài — nếu dương, động năng hệ tăng; nếu âm, động năng hệ giảm. Đây chính là quy ước "$W$ = công nhận" đã thống nhất trước đó.)_
 
-**Động năng hệ** (từ nghỉ, dùng mẹo $\frac12I\omega^2=\frac{M}{4}v^2$ vì đĩa đặc): $$\Delta K = \frac12v^2\left(m_1+m_2+\frac{M}{2}\right)$$
+## Bước 1 — Xác định "hệ" đang xét
 
-Dùng $v^2=2as$, thay vào $A_{ngoại}=\Delta K$, rút gọn $s$ ở 2 vế: $$m_2g(\sin\alpha-k\cos\alpha) - m_1g = a\left(m_1+m_2+\frac{M}{2}\right)$$
+Lấy **cả 3 vật** làm một hệ thống chung: $m_1$ (treo) + $m_2$ (trên nghiêng) + ròng rọc (đang quay). Vì dây không giãn và ròng rọc lý tưởng (trục quay không ma sát), **lực căng dây $T_1, T_2$ là NỘI LỰC** của hệ này — không tính vào $W_{ngoại}$ (chúng chỉ truyền năng lượng qua lại giữa các phần trong hệ, không thêm/bớt năng lượng tổng).
 
-→ **Ra đúng công thức giống hệt câu a** — đây chính là mục đích của câu c: chứng minh 2 phương pháp (Newton và năng lượng) cho cùng 1 kết quả.
+## Bước 2 — Liệt kê các ngoại lực thực sự sinh công
 
-Bạn thử tự tính số nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
+Xét hệ di chuyển một quãng đường $s$ bất kỳ (kể từ nghỉ):
+
+**Trọng lực $m_1$** (đi lên $s$, trọng lực hướng xuống → cản trở): $$W_1 = -m_1gs$$
+
+**Trọng lực $m_2$** (đi xuống dốc $s$, thành phần dọc dốc $m_2g\sin\alpha$ cùng hướng chuyển động → hỗ trợ): $$W_2 = +m_2g\sin\alpha\cdot s$$
+
+**Ma sát trên $m_2$** (luôn cản trở chuyển động thực tế): $$W_{ms} = -F_{ms}\cdot s = -km_2g\cos\alpha\cdot s$$
+
+_(Phản lực pháp tuyến $N$ trên $m_2$ và trọng lực ròng rọc không sinh công, vì luôn vuông góc với chuyển động hoặc điểm đặt không di chuyển.)_
+
+## Bước 3 — Tính $\Delta K$ của hệ
+
+Từ nghỉ ($K_{trước}=0$), dùng $\omega=v/R$ và $I=\frac12MR^2$ (đĩa đặc, $R$ triệt tiêu): $$\Delta K = \frac12m_1v^2+\frac12m_2v^2+\frac12I\omega^2 = \frac12v^2\left(m_1+m_2+\frac{M}{2}\right)$$
+
+## Bước 4 — Áp dụng định lý động năng
+
+$$W_1+W_2+W_{ms} = \Delta K$$ $$s\left[m_2g\sin\alpha - m_1g - km_2g\cos\alpha\right] = \frac12v^2\left(m_1+m_2+\frac{M}{2}\right)$$
+
+Dùng $v^2=2as$ (chuyển động biến đổi đều), thay vào và **chia cả 2 vế cho $s$** (triệt tiêu): $$m_2g\sin\alpha - m_1g - km_2g\cos\alpha = a\left(m_1+m_2+\frac{M}{2}\right)$$
+
+$$\boxed{a = \frac{m_2g(\sin\alpha-k\cos\alpha) - m_1g}{m_1+m_2+\frac{M}{2}}}$$
+
+## Kết luận
+
+Kết quả **giống hệt** công thức đã tìm ở câu a (dùng $\tau=I\beta$ trực tiếp cho từng vật) — đây chính là ý nghĩa của câu c: **2 con đường khác nhau** (Newton từng vật riêng lẻ, vs. định lý động năng cho cả hệ) dẫn đến **cùng một kết quả**, xác nhận tính đúng đắn của bài toán.
