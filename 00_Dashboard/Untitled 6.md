@@ -530,3 +530,33 @@ Với $V_A=V_C=0{,}03$ m³ (giả định đẳng tích C→A):
 **c) Hiệu suất:** xác định $Q_{nhận}$ (số dương), rồi $\eta=\dfrac{A_{total}}{Q_{nhận}}$ (đây là động cơ nhiệt, vì đề chỉ hỏi hiệu suất chu trình, không nhắc máy lạnh).
 
 Bạn xác nhận lại quá trình $C\to A$ có đúng là đẳng tích không, rồi thử tính từng bước — báo lại nếu muốn kiểm tra hoặc giải chi tiết.
+
+
+## Đề 10 — Câu 1 (3 điểm)
+
+**Tóm tắt:** $m_A=1$kg, $v_A=10$m/s tại A, đường A→C **không ma sát**, $h_1=6$m (độ cao A so với đáy B), $h_2=2$m (độ cao C so với đáy B), $g=9{,}8$m/s².
+
+## a) Vận tốc tại B và C
+
+Vì A→C không ma sát → **bảo toàn cơ năng**, chọn gốc thế năng tại đáy (điểm B):
+
+$$\frac12v_A^2+gh_1 = \frac12v_B^2 \Rightarrow v_B=\sqrt{v_A^2+2gh_1}$$
+
+$$\frac12v_A^2+gh_1 = \frac12v_C^2+gh_2 \Rightarrow v_C=\sqrt{v_A^2+2g(h_1-h_2)}$$
+
+## b) Va chạm đàn hồi tại C
+
+$m_A=1$kg (vận tốc $v_C$ vừa tính) va chạm đàn hồi với $m_C=0{,}2$kg (đứng yên) — dùng thẳng công thức đã học (Chương 3): $$v'_A = \left(\frac{m_A-m_C}{m_A+m_C}\right)v_C \qquad v'_C = \left(\frac{2m_A}{m_A+m_C}\right)v_C$$
+
+Vì $m_A>m_C$ (1kg > 0,2kg), $v'_A$ sẽ **dương** (cùng chiều cũ) — $m_A$ tiếp tục đi tới, không bật ngược; $v'_C$ sẽ **lớn hơn** $v_C$ ban đầu (vật nhẹ bị bắn đi nhanh hơn, kiểu "đầu gậy đánh bóng golf").
+
+## c) Đoạn CD = 15m có ma sát $k=0{,}7$
+
+Sau va chạm, **cả 2 vật đều tiếp tục di chuyển về phía D** (vì cả $v'_A$ và $v'_C$ đều dương, cùng chiều). Với **mỗi vật riêng biệt**, kiểm tra bằng định lý động năng (công của ma sát = biến thiên động năng): $$-kmgs = 0 - \frac12mv'^2 \Rightarrow s_{max} = \frac{v'^2}{2kg}$$
+
+- Nếu $s_{max} \ge 15$m → vật **đến được D**, tính $v_D$ bằng $v_D^2=v'^2-2kg\times15$
+- Nếu $s_{max} < 15$m → vật **dừng lại** ở quãng đường $s=s_{max}$ (tính từ C), chưa tới D
+
+Cần làm bước này **riêng cho cả $m_A$ và $m_C$** (vì có 2 vật với 2 vận tốc khác nhau sau va chạm).
+
+Bạn thử tự tính từng bước nhé — báo lại nếu muốn kiểm tra kết quả hoặc giải chi tiết.
