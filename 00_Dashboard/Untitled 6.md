@@ -724,6 +724,6 @@ Hiểu ý bạn — để tôi đổi sang câu hỏi tình huống cụ thể, 
 7. Đề cho khí lưỡng nguyên tử, chu trình gồm $P,V$ ở các trạng thái, **không cho số mol**. Bạn có cần tìm $n$ không? Nếu không, bạn thay thế bằng gì trong công thức?
     không cần tìm n vì nrT <=> PV
 8. Bạn tính 2 đại lượng lẽ ra phải **triệt tiêu chính xác** (như $W_{23}+W_{41}$ trong chu trình Carnot) nhưng lại lệch một chút (VD dư $5$J). Đây là dấu hiệu gì, và bạn nên làm gì tiếp theo?
-    - có thể làm tròn hơi lố, làm tròn
+    - có thể làm tròn hơi lố, làm tròn 4 số thập phân thôi 
 
 Trả lời theo khả năng nhé — tôi sẽ chỉ ra chỗ nào cần củng cố thêm trước khi thi.
