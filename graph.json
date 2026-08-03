@@ -2101,10 +2101,16 @@
       "degree": 1
     },
     {
+      "id": "10_Projects/19_HomeRacer_AC/de_concepts",
+      "title": "de_concepts",
+      "group": "projects",
+      "degree": 1
+    },
+    {
       "id": "10_Projects/19_HomeRacer_AC/prep",
       "title": "prep",
       "group": "projects",
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "10_Projects/13_Uni_Retake/Linear_Programming_Plan",
@@ -6619,6 +6625,10 @@
       "target": "3 - Tags/SLZ"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/de_concepts",
+      "target": "10_Projects/19_HomeRacer_AC/prep"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/data scientist"
     },
@@ -6844,7 +6854,7 @@
     }
   ],
   "stats": {
-    "node_count": 490,
-    "link_count": 975
+    "node_count": 491,
+    "link_count": 976
   }
 }
