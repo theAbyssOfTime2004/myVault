@@ -62,7 +62,7 @@ related: "[[prep]]"
 **🟢 Lakehouse** — kết hợp: lưu file rẻ như lake nhưng có tính năng kiểu warehouse (transaction ACID, schema, time travel) nhờ **table format**. Đây là kiến trúc hiện đại phổ biến — và là kiến trúc project Lichess của bạn.
 
 **🟡 Table format: Delta Lake / Apache Iceberg / Hudi** — lớp metadata phủ lên các file Parquet, cho phép: ACID transaction, cập nhật/xóa dòng, **time travel** (đọc lại trạng thái bảng ở thời điểm quá khứ), schema evolution.
-
+ 
 **🟢 Định dạng file:**
 - **CSV** — theo dòng, dễ đọc, nhưng cồng kềnh, không có kiểu dữ liệu, chậm.
 - **JSON** — linh hoạt, lồng nhau được, nhưng nặng và chậm.
