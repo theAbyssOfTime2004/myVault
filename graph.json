@@ -2104,13 +2104,19 @@
       "id": "10_Projects/19_HomeRacer_AC/de_concepts",
       "title": "de_concepts",
       "group": "projects",
-      "degree": 1
+      "degree": 2
+    },
+    {
+      "id": "10_Projects/19_HomeRacer_AC/case_rationale",
+      "title": "case_rationale",
+      "group": "projects",
+      "degree": 2
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/prep",
       "title": "prep",
       "group": "projects",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "10_Projects/13_Uni_Retake/Linear_Programming_Plan",
@@ -6629,6 +6635,14 @@
       "target": "10_Projects/19_HomeRacer_AC/prep"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/case_rationale",
+      "target": "10_Projects/19_HomeRacer_AC/prep"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/case_rationale",
+      "target": "10_Projects/19_HomeRacer_AC/de_concepts"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/data scientist"
     },
@@ -6854,7 +6868,7 @@
     }
   ],
   "stats": {
-    "node_count": 491,
-    "link_count": 976
+    "node_count": 492,
+    "link_count": 978
   }
 }
