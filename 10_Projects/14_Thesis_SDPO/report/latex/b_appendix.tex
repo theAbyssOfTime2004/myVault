@@ -2,6 +2,7 @@
 
 \section{Code (LiveCodeBench v6, core)}\label{a.1-code-livecodebench-v6-core}
 
+\begingroup\setlength{\tabcolsep}{3pt}
 \begin{longtable}{ll}
 \caption{Hyperparameters: code (LiveCodeBench v6, core).}\\
 \toprule
@@ -28,11 +29,11 @@ KL direction & 1.0 (reverse KL) \\
 Importance-sampling clip & 2.0 \\
 Similarity threshold (difflib judge) & \textasciitilde0.9 \\
 Few-shot exemplars max & 3 \\
-Few-shot option & good only (main); good bad (leak ablation) \\
+Few-shot option & good-only (main); good-bad (leak ablation) \\
 Judge & difflib (string-sim) or groq llama (semantic) \\
 Reference mode & best in batch \\
 Hardware & Colab L4 (22 GB) / A100 \\
-\end{longtable}
+\end{longtable}\endgroup
 
 \section{Math (AIME 2026, pilot)}\label{a.2-math-aime-2026-pilot}
 
@@ -64,7 +65,7 @@ Shared distillation core (both domains): per-token top-K reverse KL with teacher
 
 \section{Shared test-time training loop (pseudocode)}\label{a.3-shared-ttt-loop}
 
-Both arms (student-first and teacher-first) share the skeleton below and differ only in the two arm-specific lines (trajectory generation and target selection). In the codebase, student-first is realized with the library trainer \texttt{SDPOTrainer} (script \texttt{07\_discovery\_curve.py}); teacher-first is a custom training loop (script \texttt{09\_teacher\_first.py}) that reuses the baseline's feedback-construction and evaluation helpers.
+{\sloppy Both arms (student-first and teacher-first) share the skeleton below and differ only in the two arm-specific lines (trajectory generation and target selection). In the codebase, student-first is realized with the library trainer \texttt{SDPOTrainer} (script \texttt{07\_discovery\_curve.py}); teacher-first is a custom training loop (script \texttt{09\_teacher\_first.py}) that reuses the baseline's feedback-construction and evaluation helpers.\par}
 
 \begin{lstlisting}
 load base model + LoRA + optimizer (AdamW, lr = 1e-5)
@@ -80,7 +81,7 @@ POST-eval (student pi_theta(*|x) only, N_eval samples)       # after TTT
 report PRE->POST and the discovery curve
 \end{lstlisting}
 
-\chapter{Reprompt templates (verbatim)}\label{appendix-b-reprompt-templates-verbatim}
+\chapter{Reprompt templates}\label{appendix-b-reprompt-templates-verbatim}
 
 Each preset overrides the SDPO template slots only; the model, the feedback content (the privileged context), and the hyperparameters are held fixed for a clean ablation. T2 is the default verbatim.
 
@@ -111,7 +112,7 @@ Each preset overrides the SDPO template slots only; the model, the feedback cont
 },
 \end{lstlisting}
 
-\chapter{Teacher and judge prompts (verbatim)}\label{appendix-c-teacher-and-judge-prompts-verbatim}
+\chapter{Teacher and judge prompts}\label{appendix-c-teacher-and-judge-prompts-verbatim}
 
 \section{Teacher prompt and few-shot block}\label{c.1-teacher-prompt-and-few-shot-block}
 
@@ -130,7 +131,7 @@ Bad example 1 (do not imitate):
     [bad / copied trajectory, fenced as a python block]
 \end{lstlisting}
 
-Under good only option, only the ``Correct example'' exemplars appear; under good bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content.
+Under the good-only option, only the ``Correct example'' exemplars appear; under the good-bad option, the ``Bad example'' block is appended, which is what re-introduces reference-like content.
 
 \section{\texorpdfstring{LLM judge prompt: code (groq \texttt{llama-3.3-70b})}{LLM judge prompt: code (groq llama-3.3-70b)}}\label{c.2-llm-judge-prompt-code-groq-llama-3.3-70b}
 
@@ -277,7 +278,7 @@ idx8 drifts the other way.
 
 POST is longer and more careful, yet still wrong (correct 29). Across the two problems, then, TTT moves the reasoning style in opposite directions (idx9 lazier, idx8 more rigorous) while leaving correctness unchanged.
 
-\section{Genuine discovery on code (idx12, run teacherfirst-\dots-idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
+\section{Genuine discovery on code (idx12)}\label{d.5-genuine-discovery-on-code-idx12-run-teacherfirst-...-idx12}
 
 The contrast with the math pilot is the point of the thesis. Here the output is a \emph{program}, and teacher-first installs a working one. Problem abc389 b: given X, find N with N! = X.
 
@@ -346,7 +347,7 @@ seed & PRE & TF POST & SF POST \\
 mean & & 0.167 & 0.094 \\
 \end{longtable}
 
-\section{idx12 (abc389\_b, model-hard, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
+\section{idx12 (abc389\_b, model pass ≈ 0.12), eval-16}\label{e.2-idx12-abc389_b-model-hard-model-pass-0.12-eval-16}
 
 \begin{longtable}{llll}
 \caption{Per-step evaluation for idx12 (model-hard, eval-16).}\\
@@ -369,8 +370,9 @@ seed & PRE & TF POST & SF POST \\
 mean & & 1.000 & 0.844 \\
 \end{longtable}
 
-\section{Frontier-Scan Comprehensive Evaluations (8 Problems $\times$ 6 Seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
+\section{Frontier scan (8 problems $\times$ 6 seeds)}\label{e.3-frontier-scan-comprehensive-evaluations}
 
+\begingroup\setlength{\tabcolsep}{3.5pt}
 \begin{longtable}{llllll p{4.2cm}}
 \caption{Frontier-scan summary: 8 problems $\times$ 6 seeds (SF/TF mean, win/tie/loss).}\\
 \toprule
@@ -391,10 +393,11 @@ idx64 & abc397\_e & LLM-groq & 0.031 & 0.406 & 6/0/0 & s0, s4, s5 (SF 0 $\righta
 idx69 & abc398\_b & LLM-groq & 0.156 & 0.354 & 6/0/0 & --- \\
 idx77 & abc399\_f & difflib & 0.219 & 0.344 & 4/2/0 & --- \\
 idx78 & abc399\_g & difflib & 0.031 & 0.198 & 6/0/0 & s0, s3 (SF 0 $\rightarrow$ 0, TF 0.125) \\
-\end{longtable}
+\end{longtable}\endgroup
 
-Per-seed POST pass@16 metrics across the core frontier subsets (canonical evaluation runs mapped under canonical good\_only / T2 presets; consolidated via W\&B tracking logs):
+Per-seed POST pass@16 metrics across the core frontier subsets (canonical evaluation runs mapped under canonical good-only / T2 presets; consolidated via W\&B tracking logs):
 
+\begingroup\setlength{\tabcolsep}{3.5pt}
 \begin{longtable}{lllllllll}
 \caption{Per-seed POST pass@16 for idx64, idx77, idx58, idx78.}\\
 \toprule
@@ -414,10 +417,11 @@ seed & idx64 TF & idx64 SF & idx77 TF & idx77 SF & idx58 TF & idx58 SF & idx78 T
 4 & 0.4375 & 0.0000 & 0.3750 & 0.1875 & 0.1250 & 0.0000 & 0.3125 & 0.0625 \\
 5 & 0.3750 & 0.0000 & 0.3125 & 0.3125 & 0.4375 & 0.0625 & 0.1875 & 0.0000 \\
 mean & 0.4063 & 0.0313 & 0.3438 & 0.2188 & 0.2188 & 0.0833 & 0.1979 & 0.0313 \\
-\end{longtable}
+\end{longtable}\endgroup
 
-Per-seed POST pass@16 for the remaining four frontier problems (same canonical good\_only / T2 presets):
+Per-seed POST pass@16 for the remaining four frontier problems (same canonical good-only / T2 presets):
 
+\begingroup\setlength{\tabcolsep}{3.5pt}
 \begin{longtable}{lllllllll}
 \caption{Per-seed POST pass@16 for idx39, idx46, idx59, idx69.}\\
 \toprule
@@ -437,11 +441,9 @@ seed & idx39 TF & idx39 SF & idx46 TF & idx46 SF & idx59 TF & idx59 SF & idx69 T
 4 & 0.1250 & 0.0000 & 0.3125 & 0.0625 & 0.3125 & 0.1875 & 0.3750 & 0.1875 \\
 5 & 0.1875 & 0.1875 & 0.3125 & 0.3125 & 0.3125 & 0.1250 & 0.3750 & 0.1250 \\
 mean & 0.1667 & 0.0938 & 0.2917 & 0.1458 & 0.2708 & 0.1250 & 0.3542 & 0.1563 \\
-\end{longtable}
+\end{longtable}\endgroup
 
-\begin{quote}
-The explicit tracking profiles confirm that under structural execution-guided steering, the stochastic variance across seeds 4 and 5 reflects the core algorithmic signals established within the smaller test batches. The stuck-at-zero behaviors remain strictly bound to unconditioned policy constraints, isolating the treatment gains from sampling anomalies.
-\end{quote}
+In the six-seed means, teacher-first exceeds student-first on all eight problems, and the stuck-at-zero cases occur only under the student-first (unconditioned) policy, consistent with the flat-reward trap rather than seed-to-seed sampling noise.
 
 \section{RO1 template (SF arm, 6 seeds), POST pass@16}\label{e.4-rq1-template-sf-arm-6-seeds-post-pass16}
 
@@ -462,7 +464,7 @@ T2\_standard & 0.94 & 0.07 \\
 T5\_reasoning & 0.95 & 0.12 \\
 \end{longtable}
 
-The localized performance profile across expanding seed clusters remains highly stable, verifying that diagnostic and instructional guidance triggers functional optimization shifts rather than simple syntax variations.
+The template ordering (T5 \textgreater{} T2 \textgreater{} T1 on the hard problem, saturating on the easy one) is stable across the six seeds, indicating the effect comes from the reasoning-inducing instruction rather than surface syntax.
 
 \section{Judge $\times$ few-shot ablation, mean POST pass (6 seeds)}\label{e.5-judge-few-shot-ablation-mean-post-pass-6-seeds}
 
@@ -491,7 +493,7 @@ The tables below are the numerical backing for the figures of Chapter 4 and Chap
 
 
 \begin{longtable}{lcccc}
-\caption{Main results (backing Figure~\ref{fig:bc-main}): per-problem TF/SF mean POST pass@16 over six seeds, with SD.}\\
+\caption[Main results: per-problem TF/SF mean POST pass@16]{Main results (backing Figure~\ref{fig:bc-main}): per-problem TF/SF mean POST pass@16 over six seeds, with SD.}\\
 \toprule
 problem & TF mean & TF SD & SF mean & SF SD \\
 \midrule

@@ -12,7 +12,15 @@ Evaluating the pipeline across two different domains (LiveCodeBench v6 for code 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\linewidth]{../figures/bc_fig5_boundary.pdf}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,
+  box/.style={draw,rounded corners,align=center,minimum height=0.9cm,text width=5.2cm,inner sep=4pt}]
+\node[box,fill=black!8](r)  at (4,4.8){\textbf{Reference in privileged context}};
+\node[box,fill=blue!10](c)  at (0,3.1){Code: output = a \textbf{program} = a \textbf{method}};
+\node[box,fill=orange!18](m) at (8,3.1){Math (answer-only): output = a \textbf{value}};
+\node[box,fill=green!14](ce) at (0,1.1){generalizes to new inputs; distillation installs the procedure $\Rightarrow$ \textbf{escape}};
+\node[box,fill=red!14](me)  at (8,1.1){does not generalize; the teacher copies; form $\neq$ substance $\Rightarrow$ \textbf{no escape}};
+\draw[->](r)--(c);\draw[->](r)--(m);\draw[->](c)--(ce);\draw[->](m)--(me);
+\end{tikzpicture}
 \caption{The value-versus-procedure boundary. When the privileged reference encodes an in-reach method (a correct program), distillation installs a procedure that generalizes and the model escapes; when it encodes only a value (an answer-only math reference), the teacher can only copy and the model does not escape.}
 \label{fig:bc-boundary}
 \end{figure}

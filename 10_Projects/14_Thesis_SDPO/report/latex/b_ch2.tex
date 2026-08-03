@@ -63,16 +63,17 @@ SDPO (logit-level) & soft distribution over top-\(K\) vocab & \(O(T \cdot K)\) \
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,every node/.style={draw,rounded corners,align=center,minimum height=0.7cm,text width=3.3cm,inner sep=2pt}]
-\node(gr) at (0,3){scalar reward $r$};
-\node(ga) at (0,2){one advantage / sequence};
-\node(gt) at (0,1){same signal every token ($O(1)$)};
-\node(sf) at (4.4,3){feedback $f$};
-\node(st) at (4.4,2){teacher per-token dist.};
-\node(stk) at (4.4,1){soft top-$K$ target / position ($O(T\cdot K)$)};
-\draw[->](gr)--(ga);\draw[->](ga)--(gt);\draw[->](sf)--(st);\draw[->](st)--(stk);
-\node[draw=none,font=\bfseries] at (0,3.8){GRPO (sparse)};
-\node[draw=none,font=\bfseries] at (4.4,3.8){SDPO (dense)};
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,semithick,
+  every node/.style={draw,rounded corners,align=center,minimum height=0.8cm,text width=3.4cm,inner sep=3pt}]
+\node(gr)  at (0,4.5){scalar reward $r$};
+\node(ga)  at (0,3)  {one advantage / sequence};
+\node(gt)  at (0,1.5){same signal every token ($O(1)$)};
+\node(sf)  at (5,4.5){feedback $f$};
+\node(st)  at (5,3)  {teacher per-token dist.};
+\node(stk) at (5,1.5){soft top-$K$ target / position ($O(T\cdot K)$)};
+\draw[->](gr)--(ga); \draw[->](ga)--(gt); \draw[->](sf)--(st); \draw[->](st)--(stk);
+\node[draw=none,font=\bfseries] at (0,5.5){GRPO (sparse)};
+\node[draw=none,font=\bfseries] at (5,5.5){SDPO (dense)};
 \end{tikzpicture}
 \caption{Credit-assignment density, GRPO versus SDPO. GRPO attaches one scalar advantage to a whole sequence, so every token receives the same signal (\(O(1)\)); SDPO conditions the teacher on feedback and supplies a soft, \(K\)-dimensional target per position (\(O(T\cdot K)\)).}
 \label{fig:credit-density}
@@ -100,7 +101,7 @@ In the test-time setting \cite{r1}, a single hard problem is fixed, the reward i
 
 The metric is discovery@k \cite{r1}, the probability of solving within the first \(k\) attempts, \(P(T \le k)\) with discovery time \(T = \min\{k : r(y_k) = 1\}\). It generalizes pass@k \cite{r9} from i.i.d. sampling to sequential algorithms that share state or update weights between attempts, and it reduces to pass@k when the algorithm is plain best-of-k. The lineage is the time-to-termination performance profile of Dolan and Moré \cite{r12}. Empirically, SDPO discovers 53.2\% of very-hard problems against best-of-k's 41.5\%, and on some problems is the only method to solve at all, even though the initial self-teacher accuracy is below 1\% on almost every hard problem \cite{r1}. That last point matters most: dense credit assignment lets the model improve before it has produced a single success.
 
-This situates the work within the broader study of inference-time compute. Repeated sampling raises coverage on hard problems, scaling as a power law in the sample budget \cite{r20}; self-consistency aggregates multiple sampled reasoning paths into a more reliable answer \cite{r18}; and budget-controlled test-time scaling improves reasoning by spending more tokens per problem \cite{r21}. Closest in spirit is self-taught reasoning \cite{r19}, which bootstraps a model from its own generated rationales; teacher-first likewise learns from filtered self-generated trajectories, but distils a dense per-token target rather than fine-tuning on the text.
+This situates the work within the broader study of inference-time compute. Repeated sampling raises coverage on hard problems, scaling as a power law in the sample budget \cite{r20}; self-consistency aggregates multiple sampled reasoning paths into a more reliable answer \cite{r18}; and budget-controlled test-time scaling improves reasoning by spending more tokens per problem \cite{r21}. Closest in spirit is self-taught reasoning \cite{r19}, which bootstraps a model from its own generated rationales; teacher-first likewise learns from filtered self-generated trajectories, but distills a dense per-token target rather than fine-tuning on the text.
 
 \section{The reprompt template and its design space}\label{the-reprompt-template-and-its-design-space}
 

@@ -2,7 +2,7 @@
 
 \section{Method extensions for the full study}\label{method-extensions-for-the-full-study}
 
-Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distils only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distils nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RO2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
+Four core components establish the framework of this full study. (i) \textbf{Exact filtering:} the verifier--judge filter distills only correct, independent trajectories; on a step where every teacher trajectory is judged a copy, the good pool is empty and that step distills nothing. (ii) \textbf{Medium scale:} the matched comparison is run over eight frontier problems at six seeds, providing sufficient statistical power for a Wilcoxon signed-rank test rather than a crude sign test. (iii) \textbf{Thinking ON for code:} the code arm is executed with reasoning traces enabled, allowing for the systematic measurement of epistemic verbalization (RO2). (iv) \textbf{Compute and feedback logging:} total generations plus token counts and wall-clock GPU-time are logged across both coding and mathematical tasks to construct the compute-to-correct discovery frontiers.
 
 \section{Setup}\label{setup}
 
@@ -33,7 +33,7 @@ Within the eight, the canonical hard cases anchor the comparison: idx64 (TF 0.41
 Holding the generation budget equal (student-first at ten generations per step, matching teacher-first), teacher-first maintains its dominance on code: it stays at or above student-first on every evaluated problem and retains a large lead on the escape-zero cases. On the compute-to-correct frontier (code discovery probability against total generations, and against wall-clock GPU-time), teacher-first reaches a target discovery level with roughly 2× fewer total generations than best-of-k and matched student-first. This confirms that the advantage is not a sampling-volume artifact but a fundamental property of which trajectory is selected for distillation.
 
 \begin{longtable}[]{@{}llll@{}}
-\caption{Compute-matched comparison on the escape-zero anchors (student-first at $g{=}10$ vs.\ teacher-first).}\\
+\caption{Compute-matched comparison on the escape-zero anchors.}\\
 \toprule\noalign{}
 problem & SF g=10 & TF g=10 (real anchor) & gap \\
 \midrule\noalign{}
@@ -74,11 +74,11 @@ Evaluating the code arm with thinking enabled provides reasoning traces to analy
 \label{fig:bc-epistemic}
 \end{figure}
 
-\section{The Domain Boundary (RO3): Architectural Characterization on Math}\label{the-domain-boundary-architectural-characterization-on-math}
+\section{RO3: the domain boundary on math}\label{the-domain-boundary-architectural-characterization-on-math}
 
-In contrast to the successful lift-off observed in the coding domain, the mathematical evaluation on the AIME 2026 dataset exposes a hard performance boundary, with the model failing to escape the zero-reward state. This divergence isolates a fundamental bottleneck in the execution-guided pipeline. Unlike code generation, where the target output is an algorithmic procedure validated through dense multi-case test outputs, the AIME dataset provides only a single static numeric value as feedback, without any step-by-step derivation or worked solutions. 
+In contrast to the lift-off seen on code, the AIME 2026 evaluation hits a hard boundary: the model does not escape the zero-reward state. This marks a limit of the execution-guided approach. Unlike code generation, where the target output is an algorithmic procedure validated through dense multi-case tests, the AIME dataset provides only a single static numeric value as feedback, with no step-by-step derivation or worked solution. 
 
-Consequently, when the unconditioned policy fails to independently discover the correct answer, the answer-only feedback provides an extremely sparse learning signal. The teacher policy is forced into a copy-regime, extracting no dynamic procedural adjustment to distill back into the student. Within the limits of this small pilot, this indicates that the efficacy of teacher-first self-distillation depends strictly on whether the privileged context conveys a reproducible procedure or a raw value, leaving a critical room for improvement regarding procedural math feedback.
+When the unconditioned policy cannot discover the correct answer on its own, the answer-only feedback is an extremely sparse learning signal, and the teacher can only copy: there is no procedure to distill back into the student. Within the limits of this small pilot, this suggests that whether teacher-first self-distillation helps depends on whether the privileged context carries a reproducible procedure or a raw value, and points to procedural math feedback as a direction for future work.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -107,10 +107,10 @@ escape-zero?
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-LiveCodeBench v6 (Code) & Dense multi-case test outputs & \textbf{Yes (Significant Lift)} \\
-AIME 2026 Pilot (Math) & Static numeric value only & No (Stuck at 0/2) \\
+LiveCodeBench v6 (code) & Dense multi-case test outputs & \textbf{Yes (lift-off)} \\
+AIME 2026 pilot (math) & Static numeric value only & No (stuck at 0/2) \\
 \end{longtable}
 
 \section{Math pilot}\label{math-pilot}
 
-Re-running the AIME pilot sharpens this empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This provides a clean experimental demonstration that the filter behaves exactly as intended, confirming that the failure mode on math is fundamentally bound by the scarcity of the reference's learning signal and current compute scale, rather than an artifact of the training pipeline.
+Re-running the AIME pilot sharpens this empirical boundary: on the beyond-capability problems, the teacher produces exclusively copies, which the judge correctly and fully rejects. Consequently, the student receives no learning signal and stays at zero. This shows the filter behaves as intended: the math failure comes from the sparse, value-only reference (and this pilot's small compute scale), not from a bug in the training pipeline.

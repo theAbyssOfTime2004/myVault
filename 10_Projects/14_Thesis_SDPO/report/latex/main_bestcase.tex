@@ -46,6 +46,8 @@
   breakindent=0pt,postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}}
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{\small}
+% keep each bibliography entry on one page (no mid-entry page breaks)
+\AtBeginEnvironment{thebibliography}{\interlinepenalty=10000\relax}
 \AtBeginEnvironment{verbatim}{\footnotesize}
 
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}

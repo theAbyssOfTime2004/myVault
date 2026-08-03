@@ -45,14 +45,14 @@
 
 %==================== PROFESSIONAL SUMMARY ====================
 \section{Professional Summary}
-Final-year Data Science student with hands-on experience building LLM agent and retrieval-augmented generation (RAG) systems across two AI Engineer internships, plus computer-vision work. Comfortable with Python and the Hugging Face ecosystem. \textbf{Targeting a Fresher/Junior AI Engineer role in Vietnam}, focused on shipping practical LLM and RAG features.
+Recent Data Science graduate from VNUHCM - University of Science. Passionate about building LLM applications, with internship experience in agent pipelines and RAG chatbots; proficient in Python, PyTorch, and LangChain/LlamaIndex. Seeking a Fresher AI Engineer position in Vietnam.
 
 %==================== TECHNICAL SKILLS ====================
 \section{Technical Skills}
 \begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X@{}}
 \textbf{Languages:} & Python, SQL \\
 \textbf{LLM \& GenAI:} & RAG pipelines, multi-agent systems, function calling, prompt engineering; LlamaIndex, LangChain, LangGraph, Hugging Face Transformers \\
-\textbf{Model Training:} & Fine-tuning (LoRA), ONNX, model benchmarking \\
+\textbf{Model Training:} & Fine-tuning (LoRA, DPO), TRL, ONNX, LLM benchmarking (LiveCodeBench) \\
 \textbf{Core ML \& CV:} & PyTorch, TensorFlow, scikit-learn, OpenCV, ViT, YOLO \\
 \textbf{Backend \& Serving:} & FastAPI, async (asyncio), REST APIs \\
 \textbf{Cloud \& Databases:} & AWS, GCP, Azure; PostgreSQL, MongoDB, Redis, pgvector \\
@@ -93,20 +93,19 @@ Final-year Data Science student with hands-on experience building LLM agent and 
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
     \item Extending train-time SDPO (Hübotter et al., 2026) to the test-time regime for code generation on Qwen3-8B, with online preference updates during multi-turn inference on LiveCodeBench v6 (hard + very-hard splits).
     \item Built a multi-turn inference loop with execution-guided trajectory collection and a 7-variant reprompt template taxonomy to study template effects on discovery@$k$.
-    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single L4 GPU with a Qwen-1.5B proof-of-concept, confirming real per-step learning before scaling.
+    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single L4 GPU with a Qwen3-4B proof-of-concept, confirming real per-step learning before scaling.
     \item Proposing Compute-to-Correct (CTC), a compute-aware test-time discovery metric, and analyzing per-step epistemic uncertainty suppression.
 \end{itemize}
 
 %==================== PROJECTS ====================
 \section{Projects}
 
-\noindent\textbf{Chess Feature Store --- End-to-End Lakehouse Data Platform (Lichess, 100GB+)} \hfill \href{https://github.com/theAbyssOfTime2004/lichess-feature-store}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
-
+\noindent\textbf{Viettel AI Race --- PDF Parsing \& Document QnA Pipeline} \hfill \href{https://github.com/theAbyssOfTime2004/Viettel-AI-Race}{\color{darkblue}[GitHub]} \\
+\vspace{-1.1em}
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
-    \item Built a Medallion Lakehouse (Bronze/Silver/Gold) over 100GB+ of Lichess dumps on MinIO + Delta Lake, parsing PGN at scale with Spark (\texttt{python-chess} UDFs) and Trino SQL transforms.
-    \item Engineered a dual batch + streaming Feature Store: offline features from Delta, and real-time behavioral features via Kafka $\rightarrow$ Flink windowed aggregation, materialized to a Redis online store behind a FastAPI API.
-    \item Implemented point-in-time-correct feature joins (no future leak) feeding an IsolationForest anomaly-detection consumer.
-    \item Orchestrated the pipeline with Airflow; deployed on GKE via Terraform (Spot + autoscale-to-0) with Prometheus + Grafana monitoring.
+  \item Built a PDF parsing pipeline with Dots.OCR, extracting layout-aware content (text, tables, formulas) into structured Markdown.
+  \item Improved extraction with preprocessing (crop/whiteout) and bbox-based post-processing for correct table-cell merging.
+  \item Built a RAG multiple-choice QnA module (LlamaIndex, \texttt{bge-small-en} embeddings, Qwen3-4B) over parsed docs; $\sim$85\% on private test.
 \end{itemize}
 
 \vspace{0.2em}
@@ -119,12 +118,12 @@ Final-year Data Science student with hands-on experience building LLM agent and 
 \end{itemize}
 
 \vspace{0.2em}
-\noindent\textbf{Viettel AI Race --- PDF Parsing \& Document QnA Pipeline} \hfill \href{https://github.com/theAbyssOfTime2004/Viettel-AI-Race}{\color{darkblue}[GitHub]} \\
-\vspace{-1.1em}
+\noindent\textbf{Chess Feature Store --- End-to-End Lakehouse Data Platform (Lichess, 100GB+)} \hfill \href{https://github.com/theAbyssOfTime2004/lichess-feature-store}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
+
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
-  \item Built a PDF parsing pipeline with Dots.OCR, extracting layout-aware content (text, tables, formulas) into structured Markdown.
-  \item Improved extraction with preprocessing (crop/whiteout) and bbox-based post-processing for correct table-cell merging.
-  \item Built a RAG multiple-choice QnA module (LlamaIndex, \texttt{bge-small-en} embeddings, Qwen3-4B) over parsed docs; $\sim$85\% on private test.
+    \item Built a Medallion Lakehouse (Bronze/Silver/Gold) over 100GB+ of Lichess dumps on MinIO + Delta Lake, parsing PGN at scale with Spark (\texttt{python-chess} UDFs) and Trino SQL transforms.
+    \item Engineered a dual batch + streaming Feature Store: offline features from Delta, and real-time behavioral features via Kafka $\rightarrow$ Flink windowed aggregation, materialized to a Redis online store behind a FastAPI API.
+    \item Implemented point-in-time-correct feature joins (no future leak) feeding an IsolationForest anomaly-detection consumer; orchestrated with Airflow and deployed on GKE via Terraform, monitored with Prometheus + Grafana.
 \end{itemize}
 
 %==================== EDUCATION ====================
