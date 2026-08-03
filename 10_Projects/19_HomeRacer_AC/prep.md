@@ -62,11 +62,23 @@ role: Data Engineer — HomeRacer / Home Credit
 **Nước đi ăn điểm ngay phút đầu:** *"Mình có 60 phút và 10 phút present cho 6 người. Hay mình chia: 10 phút hiểu đề, 10 phút nêu ý tưởng, 25 phút thiết kế, 15 phút cuối ráp bài? Để không bị hụt lúc cuối."*
 → Khớp đúng tiêu chí **"help the team move forward"** trong email. Vai **timekeeper/synthesizer** là vai dễ nổi bật nhất, rủi ro thấp nhất, và gần như không ai giành.
 
-### Laptop = nhiều khả năng có dữ liệu để xem
-Guide nhắc *"reading a small tabular dataset and finding patterns"* + email bắt mang laptop → **rất có thể họ đưa file dữ liệu (CSV/Excel) để phân tích tại chỗ.** Chuẩn bị:
+### Laptop = ghi chép / làm slide / xem bảng dữ liệu nhỏ — KHÔNG phải để code
+
+> **Không có bài code nào ở AC.** TA xác nhận "chỉ design plan"; phần technical là whiteboard hoặc chỉ nói ý tưởng/flow. Laptop dùng để ghi chú, soạn nội dung present, và (có thể) mở một bảng dữ liệu nhỏ.
+
+Nếu có dataset: *"small tabular dataset"* = nhỏ thật (vài chục dòng), **đọc bằng mắt**. Nhóm có 6 người từ nhiều track (product, DA...) nên đề bắt buộc phải làm được mà không cần lập trình.
+
+Cái được chấm là **tư duy đọc số**, không phải công cụ:
+- Tìm pattern (xu hướng, outlier, tương quan)
+- **Sanity-check đơn vị & độ hợp lý trước khi tin** — "cột này ms hay giây? con số này có vô lý không?"
+- **Nêu giả định thành lời** khi suy luận từ cột thô
+
+→ Người nhìn bảng rồi hỏi *"đơn vị cột này là gì?"* ăn điểm hơn người tính toán giỏi mà không nghi ngờ dữ liệu.
+
+**Chuẩn bị (đủ, không cần hơn):**
 - [ ] Laptop **sạc đầy** + mang sạc
-- [ ] Excel/Google Sheets mở được, biết làm **pivot table** nhanh
-- [ ] Python + pandas chạy được offline (phòng khi cần), hoặc ít nhất Jupyter/VSCode sẵn sàng
+- [ ] Mở được Excel hoặc Google Sheets
+- [ ] Biết 3 thao tác: **sort**, **filter**, **pivot table** (học pivot ~20 phút là xong — đây là trần kỹ thuật cần cho hôm đó)
 - [ ] Tải sẵn **bản offline** của các note này (không dựa vào wifi/4G)
 
 ### Q&A với assessors (11:40–11:50) — đây là vòng cá nhân
