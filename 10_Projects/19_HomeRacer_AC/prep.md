@@ -32,10 +32,59 @@ role: Data Engineer — HomeRacer / Home Credit
 
 ---
 
+## PHẦN 0.5 — Agenda chính thức & chiến thuật thời gian
+
+**Logistics:** 6/8/2026 (T5), 9:30–12:00 · Home Credit VN Office, **20 Nguyễn Đăng Giai, Thủ Đức** · check-in **trước 9:30** (đến trễ có thể không được tham gia) · **smart casual** · **mang laptop** · nhóm **6 người**, bị quan sát suốt buổi.
+
+| Giờ | Hoạt động |
+|---|---|
+| 9:30–10:00 | Check-in & welcome |
+| 10:00–10:30 | Opening, hướng dẫn, chia nhóm |
+| **10:30–11:30** | **Group case discussion (60 phút)** |
+| **11:30–11:40** | **Group presentation (10 phút)** |
+| 11:40–11:50 | Q&A với assessors |
+| 11:50–12:00 | Wrap-up |
+
+### Điều quan trọng nhất từ agenda: 10 phút present cho 6 người
+→ **~1.5 phút/người.** Đây KHÔNG phải present cá nhân dài dòng. Phải:
+- Chốt sớm ai nói phần nào (đừng để phút 55 mới bàn).
+- Nói cực gọn, không lan man. Một người một mảng.
+- **Dành 10–15 phút cuối giờ thảo luận để ráp bài + chạy thử.** Lỗi kinh điển: nhóm bàn say sưa 55 phút rồi hoảng loạn 5 phút cuối → present rời rạc, cả nhóm cùng mất điểm.
+
+### Kịch bản chia 60 phút (đề xuất cho nhóm — chính bạn nêu ra)
+| Phút | Việc |
+|---|---|
+| 0–10 | Hiểu đề: chạy khung 5 câu hỏi, chốt giả định |
+| 10–20 | Mỗi người nêu ý tưởng, chưa phán xét |
+| 20–45 | Chốt hướng + thiết kế chi tiết |
+| 45–60 | **Ráp slide/nội dung, chia phần, chạy thử 1 lượt** |
+
+**Nước đi ăn điểm ngay phút đầu:** *"Mình có 60 phút và 10 phút present cho 6 người. Hay mình chia: 10 phút hiểu đề, 10 phút nêu ý tưởng, 25 phút thiết kế, 15 phút cuối ráp bài? Để không bị hụt lúc cuối."*
+→ Khớp đúng tiêu chí **"help the team move forward"** trong email. Vai **timekeeper/synthesizer** là vai dễ nổi bật nhất, rủi ro thấp nhất, và gần như không ai giành.
+
+### Laptop = nhiều khả năng có dữ liệu để xem
+Guide nhắc *"reading a small tabular dataset and finding patterns"* + email bắt mang laptop → **rất có thể họ đưa file dữ liệu (CSV/Excel) để phân tích tại chỗ.** Chuẩn bị:
+- [ ] Laptop **sạc đầy** + mang sạc
+- [ ] Excel/Google Sheets mở được, biết làm **pivot table** nhanh
+- [ ] Python + pandas chạy được offline (phòng khi cần), hoặc ít nhất Jupyter/VSCode sẵn sàng
+- [ ] Tải sẵn **bản offline** của các note này (không dựa vào wifi/4G)
+
+### Q&A với assessors (11:40–11:50) — đây là vòng cá nhân
+10 phút cuối là lúc họ hỏi trực tiếp. Đây là chỗ Phần 2 (technical concepts) được dùng. Trả lời ngắn, có cấu trúc, không biết thì nói *"em chưa làm cái này, nhưng em nghĩ hướng tiếp cận sẽ là..."*.
+
+### 3 tip trong email = 3 tiêu chí chấm (dịch sang hành động)
+| Email nói | Thực chất là | Hành động |
+|---|---|---|
+| "Don't be afraid to speak up — không cần to nhất, cần rõ và tự tin" | Im lặng = không có gì để chấm | Phát biểu **trong 5 phút đầu**, dù chỉ là một câu hỏi làm rõ |
+| "Be collaborative: build on others' ideas, ask clarifying questions, help team move forward" | Chấm teamwork nặng | Dùng khung 5 câu hỏi + nhắc lại ý người khác trước khi bổ sung |
+| "Stay calm under time pressure — không cần đáp án hoàn hảo, cần thấy cách bạn tiếp cận" | Họ **cố tình** ép thời gian | Nêu giả định rồi tiến, đừng đứng im chờ đủ thông tin |
+
+---
+
 ## PHẦN 1 — Group Case (cấu phần chấm nặng nhất)
 
 ### 1.1 Chuyện gì xảy ra
-Ghép nhóm với ứng viên khác (product, DA...). Cùng giải một bài toán / thiết kế một data product. **Chỉ design plan, không build.** Ai cũng present. Chấm: đặt câu hỏi hiểu đề, teamwork, present.
+Ghép nhóm 6 người với ứng viên khác (product, DA...). Cùng giải một bài toán / thiết kế một data product trong 60 phút. **Chỉ design plan, không build.** Nhóm present 10 phút. Chấm: đặt câu hỏi hiểu đề, teamwork, present.
 
 ### 1.2 Home Credit làm gì (để đoán đề)
 Tài chính tiêu dùng: vay trả góp, vay tại điểm bán (POS), thẻ tín dụng. Đề DE thường quanh:
