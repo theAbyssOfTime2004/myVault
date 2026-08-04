@@ -2104,19 +2104,25 @@
       "id": "10_Projects/19_HomeRacer_AC/de_concepts",
       "title": "de_concepts",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/case_rationale",
       "title": "case_rationale",
       "group": "projects",
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/prep",
       "title": "prep",
       "group": "projects",
-      "degree": 2
+      "degree": 3
+    },
+    {
+      "id": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
+      "title": "quiz_data_literacy",
+      "group": "projects",
+      "degree": 3
     },
     {
       "id": "10_Projects/13_Uni_Retake/Linear_Programming_Plan",
@@ -6643,6 +6649,18 @@
       "target": "10_Projects/19_HomeRacer_AC/de_concepts"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
+      "target": "10_Projects/19_HomeRacer_AC/prep"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
+      "target": "10_Projects/19_HomeRacer_AC/de_concepts"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
+      "target": "10_Projects/19_HomeRacer_AC/case_rationale"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/data scientist"
     },
@@ -6868,7 +6886,7 @@
     }
   ],
   "stats": {
-    "node_count": 492,
-    "link_count": 978
+    "node_count": 493,
+    "link_count": 981
   }
 }
