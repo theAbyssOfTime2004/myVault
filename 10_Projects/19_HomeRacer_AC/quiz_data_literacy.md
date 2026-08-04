@@ -219,7 +219,7 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 **32.** Độ lệch chuẩn của cột `amount` đột ngột tăng gấp 10 lần so với bình thường. Nghi ngờ đầu tiên?
 - A. Khách hàng thay đổi hành vi
 - B. Dữ liệu bị nhân bản hoặc pipeline dính fan-out
-- C. Model machine learning cần train lại
+- ==C. Model machine learning cần train lại==
 - D. Kích thước cụm compute không đủ
 
 ---
@@ -229,24 +229,24 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 **33.** Quy tắc Z-score để phát hiện outlier thường dùng ngưỡng nào?
 - A. |Z| > 1
 - B. |Z| > 2
-- C. |Z| > 3 (ngoài khoảng 99.7%)
+- ==C. |Z| > 3 (ngoài khoảng 99.7%)==
 - D. |Z| > 5
 
 **34.** Xử lý ĐÚNG với các dòng bị đánh dấu outlier trong pipeline production?
 - A. Xóa vĩnh viễn
-- B. Đưa vào bảng cách ly (quarantine) để người rà soát, không cho vào warehouse
+- ==B. Đưa vào bảng cách ly (quarantine) để người rà soát, không cho vào warehouse==
 - C. Vẫn nạp bình thường, xử lý sau
 - D. Thay bằng giá trị trung bình
 
 **35.** Cách phát hiện data drift/bất thường về khối lượng mà không cần đọc từng dòng?
 - A. Kiểm tra thủ công mẫu ngẫu nhiên mỗi ngày
-- B. So số dòng và thống kê hôm nay với trung bình động 7 ngày, lệch quá 3σ thì cảnh báo
+- ==B. So số dòng và thống kê hôm nay với trung bình động 7 ngày, lệch quá 3σ thì cảnh báo==
 - C. Đếm số cột trong schema
 - D. Kiểm tra log của Airflow
 
 **36.** Định luật Benford dùng để phát hiện điều gì?
 - A. Dữ liệu bị thiếu
-- B. Dữ liệu có dấu hiệu bị tạo giả/thao túng, qua phân phối chữ số đầu tiên bất thường
+- ==B. Dữ liệu có dấu hiệu bị tạo giả/thao túng, qua phân phối chữ số đầu tiên bất thường==
 - C. Trùng lặp bản ghi
 - D. Sai lệch timezone
 
