@@ -108,30 +108,30 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **15.** Cột `latency` có giá trị `2000`. Trước khi kết luận "hệ thống chậm", cần làm gì?
 - A. So sánh với ngưỡng SLA ngay
-- B. Xác định đơn vị: 2000ms (2 giây) rất khác 2000 giây
+- ==B. Xác định đơn vị: 2000ms (2 giây) rất khác 2000 giây==
 - C. Tính trung bình toàn bộ cột
 - D. Kiểm tra xem có NULL không
 
 **16.** Cột `amount = 100000` trong hệ thống tài chính. Rủi ro diễn giải là gì?
 - A. Không có rủi ro, rõ ràng là 100.000 đồng
-- B. Có thể là đơn vị nhỏ nhất (xu/cents) → thực chất là 1.000,00
+- ==B. Có thể là đơn vị nhỏ nhất (xu/cents) → thực chất là 1.000,00==
 - C. Chắc chắn là USD
 - D. Cần chia cho 1000 để ra đơn vị chuẩn
 
 **17.** Cột `amount` không có cột `currency_code` đi kèm. Vấn đề là gì?
 - A. Không có vấn đề nếu công ty chỉ hoạt động ở một nước
-- B. Có thể đang cộng lẫn lộn nhiều loại tiền tệ khác nhau
+- ==B. Có thể đang cộng lẫn lộn nhiều loại tiền tệ khác nhau==
 - C. Chỉ ảnh hưởng báo cáo, không ảnh hưởng pipeline
 - D. Có thể suy ra tiền tệ từ độ lớn con số
 
 **18.** Cột `age` có giá trị `1802`. Nguyên nhân khả dĩ nhất?
 - A. Lỗi nhập liệu ngẫu nhiên
-- B. Cột thực chất chứa **năm sinh**, không phải tuổi
+- ==B. Cột thực chất chứa **năm sinh**, không phải tuổi==
 - C. Đơn vị là tháng
 - D. Giá trị sentinel đánh dấu dữ liệu thiếu
 
 **19.** Tỷ lệ chuyển đổi tính ra `150%`. Nguyên nhân thường gặp nhất?
-- A. Dữ liệu bị nhân bản hoặc sai mẫu số (denominator)
+- ==A. Dữ liệu bị nhân bản hoặc sai mẫu số (denominator)==
 - B. Khách hàng mua nhiều lần
 - C. Chuyện bình thường trong marketing
 - D. Lỗi làm tròn
