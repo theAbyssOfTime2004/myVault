@@ -138,13 +138,13 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **20.** Nguyên tắc "Physical Reality Check" trước khi đặt ngưỡng data quality là gì?
 - A. Ngưỡng phải dựa trên percentile của dữ liệu hiện có
-- B. Tự hỏi ngưỡng đó có hợp lý trong thực tế không (VD tuổi 0-120)
+- ==B. Tự hỏi ngưỡng đó có hợp lý trong thực tế không (VD tuổi 0-120)==
 - C. Ngưỡng phải do business chốt, kỹ sư không được đề xuất
 - D. Luôn đặt ngưỡng ở mức 3 độ lệch chuẩn
 
 **21.** Cột `balance` của tài khoản thanh toán có giá trị âm. Câu hỏi đúng cần đặt ra?
 - A. Xóa ngay vì số dư không thể âm
-- B. Sản phẩm này có cho phép thấu chi (overdraft) không?
+- ==B. Sản phẩm này có cho phép thấu chi (overdraft) không?==
 - C. Đổi thành 0
 - D. Đây chắc chắn là lỗi pipeline
 
@@ -154,13 +154,13 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **22.** Vai trò cốt lõi của DE/Analyst khi nhận yêu cầu mơ hồ từ business là gì?
 - A. Yêu cầu business viết lại cho rõ rồi mới làm
-- B. Biến câu hỏi mơ hồ thành logic có giả định được tuyên bố rõ ràng
+- ==B. Biến câu hỏi mơ hồ thành logic có giả định được tuyên bố rõ ràng==
 - C. Chọn cách diễn giải phổ biến nhất và làm luôn
 - D. Làm cả mọi cách diễn giải có thể
 
 **23.** Yêu cầu: "tính doanh thu". Bảng có `status` gồm SUCCESS, PENDING, CANCELLED, FAILED. Cách xử lý ĐÚNG?
 - A. `SUM(amount)` tất cả các dòng
-- B. Tuyên bố rõ: chỉ tính `status='SUCCESS'` và `refund_flag=FALSE`, rồi lọc theo đó
+- ==B. Tuyên bố rõ: chỉ tính `status='SUCCESS'` và `refund_flag=FALSE`, rồi lọc theo đó==
 - C. Loại PENDING, giữ lại phần còn lại
 - D. Hỏi business rồi ngồi chờ, không làm gì thêm
 
