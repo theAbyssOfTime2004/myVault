@@ -167,24 +167,24 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 **24.** Trong Explicit Assumption Framework, bước cuối cùng là gì?
 - A. Viết code SQL
 - B. Ghi chú vào tài liệu
-- C. Định lượng tác động — giả định này loại bỏ/giữ lại bao nhiêu % dữ liệu
+- ==C. Định lượng tác động — giả định này loại bỏ/giữ lại bao nhiêu % dữ liệu==
 - D. Gửi kết quả cho business duyệt
 
 **25.** Vì sao bước "định lượng tác động" quan trọng?
 - A. Để tối ưu hiệu năng query
-- B. Để biết giả định ảnh hưởng lớn hay nhỏ tới kết quả — lọc mất 2% khác hẳn lọc mất 40%
+- ==B. Để biết giả định ảnh hưởng lớn hay nhỏ tới kết quả — lọc mất 2% khác hẳn lọc mất 40%==
 - C. Vì quy trình bắt buộc
 - D. Để tính chi phí lưu trữ
 
 **26.** Giả định NGẦM (implicit) nguy hiểm hơn giả định SAI ở chỗ nào?
 - A. Nó luôn dẫn tới kết quả sai
-- B. Không ai biết nó tồn tại nên không ai kiểm chứng hay sửa được
+- ==B. Không ai biết nó tồn tại nên không ai kiểm chứng hay sửa được==
 - C. Nó làm query chạy chậm
 - D. Nó vi phạm quy định tuân thủ
 
 **27.** Báo cáo kế toán cuối ngày nên GROUP BY theo cột nào, và vì sao?
 - A. `processing_time`, vì đó là lúc hệ thống ghi nhận
-- B. `event_time`, vì phản ánh đúng thời điểm phát sinh tài chính
+- ==B. `event_time`, vì phản ánh đúng thời điểm phát sinh tài chính==
 - C. Cột nào cũng được, chênh lệch không đáng kể
 - D. Trung bình của hai cột
 
@@ -194,19 +194,19 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **28.** Bảng giá trị giao dịch có `Mean = 5.000.000`, `Median = 800.000`. Kết luận?
 - A. Dữ liệu phân phối chuẩn
-- B. Dữ liệu lệch phải — một số giao dịch rất lớn kéo trung bình lên
+- ==B. Dữ liệu lệch phải — một số giao dịch rất lớn kéo trung bình lên==
 - C. Dữ liệu lệch trái
 - D. Dữ liệu bị lỗi
 
 **29.** Với dữ liệu lệch mạnh như câu 28, nên dùng gì để đặt ngưỡng phát hiện bất thường?
 - A. Mean
-- B. Median hoặc percentile
+- ==B. Median hoặc percentile==
 - C. Mode
 - D. Tổng
 
 **30.** IQR được tính như thế nào?
 - A. Max − Min
-- B. Q3 − Q1 (P75 − P25)
+- ==B. Q3 − Q1 (P75 − P25)==
 - C. P99 − P1
 - D. 2 × độ lệch chuẩn
 
