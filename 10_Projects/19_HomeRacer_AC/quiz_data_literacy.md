@@ -15,44 +15,44 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 ## PHẦN A — Granularity & Cấu trúc dữ liệu (câu 1-7)
 
 **1.** Câu hỏi đầu tiên nên đặt ra khi nhìn một bảng dữ liệu lạ là gì?
-- A. Bảng có bao nhiêu dòng?
+- ==A. Bảng có bao nhiêu dòng?==
 - B. Mỗi dòng đại diện chính xác cho cái gì?
 - C. Cột nào có nhiều NULL nhất?
 - D. Dữ liệu được cập nhật lần cuối khi nào?
 
 **2.** Bảng có các cột `account_id`, `snapshot_date`, `balance`. Granularity của bảng này là gì?
 - A. Mỗi dòng là một giao dịch
-- B. Mỗi dòng là một tài khoản
+- ==B. Mỗi dòng là một tài khoản==
 - C. Mỗi dòng là trạng thái của một tài khoản tại một ngày
 - D. Mỗi dòng là một khách hàng
 
 **3.** Sự khác biệt cốt lõi giữa dữ liệu **event-level** và **state-level** là gì?
 - A. Event-level luôn nhiều dòng hơn state-level
-- B. Event-level ghi lại hành động xảy ra; state-level ghi lại trạng thái tại thời điểm
+- ==B. Event-level ghi lại hành động xảy ra; state-level ghi lại trạng thái tại thời điểm==
 - C. Event-level dùng cho OLTP, state-level dùng cho OLAP
 - D. Không có khác biệt thực chất, chỉ là cách gọi
 
 **4.** Bạn JOIN bảng `customers` (1 dòng/khách) với bảng `transactions` (N dòng/khách) rồi tính `SUM(customers.credit_limit)`. Chuyện gì xảy ra?
 - A. Kết quả đúng
 - B. Kết quả bị thiếu vì một số khách không có giao dịch
-- C. `credit_limit` bị nhân bản theo số giao dịch → tổng bị thổi phồng
+- ==C. `credit_limit` bị nhân bản theo số giao dịch → tổng bị thổi phồng==
 - D. Query báo lỗi vì sai kiểu dữ liệu
 
 **5.** Hiện tượng ở câu 4 gọi là gì?
 - A. Data skew
-- B. Fan-out effect
+- ==B. Fan-out effect==
 - C. Cartesian product
 - D. Data drift
 
 **6.** Quan hệ N-N (nhiều-nhiều) khi JOIN trực tiếp gây ra vấn đề gì?
 - A. Mất dữ liệu
-- B. Bùng nổ số dòng, dữ liệu bị nhân bản không kiểm soát
+- ==B. Bùng nổ số dòng, dữ liệu bị nhân bản không kiểm soát==
 - C. Query luôn trả về NULL
 - D. Không có vấn đề nếu có index
 
 **7.** Cách an toàn nhất để tránh fan-out khi cần tổng hợp từ bảng N là gì?
 - A. Dùng `SELECT DISTINCT`
-- B. Tổng hợp bảng N về đúng granularity trước, rồi mới JOIN
+- ==B. Tổng hợp bảng N về đúng granularity trước, rồi mới JOIN==
 - C. Dùng `LEFT JOIN` thay vì `INNER JOIN`
 - D. Thêm index vào khóa ngoại
 
@@ -62,31 +62,31 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **8.** Trong Pattern Discovery Matrix, "Logical Dependency" nghĩa là gì?
 - A. Cột này phụ thuộc kỹ thuật vào cột kia qua khóa ngoại
-- B. Quan hệ nghiệp vụ giữa các cột, VD `status='CLOSED'` thì `balance` phải bằng 0
+- ==B. Quan hệ nghiệp vụ giữa các cột, VD `status='CLOSED'` thì `balance` phải bằng 0==
 - C. Thứ tự các cột trong bảng
 - D. Cột được tính từ cột khác bằng công thức
 
 **9.** Cột `discount_code` có 80% giá trị NULL. Cách diễn giải đúng nhất là gì?
 - A. Dữ liệu bị lỗi, cần loại bỏ cột này
 - B. Cần điền giá trị mặc định cho tất cả NULL
-- C. NULL có thể mang nghĩa nghiệp vụ: đơn hàng không dùng mã giảm giá
+- ==C. NULL có thể mang nghĩa nghiệp vụ: đơn hàng không dùng mã giảm giá==
 - D. Pipeline nạp dữ liệu đã hỏng
 
 **10.** "Temporal pattern" khi quét dữ liệu thô bao gồm việc kiểm tra điều gì?
 - A. Chỉ xu hướng tăng/giảm theo thời gian
-- B. Xu hướng, tính chu kỳ, và cả **event đến không đúng thứ tự**
+- ==B. Xu hướng, tính chu kỳ, và cả **event đến không đúng thứ tự**==
 - C. Số lượng cột kiểu timestamp
 - D. Timezone của server
 
 **11.** Bảng giao dịch có cột `amount` với `min = -5000`. Phản ứng đúng đầu tiên là gì?
 - A. Lọc bỏ mọi dòng âm ngay
 - B. Đổi thành giá trị tuyệt đối
-- C. Hỏi xem giá trị âm có ý nghĩa nghiệp vụ không (hoàn tiền, điều chỉnh?)
+- ==C. Hỏi xem giá trị âm có ý nghĩa nghiệp vụ không (hoàn tiền, điều chỉnh?)==
 - D. Báo cáo là dữ liệu hỏng
 
 **12.** Vì sao nên xem 10-20 dòng dữ liệu thô trước khi chạy hàm tổng hợp?
 - A. Để tiết kiệm chi phí compute
-- B. Vì hàm tổng hợp che mất cấu trúc, trùng lặp và bất thường ở mức dòng
+- ==B. Vì hàm tổng hợp che mất cấu trúc, trùng lặp và bất thường ở mức dòng==
 - C. Vì quy định bảo mật yêu cầu
 - D. Không cần thiết nếu đã có schema
 
@@ -96,13 +96,13 @@ related: "[[prep]] · [[de_concepts]] · [[case_rationale]]"
 
 **13.** Timestamp `1711929600000` có 13 chữ số. Đơn vị là gì?
 - A. Giây
-- B. Mili giây
+- ==B. Mili giây==
 - C. Micro giây
 - D. Nano giây
 
 **14.** Bạn diễn giải nhầm timestamp mili giây thành giây. Hậu quả?
 - A. Thời gian lệch vài phút
-- B. Thời gian bị đẩy tới tương lai rất xa (hàng nghìn năm)
+- ==B. Thời gian bị đẩy tới tương lai rất xa (hàng nghìn năm)==
 - C. Thời gian lùi về năm 1970
 - D. Không ảnh hưởng nếu chỉ so sánh tương đối
 
