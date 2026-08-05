@@ -597,30 +597,30 @@ event: AC 2026-08-06
 
 **87.** Your pipeline wrote partial results before crashing mid-run. To recover safely you need:
 - A. Manual cleanup of the partial data every time
-- B. An idempotent write, so rerunning produces the correct final state regardless of the partial write
+- ==B. An idempotent write, so rerunning produces the correct final state regardless of the partial write==
 - C. To restart from a different source
 - D. To disable retries
 
 **88.** A logic bug corrupted a derived table for the last 14 days. Recovery is possible mainly because:
 - A. The warehouse keeps backups
 - B. The team documented the change
-- C. Raw source data was retained unmodified, so the pipeline can be rerun over that period
+- ==C. Raw source data was retained unmodified, so the pipeline can be rerun over that period==
 - D. The bug was small
 
 **89.** A Flink job with 30-second checkpoints crashes 25 seconds after the last checkpoint. On restart it will:
 - A. Lose all state permanently
-- B. Restore from the last checkpoint and reprocess roughly 25 seconds of data
+- ==B. Restore from the last checkpoint and reprocess roughly 25 seconds of data==
 - C. Start from the beginning of the topic
 - D. Skip the missing 25 seconds
 
 **90.** In Q89, reprocessing 25 seconds of data is safe provided:
-- A. The output sink is idempotent or transactional
+- ==A. The output sink is idempotent or transactional==
 - B. Kafka retention exceeds 25 seconds
 - C. The window is smaller than 25 seconds
 - D. Checkpoints are stored locally
 
 **91.** A schema change upstream breaks parsing for 100% of incoming messages. The right immediate response is:
-- A. Let every message flow to the dead letter queue and alert, then fix the parser
+- ==A. Let every message flow to the dead letter queue and alert, then fix the parser==
 - B. Silently skip all messages
 - C. Delete the topic and restart
 - D. Disable the consumer indefinitely
@@ -628,12 +628,12 @@ event: AC 2026-08-06
 **92.** Your online store and offline store disagree on a feature value. The first thing to check is:
 - A. Network latency between them
 - B. Redis memory pressure
-- C. Whether the materialisation job succeeded on its last run
+- ==C. Whether the materialisation job succeeded on its last run==
 - D. Whether the model is stale
 
 **93.** A downstream team reports missing data for one day last month. Your investigation should begin with:
 - A. Rerunning the pipeline immediately
-- B. Checking whether that day's partition exists and what the orchestrator logged for that run
+- ==B. Checking whether that day's partition exists and what the orchestrator logged for that run==
 - C. Asking them to re-query
 - D. Restoring from backup
 
