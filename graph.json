@@ -2110,19 +2110,19 @@
       "id": "10_Projects/19_HomeRacer_AC/quiz_streaming",
       "title": "quiz_streaming",
       "group": "projects",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/de_concepts",
       "title": "de_concepts",
       "group": "projects",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/lichess_mapping",
       "title": "lichess_mapping",
       "group": "projects",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/case_rationale",
@@ -2139,6 +2139,12 @@
     {
       "id": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
       "title": "quiz_data_literacy",
+      "group": "projects",
+      "degree": 3
+    },
+    {
+      "id": "10_Projects/19_HomeRacer_AC/deep_streaming_concepts",
+      "title": "deep_streaming_concepts",
       "group": "projects",
       "degree": 3
     },
@@ -6723,6 +6729,18 @@
       "target": "10_Projects/19_HomeRacer_AC/case_rationale"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/deep_streaming_concepts",
+      "target": "10_Projects/19_HomeRacer_AC/quiz_streaming"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/deep_streaming_concepts",
+      "target": "10_Projects/19_HomeRacer_AC/de_concepts"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/deep_streaming_concepts",
+      "target": "10_Projects/19_HomeRacer_AC/lichess_mapping"
+    },
+    {
       "source": "10_Projects/13_Uni_Retake/ôn tập",
       "target": "3 - Tags/data scientist"
     },
@@ -6948,7 +6966,7 @@
     }
   ],
   "stats": {
-    "node_count": 496,
-    "link_count": 992
+    "node_count": 497,
+    "link_count": 995
   }
 }
