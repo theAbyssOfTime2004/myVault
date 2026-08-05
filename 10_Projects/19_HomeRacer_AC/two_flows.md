@@ -15,40 +15,50 @@ source: "[[18_DE_FeatureStore/end_to_end_walkthrough]]"
 
 ## TOÀN CẢNH — hai đường gặp nhau ở đâu
 
-```
-        BATCH (lịch sử → offline features)                    STREAM (live → online features)
-                                                        
-  Lichess dump .pgn.zst (30GB/tháng)                    Lichess TV feed (NDJSON)
-            │                                                     │
-            ▼ ingest (curl | mc pipe)                             ▼ collector (requests stream)
-      MinIO bronze  (raw .zst, bất biến)                    Kafka topic lichess.tv.moves
-            │                                                     │  key = game_id
-            ▼ shred (cắt theo ranh giới ván)                      ▼
-      N shard .pgn.gz                                        Flink (PyFlink DataStream)
-            │                                                  ├─ ValueState: last_wc/last_bc
-            ▼ Spark: parse PGN (python-chess)                   ├─ Sliding window 30s / slide 10s
-      Delta silver/games  (1 dòng = 1 ván)                      └─ Welford: count, mean, stddev
-            │                                                     │
-            ▼ Spark: aggregate                                    │
-      Delta gold/player_features + opening_features               │
-            │                                                     │
-            ▼ Spark: point-in-time join                           │
-      Delta gold/training_set  (không leak tương lai)             │
-            │                                                     │
-            ▼ sklearn IsolationForest                             │
-      Delta gold/cheat_scores + model .joblib                     │
-            │                                                     │
-            ▼ materialize                                         ▼
-      ┌──────────────────── REDIS (online store) ────────────────────┐
-      │  offline:player:<player>:<speed>    (feature lịch sử)        │
-      │  online:cheat:<player>:<speed>      (điểm bất thường)        │
-      │  online:movetime:<game_id>          (timing live, TTL 1h)    │
-      └──────────────────────────┬───────────────────────────────────┘
-                                 ▼
-                    FastAPI Feature API
-        /features/player · /features/movetime · /predict/player
+```mermaid
+flowchart TD
+    subgraph BATCH["BATCH — lịch sử, offline features"]
+        direction TB
+        B0["Lichess dump .pgn.zst<br/>~30GB mỗi tháng"]
+        B1["MinIO bronze<br/>raw .zst, bất biến"]
+        B2["N shard .pgn.gz"]
+        B3["Delta silver/games<br/>1 dòng = 1 ván"]
+        B4["Delta gold<br/>player_features + opening_features"]
+        B5["Delta gold/training_set<br/>point-in-time, không leak tương lai"]
+        B6["Delta gold/cheat_scores<br/>+ model .joblib"]
 
-  (nhánh phụ)  Trino + Hive Metastore ──> query / DQ check / transform SQL trên Delta ở MinIO
+        B0 -->|"ingest — curl vào mc pipe"| B1
+        B1 -->|"shred — cắt theo ranh giới ván"| B2
+        B2 -->|"Spark — parse PGN, python-chess"| B3
+        B3 -->|"Spark — aggregate"| B4
+        B4 -->|"Spark — point-in-time join"| B5
+        B5 -->|"sklearn — IsolationForest"| B6
+    end
+
+    subgraph STREAM["STREAM — live, online features"]
+        direction TB
+        S0["Lichess TV feed<br/>NDJSON"]
+        S1["Kafka topic lichess.tv.moves<br/>key = game_id"]
+        S2["Flink — PyFlink DataStream<br/>ValueState last_wc / last_bc<br/>Sliding window 30s, slide 10s<br/>Welford — count, mean, stddev"]
+
+        S0 -->|"collector — requests stream"| S1
+        S1 --> S2
+    end
+
+    R[("REDIS — online store<br/>offline:player — feature lịch sử<br/>online:cheat — điểm bất thường<br/>online:movetime — timing live, TTL 1h")]
+    API["FastAPI Feature API<br/>/features/player<br/>/features/movetime<br/>/predict/player"]
+    T["Trino + Hive Metastore<br/>query · DQ check · transform SQL"]
+
+    B4 -->|"materialize"| R
+    B6 -->|"materialize"| R
+    S2 -->|"hset + TTL"| R
+    R --> API
+    B3 -.->|"đọc Delta trực tiếp trên MinIO"| T
+    B4 -.-> T
+
+    style R fill:#3b2f4a,stroke:#8b7aa8,color:#e8e0f0
+    style API fill:#2f3b4a,stroke:#7a95a8,color:#e0eaf0
+    style T fill:#2f4a3b,stroke:#7aa88b,color:#e0f0e8
 ```
 
 **Câu chốt về kiến trúc:** hai đường độc lập nhau, **gặp nhau ở Redis**. Đó chính là ý nghĩa của feature store hai tầng: **offline store** (Delta trên MinIO — đầy đủ, chậm, để train) và **online store** (Redis — nhanh, để phục vụ). Cùng một loại feature, hai nơi, hai mục đích.
