@@ -27,44 +27,44 @@ event: AC 2026-08-06
 
 **1.** What is the grain of this table?
 - A. One row per customer
-- B. One row per customer per month
+- ==B. One row per customer per month==
 - C. One row per transaction
 - D. One row per balance change
 
 **2.** Which observation deserves investigation first?
 - A. C001's balance decreased
 - B. C002's balance stayed flat across months
-- C. C002 has two identical rows for 2026-02
+- ==C. C002 has two identical rows for 2026-02==
 - D. The table has only two customers
 
 **3.** A colleague runs `SELECT SUM(balance)` and reports total exposure of 15,600. What is the main problem with that number?
 - A. Nothing — it is a valid total
-- B. It sums across months, so the same customer is counted repeatedly
+- ==B. It sums across months, so the same customer is counted repeatedly==
 - C. It should be an average instead
 - D. Balance cannot be summed at all
 
 ### Table 2 — transaction extract
 
-| txn_id | amount | currency | processed_at |
-|---|---|---|---|
-| T1 | 250000 | VND | 1712000000000 |
-| T2 | 45 | USD | 1712000001000 |
-| T3 | 180000 | VND | 1712000002000 |
+| txn_id | amount | currency | processed_at  |
+| ------ | ------ | -------- | ------------- |
+| T1     | 250000 | VND      | 1712000000000 |
+| T2     | 45     | USD      | 1712000001000 |
+| T3     | 180000 | VND      | 1712000002000 |
 
 **4.** A teammate proposes `SUM(amount)` to get total transaction value. The strongest objection is:
 - A. The amounts are stored as integers
 - B. The currency column should be dropped first
-- C. It mixes VND and USD, producing a number with no meaning
+- ==C. It mixes VND and USD, producing a number with no meaning==
 - D. Transaction IDs are not sequential
 
 **5.** What unit is `processed_at` in?
 - A. Seconds
 - B. Milliseconds
-- C. Microseconds
+- ==C. Microseconds==
 - D. Minutes
 
 **6.** Based on the timestamps, how far apart are T1 and T3?
-- A. 2 milliseconds
+- ==A. 2 milliseconds==
 - B. 2 seconds
 - C. 2 minutes
 - D. Cannot be determined
@@ -81,12 +81,12 @@ event: AC 2026-08-06
 **7.** Which row most clearly violates an expected business rule?
 - A. A1
 - B. A2
-- C. A3, because a closed account still holds a balance
+- ==C. A3, because a closed account still holds a balance==
 - D. A4
 
 **8.** Is row A4 necessarily an error?
 - A. Yes — balances can never be negative
-- B. No — it may be legitimate if the product allows overdraft or reversal entries
+- ==B. No — it may be legitimate if the product allows overdraft or reversal entries==
 - C. Yes — active accounts must have positive balances
 - D. Cannot be assessed without more columns
 
@@ -94,7 +94,7 @@ event: AC 2026-08-06
 - A. Data is missing and should be backfilled
 - B. The pipeline failed to populate the column
 - C. The rows should be excluded from analysis
-- D. Null carries meaning here — the account is not closed
+- ==D. Null carries meaning here — the account is not closed==
 
 ### Table 4 — partner store approval rates
 
@@ -107,12 +107,12 @@ event: AC 2026-08-06
 
 **10.** Which store warrants investigation most strongly?
 - A. S1
-- B. S2 — a very high rate on a substantial volume
+- ==B. S2 — a very high rate on a substantial volume==
 - C. S3
 - D. S4
 
 **11.** Why is S4 weaker evidence than S2, despite a higher rate?
-- A. Because 12 applications is too small a sample to be conclusive
+- ==A. Because 12 applications is too small a sample to be conclusive==
 - B. Because S4 has fewer approvals in absolute terms
 - C. Because rate matters only above 0.99
 - D. Because S4 may be a new store
@@ -120,7 +120,7 @@ event: AC 2026-08-06
 **12.** You want to compare stores fairly. The most useful next step is:
 - A. Rank purely by approval_rate
 - B. Remove all stores with fewer than 100 applications
-- C. Establish the portfolio-wide baseline rate and flag statistically significant deviations
+- ==C. Establish the portfolio-wide baseline rate and flag statistically significant deviations==
 - D. Sort by application volume
 
 ---
@@ -128,7 +128,7 @@ event: AC 2026-08-06
 ## SECTION B — Units and plausibility in context (Q13-24)
 
 **13.** A monitoring dashboard reports `avg_response_time = 0.8`. Before acting, you must establish:
-- A. Whether the unit is seconds or milliseconds
+- ==A. Whether the unit is seconds or milliseconds==
 - B. Whether it is a mean or a median
 - C. The sample size
 - D. The time window
@@ -136,42 +136,42 @@ event: AC 2026-08-06
 **14.** A `loan_term` column contains values 6, 12, 24, and 360. The 360 most likely means:
 - A. A data entry error
 - B. Days rather than months
-- C. A 30-year term expressed in months
+- ==C. A 30-year term expressed in months==
 - D. A sentinel value
 
 **15.** A `credit_score` column ranges 300 to 850 for most rows, but some rows contain 0. Those zeros most likely represent:
 - A. Genuinely the worst possible customers
 - B. Missing data encoded as zero
-- C. Customers with no credit history, scored correctly
+- ==C. Customers with no credit history, scored correctly==
 - D. A different scoring scale
 
 **16.** Treating those zeros as real scores in an average would:
 - A. Have negligible effect
 - B. Improve accuracy by including more data
 - C. Only affect the median
-- D. Drag the mean down and misrepresent portfolio quality
+- ==D. Drag the mean down and misrepresent portfolio quality==
 
 **17.** A field named `interest_rate` contains 0.185 in some rows and 18.5 in others. This indicates:
-- A. Two different sources using decimal and percentage conventions
+- ==A. Two different sources using decimal and percentage conventions==
 - B. Tiered pricing
 - C. Rounding differences
 - D. Promotional versus standard rates
 
 **18.** A daily active user count rises from 40,000 to 41,000 to 39,500 to 820,000. Your first hypothesis should be:
 - A. A viral marketing success
-- B. A pipeline problem such as a duplicated load
+- ==B. A pipeline problem such as a duplicated load==
 - C. Seasonal behaviour
 - D. A competitor outage
 
 **19.** A `disbursement_date` is earlier than the `application_date` on 3% of rows. The most likely cause is:
 - A. Customers applying retroactively
 - B. Pre-approved offers
-- C. A timezone or field-mapping error between two systems
+- ==C. A timezone or field-mapping error between two systems==
 - D. Data entry by branch staff
 
 **20.** A pipeline SLA states "data available by 07:00". You discover the source system exports at 06:55 UTC while the business operates in UTC+7. The real implication is:
 - A. The SLA is comfortably met
-- B. The export arrives at 13:55 local time, so the SLA is badly missed
+- ==B. The export arrives at 13:55 local time, so the SLA is badly missed==
 - C. Timezone is irrelevant to SLAs
 - D. The SLA should be measured in UTC only
 
@@ -182,14 +182,14 @@ event: AC 2026-08-06
 - D. A sentinel for "not measured", or reversed timestamp subtraction
 
 **22.** A file lands with 2,000,000 rows on weekdays and 4,000,000 on Mondays. The most reasonable first explanation is:
-- A. Weekend activity is being accumulated and delivered on Monday
+- ==A. Weekend activity is being accumulated and delivered on Monday==
 - B. Monday is genuinely twice as busy
 - C. The pipeline duplicates on Mondays
 - D. A reporting error
 
 **23.** Your teammate says "there are no nulls in this column, so the data is clean." The correct response is:
 - A. Agreed — null-free means clean
-- B. Nulls may be encoded as empty strings, zeros, or placeholder dates instead
+- ==B. Nulls may be encoded as empty strings, zeros, or placeholder dates instead==
 - C. Nulls only matter for numeric columns
 - D. Null checks should be run weekly
 
@@ -206,54 +206,54 @@ event: AC 2026-08-06
 **25.** You're asked for "the number of active customers." No definition is provided. The strongest response is:
 - A. Ask and wait until someone defines it
 - B. Use the most common industry definition without comment
-- C. Propose a concrete definition, state it clearly, and note it can be adjusted
+- ==C. Propose a concrete definition, state it clearly, and note it can be adjusted==
 - D. Produce several versions and let them choose
 
 **26.** You define "active" as "transacted in the last 30 days" and it excludes 42% of the customer base. The right reaction is:
 - A. Proceed — the definition is defensible
-- B. Flag it, because excluding 42% suggests the definition may not match business intent
+- ==B. Flag it, because excluding 42% suggests the definition may not match business intent==
 - C. Change to 90 days silently
 - D. Report both numbers without comment
 
 **27.** During a group discussion, a teammate asserts a figure you cannot verify. The most constructive move is:
 - A. Accept it to keep the discussion moving
 - B. Challenge whether they are qualified to know
-- C. Ask what the figure is based on, then note the design depends on it
+- ==C. Ask what the figure is based on, then note the design depends on it==
 - D. Ignore it and design for both cases
 
 **28.** You must design without knowing the data volume. The best approach is:
 - A. Assume the largest plausible scale to be safe
 - B. Refuse to design until volumes are provided
 - C. Design for a small scale and revisit later
-- D. State an assumed scale, design for it, and identify which component breaks first if it is ten times larger
+- ==D. State an assumed scale, design for it, and identify which component breaks first if it is ten times larger==
 
 **29.** Which is the strongest formulation of an assumption?
 - A. "I assumed the data was fine."
 - B. "I made some standard assumptions."
-- C. "I assumed daily batch is sufficient; if same-day intervention is needed, the ingestion layer changes to streaming."
+- ==C. "I assumed daily batch is sufficient; if same-day intervention is needed, the ingestion layer changes to streaming."==
 - D. "I assumed daily batch."
 
 **30.** Two analysts report different churn rates. The most probable cause is:
 - A. Different query engines
-- B. Different implicit definitions of the observation window or population
+- ==B. Different implicit definitions of the observation window or population==
 - C. Floating-point differences
 - D. One of them made a typo
 
 **31.** In a case discussion, stating assumptions early primarily helps because:
 - A. It demonstrates knowledge of terminology
-- B. It lets the group correct course before effort is spent building on a wrong premise
+- ==B. It lets the group correct course before effort is spent building on a wrong premise==
 - C. It fills discussion time productively
 - D. It shifts responsibility to whoever does not object
 
 **32.** You realise mid-discussion that an assumption made 20 minutes ago was wrong. The best action is:
-- A. Say so immediately and identify what part of the design it affects
+- ==A. Say so immediately and identify what part of the design it affects==
 - B. Continue, since changing course wastes time
 - C. Mention it only if someone asks
 - D. Note it in the final slide
 
 **33.** A stakeholder says "just give me the number, I don't need the caveats." The professional response is:
 - A. Comply — they own the decision
-- B. Give the number with a one-line caveat, because the caveat changes how it should be used
+- ==B. Give the number with a one-line caveat, because the caveat changes how it should be used==
 - C. Refuse until they accept the caveats
 - D. Give a range instead
 
@@ -269,14 +269,14 @@ event: AC 2026-08-06
 
 **35.** A daily revenue figure suddenly doubles, while transaction count remains flat. The most likely cause is:
 - A. A price increase
-- B. Currency conversion applied twice, or a join duplicating amounts
+- ==B. Currency conversion applied twice, or a join duplicating amounts==
 - C. Genuine growth
 - D. A tax change
 
 **36.** A dashboard shows a customer count higher than the number of rows in the customer table. Most likely:
 - A. The count includes prospects
 - B. Deleted customers are included
-- C. The count runs on a joined dataset that fanned out
+- ==C. The count runs on a joined dataset that fanned out==
 - D. The dashboard caches stale results
 
 **37.** A streaming job runs with no errors, consumes from Kafka, but the serving store never updates. The most likely cause is:
@@ -287,30 +287,30 @@ event: AC 2026-08-06
 
 **38.** Consumer lag grows steadily and never recovers. This indicates:
 - A. The producer stopped
-- B. The topic has too few partitions or the consumer is too slow — throughput mismatch
+- ==B. The topic has too few partitions or the consumer is too slow — throughput mismatch==
 - C. Messages are corrupted
 - D. Retention is too short
 
 **39.** Consumer lag spikes every day at 09:00 and drains by 09:20. This indicates:
 - A. A recurring bug
 - B. A broken consumer
-- C. Normal morning traffic being absorbed by the buffer, which is the broker doing its job
+- ==C. Normal morning traffic being absorbed by the buffer, which is the broker doing its job==
 - D. Insufficient retention
 
 **40.** A stream processing job's memory grows continuously until it is killed, restarts, and repeats. The most likely cause is:
 - A. A memory leak in the framework
-- B. Keyed state accumulating without TTL for keys that never become active again
+- ==B. Keyed state accumulating without TTL for keys that never become active again==
 - C. Too many partitions
 - D. Checkpoint files filling the disk
 
 **41.** After a Flink job restarts, aggregated counts are lower than before the restart. Most likely:
 - A. Data was lost in Kafka
 - B. The window size changed
-- C. Checkpointing is not enabled, so state was lost and rebuilt from empty
+- ==C. Checkpointing is not enabled, so state was lost and rebuilt from empty==
 - D. The sink rejected writes
 
 **42.** A batch job that normally takes 20 minutes suddenly takes 4 hours, with one task still running while all others finished. This is:
-- A. Data skew — one partition holds disproportionate data
+- ==A. Data skew — one partition holds disproportionate data==
 - B. Network failure
 - C. Insufficient cluster memory
 - D. A scheduling bug
@@ -323,12 +323,12 @@ event: AC 2026-08-06
 
 **44.** Reads from a data lake become slow after a streaming job starts writing to it every few seconds. Most likely:
 - A. Write locks
-- B. The small file problem — many tiny files raise per-file overhead
+- ==B. The small file problem — many tiny files raise per-file overhead==
 - C. Schema conflicts
 - D. Network saturation
 
 **45.** A pipeline produces correct results when run manually but duplicates rows when run by the scheduler. Most likely:
-- A. The scheduler runs it twice, and the write is not idempotent
+- ==A. The scheduler runs it twice, and the write is not idempotent==
 - B. The scheduler uses different credentials
 - C. Manual runs use a different dataset
 - D. Timezone differences
@@ -336,17 +336,17 @@ event: AC 2026-08-06
 **46.** Model accuracy is excellent in training and poor in production, with no code differences. The most likely cause is:
 - A. Insufficient training data
 - B. Wrong hyperparameters
-- C. Data leakage — training features used information unavailable at prediction time
+- ==C. Data leakage — training features used information unavailable at prediction time==
 - D. Production hardware differences
 
 **47.** Feature values served by the API differ slightly from those used in training. This is:
 - A. Expected behaviour
-- B. Training-serving skew, typically from two separate implementations of the same feature
+- ==B. Training-serving skew, typically from two separate implementations of the same feature==
 - C. A rounding issue
 - D. A caching problem
 
 **48.** An hourly report is missing the last 15 minutes of every hour, consistently. Most likely:
-- A. The report is scheduled before the ingestion window closes
+- ==A. The report is scheduled before the ingestion window closes==
 - B. Data is being dropped
 - C. The window function is wrong
 - D. Users are misreading the report
@@ -357,18 +357,18 @@ event: AC 2026-08-06
 
 **49.** A collections team calls at-risk customers each morning. The appropriate architecture is:
 - A. Streaming with sub-second latency
-- B. Daily batch scoring, since the action happens on a daily cycle
+- ==B. Daily batch scoring, since the action happens on a daily cycle==
 - C. On-demand computation per request
 - D. Real-time with a five-minute refresh
 
 **50.** A system must decline fraudulent card transactions before authorisation completes. This requires:
 - A. Nightly batch
 - B. Hourly micro-batch
-- C. Streaming with low-latency serving, because the decision is inside the transaction window
+- ==C. Streaming with low-latency serving, because the decision is inside the transaction window==
 - D. On-demand lake queries
 
 **51.** A team needs both historical features (6-month payment history) and real-time features (transactions in the last 10 minutes). The right design is:
-- A. Streaming only, replaying all history when needed
+- ==A. Streaming only, replaying all history when needed==
 - B. Batch only, running every 10 minutes
 - C. Two paths writing to a shared serving store at different refresh rhythms
 - D. Compute everything on demand at request time
@@ -377,10 +377,10 @@ event: AC 2026-08-06
 - A. Introduce Flink for lower latency
 - B. Introduce Kafka Streams
 - C. Build a custom consumer
-- D. Spark Structured Streaming, since one minute is well within its range and it reuses existing skills
+- ==D. Spark Structured Streaming, since one minute is well within its range and it reuses existing skills==
 
 **53.** You need single-digit millisecond latency and complex per-entity state. The appropriate processor is:
-- A. Flink
+- ==A. Flink==
 - B. Spark Structured Streaming
 - C. Airflow
 - D. Trino
@@ -389,7 +389,7 @@ event: AC 2026-08-06
 - A. Flink on Kubernetes
 - B. Spark on YARN
 - C. A managed cloud warehouse
-- D. Kafka Streams, deployed as an ordinary application
+- ==D. Kafka Streams, deployed as an ordinary application==
 
 **55.** A dashboard must aggregate two billion rows by region with sub-second response. The right serving layer is:
 - A. Redis
@@ -399,7 +399,7 @@ event: AC 2026-08-06
 
 **56.** An API must return one customer's precomputed risk score in under 5 ms. The right serving layer is:
 - A. A columnar warehouse
-- B. Redis or an equivalent key-value store
+- ==B. Redis or an equivalent key-value store==
 - C. A data lake with predicate pushdown
 - D. A search engine
 
@@ -413,7 +413,7 @@ event: AC 2026-08-06
 - A. Add a deduplication job afterwards
 - B. Prevent reruns through scheduler configuration
 - C. Alert on duplicates
-- D. Make the write idempotent using partition overwrite or upsert on a business key
+- ==D. Make the write idempotent using partition overwrite or upsert on a business key==
 
 **59.** Storage costs are rising rapidly on a table queried mostly by recent date. The most effective change is:
 - A. Switch to a row-based format
@@ -430,7 +430,7 @@ event: AC 2026-08-06
 **61.** Analysts keep querying the operational database directly and occasionally slow it down. The correct structural fix is:
 - A. Add query timeouts
 - B. Restrict analyst permissions
-- C. Replicate changes into an analytical platform via CDC and point analysts there
+- ==C. Replicate changes into an analytical platform via CDC and point analysts there==
 - D. Add read replicas and allow direct access
 
 **62.** A feature must be identical during training and serving. The most reliable way to guarantee that is:
@@ -445,19 +445,19 @@ event: AC 2026-08-06
 
 **63.** "We use exactly-once semantics, so messages are never processed more than once."
 - A. Correct as stated
-- B. Wrong — exactly-once guarantees the effect is as-if-once; reprocessing still occurs physically
+- ==B. Wrong — exactly-once guarantees the effect is as-if-once; reprocessing still occurs physically==
 - C. Wrong — exactly-once is impossible in distributed systems
 - D. Wrong — it applies only to batch
 
 **64.** "Kafka guarantees message ordering, so our sequence-dependent logic is safe."
 - A. Correct
 - B. Wrong — Kafka guarantees no ordering at all
-- C. Wrong — ordering holds only within a partition, so it depends on the message key
+- ==C. Wrong — ordering holds only within a partition, so it depends on the message key==
 - D. Wrong — ordering requires exactly-once enabled
 
 **65.** "We enabled checkpointing, so we have end-to-end exactly-once."
 - A. Correct
-- B. Wrong — checkpointing protects internal state; the sink must also be transactional or idempotent
+- ==B. Wrong — checkpointing protects internal state; the sink must also be transactional or idempotent==
 - C. Wrong — checkpointing is only for batch jobs
 - D. Wrong — checkpointing prevents all failures
 
@@ -465,41 +465,41 @@ event: AC 2026-08-06
 - A. Correct
 - B. Wrong — latency should be measured in throughput terms
 - C. Wrong — 150 ms is inherently slow
-- D. Wrong — the mean hides the tail; P95 and P99 determine actual user experience
+- ==D. Wrong — the mean hides the tail; P95 and P99 determine actual user experience==
 
 **67.** "We added ten more workers, so each request will now be faster."
 - A. Correct
-- B. Wrong — more workers raise aggregate throughput, not the latency of an individual request
+- ==B. Wrong — more workers raise aggregate throughput, not the latency of an individual request==
 - C. Wrong — adding workers always slows systems down
 - D. Wrong — this only applies to batch systems
 
 **68.** "The column has no nulls, so we can trust it."
 - A. Correct
-- B. Wrong — absence of nulls says nothing about correctness, and missing values may be encoded as zeros or placeholders
+- ==B. Wrong — absence of nulls says nothing about correctness, and missing values may be encoded as zeros or placeholders==
 - C. Wrong — nulls are always encoded as empty strings
 - D. Wrong — null checks are unnecessary
 
 **69.** "Redis is our online store, so our features are always current."
 - A. Correct
-- B. Wrong — Redis holds precomputed values whose freshness is bounded by the refresh cadence
+- ==B. Wrong — Redis holds precomputed values whose freshness is bounded by the refresh cadence==
 - C. Wrong — Redis cannot store features
 - D. Wrong — Redis is only a cache and loses data constantly
 
 **70.** "We skip malformed records with a try/except, so bad data can't hurt us."
 - A. Correct
-- B. Wrong — skipping silently loses data with no visibility; a dead letter queue preserves and surfaces it
+- ==B. Wrong — skipping silently loses data with no visibility; a dead letter queue preserves and surfaces it==
 - C. Wrong — malformed records should crash the pipeline
 - D. Wrong — try/except cannot catch parsing errors
 
 **71.** "Streaming is the modern approach, so we should use it for all pipelines."
 - A. Correct
 - B. Wrong — streaming is only for small data
-- C. Wrong — the choice depends on how quickly the downstream action must occur; batch is simpler and cheaper when daily is enough
+- ==C. Wrong — the choice depends on how quickly the downstream action must occur; batch is simpler and cheaper when daily is enough==
 - D. Wrong — streaming cannot handle historical data
 
 **72.** "We ran the job twice by accident but the data looks fine, so we're safe."
 - A. Correct
-- B. Wrong — it looks fine only if the write was idempotent; otherwise duplication may be invisible at a glance
+- ==B. Wrong — it looks fine only if the write was idempotent; otherwise duplication may be invisible at a glance==
 - C. Wrong — running twice always corrupts data
 - D. Wrong — this can only be verified by the scheduler logs
 
@@ -510,13 +510,13 @@ event: AC 2026-08-06
 **73.** A consumer processes one record in 2 ms, single-threaded. Maximum throughput is approximately:
 - A. 50 records/second
 - B. 200 records/second
-- C. 500 records/second
+- ==C. 500 records/second==
 - D. 2,000 records/second
 
 **74.** You batch 100 records and process the batch in 50 ms. Throughput is roughly:
 - A. 500 records/second
 - B. 1,000 records/second
-- C. 2,000 records/second
+- ==C. 2,000 records/second==
 - D. 5,000 records/second
 
 **75.** In Q74, the first record in each batch waits for the batch to fill. If records arrive at 1,000/second, that added wait is about:
@@ -528,18 +528,18 @@ event: AC 2026-08-06
 **76.** A topic receives 10,000 messages/second. One consumer handles 3,000/second. The minimum number of consumers needed is:
 - A. 2
 - B. 3
-- C. 4
+- ==C. 4==
 - D. 10
 
 **77.** In Q76, the topic has only 2 partitions. Adding a fourth consumer will:
 - A. Increase throughput proportionally
 - B. Reduce latency
-- C. Do nothing — parallelism is capped by partition count, so two consumers sit idle
+- ==C. Do nothing — parallelism is capped by partition count, so two consumers sit idle==
 - D. Cause message loss
 
 **78.** A sliding window of 60 seconds with a 15-second slide produces output:
 - A. Every 60 seconds
-- B. Every 15 seconds, each covering the previous 60 seconds
+- ==B. Every 15 seconds, each covering the previous 60 seconds==
 - C. Every 15 seconds, each covering 15 seconds
 - D. Continuously
 
@@ -563,7 +563,7 @@ event: AC 2026-08-06
 
 **82.** A batch takes 75 minutes on one task. Shredding the input into 20 parallel tasks, with perfect distribution and no overhead, gives approximately:
 - A. Under 1 minute
-- B. About 4 minutes
+- ==B. About 4 minutes==
 - C. About 15 minutes
 - D. About 40 minutes
 
@@ -575,24 +575,24 @@ event: AC 2026-08-06
 - A. Delete the topic
 - B. Increase consumer memory
 - C. Skip the offset manually and move on
-- D. Route the failing message to a dead letter queue, commit, and let the stream continue
+- ==D. Route the failing message to a dead letter queue, commit, and let the stream continue==
 
 **84.** After doing so, the next thing you must add is:
 - A. More partitions
-- B. An alert on dead letter queue depth, so silent accumulation is visible
+- ==B. An alert on dead letter queue depth, so silent accumulation is visible==
 - C. A larger retention window
 - D. A second consumer group
 
 **85.** A transient network timeout causes a write to fail. The correct handling is:
 - A. Retry with exponential backoff
-- B. Send to the dead letter queue immediately
+- ==B. Send to the dead letter queue immediately==
 - C. Fail the entire job
 - D. Ignore and continue
 
 **86.** A malformed JSON payload causes a parse failure. The correct handling is:
 - A. Retry indefinitely
 - B. Retry with backoff
-- C. Send to the dead letter queue, since retrying will never succeed
+- ==C. Send to the dead letter queue, since retrying will never succeed==
 - D. Crash the job to force attention
 
 **87.** Your pipeline wrote partial results before crashing mid-run. To recover safely you need:
