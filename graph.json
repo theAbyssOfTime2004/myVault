@@ -2143,6 +2143,12 @@
       "degree": 3
     },
     {
+      "id": "10_Projects/19_HomeRacer_AC/english_phrasebook",
+      "title": "english_phrasebook",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/19_HomeRacer_AC/deep_streaming_concepts",
       "title": "deep_streaming_concepts",
       "group": "projects",
@@ -6966,7 +6972,7 @@
     }
   ],
   "stats": {
-    "node_count": 497,
+    "node_count": 498,
     "link_count": 995
   }
 }
