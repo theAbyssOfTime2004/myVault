@@ -120,7 +120,30 @@ Lichess TV (NDJSON) → collector → Kafka (lichess.tv.moves, key=game_id)
 - Delta trên MinIO: đầy đủ nhưng query mất **vài giây** → không dùng được cho API cần trả lời tức thì.
 - Giải pháp: job **materialize** copy feature từ Gold Delta → Redis hash.
 - Kết quả: lookup xuống **mili giây**.
-- **Đánh đổi nói ra được:** Redis nhanh nhưng dữ liệu chỉ mới đến lần materialize gần nhất → **đổi độ tươi lấy độ trễ**. Nếu nghiệp vụ cần tươi hơn thì tăng tần suất materialize hoặc chuyển sang cập nhật qua stream.
+
+**Đánh đổi thật sự nằm ở đâu — nói cho chính xác:**
+
+Redis giữ một **bản sao đã tính sẵn**, không phải khung nhìn sống. Delta là nguồn sự thật; Redis là **ảnh chụp** tại thời điểm materialize, và nó **không tự cập nhật** khi nguồn đổi.
+
+| Cách làm | Độ trễ | Độ tươi |
+|---|---|---|
+| Tính lúc được hỏi (query thẳng Delta) | vài giây | luôn bằng nguồn |
+| Tính trước rồi cất (materialize → Redis) | mili giây | bằng lần tính lại gần nhất |
+
+→ **Nguyên nhân gây cũ là việc TÍNH TRƯỚC, không phải Redis.** Đổi Redis sang Cassandra cũng không khác. Nguyên tắc: *bất kỳ giá trị nào được tính trước đều là ảnh chụp của một khoảnh khắc — độ tươi bị chặn bởi tần suất tính lại.*
+
+**Lưu ý về chính project này:** materialize là bước cuối của DAG batch, nên Redis **không cũ hơn Delta Gold** một cách đáng kể — cả hai cùng tươi bằng lần chạy pipeline gần nhất. Muốn tươi hơn thì phải chạy **cả pipeline** dày hơn, chứ không phải chỉ materialize dày hơn.
+
+### 3.2b Vì sao hai đường cùng ghi vào Redis — nhịp làm tươi theo loại feature
+
+| Key | Nguồn | Nhịp làm tươi | Vì sao đủ / vì sao cần |
+|---|---|---|---|
+| `offline:player:*` · `online:cheat:*` | Batch | theo lần chạy pipeline (ngày) | Hồ sơ tổng thể người chơi không đổi trong vài giờ |
+| `online:movetime:*` | Stream (Flink) | mỗi 10 giây | Ván cờ chỉ kéo dài vài phút — dữ liệu cũ 1 ngày là vô nghĩa |
+
+→ Cùng một online store, **hai nhịp làm tươi khác nhau tùy feature đó hỏng đi nhanh cỡ nào**. Đây chính là lý do kiến trúc lai batch + stream tồn tại.
+
+**Câu nối sang Home Credit:** *"Feature lịch sử như số lần trễ hạn 6 tháng qua thì batch hằng ngày là đủ. Nhưng feature kiểu 'khách vừa quẹt thẻ 5 lần trong 10 phút' thì phải qua stream. Hai loại cùng ghi vào online store, model đọc cả hai lúc chấm điểm."*
 
 ### 3.3 Latency trong stream — đánh đổi của cửa sổ trượt
 
