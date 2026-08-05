@@ -16,13 +16,13 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 ## PHẦN A — Hình dạng pipeline streaming (câu 1-8)
 
 **1.** Bốn tầng cốt lõi của một streaming pipeline theo đúng thứ tự là gì?
-- A. Source → Stream Processor → Message Broker → Serving Store
+- ==A. Source → Stream Processor → Message Broker → Serving Store==
 - B. Message Broker → Source → Serving Store → Stream Processor
 - C. Source → Message Broker → Stream Processor → Serving Store
 - D. Source → Serving Store → Message Broker → Stream Processor
 
 **2.** Vai trò cốt lõi của message broker trong kiến trúc streaming là gì?
-- A. Làm bộ đệm và tách rời producer khỏi consumer để hai bên chạy độc lập tốc độ
+- ==A. Làm bộ đệm và tách rời producer khỏi consumer để hai bên chạy độc lập tốc độ==
 - B. Biến đổi dữ liệu trước khi lưu
 - C. Phục vụ truy vấn độ trễ thấp cho ứng dụng
 - D. Nén dữ liệu để tiết kiệm dung lượng
@@ -31,16 +31,16 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Cây B-tree có index
 - B. Bảng quan hệ có khóa chính
 - C. Hàng đợi xóa message sau khi tiêu thụ
-- D. Log chỉ ghi nối đuôi, bất biến (append-only immutable log)
+- ==D. Log chỉ ghi nối đuôi, bất biến (append-only immutable log)==
 
 **4.** CDC (Change Data Capture) hoạt động bằng cách nào?
 - A. Chạy `SELECT *` định kỳ trên bảng nguồn
-- B. Đọc transaction log của DB (WAL của Postgres, binlog của MySQL)
+- ==B. Đọc transaction log của DB (WAL của Postgres, binlog của MySQL)==
 - C. Đặt trigger trên mọi bảng cần theo dõi
 - D. So sánh snapshot hôm nay với snapshot hôm qua
 
 **5.** Vì sao CDC được ưa dùng hơn việc query trực tiếp DB vận hành để lấy dữ liệu?
-- A. Vì đọc transaction log không tạo thêm tải truy vấn lên DB đang phục vụ khách
+- ==A. Vì đọc transaction log không tạo thêm tải truy vấn lên DB đang phục vụ khách==
 - B. Vì CDC luôn nhanh hơn về mặt thông lượng
 - C. Vì CDC không cần quyền truy cập vào DB
 - D. Vì CDC tự động làm sạch dữ liệu
@@ -49,17 +49,17 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Dung lượng lưu trữ lớn với chi phí thấp nhất
 - B. Hỗ trợ truy vấn SQL phức tạp nhiều bảng
 - C. Nén dữ liệu tối đa
-- D. Độ trễ đọc rất thấp, thường dưới 10ms
+- ==D. Độ trễ đọc rất thấp, thường dưới 10ms==
 
 **7.** 🎯 Trong project Lichess, tại sao message Kafka được đặt `key = game_id`?
 - A. Để nén message tốt hơn
 - B. Để tiết kiệm dung lượng lưu trữ trên broker
-- C. Để mọi message của cùng một ván vào cùng partition, giữ đúng thứ tự và state
+- ==C. Để mọi message của cùng một ván vào cùng partition, giữ đúng thứ tự và state==
 - D. Vì Kafka bắt buộc phải có key cho mọi message
 
 **8.** Kiến trúc chỉ dùng một nhánh streaming duy nhất, muốn tính lại lịch sử thì replay lại stream, gọi là gì?
 - A. Lambda architecture
-- B. Kappa architecture
+- ==B. Kappa architecture==
 - C. Medallion architecture
 - D. Data mesh
 
@@ -71,7 +71,7 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Kafka nhanh hơn RabbitMQ trong mọi tình huống
 - B. RabbitMQ không hỗ trợ nhiều consumer
 - C. Kafka chỉ chạy trên Java, RabbitMQ chạy đa nền tảng
-- D. Kafka giữ message theo retention nên replay được; RabbitMQ là queue, message tiêu thụ xong là mất
+- ==D. Kafka giữ message theo retention nên replay được; RabbitMQ là queue, message tiêu thụ xong là mất==
 
 **10.** Đặc điểm kiến trúc nổi bật của Apache Pulsar so với Kafka là gì?
 - A. Tách biệt tầng compute và tầng storage
@@ -86,7 +86,7 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - D. Chỉ chạy được trên cloud, không self-host được
 
 **12.** Trong Kafka, thứ tự message được đảm bảo ở phạm vi nào?
-- A. Toàn bộ topic
+- ==A. Toàn bộ topic==
 - B. Trong từng partition
 - C. Trong từng consumer group
 - D. Toàn cluster nếu bật cấu hình ordering
@@ -106,12 +106,12 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 **15.** Debezium là công cụ thuộc nhóm nào?
 - A. Stream processor
 - B. Online serving store
-- C. CDC — bắt thay đổi từ DB đẩy vào stream
+- ==C. CDC — bắt thay đổi từ DB đẩy vào stream==
 - D. Orchestration
 
 **16.** 🎯 Trong project Lichess, Strimzi đóng vai trò gì?
 - A. Thư viện xử lý stream nhúng trong ứng dụng
-- B. Kubernetes operator để triển khai và vận hành Kafka trên cluster
+- ==B. Kubernetes operator để triển khai và vận hành Kafka trên cluster==
 - C. Table format cho Delta Lake
 - D. Công cụ điều phối thay thế Airflow
 
@@ -119,14 +119,14 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Vì Redis lưu được nhiều dữ liệu hơn
 - B. Vì Redis hỗ trợ SQL đầy đủ
 - C. Vì Redis rẻ hơn object storage
-- D. Vì Redis in-memory trả về mili giây, còn query Delta trên object storage mất vài giây
+- ==D. Vì Redis in-memory trả về mili giây, còn query Delta trên object storage mất vài giây==
 
 ---
 
 ## PHẦN C — Flink vs Spark Streaming vs Kafka Streams (câu 18-25)
 
 **18.** Mô hình xử lý của Apache Flink là gì?
-- A. Record-at-a-time — xử lý từng event ngay khi đến
+- ==A. Record-at-a-time — xử lý từng event ngay khi đến==
 - B. Micro-batching theo chu kỳ cố định
 - C. Batch theo lịch hằng giờ
 - D. Chỉ xử lý khi được gọi qua API
@@ -134,23 +134,23 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 **19.** Spark Structured Streaming về bản chất hoạt động thế nào?
 - A. True streaming từng event
 - B. Chỉ chạy được trên dữ liệu tĩnh
-- C. Chia luồng liên tục thành các micro-batch rồi dùng engine batch xử lý
+- ==C. Chia luồng liên tục thành các micro-batch rồi dùng engine batch xử lý==
 - D. Dựa hoàn toàn vào Kafka Consumer Group
 
 **20.** Độ trễ điển hình của Spark Structured Streaming so với Flink?
 - A. Thấp hơn Flink đáng kể
 - B. Bằng nhau
 - C. Chỉ khác khi dữ liệu lớn hơn 1TB
-- D. Cao hơn — khoảng 100ms đến 1 giây, so với vài ms của Flink
+- ==D. Cao hơn — khoảng 100ms đến 1 giây, so với vài ms của Flink==
 
 **21.** Khác biệt hạ tầng lớn nhất của Kafka Streams so với Flink và Spark?
 - A. Kafka Streams cần cluster lớn hơn
-- B. Kafka Streams chỉ là thư viện, không cần cụm xử lý riêng — deploy như một ứng dụng thường
+- ==B. Kafka Streams chỉ là thư viện, không cần cụm xử lý riêng — deploy như một ứng dụng thường==
 - C. Kafka Streams chạy trên GPU
 - D. Kafka Streams không hỗ trợ state
 
 **22.** Ràng buộc đáng chú ý nhất của Kafka Streams là gì?
-- A. Chỉ đọc từ Kafka và ghi ra Kafka
+- ==A. Chỉ đọc từ Kafka và ghi ra Kafka==
 - B. Không hỗ trợ windowing
 - C. Không chạy được trên Kubernetes
 - D. Độ trễ cao hơn Spark
@@ -158,18 +158,18 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 **23.** Flink dùng cơ chế nào để đảm bảo exactly-once khi có sự cố?
 - A. Ghi log mọi event ra file rồi so sánh khi khởi động lại
 - B. Chạy song song hai job rồi đối chiếu kết quả
-- C. Checkpoint state định kỳ (thuật toán Chandy-Lamport) + sink có transaction
+- ==C. Checkpoint state định kỳ (thuật toán Chandy-Lamport) + sink có transaction==
 - D. Dựa vào retention của Kafka để phát hiện trùng lặp
 
 **24.** Khi nào chọn Spark Structured Streaming thay vì Flink?
 - A. Khi cần độ trễ dưới 10ms
 - B. Khi cần complex event processing
 - C. Khi cần xử lý từng event riêng lẻ tức thì
-- D. Khi ưu tiên thông lượng lớn, dùng chung API với batch, và hệ đã dựng sẵn trên Spark/Delta
+- ==D. Khi ưu tiên thông lượng lớn, dùng chung API với batch, và hệ đã dựng sẵn trên Spark/Delta==
 
 **25.** 🎯 Vì sao project Lichess chọn Flink cho stream nhưng Spark cho batch?
 - A. Vì Flink không xử lý được dữ liệu lớn
-- B. Vì cần true streaming và keyed state cho từng ván, còn batch thì cần thông lượng cao trên khối dữ liệu lớn
+- ==B. Vì cần true streaming và keyed state cho từng ván, còn batch thì cần thông lượng cao trên khối dữ liệu lớn==
 - C. Vì Spark không hỗ trợ streaming
 - D. Vì Flink rẻ hơn khi chạy trên GKE
 
@@ -179,7 +179,7 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 
 **26.** Latency đo cái gì?
 - A. Thời gian một event đi từ nguồn tới đích
-- B. Số event xử lý được mỗi giây
+- ==B. Số event xử lý được mỗi giây==
 - C. Số kết nối đồng thời hệ thống chịu được
 - D. Dung lượng dữ liệu xử lý mỗi ngày
 
@@ -187,22 +187,22 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Giảm cả latency và throughput
 - B. Tăng cả latency và giảm throughput
 - C. Giảm latency và tăng throughput
-- D. Tăng throughput nhưng cũng tăng latency
+- ==D. Tăng throughput nhưng cũng tăng latency==
 
 **28.** Concurrency khác throughput ở chỗ nào?
 - A. Không khác, chỉ là hai cách gọi
 - B. Concurrency đo tốc độ, throughput đo số kết nối
-- C. Concurrency là số việc chạy song song; throughput là số việc hoàn thành mỗi đơn vị thời gian
+- ==C. Concurrency là số việc chạy song song; throughput là số việc hoàn thành mỗi đơn vị thời gian==
 - D. Concurrency chỉ áp dụng cho batch, throughput chỉ cho streaming
 
 **29.** Hệ thống phát hiện gian lận thẻ tại điểm bán nên ưu tiên chỉ số nào?
 - A. Throughput cao nhất có thể
-- B. Latency thấp — phải quyết định trước khi giao dịch hoàn tất
+- ==B. Latency thấp — phải quyết định trước khi giao dịch hoàn tất==
 - C. Dung lượng lưu trữ
 - D. Chi phí hạ tầng thấp nhất
 
 **30.** 🎯 Trong project Lichess, file `.pgn.zst` không splittable khiến Spark chỉ chạy được 1 task. Đây là vấn đề về gì?
-- A. Concurrency — không thể chia việc ra chạy song song
+- ==A. Concurrency — không thể chia việc ra chạy song song==
 - B. Latency — mỗi bản ghi xử lý quá lâu
 - C. Chất lượng dữ liệu
 - D. Dung lượng bộ nhớ
@@ -211,12 +211,12 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Giảm latency của từng request tra cứu, bằng cách cache kết quả
 - B. Giảm dung lượng lưu trữ, bằng cách nén tốt hơn
 - C. Tăng độ chính xác dữ liệu, bằng cách loại ván lỗi
-- D. Tăng throughput, bằng cách tăng số task chạy song song trên cùng hạ tầng
+- ==D. Tăng throughput, bằng cách tăng số task chạy song song trên cùng hạ tầng==
 
 **32.** Tăng concurrency có làm giảm latency của một request đơn lẻ không?
 - A. Có, luôn luôn giảm tỷ lệ thuận
 - B. Có, nếu tăng đủ số node
-- C. Không — nó tăng tổng thông lượng, còn độ trễ một request vẫn phụ thuộc đường xử lý của chính nó
+- ==C. Không — nó tăng tổng thông lượng, còn độ trễ một request vẫn phụ thuộc đường xử lý của chính nó==
 - D. Không xác định được, phụ thuộc ngôn ngữ lập trình
 
 ---
@@ -227,10 +227,10 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Không mất dữ liệu, có thể trùng
 - B. Có thể mất dữ liệu, không bao giờ trùng
 - C. Không mất, không trùng
-- D. Mỗi message được xử lý đúng một lần trong mọi tình huống
+- ==D. Mỗi message được xử lý đúng một lần trong mọi tình huống==
 
 **34.** At-least-once đạt được bằng cơ chế nào, và hệ quả là gì?
-- A. Retry khi không nhận được ack — không mất dữ liệu nhưng có thể trùng
+- ==A. Retry khi không nhận được ack — không mất dữ liệu nhưng có thể trùng==
 - B. Commit offset ngay khi gửi — có thể mất dữ liệu
 - C. Two-phase commit — không mất không trùng
 - D. Ghi đè theo khóa — luôn cho kết quả cuối đúng
@@ -239,12 +239,12 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Vì at-least-once làm giảm throughput
 - B. Vì cần nén dữ liệu trước khi ghi
 - C. Vì cần giữ thứ tự message
-- D. Vì message có thể được xử lý lặp, nên sink phải cho kết quả như nhau dù ghi nhiều lần
+- ==D. Vì message có thể được xử lý lặp, nên sink phải cho kết quả như nhau dù ghi nhiều lần==
 
 **36.** Exactly-once thường đạt được bằng cách nào?
 - A. Chỉ cần bật retry ở producer
 - B. Tăng retention của Kafka lên đủ dài
-- C. Stateful processing + checkpoint, kết hợp two-phase commit hoặc sink idempotent
+- ==C. Stateful processing + checkpoint, kết hợp two-phase commit hoặc sink idempotent==
 - D. Dùng at-least-once rồi xóa trùng thủ công định kỳ
 
 ---
@@ -253,12 +253,12 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 
 **37.** "Poison pill" trong streaming là gì và xử lý thế nào?
 - A. Message quá lớn — cần chia nhỏ trước khi gửi
-- B. Message lỗi format làm consumer crash lặp lại — đẩy vào DLQ và cho luồng chính chạy tiếp
+- ==B. Message lỗi format làm consumer crash lặp lại — đẩy vào DLQ và cho luồng chính chạy tiếp==
 - C. Message trùng lặp — cần khử trùng theo id
 - D. Message đến trễ — cần watermark để xử lý
 
 **38.** Checkpointing trong Flink hoạt động thế nào?
-- A. Định kỳ chụp snapshot state và offset, lưu ra storage bền vững để khôi phục sau sự cố
+- ==A. Định kỳ chụp snapshot state và offset, lưu ra storage bền vững để khôi phục sau sự cố==
 - B. Ghi mọi event ra log file trên máy local
 - C. Sao chép toàn bộ cluster sang vùng dự phòng
 - D. Nén state để tiết kiệm bộ nhớ
@@ -267,12 +267,12 @@ related: "[[prep]] · [[de_concepts]] · [[lichess_mapping]]"
 - A. Job không chạy được quá 24 giờ
 - B. Kết quả ghi vào Redis bị sai số
 - C. Không dùng được sliding window
-- D. Flink restart là mất sạch state, phải tính lại từ cửa sổ kế tiếp
+- ==D. Flink restart là mất sạch state, phải tính lại từ cửa sổ kế tiếp==
 
 **40.** 🎯 Job Flink đó keyed theo `game_id` nhưng không có state TTL. Rủi ro là gì?
 - A. Thứ tự message trong ván bị đảo lộn
 - B. Redis bị đầy vì key không hết hạn
-- C. State của các ván đã kết thúc không bao giờ được dọn, chạy lâu thì phình vô hạn
+- ==C. State của các ván đã kết thúc không bao giờ được dọn, chạy lâu thì phình vô hạn==
 - D. Không tính được stddev chính xác
 
 ---

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/19_HomeRacer_AC/lichess_mapping.md",
+                "file": "10_Projects/19_HomeRacer_AC/quiz_streaming.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "lichess_mapping"
+              "title": "quiz_streaming"
             }
           }
         ]
@@ -214,9 +214,9 @@
   },
   "active": "25ed80e90c9328b5",
   "lastOpenFiles": [
+    "10_Projects/19_HomeRacer_AC/lichess_mapping.md",
     "10_Projects/19_HomeRacer_AC/two_flows.md.tmp.24732.bdbb24dd3e0c",
     "10_Projects/19_HomeRacer_AC/two_flows.md",
-    "10_Projects/19_HomeRacer_AC/lichess_mapping.md",
     "10_Projects/19_HomeRacer_AC/two_flows.md.tmp.24732.3f7ac148e72b",
     "10_Projects/19_HomeRacer_AC/quiz_data_literacy.md",
     "10_Projects/19_HomeRacer_AC/quiz_streaming.md",
@@ -236,7 +236,6 @@
     "10_Projects/14_Thesis_SDPO/report/latex/_deroad.py",
     "10_Projects/14_Thesis_SDPO/report/latex/main_bestcase.pdf",
     "10_Projects/14_Thesis_SDPO/report/latex/_delocator.py",
-    "10_Projects/14_Thesis_SDPO/report/latex/_sync_ch6.py",
     "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 3 - Các định luật bảo toàn.md",
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
