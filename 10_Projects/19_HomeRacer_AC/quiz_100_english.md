@@ -650,18 +650,18 @@ event: AC 2026-08-06
 **95.** You are handed an unfamiliar dataset and asked to "find something interesting." Your first move:
 - A. Run summary statistics on every column
 - B. Build a visualisation
-- C. Establish what one row represents and what the dataset is meant to describe
+- ==C. Establish what one row represents and what the dataset is meant to describe==
 - D. Check for nulls
 
 **96.** A group case begins and a teammate immediately proposes an architecture. Your first move:
 - A. Propose an alternative architecture
-- B. Ask what problem it solves and how success is measured, before evaluating any design
+- ==B. Ask what problem it solves and how success is measured, before evaluating any design==
 - C. Agree to maintain momentum
 - D. Start drawing the data flow
 
 **97.** You have 60 minutes to design and 10 minutes to present with six people. Your first move:
 - A. Start designing immediately to maximise working time
-- B. Propose a time allocation that reserves the final segment for assembling the presentation
+- ==B. Propose a time allocation that reserves the final segment for assembling the presentation==
 - C. Assign roles by background
 - D. Ask each person to present separately
 
@@ -669,10 +669,10 @@ event: AC 2026-08-06
 - A. Remove the row
 - B. Report it as a data quality defect
 - C. Correct it based on a reasonable guess
-- D. Ask what the column means and what unit it uses
+- ==D. Ask what the column means and what unit it uses==
 
 **99.** You are asked a technical question you genuinely cannot answer. Your best move:
-- A. Say you have not worked with it, then describe how you would approach finding out
+- ==A. Say you have not worked with it, then describe how you would approach finding out==
 - B. Give a plausible-sounding answer
 - C. Say nothing
 - D. Redirect to a topic you know
@@ -680,7 +680,7 @@ event: AC 2026-08-06
 **100.** Your group has 12 minutes left and no agreement on the design. Your first move:
 - A. Keep debating until consensus emerges
 - B. Let the most senior-sounding person decide
-- C. Summarise the two viable options, propose picking one, and note the other as an alternative in the presentation
+- ==C. Summarise the two viable options, propose picking one, and note the other as an alternative in the presentation==
 - D. Split the presentation to cover both fully
 
 ---
