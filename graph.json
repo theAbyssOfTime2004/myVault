@@ -2101,6 +2101,12 @@
       "degree": 1
     },
     {
+      "id": "10_Projects/19_HomeRacer_AC/two_flows",
+      "title": "two_flows",
+      "group": "projects",
+      "degree": 4
+    },
+    {
       "id": "10_Projects/19_HomeRacer_AC/quiz_streaming",
       "title": "quiz_streaming",
       "group": "projects",
@@ -2110,13 +2116,13 @@
       "id": "10_Projects/19_HomeRacer_AC/de_concepts",
       "title": "de_concepts",
       "group": "projects",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/lichess_mapping",
       "title": "lichess_mapping",
       "group": "projects",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/case_rationale",
@@ -2128,7 +2134,7 @@
       "id": "10_Projects/19_HomeRacer_AC/prep",
       "title": "prep",
       "group": "projects",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
@@ -2602,7 +2608,7 @@
       "id": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough",
       "title": "end_to_end_walkthrough",
       "group": "projects",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "10_Projects/18_DE_FeatureStore/plan",
@@ -6649,6 +6655,22 @@
       "target": "3 - Tags/SLZ"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/two_flows",
+      "target": "10_Projects/19_HomeRacer_AC/lichess_mapping"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/two_flows",
+      "target": "10_Projects/19_HomeRacer_AC/prep"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/two_flows",
+      "target": "10_Projects/19_HomeRacer_AC/de_concepts"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/two_flows",
+      "target": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough"
+    },
+    {
       "source": "10_Projects/19_HomeRacer_AC/quiz_streaming",
       "target": "10_Projects/19_HomeRacer_AC/prep"
     },
@@ -6926,7 +6948,7 @@
     }
   ],
   "stats": {
-    "node_count": 495,
-    "link_count": 988
+    "node_count": 496,
+    "link_count": 992
   }
 }
