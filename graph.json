@@ -2104,19 +2104,25 @@
       "id": "10_Projects/19_HomeRacer_AC/de_concepts",
       "title": "de_concepts",
       "group": "projects",
-      "degree": 3
+      "degree": 4
+    },
+    {
+      "id": "10_Projects/19_HomeRacer_AC/lichess_mapping",
+      "title": "lichess_mapping",
+      "group": "projects",
+      "degree": 4
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/case_rationale",
       "title": "case_rationale",
       "group": "projects",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/prep",
       "title": "prep",
       "group": "projects",
-      "degree": 3
+      "degree": 4
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/quiz_data_literacy",
@@ -2590,7 +2596,7 @@
       "id": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough",
       "title": "end_to_end_walkthrough",
       "group": "projects",
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "10_Projects/18_DE_FeatureStore/plan",
@@ -6641,6 +6647,22 @@
       "target": "10_Projects/19_HomeRacer_AC/prep"
     },
     {
+      "source": "10_Projects/19_HomeRacer_AC/lichess_mapping",
+      "target": "10_Projects/19_HomeRacer_AC/prep"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/lichess_mapping",
+      "target": "10_Projects/19_HomeRacer_AC/de_concepts"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/lichess_mapping",
+      "target": "10_Projects/19_HomeRacer_AC/case_rationale"
+    },
+    {
+      "source": "10_Projects/19_HomeRacer_AC/lichess_mapping",
+      "target": "10_Projects/18_DE_FeatureStore/end_to_end_walkthrough"
+    },
+    {
       "source": "10_Projects/19_HomeRacer_AC/case_rationale",
       "target": "10_Projects/19_HomeRacer_AC/prep"
     },
@@ -6886,7 +6908,7 @@
     }
   ],
   "stats": {
-    "node_count": 493,
-    "link_count": 981
+    "node_count": 494,
+    "link_count": 985
   }
 }
