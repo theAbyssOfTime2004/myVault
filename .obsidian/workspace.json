@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Projects/19_HomeRacer_AC/FINAL_REVIEW.md",
+                "file": "19_HomeRacer_Manager/fraud_case_deepdive.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FINAL_REVIEW"
+              "title": "fraud_case_deepdive"
             }
           }
         ]
@@ -214,13 +214,14 @@
   },
   "active": "3e4b6bf242554628",
   "lastOpenFiles": [
-    "10_Projects/19_HomeRacer_AC/deep_streaming_concepts.md",
+    "10_Projects/19_HomeRacer_AC/case_rationale.md",
     "10_Projects/19_HomeRacer_AC/FINAL_REVIEW.md",
+    "10_Projects/19_HomeRacer_AC/lichess_mapping.md",
+    "10_Projects/19_HomeRacer_AC/deep_streaming_concepts.md",
     "10_Projects/19_HomeRacer_AC/workshop_narrative_en.md",
     "10_Projects/19_HomeRacer_AC/FINAL_REVIEW.md.tmp.9132.14bbd2fb239f",
     "10_Projects/19_HomeRacer_AC/quiz_100_english.md",
     "10_Projects/19_HomeRacer_AC/quiz_data_literacy.md",
-    "10_Projects/19_HomeRacer_AC/lichess_mapping.md",
     "10_Projects/19_HomeRacer_AC/quiz_100_english.md.tmp.3616.b221f1eb31a7",
     "10_Projects/19_HomeRacer_AC/workshop_narrative_en.md.tmp.3616.a83d86721b4d",
     "10_Projects/19_HomeRacer_AC/quiz_streaming.md",
@@ -231,7 +232,6 @@
     "10_Projects/19_HomeRacer_AC/quiz_streaming.md.tmp.22228.2156b8235ffe",
     "10_Projects/19_HomeRacer_AC/de_concepts.md",
     "10_Projects/19_HomeRacer_AC/prep.md.tmp.20404.682b7de27c08",
-    "10_Projects/19_HomeRacer_AC/case_rationale.md",
     "10_Projects/19_HomeRacer_AC/case_rationale.md.tmp.968.441d5abe18ce",
     "10_Projects/19_HomeRacer_AC/prep.md",
     "00_Dashboard/Untitled 4.md",

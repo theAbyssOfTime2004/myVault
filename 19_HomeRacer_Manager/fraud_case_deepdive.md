@@ -23,6 +23,7 @@ event: Department Manager interview — 2026-08-11 (Tue)
 **Cột:** `customer_name`, `customer_id`, `seller_id`, `transaction_id`, `transaction_time`, `gps_city`, `longitude`, `latitude`, `amount`, `currency`, `is_fraud`
 
 **Ba phần:**
+
 | Message | Nội dung |
 |---|---|
 | **1** | Rule **velocity** (thành phố + thời gian) — rule này bỏ sót gì, đã chặt chưa + **data sanity check** |
