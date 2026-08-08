@@ -34,6 +34,65 @@ event: Department Manager interview — 2026-08-11 (Tue)
 
 ---
 
+# TỔNG HỢP LỖ HỔNG — bản tra nhanh
+
+## A. Dữ liệu & sanity check
+
+- **`is_fraud` được sinh ra từ chính các rule** → nhãn kế thừa toàn bộ điểm mù; train trên đó chỉ học lại rule, không học được gian lận thật
+- **Giao dịch bị chặn không bao giờ có nhãn** → dữ liệu train chỉ phản ánh những gì hệ thống cũ cho qua (rejection inference)
+- **Nhãn đến muộn** — quyết định 200ms, sự thật vài tuần (chargeback / khiếu nại / không trả kỳ đầu)
+- **`gps_city` có thể chỉ là bản nén thô của lat/lon** → dùng city cho velocity là vứt bỏ độ chính xác
+- Nếu city và lat/lon độc lập → **độ lệch giữa chúng là feature**; lệch lớn = giả mạo GPS
+- **`seller_id` phải có toạ độ ổn định** (POS cố định) → phân tán rộng = POS di động / dữ liệu sai / giả mạo
+- **lat/lon null hoặc (0,0)** → rule không kích hoạt = **fail-open thầm lặng**
+- **`currency` chưa quy đổi** → mọi ngưỡng theo `amount` vô nghĩa
+- **Timezone + clock skew giữa máy POS** → thứ tự sai → "di chuyển bất khả thi" là ảo
+- **`transaction_id` trùng** (POS retry) → velocity đếm hai lần → chặn oan khách thật
+- **`customer_name` không đủ để nhận diện trùng người** — tên phổ biến, free text, dấu tiếng Việt
+- **`amount` lệch phải** → dùng percentile, đừng dùng mean để đặt ngưỡng
+
+## B. Rule velocity
+
+- **Cold start** — giao dịch đầu tiên không có gì để so → **tài khoản mới miễn nhiễm hoàn toàn**
+- **Decoy** — giao dịch nhỏ đốt ràng buộc rồi mới đánh lớn *(và chiều ngược: cố tình bị chặn để đầu độc state của nạn nhân)*
+- **City quá thô** — 40km trong cùng thành phố, cách 5 phút → không kích hoạt
+- **Euclid trên độ sai theo hướng đông-tây** → phải dùng haversine
+- **Ngưỡng tốc độ không phân nấc** — đường bộ hay máy bay? Người đi công tác bị báo động sai
+- **Mù hoàn toàn với gian lận trong cùng thành phố** — có lẽ là kịch bản phổ biến nhất
+- **Không nhìn số tiền** — 50 nghìn và 50 triệu như nhau
+- **Event đến không đúng thứ tự** → sai nếu tính theo processing time
+- **Ngưỡng học được** → kẻ gian thăm dò rồi ở ngay bên trong
+- **Mù phía seller** — keyed theo customer nên không thấy 40 khách lạ tại một shop trong 1 giờ
+
+## C. Rule phân cụm k-means
+
+- **k-means trên lat/lon thô sai về đo lường** → cụm bị kéo giãn theo hướng đông-tây
+- **Centroid + bán kính giả định cụm TRÒN** — khu buôn bán trải dọc đường/sông → **DBSCAN** hợp hơn, lại tự đánh dấu điểm nhiễu
+- **Chọn k tuỳ tiện** — k hợp lý ở TP.HCM ≠ ở tỉnh lẻ
+- **k-means nhạy với ngoại lệ** — một seller ở xa kéo lệch cả centroid
+- **Cửa sổ 1 giờ quá ngắn để fit cụm** → buộc phải train offline → **mâu thuẫn với ràng buộc "chỉ streaming"**
+- **Cụm seller ≠ hồ sơ mua sắm của khách** — hai mục tiêu khác nhau, cần làm rõ đề muốn cái nào
+- **Bán kính cố định** sai với mật độ khác nhau — 5km ở quận 1 vs ở nông thôn
+- **Cold start + du lịch hợp lệ** → chặn oan
+
+## D. Lỗ hổng CẤU TRÚC — sâu nhất
+
+- **Phân mảnh khoá gom nhóm**: một người nhiều tài khoản, hoặc nhiều khách một seller → **mỗi key chỉ 1 giao dịch → không ngưỡng nào chạm được**
+- **Chỉnh `amount` không cứu được** — đây là bài toán **trục gom nhóm**, không phải điều kiện lọc
+- > **Gian lận nằm ở một mối liên kết mà khoá gom nhóm không nhìn thấy** → cần **entity resolution** + **nhìn theo đồ thị**
+- **Mọi ngưỡng đều phá được bằng chia nhỏ** — theo tiền, theo thời gian, hoặc theo **danh tính** (structuring)
+- **Ranh giới cố định là ranh giới học được** → làm nhiễu ngưỡng + **giám sát phân phối quanh ngưỡng** (cụm dồn ngay dưới ngưỡng = bằng chứng đang bị dò)
+
+## E. Quyết định BLOCK / REVIEW / ACCEPT
+
+- **Hai ngưỡng, không phải một**
+- **Ngưỡng REVIEW do năng lực đội ngũ quyết định**, không do thống kê — vượt năng lực thì hàng đợi âm thầm thành **auto-approve**
+- **"Review" nghĩa là gì khi khách đứng ở quầy?** Giao dịch đồng bộ, rà soát bất đồng bộ → phải làm rõ: OTP tại chỗ hay cho qua rồi điều tra
+- **Ngưỡng nên đặt trên tổn thất kỳ vọng** (`risk × amount`), không trên risk thuần
+- **Không giám sát tỷ lệ ba nhóm** → không phát hiện được fail-open khi feature null hàng loạt
+
+---
+
 # MESSAGE 1 — Velocity rule & sanity check
 
 ## 1.1 Sanity check — làm trước khi bàn rule
