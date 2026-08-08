@@ -56,7 +56,7 @@ event: Department Manager interview — 2026-08-11 (Tue)
 - **Cold start** — giao dịch đầu tiên không có gì để so → **tài khoản mới miễn nhiễm hoàn toàn**
 - **Decoy** — giao dịch nhỏ đốt ràng buộc rồi mới đánh lớn *(và chiều ngược: cố tình bị chặn để đầu độc state của nạn nhân)*
 - **City quá thô** — 40km trong cùng thành phố, cách 5 phút → không kích hoạt
-- **Euclid trên độ sai theo hướng đông-tây** → phải dùng haversine
+- ~~Euclid trên độ sai theo hướng đông-tây~~ → **đề đã chốt haversine, lỗ hổng này KHÔNG còn**
 - **Ngưỡng tốc độ không phân nấc** — đường bộ hay máy bay? Người đi công tác bị báo động sai
 - **Mù hoàn toàn với gian lận trong cùng thành phố** — có lẽ là kịch bản phổ biến nhất
 - **Không nhìn số tiền** — 50 nghìn và 50 triệu như nhau
