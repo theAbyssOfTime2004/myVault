@@ -272,7 +272,7 @@ event: Department Manager interview — 2026-08-11
 - ==D. Vì chỉ có trạng thái hiện tại, không dựng lại được diễn biến theo từng tháng==
 
 **41.** Khách chuyển tỉnh. Muốn báo cáo lịch sử vẫn tính theo tỉnh **tại thời điểm đó**, cần:
-- A. SCD type 2 — thêm dòng mới kèm khoảng hiệu lực thay vì ghi đè
+- ==A. SCD type 2 — thêm dòng mới kèm khoảng hiệu lực thay vì ghi đè==
 - B. SCD type 1 — ghi đè giá trị mới
 - C. Lưu tỉnh trong bảng fact
 - D. Không cần làm gì, dimension tự xử lý
@@ -280,25 +280,25 @@ event: Department Manager interview — 2026-08-11
 **42.** Lấy giao dịch **gần nhất** của mỗi khách, giữ nguyên cả dòng. Cách đúng:
 - A. `GROUP BY customer_id ORDER BY transaction_time`
 - B. `SELECT DISTINCT customer_id, MAX(transaction_time)`
-- C. `ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY transaction_time DESC)` rồi lọc `= 1`
+- ==C. `ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY transaction_time DESC)` rồi lọc `= 1`==
 - D. `LIMIT 1` với `ORDER BY`
 
 **43.** Vì sao `GROUP BY` không dùng được cho câu trên?
 - A. Vì nó chậm hơn
 - B. Vì nó không hỗ trợ ORDER BY
 - C. Vì nó cần index
-- D. Vì nó gộp các dòng lại — mất thông tin từng giao dịch, chỉ lấy được hàm tổng hợp
+- ==D. Vì nó gộp các dòng lại — mất thông tin từng giao dịch, chỉ lấy được hàm tổng hợp==
 
 **44.** Join `customers` (1 dòng/khách) với `payments` (N dòng/khách) rồi `SUM(credit_limit)`:
 - A. Cho kết quả đúng
-- B. Bị thổi phồng vì credit_limit lặp lại theo số dòng payment
+- ==B. Bị thổi phồng vì credit_limit lặp lại theo số dòng payment==
 - C. Bị thiếu vì khách chưa thanh toán bị loại
 - D. Báo lỗi kiểu dữ liệu
 
 **45.** Cách xử lý an toàn cho trường hợp trên:
 - A. Dùng `SELECT DISTINCT`
 - B. Đổi sang `LEFT JOIN`
-- C. Gom bảng N về đúng grain của bảng 1 trước, rồi join 1-1
+- ==C. Gom bảng N về đúng grain của bảng 1 trước, rồi join 1-1==
 - D. Thêm index vào khoá ngoại
 
 **46.** Trong star schema, bảng nào chứa các số đo để cộng/trung bình?
