@@ -302,7 +302,7 @@ event: Department Manager interview — 2026-08-11
 - D. Thêm index vào khoá ngoại
 
 **46.** Trong star schema, bảng nào chứa các số đo để cộng/trung bình?
-- A. Fact table
+- ==A. Fact table==
 - B. Dimension table
 - C. Bridge table
 - D. Cả hai như nhau
@@ -315,22 +315,22 @@ event: Department Manager interview — 2026-08-11
 - A. Tăng số executor
 - B. Restart job
 - C. Đọc lại code
-- D. So khối lượng dữ liệu đầu vào hôm nay với những hôm trước
+- ==D. So khối lượng dữ liệu đầu vào hôm nay với những hôm trước==
 
 **48.** Trong Spark UI, hầu hết task đã xong nhưng một task vẫn chạy. Đây là dấu hiệu của:
 - A. Thiếu bộ nhớ
-- B. Data skew — một partition ôm quá nhiều dữ liệu
+- ==B. Data skew — một partition ôm quá nhiều dữ liệu==
 - C. Lỗi mạng
 - D. Sai cấu hình checkpoint
 
 **49.** Đội nghiệp vụ báo con số trên báo cáo sai, nhưng job chạy xanh. Việc đầu tiên nên làm:
 - A. Chạy lại pipeline
 - B. Kiểm tra log Airflow
-- C. Xác nhận xem là bug thật hay là hai bên đang định nghĩa chỉ số khác nhau
+- ==C. Xác nhận xem là bug thật hay là hai bên đang định nghĩa chỉ số khác nhau==
 - D. Rollback bản deploy gần nhất
 
 **50.** Dịch vụ chấm điểm gian lận timeout. Hướng xử lý hợp lý nhất:
-- A. Cho qua nhưng hạ trần số tiền, báo động ngay, gắn cờ rà soát sau — và để đội rủi ro chốt khẩu vị
+- ==A. Cho qua nhưng hạ trần số tiền, báo động ngay, gắn cờ rà soát sau — và để đội rủi ro chốt khẩu vị==
 - B. Chặn toàn bộ giao dịch cho tới khi khôi phục
 - C. Cho qua toàn bộ, xử lý sau
 - D. Tự động chuyển sang model dự phòng không cần thông báo
