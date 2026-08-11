@@ -213,7 +213,7 @@ event: Department Manager interview — 2026-08-11
 - A. Lỗi vĩnh viễn nén tốt hơn
 - B. Chỉ lỗi tạm thời mới cần ghi log
 - C. Lỗi tạm thời cần DLQ
-- D. Retry một lỗi vĩnh viễn vô hạn chính là cách tạo ra vòng lặp kẹt
+- ==D. Retry một lỗi vĩnh viễn vô hạn chính là cách tạo ra vòng lặp kẹt==
 
 ---
 
@@ -222,11 +222,11 @@ event: Department Manager interview — 2026-08-11
 **33.** Delta Lake khác Parquet ở chỗ:
 - A. Delta nén tốt hơn
 - B. Delta lưu theo dòng, Parquet lưu theo cột
-- C. Parquet là định dạng file; Delta phủ một transaction log lên trên các file Parquet
+- ==C. Parquet là định dạng file; Delta phủ một transaction log lên trên các file Parquet==
 - D. Delta chỉ chạy trên Databricks
 
 **34.** "Bảng Delta ở phiên bản N" được xác định bởi:
-- A. Replay log từ 0 tới N để cộng dồn tập file đang hoạt động
+- ==A. Replay log từ 0 tới N để cộng dồn tập file đang hoạt động==
 - B. Danh sách file có trong thư mục
 - C. Metadata trong Hive Metastore
 - D. Tên file Parquet
@@ -235,11 +235,11 @@ event: Department Manager interview — 2026-08-11
 - A. Nguồn sự thật, Delta chỉ là backup
 - B. Nơi lưu trữ dài hạn
 - C. Nơi chạy truy vấn phân tích
-- D. Bản sao phái sinh phục vụ tra cứu nhanh — xoá đi chạy lại materialize là có lại
+- ==D. Bản sao phái sinh phục vụ tra cứu nhanh — xoá đi chạy lại materialize là có lại==
 
 **36.** "Tính trước rồi cất vào Redis" đánh đổi cái gì?
 - A. Đổi độ chính xác lấy tốc độ
-- B. Đổi độ tươi lấy độ trễ — giá trị chỉ mới đến lần materialize gần nhất
+- ==B. Đổi độ tươi lấy độ trễ — giá trị chỉ mới đến lần materialize gần nhất==
 - C. Đổi dung lượng lấy tốc độ
 - D. Không đánh đổi gì
 
@@ -261,7 +261,7 @@ event: Department Manager interview — 2026-08-11
 
 **39.** Báo cáo tỷ lệ trễ hạn theo tỉnh/sản phẩm/tháng. Grain phù hợp cho bảng fact là:
 - A. Một dòng một khách hàng
-- B. Một dòng một khoản vay trong một tháng
+- ==B. Một dòng một khoản vay trong một tháng==
 - C. Một dòng một khoản vay
 - D. Một dòng một tỉnh một tháng
 
@@ -269,7 +269,7 @@ event: Department Manager interview — 2026-08-11
 - A. Vì bảng sẽ quá lớn
 - B. Vì thiếu khoá ngoại
 - C. Vì không join được với dimension
-- D. Vì chỉ có trạng thái hiện tại, không dựng lại được diễn biến theo từng tháng
+- ==D. Vì chỉ có trạng thái hiện tại, không dựng lại được diễn biến theo từng tháng==
 
 **41.** Khách chuyển tỉnh. Muốn báo cáo lịch sử vẫn tính theo tỉnh **tại thời điểm đó**, cần:
 - A. SCD type 2 — thêm dòng mới kèm khoảng hiệu lực thay vì ghi đè
