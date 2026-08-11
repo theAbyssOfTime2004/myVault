@@ -146,7 +146,7 @@ event: Department Manager interview — 2026-08-11
 - D. Số tiền giao dịch
 
 **22.** Dải REVIEW có một giá trị đặc biệt ngoài việc giảm rủi ro:
-- A. Nó là nơi duy nhất sinh ra nhãn sạch, ngay lập tức, ở đúng vùng mơ hồ nhất
+- ==A. Nó là nơi duy nhất sinh ra nhãn sạch, ngay lập tức, ở đúng vùng mơ hồ nhất==
 - B. Nó giảm tải cho hệ thống streaming
 - C. Nó cho phép bỏ qua bước huấn luyện lại
 - D. Nó thay thế được kiểm toán
@@ -159,11 +159,11 @@ event: Department Manager interview — 2026-08-11
 - A. Message bị mất
 - B. Kafka báo lỗi
 - C. Thứ tự toàn topic được đảm bảo
-- D. Message rải luân phiên, event của cùng thực thể văng ra nhiều partition và mất thứ tự
+- ==D. Message rải luân phiên, event của cùng thực thể văng ra nhiều partition và mất thứ tự==
 
 **24.** Kafka đảm bảo thứ tự message ở phạm vi:
 - A. Toàn bộ topic
-- B. Trong từng partition
+- ==B. Trong từng partition==
 - C. Trong từng consumer group
 - D. Toàn cluster nếu bật cấu hình
 
@@ -181,7 +181,7 @@ event: Department Manager interview — 2026-08-11
 
 **27.** At-least-once đạt được bằng:
 - A. Commit offset trước khi xử lý
-- B. Xử lý trước, commit offset sau — nên có thể xử lý lại khi crash
+- ==B. Xử lý trước, commit offset sau — nên có thể xử lý lại khi crash==
 - C. Two-phase commit
 - D. Tắt retry
 
@@ -189,10 +189,10 @@ event: Department Manager interview — 2026-08-11
 - A. Message chỉ đi qua code đúng một lần
 - B. Hệ thống không bao giờ crash
 - C. Retry bị vô hiệu hoá
-- D. Kết quả cuối như thể mỗi message được xử lý một lần — message vẫn bị xử lý lại sau sự cố
+- ==D. Kết quả cuối như thể mỗi message được xử lý một lần — message vẫn bị xử lý lại sau sự cố==
 
 **29.** Checkpointing bảo vệ được gì và không bảo vệ được gì?
-- A. Bảo vệ state bên trong job; không bảo vệ những gì job đã ghi ra ngoài
+- ==A. Bảo vệ state bên trong job; không bảo vệ những gì job đã ghi ra ngoài==
 - B. Bảo vệ cả state lẫn mọi thứ đã ghi ra sink
 - C. Chỉ bảo vệ offset Kafka
 - D. Bảo vệ khỏi mọi loại lỗi
@@ -200,12 +200,12 @@ event: Department Manager interview — 2026-08-11
 **30.** Phép ghi nào là idempotent?
 - A. `INSERT INTO ledger VALUES (...)`
 - B. `balance = balance + 100`
-- C. `SET balance = 500`
+- ==C. `SET balance = 500`==
 - D. Cả ba
 
 **31.** Một message lỗi format làm consumer chết lặp lại. Vấn đề nghiêm trọng nhất là:
 - A. Mất một bản ghi
-- B. Pipeline kẹt tại offset đó, mọi message phía sau không được xử lý
+- ==B. Pipeline kẹt tại offset đó, mọi message phía sau không được xử lý==
 - C. Kafka bị đầy
 - D. Consumer group bị rebalance liên tục
 
