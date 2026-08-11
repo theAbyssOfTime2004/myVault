@@ -17,7 +17,7 @@ event: Department Manager interview — 2026-08-11
 
 **1.** File dump `.pgn.zst` khiến Spark chỉ chạy được một task, vì:
 - A. File quá lớn so với bộ nhớ executor
-- B. Định dạng nén zstd không splittable nên không chia được theo khoảng byte
+- ==B. Định dạng nén zstd không splittable nên không chia được theo khoảng byte==
 - C. Spark không hỗ trợ đọc định dạng PGN
 - D. Cluster không đủ node
 
@@ -25,10 +25,10 @@ event: Department Manager interview — 2026-08-11
 - A. Để mỗi mảnh có kích thước bằng nhau
 - B. Để nén tốt hơn
 - C. Vì Spark yêu cầu như vậy
-- D. Vì một ván PGN trải trên nhiều dòng — cắt giữa chừng làm hỏng ván ở cả hai mảnh
+- ==D. Vì một ván PGN trải trên nhiều dòng — cắt giữa chừng làm hỏng ván ở cả hai mảnh==
 
 **3.** Shard được ghi ra dạng `.gz`, cũng không splittable. Điều này có tái tạo vấn đề cũ không?
-- A. Không — bài toán đã đổi từ một file lớn thành N file, mỗi file đọc trọn bởi một task
+- ==A. Không — bài toán đã đổi từ một file lớn thành N file, mỗi file đọc trọn bởi một task==
 - B. Có — vẫn không chia được nên vẫn chậm
 - C. Có, trừ khi đổi sang bzip2
 - D. Không xác định được nếu chưa đo
@@ -36,17 +36,17 @@ event: Department Manager interview — 2026-08-11
 **4.** Bước shred chạy nhanh vì:
 - A. Nó chạy trên spot node
 - B. Nó dùng nhiều executor
-- C. Nó chỉ giải nén, không phân tích nội dung — parse mới là phần đắt
+- ==C. Nó chỉ giải nén, không phân tích nội dung — parse mới là phần đắt==
 - D. File đã được cache sẵn
 
 **5.** Con số ~30.000 ván mỗi shard nên được giải thích thế nào?
 - A. Là con số tối ưu tuyệt đối cho Spark
-- B. Là hệ quả của việc nhắm ~150MB mỗi shard, vùng kích thước partition Spark thông thường
+- ==B. Là hệ quả của việc nhắm ~150MB mỗi shard, vùng kích thước partition Spark thông thường==
 - C. Là số ván trung bình mỗi ngày trên Lichess
 - D. Được chọn ngẫu nhiên rồi giữ nguyên
 
 **6.** Trong `build_training_set`, `rowsBetween(unboundedPreceding, -1)` có tác dụng:
-- A. Loại ván hiện tại khỏi lịch sử, chống data leakage
+- ==A. Loại ván hiện tại khỏi lịch sử, chống data leakage==
 - B. Giới hạn cửa sổ còn một dòng
 - C. Sắp xếp ván theo thời gian
 - D. Bỏ qua ván đầu tiên của mỗi người chơi
@@ -55,23 +55,23 @@ event: Department Manager interview — 2026-08-11
 - A. Job chạy chậm hơn
 - B. Kết quả không đổi vì trung bình vẫn thế
 - C. Model báo lỗi khi train
-- D. Model học từ thông tin không tồn tại lúc dự đoán — đẹp lúc train, vô dụng lúc chạy thật
+- ==D. Model học từ thông tin không tồn tại lúc dự đoán — đẹp lúc train, vô dụng lúc chạy thật==
 
 **8.** Job Flink báo RUNNING, đọc Kafka bình thường, nhưng Redis trống. Nguyên nhân:
 - A. Redis hết bộ nhớ
 - B. Kafka topic rỗng
-- C. `MapFunction` ghi Redis không có sink phía sau nên bị optimizer cắt khỏi execution graph
+- ==C. `MapFunction` ghi Redis không có sink phía sau nên bị optimizer cắt khỏi execution graph==
 - D. Sai cấu hình kết nối Redis
 
 **9.** Bài học rút ra từ bug đó là:
-- A. Lỗi nguy hiểm nhất là lỗi chạy bình thường nhưng không có tác dụng — không có exception để bắt
+- ==A. Lỗi nguy hiểm nhất là lỗi chạy bình thường nhưng không có tác dụng — không có exception để bắt==
 - B. Nên dùng Spark thay vì Flink
 - C. Phải luôn bật checkpointing
 - D. Redis không phù hợp làm sink
 
 **10.** `mode("overwrite")` mặc định của Spark khi ghi bảng Delta phân vùng:
 - A. Chỉ ghi đè partition có trong DataFrame
-- B. Xoá toàn bộ bảng rồi ghi lại — làm mất dữ liệu các partition khác
+- ==B. Xoá toàn bộ bảng rồi ghi lại — làm mất dữ liệu các partition khác==
 - C. Báo lỗi nếu bảng đã tồn tại
 - D. Thêm dữ liệu vào cuối bảng
 
@@ -79,12 +79,12 @@ event: Department Manager interview — 2026-08-11
 - A. Nó chạy nhanh hơn
 - B. Nó tốn ít bộ nhớ hơn đáng kể
 - C. Flink không hỗ trợ luỹ thừa
-- D. Cách ngây thơ mất chính xác số học — trừ hai số lớn gần bằng nhau có thể ra phương sai âm
+- ==D. Cách ngây thơ mất chính xác số học — trừ hai số lớn gần bằng nhau có thể ra phương sai âm==
 
 **12.** Đường stream trong project chạy khi nào?
 - A. Khi DAG `batch_pipeline` được trigger
 - B. Sau khi `materialize_redis` chạy xong
-- C. Liên tục và độc lập với DAG — collector và Flink là deployment thường trực
+- ==C. Liên tục và độc lập với DAG — collector và Flink là deployment thường trực==
 - D. Theo lịch cron mỗi giờ
 
 ---
@@ -92,7 +92,7 @@ event: Department Manager interview — 2026-08-11
 ## PHẦN B — Đề fraud AC (13-22)
 
 **13.** Lỗ hổng nghiêm trọng nhất của cột `is_fraud` trong đề là:
-- A. Nhãn được sinh ra từ chính các rule đang bị phê bình, nên kế thừa mọi điểm mù của chúng
+- ==A. Nhãn được sinh ra từ chính các rule đang bị phê bình, nên kế thừa mọi điểm mù của chúng==
 - B. Nhãn bị thiếu ở nhiều dòng
 - C. Nhãn không cân bằng
 - D. Nhãn ở sai kiểu dữ liệu
@@ -100,12 +100,12 @@ event: Department Manager interview — 2026-08-11
 **14.** Giao dịch bị **chặn** thì:
 - A. Vẫn có nhãn sau vài ngày
 - B. Được gán nhãn gian lận tự động
-- C. Không bao giờ có nhãn, vì nó không xảy ra nên không có chargeback hay khiếu nại
+- ==C. Không bao giờ có nhãn, vì nó không xảy ra nên không có chargeback hay khiếu nại==
 - D. Được đội review gán nhãn ngay
 
 **15.** Rule velocity theo thành phố mù hoàn toàn với kịch bản nào?
 - A. Thẻ bị nhân bản dùng ở hai tỉnh cùng lúc
-- B. Thẻ trộm dùng ở nhiều cửa hàng trong cùng một thành phố
+- ==B. Thẻ trộm dùng ở nhiều cửa hàng trong cùng một thành phố==
 - C. Giao dịch số tiền lớn bất thường
 - D. Tài khoản mới mở
 
@@ -113,16 +113,16 @@ event: Department Manager interview — 2026-08-11
 - A. Do độ chính xác GPS kém
 - B. Do ngưỡng đặt sai
 - C. Do thiếu dữ liệu lịch sử
-- D. Vì kẻ trộm cầm thẻ đi bộ — di chuyển hoàn toàn khả thi, nên rule không có gì để bắt
+- ==D. Vì kẻ trộm cầm thẻ đi bộ — di chuyển hoàn toàn khả thi, nên rule không có gì để bắt==
 
 **17.** Một seller thông đồng quẹt 40 thẻ khác nhau trong một giờ không bị phát hiện, vì:
 - A. Số tiền mỗi giao dịch quá nhỏ
 - B. Cửa hàng đã được whitelist
-- C. Rule keyed theo customer, mà mỗi customer chỉ có một giao dịch
+- ==C. Rule keyed theo customer, mà mỗi customer chỉ có một giao dịch==
 - D. Cửa sổ một giờ quá ngắn
 
 **18.** Thêm điều kiện về `amount` có sửa được lỗ hổng mù phía seller không?
-- A. Không — đó là bài toán về trục gom nhóm, không phải về điều kiện lọc
+- ==A. Không — đó là bài toán về trục gom nhóm, không phải về điều kiện lọc==
 - B. Có, nếu ngưỡng đủ thấp
 - C. Có, kết hợp với velocity
 - D. Chỉ với giao dịch trên 10 triệu
@@ -131,18 +131,18 @@ event: Department Manager interview — 2026-08-11
 - A. Haversine chậm hơn Euclid
 - B. Lat/lon cần chuẩn hoá về [0,1] trước
 - C. k-means không hỗ trợ dữ liệu địa lý
-- D. k-means định nghĩa trong không gian Euclid — centroid là trung bình cộng, không hoán đổi metric được
+- ==D. k-means định nghĩa trong không gian Euclid — centroid là trung bình cộng, không hoán đổi metric được==
 
 **20.** Centroid + bán kính giả định cụm hình tròn. Vấn đề với khu buôn bán dọc quốc lộ là:
 - A. Bán kính phải lớn hơn
-- B. Vòng tròn vừa bao thừa vùng trống vừa cắt mất shop thật — không bán kính nào đúng
+- ==B. Vòng tròn vừa bao thừa vùng trống vừa cắt mất shop thật — không bán kính nào đúng==
 - C. Cần tăng số cụm k
 - D. Cần dùng toạ độ chính xác hơn
 
 **21.** Với ba hành động BLOCK / REVIEW / ACCEPT, ngưỡng đẩy vào REVIEW nên đặt theo:
 - A. Phân vị 95 của điểm rủi ro
 - B. Ngưỡng thống kê ba sigma
-- C. Năng lực xử lý của đội rà soát — vượt quá thì hàng đợi âm thầm thành auto-approve
+- ==C. Năng lực xử lý của đội rà soát — vượt quá thì hàng đợi âm thầm thành auto-approve==
 - D. Số tiền giao dịch
 
 **22.** Dải REVIEW có một giá trị đặc biệt ngoài việc giảm rủi ro:
