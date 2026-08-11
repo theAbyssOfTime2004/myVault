@@ -4,7 +4,7 @@ status: active
 created: 2026-08-10
 event: Department Manager interview — 2026-08-11
 ---
-
+ 
 # 16 câu trả lời — bản nói
 
 > Tổng hợp bốn đợt drill. **Đây là bản để ĐỌC TO**, không phải để học thuộc.
