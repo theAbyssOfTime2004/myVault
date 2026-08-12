@@ -208,8 +208,7 @@
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "templater-obsidian:Templater": false,
-      "periodic-notes:Open today": false
+      "templater-obsidian:Templater": false
     }
   },
   "active": "3e4b6bf242554628",
