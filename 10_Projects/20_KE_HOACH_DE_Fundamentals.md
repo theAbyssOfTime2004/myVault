@@ -60,11 +60,11 @@ Một bài SQL hoặc DSA. Hết. **Không cố thêm.**
 
 ## Lịch giai đoạn
 
-| GĐ | Tuần | Trọng tâm | DSA | SQL |
-|---|---|---|---|---|
-| **0** | 1 | Lý thuyết dồn — Spark 1C + distributed systems | 1 bài/ngày | — |
-| **1** | 2–5 | **SQL** | 1 bài/ngày | Phần chính |
-| **2** | 6–9 | **DSA** | Phần chính | 2 bài/tuần |
+| GĐ    | Tuần | Trọng tâm                                      | DSA        | SQL        |
+| ----- | ---- | ---------------------------------------------- | ---------- | ---------- |
+| **0** | 1    | Lý thuyết dồn — Spark 1C + distributed systems | 1 bài/ngày | —          |
+| **1** | 2–5  | **SQL**                                        | 1 bài/ngày | Phần chính |
+| **2** | 6–9  | **DSA**                                        | Phần chính | 2 bài/tuần |
 
 **Xuyên suốt — 1 buổi/tuần (45') cho AI:**
 nói lại thesis 20' · giải thích bằng lời vài khái niệm toán · lướt abstract vài paper.
