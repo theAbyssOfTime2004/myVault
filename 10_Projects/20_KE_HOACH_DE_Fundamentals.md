@@ -181,7 +181,7 @@ Nghe vô lý nhưng đây là một trong rất ít thứ có tác dụng **th�
 ## Tài liệu
 
 - [[DE Fundamentals 01 - Spark Internals]] ✅
-- [[DE Fundamentals 02 - SQL nâng cao]] *(chưa có)*
+- [[DE Fundamentals 02 - SQL nâng cao]] ✅
 - [[DE Fundamentals 03 - Distributed Systems]] ✅
 - [[DE Fundamentals 04 - DSA cho DE]] *(chưa có)*
 
