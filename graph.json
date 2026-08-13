@@ -871,16 +871,22 @@
       "degree": 4
     },
     {
+      "id": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao",
+      "title": "DE Fundamentals 02 - SQL nâng cao",
+      "group": "knowledge",
+      "degree": 6
+    },
+    {
       "id": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems",
       "title": "DE Fundamentals 03 - Distributed Systems",
       "group": "knowledge",
-      "degree": 4
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
       "title": "DE Fundamentals 01 - Spark Internals",
       "group": "knowledge",
-      "degree": 3
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Cloud/Cloud Service Models",
@@ -1708,7 +1714,7 @@
       "id": "10_Projects/20_KE_HOACH_DE_Fundamentals",
       "title": "20_KE_HOACH_DE_Fundamentals",
       "group": "projects",
-      "degree": 3
+      "degree": 5
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11",
@@ -3905,12 +3911,32 @@
       "target": "10_Projects/13_Uni_Retake/Chương 6 - Nguyên lý I Nhiệt động lực học"
     },
     {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao",
+      "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals"
+    },
+    {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao",
+      "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems"
+    },
+    {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao",
+      "target": "10_Projects/20_KE_HOACH_DE_Fundamentals"
+    },
+    {
       "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems",
       "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals"
     },
     {
       "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems",
+      "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao"
+    },
+    {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems",
       "target": "10_Projects/20_KE_HOACH_DE_Fundamentals"
+    },
+    {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
+      "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao"
     },
     {
       "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
@@ -5419,6 +5445,10 @@
     {
       "source": "10_Projects/20_KE_HOACH_DE_Fundamentals",
       "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals"
+    },
+    {
+      "source": "10_Projects/20_KE_HOACH_DE_Fundamentals",
+      "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao"
     },
     {
       "source": "10_Projects/20_KE_HOACH_DE_Fundamentals",
@@ -7046,7 +7076,7 @@
     }
   ],
   "stats": {
-    "node_count": 507,
-    "link_count": 1000
+    "node_count": 508,
+    "link_count": 1006
   }
 }
