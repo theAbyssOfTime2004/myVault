@@ -886,7 +886,7 @@
       "id": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
       "title": "DE Fundamentals 01 - Spark Internals",
       "group": "knowledge",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "30_Knowledge_Base/Cloud/Cloud Service Models",
@@ -1714,7 +1714,7 @@
       "id": "10_Projects/20_KE_HOACH_DE_Fundamentals",
       "title": "20_KE_HOACH_DE_Fundamentals",
       "group": "projects",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "10_Projects/14_Thesis_SDPO/SDPO 2026-04-11",
@@ -3941,6 +3941,10 @@
     {
       "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
       "target": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems"
+    },
+    {
+      "source": "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals",
+      "target": "10_Projects/20_KE_HOACH_DE_Fundamentals"
     },
     {
       "source": "30_Knowledge_Base/Cloud/Server vs Serverless Architecture",
@@ -7077,6 +7081,6 @@
   ],
   "stats": {
     "node_count": 508,
-    "link_count": 1006
+    "link_count": 1007
   }
 }
