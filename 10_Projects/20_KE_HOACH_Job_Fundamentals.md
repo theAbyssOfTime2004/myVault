@@ -60,11 +60,12 @@ Một bài SQL hoặc DSA. Hết. **Không cố thêm.**
 
 ## Lịch giai đoạn
 
-| GĐ    | Tuần | Trọng tâm                                      | DSA        | SQL        |
-| ----- | ---- | ---------------------------------------------- | ---------- | ---------- |
-| **0** | 1    | Lý thuyết dồn — Spark 1C + distributed systems | 1 bài/ngày | —          |
-| **1** | 2–5  | **SQL**                                        | 1 bài/ngày | Phần chính |
-| **2** | 6–9  | **DSA**                                        | Phần chính | 2 bài/tuần |
+| GĐ      | Tuần | Trọng tâm                                       | DSA        | SQL        |
+| ------- | ---- | ----------------------------------------------- | ---------- | ---------- |
+| **0**   | 1    | Lý thuyết dồn — Spark + distributed systems     | 1 bài/ngày | —          |
+| **0.5** | 2    | **Backend + nghề dev** — ship artifact          | 1 bài/ngày | —          |
+| **1**   | 3–6  | **SQL**                                         | 1 bài/ngày | Phần chính |
+| **2**   | 7–10 | **DSA**                                         | Phần chính | 2 bài/tuần |
 
 **Xuyên suốt — 1 buổi/tuần (45') cho AI:**
 nói lại thesis 20' · giải thích bằng lời vài khái niệm toán · lướt abstract vài paper.
@@ -86,9 +87,12 @@ Kiểm bằng **hành động**, không bằng cảm giác "ôn đủ chưa".
 - Distributed storage hoạt động thế nào
 - Spark chia file cho worker thế nào
 
-**Cuối tuần 5** — làm xong một bài SQL medium (window + dedup), không tra cú pháp
+**Cuối tuần 2** — RAG demo đã có API + Docker + **deploy thật, truy cập được bằng URL**
+Và làm xong bài tập ①②③ ở [[Job Fundamentals 06 - Nghề dev thực chiến]] mà không cần nghĩ
 
-**Cuối tuần 9** — giải được **median của hai sorted array**, không gợi ý
+**Cuối tuần 6** — làm xong một bài SQL medium (window + dedup), không tra cú pháp
+
+**Cuối tuần 10** — giải được **median của hai sorted array**, không gợi ý
 *Đúng câu đã đánh gục mình hôm 11/8. Đóng vòng ở đó.*
 
 ---
@@ -184,6 +188,8 @@ Nghe vô lý nhưng đây là một trong rất ít thứ có tác dụng **th�
 - [[Job Fundamentals 02 - SQL nâng cao]] ✅
 - [[Job Fundamentals 03 - Distributed Systems]] ✅
 - [[Job Fundamentals 04 - DSA]] *(chưa có)*
+- [[Job Fundamentals 05 - Backend cho AI-DE]] *(chưa có)*
+- [[Job Fundamentals 06 - Nghề dev thực chiến]] ✅
 
 ## Bối cảnh
 
