@@ -2,11 +2,11 @@
 tags: [knowledge, data-engineer, distributed-systems, interview-prep, fundamentals]
 status: active
 created: 2026-08-12
-series: DE Fundamentals
+series: Job Fundamentals
 part: 3 / Distributed Systems
 ---
 
-# DE Fundamentals 03 — Distributed Systems
+# Job Fundamentals 03 — Distributed Systems
 
 > **Câu bị hỏi hôm 11/8 mà không trả lời được:** *"Distributed system cho storage là như thế nào?"*
 > Mục 2 là câu trả lời đó.
@@ -95,7 +95,7 @@ Metadata nằm hết trong RAM của NameNode. Mỗi file/block tốn ~150 byte 
 **10 triệu file nhỏ giết NameNode, trong khi 10 file lớn cùng dung lượng thì không sao.**
 
 Câu hỏi phụ hay gặp: *"Vì sao nhiều file nhỏ lại xấu?"* — hai lý do:
-metadata phình ở master, và **mỗi file thành một task riêng** ở tầng compute (xem [[DE Fundamentals 01 - Spark Internals]]).
+metadata phình ở master, và **mỗi file thành một task riêng** ở tầng compute (xem [[Job Fundamentals 01 - Apache Spark]]).
 
 ## 2.2 — Object storage (S3 / GCS / ADLS — cái thực tế đang dùng)
 
@@ -148,7 +148,7 @@ Dùng ở: **Cassandra, DynamoDB, Riak.** Redis Cluster dùng hash slot — cùn
 ## Nối với cái đã biết
 
 **Partition key trong Kafka và partition trong Spark là cùng một khái niệm.**
-Và **skew** trong Spark ([[DE Fundamentals 01 - Spark Internals]] mục 4) chính là bài toán
+Và **skew** trong Spark ([[Job Fundamentals 01 - Apache Spark]] mục 4) chính là bài toán
 "chọn key phân bố không đều" của partitioning.
 
 ---
@@ -334,7 +334,7 @@ Retry là cách chữa mặc định — nhưng chỉ an toàn khi thao tác **i
 
 ## Liên quan
 
-- [[DE Fundamentals 01 - Spark Internals]] — partition, shuffle, skew ở tầng compute
-- [[DE Fundamentals 02 - SQL nâng cao]] *(chưa có)*
-- [[DE Fundamentals 04 - DSA cho DE]] *(chưa có)*
-- [[20_KE_HOACH_DE_Fundamentals]] — kế hoạch
+- [[Job Fundamentals 01 - Apache Spark]] — partition, shuffle, skew ở tầng compute
+- [[Job Fundamentals 02 - SQL nâng cao]] *(chưa có)*
+- [[Job Fundamentals 04 - DSA]] *(chưa có)*
+- [[20_KE_HOACH_Job_Fundamentals]] — kế hoạch

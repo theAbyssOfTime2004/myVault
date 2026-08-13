@@ -15,7 +15,7 @@ horizon: 9 tuần (2026-08-12 → ~2026-10-14)
 ## ▶ BUỔI TỚI
 
 ```
-Đọc [[DE Fundamentals 01 - Spark Internals]] mục 2, 3, 4
+Đọc [[Job Fundamentals 01 - Apache Spark]] mục 2, 3, 4
 → Nói lớn 3 câu ở mục 5, không nhìn note
 + 1 bài DSA (binary search cơ bản)
 ```
@@ -180,10 +180,10 @@ Nghe vô lý nhưng đây là một trong rất ít thứ có tác dụng **th�
 
 ## Tài liệu
 
-- [[DE Fundamentals 01 - Spark Internals]] ✅
-- [[DE Fundamentals 02 - SQL nâng cao]] ✅
-- [[DE Fundamentals 03 - Distributed Systems]] ✅
-- [[DE Fundamentals 04 - DSA cho DE]] *(chưa có)*
+- [[Job Fundamentals 01 - Apache Spark]] ✅
+- [[Job Fundamentals 02 - SQL nâng cao]] ✅
+- [[Job Fundamentals 03 - Distributed Systems]] ✅
+- [[Job Fundamentals 04 - DSA]] *(chưa có)*
 
 ## Bối cảnh
 

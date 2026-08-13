@@ -3,11 +3,11 @@ tags: [knowledge, data-engineer, spark, interview-prep, fundamentals]
 status: active
 created: 2026-08-12
 updated: 2026-08-13
-series: DE Fundamentals
+series: Job Fundamentals
 part: 1 / Spark
 ---
 
-# DE Fundamentals 01 — Apache Spark
+# Job Fundamentals 01 — Apache Spark
 
 > **Tài liệu tham chiếu đầy đủ, không phải bản vá cho một buổi phỏng vấn cụ thể.**
 > Mục tiêu: hiểu Spark đủ để trả lời được câu **chưa gặp bao giờ**, không chỉ câu đã gặp.
@@ -952,7 +952,7 @@ Câu thứ ba là câu **nên dùng thay vì im lặng**. Thành thật về gi�
 
 ## Liên quan
 
-- [[DE Fundamentals 02 - SQL nâng cao]] — Catalyst tối ưu SQL; window function
-- [[DE Fundamentals 03 - Distributed Systems]] — partition, replication, consensus ở tầng dưới
-- [[DE Fundamentals 04 - DSA cho DE]] *(chưa có)*
-- [[20_KE_HOACH_DE_Fundamentals]] — kế hoạch
+- [[Job Fundamentals 02 - SQL nâng cao]] — Catalyst tối ưu SQL; window function
+- [[Job Fundamentals 03 - Distributed Systems]] — partition, replication, consensus ở tầng dưới
+- [[Job Fundamentals 04 - DSA]] *(chưa có)*
+- [[20_KE_HOACH_Job_Fundamentals]] — kế hoạch

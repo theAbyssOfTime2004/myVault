@@ -2,11 +2,11 @@
 tags: [knowledge, data-engineer, sql, interview-prep, fundamentals]
 status: active
 created: 2026-08-12
-series: DE Fundamentals
+series: Job Fundamentals
 part: 2 / SQL
 ---
 
-# DE Fundamentals 02 — SQL nâng cao
+# Job Fundamentals 02 — SQL nâng cao
 
 > **Đây là module dài nhất (tuần 2–5)** và là mảng bị hỏi nhiều thứ hai sau Spark.
 > Lỗ hổng đã xác nhận: **lấy giao dịch mới nhất của mỗi khách** — trả lời bằng `GROUP BY`, sai.
@@ -530,7 +530,7 @@ Vì sao lại cần loại trừ dòng hiện tại?
 
 ## Liên quan
 
-- [[DE Fundamentals 01 - Spark Internals]]
-- [[DE Fundamentals 03 - Distributed Systems]]
-- [[DE Fundamentals 04 - DSA cho DE]] *(chưa có)*
-- [[20_KE_HOACH_DE_Fundamentals]] — kế hoạch
+- [[Job Fundamentals 01 - Apache Spark]]
+- [[Job Fundamentals 03 - Distributed Systems]]
+- [[Job Fundamentals 04 - DSA]] *(chưa có)*
+- [[20_KE_HOACH_Job_Fundamentals]] — kế hoạch
