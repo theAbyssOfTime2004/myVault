@@ -76,7 +76,7 @@
       "id": "10_Projects/20_KE_HOACH_Job_Fundamentals",
       "title": "20_KE_HOACH_Job_Fundamentals",
       "group": "projects",
-      "degree": 6
+      "degree": 8
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
@@ -2398,19 +2398,25 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems",
       "title": "Job Fundamentals 03 - Distributed Systems",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao",
       "title": "Job Fundamentals 02 - SQL nâng cao",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
+    },
+    {
+      "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
+      "title": "Job Fundamentals 06 - Nghề dev thực chiến",
+      "group": "knowledge",
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark",
       "title": "Job Fundamentals 01 - Apache Spark",
       "group": "knowledge",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "30_Knowledge_Base/DATA SCIENCE/Fuzzy Logic",
@@ -3069,6 +3075,10 @@
     {
       "source": "10_Projects/20_KE_HOACH_Job_Fundamentals",
       "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark"
+    },
+    {
+      "source": "10_Projects/20_KE_HOACH_Job_Fundamentals",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến"
     },
     {
       "source": "10_Projects/20_KE_HOACH_Job_Fundamentals",
@@ -6771,6 +6781,22 @@
       "target": "10_Projects/20_KE_HOACH_Job_Fundamentals"
     },
     {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
+      "target": "10_Projects/20_KE_HOACH_Job_Fundamentals"
+    },
+    {
       "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark",
       "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao"
     },
@@ -7080,7 +7106,7 @@
     }
   ],
   "stats": {
-    "node_count": 508,
-    "link_count": 1007
+    "node_count": 509,
+    "link_count": 1012
   }
 }
