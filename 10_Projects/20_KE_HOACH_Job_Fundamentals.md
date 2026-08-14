@@ -188,7 +188,7 @@ Nghe vô lý nhưng đây là một trong rất ít thứ có tác dụng **th�
 - [[Job Fundamentals 02 - SQL nâng cao]] ✅
 - [[Job Fundamentals 03 - Distributed Systems]] ✅
 - [[Job Fundamentals 04 - DSA]] *(chưa có)*
-- [[Job Fundamentals 05 - Backend cho AI-DE]] *(chưa có)*
+- [[Job Fundamentals 05 - Backend cho AI-DE]] ✅
 - [[Job Fundamentals 06 - Nghề dev thực chiến]] ✅
 
 ## Bối cảnh

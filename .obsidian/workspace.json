@@ -208,12 +208,12 @@
       "smart-random-note:Open Random Note from Search": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "templater-obsidian:Templater": false,
-      "periodic-notes:Open today": false
+      "templater-obsidian:Templater": false
     }
   },
   "active": "3e4b6bf242554628",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE.md",
     "10_Projects/20_KE_HOACH_Job_Fundamentals.md.tmp.26668.2f17f04b86a6",
     "10_Projects/20_KE_HOACH_Job_Fundamentals.md.tmp.26668.41ce8e0996f1",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến.md",
@@ -239,7 +239,6 @@
     "19_HomeRacer_Manager/answers_16_questions.md",
     "19_HomeRacer_Manager/fraud_case_deepdive.md",
     "19_HomeRacer_Manager/quiz_50_final.md",
-    "19_HomeRacer_Manager/answers_16_questions.md.tmp.24980.f8a1b1f823d4",
     "10_Projects/19_HomeRacer_AC/de_concepts.md",
     "10_Projects/19_HomeRacer_AC/english_phrasebook.md",
     "10_Projects/19_HomeRacer_AC/prep.md",
