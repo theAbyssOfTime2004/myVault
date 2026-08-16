@@ -1,0 +1,139 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{setspace}
+\usepackage{tabularx}
+
+\titlespacing*{\section}{0pt}{0.8ex plus 0.1ex minus 0.1ex}{0.25ex}
+
+\definecolor{darkblue}{RGB}{0, 51, 102}
+\definecolor{lightgray}{RGB}{128, 128, 128}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=darkblue,
+  linkcolor=darkblue
+}
+
+\titleformat{\section}
+  {\large\bfseries\color{darkblue}}
+  {}
+  {0em}
+  {\uppercase}
+  [\vspace{0.05em}\color{darkblue}\hrule height 0.8pt\vspace{0.1em}]
+
+\pagestyle{empty}
+\setstretch{0.95}
+
+\begin{document}
+
+%==================== HEADER ====================
+\begin{center}
+  {\LARGE\bfseries MAI PHONG DANG} \\[0.2em]
+  \href{mailto:maidang.forwork@gmail.com}{\color{darkblue}maidang.forwork@gmail.com} $\bullet$ (+84) 394407454 \\[0.1em]
+  Dien Hong Ward, HCMC \\[0.1em]
+  \href{https://github.com/theAbyssOfTime2004}{\color{darkblue}GitHub} $\bullet$
+  \href{https://www.linkedin.com/in/mai-%C4%91%C4%83ng-124b13302/}{\color{darkblue}LinkedIn} $\bullet$
+  \href{https://theabyssoftime2004.github.io/}{\color{darkblue}Portfolio}
+\end{center}
+
+\vspace{-0.1em}
+
+%==================== PROFESSIONAL SUMMARY ====================
+\section{Professional Summary}
+Recent Data Science graduate from VNUHCM - University of Science. Internship experience in agent pipelines and RAG chatbots, with projects across MLOps and data engineering. Bachelor thesis on test-time self-distillation for code generation.
+
+%==================== TECHNICAL SKILLS ====================
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X@{}}
+\textbf{Languages:} & Python, SQL \\
+\textbf{LLM \& GenAI:} & RAG pipelines, function calling, prompt engineering, harness engineering, Popular LLM frameworks, Hugging Face Transformers \\
+\textbf{Model Training:} & Fine-tuning, ONNX, model benchmarking \\
+\textbf{Core ML \& CV:} & PyTorch, TensorFlow, scikit-learn, OpenCV, ViT, YOLO \\
+\textbf{Backend \& Serving:} & FastAPI, async, REST APIs \\
+\textbf{Cloud \& Databases:} & GCP, PostgreSQL, MongoDB, Redis, vector database \\
+\textbf{Data Engineering:} & Apache Spark, Kafka, Airflow, Lakehouse architecture \\
+\textbf{DevOps \& MLOps:} & Docker, Kubernetes, Terraform, CI/CD (GitHub Actions), MLflow, Git \\
+\end{tabularx}
+
+%==================== EXPERIENCE ====================
+\section{Experience}
+
+\textbf{AI Engineer Intern} \hfill \textbf{Jan 2026 - May 2026} \\
+\textit{Tiger Tribe (A Heineken Company) -- BrewBuddy SmartTap, HCMC} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Built a 4-agent parallel moderation pipeline (Python \texttt{asyncio}) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
+    \item Designed a stateful workflow router with function-calling logic that branches conversations into Vibe-based or Decision-based flows to extract user preferences across multi-turn dialogue.
+    \item Engineered a session state layer (Redis + Azure Blob Storage) and persona-conditioned generation to keep a coherent multilingual ``witty bartender'' identity in production.
+\end{itemize}
+
+\vspace{0.3em}
+\noindent\textbf{AI Engineer Intern} \hfill \textbf{Jul 2025 - Dec 2025} \\
+\textit{Solazu JSC -- Agentic RAG E-commerce Chatbot, Binh Thanh, HCMC} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Contributed to an agentic RAG service (FastAPI + Supabase/PostgreSQL, Docker) with role-based routing pipelines (LangChain \texttt{RunnableBranch}) over retrieval, summarization, and extraction flows -- reducing end-to-end response latency by $\sim$30\%.
+    \item Built a LlamaIndex/LangChain ingestion pipeline (sitemap crawl / clean / chunk / embed) over Supabase pgvector with \texttt{text-embedding-3-small} and a vector index, improving retrieval context recall by $\sim$20\% on document Q\&A.
+    \item Implemented a parallel retrieval path and FAQ/QA-match gating (similarity-threshold) that injects high-confidence curated answers as grounded context, cutting tokens and latency on FAQ-style traffic.
+    \item Built LangGraph agent memory (Supabase checkpointer) for multi-session context and a reflection step; orchestrated LangChain chains for summarization and structured extraction, with SSE token streaming to the chat frontend.
+\end{itemize}
+
+%==================== RESEARCH ====================
+\section{Research}
+
+\noindent\textbf{Bachelor Thesis --- Test-Time Self-Distillation for Code LLMs} \hfill \textbf{Apr 2026 - Jul 2026} \\
+\quad Title: \textit{Accelerating Test-Time Discovery in Complex Code Generation via Execution-Guided Self-Distillation} \\
+\vspace{-0.3em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
+    \item Extended train-time SDPO (Hübotter et al., 2026) to the test-time regime for code generation on Qwen3-8B, with online preference updates during multi-turn inference on LiveCodeBench v6 (hard + very-hard splits).
+    \item Built a multi-turn inference loop with execution-guided trajectory collection and a 7-variant reprompt template taxonomy to study template effects on discovery@$k$.
+    \item Validated the end-to-end TTT-SDPO loop (generate $\rightarrow$ execution-based evaluation $\rightarrow$ online weight update) on a single L4 GPU with a Qwen3-4B proof-of-concept, confirming real per-step learning before scaling.
+    \item Proposed Compute-to-Correct (CTC), a compute-aware test-time discovery metric, and analyzed per-step epistemic uncertainty suppression.
+\end{itemize}
+
+%==================== PROJECTS ====================
+\section{Projects}
+
+\noindent\textbf{Viettel AI Race --- PDF Parsing \& Document QnA Pipeline} \hfill \href{https://github.com/theAbyssOfTime2004/Viettel-AI-Race}{\color{darkblue}[GitHub]} \\
+\vspace{-1.1em}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+  \item Built a PDF parsing pipeline with Dots.OCR, extracting layout-aware content (text, tables, formulas) into structured Markdown.
+  \item Improved extraction with preprocessing (crop/whiteout) and bbox-based post-processing for correct table-cell merging.
+  \item Built a RAG multiple-choice QnA module (LlamaIndex, \texttt{bge-small-en} embeddings, Qwen3-4B) over parsed docs; $\sim$85\% on private test.
+\end{itemize}
+
+\vspace{0.2em}
+\noindent\textbf{Face Anti-Spoofing Detection MLOps Platform} \hfill \href{https://github.com/theAbyssOfTime2004/face-spoofing-detection}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+    \item Built a liveness pipeline (quality gate, SCRFD detection/alignment, Global+Local ONNX ensemble of MiniFASNetV2 + DeepPixBiS) reaching F1 90.1\%, with YAML-driven threshold tuning.
+    \item Deployed a FastAPI inference service on GKE via Helm, with HPA autoscaling and Prometheus + Grafana monitoring.
+    \item Provisioned infrastructure with Terraform and CI/CD via GitHub Actions (WIF auth, coverage-gated pytest); integrated MLflow for experiment tracking.
+\end{itemize}
+
+\vspace{0.2em}
+\noindent\textbf{Chess Feature Store --- End-to-End Lakehouse Data Platform (Lichess, 100GB+)} \hfill \href{https://github.com/theAbyssOfTime2004/lichess-feature-store}{\color{darkblue}[GitHub]} \\\vspace{-1.1em}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt]
+    \item Built a Medallion Lakehouse (Bronze/Silver/Gold) over 100GB+ of Lichess dumps on MinIO + Delta Lake, parsing PGN at scale with Spark (\texttt{python-chess} UDFs) and Trino SQL transforms.
+    \item Engineered a dual batch + streaming Feature Store: offline features from Delta, and real-time behavioral features via Kafka $\rightarrow$ Flink windowed aggregation, materialized to a Redis online store behind a FastAPI API.
+    \item Implemented point-in-time-correct feature joins (no future leak) feeding an IsolationForest anomaly-detection consumer; orchestrated with Airflow and deployed on GKE via Terraform, monitored with Prometheus + Grafana.
+\end{itemize}
+
+%==================== EDUCATION ====================
+\section{Education}
+\textbf{Bachelor of Science in Data Science} \hfill \textbf{Aug 2022 -- Sep 2026 (expected)} \\
+VNUHCM - University of Science, Ho Chi Minh City \hfill \textbf{GPA: 3.5/4.0} \\
+\textbf{TOEIC – L \& R: 900/990 – W \& S: 300/400}
+
+%==================== CERTIFICATIONS ====================
+\section{Certifications}
+
+\noindent\textbf{Coursera:} \href{https://coursera.org/share/218c9c7d0f22004848c2b9f7546901a5}{\color{darkblue}Deep Learning Specialization} $\bullet$ \href{https://coursera.org/share/218c9c7d0f22004848c2b9f7546901a5}{\color{darkblue}Google Advanced Data Analytics} \\ \textbf{Oracle:} \href{https://catalog-education.oracle.com/ords/certview/sharebadge?id=30F284CA7068AF4CACBE9B0909A33655D60B859E3E67A230D0BCCFD0F197FCB3}{\color{darkblue}OCI 2025 Data Science Professional} $\bullet$ \href{https://catalog-education.oracle.com/ords/certview/sharebadge?id=E4BE1CEE4B001665E4F0C2982D1DC4BC36F15FFD068FF4C62B8D3F2B8B10D661}{\color{darkblue}OCI 2025 AI Foundations Associate}
+
+\end{document}
