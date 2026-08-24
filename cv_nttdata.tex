@@ -70,7 +70,7 @@ Final-year Data Science student specializing in \textbf{GenAI agentic applicatio
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
     \item Architected a \textbf{4-agent parallel moderation pipeline} (Python \texttt{asyncio} orchestration) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
     \item Designed a \textbf{stateful workflow router with function-calling logic}, dynamically branching conversations into Vibe-based or Decision-based agent flows to extract user preferences across multi-turn dialogue.
-    \item Engineered a session state layer (\textbf{Redis} + \textbf{Azure Blob Storage}) and persona-conditioned generation to maintain a coherent multilingual ``witty bartender'' identity in production.
+    \item Built the chat memory layer, consisting of session state and history saved to \textbf{Azure Blob Storage} with \textbf{Redis} caching, so the bot remembers each user across turns and keeps a coherent persona in English and Dutch.
 \end{itemize}
 
 \vspace{0.3em}

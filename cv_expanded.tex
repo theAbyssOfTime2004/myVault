@@ -69,7 +69,7 @@ Recent Data Science graduate from VNUHCM - University of Science. Passionate abo
 \begin{itemize}[leftmargin=1.2em, itemsep=0.05em, parsep=0pt, topsep=0pt]
     \item Built a 4-agent parallel moderation pipeline (Python \texttt{asyncio}) enforcing brand-safety constraints (underage filtering, health restrictions) with concurrent sub-second LLM inference.
     \item Designed a stateful workflow router with function-calling logic that branches conversations into Vibe-based or Decision-based flows to extract user preferences across multi-turn dialogue.
-    \item Engineered a session state layer (Redis + Azure Blob Storage) and persona-conditioned generation to keep a coherent multilingual ``witty bartender'' identity in production.
+    \item Built the chat memory layer, consisting of session state and history saved to Azure Blob Storage with Redis caching, so the bot remembers each user across turns and keeps a coherent persona in English and Dutch.
     \item Containerized the agent service (Docker multi-stage builds) and supported deployment on Azure Container Apps, with Azure DevOps CI/CD, health-check endpoints, and release validation for the SmartTap rollout.
 \end{itemize}
 
