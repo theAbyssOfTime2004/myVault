@@ -21,8 +21,24 @@
               "icon": "lucide-file",
               "title": "Job Fundamentals 01 - Apache Spark"
             }
+          },
+          {
+            "id": "727e65d90873be97",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00_Dashboard/Untitled 6.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 6"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -212,13 +228,14 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "3e4b6bf242554628",
+  "active": "727e65d90873be97",
   "lastOpenFiles": [
+    "00_Dashboard/Untitled 6.md",
+    "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao.md",
-    "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark.md",
     "10_Projects/20_KE_HOACH_Job_Fundamentals.md.tmp.26668.2f17f04b86a6",
     "10_Projects/20_KE_HOACH_Job_Fundamentals.md.tmp.26668.41ce8e0996f1",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến.md.tmp.26668.a0a55c759278",
@@ -249,7 +266,6 @@
     "10_Projects/19_HomeRacer_AC/case_rationale.md",
     "10_Projects/19_HomeRacer_AC/deep_streaming_concepts.md",
     "10_Projects/19_HomeRacer_AC/FINAL_REVIEW.md",
-    "10_Projects/19_HomeRacer_AC/workshop_narrative_en.md",
     "10_Projects/14_Thesis_SDPO/report/latex/_cover_en.png"
   ]
 }
