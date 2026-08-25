@@ -84,7 +84,8 @@
       "Bash(find \"/c/Users/Maidanng/.claude/plugins/marketplaces\" -maxdepth 3 -type d | head -50)",
       "Bash(find \"/c/Users/Maidanng/.claude\" -type f \\\\\\( -name \"ars-*.md\" -o -iname \"*academic-paper*\" \\\\\\) 2>/dev/null | grep -iv \"worktree\" | head -40)",
       "Bash(MSYS_NO_PATHCONV=1 wsl bash -lc 'cd /mnt/c/Users/Maidanng/Repos/myVault/10_Projects/14_Thesis_SDPO/report/latex && ~/bin/tectonic -X compile main_bestcase.tex 2>&1 | grep -iE \"error|Writing\" | grep -viE \"hbox\"; ~/bin/tectonic -X compile main_bestcase_overleaf.tex 2>&1 | grep -iE \"error|Writing\" | grep -viE \"hbox\"')",
-      "Bash(MSYS_NO_PATHCONV=1 wsl bash -lc '/home/theabyssoftime/tfig/bin/python -c \" *)"
+      "Bash(MSYS_NO_PATHCONV=1 wsl bash -lc '/home/theabyssoftime/tfig/bin/python -c \" *)",
+      "Bash(ls \"//wsl.localhost/Ubuntu/home/theabyssoftime/Repos/SDPO\" 2>&1 | head -40)"
     ]
   }
 }
