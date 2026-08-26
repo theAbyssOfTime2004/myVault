@@ -116,7 +116,7 @@ Ba nguồn khả dĩ: bất đồng kỹ thuật ở Solazu / Tiger Tribe · b�
 
 **Điểm mạnh — chọn MỘT, kèm bằng chứng:**
 
-> I'm fairly self-directed — I'm comfortable picking something up without much hand-holding. At Solazu I migrated our memory layer from LlamaIndex onto LangGraph; I hadn't used LangGraph before and there wasn't anyone to walk me through it, so I worked it out from the docs and the existing code.
+> I'm fairly self-directed — I'm a quick study—just point me in the right direction. At Solazu I migrated our memory layer from LlamaIndex onto LangGraph; I hadn't used LangGraph before and there wasn't anyone to walk me through it, so I worked it out from the docs and the existing code.
 
 *(Lấy từ internship thay vì khoá luận — và nó khớp thẳng với dòng **"self-directed learner"** trong JD.)*
 
