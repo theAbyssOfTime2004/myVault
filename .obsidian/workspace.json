@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_Dashboard/Untitled 6.md",
+                "file": "10_Projects/21_Katalon_Internship/HR_interview.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 6"
+              "title": "HR_interview"
             }
           }
         ],
@@ -231,6 +231,8 @@
   "active": "727e65d90873be97",
   "lastOpenFiles": [
     "00_Dashboard/Untitled 6.md",
+    "10_Projects/21_Katalon_Internship/HR_interview.md",
+    "10_Projects/21_Katalon_Internship",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến.md",
     "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE.md",
@@ -250,7 +252,6 @@
     "30_Knowledge_Base/Job_Fundamentals/DE Fundamentals 03 - Distributed Systems.md",
     "30_Knowledge_Base/Job_Fundamentals/DE Fundamentals 02 - SQL nâng cao.md",
     "30_Knowledge_Base/Job_Fundamentals",
-    "30_Knowledge_Base/Data_Engineering/DE Fundamentals 01 - Spark Internals.md.tmp.12252.44a1025b730f",
     "30_Knowledge_Base/Data_Engineering/DE Fundamentals 02 - SQL nâng cao.md",
     "30_Knowledge_Base/Data_Engineering/DE Fundamentals 03 - Distributed Systems.md",
     "10_Projects/17_onbai/dsa/01_bigo/ly_thuyet.md",
@@ -265,7 +266,6 @@
     "10_Projects/19_HomeRacer_AC/quiz_streaming.md",
     "10_Projects/19_HomeRacer_AC/case_rationale.md",
     "10_Projects/19_HomeRacer_AC/deep_streaming_concepts.md",
-    "10_Projects/19_HomeRacer_AC/FINAL_REVIEW.md",
     "10_Projects/14_Thesis_SDPO/report/latex/_cover_en.png"
   ]
 }
