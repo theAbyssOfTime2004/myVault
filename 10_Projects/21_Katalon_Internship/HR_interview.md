@@ -42,13 +42,13 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 # ② Why this role / why Katalon
 
-Two reasons.
-
-The first is the JD matching. your JD have mentioned 3 deliverables— the evaluation benchmark, retrieval tuning, and cross-session memory — and those are almost exactly what I've already been working on. My thesis was building an evaluation loop, and at Solazu I built the ingestion pipeline and the agent's memory layer.
+> Two reasons.
 >
-> The second is the shape of the role. Its mentioned that Katalon is about building augmented AI testing software, so i think  It gonna be about  running experiments, validating them against a benchmark, and writing them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
+> The first is how closely the deliverables match what I've already worked on. The posting names three — the evaluation benchmark, retrieval tuning, and cross-session memory. At Solazu I built the ingestion pipeline and the agent's memory layer, so two of those are familiar ground; and my thesis was essentially building an evaluation loop, which covers the third.
 >
-> One line in the posting stood out too: that the reporting has to be honest, regressions included. Most job descriptions don't bother saying that, and it tells you something about how the team works.
+> The second is the shape of the work. It's set up as: run experiments, validate them against a benchmark, and write them up so the core team can adopt them directly. That's a research-shaped role inside a product team, and there aren't many internships structured that way.
+>
+> One line in the posting stood out as well — that the reporting has to be honest, regressions included. Most job descriptions don't bother saying that, and it says something about how the team works.
 
 > [!note] Vì sao bản này chắc
 > Lý do hai **không dựa vào kinh nghiệm nào** — nó là quan sát về JD, nên không bị vặn được.
@@ -116,7 +116,9 @@ Ba nguồn khả dĩ: bất đồng kỹ thuật ở Solazu / Tiger Tribe · b�
 
 **Điểm mạnh — chọn MỘT, kèm bằng chứng:**
 
-> I'm comfortable working under constraints. My whole thesis ran on a single L4 GPU, so I had to pick the version of the problem I could actually run rather than the version I wanted.
+> I'm fairly self-directed — I'm comfortable picking something up without much hand-holding. At Solazu I migrated our memory layer from LlamaIndex onto LangGraph; I hadn't used LangGraph before and there wasn't anyone to walk me through it, so I worked it out from the docs and the existing code.
+
+*(Lấy từ internship thay vì khoá luận — và nó khớp thẳng với dòng **"self-directed learner"** trong JD.)*
 
 **Điểm yếu:**
 
@@ -219,10 +221,10 @@ Nhận là **có đụng**, không nhận là **biết**.
 
 | Câu | Dòng chốt |
 |---|---|
-| Giới thiệu | *"retrieval, agents, and measuring whether the output is actually any good"* |
-| Why Katalon | *"run experiments, validate, write them up so the core team can pick them up"* |
+| Giới thiệu | *"retrieval, agents, and working out whether the output is actually any good"* |
+| Why Katalon | *"a research-shaped role inside a product team"* |
 | Why intern | *"the title matters less to me than what I'd be working on"* |
-| Điểm mạnh | *"my whole thesis ran on a single L4"* |
+| Điểm mạnh | *"I worked it out from the docs and the existing code"* |
 | Điểm yếu | *"graph memory — least prepared for, most curious about"* |
 | Goals | *"you can't improve what you can't measure"* |
 | Đồng nghiệp | *"someone who goes quiet when they're stuck"* |
