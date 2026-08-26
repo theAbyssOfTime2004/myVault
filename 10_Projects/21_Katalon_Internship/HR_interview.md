@@ -39,9 +39,9 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 # ② Why this role / why Katalon
 
-> Two things.
->
-> The first is that the deliverables line up with what I've already done. My thesis was essentially building an evaluation loop — generate, score, feed the result back — and at Solazu I built the ingestion pipeline and the agent's memory layer. So the benchmark, the retrieval tuning and the memory work aren't unfamiliar territory.
+Two reasons.
+
+The first is the JD matching. your JD have mentioned 3 deliverables— the evaluation benchmark, retrieval tuning, and cross-session memory — are almost exactly what I've already been working on. My thesis was building an evaluation loop, and at Solazu I built the ingestion pipeline and the agent's memory layer.
 >
 > The second is the shape of the role. It's run experiments, validate them against a benchmark, and write them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
 >
