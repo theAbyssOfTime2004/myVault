@@ -41,9 +41,9 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 Two reasons.
 
-The first is the JD matching. your JD have mentioned 3 deliverables— the evaluation benchmark, retrieval tuning, and cross-session memory — are almost exactly what I've already been working on. My thesis was building an evaluation loop, and at Solazu I built the ingestion pipeline and the agent's memory layer.
+The first is the JD matching. your JD have mentioned 3 deliverables— the evaluation benchmark, retrieval tuning, and cross-session memory — and those are almost exactly what I've already been working on. My thesis was building an evaluation loop, and at Solazu I built the ingestion pipeline and the agent's memory layer.
 >
-> The second is the shape of the role. It's run experiments, validate them against a benchmark, and write them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
+> The second is the shape of the role. Its mentioned that Katalon is about building augmented AI software It's run experiments, validate them against a benchmark, and write them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
 >
 > One line in the posting stood out too: that the reporting has to be honest, regressions included. Most job descriptions don't bother saying that, and it tells you something about how the team works.
 
@@ -236,4 +236,4 @@ Nhận là **có đụng**, không nhận là **biết**.
 ## Liên quan
 
 - [[20_KE_HOACH_Job_Fundamentals]]
-- Vòng sau: **Panel Interview** — kỹ thuật + hiring manager, có *"role-related assessment"*
+- Vòng sau: **Panel Interview** — kỹ thuật + hiring manager, có *"role-related assessme
