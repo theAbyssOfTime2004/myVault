@@ -82,7 +82,7 @@
       "id": "10_Projects/20_KE_HOACH_Job_Fundamentals",
       "title": "20_KE_HOACH_Job_Fundamentals",
       "group": "projects",
-      "degree": 10
+      "degree": 11
     },
     {
       "id": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
@@ -983,6 +983,12 @@
       "title": "Tymex_Code_Solutions",
       "group": "projects",
       "degree": 0
+    },
+    {
+      "id": "10_Projects/21_Katalon_Internship/HR_interview",
+      "title": "HR_interview",
+      "group": "projects",
+      "degree": 1
     },
     {
       "id": "10_Projects/19_HomeRacer_AC/case_rationale",
@@ -4645,6 +4651,10 @@
       "target": "3 - Tags/seminar HCMUS"
     },
     {
+      "source": "10_Projects/21_Katalon_Internship/HR_interview",
+      "target": "10_Projects/20_KE_HOACH_Job_Fundamentals"
+    },
+    {
       "source": "10_Projects/19_HomeRacer_AC/case_rationale",
       "target": "10_Projects/19_HomeRacer_AC/prep"
     },
@@ -7146,7 +7156,7 @@
     }
   ],
   "stats": {
-    "node_count": 511,
-    "link_count": 1019
+    "node_count": 512,
+    "link_count": 1020
   }
 }
