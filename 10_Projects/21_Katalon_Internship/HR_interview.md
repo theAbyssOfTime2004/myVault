@@ -29,11 +29,14 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 # ① Introduce yourself
 
-> I'm Dang. I graduated in Data Science from VNUHCM — University of Science this year. I've done two AI engineering internships: one at Solazu on a RAG chatbot, and one at Tiger Tribe on a multi-agent product. My thesis was on improving how language models generate code — and most of that work turned out to be building the evaluation loop rather than the model itself.
+> I'm Dang. I graduated in Data Science from VNUHCM — University of Science this year, and I've done two AI engineering internships. At Solazu I worked on an agentic RAG chatbot — the ingestion pipeline, the retrieval side, and the agent's memory layer. At Tiger Tribe it was a multi-agent product, mostly orchestration and session state.
 >
-> So my background has been fairly consistent: retrieval, agents, and measuring whether the output is actually any good. That's why this role stood out — it's the same three things.
+> So most of what I've done sits around retrieval, agents, and working out whether the output is actually any good. That's why this role stood out — it's the same three things.
 
-**~55 giây. Đây là câu duy nhất học thuộc từng chữ** — ba mươi giây đầu là lúc căng nhất, qua được thì phần sau nói tự nhiên.
+**~50 giây. Đây là câu duy nhất học thuộc từng chữ** — ba mươi giây đầu là lúc căng nhất, qua được thì phần sau nói tự nhiên.
+
+> [!important] Không nhắc khoá luận ở câu mở đầu
+> Hai internship **liên quan trực tiếp hơn** tới vị trí này. Để dành khoá luận cho câu ②, đúng chỗ nó gánh nặng.
 
 ---
 
@@ -43,7 +46,7 @@ Two reasons.
 
 The first is the JD matching. your JD have mentioned 3 deliverables— the evaluation benchmark, retrieval tuning, and cross-session memory — and those are almost exactly what I've already been working on. My thesis was building an evaluation loop, and at Solazu I built the ingestion pipeline and the agent's memory layer.
 >
-> The second is the shape of the role. Its mentioned that Katalon is about building augmented AI software It's run experiments, validate them against a benchmark, and write them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
+> The second is the shape of the role. Its mentioned that Katalon is about building augmented AI testing software, so i think  It gonna be about  running experiments, validating them against a benchmark, and writing them up so the core team can pick them up directly. Coming out of a thesis, that's the mode I'm used to — and it isn't how most internships are set up.
 >
 > One line in the posting stood out too: that the reporting has to be honest, regressions included. Most job descriptions don't bother saying that, and it tells you something about how the team works.
 
@@ -236,4 +239,4 @@ Nhận là **có đụng**, không nhận là **biết**.
 ## Liên quan
 
 - [[20_KE_HOACH_Job_Fundamentals]]
-- Vòng sau: **Panel Interview** — kỹ thuật + hiring manager, có *"role-related assessme
+- Vòng sau: **Panel Interview** — kỹ thuật + hiring manager, có *"role-related assessment"*
