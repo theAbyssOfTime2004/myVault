@@ -68,13 +68,37 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 # ④ Tell me about your work / projects
 
-Chuẩn bị **~2 phút mỗi cái**, sẵn sàng bị hỏi sâu.
+**Không kể cả ba cùng lúc.** Mở bằng Solazu vì sát role nhất; chỉ kể project tiếp theo nếu HR hỏi thêm. Mỗi câu khoảng **60–75 giây**.
 
-| Dự án | Kể gì |
-|---|---|
-| **Solazu** | Ingestion pipeline (crawl → clean → chunk → embed) · memory đa phiên · migrate LlamaIndex → LangGraph |
-| **Khoá luận** | Vòng generate → evaluate → update · và **vì sao benchmark mới là phần khó** |
-| **Tiger Tribe** | Pipeline nhiều agent · session state |
+## Solazu — câu chính
+
+> The project most relevant to this role was an AI assistant I worked on at Solazu. It helped users find information from a company's documents and could remember the context of earlier conversations.
+>
+> My main responsibility was preparing the knowledge behind the assistant — turning raw website content into information it could search reliably. I also worked on its memory layer, so users wouldn't have to repeat the same context in every session.
+>
+> What I liked most was that it wasn't just a demo. I had to think about whether the answers were grounded, whether the response was fast enough, and whether the feature could fit into the team's existing product. That experience is a big reason this Katalon role feels like a natural next step.
+
+**Dòng nhớ:** *knowledge → memory → reliable product, not just a demo.*
+
+## Khoá luận — nếu hỏi project khác / research
+
+> My thesis asked a fairly simple question: after an AI model gets feedback on a wrong answer, can it actually improve, rather than just try again in the same way?
+>
+> I built an experiment where the model generated a solution, received feedback, and then got another chance to learn from it. The hardest part turned out not to be building the loop, but designing a fair benchmark. A problem that is difficult for a person is not necessarily difficult in the same way for a model.
+>
+> The results showed that the approach helped on problems that were hard but still within the model's reach, and it did not help when the problem was completely beyond its current ability. The project taught me to be careful about what an experiment really proves and to report limitations as clearly as positive results.
+
+**Dòng nhớ:** *feedback loop → fair benchmark → honest limits.*
+
+## Tiger Tribe — nếu hỏi internship còn lại
+
+> At Tiger Tribe, I worked on a conversational assistant that recommended products based on what a user wanted. My part was mainly the conversation flow: keeping track of where the user was in the conversation, making sure the assistant responded consistently, and adding safety checks before a recommendation was shown.
+>
+> The interesting challenge was balancing several product requirements at once. The assistant had to be helpful and natural, but also safe, fast, and consistent across a longer conversation. I worked on the workflow and session state, and also supported the team in getting the service ready for deployment.
+>
+> That internship taught me that building an AI feature is as much about predictable user experience and teamwork as it is about the model itself.
+
+**Dòng nhớ:** *conversation flow → safety and consistency → product experience.*
 
 > [!warning] Ranh giới
 > Kể **trách nhiệm và cách tiếp cận** thì bình thường.
@@ -84,27 +108,33 @@ Chuẩn bị **~2 phút mỗi cái**, sẵn sàng bị hỏi sâu.
 
 # ⑤ A time you made a mistake
 
-> In my thesis I ran a pilot on maths problems, and I chose them using the contest difficulty labels. The pilot produced nothing — the model stayed at zero the whole way.
+> During my thesis, I made a poor assumption when choosing the problems for an early experiment. I relied on their official difficulty labels without first checking whether they were realistically within the model's ability.
 >
-> When I went back, the mistake was in how I'd selected the problems. I picked by *contest* difficulty instead of by what the *model* could actually do, so I ended up with problems beyond its capability rather than problems it was stuck on. Wrong regime entirely.
+> As a result, I spent part of my limited computing budget on problems that were simply too difficult, so the experiment produced no useful improvement. Once I realized that, I reviewed the failed runs, explained the issue to my supervisor, and changed the selection process for the later experiments: I first ran a small check of the model's actual performance, then chose problems from that evidence.
 >
-> I couldn't rerun it — I was out of compute. So I wrote it up as a boundary result instead: the method works when the reference contains a method the model can reach, and fails when it only contains an answer. That became one of the more interesting parts of the thesis.
+> I couldn't recover all of the spent budget, but I documented the failed pilot honestly and used it to define where the method did and didn't work. The main lesson for me was to test the key assumption with a small pilot before committing the full budget.
 
-**Mạnh vì:** lỗi thật · tự phát hiện · nói rõ nguyên nhân · **biến thất bại thành kết quả** thay vì giấu.
+**Dòng nhớ:** *wrong assumption → owned it → changed the process → pilot first.*
+
+**Mạnh vì:** lỗi thật · nhận trách nhiệm, không đổ cho model · hành động cụ thể · có thay đổi cách làm việc. Bản này bỏ các từ quá technical như *regime, reference, capability ceiling*.
 
 ---
 
 # ⑥ A conflict, and how you handled it
 
-## ⚠️ CHƯA CÓ — phải tự chọn một chuyện THẬT
+**Chọn chuyện thật từ khoá luận:** bất đồng với supervisor về việc một phần thông tin trong experiment có làm kết quả thiếu công bằng hay không.
 
-Ba nguồn khả dĩ: bất đồng kỹ thuật ở Solazu / Tiger Tribe · bất đồng với thầy hướng dẫn về hướng đi · bài tập nhóm ở trường.
+> During my thesis, my supervisor and I had different views on part of the experiment design. I wanted to include examples of failed attempts because I thought they could help the model avoid repeating the same mistakes. My supervisor was concerned that those examples might reveal too much information and make the result look better than it really was.
+>
+> I understood the concern, because the goal was not just to get a higher score — it was to produce a result we could trust. Instead of continuing to argue from intuition, I suggested testing both versions under the same conditions: one using only successful examples, and one also including the failed examples.
+>
+> The results were effectively the same, so that concern did not change the conclusion for our code experiments. We still kept the safer version as the main setup and reported the comparison as a check. What I learned is that a disagreement can improve the work if you turn it into a question that evidence can answer, rather than treating it as something one person has to win.
 
-**Khung:**
+**Dòng nhớ:** *two valid concerns → test both fairly → safer main version → evidence, not winning.*
 
-**①** Bất đồng về **cái gì**, và vì sao mỗi bên nghĩ vậy — *trình bày phía bên kia cho công bằng*
-**②** Bạn làm gì để **gỡ**: hỏi lại cho rõ · tìm dữ liệu · thử nhỏ cả hai cách · hỏi người thứ ba
-**③** Kết cục — **kể cả khi bạn là người sai**
+**Nếu HR hỏi “Was it really a conflict?”**
+
+> It was more of a professional disagreement than a personal conflict. We both cared about the credibility of the thesis; we just saw a different risk in the design.
 
 > [!warning] Tránh
 > Chuyện mà bên kia hiện lên như người vô lý. Người phỏng vấn nghe ra ngay.
@@ -124,7 +154,16 @@ Ba nguồn khả dĩ: bất đồng kỹ thuật ở Solazu / Tiger Tribe · b�
 
 > Graph databases. I've done vector retrieval and summarization-based memory, but not graph-structured memory — so GraphRAG is the part of this project I'm least prepared for. It's also the part I'm most curious about, which is partly why I applied.
 
-*(Chuẩn bị sẵn thêm **một điểm yếu về cách làm việc** phòng khi họ hỏi "anything outside technical?")*
+**Điểm yếu về cách làm việc — nếu họ hỏi “anything outside technical?”**
+
+> I sometimes spend too long trying to solve a problem on my own before asking for help. Being self-directed is useful, but earlier in my internships I occasionally treated asking for help as a last resort, which could waste time.
+>
+> I've been improving that by time-boxing the problem. I first investigate it myself and write down what I've tried, but if I'm still blocked after a reasonable amount of time, I ask a focused question rather than continuing silently. That way I still take ownership without slowing down the team.
+
+**Dòng nhớ:** *too independent → time-box → ask a focused question with context.*
+
+> [!important]
+> Không nói *“I’m afraid to ask for help.”* Điểm yếu là **hỏi hơi muộn**, không phải thiếu giao tiếp hoàn toàn. Cách sửa phải cụ thể: time-box + ghi lại điều đã thử + hỏi câu có context.
 
 ---
 
@@ -233,7 +272,7 @@ Nhận là **có đụng**, không nhận là **biết**.
 
 ## Còn thiếu — làm trước khi phỏng vấn
 
-- [ ] **Chọn chuyện cho câu ⑥ conflict** — phải là chuyện thật
+- [x] **Chọn chuyện cho câu ⑥ conflict** — disagreement với supervisor, giải bằng controlled comparison
 - [ ] Chuẩn bị **một điểm yếu về cách làm việc** (ngoài graph databases)
 - [ ] Chốt **ngày bắt đầu** và **thời hạn cam kết**
 - [ ] Nói lớn câu ① và ③ vài lượt cho trôi
