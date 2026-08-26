@@ -108,15 +108,20 @@ stage: passed CV + video interview; next = HR interview, then Panel
 
 # ⑤ A time you made a mistake
 
-> During my thesis, I made a poor assumption when choosing the problems for an early experiment. I relied on their official difficulty labels without first checking whether they were realistically within the model's ability.
->
-> As a result, I spent part of my limited computing budget on problems that were simply too difficult, so the experiment produced no useful improvement. Once I realized that, I reviewed the failed runs, explained the issue to my supervisor, and changed the selection process for the later experiments: I first ran a small check of the model's actual performance, then chose problems from that evidence.
->
-> I couldn't recover all of the spent budget, but I documented the failed pilot honestly and used it to define where the method did and didn't work. The main lesson for me was to test the key assumption with a small pilot before committing the full budget.
+**Chuyện ở Tiger Tribe — multilingual fallback**
 
-**Dòng nhớ:** *wrong assumption → owned it → changed the process → pilot first.*
+> At Tiger Tribe, I was working on a conversational assistant that supported more than one language. I focused most of my testing on the normal conversation flow, and I overlooked some of the fallback messages used when something went wrong.
+>
+> During testing, we found that a user could be having a conversation in Dutch but receive an English fallback message. It wasn't a major system failure, but it created an inconsistent experience, and it came from a case I should have considered earlier.
+>
+> I went back through the fallback paths, corrected the language handling, and added those cases to my testing checklist instead of checking only the happy path. Since then, whenever I work on a user-facing flow, I explicitly test normal behavior, error behavior, and edge cases across every supported language. It taught me that a small detail can still affect whether a product feels reliable.
 
-**Mạnh vì:** lỗi thật · nhận trách nhiệm, không đổ cho model · hành động cụ thể · có thay đổi cách làm việc. Bản này bỏ các từ quá technical như *regime, reference, capability ceiling*.
+**Dòng nhớ:** *tested happy path only → inconsistent language → fixed all fallbacks → expanded checklist.*
+
+**Mạnh vì:** lỗi nhỏ nhưng thật và có liên quan trực tiếp tới người dùng · không gây ấn tượng bất cẩn nghiêm trọng · nhận trách nhiệm · cho thấy thay đổi quy trình lâu dài.
+
+> [!important]
+> Note Tiger Tribe có ghi nhận đúng issue *fallback chỉ có English / mapping `en-US` và Dutch*. Trước khi dùng, xác nhận lại chi tiết **ai phát hiện** và **bạn có trực tiếp sửa hay không**. Nếu team phát hiện trong review, nói *“During review, we found…”*; không nhận phần mình chưa làm.
 
 ---
 
