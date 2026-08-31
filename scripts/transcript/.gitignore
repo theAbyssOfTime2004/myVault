@@ -1,0 +1,4 @@
+# Personal academic data - never commit (this repository is public)
+*.csv
+*.pdf
+student_info.json
