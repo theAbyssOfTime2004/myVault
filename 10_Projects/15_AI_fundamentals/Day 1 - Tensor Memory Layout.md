@@ -1,3 +1,39 @@
 
 
 
+# Cấu tạo cốt lõi của 1 Tensor
+
+
+
+một `torch.Tensor` gồm 2 phần là ***Storage*** và ***Metadata***
+1. Storage:
+	- là mảng 1D lưu giá trị liên tục trên RAM, không biết hay có thông tin gì về dim, row, col của ma trận 
+2. Metadata:
+	- chứa thông tin mô tả cách biểu diễn mảng 1D kia:
+		- **Shape:** Kích thước các chiều (ví dụ: `[2, 3]`).
+		-  **Stride:** Số bước nhảy trong Storage để đi tiếp 1 đơn vị theo từng chiều (ví dụ: `(3, 1)`).
+		- **Offset:** Vị trí bắt đầu đọc trong Storage.
+	    - **Dtype & Device:** Kiểu dữ liệu (`int32`, `float32`) và thiết bị (`cpu`, `cuda`).
+
+
+
+x = torch.tensor([[1, 2, 3],
+
+[4, 5, 6]], dtype=torch.int32)
+
+thì x mặc định là row-major và trong pytorch thì nó contiguous, tuy nhiên khi dùng phép transpose vào x: 
+
+t = x.t() 
+
+thì nó sẽ thành non-contiguous 
+
+tuy nhiên cách các phần tử của tensor t được sắp xếp trong ram không khác gì x, nó chỉ đổi stride để khi in ra, nó là chuyển vị của x? 
+và gọi view trên t thì sẽ xảy ra lỗi vì t là non-contagious
+
+và ý chính là, cái giúp xác định 1 tensor là contiguous hay non contiguous là dựa vào STRIDE của nó, nếu với stride đó mà cách đọc trên ram là theo hàng -> contiguous, không theo hàng mà nhảy lung tung -> non-contiguous
+
+
+khi dùng method .contiguous() thì pytorch sẽ cấp phát 1 vùng mới trong ram, rồi đem cái tensor mà đang non contiguous đấy quăng vào theo thứ tự theo hàng để nó trở thành contiguous
+
+
+tương tự thay cho .t() thì .permute() cũng sẽ tạo ra một non-contiguous tensor 
