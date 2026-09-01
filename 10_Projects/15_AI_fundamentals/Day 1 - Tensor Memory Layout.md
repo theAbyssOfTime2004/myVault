@@ -35,5 +35,10 @@ và ý chính là, cái giúp xác định 1 tensor là contiguous hay non conti
 
 khi dùng method .contiguous() thì pytorch sẽ cấp phát 1 vùng mới trong ram, rồi đem cái tensor mà đang non contiguous đấy quăng vào theo thứ tự theo hàng để nó trở thành contiguous
 
+.view() tạo 1 bộ metadata khác để xem tensor theo cách khác, xài được cho contiguous
+
+.reshape() cũng là tạo 1 bộ metadata khác để xem tensor theo cách khác, xài được co cả contiguous và non contiguous, với non contiguous thì đơn giản là .contiguou() rồi .view()
 
 tương tự thay cho .t() thì .permute() cũng sẽ tạo ra một non-contiguous tensor 
+
+các method này hoạt động trên metadata chứ không phải storage, vì việc thay đổi quy tắc đọc/xem thì nhanh hơn thay đổi chính bản thân dữ liệu
