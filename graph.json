@@ -85,60 +85,6 @@
       "degree": 11
     },
     {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
-      "title": "Phase3_Interview_Prep",
-      "group": "projects",
-      "degree": 3
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core",
-      "title": "Phase1_Week2_MLOps_Core",
-      "group": "projects",
-      "degree": 2
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/02_Active_Plan_PostZalo",
-      "title": "02_Active_Plan_PostZalo",
-      "group": "projects",
-      "degree": 4
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "title": "00_Overview",
-      "group": "projects",
-      "degree": 9
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "title": "01_Master_Timeline",
-      "group": "projects",
-      "degree": 10
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation",
-      "title": "Phase1_Week1_Foundation",
-      "group": "projects",
-      "degree": 2
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish",
-      "title": "Phase1_Week3_Polish",
-      "group": "projects",
-      "degree": 3
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint",
-      "title": "Phase2_Entry_Test_Sprint",
-      "group": "projects",
-      "degree": 3
-    },
-    {
-      "id": "10_Projects/15_Zalo_Fresher_Prep/Handoff_MLOps_Week1_Spec",
-      "title": "Handoff_MLOps_Week1_Spec",
-      "group": "projects",
-      "degree": 0
-    },
-    {
       "id": "10_Projects/12_TigerTribe_Intern/(SLZ) llamaindex memory - langGraph memory",
       "title": "(SLZ) llamaindex memory - langGraph memory",
       "group": "projects",
@@ -173,6 +119,12 @@
       "title": "vibe-flow overview",
       "group": "projects",
       "degree": 1
+    },
+    {
+      "id": "10_Projects/15_AI_fundamentals/Day 1 - Tensor Memory Layout",
+      "title": "Day 1 - Tensor Memory Layout",
+      "group": "projects",
+      "degree": 0
     },
     {
       "id": "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học",
@@ -2695,24 +2647,6 @@
       "degree": 2
     },
     {
-      "id": "19_HomeRacer_Manager/quiz_50_final",
-      "title": "quiz_50_final",
-      "group": "other",
-      "degree": 0
-    },
-    {
-      "id": "19_HomeRacer_Manager/answers_16_questions",
-      "title": "answers_16_questions",
-      "group": "other",
-      "degree": 0
-    },
-    {
-      "id": "19_HomeRacer_Manager/fraud_case_deepdive",
-      "title": "fraud_case_deepdive",
-      "group": "other",
-      "degree": 0
-    },
-    {
       "id": ".claude/skills/academic-paper/SKILL",
       "title": "SKILL",
       "group": "other",
@@ -3109,78 +3043,6 @@
     {
       "source": "10_Projects/20_KE_HOACH_Job_Fundamentals",
       "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/02_Active_Plan_PostZalo",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/00_Overview"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/02_Active_Plan_PostZalo",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/02_Active_Plan_PostZalo"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/00_Overview",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/02_Active_Plan_PostZalo"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week1_Foundation"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week2_MLOps_Core"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/Phase3_Interview_Prep"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase1_Week3_Polish",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/00_Overview"
-    },
-    {
-      "source": "10_Projects/15_Zalo_Fresher_Prep/Phase2_Entry_Test_Sprint",
-      "target": "10_Projects/15_Zalo_Fresher_Prep/01_Master_Timeline"
     },
     {
       "source": "10_Projects/12_TigerTribe_Intern/(SLZ) llamaindex memory - langGraph memory",
@@ -7156,7 +7018,7 @@
     }
   ],
   "stats": {
-    "node_count": 512,
-    "link_count": 1020
+    "node_count": 501,
+    "link_count": 1002
   }
 }
