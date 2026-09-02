@@ -16,4 +16,4 @@
 	- Chạy batch 1 (size 16) $\rightarrow$ gọi `loss.backward()` (lưu gradient 1).
 	- Chạy batch 2 (size 16) $\rightarrow$ gọi `loss.backward()` (gradient tự cộng dồn vào gradient 1).
 	- Chạy batch 3, batch 4 $\rightarrow$ cộng dồn tiếp.
-	- Đủ 4 lần (tổng cộng 64 mẫu) $\rightarrow$ mới gọi `optimizer.step()` để cập nhật trọng số 1 lần duy nhất!
+	- Đủ 4 lần (tổng cộng 64 mẫu) $\rightarrow$ mới gọi `optimizer.step()` để cập nhật trọng số 1 lần duy nhất
