@@ -11,3 +11,4 @@
 
 ![[Pasted image 20260903000650.png]]
 
+- mỗi khi gọi `loss.backward()` pytorch không ghi đè gradient mới mà  o
