@@ -42,3 +42,11 @@ khi dùng method .contiguous() thì pytorch sẽ cấp phát 1 vùng mới trong
 tương tự thay cho .t() thì .permute() cũng sẽ tạo ra một non-contiguous tensor 
 
 các method này hoạt động trên metadata chứ không phải storage, vì việc thay đổi quy tắc đọc/xem thì nhanh hơn thay đổi chính bản thân dữ liệu
+
+## Pitching script: 
+
+**Problem:** Operations like `transpose()` or `permute()` are zero-copy in PyTorch; they change the tensor's `stride` metadata without reallocating physical memory, making the tensor **non-contiguous** (the logical row-major order no longer matches the 1D physical memory layout).
+
+**Mechanism:** When a tensor is non-contiguous, calling `.view()` fails because it requires contiguous memory to safely reinterpret shapes without copying. Calling `.contiguous()` explicitly allocates a new memory buffer and rearranges elements sequentially so that the last dimension has a stride of 1.
+
+**Trade-off:** Zero-copy transforms are $O(1)$ and instant, but downstream operators requiring contiguous memory will force a `.contiguous()` call, which incurs memory allocation and copy overhead ($O(N)$).
