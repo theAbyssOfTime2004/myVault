@@ -127,6 +127,12 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/15_AI_fundamentals/Day 2 - Autograd Graph & Memory Lifecycle",
+      "title": "Day 2 - Autograd Graph & Memory Lifecycle",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/13_Uni_Retake/Chương 7 - Nguyên lý II Nhiệt động lực học",
       "title": "Chương 7 - Nguyên lý II Nhiệt động lực học",
       "group": "projects",
@@ -7018,7 +7024,7 @@
     }
   ],
   "stats": {
-    "node_count": 501,
+    "node_count": 502,
     "link_count": 1002
   }
 }
