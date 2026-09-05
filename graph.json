@@ -1363,6 +1363,12 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/15_AI_fundamentals/Day 4 - Quantization (P.2)",
+      "title": "Day 4 - Quantization (P.2)",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/15_AI_fundamentals/Day 3 - Mixed Precision & Gradient Scaling & Quantization",
       "title": "Day 3 - Mixed Precision & Gradient Scaling & Quantization",
       "group": "projects",
@@ -7030,7 +7036,7 @@
     }
   ],
   "stats": {
-    "node_count": 503,
+    "node_count": 504,
     "link_count": 1002
   }
 }
