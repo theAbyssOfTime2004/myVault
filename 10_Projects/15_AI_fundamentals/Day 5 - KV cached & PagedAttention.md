@@ -12,3 +12,4 @@
 	- Chữ thứ 5 → chỉ tính K,V của chữ 5 → bỏ thêm vào ngăn kéo
 	
 	→ Nhanh hơn nhiều vì không làm lại việc cũ.
+
