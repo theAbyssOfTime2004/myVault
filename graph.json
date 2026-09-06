@@ -1369,6 +1369,12 @@
       "degree": 0
     },
     {
+      "id": "10_Projects/15_AI_fundamentals/Day 5 - KV cached & PagedAttention",
+      "title": "Day 5 - KV cached & PagedAttention",
+      "group": "projects",
+      "degree": 0
+    },
+    {
       "id": "10_Projects/15_AI_fundamentals/Day 3 - Mixed Precision & Gradient Scaling & Quantization",
       "title": "Day 3 - Mixed Precision & Gradient Scaling & Quantization",
       "group": "projects",
@@ -7036,7 +7042,7 @@
     }
   ],
   "stats": {
-    "node_count": 504,
+    "node_count": 505,
     "link_count": 1002
   }
 }
