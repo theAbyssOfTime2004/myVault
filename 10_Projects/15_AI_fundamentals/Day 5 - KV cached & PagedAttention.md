@@ -16,4 +16,5 @@
 
 # PagedAttention
 
-- Thay đổi cách lưu KV-cached
+- Thay đổi cách lưu KV-cached trên GPU 
+- các vùng nhớ sẽ được đưa vào pool chung chia thành các block cố định kích thước `block_size`, khi cần thì lôi ra, group by block table,  rồi cấp động 1 cách phù hợp, thay vì cứ auto gán max_seq_len như trước, còn khi đã lấy ra đủ rồi nhưng mà cần thêm thì append block mới vào block table
