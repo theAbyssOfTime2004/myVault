@@ -685,6 +685,12 @@
       "degree": 2
     },
     {
+      "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
+      "title": "Job Fundamentals 07 - Testing",
+      "group": "knowledge",
+      "degree": 4
+    },
+    {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao",
       "title": "Job Fundamentals 02 - SQL nâng cao",
       "group": "knowledge",
@@ -694,7 +700,7 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE",
       "title": "Job Fundamentals 05 - Backend cho AI-DE",
       "group": "knowledge",
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark",
@@ -706,13 +712,13 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
       "title": "Job Fundamentals 06 - Nghề dev thực chiến",
       "group": "knowledge",
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems",
       "title": "Job Fundamentals 03 - Distributed Systems",
       "group": "knowledge",
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "30_Knowledge_Base/Devops/k8s Internal DNS - cluster.local",
@@ -1300,7 +1306,7 @@
       "id": "10_Projects/20_KE_HOACH_Job_Fundamentals",
       "title": "20_KE_HOACH_Job_Fundamentals",
       "group": "projects",
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "10_Projects/16_Tymex_Test/Tymex_Code_Solutions",
@@ -3439,6 +3445,22 @@
     {
       "source": "30_Knowledge_Base/Math_Stats/Tensor",
       "target": "3 - Tags/Neural Networks"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems"
+    },
+    {
+      "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
+      "target": "10_Projects/20_KE_HOACH_Job_Fundamentals"
     },
     {
       "source": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao",
@@ -7042,7 +7064,7 @@
     }
   ],
   "stats": {
-    "node_count": 505,
-    "link_count": 1002
+    "node_count": 506,
+    "link_count": 1006
   }
 }
