@@ -6,7 +6,7 @@
   "spellcheck": false,
   "autoPairBrackets": true,
   "autoPairMarkdown": true,
-  "showLineNumber": false,
+  "showLineNumber": true,
   "readableLineLength": true,
   "pdfExportSettings": {
     "includeName": true,
