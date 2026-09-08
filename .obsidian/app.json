@@ -6,7 +6,7 @@
   "spellcheck": false,
   "autoPairBrackets": true,
   "autoPairMarkdown": true,
-  "showLineNumber": true,
+  "showLineNumber": false,
   "readableLineLength": true,
   "pdfExportSettings": {
     "includeName": true,
@@ -17,5 +17,6 @@
   },
   "promptDelete": false,
   "strictLineBreaks": false,
-  "vimMode": false
+  "vimMode": false,
+  "showInlineTitle": true
 }
