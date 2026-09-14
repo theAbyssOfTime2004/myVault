@@ -63,7 +63,7 @@ Repo: `\\wsl.localhost\Ubuntu\home\theabyssoftime\Repos\rag-assistant-demo`
 golden_set.json ──► dataset.py (load + validate)
                         │
 experiments.py ──► [RagConfig × N] ──► runner.py
-                                          │
+	                                          │
                      ┌────────────────────┼────────────────────┐
                      ▼                    ▼                    ▼
               retrievers.py         core/chat.py           judge.py
