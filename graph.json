@@ -688,7 +688,7 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing",
       "title": "Job Fundamentals 07 - Testing",
       "group": "knowledge",
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao",
@@ -700,7 +700,7 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE",
       "title": "Job Fundamentals 05 - Backend cho AI-DE",
       "group": "knowledge",
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 01 - Apache Spark",
@@ -712,7 +712,7 @@
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến",
       "title": "Job Fundamentals 06 - Nghề dev thực chiến",
       "group": "knowledge",
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 03 - Distributed Systems",
@@ -1360,7 +1360,13 @@
       "id": "10_Projects/21_Katalon_Internship/HR_interview",
       "title": "HR_interview",
       "group": "projects",
-      "degree": 1
+      "degree": 2
+    },
+    {
+      "id": "10_Projects/21_Katalon_Internship/Panel_interview",
+      "title": "Panel_interview",
+      "group": "projects",
+      "degree": 4
     },
     {
       "id": "10_Projects/15_AI_fundamentals/Day 1 - Tensor Memory Layout",
@@ -4843,6 +4849,22 @@
       "target": "10_Projects/20_KE_HOACH_Job_Fundamentals"
     },
     {
+      "source": "10_Projects/21_Katalon_Internship/Panel_interview",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 07 - Testing"
+    },
+    {
+      "source": "10_Projects/21_Katalon_Internship/Panel_interview",
+      "target": "10_Projects/21_Katalon_Internship/HR_interview"
+    },
+    {
+      "source": "10_Projects/21_Katalon_Internship/Panel_interview",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 05 - Backend cho AI-DE"
+    },
+    {
+      "source": "10_Projects/21_Katalon_Internship/Panel_interview",
+      "target": "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 06 - Nghề dev thực chiến"
+    },
+    {
       "source": "10_Projects/14_Thesis_SDPO/experiments/plans/ttt_sdpo_w2_implementation_plan",
       "target": "10_Projects/14_Thesis_SDPO/wiki/synthesis/syn_thesis_proposal"
     },
@@ -7064,7 +7086,7 @@
     }
   ],
   "stats": {
-    "node_count": 506,
-    "link_count": 1006
+    "node_count": 507,
+    "link_count": 1010
   }
 }
