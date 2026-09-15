@@ -658,6 +658,321 @@ Katalon: deliverable ① và ② đúng là việc này, ở quy mô thật
 - [ ] Mang nước, ăn trước — tổng có thể tới 135 phút
 
 ---
+---
+
+# F — Background Katalon
+
+> Nguồn: blog Katalon và các trang tổng hợp (tra ngày 15/9/2026). Chi tiết 6 agent chủ yếu từ bài bên thứ ba — **xem lại trang chính thức của True Platform trước khi nhắc cụ thể.** Con số khách hàng là họ tự công bố, đừng trích như sự thật đã kiểm chứng.
+
+## Công ty
+
+- Thành lập **2016**, tách ra từ **KMS Technology**. Nhà sáng lập: **Vu Lam** (CEO) và **Uy Tran**.
+- Trụ sở **Atlanta**, đội kỹ thuật lớn ở Việt Nam. Bắc Mỹ ~45% doanh thu.
+- **Series A ~27 triệu USD năm 2021.** Tự công bố hơn 30.000 doanh nghiệp dùng, gồm cả Fortune 100.
+- CTO theo trang tổng hợp: Coty Rosenblath — kiểm tra lại trên LinkedIn trước khi nhắc tên.
+
+## Sản phẩm qua các giai đoạn
+
+| Giai đoạn | Sản phẩm | Ý nghĩa |
+|---|---|---|
+| 2016 | **Katalon Studio** | Viết test low-code trên nền Selenium / Appium |
+| Sau đó | **Katalon Platform** | Nền tảng quản lý chất lượng: viết, chạy, quản lý, báo cáo test |
+| 2025 | **TrueTest** | Dựa vào hành vi người dùng thật trên production để sinh và bảo trì regression test |
+| 4/2026 | **Katalon True Platform** | Nền tảng agentic, **6 AI agent**: design → generation → execution → maintenance → analysis → insights; dùng chung context, tự chuyển việc cho nhau |
+
+**Tính năng AI (bản tổng hợp sản phẩm tháng 5/2026):**
+- **Katalon AI Assistant** (trước là StudioAssist): viết test bằng ngôn ngữ tự nhiên, "Run with AI", Agent Mode.
+- **AI Self-Healing**: tự sửa locator hỏng, nay dùng thêm ngữ cảnh hình ảnh.
+- **AI Failure Analysis**: tự phân loại nguyên nhân test fail.
+- **MCP**: gộp hơn 20 tool cũ trùng lặp thành một bộ; thêm **True Skill Library**.
+- **Context**: orchestrator giữ context phiên, nhiều lịch sử hội thoại song song.
+
+## Vì sao quan trọng với buổi phỏng vấn
+
+**① Project nằm bên dưới 6 agent.** JD viết agent đang *"hallucination, inaccurate grounding, lost context across sessions"*; True Platform lại quảng bá agent *dùng chung context*. → **Tầng memory và retrieval là thứ giữ cho lời hứa đó thành sự thật.** Bản tổng hợp tháng 5 cho thấy phần giữ context vẫn đang làm dở.
+
+**② Self-healing có thể che lỗi thật.** Locator hỏng có hai khả năng: giao diện đổi nhẹ, hoặc tính năng hỏng thật. Tự sửa cả hai thì test vẫn xanh trong khi sản phẩm lỗi → bài toán đánh giá, nối vào *"honest reporting, regressions included"*. **Nêu như câu hỏi tò mò, không như lời chê.**
+
+**③ Oracle tất định.** Test chạy pass/fail là tín hiệu đánh giá thật mà phần lớn sản phẩm LLM không có; agent **execution** và **analysis** sinh ra đúng loại dữ liệu đó.
+
+## Không nên
+
+- Chê vendor lock-in (dù bài bên thứ ba có nhắc).
+- Tỏ ra rành bảng giá, doanh thu.
+- Nói "đã từng dùng Katalon" nếu chưa dùng.
+
+---
+---
+
+# G — Ôn thêm trước giờ G
+
+## G.1 — Python async (ưu tiên cao nhất)
+
+Mình đã tự đưa ý "sync node chặn event loop" vào câu trả lời → gần như chắc chắn bị hỏi tiếp.
+
+- **Event loop:** một luồng chạy nhiều coroutine; `await` là chỗ nhường quyền cho coroutine khác trong lúc chờ I/O.
+- **Hàm `def` gọi DB bên trong code async** không nhường quyền → **cả worker đứng chờ**, mọi request khác cũng chậm theo.
+- **Ba cách sửa:** dùng thư viện async · `asyncio.to_thread` / `run_in_executor` · chuyển thành việc chạy nền.
+- **Chạy song song việc độc lập:** `asyncio.gather(...)`; quyết định trước khi một việc lỗi — huỷ hết hay lấy kết quả còn lại (`return_exceptions=True`).
+- **I/O-bound vs CPU-bound:** async chỉ giúp khi chờ mạng / DB. Tính toán nặng vướng GIL → multiprocessing hoặc tách service.
+- **Pydantic vs dataclass:** Pydantic ở biên hệ thống (request, output LLM); dataclass cho dữ liệu nội bộ đã tin cậy.
+
+Nguồn: mục V [[Job Fundamentals 05 - Backend cho AI-DE]].
+
+## G.2 — Khung trả lời câu system design
+
+Đề có thể gặp: *"thiết kế eval pipeline cho agent"* · *"thiết kế memory xuyên phiên cho agent"*.
+
+1. **Làm rõ yêu cầu** — thế nào là "tốt"? Latency, chi phí, quy mô, quyền riêng tư?
+2. **Dữ liệu** — golden set lấy đâu, ai gán nhãn; memory lưu gì.
+3. **Thành phần và luồng** — vẽ ra.
+4. **Cách đo** — số liệu nào cho biết làm tốt hơn.
+5. **Đánh đổi và chỗ dễ hỏng** — nói luôn cái mình **không** làm.
+
+## G.3 — GraphRAG ở mức khái niệm
+
+- **Luồng:** trích entity + relation từ văn bản → lưu graph (Neo4j…) → gom cụm cộng đồng (Leiden) → tóm tắt từng cụm.
+- **Local search:** hỏi quanh một entity cụ thể. **Global search:** câu tổng quát ("các chủ đề chính là gì") — loại vector search làm kém.
+- **Graph hơn vector:** câu hỏi về quan hệ, suy luận nhiều bước, câu tổng quát.
+- **Graph thua vector:** dựng graph tốn (gọi LLM trên toàn bộ tài liệu), khó cập nhật khi dữ liệu đổi, câu tra một fact đơn giản. **Nói được ý này có giá trị hơn khen graph.**
+- **Nối kinh nghiệm:** đã làm nửa đầu (trích triple ở Solazu), chưa lưu graph và duyệt đồ thị.
+
+## G.4 — Không ôn
+
+DSA · Spark · distributed systems · cài thử Ragas/DeepEval · viết note mới · chạy thêm thí nghiệm.
+
+---
+---
+
+# H — Kịch bản hỏi – đáp theo JD
+
+> **Cách dùng:** đừng học thuộc từng chữ — nắm **ý và thứ tự ý**. Câu chính 60–90 giây, câu vặn 20–40 giây.
+> Nếu buổi phỏng vấn dùng tiếng Anh thì dịch ý, đừng dịch từng câu.
+
+## Round 1 — Technical Panel (90')
+
+| Phase | Thời gian | Bám JD |
+|---|---|---|
+| 0 — Mở đầu | 0–5' | — |
+| 1 — Software engineering (Solazu) | 5–30' | Python & SE fundamentals · data engineering |
+| 2 — Evaluation pipeline | 30–50' | Deliverable ① · honest reporting |
+| 3 — Retrieval tuning | 50–65' | Deliverable ② · experimentation mindset |
+| 4 — GraphRAG / memory | 65–80' | Deliverable ③ · comfortable with ambiguity · loop engineering |
+| 5 — Tài liệu, câu bất ngờ | 80–85' | Written English for documentation |
+| 6 — Câu hỏi ngược | 85–90' | — |
+
+### Phase 0 — Mở đầu
+
+**Q0. *"Walk us through your background — focus on the technical side."***
+
+> Tôi tốt nghiệp ngành Khoa học Dữ liệu ở trường Khoa học Tự nhiên, và đã có hai kỳ thực tập về AI engineering.
+>
+> Kỳ liên quan nhất tới vị trí này là ở Solazu. Tôi làm trên một trợ lý AI đa kênh cho thương mại điện tử, gồm các phần retrieval, memory, và phần logic xoay quanh lời gọi LLM, ví dụ xử lý khi khách nhắn nhiều tin liên tiếp.
+>
+> Sau kỳ thực tập đó, tôi tự dựng một eval harness trên project RAG cá nhân. Lý do là tôi thấy hệ thống thật có chấm điểm câu trả lời, nhưng không ai biết con số đó có đáng tin hay không.
+>
+> Nên tôi nói được cả hai phía: vận hành một hệ thống RAG, và đo xem nó có thật sự chạy tốt không. Đó cũng là lý do vị trí này thu hút tôi: ba deliverable trong JD đúng là những thứ đó.
+
+**Q0.1. *"Your thesis is quite research-heavy. Why an application engineering role?"***
+
+> Tôi muốn nói rõ luôn: tôi không tìm một vị trí nghiên cứu. Khoá luận dạy tôi cách đo lường cho trung thực, biết một thí nghiệm chứng minh được gì và không chứng minh được gì. Nhưng những gì tôi thật sự làm ra là service: API, Docker, deploy, những thứ phải chạy ổn định. Tôi quan tâm evaluation như một bài toán kỹ thuật, không phải một đề tài học thuật.
+
+### Phase 1 — Software engineering
+
+**Q1. *"Pick the most complex system you've worked on. Draw the request flow."***
+
+*(Vừa nói vừa vẽ sơ đồ Câu 1.)*
+
+> Khách nhắn qua một kênh: Facebook, Zalo, TikTok hoặc website. Mỗi kênh có một handler riêng. Handler kiểm tra khách hàng, cuộc hội thoại, quota, và xem cuộc hội thoại có đang ở chế độ nhân viên trả lời tay không.
+>
+> Sau đó request đi vào ChatService. ChatService lấy thông tin agent, lịch sử chat, rồi dựng một runtime state và gọi sang Flowise, là workflow engine chạy graph của agent đó.
+>
+> Graph chạy lần lượt: node Memory viết lại câu hỏi cho đầy đủ ngữ cảnh, node Retriever gọi sang AI Backend để tìm tài liệu, node LLM sinh câu trả lời, và node Confidence chấm điểm.
+>
+> Flowise trả về câu trả lời cùng một nhật ký chạy của từng node. Backend kiểm tra xem đây có còn là tin nhắn mới nhất không, rồi mới lưu và gửi lại đúng kênh.
+
+**Vặn — *"Why three services instead of one?"***
+> Tách theo trách nhiệm. Main Backend lo nghiệp vụ và tích hợp các kênh. Flowise lo điều phối luồng AI, nên đổi prompt, đổi nhánh, đổi model cho từng agent mà không phải sửa code. AI Backend lo những phần AI chuyên biệt viết bằng Python. Cái được là deploy độc lập và tuỳ biến agent dễ. Cái mất là thêm các chặng mạng, khó trace một request từ đầu đến cuối, và có chỗ logic bị trùng lặp. Làm lại tôi vẫn giữ cách tách này, nhưng làm rõ interface và đầu tư vào observability.
+
+**Vặn — *"How would you trace one slow request across three services?"***
+> Một trace id sinh ở handler, truyền qua cả ba service, mọi log gắn id đó; đo latency riêng từng node. Hệ thống lúc đó chưa làm đầy đủ — đây là thứ tôi sẽ sửa đầu tiên.
+
+**Vặn — *"Where is state kept? What if Flowise restarts mid-request?"***
+> Runtime state chỉ sống trong một request; lưu lâu dài do Main Backend làm và gửi lại lượt sau, nên Flowise gần như stateless. Restart giữa chừng thì request đang chạy mất nhưng dữ liệu hội thoại không mất. Phía gọi cần timeout và retry — và cẩn thận khi retry với tool có tác dụng phụ như tạo đơn.
+
+**Q2. *"A customer sends three messages in two seconds. What happens?"***
+
+> Hệ thống có cơ chế gộp tin nhắn. Mỗi tin mới được đánh dấu là tin mới nhất trên Redis, các tin liên tiếp được gom vào một buffer.
+>
+> Trong lúc xử lý, hệ thống kiểm tra "đây có còn là tin mới nhất không" ở nhiều điểm: trước khi gọi Flowise, trong lúc nhận câu trả lời, và trước khi gửi. Có tin mới hơn thì bỏ câu trả lời cũ, request mới trả lời cho cả cụm tin.
+>
+> Không có cơ chế này thì khách nhận ba câu trả lời rời rạc, sai thứ tự, câu đầu còn thiếu thông tin ở tin thứ hai.
+>
+> Nói thẳng: bỏ câu trả lời cũ không lấy lại được token đã tốn. Muốn tiết kiệm thật thì phải huỷ được lời gọi đang chạy.
+
+**Vặn — *"Two workers check 'is latest' at the same moment — safe?"***
+> Không hoàn toàn. Kiểm tra rồi mới hành động trên Redis không nguyên tử, còn khoảng hở nhỏ. Chặt hơn thì gộp so sánh và ghi vào một thao tác nguyên tử bằng Lua script, hoặc gắn số phiên bản. Với chat thì hiếm gây hậu quả, nhưng phía sau là tạo đơn thì không được bỏ qua.
+
+**Vặn — *"The stale request already called `create_order`. Now what?"***
+> Hệ thống có luồng xác nhận đơn trước khi tạo, nhưng không có idempotency key — phần tôi sẽ bổ sung: key từ conversation id + message id + tên tool, unique constraint trong DB, gọi lại thì trả đơn cũ. Tạo đơn và trừ kho trong cùng transaction; giá và tồn kho lấy từ DB, không lấy từ tham số LLM truyền vào.
+
+**Q3. Python fundamentals — hỏi nhanh**
+
+| Câu | Trả lời |
+|---|---|
+| Graph async có node `def` gọi DB? | Chặn cả event loop, mọi request khác chờ theo. Sửa: thư viện async hoặc `asyncio.to_thread` |
+| Khi nào async không giúp? | Việc nặng về tính toán → vướng GIL → multiprocessing / tách service |
+| Chạy song song hai lời gọi độc lập? | `asyncio.gather`; quyết trước khi một cái lỗi — huỷ hết hay `return_exceptions=True` |
+| Pydantic hay dataclass? | Pydantic ở biên (request, output LLM hay sai schema); dataclass cho dữ liệu nội bộ, ví dụ `RagConfig` |
+| Test code gọi LLM? | Phần tất định test thường; mock LLM ở tầng HTTP trong CI; output kiểm theo tính chất; chất lượng tách thành eval suite riêng |
+
+**Q4. *"Design a pipeline ingesting websites, PDFs and JSON exports."***
+
+> Tách thành các bước: lấy dữ liệu, làm sạch, chia chunk, embed, ghi vào vector store. Mỗi loại nguồn có bộ đọc riêng, từ bước chunk trở đi dùng chung.
+>
+> Ba điểm quan trọng. Một, chunk id tất định, sinh từ hash nội dung và nguồn, để chạy lại không tạo bản trùng. Hai, crawl và embed chậm nên đưa vào hàng đợi — Solazu dùng SQS. Ba, JSON thì validate schema ngay khi đọc vì dữ liệu export thường bẩn.
+>
+> Mỗi chunk lưu metadata nguồn và phiên bản để trích dẫn và xoá được.
+
+**Vặn — *"A document gets updated. How do you avoid stale chunks?"***
+> Xoá toàn bộ chunk theo id của nguồn rồi nạp lại, hoặc so hash chỉ nạp phần thay đổi. Cách đầu đơn giản an toàn, cách sau rẻ hơn khi tài liệu lớn.
+
+### Phase 2 — Evaluation pipeline
+
+**Q5. *"How would you know whether an agent's answers are actually good?"***
+
+> Tôi tách thành hai tầng, vì hai tầng hỏng vì những lý do khác nhau.
+>
+> Tầng retrieval chấm hoàn toàn tất định, không dùng LLM. Mỗi câu trong golden set được gán gold snippet, đoạn nguyên văn trong tài liệu chứa câu trả lời. Chunk nào chứa snippet thì tính là liên quan, từ đó tính hit rate, context recall, context precision và MRR. Không dùng LLM vì khi tuning thì thước đo phải đứng yên.
+>
+> Tầng generation dùng LLM làm judge: faithfulness, correctness, relevancy và abstention.
+>
+> Tôi cũng tách hallucination làm hai: có tài liệu nhưng thêm thắt ngoài tài liệu, và lẽ ra phải nói "không tìm thấy" nhưng vẫn bịa. Hai loại sửa bằng hai cách khác nhau.
+
+**Vặn — *"Context precision vs recall."***
+> Recall: lấy về được bao nhiêu phần thông tin cần thiết, tính theo snippet. Precision: chunk đúng có nằm đầu danh sách không — tôi dùng average precision: tại mỗi vị trí có chunk liên quan, tính precision tới vị trí đó rồi lấy trung bình. Hai chỉ số phải đi cặp: một chunk đúng ở hạng một là precision tối đa dù recall rất thấp.
+
+**Vặn — *"Faithfulness vs correctness."***
+> Faithfulness so với context đã lấy về; correctness so với ground truth. Retriever lấy văn bản cũ thì câu trả lời faithful mà sai — loại câu "conflict" trong golden set bắt đúng trường hợp này. Ngược lại model đoán đúng nhờ kiến thức sẵn có thì đúng mà không faithful.
+
+**Vặn — *"Why F1 over facts instead of 0/0.5/1?"***
+> Để judge tự cho 0.5 thì tuỳ tiện, chạy lại dễ ra điểm khác. Giờ judge chỉ liệt kê ý và đếm số ý khớp; phần tính điểm là code. Đọc lại được judge đếm gì, kiểm tra được nó sai ở đâu.
+
+**Vặn — *"Then why is relevancy still ternary?"***
+> Relevancy khó tách thành ý hơn và ít quyết định hơn. Nhưng thực tế là tôi chưa kịp chuyển — đó là bước tiếp theo, không phải lựa chọn đã cân nhắc kỹ.
+
+**Q6. *"How do you know your LLM judge is trustworthy?"***
+
+> Hiện tại tôi chưa biết chắc — đó là bước còn thiếu. Judge chạy local, temperature 0, có retry, nhưng như vậy mới là tái lập được, chưa phải chính xác.
+>
+> Cách làm đúng: tự chấm tay 20–30 câu, so với judge để đo mức đồng thuận. Cố định phiên bản model và prompt; khi so sánh hai câu trả lời thì đảo thứ tự để tránh thiên lệch vị trí; để ý judge hay chấm câu dài cao hơn. Judge chưa hiệu chuẩn giống một cái thước chưa biết đơn vị.
+
+**Q7. *"We have no golden set today. Where do you start?"***
+
+> Lấy câu hỏi từ log thật trước, vì câu tự nghĩ ra thường dễ hơn thực tế. Chia theo loại: tra một thông tin, cần suy luận, ghép nhiều tài liệu, tài liệu không có đáp án. Bắt đầu nhỏ, khoảng 50 câu, gán nhãn cẩn thận, chạy bước kiểm tra mọi snippet có thật trong tài liệu. Rồi mở rộng theo lỗi gặp thật — mỗi lỗi mới thành một câu.
+
+**Q8. *"Your change improves recall 4% but faithfulness drops 3%. How do you write it up?"***
+
+> Báo cả hai con số, không chọn con số đẹp. Mở từng câu để xem faithfulness giảm ở đâu và vì sao — có thể lấy nhiều chunk hơn làm lẫn thông tin nhiễu vào context. Ghi rõ cỡ mẫu: vài chục câu thì một câu đã chiếm vài phần trăm. Cuối cùng là khuyến nghị có điều kiện, còn quyết định để team vì đánh đổi phụ thuộc sản phẩm.
+
+**Vặn — *"Should eval run in CI?"***
+> Một phần. Chỉ số retrieval tất định thì làm cổng được. Chỉ số từ judge thì không — nó dao động, cổng sẽ lúc đỏ lúc xanh rồi bị tắt. Phần đó chạy định kỳ hoặc khi đổi prompt, đổi model, và theo dõi xu hướng.
+
+### Phase 3 — Retrieval tuning
+
+**Q9. *"Tell me about a tuning experiment that didn't go as expected."***
+
+> Tôi thử MMR rerank, lấy dư ứng viên rồi chọn lại sao cho vừa liên quan vừa đa dạng. Tôi kỳ vọng nó cải thiện vì chunk có overlap nên top-k hay gần trùng nhau.
+>
+> Kết quả ngược lại: gần như mọi chỉ số retrieval đều kém đi.
+>
+> Giả thuyết một: phần lớn câu chỉ cần một đoạn, ép đa dạng thì đoạn đúng ở hạng hai, ba mà giống đoạn hạng một bị đẩy ra ngoài. Giả thuyết hai: điểm liên quan từ vector store và độ tương đồng tôi tự tính có thể không cùng thang, nên tham số cân bằng không đúng ý nghĩa.
+>
+> Tôi chưa kiểm chứng xong, nhưng vẫn ghi vào báo cáo — kết quả âm cũng là một phát hiện thật.
+
+| Câu vặn | Trả lời ngắn |
+|---|---|
+| Sao chỉ đổi một biến? | Đổi hai thứ mà điểm tăng thì không biết nhờ cái nào; fingerprint giúp config chỉ khác top-k/reranker dùng chung chỉ mục |
+| Đánh đổi chunk size? | Nhỏ: tìm chính xác, dễ mất ngữ cảnh. To: giữ ngữ cảnh, embedding loãng, tốn token |
+| BM25 giúp khi nào? | Mã sản phẩm, SKU, tên riêng — Solazu dùng vector + BM25 với trọng số `alpha` |
+| LLM rerank hay cross-encoder? | LLM chính xác hơn nhưng thêm latency, chi phí; cross-encoder rẻ. MMR đã cho thấy thêm rerank chưa chắc tốt → đo rồi mới quyết |
+| Cải thiện 2% có thật không? | Vài chục câu thì 2% chỉ là một câu; cần tập lớn hơn, xem từng câu, chạy lặp nếu có judge |
+| Câu nối tiếp truy xuất kém? | Viết lại thành `full_question`; giá là thêm một lời gọi LLM và rủi ro viết sai; đo bằng câu nhiều lượt trong golden set |
+
+### Phase 4 — GraphRAG / memory
+
+**Q10. *"Design cross-session memory. A user states a preference in session one; session three should use it."***
+
+> Trước tiên tôi muốn hỏi lại: memory theo từng user hay từng project, có yêu cầu gì về riêng tư hay thời gian lưu không?
+>
+> *(Giả sử theo user.)* Về dữ liệu, tách hai loại: fact có cấu trúc và bản tóm tắt hội thoại — vì tóm tắt nhiều vòng làm rơi chi tiết, còn fact không được phép bị tóm tắt mất.
+>
+> Về luồng: sau mỗi lượt trích fact, lưu kèm thời điểm và nguồn; lượt mới truy xuất fact liên quan đưa vào prompt; lưu và tóm tắt chạy nền.
+>
+> Về đo lường: trước khi đưa vào dùng, dựng tập eval nhiều phiên — thông tin nói ở phiên một, hỏi lại ở phiên ba. Đo agent có nhớ đúng không, có dùng thông tin cũ hoặc mâu thuẫn không, tốn thêm bao nhiêu token và latency.
+>
+> Về đánh đổi: trích fact tốn lời gọi LLM, fact có thể lỗi thời, và phải xoá được dữ liệu theo yêu cầu.
+
+**Vặn — *"What did you build at Solazu, and what was wrong with it?"***
+> Memory production là stack tự viết: summary + tin nhắn gần nhất theo từng hội thoại, Redis trước rồi xuống DB. Rẻ và nhanh. Nhưng chỉ nhớ theo hội thoại, không theo khách hàng; hồ sơ khách hàng có mà không dùng; logic nạp lịch sử lặp ở nhiều chỗ; tóm tắt lâu dần mất chi tiết. Tôi có đề xuất hướng LangGraph có checkpointer và trích fact — đó là đề xuất, chưa chạy trên luồng chính.
+
+**Vặn — *"Two memory systems — isn't that the same duplication?"***
+> Đúng, nên không để hai hệ thống ngang hàng. Một nguồn sự thật; hệ cũ chỉ là chế độ dự phòng xuống cấp khi phần mới lỗi.
+
+**Vặn — *"Can fact extraction and retrieval run in parallel?"***
+> Được nếu truy xuất không dùng fact vừa trích ở lượt đó. Độc lập thì fan-out trong LangGraph hoặc `gather`; không thì bắt buộc tuần tự. Phải kiểm tra trước, không mặc định.
+
+**Vặn — *"When does a graph beat vector memory — and when not?"***
+> Graph hơn khi hỏi về quan hệ, suy luận nhiều bước, hoặc câu tổng quát kiểu "các vấn đề chính là gì". Graph không đáng khi chỉ tra một fact đơn giản, vì dựng graph rất tốn và khó cập nhật. Tôi đã làm nửa đầu là trích triple từ hội thoại; phần lưu graph database và duyệt đồ thị thì chưa — đó là phần tôi muốn học nhất.
+
+**Vặn — *"Two facts contradict — the user moved city."***
+> Mỗi fact có thời điểm và nguồn. Fact mới thay fact cũ khi dùng, fact cũ đánh dấu hết hiệu lực để truy vết. Không chắc cái nào đúng thì agent hỏi lại người dùng.
+
+**Q11. *"An agent keeps calling the same tool in a loop."***
+
+> Ba lớp. Một, giới hạn cứng: số bước, tổng token, timeout cả vòng lặp. Hai, phát hiện lặp: cùng tool, cùng tham số vài lần liên tiếp thì dừng. Ba, tool lỗi thì trả lỗi có cấu trúc để model đổi hướng — trả rỗng thường khiến model thử lại mãi.
+>
+> Về đánh giá: với agent không chỉ chấm câu trả lời cuối mà chấm cả trajectory — chọn tool đúng không, tham số đúng không, có bước thừa không.
+
+### Phase 5 — Tài liệu và câu bất ngờ
+
+**Q12. *"How would you document an experiment so the core team can adopt it without asking you?"***
+> Khung cố định: mục đích, baseline, thay đổi gì, kết quả kèm cỡ mẫu, những gì chưa kết luận được, khuyến nghị, câu lệnh chạy lại. Phần "chưa kết luận được" quan trọng nhất và hay bị bỏ qua nhất. Harness của tôi xuất sẵn báo cáo có chênh lệch so với baseline và file chi tiết từng câu.
+
+**Làm lại ở Solazu thì sửa gì?** → Câu 11: test trước tiên; hiệu chuẩn confidence; idempotency; trace xuyên ba service.
+
+**Self-healing của Katalon có rủi ro gì?**
+> Có thể che lỗi thật: locator hỏng vì giao diện đổi nhẹ hoặc vì tính năng hỏng thật. Tự sửa cả hai thì test vẫn xanh trong khi sản phẩm lỗi. Mỗi lần tự sửa nên được ghi lại cho người xem lại, và tỉ lệ tự sửa nên được theo dõi như một chỉ số. Tôi tò mò team đang xử lý thế nào.
+
+**Gần đây tự học được gì không theo tutorial?**
+> Cách tính context precision theo thứ hạng. Ban đầu tôi tính tỉ lệ chunk đúng trong top-k, rồi nhận ra nó không phân biệt được chunk đúng ở hạng một hay hạng bốn, nên chuyển sang average precision. Tương tự, tôi chuyển correctness từ để judge tự cho điểm sang đếm ý rồi tính F1.
+
+### Phase 6 — Câu hỏi ngược
+
+Xem mục E.
+
+## Round 2 — VP Engineering (45')
+
+**AI thay đổi software testing thế nào?**
+> Viết test sẽ rẻ đi rất nhiều; bài toán khó chuyển sang thẩm định — test do máy sinh có đúng không, có bắt được lỗi thật không. Testing có lợi thế mà phần lớn sản phẩm AI không có: kết quả chạy test là tín hiệu thật. Ai dùng tốt tín hiệu đó để đánh giá và cải thiện agent sẽ đi xa hơn.
+
+**Deadline gấp: tốc độ hay chất lượng?**
+> Cắt phạm vi, không cắt phần đo lường. Làm ít hơn nhưng biết chắc cái đã làm đúng tới đâu, và nói rõ những gì chưa kiểm.
+
+**Không đồng ý với thiết kế của senior?**
+> Biến bất đồng thành câu hỏi kiểm chứng được. Hồi làm khoá luận, tôi và giảng viên bất đồng về việc đưa ví dụ lần thử sai vào — thầy lo kết quả đẹp giả tạo. Tôi đề xuất chạy cả hai phiên bản cùng điều kiện; kết quả gần như giống nhau, nhưng vẫn giữ phiên bản an toàn hơn làm cấu hình chính. Không kiểm chứng được thì nêu quan điểm một lần rồi làm theo người chịu trách nhiệm.
+
+**Vị trí chi phí bằng một phần nhỏ FTE — làm sao để xứng đáng?**
+> Để team dùng được kết quả mà không phải kèm tôi nhiều: tài liệu đọc là áp dụng được, báo cáo trung thực cả thứ không hiệu quả, tự tìm hiểu trước khi hỏi, và hỏi có trọng tâm kèm những gì đã thử.
+
+**Hai năm nữa muốn ở đâu?**
+> Trong AI platform team, giỏi thật sự về đánh giá và cải thiện chất lượng hệ thống AI. JD nói project này là đường vào team đó — đó là con đường tôi muốn đi.
+
+## Khi gặp câu không biết
+
+> Tôi chưa làm phần này. Nếu phải làm, tôi sẽ bắt đầu bằng… và thứ tôi sẽ tìm hiểu trước là…
+
+---
 
 ## Liên quan
 
