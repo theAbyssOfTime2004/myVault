@@ -123,13 +123,13 @@ Harness chỉ có ích khi chạy hàng chục lần lúc tuning. Judge trả ph
 
 ## B.4 — Judge: cách chấm từng chỉ số
 
-| Chỉ số | Prompt yêu cầu | Tính điểm |
-|---|---|---|
+| Chỉ số       | Prompt yêu cầu                                                                                                           | Tính điểm              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
 | Faithfulness | Tách câu trả lời thành claim, mỗi claim `supported` true/false; bỏ qua dòng trích nguồn; câu từ chối = 1 claim supported | supported / tổng claim |
-| Correctness | So với `ground_truth`, chỉ xét sự kiện, bỏ qua văn phong | 1.0 / 0.5 / 0.0 |
-| Abstention | Câu hỏi không trả lời được từ tài liệu — câu trả lời có từ chối không | true / false |
+| Correctness  | So với `ground_truth`, chỉ xét sự kiện, bỏ qua văn phong                                                                 | 1.0 / 0.5 / 0.0        |
+| Abstention   | Câu hỏi không trả lời được từ tài liệu — câu trả lời có từ chối không                                                    | true / false           |
 
-`_extract_json()` xử lý output lộn xộn của model nhỏ: bọc ```json, lời dẫn phía trước, khối `<think>` của Qwen3, chữ thừa phía sau, JSON lồng nhau. Đây là chỗ dễ vỡ nhất nên có test riêng.
+`_extract_json()` xử lý output lộn xộn của model nhỏ: bọc ```json, lời dẫn phía trước, khối `<think>` của Qwen3, chữ thừa phía sau, JSON lồng nhau. Đây là chỗ dễ vỡ nhất nên có test riêng.```
 
 ## B.5 — Kết quả sweep và cách đọc
 
