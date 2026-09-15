@@ -386,10 +386,10 @@ async def async_endpoint(): # async def
     ...
 ```
 
-| | Chạy ở đâu | Nghẽn thì sao |
-|---|---|---|
-| **`def`** | FastAPI đẩy sang **threadpool** | Chỉ chiếm một thread, request khác vẫn chạy |
-| **`async def`** | Chạy thẳng trên **event loop** | ⚠️ **Nghẽn là cả server đứng** |
+|                 | Chạy ở đâu                      | Nghẽn thì sao                               |
+| --------------- | ------------------------------- | ------------------------------------------- |
+| **`def`**       | FastAPI đẩy sang **threadpool** | Chỉ chiếm một thread, request khác vẫn chạy |
+| **`async def`** | Chạy thẳng trên **event loop**  | ⚠️ **Nghẽn là cả server đứng**              |
 
 ## 5.2 — ⚠️ Lỗi kinh điển
 
