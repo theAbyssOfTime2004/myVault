@@ -2,6 +2,7 @@
 tags: [job-hunt, interview, katalon, internship, panel, rag, evaluation, software-engineering]
 status: active
 created: 2026-09-15
+updated: 2026-09-16
 role: AI Application Engineering Intern — RAG & memory cho AI agents của Katalon
 stage: passed HR; next = Technical Panel (90') + VP Engineering (45', optional)
 ---
@@ -30,6 +31,9 @@ stage: passed HR; next = Technical Panel (90') + VP Engineering (45', optional)
 **C.** [[#C — Chatbot Solazu]]
 **D.** [[#D — Câu chuyện nối hai phần]]
 **E.** [[#E — Cheat sheet, câu hỏi ngược, checklist]]
+**F.** [[#F — Background Katalon]]
+**G.** [[#G — Ôn thêm trước giờ G]]
+**H.** [[#H — Kịch bản hỏi – đáp theo JD]]
 
 ---
 ---
@@ -72,7 +76,7 @@ experiments.py ──► [RagConfig × N] ──► runner.py
                      ▼                    └─────────┬──────────┘
                metrics.py                           ▼
          (retrieval, tất định)          faithfulness / correctness /
-                                              abstention
+                                         relevancy / abstention
                      └──────────────► results/*_report.md, *_summary.csv, *_cases.csv
 ```
 
@@ -82,7 +86,7 @@ experiments.py ──► [RagConfig × N] ──► runner.py
 | `evals/dataset.py` | Load, kiểm tra ràng buộc, `normalize()`, `validate_against_corpus()` |
 | `evals/config.py` | `RagConfig` frozen dataclass — mô tả trọn một biến thể pipeline; `index_fingerprint` |
 | `evals/metrics.py` | HitRate@k, Context Recall, Context Precision, MRR — **không gọi LLM** |
-| `evals/judge.py` | LLM-as-judge local: faithfulness (theo claim), correctness (1/0.5/0), abstention |
+| `evals/judge.py` | LLM-as-judge local: faithfulness (theo claim), correctness (F1 theo ý), relevancy (0/0.5/1), abstention |
 | `evals/retrievers.py` | Top-k thường hoặc lấy dư rồi rerank MMR |
 | `evals/runner.py` | Chạy golden set qua một config, gom `CaseResult` → `RunResult.summary()` |
 | `evals/experiments.py` | Ma trận thí nghiệm + xuất báo cáo có delta so với baseline |
@@ -98,8 +102,8 @@ Khi tuning, thước đo phải đứng yên. Nếu judge cũng dao động thì
 **② Nhãn bằng đoạn văn nguyên văn (`gold_snippets`), không bằng chunk id.**
 Chunk được coi là liên quan nếu chứa ít nhất một snippet. Gán chunk id thì đổi chunk size là nhãn hỏng hết — mà chunk size lại chính là thứ đang tuning.
 
-**③ Recall tính theo snippet, precision tính theo chunk.**
-Câu reasoning / cross_doc cần gộp nhiều mẩu thông tin: bắt được 1/2 mẩu chỉ đáng 0.5. Precision thì hỏi "trong k chunk lấy về, bao nhiêu chunk dùng được".
+**③ Recall tính theo snippet, precision tính theo thứ hạng chunk.**
+Câu reasoning / cross_doc cần gộp nhiều mẩu thông tin: bắt được 1/2 mẩu chỉ đáng 0.5. Context precision thì hỏi "chunk đúng có nằm ở đầu danh sách không" — dùng average precision kiểu RAGAS (công thức ở B.3b).
 
 **④ Câu out-of-scope trả `None` cho retrieval score.**
 Không có đoạn nào "đúng" → recall/precision vô nghĩa. Những câu đó chấm bằng **abstention** (có chịu nói "không tìm thấy" không).
@@ -121,37 +125,101 @@ Harness chỉ có ích khi chạy hàng chục lần lúc tuning. Judge trả ph
 
 **Bonus — `validate_against_corpus()`:** kiểm mọi snippet có thật trong tài liệu. Một snippet gõ sai làm recall câu đó luôn = 0, và mình sẽ đi tuning theo một tín hiệu hỏng.
 
+## B.3b — Định nghĩa chỉ số (bản đã sửa, khớp code hiện tại)
+
+### Hai loại nhãn trong golden set
+
+| Nhãn | Là gì | Dùng cho |
+|---|---|---|
+| `gold_snippets` | Đoạn **nguyên văn trong tài liệu nguồn** chứa câu trả lời. Cứng, tất định. So khớp sau `normalize()` (NFC, gạch/nháy typographic, gộp khoảng trắng, chữ thường) | Metric retrieval |
+| `ground_truth` | Câu trả lời đúng, diễn đạt tự do | Tham chiếu cho judge chấm correctness |
+
+### Retrieval — tất định, không gọi LLM
+
+| Chỉ số | Công thức | Ý nghĩa |
+|---|---|---|
+| **HitRate@k** | 1 nếu top-k có ít nhất một chunk chứa gold snippet, ngược lại 0 | Có bắt được đoạn đúng nào không |
+| **Context Recall** | số snippet bắt được / tổng số snippet của câu | Cần 3 snippet, lấy được 2 → 0.67 |
+| precision@i | số chunk liên quan trong top-i / i | **Bước tính trung gian**, không báo cáo riêng |
+| **Context Precision** | Σ (precision@i × v_i) / số chunk liên quan đã lấy về — v_i = 1 nếu chunk hạng i liên quan | Average precision: chunk đúng càng ở đầu càng cao |
+| **MRR** | 1 / hạng của chunk liên quan đầu tiên (không có → 0) | Hạng 1 → 1.0, hạng 2 → 0.5, hạng 4 → 0.25 |
+
+Ví dụ Context Precision:
+
+```text
+[✓ ✗ ✓ ✗] → (1/1 + 2/3) / 2 = 0.83
+[✗ ✓ ✗ ✓] → (1/2 + 2/4) / 2 = 0.50
+[✗ ✗ ✗ ✓] → (1/4) / 1       = 0.25
+```
+
+> [!warning] Hay bị hỏi
+> Mẫu số là số chunk liên quan **đã lấy về**, không phải tổng gold snippet.
+> Một chunk đúng ở hạng 1 là đủ precision = 1.0 dù recall rất thấp → **precision phải đi cặp với recall**.
+
+### Generation — LLM judge
+
+| Chỉ số | Đối chiếu với | Công thức |
+|---|---|---|
+| **Faithfulness** | **Context đã retrieve** (không phải ground_truth) | Judge tách câu trả lời thành claim → số claim có trong context / tổng claim |
+| **Correctness** | **ground_truth** | Judge liệt kê ý của đáp án mẫu và của câu trả lời, đếm số ý khớp → F1 do code tính |
+| **Relevancy** | Câu hỏi | Judge cho 0 / 0.5 / 1, code snap về ba mức |
+| **Abstention** | Câu out-of-scope | Câu trả lời có chịu nói "không tìm thấy" không |
+| Hallu(claim) | — | 1 − faithfulness |
+| Hallu(OOS) | — | 1 − abstention rate |
+
+**Faithfulness** — ví dụ: context chỉ nói remote 2 ngày/tuần; trả lời "Remote 2 ngày/tuần và thứ Bảy được nghỉ" → 1/2 claim được chống lưng → 0.5.
+
+**Correctness (F1 theo ý):**
+
+```text
+P = TP / (TP + FP)      ← FP = ý thừa trong câu trả lời
+R = TP / (TP + FN)      ← FN = ý đáp án mẫu bị thiếu
+F1 = 2PR / (P + R)
+```
+
+Ví dụ: ground truth có 3 ý (cho remote · tối đa 2 ngày · phải đăng ký với quản lý); câu trả lời có (cho remote · tối đa 2 ngày · thứ Bảy nghỉ) → TP = 2, FP = 1, FN = 1 → P = R = 2/3 → F1 = 0.67.
+*P = R ở đây chỉ vì tình cờ FP = FN. Không được nói "P = R = TP/(TP+FN)".*
+
+Trong code: TP = `n_matched`, FP = số ý của câu trả lời − TP, FN = số ý của đáp án mẫu − TP. Một ý **sai** (ví dụ "remote 3 ngày") bị tính **hai lần**: vừa FP vừa FN.
+
+**Faithfulness vs correctness có thể lệch nhau:**
+- **Faithful mà sai:** retriever lấy văn bản cũ, model trả lời đúng theo văn bản đó → loại câu `conflict` trong golden set để bắt đúng trường hợp này.
+- **Đúng mà không faithful:** model đoán đúng nhờ kiến thức sẵn có, không dựa vào tài liệu.
+
+**Abstention:** câu out-of-scope **vẫn lấy về đủ k chunk** — retriever luôn trả k đoạn gần nhất, chỉ là không đoạn nào chứa đáp án. Model dễ bịa chính vì nhận được context *trông có vẻ* liên quan.
+
 ## B.4 — Judge: cách chấm từng chỉ số
 
 | Chỉ số       | Prompt yêu cầu                                                                                                           | Tính điểm              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
-| Faithfulness | Tách câu trả lời thành claim, mỗi claim `supported` true/false; bỏ qua dòng trích nguồn; câu từ chối = 1 claim supported | supported / tổng claim |
-| Correctness  | So với `ground_truth`, chỉ xét sự kiện, bỏ qua văn phong                                                                 | 1.0 / 0.5 / 0.0        |
+| Faithfulness | Tách câu trả lời thành claim, mỗi claim `supported` true/false so với **context**; bỏ qua dòng trích nguồn; câu từ chối = 1 claim supported | supported / tổng claim |
+| Correctness  | Tách `ground_truth` và câu trả lời thành ý nguyên tử, đếm `n_matched`. **Cấm judge tự cho điểm 0/0.5/1**                  | F1 do `correctness_from_facts()` tính |
+| Relevancy    | Câu trả lời có đi đúng trọng tâm câu hỏi không                                                                            | 0 / 0.5 / 1 (`snap_ternary_score`) |
 | Abstention   | Câu hỏi không trả lời được từ tài liệu — câu trả lời có từ chối không                                                    | true / false           |
 
-`_extract_json()` xử lý output lộn xộn của model nhỏ: bọc ```json, lời dẫn phía trước, khối `<think>` của Qwen3, chữ thừa phía sau, JSON lồng nhau. Đây là chỗ dễ vỡ nhất nên có test riêng.```
+**Vì sao đổi correctness từ 0/0.5/1 sang F1 theo ý?** Để judge tự cho 0.5 thì tuỳ tiện và dao động. Bắt judge chỉ *liệt kê và đếm*, phần tính điểm là code → đọc lại được judge đã đếm gì, kiểm tra được nó sai ở đâu.
 
-## B.5 — Kết quả sweep và cách đọc
+**Vậy sao relevancy vẫn ba mức?** Relevancy khó tách thành ý hơn và ít quyết định hơn correctness — nhưng thật ra là **chưa kịp chuyển**. Nói thẳng đó là bước tiếp theo, không phải lựa chọn đã cân nhắc kỹ.
 
-Chế độ retrieval-only, embedding `qwen3-embedding:0.6b`, 9 tài liệu.
+`_extract_json()` xử lý output lộn xộn của model nhỏ: JSON bị bọc trong khối code, lời dẫn phía trước, khối `<think>` của Qwen3, chữ thừa phía sau, JSON lồng nhau, JSON bị cắt cụt. Đây là chỗ dễ vỡ nhất nên có test riêng.
 
-| Config | Chunks | HitRate | Recall | Precision | MRR |
-|---|---|---|---|---|---|
-| baseline 400/60, k=4 | 34 | 0.944 | 0.917 | 0.264 | 0.870 |
-| chunk-200/40 | 66 | 0.972 | 0.954 | 0.285 | 0.877 |
-| chunk-800/120 | 18 | 0.917 | 0.907 | 0.243 | 0.817 |
-| top_k=2 | 34 | 0.917 | 0.889 | 0.500 | 0.861 |
-| top_k=8 | 34 | 1.000 | 1.000 | 0.146 | 0.881 |
-| mmr-rerank (fetch 12) | 34 | 0.861 | 0.861 | 0.250 | 0.826 |
+## B.5 — Kết quả sweep: chỉ nói xu hướng, không mang số
+
+> [!warning] Không trích số
+> `sweep_report.md` chạy lúc 04:50 ngày 14/9, **trước** khi `metrics.py` đổi Context Precision sang average precision (23:32 ngày 15/9).
+> Cột precision trong báo cáo là công thức cũ (precision@k). **Đi phỏng vấn chỉ nói khái niệm và xu hướng.**
+> Muốn có số khớp code: `python run_eval.py sweep --no-judge`.
+
+Chế độ retrieval-only, embedding `qwen3-embedding:0.6b`, 9 tài liệu, 45 câu (36 answerable). Ma trận: baseline 400/60 k=4 · chunk 200/40 · chunk 800/120 · top_k 2 · top_k 8 · MMR (fetch 12).
 
 **Bốn điều đọc ra — và phải tự nói giới hạn trước khi bị hỏi:**
 
-**① Một câu hỏi = 0.028 điểm.** Có 36 câu answerable → 1/36 ≈ 0.028. Chunk-200 "thắng" baseline +0.028 hit rate nghĩa là **đúng thêm một câu**. Chưa đủ để kết luận.
-> *"Those deltas are one question each. The harness can separate configurations now, but 36 answerable cases isn't enough to call a 0.03 difference real."*
+**① Một câu hỏi ≈ 3 điểm phần trăm.** Với 36 câu answerable, mỗi câu chiếm ~0.028. Phần lớn chênh lệch giữa các config chỉ là **một câu**. Harness đã phân biệt được cấu hình, nhưng chưa đủ mẫu để kết luận chênh lệch nhỏ là thật.
+> *"Most of those deltas are a single question. The harness can separate configurations, but this set isn't large enough to call a small difference real."*
 
-**② Top-k là đánh đổi recall ↔ precision kinh điển.** k=8 recall 1.0 nhưng precision 0.146; k=2 precision 0.5 nhưng recall tụt. Và precision ở đây **bị trần bởi k**: câu có 1 snippet, k=4 thì precision tối đa 0.25 → precision thấp một phần là do cấu trúc, không hoàn toàn do ranking kém.
+**② Top-k là đánh đổi recall ↔ precision kinh điển.** k lớn thì recall lên, nhưng chunk rác nhiều hơn; k nhỏ thì gọn hơn nhưng dễ trượt đoạn cần thiết.
 
-**③ Chunk to (800) tệ hơn ở mọi chỉ số.** Hợp lý: chunk to pha loãng embedding, thông tin cụ thể bị chìm.
+**③ Chunk nhỏ (200) nhỉnh hơn baseline; chunk to (800) kém hơn.** Hợp lý: chunk to pha loãng embedding, thông tin cụ thể bị chìm. Nhưng xem ① — chênh lệch chỉ cỡ một câu.
 
 **④ MMR tệ hơn baseline ở mọi chỉ số — kết quả âm, và vẫn là phát hiện thật.** Giả thuyết:
 - Phần lớn câu là direct, chỉ cần một đoạn → đa dạng hoá không có lợi, lại đẩy đoạn đúng xếp hạng 2–4 ra ngoài nếu nó gần giống đoạn hạng 1 (chunk kề nhau có overlap).
@@ -180,6 +248,9 @@ Chế độ retrieval-only, embedding `qwen3-embedding:0.6b`, 9 tài liệu.
 
 **Sao không dùng Ragas / DeepEval?**
 > Muốn hiểu từng chỉ số tính thế nào trước khi dùng thư viện, và cần metric retrieval tất định dựa trên nhãn — Ragas mặc định dùng LLM cho cả context precision/recall. Trong môi trường team thì sẽ dùng thư viện cho phần generation, giữ metric retrieval tất định, và kiểm lại xem hai bên có ra cùng xu hướng không.
+
+**Faithfulness khác correctness thế nào?**
+> Faithfulness so với context đã lấy về, correctness so với ground truth. Hai thứ lệch nhau được: retriever lấy văn bản cũ → trả lời faithful mà sai (loại câu `conflict` để bắt cái này); model đoán đúng nhờ kiến thức sẵn có → đúng mà không faithful.
 
 **Context recall thấp vs faithfulness thấp — khác nhau thế nào?**
 > Recall thấp → lỗi retrieval: chunking, embedding, top-k. Recall cao mà faithfulness thấp → retrieval ổn, model bịa: lỗi ở prompt hoặc model. Đó là lý do phải tách hai nhóm chỉ số.
@@ -432,15 +503,65 @@ Có tiền xử lý tiếng Việt: `underthesea.word_tokenize` + danh sách sto
 
 **Câu hỏi:** Bot nhớ gì giữa các phiên? Có liên quan GraphRAG không?
 
-**Hiện trạng** (`app/models/tools/langmem_process.py`, `lg_memory.py`):
+### Ba module memory — phải phân biệt được
+
+| Module | Là gì | Trạng thái |
+|---|---|---|
+| **Custom stack** (Main Backend) | Summary + recent messages theo `conversation_id`; Redis trước, fallback DB | **Production, luồng V2** |
+| **`lg_memory.py`** (AI Backend) | LangGraph state + checkpointer Postgres + `langgraph_history_cache` | Có code; lời gọi `get_memory_manager()` trong `pipeline.py` **đã bị comment** |
+| **`langmem_process.py`** (AI Backend) | `Triple` / `Episode` / `UserProfile` | Được gọi từ `handle_history_manager` của AI Backend |
+
+### Custom memory trên production
+
+- Mỗi `customer_id` có thể có nhiều `conversation_id`; hệ thống **ưu tiên resume** hội thoại cũ hơn là tạo mới.
+- Memory lưu và lấy theo `conversation_id`. Mỗi tin nhắn: query **Redis** lấy summary + recent messages → nếu không có (TTL đã hết) thì query **DB** theo `conversation_id`, lấy summary + các tin sau `summary_update_time` → gửi vào node Memory của Flowise.
+- Chỉ graph nào dùng node `COLLECTION_HISTORY` mới truy xuất QnA đã train trong collection loại **`CHAT_HISTORY`** trên Pinecone (một collection vector cho mỗi agent, tạo lúc tạo agent — không phải một bảng).
+  → Vì không phải truy xuất toàn bộ hội thoại, `CHAT_HISTORY` **gần với FAQ hơn là memory**.
+- `customer_profile` vẫn được cập nhật khi cần nhưng **không dùng cho memory** — chỉ dùng cho tạo đơn, CRM, nghiệp vụ khác.
+- Đây là stack tự viết, không dựa trên module memory có sẵn của framework nào.
+
+| Pros | Cons |
+|---|---|
+| Context rẻ | Logic trùng lặp: nạp `previous_summary` + `recent_messages` ở cả Main Backend lẫn node Memory → dễ lệch context |
+| Latency thấp nhờ Redis | Không có memory cá nhân hoá: chỉ nhớ theo hội thoại, không nhớ theo khách hàng |
+| | Không tận dụng `customer_profile` |
+| | Summary drift: tóm tắt qua nhiều vòng làm mất chi tiết quan trọng |
+
+### LangGraph memory (`lg_memory.py`) — bản đề xuất
+
+- Viết trên module và class memory có sẵn của LangGraph. State gồm `messages`, `extracted_facts`, `vector_context`, `session_metadata`, `raw_query`.
+- Mỗi phiên phân biệt bằng `thread_id`; mỗi lần state đổi thì snapshot vào checkpointer và persist xuống DB.
+- **Graph trong `lg_memory.py`:** `init → extract_facts → retrieve_vector → vector_save → summarize → END` (chạy **tuần tự**).
+  - `init`: khởi tạo các trường, thiếu thì là list rỗng.
+  - `extract_facts`: prompt trích xuất + messages → LLM → fact lưu vào `extracted_facts`, **đi xuyên state** nên không phải duyệt lại snapshot cũ.
+  - `retrieve_vector`: semantic retrieval tin nhắn cũ trong `langgraph_history_cache`.
+  - Fact + tin nhắn cũ → ngữ cảnh cho LLM trả lời.
+- **Respond node và `get_routing_result`** (gọi LLM quyết định đang ở bước nào: đang hỏi / đã chốt / đã điền địa chỉ / đã đặt đơn) **chỉ có trong script prototype `langgraph_memory_test.py`**, không nằm trong `lg_memory.py`.
+
+| Pros | Cons |
+|---|---|
+| Có memory dài hạn theo từng người | `retrieve_vector_context_node` và `vector_save_node` là hàm `def` thường gọi DB/vector store trong graph async → **chặn event loop**, latency cao |
+| Ownership memory rõ ràng hơn | Gọi LLM nhiều (trích fact, tóm tắt, routing) → token cost cao |
+| Checkpointer của LangGraph sạch, có điểm tựa | |
+
+### Đề xuất gộp — và ba chỗ sẽ bị vặn
+
+**Đề xuất:** dùng LangGraph memory làm luồng chính trong node Memory của Flowise, tận dụng memory cá nhân và checkpointer; bỏ phần code dài và logic trùng lặp. Thêm: chạy song song `extract_facts` và `retrieve_vector` (ghi vào hai chỗ khác nhau: checkpointer và `langgraph_history_cache`), chỉ gọi LLM khi cần, đẩy mọi việc nền sang bất đồng bộ.
+
+1. **Không để hai hệ thống memory ngang hàng.** Một nguồn sự thật duy nhất; stack cũ chỉ là **chế độ dự phòng xuống cấp** (chỉ dùng recent messages khi phần mới lỗi). Hai hệ thống đầy đủ chạy song song là tái tạo đúng lỗi trùng lặp vừa chê.
+2. **Song song chỉ khi độc lập.** Nếu truy vấn vector dùng fact vừa trích ở chính lượt đó thì phải tuần tự. Nếu độc lập: fan-out trong LangGraph hoặc `asyncio.gather`.
+3. **Đo trước khi chuyển.** Dựng tập eval nhiều phiên: fact nói ở phiên 1, hỏi lại ở phiên 3. Đo fact recall, fact cũ/mâu thuẫn, token và latency mỗi lượt.
+   > *"Before switching, I'd build a memory eval set — a fact stated in session one, asked about in session three — and measure recall, staleness, and cost per turn. Then the migration is a measured decision, not a rewrite."*
+
+**Summary drift:** sửa bằng cách **tách fact có cấu trúc khỏi bản tóm tắt** — fact không bao giờ bị tóm tắt mất. **Fact mâu thuẫn** (khách chuyển thành phố): gắn timestamp + nguồn, fact mới thay fact cũ nhưng giữ lịch sử để truy vết.
+
+### `langmem_process.py` — schema memory
 
 | Loại | Schema | Nghĩa |
 |---|---|---|
 | Semantic | `Triple(subject, predicate, object, context)` | Sự kiện dạng bộ ba |
 | Episodic | `Episode(observation, thoughts, action, result, mentioned_entities)` | Chuỗi suy luận của một lượt thành công |
 | Profile | `UserProfile(name, language, preferences, interests, …)` | Hồ sơ người dùng |
-
-Lưu trạng thái hội thoại bằng LangGraph checkpointer trên Postgres (Supabase). Ngắn hạn: `recent_messages` + `previous_summary` do Main Backend gửi lại (Câu 3).
 
 **Cách khai báo gap GraphRAG (đã chỉnh so với vòng HR):**
 
@@ -499,10 +620,12 @@ Katalon: deliverable ① và ② đúng là việc này, ở quy mô thật
 | Tool safety | Confirm + validate + idempotency + transaction |
 | full_question | Contextual rewrite for better retrieval |
 | Confidence | Embedding-based, rẻ, chạy mọi câu; cosine ≠ entailment; chưa hiệu chuẩn |
-| Memory | Triple / Episode / Profile; đã trích triple, chưa lưu graph DB |
-| Eval — retrieval | Tất định, nhãn bằng snippet nguyên văn |
-| Eval — generation | Judge local, faithfulness theo claim, 2 loại hallucination |
-| Eval — thí nghiệm | Một biến mỗi lần; 1 câu = 0.028 → delta nhỏ chưa kết luận |
+| Memory production | Redis → DB theo conversation; rẻ, nhanh; không cá nhân hoá, summary drift |
+| Memory đề xuất | LangGraph: fact xuyên state + checkpointer; một nguồn sự thật, fallback xuống cấp, đo trước khi chuyển |
+| GraphRAG | Đã trích triple, chưa lưu graph DB và duyệt đồ thị |
+| Eval — retrieval | Tất định, nhãn bằng snippet nguyên văn; CP = average precision, đi cặp với recall |
+| Eval — generation | Faithfulness so **context** · correctness F1 theo ý so **ground truth** · relevancy 3 mức · 2 loại hallucination |
+| Eval — thí nghiệm | Một biến mỗi lần; 1 câu ≈ 3% → delta nhỏ chưa kết luận; **không mang số** |
 | Eval — MMR | Tệ hơn mọi chỉ số; báo cáo, không giấu |
 
 ## Câu hỏi ngược
@@ -511,8 +634,11 @@ Katalon: deliverable ① và ② đúng là việc này, ở quy mô thật
 > "The posting attributes the quality gaps to retrieval and memory infrastructure. How was that established — is there existing measurement pointing there, or is it the leading hypothesis? It changes where I'd start."
 
 **Thêm:**
+- Trong sáu agent của True Platform, tầng memory này phục vụ agent nào trước, hay dùng chung cho cả sáu?
+- Retrieval lấy từ nguồn nào: tài liệu ứng dụng, kho test, hay lịch sử chạy test?
 - Hiện team đo chất lượng agent bằng gì — có golden set chưa, ai gán nhãn?
-- Agent của Katalon có dùng kết quả chạy test làm tín hiệu đánh giá không?
+- Test do agent sinh ra được đánh giá thế nào: kết quả chạy, người review, hay LLM chấm?
+- Làm sao để self-healing không vô tình che mất một lỗi thật?
 - Findings của intern được core team tiếp nhận thế nào — qua doc, PR, hay demo?
 - Với VP: sau kỳ thực tập, việc chuyển sang AI platform team được đánh giá dựa trên gì?
 
@@ -520,12 +646,15 @@ Katalon: deliverable ① và ② đúng là việc này, ở quy mô thật
 
 - [ ] Nói trôi Câu 1 kèm vẽ sơ đồ, không nhìn note
 - [ ] Nói trôi B.3 (bảy quyết định) — mỗi cái một câu "vì sao"
-- [ ] Giải thích được bảng sweep B.5, **tự nói** giới hạn 1 câu = 0.028
-- [ ] Tự trả lời: vì sao recall theo snippet · vì sao OOS trả `None` · `mmr_lambda=0.6` ở đâu ra
+- [ ] Nói đúng công thức B.3b: Context Precision (average precision) · faithfulness so **context** · P = TP/(TP+FP), R = TP/(TP+FN)
+- [ ] Nói xu hướng B.5 (không số), **tự nói** giới hạn 1 câu ≈ 3%
+- [ ] Tự trả lời: vì sao recall theo snippet · vì sao OOS trả `None` · `mmr_lambda=0.6` ở đâu ra · vì sao relevancy còn 3 mức
+- [ ] Phân biệt ba module memory (Câu 10); nói đề xuất gộp kèm ba chỗ bị vặn
 - [ ] Câu 9 + Câu 11 — hai câu tự phê bình, nói bằng tiếng Anh
-- [ ] (Nếu kịp) `ollama serve` rồi `python run_eval.py baseline` có judge → có số faithfulness / abstention
+- [ ] G.1 async · G.2 khung system design · G.3 GraphRAG
+- [ ] Đọc lại F (background Katalon) và mục VIII [[Job Fundamentals 07 - Testing]]
+- [ ] (Nếu kịp) `python run_eval.py sweep --no-judge` để số khớp công thức mới
 - [ ] (Nếu kịp) `git init` + push demo lên GitHub, sửa README cho khớp embedding đang dùng
-- [ ] Đọc lại mục VIII [[Job Fundamentals 07 - Testing]]
 - [ ] Mang nước, ăn trước — tổng có thể tới 135 phút
 
 ---
