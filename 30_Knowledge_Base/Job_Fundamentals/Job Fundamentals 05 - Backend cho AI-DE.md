@@ -374,7 +374,6 @@ requirements.txt
 # V — Async vs sync: cái bẫy lớn nhất
 
 Đây là chỗ AI engineer hay sai nhất, và hậu quả rất khó chẩn đoán.
-
 ## 5.1 — Hai loại endpoint
 
 ```python
