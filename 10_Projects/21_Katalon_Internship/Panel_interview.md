@@ -375,14 +375,14 @@ Backend **không** dùng `executed_data` để "bắt đầu tạo câu trả l�
 
 **Chi tiết retrieval phải nói được** (`aicb-ecom-backend-ai/app/rag/pinecone_database.py`):
 
-| Bước | Cài đặt | Vì sao |
-|---|---|---|
+| Bước          | Cài đặt                                                                    | Vì sao                                                                                       |
+| ------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Hybrid search | Dense embedding + sparse `BM25Encoder`, trộn bằng `alpha` (`DENSE_WEIGHT`) | Dense bắt nghĩa; sparse bắt từ khoá chính xác — mã SKU, tên sản phẩm mà embedding hay làm mờ |
-| Lấy dư | `PRE_FILTER_TOP_K` | Cho reranker có đủ ứng viên |
-| Rerank | LlamaIndex `LLMRerank` | Xếp hạng lại theo mức liên quan thật tới câu hỏi |
-| Lọc | `min_score` | Bỏ đoạn yếu thay vì nhét đủ k đoạn |
-| Chi phí | `estimate_rerank_tokens` | Rerank bằng LLM tốn token — phải đếm |
-| Chunk | 1024 / overlap 128 | — |
+| Lấy dư        | `PRE_FILTER_TOP_K`                                                         | Cho reranker có đủ ứng viên                                                                  |
+| Rerank        | LlamaIndex `LLMRerank`                                                     | Xếp hạng lại theo mức liên quan thật tới câu hỏi                                             |
+| Lọc           | `min_score`                                                                | Bỏ đoạn yếu thay vì nhét đủ k đoạn                                                           |
+| Chi phí       | `estimate_rerank_tokens`                                                   | Rerank bằng LLM tốn token — phải đếm                                                         |
+| Chunk         | 1024 / overlap 128                                                         | —                                                                                            |
 
 **Đánh đổi của LLM rerank:** chính xác hơn cosine nhưng thêm một lần gọi LLM mỗi request → latency + cost. Phương án rẻ hơn: cross-encoder nhỏ. Nối với Phần B: demo thử MMR và nó tệ hơn — nghĩa là "thêm bước rerank" không mặc nhiên tốt, phải đo.
 
