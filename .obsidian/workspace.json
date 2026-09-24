@@ -108,8 +108,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -246,6 +245,9 @@
   },
   "active": "22727b4a321d13ed",
   "lastOpenFiles": [
+    "30_Knowledge_Base/Data Science/Logistic Regression.md",
+    "30_Knowledge_Base/Data Science/Linear Regression for more complex models.md",
+    "30_Knowledge_Base/Data Science/Linear Regression.md",
     "40_Archives/Uni_Year1_3/Data_Mining_Lab4_Report.md",
     "99_System/Assets/Files/Data Mining review.canvas",
     "30_Knowledge_Base/Data Science/Creating ML pipeline from scratch.md",
@@ -271,8 +273,6 @@
     "10_Projects/13_Uni_Retake/Lý 1 - Chương 2 - Hệ vật & Định lý động năng.md",
     "10_Projects/13_Uni_Retake/Linear_Programming_Plan.md",
     "10_Projects/13_Uni_Retake/Linear_Algebra_Mastery.md",
-    "30_Knowledge_Base/Job_Fundamentals/Job Fundamentals 02 - SQL nâng cao.md",
-    "10_Projects/20_KE_HOACH_Job_Fundamentals.md",
     "10_Projects/15_AI_fundamentals",
     "10_Projects/21_Katalon_Internship",
     "10_Projects/20_KE_HOACH_Job_Fundamentals.md.tmp.26668.2f17f04b86a6",
