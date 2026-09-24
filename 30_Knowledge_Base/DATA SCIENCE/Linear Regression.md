@@ -30,7 +30,7 @@ Tags: [[Machine Learning]], [[beginner]],
 ![[Pasted image 20250318141644.png]]
 - Hình trên minh họa cách mô hình tìm đường thẳng tốt nhất để giảm thiểu các sai số giữa giá trị thực $y(i)$ và giá trị dự đoán $h_{\theta}(x_{i})$
 - Đường nét đứt màu đỏ là đường hồi quy còn các điểm dữ liệu khoanh tròn màu xanh là giá trị thực tế, khoảng cách từ các điểm dữ liệu thực tế đến đường dự đoán là sai số dự đoán $(y_{i}-h_{\theta}(x_{i}))$ 
-- dòng ![[Pasted image 20250318142825.png]] này nghĩa là min của tổng bình phương sai số (SSE)
+- dòng ![[Pasted image 20250318142825.png]] này nghĩa là min của tổng bình phương sai số (SSE) với min là nhiệm vụ minizing tổng này chứ không phải là 1 phần của công thức SSE
 - Sau đó ta sẽ muốn tìm trung bình của tổng bình phương sai số là từ (SSE) -> (MSE):
 $$
 \text{MSE} = \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i})-y_{i})^2
