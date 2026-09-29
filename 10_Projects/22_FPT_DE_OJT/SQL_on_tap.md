@@ -37,7 +37,7 @@ Vòng OJT thường có một đoạn **hỏi-đáp miệng** trước khi cho v
 | Nhóm                                            | Lệnh                                            | Ghi nhớ                  |
 | ----------------------------------------------- | ----------------------------------------------- | ------------------------ |
 | **DDL (data definition language)** — định nghĩa | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`           | Đổi **cấu trúc**         |
-| **DML** — thao tác                              | `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `MERGE` | Đổi **dữ liệu**          |
+| **DML (data manipulation language)** — thao tác | `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `MERGE` | Đổi **dữ liệu**          |
 | **DCL** — quyền                                 | `GRANT`, `REVOKE`                               | Ai được làm gì           |
 | **TCL** — giao dịch                             | `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`      | Gói nhiều lệnh thành một |
 
