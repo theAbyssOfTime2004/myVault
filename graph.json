@@ -7,6 +7,12 @@
       "degree": 0
     },
     {
+      "id": "CLAUDE",
+      "title": "CLAUDE",
+      "group": "other",
+      "degree": 0
+    },
+    {
       "id": "70_Daily_Notes/2026-04-04",
       "title": "2026-04-04",
       "group": "periodic",
@@ -7104,7 +7110,7 @@
     }
   ],
   "stats": {
-    "node_count": 508,
+    "node_count": 509,
     "link_count": 1013
   }
 }
