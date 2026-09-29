@@ -34,12 +34,12 @@ Vòng OJT thường có một đoạn **hỏi-đáp miệng** trước khi cho v
 
 ## A1 — Phân loại lệnh
 
-| Nhóm | Lệnh | Ghi nhớ |
-|---|---|---|
-| **DDL** — định nghĩa | `CREATE`, `ALTER`, `DROP`, `TRUNCATE` | Đổi **cấu trúc** |
-| **DML** — thao tác | `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `MERGE` | Đổi **dữ liệu** |
-| **DCL** — quyền | `GRANT`, `REVOKE` | Ai được làm gì |
-| **TCL** — giao dịch | `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT` | Gói nhiều lệnh thành một |
+| Nhóm                                            | Lệnh                                            | Ghi nhớ                  |
+| ----------------------------------------------- | ----------------------------------------------- | ------------------------ |
+| **DDL (data definition language)** — định nghĩa | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`           | Đổi **cấu trúc**         |
+| **DML** — thao tác                              | `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `MERGE` | Đổi **dữ liệu**          |
+| **DCL** — quyền                                 | `GRANT`, `REVOKE`                               | Ai được làm gì           |
+| **TCL** — giao dịch                             | `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`      | Gói nhiều lệnh thành một |
 
 ## A2 — `DELETE` vs `TRUNCATE` vs `DROP` ⭐
 
